@@ -27,7 +27,7 @@ import org.springframework.web.servlet.view.XmlViewResolver;
 public class SpringMvcJavaConfiguration implements WebMvcConfigurer {
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
-		registry.addResourceHandler("/css/**").addResourceLocations("/css/");
+		registry.addResourceHandler("/*").addResourceLocations("/");
 	}
 
 	@Override
