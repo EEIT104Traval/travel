@@ -11,8 +11,8 @@
 
     <!-- add styles -->
     <link href="css/main.css" rel="stylesheet" type="text/css" />
+    <link href ="favicon.ico" rel="shortcut icon">
 </head>
-
 <body>
     <div class="container" id="main" role="main">
         <ul class="menu">
