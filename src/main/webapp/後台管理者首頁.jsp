@@ -7,7 +7,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="author" content="Script Tutorials" />
-    <title>Whirling dropdown menu | Script Tutorials</title>
+    <title>Welcome TO 後台管理系統</title>
 
     <!-- add styles -->
     <link href="css/main.css" rel="stylesheet" type="text/css" />
