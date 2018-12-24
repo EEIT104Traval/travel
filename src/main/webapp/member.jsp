@@ -37,7 +37,7 @@
       <table class="table" align="center">
         <tr>
           <td colspan="2" align="center">
-            <h3>會員註冊</h3>
+            <h3>會員註冊~</h3>
           </td>
         </tr>
         <tr>
