@@ -101,7 +101,7 @@
           </td>
         </tr>
         <tr>
-          <td>電子郵件：</td>
+          <td>電子郵件~：</td>
           <td>
             <input type="text" class="tex">
           </td>
