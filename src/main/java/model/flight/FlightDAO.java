@@ -1,4 +1,4 @@
-package model;
+package model.flight;
 
 import java.util.List;
 
