@@ -10,8 +10,11 @@ This stylesheet and the associated (x)html may be modified in any way to fit you
     margin: 0;
     padding: 0;
 }
+
 html {
-    background-color: #000;
+    background:url(../images/tour-5.jpg);
+	background-size: cover;
+	background-repeat : no-repeat ;
 }
 .container {
     margin: 30px auto;
@@ -28,7 +31,7 @@ html {
     height: 58px;
 }
 .menu li {
-    background: -moz-linear-gradient(#292929, #252525);
+    /* background: -moz-linear-gradient(#292929, #252525);
     background: -ms-linear-gradient(#292929, #252525);
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #292929), color-stop(100%, #252525));
     background: -webkit-linear-gradient(#292929, #252525);
@@ -38,7 +41,7 @@ html {
     background: linear-gradient(#292929, #252525);
 
     border-bottom: 2px solid #181818;
-    border-top: 2px solid #303030;
+    border-top: 2px solid #303030; */
     min-width: 140px;
 }
 .menu > li {
@@ -64,7 +67,7 @@ html {
 
 /* onhover styles */
 .menu li:hover {
-    background-color: #1c1c1c;
+    /* background-color: #1c1c1c;
     background: -moz-linear-gradient(#1c1c1c, #1b1b1b);
     background: -ms-linear-gradient(#1c1c1c, #1b1b1b);
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #1c1c1c), color-stop(100%, #1b1b1b));
@@ -73,14 +76,16 @@ html {
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1c1c1c', endColorstr='#1b1b1b');
     -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#1c1c1c', endColorstr='#1b1b1b')";
     background: linear-gradient(#1c1c1c, #1b1b1b);
-
+    
     border-bottom: 2px solid #222222;
-    border-top: 2px solid #1B1B1B;
+    border-top: 2px solid #1B1B1B; */
+    
 }
 .menu li:hover > a {
     border-radius: 5px 0 0 0;
-    border-left: 3px solid #C4302B;
+    /* border-left: 3px solid #C4302B; */
     color: #C4302B;
+    font-weight: 600;
 }
 
 /* submenu styles */
@@ -113,9 +118,9 @@ html {
     transition: opacity .4s, transform .5s;
 }
 .menu .submenu li:hover a {
-    border-left: 3px solid #454545;
+    /* border-left: 3px solid #454545; */
     border-radius: 0;
-    color: #ffffff;
+    color: #C4302B;
 }
 .menu > li:hover .submenu, .menu > li:focus .submenu {
     max-height: 2000px;
@@ -245,83 +250,81 @@ html {
     -o-transition-delay: 0s;
     transition-delay: 0s;
 }
-    .switch_demo {
-            position: relative;
-            width: 100px;                       /*按鈕寬度*/
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            height: 54px;                       /*按鈕高度*/
-        }
+.switch_demo {
+    position: relative;
+    width: 100px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
 
-        .switch_demo-checkbox {
-            display: none;
-        }
+.switch_demo-checkbox {
+    display: none;
+}
 
-        .switch_demo-label {
-            display: block;
-            overflow: hidden;
-            cursor: pointer;
-            border: 2px solid #999999;
-            border-radius: 20px;
-        }
+.switch_demo-label {
+    display: block;
+    overflow: hidden;
+    cursor: pointer;
+    border: 2px solid #999999;
+    border-radius: 20px;
+}
 
-        .switch_demo-inner {
-            display: block;
-            width: 200%;
-            margin-left: -100%;
-            transition: margin 0.3s ease-in 0s;
-        }
+.switch_demo-inner {
+    display: block;
+    width: 200%;
+    margin-left: -100%;
+    transition: margin 0.3s ease-in 0s;
+}
 
-        .switch_demo-inner:before,
-        .switch_demo-inner:after {
-            display: block;
-            float: left;
-            width: 50%;
-            height: 50px;
-            padding: 0;
-            line-height: 40px;
-            font-size: 17px;
-            color: white;
-            font-family: Trebuchet, Arial, sans-serif;
-            font-weight: bold;
-            box-sizing: border-box;
-        }
+.switch_demo-inner:before,
+.switch_demo-inner:after {
+    display: block;
+    float: left;
+    width: 50%;
+    height: 30px;
+    padding: 0;
+    line-height: 30px;
+    font-size: 14px;
+    color: white;
+    font-family: Trebuchet, Arial, sans-serif;
+    font-weight: bold;
+    box-sizing: border-box;
+}
 
-        .switch_demo-inner:before {
-            content: "首頁";
-            padding-left: 10px;
-            background-color: #34A7C1;
-            color: #FFFFFF;
-            
-        }
+.switch_demo-inner:before {
+    content: "首頁";
+    padding-left: 10px;
+    background-color: #34A7C1;
+    color: #FFFFFF;
+}
 
-        .switch_demo-inner:after {
-            content: "管理";
-            padding-right: 10px;
-            background-color: #EEEEEE;
-            color: #999999;
-            text-align: right;
-        }
+.switch_demo-inner:after {
+    content: "管理";
+    padding-right: 10px;
+    background-color: #EEEEEE;
+    color: #999999;
+    text-align: right;
+}
 
-        .switch_demo-switch {
-            display: block;
-            width: 15px;
-            margin: 6px;
-            background: #FFFFFF;
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            right: 65px;
-            border: 2px solid #999999;
-            border-radius: 20px;
-            transition: all 0.3s ease-in 0s;
-        }
+.switch_demo-switch {
+    display: block;
+    width: 15px;
+    margin: 6px;
+    background: #FFFFFF;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 65px;
+    border: 2px solid #999999;
+    border-radius: 20px;
+    transition: all 0.3s ease-in 0s;
+}
 
-        .switch_demo-checkbox:checked+.switch_demo-label .switch_demo-inner {
-            margin-left: 0;
-        }
+.switch_demo-checkbox:checked+.switch_demo-label .switch_demo-inner {
+    margin-left: 0;
+}
 
-        .switch_demo-checkbox:checked+.switch_demo-label .switch_demo-switch {
-            right: 0px;
-        }
+.switch_demo-checkbox:checked+.switch_demo-label .switch_demo-switch {
+    right: 0px;
+}
