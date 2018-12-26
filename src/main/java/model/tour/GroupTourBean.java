@@ -1,4 +1,4 @@
-package model.tour.dao;
+package model.tour;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
