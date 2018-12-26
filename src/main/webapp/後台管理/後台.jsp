@@ -33,12 +33,7 @@
      
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
       <div class="container">
-        <a class="navbar-brand" href="">Voyage</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="oi oi-menu"></span> Menu
-        </button>
-
-        <div class="container" id="main" role="main">
+         <div class="container" id="main" role="main">
             <ul class="menu">
                 <li><a href="#">會員管理</a>
                     <ul class="submenu">
@@ -106,51 +101,10 @@
                             <span class="switch_demo-switch"></span>
                         </label>
                     </div>
-            </li>
+            	</li>
             </ul>
         </div>
       </div>
     </nav>
-    <!-- END nav -->
-    
-    <section class="home-slider owl-carousel">
-      <div class="slider-item"  >
-        <div class="overlay"></div>
-        <div class="container">
-          <div class="row slider-text align-items-center">
-            <div class="col-md-7 col-sm-12 ftco-animate">
-              <h1 class="mb-3">管理者頁面</h1>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- END slider -->
-   
-          </div>
-        </div>
-      </div>
-    </footer>
-
-  <!-- loader -->
-  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
-
-<!--   <script src="js/jquery.min.js"></script> -->
-<!--   <script src="js/jquery-migrate-3.0.1.min.js"></script> -->
-<!--   <script src="js/popper.min.js"></script> -->
-<!--   <script src="js/bootstrap.min.js"></script> -->
-<!--   <script src="js/jquery.easing.1.3.js"></script> -->
-<!--   <script src="js/jquery.waypoints.min.js"></script> -->
-<!--   <script src="js/jquery.stellar.min.js"></script> -->
-<!--   <script src="js/owl.carousel.min.js"></script> -->
-<!--   <script src="js/jquery.magnific-popup.min.js"></script> -->
-<!--   <script src="js/aos.js"></script> -->
-<!--   <script src="js/jquery.animateNumber.min.js"></script> -->
-<!--   <script src="js/bootstrap-datepicker.js"></script> -->
-<!--   <script src="js/jquery.timepicker.min.js"></script> -->
-<!--   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script> -->
-<!--   <script src="js/google-map.js"></script> -->
-<!--   <script src="js/main.js"></script> -->
-    
   </body>
 </html>
