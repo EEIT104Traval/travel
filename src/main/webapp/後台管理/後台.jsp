@@ -126,12 +126,6 @@
       </div>
     </section>
     <!-- END slider -->
-
-
-            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-  Welcome &copy;<script>document.write(new Date().getFullYear());</script> T.M.D 後台使用管理者介面 (V)@.@(V)<i class="icon-heart" aria-hidden="true"></i>
-
-   <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
    
           </div>
         </div>
