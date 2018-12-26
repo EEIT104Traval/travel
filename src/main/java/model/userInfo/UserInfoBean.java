@@ -24,6 +24,7 @@ public class UserInfoBean {
 				+ birth + ", sex=" + sex + ", phone=" + phone + ", address=" + address + ", authority=" + authority
 				+ ", googleId=" + googleId + ", facebookId=" + facebookId + "]";
 	}
+	
 	public String getUsername() {
 		return username;
 	}
