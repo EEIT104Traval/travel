@@ -32,7 +32,7 @@ public class TicketInfoDAOHibernate implements TicketInfoDAO {
 	}
 	
 	@Override
-	public TicketInfoBean findByticketDate(java.sql.Date validity) {
+	public TicketInfoBean findByticketDate(java.util.Date validity) {
 		
 		return this.getSession().get(TicketInfoBean.class, validity);
 	}
@@ -57,7 +57,7 @@ public class TicketInfoDAOHibernate implements TicketInfoDAO {
 	}
 	
 	@Override
-	public TicketInfoBean update(Integer ticketNo, String ticketName, java.sql.Date validity, Integer adultTicketPrice,
+	public TicketInfoBean update(Integer ticketNo, String ticketName, java.util.Date validity, Integer adultTicketPrice,
 			Integer childTicketPrice, Integer adultTicketSellQ, Integer childTicketSellQ, Integer adultTicketSelledQ,
 			Integer childTicketSelledQ, String country, String category, String productFeatures, Byte[] ticketPicture,
 			String ticketDescription, String traffic_information, String special_restrictions,

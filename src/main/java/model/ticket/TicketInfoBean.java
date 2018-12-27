@@ -1,7 +1,7 @@
 package model.ticket;
 
-import java.sql.Date;
 import java.util.Arrays;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -27,7 +27,7 @@ public class TicketInfoBean {
 	@Id
 	  private Integer ticketNo ;
 	  private String ticketName;
-	  private Date validity;
+	  private java.util.Date validity;
 	  private Integer adultTicketPrice;
 	  private Integer childTicketPrice;
 	  private Integer adultTicketSellQ;
