@@ -51,9 +51,10 @@ public class UserInfoTest {
 	 UserInfoBean bean2 = dao.create(bean1);
 	 return bean2;
  }
+ @ResponseBody
  @RequestMapping("/userInforemove")
- public boolean update() {
-	 boolean bean3 = dao.remove("Kitty2");   
+ public boolean remove() {
+	 boolean bean3 = dao.remove("Kitty");   
 	  return true;
  }
  
