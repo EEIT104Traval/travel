@@ -25,22 +25,10 @@ public class TourMemberInfoBean {
 	private Integer price;
 	private String passenger;
 	
-	@Autowired
-	SessionFactory sessionFactory;
-	public static void main(String[] args) {
-		StandardServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().configure().build();
-		SessionFactory sessionFactory = new MetadataSources(serviceRegistry).buildMetadata().buildSessionFactory();
-		try {
-			Session session = sessionFactory.openSession();
-			Transaction trx = session.beginTransaction();
-			TourMemberInfoBean bean = new TourMemberInfoBean();
-			bean.setPrice(123);
-			session.save(bean);
-			trx.commit();
-			session.close();
-		} finally {
-			sessionFactory.close();
-		}
+	@Override
+	public String toString() {
+		return "TourMemberInfoBean [serialNo=" + serialNo + ", purchaseOrder=" + purchaseOrder + ", fName=" + fName
+				+ ", lname=" + lname + ", price=" + price + ", passenger=" + passenger + "]";
 	}
 	
 	public Integer getSerialNo() {
@@ -78,12 +66,5 @@ public class TourMemberInfoBean {
 	}
 	public void setPassenger(String passenger) {
 		this.passenger = passenger;
-	}
-	@Override
-	public String toString() {
-		return "TourMemberInfoBean [serialNo=" + serialNo + ", purchaseOrder=" + purchaseOrder + ", fName=" + fName
-				+ ", lname=" + lname + ", price=" + price + ", passenger=" + passenger + "]";
-	}
-	
-	
+	}	
 }
