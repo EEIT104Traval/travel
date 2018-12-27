@@ -10,22 +10,31 @@ import javax.persistence.Table;
 @Table(name="HotelOrderDetails")
 public class _06HotelOrderDetailsBean {
 	@Id
-	private Integer picNo;
+	private Integer orderNo;
 	private Integer hotelNo;
-	private String picName;
-	private String picDiscription;
-	private byte[] pic;
-
+	private String hotelName;
+	private String username;
+	private String bookingPerson;
+	private String phone;
+	private java.util.Date bookingDate;
+	private java.util.Date checkIn;
+	private java.util.Date checkOut;
+	private String roomType;
+	private Integer Totalprice;
+	private String info;
+	
 	@Override
 	public String toString() {
-		return "HotelOrderDetailsBean [picNo=" + picNo + ", hotelNo=" + hotelNo + ", picName=" + picName
-				+ ", picDiscription=" + picDiscription + ", pic=" + Arrays.toString(pic) + "]";
+		return "_06HotelOrderDetailsBean [orderNo=" + orderNo + ", hotelNo=" + hotelNo + ", hotelName=" + hotelName
+				+ ", username=" + username + ", bookingPerson=" + bookingPerson + ", phone=" + phone + ", bookingDate="
+				+ bookingDate + ", checkIn=" + checkIn + ", checkOut=" + checkOut + ", roomType=" + roomType
+				+ ", Totalprice=" + Totalprice + ", info=" + info + "]";
 	}
-	public Integer getPicNo() {
-		return picNo;
+	public Integer getOrderNo() {
+		return orderNo;
 	}
-	public void setPicNo(Integer picNo) {
-		this.picNo = picNo;
+	public void setOrderNo(Integer orderNo) {
+		this.orderNo = orderNo;
 	}
 	public Integer getHotelNo() {
 		return hotelNo;
@@ -33,23 +42,65 @@ public class _06HotelOrderDetailsBean {
 	public void setHotelNo(Integer hotelNo) {
 		this.hotelNo = hotelNo;
 	}
-	public String getPicName() {
-		return picName;
+	public String getHotelName() {
+		return hotelName;
 	}
-	public void setPicName(String picName) {
-		this.picName = picName;
+	public void setHotelName(String hotelName) {
+		this.hotelName = hotelName;
 	}
-	public String getPicDiscription() {
-		return picDiscription;
+	public String getUsername() {
+		return username;
 	}
-	public void setPicDiscription(String picDiscription) {
-		this.picDiscription = picDiscription;
+	public void setUsername(String username) {
+		this.username = username;
 	}
-	public byte[] getPic() {
-		return pic;
+	public String getBookingPerson() {
+		return bookingPerson;
 	}
-	public void setPic(byte[] pic) {
-		this.pic = pic;
+	public void setBookingPerson(String bookingPerson) {
+		this.bookingPerson = bookingPerson;
 	}
-	
+	public String getPhone() {
+		return phone;
+	}
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+	public java.util.Date getBookingDate() {
+		return bookingDate;
+	}
+	public void setBookingDate(java.util.Date bookingDate) {
+		this.bookingDate = bookingDate;
+	}
+	public java.util.Date getCheckIn() {
+		return checkIn;
+	}
+	public void setCheckIn(java.util.Date checkIn) {
+		this.checkIn = checkIn;
+	}
+	public java.util.Date getCheckOut() {
+		return checkOut;
+	}
+	public void setCheckOut(java.util.Date checkOut) {
+		this.checkOut = checkOut;
+	}
+	public String getRoomType() {
+		return roomType;
+	}
+	public void setRoomType(String roomType) {
+		this.roomType = roomType;
+	}
+	public Integer getTotalprice() {
+		return Totalprice;
+	}
+	public void setTotalprice(Integer totalprice) {
+		Totalprice = totalprice;
+	}
+	public String getInfo() {
+		return info;
+	}
+	public void setInfo(String info) {
+		this.info = info;
+	}
+
 }

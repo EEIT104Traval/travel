@@ -43,7 +43,7 @@ public class HotelDAOHibernate implements _01HotelDAO {
 	}
 	
 	@Override
-	public _01HotelBean update(Integer hotelNo, String hotelName, String address, Integer phone, String email, Integer totalroom) {
+	public _01HotelBean update(Integer hotelNo, String hotelName, String address, String phone, String email, Integer totalroom) {
 		_01HotelBean result = this.getSession().get(_01HotelBean.class, hotelNo);
 		if(result!=null) {
 			result.setHotelNo(hotelNo);
