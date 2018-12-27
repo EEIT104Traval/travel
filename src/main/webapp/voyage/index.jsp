@@ -52,7 +52,6 @@
     <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
-      <a href="<c:url value='/test' />">test</a>
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
       <div class="container">
         <a class="navbar-brand" href="index.html">Voyage</a>
