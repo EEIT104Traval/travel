@@ -62,12 +62,13 @@ public class UserInfoDAOHibernate implements UserInfoDAO{
 			result.setAuthority(authority);
 			result.setGoogleId(googleId);
 			result.setFacebookId(facebookId);
-			
 			return result;
 		}
 		return null;
 	}
 
+	
+	
 	@Override
 	public boolean remove(String username) {
 		UserInfoBean result = this.getSession().get(UserInfoBean.class, username);
