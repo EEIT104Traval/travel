@@ -12,8 +12,14 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.jndi.JndiObjectFactoryBean;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 
+import model.tour.GroupTourBean;
+import model.tour.TourBatchBean;
+import model.tour.TourMemberInfoBean;
+import model.tour.TourOrderInfoBean;
+import model.tour.TourPictureBean;
+
 @Configuration
-@ComponentScan(basePackages={"model"})
+@ComponentScan(basePackages={"model","model/tour","model/tour/dao"})
 public class SpringJavaConfiguration {
 	@Bean
 	public DataSource dataSource() {
@@ -32,7 +38,7 @@ public class SpringJavaConfiguration {
 	@Bean
 	public SessionFactory sessionFactory() {
 		LocalSessionFactoryBuilder builder = new LocalSessionFactoryBuilder(dataSource());
-//		builder.addAnnotatedClasses(CustomerBean.class, ProductBean.class);
+		builder.addAnnotatedClasses(GroupTourBean.class,TourBatchBean.class,TourMemberInfoBean.class,TourOrderInfoBean.class,TourPictureBean.class);
 
 		Properties props = new Properties();
 		props.setProperty("hibernate.dialect", "org.hibernate.dialect.SQLServerDialect");

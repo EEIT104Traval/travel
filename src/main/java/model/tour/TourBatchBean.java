@@ -6,9 +6,56 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.mapping.Set;
+import org.springframework.beans.factory.annotation.Autowired;
+
 @Entity
 @Table(name="TourBatch")
 public class TourBatchBean {
+	@Autowired
+	public static SessionFactory sessionfactory;
+	public static void main(String[] args) {
+		try {			
+			Session session = sessionfactory.getCurrentSession();
+			Transaction trx = session.beginTransaction();
+			
+			//select
+			TourBatchBean select = session.get(TourBatchBean.class,"1001");
+			System.out.println("select= "+select);
+			
+//			Set<EmpBean> s2 = select.emps;
+//			System.out.println("s2="+s2);
+			//insert
+//			Deptbean insert = new Deptbean();
+//			insert.setDeptid(101);
+//			insert.setDeptname("878787");
+//			session.save(insert);
+//			System.out.println("insert= "+insert);
+			
+			//update
+//			Deptbean update = session.get(Deptbean.class,101);			
+//			update.setDeptname("787878");
+//			System.out.println("update= "+update);
+			
+			//delete
+//			Deptbean delete = session.get(Deptbean.class,501);
+//			session.delete(delete);
+//			Set<EmpBean> empdelete = delete.emps;
+//			System.out.println("delete= "+delete);
+//			System.out.println("empdelete= "+empdelete);
+			
+			
+			trx.commit();
+			session.close();
+		} finally {
+//			HibernateUtil.closeSessionFactory();
+		}
+		
+	}
+	
 	@Id
 	private Integer serialNo;
 	private String tourNo;
@@ -23,6 +70,7 @@ public class TourBatchBean {
 	private String airline_back;
 	private String distination_back;
 	private String content;
+	
 	public Integer getSerialNo() {
 		return serialNo;
 	}
@@ -103,7 +151,7 @@ public class TourBatchBean {
 	}
 	@Override
 	public String toString() {
-		return "TourBatchBean [serialNo=" + serialNo + ", tourNo=" + tourNo + ", date=" + date + ", peopleCount="
+		return "TourBatchBean [ tourNo=" + tourNo + ", date=" + date + ", peopleCount="
 				+ peopleCount + ", price_adult=" + price_adult + ", price_child=" + price_child + ", price_baby="
 				+ price_baby + ", discount=" + discount + ", airline_go=" + airline_go + ", distination_go="
 				+ distination_go + ", airline_back=" + airline_back + ", distination_back=" + distination_back

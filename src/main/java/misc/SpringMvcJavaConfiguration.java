@@ -28,6 +28,7 @@ public class SpringMvcJavaConfiguration implements WebMvcConfigurer {
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
 		registry.addResourceHandler("/*").addResourceLocations("/");
+		
 	}
 
 	@Override
@@ -40,12 +41,12 @@ public class SpringMvcJavaConfiguration implements WebMvcConfigurer {
 	@Autowired
 	private ServletContext application;
 
-	@Override
-	public void configureViewResolvers(ViewResolverRegistry registry) {
-		XmlViewResolver xmlViewResolver = new XmlViewResolver();
-		xmlViewResolver.setLocation(new ServletContextResource(application, "/WEB-INF/spring-views.xml"));
-		registry.viewResolver(xmlViewResolver);
-	}
+//	@Override
+//	public void configureViewResolvers(ViewResolverRegistry registry) {
+//		XmlViewResolver xmlViewResolver = new XmlViewResolver();
+//		xmlViewResolver.setLocation(new ServletContextResource(application, "/WEB-INF/spring-views.xml"));
+//		registry.viewResolver(xmlViewResolver);
+//	}
 
 	@Bean
 	public MessageSource messageSource() {
