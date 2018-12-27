@@ -53,7 +53,11 @@
 	<a href="<c:url value='/flight2' />">findByPrimaryKey</a>
 	<a href="<c:url value='/flight3' />">create</a>
 	<a href="<c:url value='/flight4' />">update</a>
-	<a href="<c:url value='/flight5' />">remove</a>
+	<a href="<c:url value='/flight5' />">remove</a> 
+	<a href="<c:url value='/flight6' />">findByPrimaryKey1</a>  
+	<a href="<c:url value='/flight7' />">findAll2</a>
+	<a href="<c:url value='/flight8' />">create2</a>
+	
 	<br />
 	<br />
 

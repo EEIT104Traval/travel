@@ -11,7 +11,7 @@ import model.flight.FlightOrderInfoBean;
 import model.flight.FlightOrderInfoDAO;
 
 @Repository
-public class FlightDAOHibernate implements FlightOrderInfoDAO {
+public class FlightOrderInfoDAOHibernate implements FlightOrderInfoDAO {
 	@Autowired
 	private SessionFactory sessionFactory;
 

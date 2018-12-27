@@ -20,7 +20,7 @@ public class _06HotelOrderDetailsBean {
 	private java.util.Date checkIn;
 	private java.util.Date checkOut;
 	private String roomType;
-	private Integer Totalprice;
+	private Integer totalprice;
 	private String info;
 	
 	@Override
@@ -28,7 +28,7 @@ public class _06HotelOrderDetailsBean {
 		return "_06HotelOrderDetailsBean [orderNo=" + orderNo + ", hotelNo=" + hotelNo + ", hotelName=" + hotelName
 				+ ", username=" + username + ", bookingPerson=" + bookingPerson + ", phone=" + phone + ", bookingDate="
 				+ bookingDate + ", checkIn=" + checkIn + ", checkOut=" + checkOut + ", roomType=" + roomType
-				+ ", Totalprice=" + Totalprice + ", info=" + info + "]";
+				+ ", Totalprice=" + totalprice + ", info=" + info + "]";
 	}
 	public Integer getOrderNo() {
 		return orderNo;
@@ -91,10 +91,10 @@ public class _06HotelOrderDetailsBean {
 		this.roomType = roomType;
 	}
 	public Integer getTotalprice() {
-		return Totalprice;
+		return totalprice;
 	}
 	public void setTotalprice(Integer totalprice) {
-		Totalprice = totalprice;
+		totalprice = totalprice;
 	}
 	public String getInfo() {
 		return info;
