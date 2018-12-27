@@ -1,4 +1,4 @@
-package controller;
+package controller.test;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,7 +10,7 @@ import model.userInfo.UserInfoDAO;
 
 
 @Controller
-public class Test {
+public class UserInfoTest {
 
  @Autowired
  private UserInfoDAO dao ;
