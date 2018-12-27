@@ -15,7 +15,7 @@ import model.hotel.dao.HotelDAOHibernate;
 	 private HotelDAOHibernate dao ;
 	 
 //	 @ResponseBody(每一個@RequestMapping上面都要寫)
-	 @RequestMapping("/Hoteltest")
+	 @RequestMapping("/HotelfindByPK")
 	 public _01HotelBean method() {
 	  _01HotelBean pk = dao.findByPrimaryKey(1);  
 	  return pk;

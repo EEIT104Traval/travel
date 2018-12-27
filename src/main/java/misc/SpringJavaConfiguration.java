@@ -12,6 +12,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.jndi.JndiObjectFactoryBean;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 
+import model.flight.FlightOrderInfoBean;
 import model.hotel._01HotelBean;
 import model.ticket.TicketInfoBean;
 import model.ticket.TicketOrderInfoBean;
@@ -42,7 +43,7 @@ public class SpringJavaConfiguration {
 	public SessionFactory sessionFactory() {
 		LocalSessionFactoryBuilder builder = new LocalSessionFactoryBuilder(dataSource());
 		builder.addAnnotatedClasses(UserInfoBean.class,GroupTourBean.class,TourBatchBean.class,TourMemberInfoBean.class,TourPictureBean.class, TicketInfoBean.class, TicketOrderInfoBean.class, 
-		_01HotelBean.class);
+		_01HotelBean.class ,FlightOrderInfoBean.class);
 
 
 		Properties props = new Properties();
