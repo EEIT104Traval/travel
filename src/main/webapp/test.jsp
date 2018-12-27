@@ -13,6 +13,12 @@
       <br/><br/>
       <a href="<c:url value='/Tourtest' />">Tourtest</a>
       <br/><br/>
+      <a href="<c:url value='/TourMemberFindPK' />">TourMemberFindPK</a>
+      <br/><br/>
+      <a href="<c:url value='TourMemberFindAll' />">TourMemberFindAll</a>
+      <br/><br/>
+      
+      
       
 </body>
 </html>
