@@ -10,7 +10,7 @@ import model.hotel._01HotelBean;
 import model.hotel.dao.HotelDAOHibernate;
 @RestController //可替代Controller(寫在類別上對全部方法作用)
 //@Controller
-	public class HotelTest{
+	public class HotelPicTest{
 	 @Autowired
 	 private HotelDAOHibernate dao ;
 	 

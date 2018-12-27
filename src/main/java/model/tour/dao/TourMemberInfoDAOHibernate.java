@@ -1,5 +1,7 @@
 package model.tour.dao;
 
+import java.util.List;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,17 +11,10 @@ import model.tour.TourMemberInfoBean;
 
 @Repository
 public class TourMemberInfoDAOHibernate {
-	
-	
-	public static void main(String[] args) {
-		TourMemberInfoDAOHibernate t = new TourMemberInfoDAOHibernate();
-		t.findByPrimaryKey(1);
-		System.out.println(t);
-	}
-	
+
 	@Autowired
 	private SessionFactory sessionFactory;
-	
+
 	public Session getSession() {
 		return this.sessionFactory.getCurrentSession();
 	}
@@ -27,4 +22,11 @@ public class TourMemberInfoDAOHibernate {
 	public TourMemberInfoBean findByPrimaryKey(Integer serialNo) {
 		return this.getSession().get(TourMemberInfoBean.class, serialNo);
 	}
+	
+	public List<TourMemberInfoBean> findAll() {
+		return this.getSession().createQuery("from TourMemberInfoBean", TourMemberInfoBean.class)
+				.setMaxResults(50)
+				.list();
+	}
+	
 }

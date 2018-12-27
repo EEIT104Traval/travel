@@ -14,6 +14,13 @@ public class TourPictureBean {
 	private String tpicName;
 	private String picDetail;
 	private Byte[] pic;
+	
+	@Override
+	public String toString() {
+		return "TourPictureBean [tourNo=" + tourNo + ", tpicName=" + tpicName + ", picDetail=" + picDetail + ", pic="
+				+ Arrays.toString(pic) + "]";
+	}
+	
 	public String getTourNo() {
 		return tourNo;
 	}
@@ -38,11 +45,4 @@ public class TourPictureBean {
 	public void setPic(Byte[] pic) {
 		this.pic = pic;
 	}
-	@Override
-	public String toString() {
-		return "TourPictureBean [tourNo=" + tourNo + ", tpicName=" + tpicName + ", picDetail=" + picDetail + ", pic="
-				+ Arrays.toString(pic) + "]";
-	}
-	
-	
 }
