@@ -8,13 +8,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import model.flight.FlightOrderInfoBean;
-import model.flight.dao.FlightDAOHibernate;
+import model.flight.FlightOrderInfoDAO;
+import model.flight.FlightPassengerInfoBean;
+import model.flight.FlightPassengerInfoDAO;
 
 @Controller
 public class FlightTest {
 
 	@Autowired
-	private FlightDAOHibernate dao;
+	private FlightOrderInfoDAO dao;
+	@Autowired
+	private FlightPassengerInfoDAO pdao;
 
 	@ResponseBody // @RestController可替代
 	@RequestMapping("/flight1")
@@ -66,5 +70,39 @@ public class FlightTest {
 		return b;
 
 	}
+
+	@ResponseBody // @RestController可替代
+	@RequestMapping("/flight6")
+	public FlightPassengerInfoBean find2() {
+		FlightPassengerInfoBean bean = pdao.findByPrimaryKey(1);
+		return bean;
+	}
+	
+	
+	@ResponseBody // @RestController可替代
+	@RequestMapping("/flight7")
+	public List<FlightPassengerInfoBean> findAll2() {
+		
+		List<FlightPassengerInfoBean> list = pdao.findAll();
+		return list;
+	}
+
+	@ResponseBody // @RestController可替代
+	@RequestMapping("/flight8")
+	public FlightPassengerInfoBean create2() {
+		FlightPassengerInfoBean bean = new FlightPassengerInfoBean();
+		bean.setFlightTicketNO(5);
+		bean.setBirth(new java.util.Date());
+		bean.setAdultOrChild("Adult");
+		bean.setFirstName("lida");
+		bean.setLastName("Wang");
+		bean.setPrice(45545);
+		bean.setTitle("Mr.");
+
+		FlightPassengerInfoBean bean1 = pdao.create(bean);
+
+		return bean1;
+	}
+	
 
 }

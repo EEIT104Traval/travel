@@ -1,82 +1,96 @@
 package model.flight;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="FlightPassengerInfo")
+@Table(name = "FlightPassengerInfo")
 public class FlightPassengerInfoBean {
 	@Id
-	private Integer serial;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer serialNO;
 	private Integer flightTicketNO;
 	private Integer flightOrderNO;
 	private String firstName;
 	private String lastName;
-	private String passportNo;
 	private Integer price;
 	private String adultOrChild;
-	private String classLevel;
-	public Integer getSerial() {
-		return serial;
+	private java.util.Date birth;
+	private String title;
+
+	public Integer getSerialNO() {
+		return serialNO;
 	}
-	public void setSerial(int serial) {
-		this.serial = serial;
+
+	public void setSerialNO(Integer serialNO) {
+		this.serialNO = serialNO;
 	}
-	public int getFlightTicketNO() {
+
+	public Integer getFlightTicketNO() {
 		return flightTicketNO;
 	}
-	public void setFlightTicketNO(int flightTicketNO) {
+
+	public void setFlightTicketNO(Integer flightTicketNO) {
 		this.flightTicketNO = flightTicketNO;
 	}
-	public int getFlightOrderNO() {
+
+	public Integer getFlightOrderNO() {
 		return flightOrderNO;
 	}
-	public void setFlightOrderNO(int flightOrderNO) {
+
+	public void setFlightOrderNO(Integer flightOrderNO) {
 		this.flightOrderNO = flightOrderNO;
 	}
+
 	public String getFirstName() {
 		return firstName;
 	}
+
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
+
 	public String getLastName() {
 		return lastName;
 	}
+
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-	public String getPassportNo() {
-		return passportNo;
-	}
-	public void setPassportNo(String passportNo) {
-		this.passportNo = passportNo;
-	}
-	public int getPrice() {
+
+	public Integer getPrice() {
 		return price;
 	}
-	public void setPrice(int price) {
+
+	public void setPrice(Integer price) {
 		this.price = price;
 	}
+
 	public String getAdultOrChild() {
 		return adultOrChild;
 	}
+
 	public void setAdultOrChild(String adultOrChild) {
 		this.adultOrChild = adultOrChild;
 	}
-	public String getClassLevel() {
-		return classLevel;
+
+	public java.util.Date getBirth() {
+		return birth;
 	}
-	public void setClassLevel(String classLevel) {
-		this.classLevel = classLevel;
+
+	public void setBirth(java.util.Date birth) {
+		this.birth = birth;
 	}
-	@Override
-	public String toString() {
-		return "FlightPassengerInfoBean [serial=" + serial + ", flightTicketNO=" + flightTicketNO + ", flightOrderNO="
-				+ flightOrderNO + ", firstName=" + firstName + ", lastName=" + lastName + ", passportNo=" + passportNo
-				+ ", price=" + price + ", adultOrChild=" + adultOrChild + ", classLevel=" + classLevel + ", toString()="
-				+ super.toString() + "]";
+
+	public String getTitle() {
+		return title;
 	}
-	
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
 }
