@@ -13,7 +13,10 @@
       <br/><br/>
       <a href="<c:url value='/Tourtest' />">Tourtest</a>
       <br/><br/>
-      <a href="<c:url value='/ticketTest' />">ticketTest</a>
+      <a href="<c:url value='ticketfindpk' />">ticketfindpk</a>
+      <a href="<c:url value='ticketCreate' />">ticketCreate</a>
+      <a href="<c:url value='ticketUpdate' />">ticketUpdate</a>
+      <a href="<c:url value='ticketRemove' />">ticketRemove</a>
       <br/><br/>
       
 </body>

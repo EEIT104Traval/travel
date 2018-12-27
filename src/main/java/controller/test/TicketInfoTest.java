@@ -1,5 +1,6 @@
 package controller.test;
 
+import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,13 +15,23 @@ public class TicketInfoTest {
 
  @Autowired
  private TicketInfoDAO dao ;
- 
+ @Autowired
+ private SessionFactory sessionFactory;
+
  @ResponseBody  //@RestController可替代
- @RequestMapping("/ticketTest")
+ @RequestMapping("/ticketfindpk")
  public TicketInfoBean method() {
   System.out.println("test controller");  
   TicketInfoBean bean = dao.findByPrimaryKey(1);  
   return bean;
+  
+  
+  
+  
+  
+  
+  
+  
   
  } 
 }

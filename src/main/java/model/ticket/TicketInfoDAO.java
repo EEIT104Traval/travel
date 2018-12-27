@@ -3,10 +3,6 @@ package model.ticket;
 import java.sql.Date;
 import java.util.List;
 
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
-
 public interface TicketInfoDAO {
 
 	public abstract TicketInfoBean findByPrimaryKey(Integer ticketNo);
