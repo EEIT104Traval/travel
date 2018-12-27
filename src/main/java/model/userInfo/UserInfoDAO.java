@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface UserInfoDAO {
 	
-		public abstract UserInfoDAO findByPrimaryKey(String username);
+		public abstract UserInfoBean findByPrimaryKey(String username);
 
 		public abstract List<UserInfoBean> findAll();
 
