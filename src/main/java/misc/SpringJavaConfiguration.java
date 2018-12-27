@@ -12,6 +12,10 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.jndi.JndiObjectFactoryBean;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 
+import model.tour.GroupTourBean;
+import model.tour.TourBatchBean;
+import model.tour.TourMemberInfoBean;
+import model.tour.TourPictureBean;
 import model.userInfo.UserInfoBean;
 
 @Configuration
@@ -34,7 +38,7 @@ public class SpringJavaConfiguration {
 	@Bean
 	public SessionFactory sessionFactory() {
 		LocalSessionFactoryBuilder builder = new LocalSessionFactoryBuilder(dataSource());
-		builder.addAnnotatedClasses(UserInfoBean.class);
+		builder.addAnnotatedClasses(UserInfoBean.class,GroupTourBean.class,TourBatchBean.class,TourMemberInfoBean.class,TourPictureBean.class);
 
 		Properties props = new Properties();
 		props.setProperty("hibernate.dialect", "org.hibernate.dialect.SQLServerDialect");
