@@ -9,6 +9,7 @@
 </head>
 <body>
 
+
 	<a href="<c:url value='/test' />">UserInfoTest</a>
 	<br />
 	<br />
@@ -47,7 +48,6 @@
 	<br />
 	<br />
 
-
 	<h1>朱薇</h1>
 	<a href="<c:url value='/flight1' />">findAll</a>
 	<a href="<c:url value='/flight2' />">findByPrimaryKey</a>
@@ -61,6 +61,12 @@
 	<br />
 	<br />
 
-
+	<a href="<c:url value='/HotelfindByPK' />">HotelfindByPK</a>
+	<a href="<c:url value='/HoteltestfindALL' />">HoteltestfindALL</a>
+	<a href="<c:url value='/Hoteltestcreate' />">Hoteltestcreate</a>
+	<a href="<c:url value='Hoteltestupdate' />">Hoteltestupdate</a>
+	<a href="<c:url value='Hoteltestremove' />">Hoteltestremove</a>
+	<br />
+	
 </body>
 </html>
