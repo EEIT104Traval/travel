@@ -18,7 +18,7 @@ public class _04RoomTypePicBean {
 	private java.util.Date checkIn;
 	private java.util.Date checkOut;
 	private String roomType;
-	private Integer Totalprice;
+	private Integer totalprice;
 	private String info;
 	
 	@Override
@@ -26,7 +26,7 @@ public class _04RoomTypePicBean {
 		return "RoomTypePicBean [orderNo=" + orderNo + ", hotelNo=" + hotelNo + ", hotelName=" + hotelName
 				+ ", username=" + username + ", bookingPerson=" + bookingPerson + ", phone=" + phone + ", bookingDate="
 				+ bookingDate + ", checkIn=" + checkIn + ", checkOut=" + checkOut + ", roomType=" + roomType
-				+ ", Totalprice=" + Totalprice + ", info=" + info + "]";
+				+ ", Totalprice=" + totalprice + ", info=" + info + "]";
 	}
 	public Integer getOrderNo() {
 		return orderNo;
@@ -89,10 +89,10 @@ public class _04RoomTypePicBean {
 		this.roomType = roomType;
 	}
 	public Integer getTotalprice() {
-		return Totalprice;
+		return totalprice;
 	}
 	public void setTotalprice(Integer totalprice) {
-		Totalprice = totalprice;
+		totalprice = totalprice;
 	}
 	public String getInfo() {
 		return info;
