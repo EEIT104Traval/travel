@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="ticketInfo")
-public class ticketInfoBean {
+public class TicketInfoBean {
 	  @Id
 	  private Integer ticketNo ;
 	  private String ticketName;
