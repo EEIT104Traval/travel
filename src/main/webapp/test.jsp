@@ -21,12 +21,15 @@
       <br/><br/>
       <a href="<c:url value='Tourtestremove' />">Tourtestremove</a>
       <br/><br/>
-      <a href="<c:url value='ticketfindAll' />">ticketfindAll</a>
+      <a href="<c:url value='/Hoteltest' />">Hoteltest</a>
+      <br/><br/>
+      <a href="<c:url value='/ticketTest' />">ticketTest</a>
+      <br/><br/>
+       <a href="<c:url value='ticketfindAll' />">ticketfindAll</a>
       <a href="<c:url value='ticketfindpk' />">ticketfindpk</a>
       <a href="<c:url value='ticketCreate' />">ticketCreate</a>
       <a href="<c:url value='ticketUpdate' />">ticketUpdate</a>
       <a href="<c:url value='ticketRemove' />">ticketRemove</a>
-      <br/><br/>
       
 </body>
 </html>
