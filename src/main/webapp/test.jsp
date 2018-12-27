@@ -25,6 +25,13 @@
       <br/><br/>
       <a href="<c:url value='/ticketTest' />">ticketTest</a>
       <br/><br/>
+       <a href="<c:url value='ticketfindAll' />">ticketfindAll</a>
+      <a href="<c:url value='ticketfindpk' />">ticketfindpk</a>
+      <a href="<c:url value='ticketCreate' />">ticketCreate</a>
+      <a href="<c:url value='ticketUpdate' />">ticketUpdate</a>
+      <a href="<c:url value='ticketRemove' />">ticketRemove</a>
+      
+      <br>
        <a href="<c:url value='/userInfofindALL' />">Usetest</a>
       <a href="<c:url value='/userInfocreate' />">Usercreat</a>
          <a href="<c:url value='/userInforemove' />">Userremove</a>
