@@ -11,24 +11,21 @@ import model.tour.dao.TourMemberInfoDAOHibernate;
 
 @RestController
 public class WenTourTest {
-	
-	 @Autowired
-	 private TourMemberInfoDAOHibernate dao ;
-	 
-//	 @ResponseBody  //@RestController可替代
-	 @RequestMapping("/TourMemberFindPK")
-	 public TourMemberInfoBean findByPrimaryKey() {
-	  System.out.println("test controller");  
-	  TourMemberInfoBean bean = dao.findByPrimaryKey(1);
-	  return bean;
-	 } 
-	 
-	 @RequestMapping("/TourMemberFindAll")
-	 public List<TourMemberInfoBean> findAll() {
-	  System.out.println("test controller");  
-	  List<TourMemberInfoBean> bean = dao.findAll();
-	  return bean;
-	 } 
-	 
-	 
+
+	@Autowired
+	private TourMemberInfoDAOHibernate dao;
+
+//	@ResponseBody  //@RestController可替代
+	@RequestMapping("/TourMemberFindPK")
+	public TourMemberInfoBean findByPrimaryKey() {
+		TourMemberInfoBean bean = dao.findByPrimaryKey(1);
+		return bean;
+	}
+
+	@RequestMapping("/TourMemberFindAll")
+	public List<TourMemberInfoBean> findAll() {
+		List<TourMemberInfoBean> bean = dao.findAll();
+		return bean;
+	}
+
 }

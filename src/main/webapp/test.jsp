@@ -48,7 +48,7 @@
 	<br />
 	<br />
 
-	<h1>朱薇</h1>
+	<h2>朱薇</h2>
 	<a href="<c:url value='/flight1' />">findAll</a>
 	<a href="<c:url value='/flight2' />">findByPrimaryKey</a>
 	<a href="<c:url value='/flight3' />">create</a>
@@ -63,6 +63,13 @@
 	<a href="<c:url value='Hoteltestupdate' />">Hoteltestupdate</a>
 	<a href="<c:url value='Hoteltestremove' />">Hoteltestremove</a>
 	<br />
+	<br />
+	<h2>周周</h2>
+	<a href="<c:url value='/TourMemberFindPK' />">TourMemberFindPK</a>
+	<a href="<c:url value='/TourMemberFindAll' />">TourMemberFindAll</a>
+
+	<br />
+	
 	
 </body>
 </html>
