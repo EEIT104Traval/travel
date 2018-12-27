@@ -10,17 +10,15 @@ public interface TicketOrderInfoDAO {
 	
 	public abstract List<TicketOrderInfoBean>findAll();
 	
-	public abstract TicketOrderInfoBean findByadultTicketCount();
-	
-	public abstract TicketOrderInfoBean findBychildTicketCount();
-	
-	//取消購買票券
-	public abstract boolean update(Integer ticketOrderNO,String username,
+	//買票
+	public abstract TicketOrderInfoBean create(TicketOrderInfoBean bean);
+	//改數量	
+	public abstract TicketOrderInfoBean update(Integer ticketOrderNO,String username,
 			Integer ticketNo,Date orderDate,Date useDate,Integer adultTicketCount,
 			Integer childTicketCount,String recevingContact,String recevingAddress,
 			Integer recevingPhone,Integer totalPrice);
 	
-	
-	//	後台專用
+	//取消購買票券
+	public abstract boolean remove(Integer ticketOrderNO);
 	
 }
