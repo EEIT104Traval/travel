@@ -5,11 +5,12 @@ import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import model.hotel._04RoomTypePicBean;
 import model.hotel._05RoomLeftBean;
 import model.hotel._05RoomLeftDAO;
-
+@Repository
 public class RoomLeftBeanDAOHibernate implements _05RoomLeftDAO {
 
 	@Autowired
