@@ -11,7 +11,15 @@
 
       <a href="<c:url value='/test' />">UserInfoTest</a>
       <br/><br/>
-      <a href="<c:url value='/Tourtest' />">Tourtest</a>
+      <a href="<c:url value='TourtestfindPK' />">TourtestfindPK</a>
+      <br/><br/>
+      <a href="<c:url value='TourtestfindALL' />">TourtestfindALL</a>
+      <br/><br/>
+      <a href="<c:url value='Tourtestcreate' />">Tourtestcreate</a>
+      <br/><br/>
+      <a href="<c:url value='Tourtestupdate' />">Tourtestupdate</a>
+      <br/><br/>
+      <a href="<c:url value='Tourtestremove' />">Tourtestremove</a>
       <br/><br/>
       <a href="<c:url value='/Hoteltest' />">Hoteltest</a>
       <br/><br/>
