@@ -1,5 +1,7 @@
 package model.tour.dao;
 
+import java.util.List;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,14 +23,59 @@ public class GroupTourDAO {
 		return this.getSession().get(GroupTourBean.class, tourNo);
 	}
 	
-//	public boolean update(byte[] password, String email, Date birth, String custid) {
-//		CustomerBean result = this.getSession().get(CustomerBean.class, custid);
-//		if(result!=null) {
-//			result.setPassword(password);
-//			result.setEmail(email);
-//			result.setBirth(birth);
-//			return true;
+	public List<GroupTourBean> findAll() {
+		return this.getSession().createQuery("from GroupTourBean", GroupTourBean.class)
+				.setMaxResults(50)
+				.list();
+	}
+	public GroupTourBean create(GroupTourBean bean) {
+		if(bean!=null) {
+			GroupTourBean result = this.getSession().get(GroupTourBean.class, bean.getTourNo());
+			if(result==null) {
+				this.getSession().save(bean);
+				return bean;
+			}
+		}
+		return null;
+	}
+//	public GroupTourBean create(String tag, String country, String tourName, String destination,
+//                         Integer tourDays, Integer guaranteedCount, Integer fullPeopleCount, 
+//                         Integer clickCount, String content, String tourNo) {
+//		if(tourNo!=null) {
+//			GroupTourBean result = this.getSession().get(GroupTourBean.class, bean.getTourNo());
+//			if(result==null) {
+//				this.getSession().save(bean);
+//				return bean;
+//			}
 //		}
-//		return false;
+//		return null;
 //	}
+	public GroupTourBean update(String tag, String country, String tourName, String destination,
+	                            Integer tourDays, Integer guaranteedCount, Integer fullPeopleCount, 
+	                            Integer clickCount, String content, String tourNo) {
+		GroupTourBean result = this.getSession().get(GroupTourBean.class, tourNo);
+		if(result!=null) {
+			result.setTag(tag);
+			result.setCountry(country);
+			result.setTourName(tourName);
+			result.setDestination(destination);
+			result.setTourDays(tourDays);
+			result.setGuaranteedCount(guaranteedCount);
+			result.setFullPeopleCount(fullPeopleCount);
+			result.setClickCount(clickCount);
+			result.setContent(content);
+			
+			
+			return result;
+		}
+		return null;
+	}
+	public boolean remove(String tourNo) {
+		GroupTourBean result = this.getSession().get(GroupTourBean.class, tourNo);
+		if(result!=null) {
+			this.getSession().delete(result);
+			return true;
+		}
+		return false;
+	}
 }

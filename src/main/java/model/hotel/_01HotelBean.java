@@ -6,12 +6,12 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="Hotel")
-public class HotelBean {
+public class _01HotelBean {
 	@Id
 	private Integer hotelNo;
 	private String hotelName;
 	private String address;
-	private Integer phone;
+	private String phone;
 	private String email;
 	private Integer totalroom;
 	
@@ -38,10 +38,10 @@ public class HotelBean {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	public Integer getPhone() {
+	public String getPhone() {
 		return phone;
 	}
-	public void setPhone(Integer phone) {
+	public void setPhone(String phone) {
 		this.phone = phone;
 	}
 	public String getEmail() {

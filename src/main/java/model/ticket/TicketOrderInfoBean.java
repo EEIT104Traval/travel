@@ -41,7 +41,7 @@ public class TicketOrderInfoBean {
 	private Integer recevingPhone;
 	private Integer totalPrice;
 	
-	
+		
 	public UserInfoBean getUserinfo() {
 		return userinfo;
 	}
