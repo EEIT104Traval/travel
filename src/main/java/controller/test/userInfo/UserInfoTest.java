@@ -51,6 +51,15 @@ public class UserInfoTest {
 	 UserInfoBean bean2 = dao.create(bean1);
 	 return bean2;
  }
+ 
+ @ResponseBody
+ @RequestMapping("/userInfoupdate")
+ public UserInfoBean update() {
+	 UserInfoBean update = dao.update(null,"moon","star","A112233445","reese@lab.com",new java.util.Date(),"F","0912456456","台北市南港"
+			                           ,"Y001","Y01","Y02","Kitty2");		  
+	 return update;	  		  
+ } 
+ 
  @ResponseBody
  @RequestMapping("/userInforemove")
  public boolean remove() {
