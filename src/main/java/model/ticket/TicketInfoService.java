@@ -1,4 +1,4 @@
-package model.ticketInfo;
+package model.ticket;
 
 public class TicketInfoService {
 
