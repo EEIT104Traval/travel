@@ -16,10 +16,10 @@ public class TicketInfoTest {
  private TicketInfoDAO dao ;
  
  @ResponseBody  //@RestController可替代
- @RequestMapping("/test")
+ @RequestMapping("/ticketTest")
  public TicketInfoBean method() {
   System.out.println("test controller");  
-  TicketInfoBean bean = dao.findByPrimaryKey(001);  
+  TicketInfoBean bean = dao.findByPrimaryKey(1);  
   return bean;
   
  } 

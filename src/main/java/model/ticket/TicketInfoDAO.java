@@ -28,6 +28,6 @@ public interface TicketInfoDAO {
 			String productFeatures, Byte[] ticketPicture, String ticketDescription, String traffic_information,
 			String special_restrictions, String googleAddressOrName);
 
-	public abstract TicketInfoBean remove(Integer ticketNo);
+	public abstract boolean remove(Integer ticketNo);
 
 }

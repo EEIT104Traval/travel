@@ -1,6 +1,5 @@
 package model.ticket.dao;
 
-
 import java.util.List;
 
 import org.hibernate.Session;
@@ -11,16 +10,99 @@ import org.springframework.stereotype.Repository;
 import model.ticket.TicketInfoBean;
 import model.ticket.TicketInfoDAO;
 
-
 @Repository
 public class TicketInfoDAOHibernate implements TicketInfoDAO {
 	@Autowired
-	private SessionFactory sessionFactory;	
-		
+	private SessionFactory sessionFactory;
+
 	public Session getSession() {
-		return sessionFactory.getCurrentSession();
+		return this.sessionFactory.getCurrentSession();
+	}
+
+	@Override
+	public TicketInfoBean findByPrimaryKey(Integer ticketNo) {
+		
+		return this.getSession().get(TicketInfoBean.class, ticketNo);
 	}
 	
+	@Override
+	public TicketInfoBean findByticketName(String ticketName) {
+		
+		return this.getSession().get(TicketInfoBean.class, ticketName);
+	}
+	
+	@Override
+	public TicketInfoBean findByticketDate(java.sql.Date validity) {
+		
+		return this.getSession().get(TicketInfoBean.class, validity);
+	}
+	
+	@Override
+	public TicketInfoBean findByticketCountry(String country) {
+		
+		return this.getSession().get(TicketInfoBean.class, country);
+	}
+	
+	@Override
+	public TicketInfoBean create(TicketInfoBean bean) {
+		
+		if (bean != null) {
+			TicketInfoBean result = this.getSession().get(TicketInfoBean.class, bean.getTicketNo());
+			if (result == null) {
+				this.getSession().save(bean);
+				return bean;
+			}
+		}
+		return null;
+	}
+	
+	@Override
+	public TicketInfoBean update(Integer ticketNo, String ticketName, java.sql.Date validity, Integer adultTicketPrice,
+			Integer childTicketPrice, Integer adultTicketSellQ, Integer childTicketSellQ, Integer adultTicketSelledQ,
+			Integer childTicketSelledQ, String country, String category, String productFeatures, Byte[] ticketPicture,
+			String ticketDescription, String traffic_information, String special_restrictions,
+			String googleAddressOrName) {
+		TicketInfoBean result = this.getSession().get(TicketInfoBean.class, ticketNo);
+		if (result != null) {
+			result.setTicketNo(ticketNo);
+			result.setTicketName(ticketName);
+			result.setValidity(validity);
+			result.setAdultTicketPrice(adultTicketPrice);
+			result.setChildTicketPrice(childTicketPrice);
+			result.setAdultTicketSellQ(adultTicketSellQ);
+			result.setChildTicketSellQ(childTicketSellQ);
+			result.setAdultTicketSelledQ(adultTicketSelledQ);
+			result.setChildTicketSelledQ(childTicketSelledQ);
+			result.setCountry(country);
+			result.setCategory(category);
+			result.setProductFeatures(productFeatures);
+			result.setTicketPicture(ticketPicture);
+			result.setTicketDescription(ticketDescription);
+			result.setTraffic_information(traffic_information);
+			result.setSpecial_restrictions(special_restrictions);
+			result.setGoogleAddressOrName(googleAddressOrName);
+			
+			return result;
+		}
+		return null;
+	}
+	
+	@Override
+	public boolean remove(Integer ticketNo) {
+		TicketInfoBean result = this.getSession().get(TicketInfoBean.class, ticketNo);
+		if(result != null) {
+			this.getSession().delete(result);
+			return true;
+		}	
+		return false;
+	}
+	
+	@Override
+	public List<TicketInfoBean> findAll() {
+		
+		return this.getSession().createQuery("from TicketInfoBean",TicketInfoBean.class).setMaxResults(50).list();
+	}
+}
 //	@Override
 //	public ProductBean findByPrimaryKey(int id) {
 //		//利用id作為primary key取得product table資料
@@ -31,8 +113,8 @@ public class TicketInfoDAOHibernate implements TicketInfoDAO {
 //	@Override
 //	public List<ProductBean> findAll() {
 //		//取得product table的所有資料
-////		Query query =  this.getSession().createQuery("from ProductBean");
-////		return (List<ProductBean>)query.list();
+//		Query query =  this.getSession().createQuery("from ProductBean");
+//		return (List<ProductBean>)query.list();
 //		return this.getSession().createQuery("from ProductBean",ProductBean.class).list();
 //	}
 //	@Override
@@ -78,55 +160,3 @@ public class TicketInfoDAOHibernate implements TicketInfoDAO {
 //		return false;
 //	}
 
-	@Override
-	public TicketInfoBean findByPrimaryKey(Integer ticketNo) {
-		
-		return null;
-	}
-
-	@Override
-	public TicketInfoBean findByticketName(String ticketName) {
-		
-		return null;
-	}
-
-	@Override
-	public TicketInfoBean findByticketDate(java.sql.Date validity) {
-		
-		return null;
-	}
-
-	@Override
-	public TicketInfoBean findByticketCountry(String country) {
-		
-		return null;
-	}
-
-	@Override
-	public TicketInfoBean create(TicketInfoBean bean) {
-		
-		return null;
-	}
-
-	@Override
-	public TicketInfoBean update(Integer ticketNo, String ticketName, java.sql.Date validity, Integer adultTicketPrice,
-			Integer childTicketPrice, Integer adultTicketSellQ, Integer childTicketSellQ, Integer adultTicketSelledQ,
-			Integer childTicketSelledQ, String country, String category, String productFeatures, Byte[] ticketPicture,
-			String ticketDescription, String traffic_information, String special_restrictions,
-			String googleAddressOrName) {
-		
-		return null;
-	}
-
-	@Override
-	public TicketInfoBean remove(Integer ticketNo) {
-		
-		return null;
-	}
-
-	@Override
-	public List<TicketInfoBean> findAll() {
-		
-		return null;
-	}
-}
