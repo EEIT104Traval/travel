@@ -13,6 +13,13 @@
       <br/><br/>
       <a href="<c:url value='/Tourtest' />">Tourtest</a>
       <br/><br/>
-      
+       <a href="<c:url value='/userInfofindALL' />">Usetest</a>
+      <br/><br/>
+      <a href="<c:url value='/userInfocreate' />">Usercreat</a>
+      <br/><br/>
+         <a href="<c:url value='/userInforemove' />">Userremove</a>
+      <br/><br/>
+         <a href="<c:url value='/userInfoupdate' />">Userupdate</a>
+      <br/><br/>
 </body>
 </html>
