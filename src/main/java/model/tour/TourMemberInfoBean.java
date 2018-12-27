@@ -1,8 +1,18 @@
 package model.tour;
 
+import java.sql.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.boot.MetadataSources;
+import org.hibernate.boot.registry.StandardServiceRegistry;
+import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import org.springframework.beans.factory.annotation.Autowired;
 
 @Entity
 @Table(name="TourMemberInfo")
@@ -14,6 +24,25 @@ public class TourMemberInfoBean {
 	private String lname;
 	private Integer price;
 	private String passenger;
+	
+	@Autowired
+	SessionFactory sessionFactory;
+	public static void main(String[] args) {
+		StandardServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().configure().build();
+		SessionFactory sessionFactory = new MetadataSources(serviceRegistry).buildMetadata().buildSessionFactory();
+		try {
+			Session session = sessionFactory.openSession();
+			Transaction trx = session.beginTransaction();
+			TourMemberInfoBean bean = new TourMemberInfoBean();
+			bean.setPrice(123);
+			session.save(bean);
+			trx.commit();
+			session.close();
+		} finally {
+			sessionFactory.close();
+		}
+	}
+	
 	public Integer getSerialNo() {
 		return serialNo;
 	}
