@@ -13,6 +13,8 @@
       <br/><br/>
       <a href="<c:url value='/Tourtest' />">Tourtest</a>
       <br/><br/>
+      <a href="<c:url value='/Hoteltest' />">Hoteltest</a>
+      <br/><br/>
       
 </body>
 </html>

@@ -12,6 +12,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.jndi.JndiObjectFactoryBean;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 
+import model.hotel._01HotelBean;
 import model.tour.GroupTourBean;
 import model.tour.TourBatchBean;
 import model.tour.TourMemberInfoBean;

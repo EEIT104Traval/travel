@@ -8,7 +8,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="HotelOrderDetails")
-public class HotelOrderDetailsBean {
+public class _06HotelOrderDetailsBean {
 	@Id
 	private Integer picNo;
 	private Integer hotelNo;

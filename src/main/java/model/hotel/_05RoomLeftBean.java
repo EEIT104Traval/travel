@@ -8,7 +8,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="RoomLeft")
-public class RoomLeftBean {
+public class _05RoomLeftBean {
 	@Id
 	private Integer picNo;
 	private Integer roomTypeNo;

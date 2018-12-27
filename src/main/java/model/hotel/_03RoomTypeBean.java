@@ -6,7 +6,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="RoomType")
-public class RoomTypeBean {
+public class _03RoomTypeBean {
 	@Id
 	private Integer serialNo;
 	private Integer hotelNo;
