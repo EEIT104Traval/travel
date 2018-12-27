@@ -1,9 +1,14 @@
 package model.userInfo;
 
-import java.sql.Date;
 import java.util.Arrays;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+@Entity
+@Table(name="UserInfo")
 public class UserInfoBean {
+	@Id
 	private String username;
 	private byte[] password;
 	private String firstname;

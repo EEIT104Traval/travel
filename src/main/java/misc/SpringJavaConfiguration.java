@@ -12,6 +12,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.jndi.JndiObjectFactoryBean;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 
+import model.userInfo.UserInfoBean;
+
 @Configuration
 @ComponentScan(basePackages={"model"})
 public class SpringJavaConfiguration {
@@ -32,7 +34,7 @@ public class SpringJavaConfiguration {
 	@Bean
 	public SessionFactory sessionFactory() {
 		LocalSessionFactoryBuilder builder = new LocalSessionFactoryBuilder(dataSource());
-//		builder.addAnnotatedClasses(CustomerBean.class, ProductBean.class);
+		builder.addAnnotatedClasses(UserInfoBean.class);
 
 		Properties props = new Properties();
 		props.setProperty("hibernate.dialect", "org.hibernate.dialect.SQLServerDialect");

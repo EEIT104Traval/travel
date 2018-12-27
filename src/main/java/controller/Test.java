@@ -1,19 +1,26 @@
 package controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import model.userInfo.UserInfoBean;
+import model.userInfo.UserInfoDAO;
+
+
 @Controller
 public class Test {
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-	}
-	
-
-	@RequestMapping("/test")
-	public String method () {
-		return "/member.jsp";
-	}
-
+ @Autowired
+ private UserInfoDAO dao ;
+ 
+ @ResponseBody  //@RestController可替代
+ @RequestMapping("/test")
+ public UserInfoBean method() {
+  System.out.println("test controller");  
+  UserInfoBean bean = dao.findByPrimaryKey("Micky");  
+  return bean;
+  
+ } 
 }
