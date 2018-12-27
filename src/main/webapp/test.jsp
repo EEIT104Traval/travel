@@ -104,5 +104,12 @@
 	<a href="<c:url value='/HotelOrderDetailsremove' />">HotelOrderDetailsremove</a>
 	<hr />
 	
+	<br />
+	<h2>周周</h2>
+	<a href="<c:url value='/TourMemberFindPK' />">TourMemberFindPK</a>
+	<a href="<c:url value='/TourMemberFindAll' />">TourMemberFindAll</a>
+
+	<br />
+	
 </body>
 </html>
