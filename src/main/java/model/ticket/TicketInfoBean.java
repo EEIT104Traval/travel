@@ -10,22 +10,29 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.boot.MetadataSources;
+import org.hibernate.boot.registry.StandardServiceRegistry;
+import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+
 @Entity
 @Table(name="ticketInfo")
 public class TicketInfoBean {
-	  
-	@OneToMany(
-			cascade=CascadeType.REMOVE,
-			mappedBy="ticketInfo"	
-			)
-	private Set<TicketOrderInfoBean> TicketOrderInfos;
-	public Set<TicketOrderInfoBean> getTicketOrderInfos(){
-		return TicketOrderInfos;
-	}
-	
-	public void setTicketOrderInfos(Set<TicketOrderInfoBean> TicketOrderInfos) {
-	this.TicketOrderInfos = TicketOrderInfos;	
-	}
+	 
+//	@OneToMany(
+//			cascade=CascadeType.REMOVE,
+//			mappedBy="ticketInfo"	
+//			)
+//	private Set<TicketOrderInfoBean> TicketOrderInfos;
+//	public Set<TicketOrderInfoBean> getTicketOrderInfos(){
+//		return TicketOrderInfos;
+//	}
+//	
+//	public void setTicketOrderInfos(Set<TicketOrderInfoBean> TicketOrderInfos) {
+//		this.TicketOrderInfos = TicketOrderInfos;	
+//	}
 	
 	@Id
 	  private Integer ticketNo ;
@@ -44,7 +51,9 @@ public class TicketInfoBean {
 	  private String ticketDescription;
 	  private String traffic_information;
 	  private String special_restrictions;
-	  private String googleAddressOrName;
+	  private String googleAddressOrName;			
+	  
+	
 	public Integer getTicketNo() {
 		return ticketNo;
 	}
@@ -183,17 +192,17 @@ public class TicketInfoBean {
 
 	@Override
 	public String toString() {
-		return "TicketInfoBean [TicketOrderInfos=" + TicketOrderInfos + ", ticketNo=" + ticketNo + ", ticketName="
-				+ ticketName + ", validity=" + validity + ", adultTicketPrice=" + adultTicketPrice
-				+ ", childTicketPrice=" + childTicketPrice + ", adultTicketSellQ=" + adultTicketSellQ
-				+ ", childTicketSellQ=" + childTicketSellQ + ", adultTicketSelledQ=" + adultTicketSelledQ
-				+ ", childTicketSelledQ=" + childTicketSelledQ + ", country=" + country + ", category=" + category
-				+ ", productFeatures=" + productFeatures + ", ticketPicture=" + Arrays.toString(ticketPicture)
-				+ ", ticketDescription=" + ticketDescription + ", traffic_information=" + traffic_information
-				+ ", special_restrictions=" + special_restrictions + ", googleAddressOrName=" + googleAddressOrName
-				+ "]";
+		return "TicketInfoBean [ticketNo=" + ticketNo + ", ticketName=" + ticketName + ", validity=" + validity
+				+ ", adultTicketPrice=" + adultTicketPrice + ", childTicketPrice=" + childTicketPrice
+				+ ", adultTicketSellQ=" + adultTicketSellQ + ", childTicketSellQ=" + childTicketSellQ
+				+ ", adultTicketSelledQ=" + adultTicketSelledQ + ", childTicketSelledQ=" + childTicketSelledQ
+				+ ", country=" + country + ", category=" + category + ", productFeatures=" + productFeatures
+				+ ", ticketPicture=" + Arrays.toString(ticketPicture) + ", ticketDescription=" + ticketDescription
+				+ ", traffic_information=" + traffic_information + ", special_restrictions=" + special_restrictions
+				+ ", googleAddressOrName=" + googleAddressOrName + "]";
 	}
-	  
+
+
 	  
 	
 }

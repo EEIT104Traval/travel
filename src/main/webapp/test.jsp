@@ -15,6 +15,8 @@
       <br/><br/>
       <a href="<c:url value='/Hoteltest' />">Hoteltest</a>
       <br/><br/>
+      <a href="<c:url value='/ticketTest' />">ticketTest</a>
+      <br/><br/>
       
 </body>
 </html>
