@@ -1,15 +1,15 @@
-package model.ticket;
+package model.ticket.dao;
 
 
 import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import model.hibernate.HibernateUtil;
+import model.ticket.TicketInfoBean;
+import model.ticket.TicketInfoDAO;
 
 
 @Repository
@@ -21,60 +21,6 @@ public class TicketInfoDAOHibernate implements TicketInfoDAO {
 		return sessionFactory.getCurrentSession();
 	}
 	
-	public static void main(String[] args) {
-		SessionFactory sessionFactory = HibernateUtil.getSessionfactory();
-		try {			
-			Session session = sessionFactory.getCurrentSession();
-			Transaction trx = session.beginTransaction();
-			TicketInfoDAO ticketInfoDAO = new TicketInfoDAOHibernate();
-			//select
-			
-			System.out.println(TicketInfoBean.class);
-			TicketInfoDAO select = (TicketInfoDAO) ticketInfoDAO.findByPrimaryKey(1);
-			System.out.println("select="+select);
-			
-			//insert			
-			TicketInfoBean insert = new TicketInfoBean();
-			insert.setTicketNo(0001);
-			insert.setTicketName("迪士尼");
-			insert.setValidity(null);
-			insert.setAdultTicketPrice(3000);
-			insert.setChildTicketPrice(2000);
-			insert.setAdultTicketSellQ(5);
-			insert.setChildTicketSellQ(1);
-			insert.setAdultTicketSelledQ(5);
-			insert.setChildTicketSelledQ(1);
-			insert.setCountry("JAPAN");
-			insert.setCategory("門票");
-			insert.setProductFeatures("test");
-			insert.setTicketPicture(null);
-			insert.setTicketDescription(null);
-			insert.setTraffic_information(null);
-			insert.setSpecial_restrictions(null);
-			insert.setGoogleAddressOrName(null);
-			
-			ticketInfoDAO.create(insert);			
-			System.out.println("insert="+insert);
-			
-			//update
-//			TicketInfoBean update = ticketInfoDAO.update("RMin87", 87.87,new java.util.Date(0) , 8700, 1000);
-//			System.out.println("update="+update);
-			
-			//delete
-//			boolean delete = productDAO.remove(1000);	
-//			System.out.println("delete="+delete);				
-			
-			trx.commit();
-			session.close();
-			
-		
-		} finally {
-			HibernateUtil.closeSessionFactory();
-		}
-	}
-
-
-
 //	@Override
 //	public ProductBean findByPrimaryKey(int id) {
 //		//利用id作為primary key取得product table資料
