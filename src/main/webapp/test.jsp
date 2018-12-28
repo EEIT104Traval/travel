@@ -21,6 +21,16 @@
       <br/><br/>
       <a href="<c:url value='Tourtestremove' />">Tourtestremove</a>
       <br/><br/>
+      <a href="<c:url value='TourBatchtestfindPK' />">TourBatchtestfindPK</a>
+      <br/><br/>
+      <a href="<c:url value='TourBatchtestfindALL' />">TourBatchtestfindALL</a>
+      <br/><br/>
+      <a href="<c:url value='TourBatchtestInsert' />">TourBatchtestInsert</a>
+      <br/><br/>
+      <a href="<c:url value='TourBatchtestUpdate' />">TourBatchtestUpdate</a>
+      <br/><br/>
+      <a href="<c:url value='TourBatchtestremove' />">TourBatchtestremove</a>
+      <br/><br/>
       <a href="<c:url value='/ticketTest' />">ticketTest</a>
       <br/><br/>
       
