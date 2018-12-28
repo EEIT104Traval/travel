@@ -1,8 +1,10 @@
 package model.ticket;
 
-import java.sql.Date;
+import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -13,41 +15,42 @@ import model.userInfo.UserInfoBean;
 @Entity
 @Table(name="TicketOrderInfo")
 public class TicketOrderInfoBean {
-	@ManyToOne
-	@JoinColumn(
-	name="username",
-	referencedColumnName="username",
-	insertable=false,
-	updatable=false
-			)
-	private UserInfoBean userinfo;
-	public UserInfoBean getUserInfo() {
-		return userinfo;
-	}
-	public void setUserInfo(UserInfoBean userinfo) {
-		this.userinfo = userinfo;
-	}
+//	@ManyToOne
+//	@JoinColumn(
+//	name="username",
+//	referencedColumnName="username",
+//	insertable=false,
+//	updatable=false
+//			)
+//	private UserInfoBean userinfo;
+//	public UserInfoBean getUserInfo() {
+//		return userinfo;
+//	}
+//	public void setUserInfo(UserInfoBean userinfo) {
+//		this.userinfo = userinfo;
+//	}
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer ticketOrderNO;
 	private String username;
 	private Integer ticketNo;
-	private Date orderDate;
-	private Date useDate;
+	private java.util.Date orderDate;
+	private java.util.Date useDate;
 	private Integer adultTicketCount;
 	private Integer childTicketCount;
 	private String recevingContact;
 	private String recevingAddress;
-	private Integer recevingPhone;
+	private String recevingPhone;
 	private Integer totalPrice;
 	
 		
-	public UserInfoBean getUserinfo() {
-		return userinfo;
-	}
-	public void setUserinfo(UserInfoBean userinfo) {
-		this.userinfo = userinfo;
-	}
+//	public UserInfoBean getUserinfo() {
+//		return userinfo;
+//	}
+//	public void setUserinfo(UserInfoBean userinfo) {
+//		this.userinfo = userinfo;
+//	}
 	public Integer getTicketOrderNO() {
 		return ticketOrderNO;
 	}
@@ -102,10 +105,10 @@ public class TicketOrderInfoBean {
 	public void setRecevingAddress(String recevingAddress) {
 		this.recevingAddress = recevingAddress;
 	}
-	public Integer getRecevingPhone() {
+	public String getRecevingPhone() {
 		return recevingPhone;
 	}
-	public void setRecevingPhone(Integer recevingPhone) {
+	public void setRecevingPhone(String recevingPhone) {
 		this.recevingPhone = recevingPhone;
 	}
 	public Integer getTotalPrice() {
@@ -116,7 +119,7 @@ public class TicketOrderInfoBean {
 	}
 	@Override
 	public String toString() {
-		return "TicketOrderInfoBean [userinfo=" + userinfo + ", ticketOrderNO=" + ticketOrderNO + ", username="
+		return "TicketOrderInfoBean [  ticketOrderNO=" + ticketOrderNO + ", username="
 				+ username + ", ticketNo=" + ticketNo + ", orderDate=" + orderDate + ", useDate=" + useDate
 				+ ", adultTicketCount=" + adultTicketCount + ", childTicketCount=" + childTicketCount
 				+ ", recevingContact=" + recevingContact + ", recevingAddress=" + recevingAddress + ", recevingPhone="
