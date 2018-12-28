@@ -28,7 +28,7 @@ public class RateTest {
 		return all;
 	}
 	 @ResponseBody
-	 @RequestMapping("/userInforemove")
+	 @RequestMapping("/rateremove")
 	 public boolean remove() {
 		 boolean bean3 = dao.remove("Kitty");   
 		  return true;
