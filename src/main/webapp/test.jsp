@@ -54,21 +54,27 @@
 	<hr />
 	<a href="<c:url value='/ratePK' />">RatePK</a>
 	<a href="<c:url value='/ratefindALL' />">RatefindAll</a>
-	<a href="<c:url value='/ratecreate' />">Ratecreat</a>
-	<a href="<c:url value='/rateupdate' />">Rateupdate</a>
-	<a href="<c:url value='/rateremove' />">Rateremove</a>
+<%-- 	<a href="<c:url value='/ratecreate' />">Ratecreat</a> --%>
+<%-- 	<a href="<c:url value='/rateupdate' />">Rateupdate</a> --%>
+<%-- 	<a href="<c:url value='/rateremove' />">Rateremove</a> --%>
 	<hr />
 	<a href="<c:url value='/rate_usdPK' />">Rate_UsdPK</a>
-	<a href="<c:url value='/rate_usdfindALL' />">Rate_UsdfindAll</a>
-	<a href="<c:url value='/rate_usdcreate' />">Rate_Usdcreat</a>
-	<a href="<c:url value='/rate_usdupdate' />">Rate_Usdupdate</a>
-	<a href="<c:url value='/rate_usdremove' />">Rate_Usdremove</a>
+<%-- 	<a href="<c:url value='/rate_usdfindALL' />">Rate_UsdfindAll</a> --%>
+<%-- 	<a href="<c:url value='/rate_usdcreate' />">Rate_Usdcreat</a> --%>
+<%-- 	<a href="<c:url value='/rate_usdupdate' />">Rate_Usdupdate</a> --%>
+<%-- 	<a href="<c:url value='/rate_usdremove' />">Rate_Usdremove</a> --%>
 	<hr />
-	<a href="<c:url value='/rate_jpyPK' />">Rate_jpyPK</a>
-	<a href="<c:url value='/rate_jpyfindALL' />">Rate_jpyfindAll</a>
-	<a href="<c:url value='/rate_jpycreate' />">Rate_jpycreat</a>
-	<a href="<c:url value='/rate_jpyupdate' />">Rate_jpyupdate</a>
-	<a href="<c:url value='/rate_jpyremove' />">Rate_jpyremove</a>
+<%-- 	<a href="<c:url value='/rate_jpyPK' />">Rate_jpyPK</a> --%>
+<%-- 	<a href="<c:url value='/rate_jpyfindALL' />">Rate_jpyfindAll</a> --%>
+<%-- 	<a href="<c:url value='/rate_jpycreate' />">Rate_jpycreat</a> --%>
+<%-- 	<a href="<c:url value='/rate_jpyupdate' />">Rate_jpyupdate</a> --%>
+<%-- 	<a href="<c:url value='/rate_jpyremove' />">Rate_jpyremove</a> --%>
+	<hr />
+	<a href="<c:url value='/ratenoticePK' />">RatenoticePK</a>
+<%-- 	<a href="<c:url value='/ratenoticefindALL' />">RatenoticefindAll</a> --%>
+<%-- 	<a href="<c:url value='/ratenoticecreate' />">Ratenoticecreat</a> --%>
+<%-- 	<a href="<c:url value='/ratenoticeupdate' />">Ratenoticeupdate</a> --%>
+<%-- 	<a href="<c:url value='/ratenoticeremove' />">Ratenoticeremove</a> --%>
 	<hr />
 	
 	<br />
