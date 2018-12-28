@@ -67,49 +67,49 @@
 	<a href="<c:url value='/Hoteltestcreate' />">Hoteltestcreate</a>
 	<a href="<c:url value='Hoteltestupdate' />">Hoteltestupdate</a>
 	<a href="<c:url value='Hoteltestremove' />">Hoteltestremove</a>
-	<hr />
+	<br />
 	
 	<a href="<c:url value='/HotelPicfindByPK' />">HotelPicfindByPK</a>
 	<a href="<c:url value='/HotelPicfindALL' />">HotelPicfindALL</a>
 	<a href="<c:url value='/HotelPiccreate' />">HotelPiccreate</a>
 	<a href="<c:url value='/HotelPicupdate' />">HotelPicupdate</a>
 	<a href="<c:url value='/HotelPicremove' />">HotelPicremove</a>
-	<hr />
+	<br />
 	
 	<a href="<c:url value='/RoomTypefindByPK' />">RoomTypefindByPK</a>
 	<a href="<c:url value='/RoomTypefindALL' />">RoomTypefindALL</a>
 	<a href="<c:url value='/RoomTypecreate' />">RoomTypecreate</a>
 	<a href="<c:url value='/RoomTypeupdate' />">RoomTypeupdate</a>
 	<a href="<c:url value='/RoomTyperemove' />">RoomTyperemove</a>
-	<hr />
+	<br />
 	
 	<a href="<c:url value='/RoomTypePicfindByPK' />">RoomTypePicfindByPK</a>
 	<a href="<c:url value='/RoomTypePicfindALL' />">RoomTypePicfindALL</a>
 	<a href="<c:url value='/RoomTypePiccreate' />">RoomTypePiccreate</a>
 	<a href="<c:url value='/RoomTypePicupdate' />">RoomTypePicupdate</a>
 	<a href="<c:url value='/RoomTypePicremove' />">RoomTypePicremove</a>
-	<hr />
+	<br />
 	
 	<a href="<c:url value='/RoomLeftfindByPK' />">RoomLeftfindByPK</a>
 	<a href="<c:url value='/RoomLeftfindALL' />">RoomLeftfindALL</a>
 	<a href="<c:url value='/RoomLeftcreate' />">RoomLeftcreate</a>
 	<a href="<c:url value='/RoomLeftupdate' />">RoomLeftupdate</a>
 	<a href="<c:url value='/RoomLeftremove' />">RoomLeftremove</a>
-	<hr />
+	<br />
 	
 	<a href="<c:url value='/HotelOrderDetailsfindByPK' />">HotelOrderDetailsfindByPK</a>
 	<a href="<c:url value='/HotelOrderDetailsfindALL' />">HotelOrderDetailsfindALL</a>
 	<a href="<c:url value='/HotelOrderDetailscreate' />">HotelOrderDetailscreate</a>
 	<a href="<c:url value='/HotelOrderDetailsupdate' />">HotelOrderDetailsupdate</a>
 	<a href="<c:url value='/HotelOrderDetailsremove' />">HotelOrderDetailsremove</a>
-	<hr />
+	<br />
 	
 	<br />
 	<h2>周周</h2>
 	<a href="<c:url value='/TourMemberFindPK' />">TourMemberFindPK</a>
 	<a href="<c:url value='/TourMemberFindAll' />">TourMemberFindAll</a>
 
-	<br />
+	<hr />
 	
 </body>
 </html>
