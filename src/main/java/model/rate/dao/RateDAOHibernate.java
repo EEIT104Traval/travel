@@ -14,6 +14,7 @@ import model.rate.Rate_USDBean;
 public class RateDAOHibernate implements RateDAO{
 		@Autowired
 		private SessionFactory sessionFactory;
+		
 		public Session getSession() {
 			return this.sessionFactory.getCurrentSession();
 		}

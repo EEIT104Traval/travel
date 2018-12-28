@@ -1,6 +1,13 @@
 package model.rate;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="Rate_USD")
 public class Rate_USDBean {
+	@Id
 	private java.util.Date updateTime;
 	private String currency;
 	private Double cashBuy;

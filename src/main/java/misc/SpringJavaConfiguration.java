@@ -16,6 +16,7 @@ import model.flight.FlightOrderInfoBean;
 import model.flight.FlightPassengerInfoBean;
 import model.hotel._01HotelBean;
 import model.rate.RateBean;
+import model.rate.RateNoticeBean;
 import model.rate.Rate_JPYBean;
 import model.rate.Rate_USDBean;
 import model.ticket.TicketInfoBean;
@@ -49,7 +50,7 @@ public class SpringJavaConfiguration {
 		builder.addAnnotatedClasses(UserInfoBean.class,GroupTourBean.class,TourBatchBean.class,
 				TourMemberInfoBean.class,TourPictureBean.class, TicketInfoBean.class, TicketOrderInfoBean.class,
 				_01HotelBean.class ,FlightOrderInfoBean.class,FlightPassengerInfoBean.class,RateBean.class,
-				Rate_USDBean.class,Rate_JPYBean.class);
+				Rate_USDBean.class,Rate_JPYBean.class,RateNoticeBean.class);
 
 
 		Properties props = new Properties();
