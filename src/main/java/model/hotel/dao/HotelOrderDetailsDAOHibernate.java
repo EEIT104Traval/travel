@@ -12,7 +12,7 @@ import model.hotel._04RoomTypePicBean;
 import model.hotel._06HotelOrderDetailsBean;
 import model.hotel._06HotelOrderDetailsDAO;
 @Repository
-public class HotelOrderDetailsBeanDAOHibernate implements _06HotelOrderDetailsDAO{
+public class HotelOrderDetailsDAOHibernate implements _06HotelOrderDetailsDAO{
 
 	@Autowired
 	private SessionFactory sessionFactory;
@@ -23,15 +23,13 @@ public class HotelOrderDetailsBeanDAOHibernate implements _06HotelOrderDetailsDA
 	
 	@Override
 	public _06HotelOrderDetailsBean findByPrimaryKey(Integer orderNo) {
-		
 		return this.getSession().get(_06HotelOrderDetailsBean.class , orderNo);
 	}
 
 	@Override
 	public List<_06HotelOrderDetailsBean> findAll() {
-		
-		return this.getSession().createQuery("from _06HotelOrderDetailsBean",_06HotelOrderDetailsBean.class).setMaxResults(50)
-				.list();
+		return this.getSession().createQuery("from _06HotelOrderDetailsBean",_06HotelOrderDetailsBean.class)
+				.setMaxResults(50).list();
 	}
 
 	@Override

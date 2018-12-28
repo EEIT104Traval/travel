@@ -5,100 +5,49 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="RoomType")
+@Table(name="RoomTypePic")
 public class _04RoomTypePicBean {
 	@Id
-	private Integer orderNo;
-	private Integer hotelNo;
-	private String hotelName;
-	private String username;
-	private String bookingPerson;
-	private Integer phone;
-	private java.util.Date bookingDate;
-	private java.util.Date checkIn;
-	private java.util.Date checkOut;
-	private String roomType;
-	private Integer totalprice;
-	private String info;
+	private Integer picNo;
+	private Integer roomTypeNo;
+	private String picName;
+	private String pic;
+	private String picDiscription;
 	
 	@Override
 	public String toString() {
-		return "RoomTypePicBean [orderNo=" + orderNo + ", hotelNo=" + hotelNo + ", hotelName=" + hotelName
-				+ ", username=" + username + ", bookingPerson=" + bookingPerson + ", phone=" + phone + ", bookingDate="
-				+ bookingDate + ", checkIn=" + checkIn + ", checkOut=" + checkOut + ", roomType=" + roomType
-				+ ", Totalprice=" + totalprice + ", info=" + info + "]";
+		return "_04RoomTypePicBean [picNo=" + picNo + ", roomTypeNo=" + roomTypeNo + ", picName=" + picName + ", pic="
+				+ pic + ", picDiscription=" + picDiscription + "]";
 	}
-	public Integer getOrderNo() {
-		return orderNo;
+	public Integer getPicNo() {
+		return picNo;
 	}
-	public void setOrderNo(Integer orderNo) {
-		this.orderNo = orderNo;
+	public void setPicNo(Integer picNo) {
+		this.picNo = picNo;
 	}
-	public Integer getHotelNo() {
-		return hotelNo;
+	public Integer getRoomTypeNo() {
+		return roomTypeNo;
 	}
-	public void setHotelNo(Integer hotelNo) {
-		this.hotelNo = hotelNo;
+	public void setRoomTypeNo(Integer roomTypeNo) {
+		this.roomTypeNo = roomTypeNo;
 	}
-	public String getHotelName() {
-		return hotelName;
+	public String getPicName() {
+		return picName;
 	}
-	public void setHotelName(String hotelName) {
-		this.hotelName = hotelName;
+	public void setPicName(String picName) {
+		this.picName = picName;
 	}
-	public String getUsername() {
-		return username;
+	public String getPic() {
+		return pic;
 	}
-	public void setUsername(String username) {
-		this.username = username;
+	public void setPic(String pic) {
+		this.pic = pic;
 	}
-	public String getBookingPerson() {
-		return bookingPerson;
+	public String getPicDiscription() {
+		return picDiscription;
 	}
-	public void setBookingPerson(String bookingPerson) {
-		this.bookingPerson = bookingPerson;
-	}
-	public Integer getPhone() {
-		return phone;
-	}
-	public void setPhone(Integer phone) {
-		this.phone = phone;
-	}
-	public java.util.Date getBookingDate() {
-		return bookingDate;
-	}
-	public void setBookingDate(java.util.Date bookingDate) {
-		this.bookingDate = bookingDate;
-	}
-	public java.util.Date getCheckIn() {
-		return checkIn;
-	}
-	public void setCheckIn(java.util.Date checkIn) {
-		this.checkIn = checkIn;
-	}
-	public java.util.Date getCheckOut() {
-		return checkOut;
-	}
-	public void setCheckOut(java.util.Date checkOut) {
-		this.checkOut = checkOut;
-	}
-	public String getRoomType() {
-		return roomType;
-	}
-	public void setRoomType(String roomType) {
-		this.roomType = roomType;
-	}
-	public Integer getTotalprice() {
-		return totalprice;
-	}
-	public void setTotalprice(Integer totalprice) {
-		totalprice = totalprice;
-	}
-	public String getInfo() {
-		return info;
-	}
-	public void setInfo(String info) {
-		this.info = info;
+	public void setPicDiscription(String picDiscription) {
+		this.picDiscription = picDiscription;
 	}
 	
 }

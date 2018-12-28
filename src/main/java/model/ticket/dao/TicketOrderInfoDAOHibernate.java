@@ -1,15 +1,15 @@
 package model.ticket.dao;
 
-import java.sql.Date;
 import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import model.ticket.TicketOrderInfoBean;
 import model.ticket.TicketOrderInfoDAO;
-
+@Repository
 public class TicketOrderInfoDAOHibernate implements TicketOrderInfoDAO {
 
 	@Autowired
@@ -35,24 +35,18 @@ public class TicketOrderInfoDAOHibernate implements TicketOrderInfoDAO {
 	@Override
 	public TicketOrderInfoBean create(TicketOrderInfoBean bean) {
 
-		if (bean != null) {
-			TicketOrderInfoBean result = this.getSession().get(TicketOrderInfoBean.class, bean.getTicketOrderNO());
-			if (result == null) {
 				this.getSession().save(bean);
 				return bean;
-			}
-		}
-		return null;
 	}
 
 	@Override
-	public TicketOrderInfoBean update(Integer ticketOrderNO, String username, Integer ticketNo, Date orderDate,
-			Date useDate, Integer adultTicketCount, Integer childTicketCount, String recevingContact,
-			String recevingAddress, Integer recevingPhone, Integer totalPrice) {
-
+	public TicketOrderInfoBean update(Integer ticketOrderNO, String username, Integer ticketNo,
+			java.util.Date orderDate, java.util.Date useDate, Integer adultTicketCount, Integer childTicketCount,
+			String recevingContact, String recevingAddress, String recevingPhone, Integer totalPrice) {
+	
 		TicketOrderInfoBean result = this.getSession().get(TicketOrderInfoBean.class, ticketOrderNO);
 		if (result != null) {
-			result.setTicketOrderNO(ticketOrderNO);
+			
 			result.setUsername(username);
 			result.setTicketNo(ticketNo);
 			result.setOrderDate(orderDate);
@@ -78,5 +72,4 @@ public class TicketOrderInfoDAOHibernate implements TicketOrderInfoDAO {
 		}
 		return false;
 	}
-
 }

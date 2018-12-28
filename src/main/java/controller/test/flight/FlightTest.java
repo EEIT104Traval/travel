@@ -31,7 +31,7 @@ public class FlightTest {
 	@ResponseBody // @RestController可替代
 	@RequestMapping("/flight2")
 	public FlightOrderInfoBean findByPrimaryKey() {
-		FlightOrderInfoBean bean = dao.findByPrimaryKey(3);
+		FlightOrderInfoBean bean = dao.findByPrimaryKey(2);
 		return bean;
 	}
 
