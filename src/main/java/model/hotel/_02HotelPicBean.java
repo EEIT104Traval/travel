@@ -1,5 +1,7 @@
 package model.hotel;
 
+import java.util.Arrays;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -8,16 +10,22 @@ import javax.persistence.Table;
 @Table(name="HotelPic")
 public class _02HotelPicBean {
 	@Id
+	private Integer picNo;
 	private Integer hotelNo;
-	private Integer roomTypeNo;
-	private String roomType;
-	private java.util.Date saleDate;
-	private Integer price;
+	private String picName;
+	private String picDiscription;
+	private byte[] pic;
 	
 	@Override
 	public String toString() {
-		return "HotelPicBean [hotelNo=" + hotelNo + ", roomTypeNo=" + roomTypeNo + ", roomType=" + roomType
-				+ ", saleDate=" + saleDate + ", price=" + price + "]";
+		return "_02HotelPicBean [picNo=" + picNo + ", hotelNo=" + hotelNo + ", picName=" + picName + ", picDiscription="
+				+ picDiscription + ", pic=" + Arrays.toString(pic) + "]";
+	}
+	public Integer getPicNo() {
+		return picNo;
+	}
+	public void setPicNo(Integer picNo) {
+		this.picNo = picNo;
 	}
 	public Integer getHotelNo() {
 		return hotelNo;
@@ -25,29 +33,23 @@ public class _02HotelPicBean {
 	public void setHotelNo(Integer hotelNo) {
 		this.hotelNo = hotelNo;
 	}
-	public Integer getRoomTypeNo() {
-		return roomTypeNo;
+	public String getPicName() {
+		return picName;
 	}
-	public void setRoomTypeNo(Integer roomTypeNo) {
-		this.roomTypeNo = roomTypeNo;
+	public void setPicName(String picName) {
+		this.picName = picName;
 	}
-	public String getRoomType() {
-		return roomType;
+	public String getPicDiscription() {
+		return picDiscription;
 	}
-	public void setRoomType(String roomType) {
-		this.roomType = roomType;
+	public void setPicDiscription(String picDiscription) {
+		this.picDiscription = picDiscription;
 	}
-	public java.util.Date getSaleDate() {
-		return saleDate;
+	public byte[] getPic() {
+		return pic;
 	}
-	public void setSaleDate(java.util.Date saleDate) {
-		this.saleDate = saleDate;
-	}
-	public Integer getPrice() {
-		return price;
-	}
-	public void setPrice(Integer price) {
-		this.price = price;
+	public void setPic(byte[] pic) {
+		this.pic = pic;
 	}
 	
 }

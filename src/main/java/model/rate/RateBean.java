@@ -2,8 +2,15 @@ package model.rate;
 
 import java.util.Arrays;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+@Entity
+@Table(name="Rate")
 public class RateBean {
+	
 	private Byte[] flag;
+	@Id
 	private String currency;
 	private Double cashBuy;
 	private Double cashSell;

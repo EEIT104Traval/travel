@@ -25,7 +25,7 @@ public class GroupTourDAO {
 	
 	public List<GroupTourBean> findAll() {
 		return this.getSession().createQuery("from GroupTourBean", GroupTourBean.class)
-				.setMaxResults(50)
+				.setMaxResults(100)
 				.list();
 	}
 	public GroupTourBean create(GroupTourBean bean) {
