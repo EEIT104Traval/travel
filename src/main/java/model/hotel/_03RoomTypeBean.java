@@ -8,21 +8,16 @@ import javax.persistence.Table;
 @Table(name="RoomType")
 public class _03RoomTypeBean {
 	@Id
-	private Integer serialNo;
 	private Integer hotelNo;
-	private Integer roomLeft;
-	private Integer notForSale;
+	private Integer roomTypeNo;
+	private String roomType;
+	private java.util.Date saleDate;
+	private Integer price;
 	
 	@Override
 	public String toString() {
-		return "RoomTypeBean [serialNo=" + serialNo + ", hotelNo=" + hotelNo + ", roomLeft=" + roomLeft
-				+ ", notForSale=" + notForSale + "]";
-	}
-	public Integer getSerialNo() {
-		return serialNo;
-	}
-	public void setSerialNo(Integer serialNo) {
-		this.serialNo = serialNo;
+		return "_03RoomTypeBean [hotelNo=" + hotelNo + ", roomTypeNo=" + roomTypeNo + ", roomType=" + roomType
+				+ ", saleDate=" + saleDate + ", price=" + price + "]";
 	}
 	public Integer getHotelNo() {
 		return hotelNo;
@@ -30,17 +25,29 @@ public class _03RoomTypeBean {
 	public void setHotelNo(Integer hotelNo) {
 		this.hotelNo = hotelNo;
 	}
-	public Integer getRoomLeft() {
-		return roomLeft;
+	public Integer getRoomTypeNo() {
+		return roomTypeNo;
 	}
-	public void setRoomLeft(Integer roomLeft) {
-		this.roomLeft = roomLeft;
+	public void setRoomTypeNo(Integer roomTypeNo) {
+		this.roomTypeNo = roomTypeNo;
 	}
-	public Integer getNotForSale() {
-		return notForSale;
+	public String getRoomType() {
+		return roomType;
 	}
-	public void setNotForSale(Integer notForSale) {
-		this.notForSale = notForSale;
+	public void setRoomType(String roomType) {
+		this.roomType = roomType;
 	}
-
+	public java.util.Date getSaleDate() {
+		return saleDate;
+	}
+	public void setSaleDate(java.util.Date saleDate) {
+		this.saleDate = saleDate;
+	}
+	public Integer getPrice() {
+		return price;
+	}
+	public void setPrice(Integer price) {
+		this.price = price;
+	}
+	
 }

@@ -10,46 +10,39 @@ import javax.persistence.Table;
 @Table(name="RoomLeft")
 public class _05RoomLeftBean {
 	@Id
-	private Integer picNo;
-	private Integer roomTypeNo;
-	private String picName;
-	private byte[] pic;
-	private String picDiscription;
+	private Integer serialNo;
+	private Integer hotelNo;
+	private Integer roomLeft;
+	private Integer notForSale;
 	
 	@Override
 	public String toString() {
-		return "RoomLeftBean [picNo=" + picNo + ", roomTypeNo=" + roomTypeNo + ", picName=" + picName + ", pic="
-				+ Arrays.toString(pic) + ", picDiscription=" + picDiscription + "]";
+		return "_05RoomLeftBean [serialNo=" + serialNo + ", hotelNo=" + hotelNo + ", roomLeft=" + roomLeft
+				+ ", notForSale=" + notForSale + "]";
 	}
-	public Integer getPicNo() {
-		return picNo;
+	public Integer getSerialNo() {
+		return serialNo;
 	}
-	public void setPicNo(Integer picNo) {
-		this.picNo = picNo;
+	public void setSerialNo(Integer serialNo) {
+		this.serialNo = serialNo;
 	}
-	public Integer getRoomTypeNo() {
-		return roomTypeNo;
+	public Integer getHotelNo() {
+		return hotelNo;
 	}
-	public void setRoomTypeNo(Integer roomTypeNo) {
-		this.roomTypeNo = roomTypeNo;
+	public void setHotelNo(Integer hotelNo) {
+		this.hotelNo = hotelNo;
 	}
-	public String getPicName() {
-		return picName;
+	public Integer getRoomLeft() {
+		return roomLeft;
 	}
-	public void setPicName(String picName) {
-		this.picName = picName;
+	public void setRoomLeft(Integer roomLeft) {
+		this.roomLeft = roomLeft;
 	}
-	public byte[] getPic() {
-		return pic;
+	public Integer getNotForSale() {
+		return notForSale;
 	}
-	public void setPic(byte[] pic) {
-		this.pic = pic;
-	}
-	public String getPicDiscription() {
-		return picDiscription;
-	}
-	public void setPicDiscription(String picDiscription) {
-		this.picDiscription = picDiscription;
+	public void setNotForSale(Integer notForSale) {
+		this.notForSale = notForSale;
 	}
 	
 }
