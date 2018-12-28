@@ -19,7 +19,7 @@ public class UserInfoTest {
  private UserInfoDAO dao ;
  
  @ResponseBody  //@RestController可替代
- @RequestMapping("/test")
+ @RequestMapping("/userInfoPK")
  public UserInfoBean method() {
   System.out.println("test controller");  
   UserInfoBean bean = dao.findByPrimaryKey("Micky");   
