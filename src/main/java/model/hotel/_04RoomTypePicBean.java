@@ -1,25 +1,23 @@
 package model.hotel;
 
-import java.util.Arrays;
-
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="HotelOrderDetails")
-public class HotelOrderDetailsBean {
+@Table(name="RoomTypePic")
+public class _04RoomTypePicBean {
 	@Id
 	private Integer picNo;
-	private Integer hotelNo;
+	private Integer roomTypeNo;
 	private String picName;
+	private String pic;
 	private String picDiscription;
-	private byte[] pic;
-
+	
 	@Override
 	public String toString() {
-		return "HotelOrderDetailsBean [picNo=" + picNo + ", hotelNo=" + hotelNo + ", picName=" + picName
-				+ ", picDiscription=" + picDiscription + ", pic=" + Arrays.toString(pic) + "]";
+		return "_04RoomTypePicBean [picNo=" + picNo + ", roomTypeNo=" + roomTypeNo + ", picName=" + picName + ", pic="
+				+ pic + ", picDiscription=" + picDiscription + "]";
 	}
 	public Integer getPicNo() {
 		return picNo;
@@ -27,11 +25,11 @@ public class HotelOrderDetailsBean {
 	public void setPicNo(Integer picNo) {
 		this.picNo = picNo;
 	}
-	public Integer getHotelNo() {
-		return hotelNo;
+	public Integer getRoomTypeNo() {
+		return roomTypeNo;
 	}
-	public void setHotelNo(Integer hotelNo) {
-		this.hotelNo = hotelNo;
+	public void setRoomTypeNo(Integer roomTypeNo) {
+		this.roomTypeNo = roomTypeNo;
 	}
 	public String getPicName() {
 		return picName;
@@ -39,17 +37,17 @@ public class HotelOrderDetailsBean {
 	public void setPicName(String picName) {
 		this.picName = picName;
 	}
+	public String getPic() {
+		return pic;
+	}
+	public void setPic(String pic) {
+		this.pic = pic;
+	}
 	public String getPicDiscription() {
 		return picDiscription;
 	}
 	public void setPicDiscription(String picDiscription) {
 		this.picDiscription = picDiscription;
-	}
-	public byte[] getPic() {
-		return pic;
-	}
-	public void setPic(byte[] pic) {
-		this.pic = pic;
 	}
 	
 }

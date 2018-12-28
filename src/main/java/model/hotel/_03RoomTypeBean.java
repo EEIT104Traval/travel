@@ -5,8 +5,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="HotelPic")
-public class HotelPicBean {
+@Table(name="RoomType")
+public class _03RoomTypeBean {
 	@Id
 	private Integer hotelNo;
 	private Integer roomTypeNo;
@@ -16,7 +16,7 @@ public class HotelPicBean {
 	
 	@Override
 	public String toString() {
-		return "HotelPicBean [hotelNo=" + hotelNo + ", roomTypeNo=" + roomTypeNo + ", roomType=" + roomType
+		return "_03RoomTypeBean [hotelNo=" + hotelNo + ", roomTypeNo=" + roomTypeNo + ", roomType=" + roomType
 				+ ", saleDate=" + saleDate + ", price=" + price + "]";
 	}
 	public Integer getHotelNo() {

@@ -14,6 +14,13 @@ public class TourOrderInfoBean {
 	private Integer quantity;
 	private Integer total;
 	private String orderStatus;
+	
+	@Override
+	public String toString() {
+		return "TourOrderInfoBean [serialNo=" + serialNo + ", username=" + username + ", tourNo=" + tourNo
+				+ ", quantity=" + quantity + ", total=" + total + ", orderStatus=" + orderStatus + "]";
+	}
+	
 	public Integer getSerialNo() {
 		return serialNo;
 	}
@@ -50,12 +57,4 @@ public class TourOrderInfoBean {
 	public void setOrderStatus(String orderStatus) {
 		this.orderStatus = orderStatus;
 	}
-	@Override
-	public String toString() {
-		return "TourOrderInfoBean [serialNo=" + serialNo + ", username=" + username + ", tourNo=" + tourNo
-				+ ", quantity=" + quantity + ", total=" + total + ", orderStatus=" + orderStatus + "]";
-	}
-	
-	
-	
 }

@@ -1,12 +1,14 @@
 package model.hotel;
 
+import java.util.Arrays;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="RoomType")
-public class RoomTypeBean {
+@Table(name="RoomLeft")
+public class _05RoomLeftBean {
 	@Id
 	private Integer serialNo;
 	private Integer hotelNo;
@@ -15,7 +17,7 @@ public class RoomTypeBean {
 	
 	@Override
 	public String toString() {
-		return "RoomTypeBean [serialNo=" + serialNo + ", hotelNo=" + hotelNo + ", roomLeft=" + roomLeft
+		return "_05RoomLeftBean [serialNo=" + serialNo + ", hotelNo=" + hotelNo + ", roomLeft=" + roomLeft
 				+ ", notForSale=" + notForSale + "]";
 	}
 	public Integer getSerialNo() {
@@ -42,5 +44,5 @@ public class RoomTypeBean {
 	public void setNotForSale(Integer notForSale) {
 		this.notForSale = notForSale;
 	}
-
+	
 }

@@ -1,7 +1,7 @@
 package model.ticket;
 
-import java.sql.Date;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -10,17 +10,10 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
-import org.hibernate.boot.MetadataSources;
-import org.hibernate.boot.registry.StandardServiceRegistry;
-import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
-
 @Entity
 @Table(name="ticketInfo")
 public class TicketInfoBean {
-	 
+
 //	@OneToMany(
 //			cascade=CascadeType.REMOVE,
 //			mappedBy="ticketInfo"	
@@ -37,7 +30,7 @@ public class TicketInfoBean {
 	@Id
 	  private Integer ticketNo ;
 	  private String ticketName;
-	  private Date validity;
+	  private java.util.Date validity;
 	  private Integer adultTicketPrice;
 	  private Integer childTicketPrice;
 	  private Integer adultTicketSellQ;

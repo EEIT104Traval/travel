@@ -1,32 +1,34 @@
 package model.hotel;
 
+import java.util.Arrays;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="RoomType")
-public class RoomTypePicBean {
+@Table(name="HotelOrderDetails")
+public class _06HotelOrderDetailsBean {
 	@Id
 	private Integer orderNo;
 	private Integer hotelNo;
 	private String hotelName;
 	private String username;
 	private String bookingPerson;
-	private Integer phone;
+	private String phone;
 	private java.util.Date bookingDate;
 	private java.util.Date checkIn;
 	private java.util.Date checkOut;
 	private String roomType;
-	private Integer Totalprice;
+	private Integer totalprice;
 	private String info;
 	
 	@Override
 	public String toString() {
-		return "RoomTypePicBean [orderNo=" + orderNo + ", hotelNo=" + hotelNo + ", hotelName=" + hotelName
+		return "_06HotelOrderDetailsBean [orderNo=" + orderNo + ", hotelNo=" + hotelNo + ", hotelName=" + hotelName
 				+ ", username=" + username + ", bookingPerson=" + bookingPerson + ", phone=" + phone + ", bookingDate="
 				+ bookingDate + ", checkIn=" + checkIn + ", checkOut=" + checkOut + ", roomType=" + roomType
-				+ ", Totalprice=" + Totalprice + ", info=" + info + "]";
+				+ ", Totalprice=" + totalprice + ", info=" + info + "]";
 	}
 	public Integer getOrderNo() {
 		return orderNo;
@@ -58,10 +60,10 @@ public class RoomTypePicBean {
 	public void setBookingPerson(String bookingPerson) {
 		this.bookingPerson = bookingPerson;
 	}
-	public Integer getPhone() {
+	public String getPhone() {
 		return phone;
 	}
-	public void setPhone(Integer phone) {
+	public void setPhone(String phone) {
 		this.phone = phone;
 	}
 	public java.util.Date getBookingDate() {
@@ -89,10 +91,10 @@ public class RoomTypePicBean {
 		this.roomType = roomType;
 	}
 	public Integer getTotalprice() {
-		return Totalprice;
+		return totalprice;
 	}
 	public void setTotalprice(Integer totalprice) {
-		Totalprice = totalprice;
+		totalprice = totalprice;
 	}
 	public String getInfo() {
 		return info;
@@ -100,5 +102,5 @@ public class RoomTypePicBean {
 	public void setInfo(String info) {
 		this.info = info;
 	}
-	
+
 }
