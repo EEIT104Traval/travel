@@ -9,9 +9,8 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "FlightPassengerInfo")
 public class FlightPassengerInfoBean {
+	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer serialNO;
 	private Integer flightTicketNO;
 	private Integer flightOrderNO;
 	private String firstName;
@@ -21,12 +20,12 @@ public class FlightPassengerInfoBean {
 	private java.util.Date birth;
 	private String title;
 
-	public Integer getSerialNO() {
-		return serialNO;
-	}
 
-	public void setSerialNO(Integer serialNO) {
-		this.serialNO = serialNO;
+	@Override
+	public String toString() {
+		return "FlightPassengerInfoBean [flightTicketNO=" + flightTicketNO + ", flightOrderNO=" + flightOrderNO
+				+ ", firstName=" + firstName + ", lastName=" + lastName + ", price=" + price + ", adultOrChild="
+				+ adultOrChild + ", birth=" + birth + ", title=" + title + "]";
 	}
 
 	public Integer getFlightTicketNO() {

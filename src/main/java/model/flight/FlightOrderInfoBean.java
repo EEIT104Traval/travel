@@ -12,6 +12,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "FlightOrderInfo")
 public class FlightOrderInfoBean {
+	
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,7 +21,8 @@ public class FlightOrderInfoBean {
 	private String bookingCode;
 	private Integer phone;
 	private String email;
-	private Integer peopleCount;
+	private Integer adultCount;
+	private Integer childCount;
 	private java.util.Date dealDate;
 	private String orderStatus;
 
@@ -64,12 +66,21 @@ public class FlightOrderInfoBean {
 		this.email = email;
 	}
 
-	public Integer getPeopleCount() {
-		return peopleCount;
+
+	public Integer getAdultCount() {
+		return adultCount;
 	}
 
-	public void setPeopleCount(Integer peopleCount) {
-		this.peopleCount = peopleCount;
+	public void setAdultCount(Integer adultCount) {
+		this.adultCount = adultCount;
+	}
+
+	public Integer getChildCount() {
+		return childCount;
+	}
+
+	public void setChildCount(Integer childCount) {
+		this.childCount = childCount;
 	}
 
 	public Date getDealDate() {
@@ -91,12 +102,10 @@ public class FlightOrderInfoBean {
 	@Override
 	public String toString() {
 		return "FlightOrderInfoBean [flightOrderNO=" + flightOrderNO + ", username=" + username + ", bookingCode="
-				+ bookingCode + ", phone=" + phone + ", email=" + email + ", peopleCount=" + peopleCount + ", dealDate="
-				+ dealDate + ", orderStatus=" + orderStatus + ", getFlightOrderNO()=" + getFlightOrderNO()
-				+ ", getUsername()=" + getUsername() + ", getBookingCode()=" + getBookingCode() + ", getPhone()="
-				+ getPhone() + ", getEmail()=" + getEmail() + ", getPeopleCount()=" + getPeopleCount()
-				+ ", getDealDate()=" + getDealDate() + ", getOrderStatus()=" + getOrderStatus() + ", getClass()="
-				+ getClass() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
+				+ bookingCode + ", phone=" + phone + ", email=" + email + ", adultCount=" + adultCount + ", childCount="
+				+ childCount + ", dealDate=" + dealDate + ", orderStatus=" + orderStatus + ", toString()="
+				+ super.toString() + "]";
 	}
 
+	
 }

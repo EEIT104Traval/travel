@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,28 +9,38 @@
 </head>
 <body>
 
-    <h1>熊</h1>
-    <a href="<c:url value='TourtestfindPK' />">TourtestfindPK</a>
-      <br/><br/>
-      <a href="<c:url value='TourtestfindALL' />">TourtestfindALL</a>
-      <br/><br/>
-      <a href="<c:url value='Tourtestcreate' />">Tourtestcreate</a>
-      <br/><br/>
-      <a href="<c:url value='Tourtestupdate' />">Tourtestupdate</a>
-      <br/><br/>
-      <a href="<c:url value='Tourtestremove' />">Tourtestremove</a>
-      <br/><br/>
-      <a href="<c:url value='TourBatchtestfindPK' />">TourBatchtestfindPK</a>
-      <br/><br/>
-      <a href="<c:url value='TourBatchtestfindALL' />">TourBatchtestfindALL</a>
-      <br/><br/>
-      <a href="<c:url value='TourBatchtestInsert' />">TourBatchtestInsert</a>
-      <br/><br/>
-      <a href="<c:url value='TourBatchtestUpdate' />">TourBatchtestUpdate</a>
-      <br/><br/>
-      <a href="<c:url value='TourBatchtestremove' />">TourBatchtestremove</a>
-      <br/><br/>
-      <hr/>
+	<h1>熊</h1>
+	<a href="<c:url value='TourtestfindPK' />">TourtestfindPK</a>
+	<br />
+	<br />
+	<a href="<c:url value='TourtestfindALL' />">TourtestfindALL</a>
+	<br />
+	<br />
+	<a href="<c:url value='Tourtestcreate' />">Tourtestcreate</a>
+	<br />
+	<br />
+	<a href="<c:url value='Tourtestupdate' />">Tourtestupdate</a>
+	<br />
+	<br />
+	<a href="<c:url value='Tourtestremove' />">Tourtestremove</a>
+	<br />
+	<br />
+	<a href="<c:url value='TourBatchtestfindPK' />">TourBatchtestfindPK</a>
+	<br />
+	<br />
+	<a href="<c:url value='TourBatchtestfindALL' />">TourBatchtestfindALL</a>
+	<br />
+	<br />
+	<a href="<c:url value='TourBatchtestInsert' />">TourBatchtestInsert</a>
+	<br />
+	<br />
+	<a href="<c:url value='TourBatchtestUpdate' />">TourBatchtestUpdate</a>
+	<br />
+	<br />
+	<a href="<c:url value='TourBatchtestremove' />">TourBatchtestremove</a>
+	<br />
+	<br />
+	<hr />
 	<h1>姚</h1>
 	<a href="<c:url value='ticketfindAll' />">ticketfindAll</a>
 	<a href="<c:url value='ticketfindpk' />">ticketfindpk</a>
@@ -54,43 +64,53 @@
 	<hr />
 	<a href="<c:url value='/ratePK' />">RatePK</a>
 	<a href="<c:url value='/ratefindALL' />">RatefindAll</a>
-<%-- 	<a href="<c:url value='/ratecreate' />">Ratecreat</a> --%>
-<%-- 	<a href="<c:url value='/rateupdate' />">Rateupdate</a> --%>
-<%-- 	<a href="<c:url value='/rateremove' />">Rateremove</a> --%>
+	<%-- 	<a href="<c:url value='/ratecreate' />">Ratecreat</a> --%>
+	<%-- 	<a href="<c:url value='/rateupdate' />">Rateupdate</a> --%>
+	<%-- 	<a href="<c:url value='/rateremove' />">Rateremove</a> --%>
 	<hr />
 	<a href="<c:url value='/rate_usdPK' />">Rate_UsdPK</a>
-<%-- 	<a href="<c:url value='/rate_usdfindALL' />">Rate_UsdfindAll</a> --%>
-<%-- 	<a href="<c:url value='/rate_usdcreate' />">Rate_Usdcreat</a> --%>
-<%-- 	<a href="<c:url value='/rate_usdupdate' />">Rate_Usdupdate</a> --%>
-<%-- 	<a href="<c:url value='/rate_usdremove' />">Rate_Usdremove</a> --%>
+	<%-- 	<a href="<c:url value='/rate_usdfindALL' />">Rate_UsdfindAll</a> --%>
+	<%-- 	<a href="<c:url value='/rate_usdcreate' />">Rate_Usdcreat</a> --%>
+	<%-- 	<a href="<c:url value='/rate_usdupdate' />">Rate_Usdupdate</a> --%>
+	<%-- 	<a href="<c:url value='/rate_usdremove' />">Rate_Usdremove</a> --%>
 	<hr />
-<%-- 	<a href="<c:url value='/rate_jpyPK' />">Rate_jpyPK</a> --%>
-<%-- 	<a href="<c:url value='/rate_jpyfindALL' />">Rate_jpyfindAll</a> --%>
-<%-- 	<a href="<c:url value='/rate_jpycreate' />">Rate_jpycreat</a> --%>
-<%-- 	<a href="<c:url value='/rate_jpyupdate' />">Rate_jpyupdate</a> --%>
-<%-- 	<a href="<c:url value='/rate_jpyremove' />">Rate_jpyremove</a> --%>
+	<%-- 	<a href="<c:url value='/rate_jpyPK' />">Rate_jpyPK</a> --%>
+	<%-- 	<a href="<c:url value='/rate_jpyfindALL' />">Rate_jpyfindAll</a> --%>
+	<%-- 	<a href="<c:url value='/rate_jpycreate' />">Rate_jpycreat</a> --%>
+	<%-- 	<a href="<c:url value='/rate_jpyupdate' />">Rate_jpyupdate</a> --%>
+	<%-- 	<a href="<c:url value='/rate_jpyremove' />">Rate_jpyremove</a> --%>
 	<hr />
 	<a href="<c:url value='/ratenoticePK' />">RatenoticePK</a>
-<%-- 	<a href="<c:url value='/ratenoticefindALL' />">RatenoticefindAll</a> --%>
-<%-- 	<a href="<c:url value='/ratenoticecreate' />">Ratenoticecreat</a> --%>
-<%-- 	<a href="<c:url value='/ratenoticeupdate' />">Ratenoticeupdate</a> --%>
-<%-- 	<a href="<c:url value='/ratenoticeremove' />">Ratenoticeremove</a> --%>
+	<%-- 	<a href="<c:url value='/ratenoticefindALL' />">RatenoticefindAll</a> --%>
+	<%-- 	<a href="<c:url value='/ratenoticecreate' />">Ratenoticecreat</a> --%>
+	<%-- 	<a href="<c:url value='/ratenoticeupdate' />">Ratenoticeupdate</a> --%>
+	<%-- 	<a href="<c:url value='/ratenoticeremove' />">Ratenoticeremove</a> --%>
 	<hr />
-	
+
 	<br />
 
 	<h1>朱薇</h1>
-	<a href="<c:url value='/flight1' />">findAll</a>
-	<a href="<c:url value='/flight2' />">findByPrimaryKey</a>
-	<a href="<c:url value='/flight3' />">create</a>
-	<a href="<c:url value='/flight4' />">update</a>
-	<a href="<c:url value='/flight5' />">remove</a>
-	<a href="<c:url value='/flight6' />">findByPrimaryKey1</a>
-	<a href="<c:url value='/flight7' />">findAll2</a>
-	<a href="<c:url value='/flight8' />">create2</a>
+	<a href="<c:url value='/flight1' />">FlightOrderfindAll</a>
+	<a href="<c:url value='/flight2' />">FlightOrderfindByPrimaryKey</a>
+	<a href="<c:url value='/flight3' />">FlightOrdercreate</a>
+	<a href="<c:url value='/flight4' />">FlightOrderupdate</a>
+	<a href="<c:url value='/flight5' />">FlightOrderremove</a>
+	<hr />
+	<a href="<c:url value='/flight6' />">FlightPassengerfindByPrimaryKey1</a>
+	<a href="<c:url value='/flight7' />">FlightPassengerfindAll2</a>
+	<a href="<c:url value='/flight8' />">FlightPassengercreate2</a>
+	<hr />
+	<a href="<c:url value='/flight9' />">FlightTicketfindByPrimaryKey</a>
+	<a href="<c:url value='/flight10' />">FlightTicketfindAll</a>
+	<a href="<c:url value='/flight11' />">FlightTicketcreate</a>
+	<hr />
+	<a href="<c:url value='/flight12' />">AirportfindByPrimaryKey</a>
+	<a href="<c:url value='/flight13' />">AirportCreate</a>
+	<hr />
+	<a href="<c:url value='/flight14' />">AirlinefindByPrimaryKey</a>
+	<a href="<c:url value='/flight15' />">AirlineCreate</a>
+	<hr />
 	<br />
-<hr />
-
 	<h1>雅涵</h1>
 	<a href="<c:url value='/HotelfindByPK' />">HotelfindByPK</a>
 	<a href="<c:url value='/HoteltestfindALL' />">HoteltestfindALL</a>
@@ -136,14 +156,14 @@
 
 	<br />
 	<h2>周周</h2>
-	<a href="<c:url value='/TourMemberFindAll' />">TourMemberFindAll</a>　
-	<a href="<c:url value='/TourMemberFindSerialNo' />">TourMemberFindSerialNo</a>　　
-	<a href="<c:url value='/TourMemberFindPrimartyKey' />">TourMemberFindPrimartyKey</a>　　
-	<a href="<c:url value='/update' />">update</a>　　
-	<a href="<c:url value='/create' />">create</a>　　
-	
+	<a href="<c:url value='/TourMemberFindAll' />">TourMemberFindAll</a>
+	<a href="<c:url value='/TourMemberFindSerialNo' />">TourMemberFindSerialNo</a>
+	<a href="<c:url value='/TourMemberFindPrimartyKey' />">TourMemberFindPrimartyKey</a>
+	<a href="<c:url value='/update' />">update</a>
+	<a href="<c:url value='/create' />">create</a>
+
 	<br />
-	
+
 
 </body>
 </html>
