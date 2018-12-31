@@ -1,37 +1,55 @@
 package model.flight;
 
-import java.sql.Date;
+import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="FlightTicket")
+@Table(name = "FlightTicket")
 public class FlightTicketBean {
+
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer serial;
+	private Integer flightOrderNo;
 	private String flightNO;
-	private String airlineCompany;
+	private String airlineCode;
 	private String takeOffPlace;
-	private String takeOffAirport;
 	private String landingPlace;
-	private String landingAirport;
-	private Date  takeOffTime;
-	private Date  landingTime;
-	private int changeMoney;
-	private int refundMoney; 
-	private int baggageAllowance;
+	private Date takeOffTime;
+	private Date landingTime;
+	private int adultPrice;
+	private int childPrice;
+	private Double baggageAllowance;
+	private String goOrBack;
+	private String classLevel;
+	public Integer getSerial() {
+		return serial;
+	}
+	public void setSerial(Integer serial) {
+		this.serial = serial;
+	}
+	public Integer getFlightOrderNo() {
+		return flightOrderNo;
+	}
+	public void setFlightOrderNo(Integer flightOrderNo) {
+		this.flightOrderNo = flightOrderNo;
+	}
 	public String getFlightNO() {
 		return flightNO;
 	}
 	public void setFlightNO(String flightNO) {
 		this.flightNO = flightNO;
 	}
-	public String getAirlineCompany() {
-		return airlineCompany;
+	public String getAirlineCode() {
+		return airlineCode;
 	}
-	public void setAirlineCompany(String airlineCompany) {
-		this.airlineCompany = airlineCompany;
+	public void setAirlineCode(String airlineCode) {
+		this.airlineCode = airlineCode;
 	}
 	public String getTakeOffPlace() {
 		return takeOffPlace;
@@ -39,23 +57,11 @@ public class FlightTicketBean {
 	public void setTakeOffPlace(String takeOffPlace) {
 		this.takeOffPlace = takeOffPlace;
 	}
-	public String getTakeOffAirport() {
-		return takeOffAirport;
-	}
-	public void setTakeOffAirport(String takeOffAirport) {
-		this.takeOffAirport = takeOffAirport;
-	}
 	public String getLandingPlace() {
 		return landingPlace;
 	}
 	public void setLandingPlace(String landingPlace) {
 		this.landingPlace = landingPlace;
-	}
-	public String getLandingAirport() {
-		return landingAirport;
-	}
-	public void setLandingAirport(String landingAirport) {
-		this.landingAirport = landingAirport;
 	}
 	public Date getTakeOffTime() {
 		return takeOffTime;
@@ -69,34 +75,44 @@ public class FlightTicketBean {
 	public void setLandingTime(Date landingTime) {
 		this.landingTime = landingTime;
 	}
-	public int getChangeMoney() {
-		return changeMoney;
+	public int getAdultPrice() {
+		return adultPrice;
 	}
-	public void setChangeMoney(int changeMoney) {
-		this.changeMoney = changeMoney;
+	public void setAdultPrice(int adultPrice) {
+		this.adultPrice = adultPrice;
 	}
-	public int getRefundMoney() {
-		return refundMoney;
+	public int getChildPrice() {
+		return childPrice;
 	}
-	public void setRefundMoney(int refundMoney) {
-		this.refundMoney = refundMoney;
+	public void setChildPrice(int childPrice) {
+		this.childPrice = childPrice;
 	}
-	public int getBaggageAllowance() {
+	public Double getBaggageAllowance() {
 		return baggageAllowance;
 	}
-	public void setBaggageAllowance(int baggageAllowance) {
+	public void setBaggageAllowance(Double baggageAllowance) {
 		this.baggageAllowance = baggageAllowance;
 	}
-
+	public String getGoOrBack() {
+		return goOrBack;
+	}
+	public void setGoOrBack(String goOrBack) {
+		this.goOrBack = goOrBack;
+	}
+	public String getClassLevel() {
+		return classLevel;
+	}
+	public void setClassLevel(String classLevel) {
+		this.classLevel = classLevel;
+	}
 	@Override
 	public String toString() {
-		return "FlightTicketBean [flightNO=" + flightNO + ", airlineCompany=" + airlineCompany + ", takeOffPlace="
-				+ takeOffPlace + ", takeOffAirport=" + takeOffAirport + ", landingPlace=" + landingPlace
-				+ ", landingAirport=" + landingAirport + ", takeOffTime=" + takeOffTime + ", landingTime=" + landingTime
-				+ ", changeMoney=" + changeMoney + ", refundMoney=" + refundMoney + ", baggageAllowance="
-				+ baggageAllowance + ", toString()=" + super.toString() + "]";
+		return "FlightTicketBean [serial=" + serial + ", flightOrderNo=" + flightOrderNo + ", flightNO=" + flightNO
+				+ ", airlineCode=" + airlineCode + ", takeOffPlace=" + takeOffPlace + ", landingPlace=" + landingPlace
+				+ ", takeOffTime=" + takeOffTime + ", landingTime=" + landingTime + ", adultPrice=" + adultPrice
+				+ ", childPrice=" + childPrice + ", baggageAllowance=" + baggageAllowance + ", goOrBack=" + goOrBack
+				+ ", classLevel=" + classLevel + "]";
 	}
-	
-	
-	
+
+
 }

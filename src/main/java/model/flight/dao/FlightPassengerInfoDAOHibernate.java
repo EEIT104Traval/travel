@@ -35,10 +35,11 @@ public class FlightPassengerInfoDAOHibernate implements FlightPassengerInfoDAO {
 	@Override
 	public FlightPassengerInfoBean create(FlightPassengerInfoBean bean) {
 		if (bean != null) {
-
-			this.getSession().save(bean);
-			return bean;
-
+		FlightPassengerInfoBean result = this.getSession().get(FlightPassengerInfoBean.class, bean.getFlightTicketNO());
+		if (result == null) {
+				this.getSession().save(bean);
+				return bean;
+			}
 		}
 		return null;
 	}

@@ -7,10 +7,16 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import model.flight.AirlineCompareBean;
+import model.flight.AirlineCompareDAO;
+import model.flight.AirportCompareBean;
+import model.flight.AirportCompareDAO;
 import model.flight.FlightOrderInfoBean;
 import model.flight.FlightOrderInfoDAO;
 import model.flight.FlightPassengerInfoBean;
 import model.flight.FlightPassengerInfoDAO;
+import model.flight.FlightTicketBean;
+import model.flight.FlightTicketDAO;
 
 @Controller
 public class FlightTest {
@@ -19,6 +25,12 @@ public class FlightTest {
 	private FlightOrderInfoDAO dao;
 	@Autowired
 	private FlightPassengerInfoDAO pdao;
+	@Autowired
+	private FlightTicketDAO tdao;
+	@Autowired
+	private AirportCompareDAO adao;
+	@Autowired
+	private AirlineCompareDAO adao2;
 
 	@ResponseBody // @RestController可替代
 	@RequestMapping("/flight1")
@@ -44,7 +56,8 @@ public class FlightTest {
 		bean.setDealDate(new java.util.Date());
 		bean.setOrderStatus("成功");
 		bean.setEmail("isj@co.com");
-		bean.setPeopleCount(5);
+		bean.setChildCount(3);
+		bean.setAdultCount(2);
 		bean.setBookingCode("SDIJFR");
 		bean.setPhone(8454);
 
@@ -56,7 +69,7 @@ public class FlightTest {
 	@ResponseBody // @RestController可替代
 	@RequestMapping("/flight4")
 	public FlightOrderInfoBean update() {
-		FlightOrderInfoBean bean = dao.update(3, "micky", "SDIJFR", 84657547, "nklhj@co.com", 7, new java.util.Date(),
+		FlightOrderInfoBean bean = dao.update(5, "micky", "AAAJFR", 84657547, "nklhj@co.com", 7,2, new java.util.Date(),
 				"成功l");
 
 		return bean;
@@ -73,8 +86,8 @@ public class FlightTest {
 
 	@ResponseBody // @RestController可替代
 	@RequestMapping("/flight6")
-	public FlightPassengerInfoBean find2() {
-		FlightPassengerInfoBean bean = pdao.findByPrimaryKey(1);
+	public FlightPassengerInfoBean Passengerfind() {
+		FlightPassengerInfoBean bean = pdao.findByPrimaryKey(4545);
 		return bean;
 	}
 	
@@ -105,4 +118,72 @@ public class FlightTest {
 	}
 	
 
+	@ResponseBody // @RestController可替代
+	@RequestMapping("/flight9")
+	public FlightTicketBean Ticketfind() {
+		FlightTicketBean bean = tdao.findByPrimaryKey(1);
+		return bean;
+	} 
+	@ResponseBody // @RestController可替代
+	@RequestMapping("/flight10")
+	public List<FlightTicketBean> ticketfindAll() {
+		
+		List<FlightTicketBean> list = tdao.findAll();
+		return list;
+	}
+	
+	@ResponseBody // @RestController可替代
+	@RequestMapping("/flight11")
+	public FlightTicketBean Ticketcreate() {
+		FlightTicketBean bean = new FlightTicketBean();
+		bean.setFlightOrderNo(5);
+		bean.setFlightNO("CA1923");
+		bean.setAirlineCode("CA");
+		bean.setTakeOffPlace("TPA");
+		bean.setLandingPlace("JQP");
+		bean.setChildPrice(8900);
+		bean.setLandingTime(new java.util.Date());
+		bean.setGoOrBack("go");
+		bean.setClassLevel("經濟艙");
+
+		FlightTicketBean bean1 = tdao.create(bean);
+
+		return bean1;
+	}
+	@ResponseBody // @RestController可替代
+	@RequestMapping("/flight12")
+	public AirportCompareBean Airportfind() {
+		AirportCompareBean bean = adao.findByPrimaryKey("");
+		return bean;
+	} 
+	
+	@ResponseBody // @RestController可替代
+	@RequestMapping("/flight13")
+	public AirportCompareBean Airportcreate() {
+		AirportCompareBean bean = new AirportCompareBean();
+		
+
+		AirportCompareBean bean1 = adao.create(bean);
+
+		return bean1;
+	}
+	
+	@ResponseBody // @RestController可替代
+	@RequestMapping("/flight14")
+	public AirlineCompareBean Airlinefind() {
+		AirlineCompareBean bean = adao2.findByPrimaryKey("");
+		return bean;
+	} 
+	
+	@ResponseBody // @RestController可替代
+	@RequestMapping("/flight15")
+	public AirlineCompareBean Airlinecreate() {
+		AirlineCompareBean bean = new AirlineCompareBean();
+
+		AirlineCompareBean bean1 = adao2.create(bean);
+		return bean1;
+	}
+	
+	
+	
 }

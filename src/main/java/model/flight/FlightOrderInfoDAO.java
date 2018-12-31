@@ -12,7 +12,7 @@ public interface FlightOrderInfoDAO {
 
 	public abstract FlightOrderInfoBean update(Integer flightOrderNO,
 			String username,String bookingCode,Integer phone,String email,
-			Integer peopleCount,java.util.Date dealDate,String orderStatus);
+			Integer adultCount,Integer childCount,java.util.Date dealDate,String orderStatus);
 
 	public abstract boolean remove(Integer flightOrderNO);
 
