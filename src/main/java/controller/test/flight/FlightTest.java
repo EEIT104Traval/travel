@@ -11,6 +11,9 @@ import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
+import org.hibernate.Hibernate;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.hibernate.internal.util.xml.Origin;
 import org.hibernate.internal.util.xml.XmlDocument;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -215,6 +218,13 @@ public class FlightTest implements XmlDocument {
 		return bean;
 	}
 
+//	@Autowired
+//	private SessionFactory sessionFactory;
+//
+//	public Session getSession() {
+//		return this.sessionFactory.getCurrentSession();
+//	}
+
 	@ResponseBody // @RestController可替代
 	@RequestMapping("/flight15")
 	public AirlineCompareBean Airlinecreate() throws IOException {
@@ -224,10 +234,11 @@ public class FlightTest implements XmlDocument {
 			Document document = saxReader.read(inputXml);
 			Element employees = document.getRootElement();
 			for (Iterator i = employees.elementIterator(); i.hasNext();) {
-				Element employee = (Element) i.next(); 
+				Element employee = (Element) i.next();
 				AirlineCompareBean bean = new AirlineCompareBean();
 				int count = 0;
 				String s = "";
+				String s2 = "";
 				for (Iterator j = employee.elementIterator(); j.hasNext();) {
 					Element node = (Element) j.next();
 //                    System.out.println(node.getName() + ":" + node.getText());
@@ -237,27 +248,28 @@ public class FlightTest implements XmlDocument {
 						System.out.println("count=" + count);
 //						System.out.println(node.getName());
 //						System.out.println(node.getText());
-
+						s = node.getText();
 						bean.setAirlineCode(node.getText());
 					} else {
 						count++;
-						s = node.getText();
-						bean.setAirlineCompany(s);
-						
+						s2 = node.getText();
+						bean.setAirlineCompany(s2);
+
 					}
 					if (count % 2 == 0) {
-						FileInputStream file = new FileInputStream("C:/Users/wei/Desktop/airlines_logo 56_50/"+s+".gif");
-						int len = 0;
-						
-						byte[] buffer = new byte[1024 * 10];
-						while ((len = file.read(buffer)) != -1){
-//							out.write(buffer,0,len);
-							
-						}
-						
-						
-						AirlineCompareBean bean1 = adao2.create(bean);
-						System.out.println("新增成功=" + bean1);
+//						try {
+//							FileInputStream file = new FileInputStream(
+//									new File("C:/Users/wei/Desktop/airlines_logo 56_50/" + s + ".gif"));
+//							bean.setAirlineLogo(Hibernate.getLobCreator(this.getSession()).createBlob(file, 1024));
+//
+//						} catch (FileNotFoundException e) {
+//							System.out.println("找不到路徑");
+//						} finally {
+
+							AirlineCompareBean bean1 = adao2.create(bean);
+							System.out.println("新增成功=" + bean1);
+
+//						}
 					}
 
 				}

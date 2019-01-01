@@ -11,6 +11,8 @@ import javax.persistence.Table;
 public class AirlineCompareBean {
 	@Id
 	private String airlineCode;
+	private String airlineCompany;	
+	private Blob airlineLogo;
 
 	public String getAirlineCode() {
 		return airlineCode;
@@ -36,8 +38,7 @@ public class AirlineCompareBean {
 		this.airlineLogo = airlineLogo;
 	}
 
-	private String airlineCompany;
-	private Blob airlineLogo;
+
 
 	@Override
 	public String toString() {
