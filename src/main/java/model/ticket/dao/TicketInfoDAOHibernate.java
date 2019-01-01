@@ -26,24 +26,6 @@ public class TicketInfoDAOHibernate implements TicketInfoDAO {
 	}
 	
 	@Override
-	public TicketInfoBean findByticketName(String ticketName) {
-		
-		return this.getSession().get(TicketInfoBean.class, ticketName);
-	}
-	
-	@Override
-	public TicketInfoBean findByticketDate(java.util.Date validity) {
-		
-		return this.getSession().get(TicketInfoBean.class, validity);
-	}
-	
-	@Override
-	public TicketInfoBean findByticketCountry(String country) {
-		
-		return this.getSession().get(TicketInfoBean.class, country);
-	}
-	
-	@Override
 	public TicketInfoBean create(TicketInfoBean bean) {
 		
 		if (bean != null) {
