@@ -2,12 +2,9 @@ package model.ticket;
 
 import java.util.Arrays;
 import java.util.Date;
-import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -193,9 +190,5 @@ public class TicketInfoBean {
 				+ ", ticketPicture=" + Arrays.toString(ticketPicture) + ", ticketDescription=" + ticketDescription
 				+ ", traffic_information=" + traffic_information + ", special_restrictions=" + special_restrictions
 				+ ", googleAddressOrName=" + googleAddressOrName + "]";
-	}
-
-
-	  
-	
+	} 
 }
