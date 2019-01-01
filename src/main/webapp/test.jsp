@@ -110,6 +110,8 @@
 	<a href="<c:url value='/flight14' />">AirlinefindByPrimaryKey</a>
 	<a href="<c:url value='/flight15' />">AirlineCreate</a>
 	<hr />
+	<a href="<c:url value='/flight17' />">AirportTest</a>
+	<hr />
 	<br />
 	<h1>雅涵</h1>
 	<a href="<c:url value='/HotelfindByPK' />">HotelfindByPK</a>

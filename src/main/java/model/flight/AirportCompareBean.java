@@ -9,23 +9,25 @@ import javax.persistence.Table;
 public class AirportCompareBean {
 	@Id
 	private String AirportCode;
+	private String AirportName;
 	public String getAirportCode() {
 		return AirportCode;
 	}
 	public void setAirportCode(String airportCode) {
 		AirportCode = airportCode;
 	}
-	public String getAirlineName() {
-		return AirlineName;
+	public String getAirportName() {
+		return AirportName;
 	}
-	public void setAirlineName(String airlineName) {
-		AirlineName = airlineName;
+	public void setAirportName(String airportName) {
+		AirportName = airportName;
 	}
-	private String AirlineName;
 	@Override
 	public String toString() {
-		return "AirportCompareBean [AirportCode=" + AirportCode + ", AirlineName=" + AirlineName + "]";
+		return "AirportCompareBean [AirportCode=" + AirportCode + ", AirportName=" + AirportName + "]";
 	}
+	
+	
 	
 	
 }
