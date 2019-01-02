@@ -32,17 +32,16 @@
 <link rel="stylesheet" href="css/flaticon.css">
 <link rel="stylesheet" href="css/icomoon.css">
 <link rel="stylesheet" href="css/style.css">
-<title>Booking Form HTML Template</title>
+<title> Form HTML Template</title>
 
 <!-- Google font -->
 <link href="https://fonts.googleapis.com/css?family=PT+Sans:400"
 	rel="stylesheet">
 
 <!-- Bootstrap -->
-<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />
-
+<!-- <link type="text/css" rel="stylesheet" href="css/css/bootstrap.min.css" /> -->
 <!-- Custom stlylesheet -->
-<link type="text/css" rel="stylesheet" href="css/style.css" />
+<!-- <link type="text/css" rel="stylesheet" href="css/css/style.css" /> -->
 
 </head>
 
@@ -91,11 +90,11 @@
 
 
 
-						<div id="booking" class="section">
+						<div id="" class="section">
 							<div class="section-center">
 								<div class="container">
 									<div class="row">
-										<div class="booking-form">
+										<div class="-form">
 											<form>
 												<div class="form-group">
 													<div class="form-checkbox">
@@ -171,7 +170,7 @@
 														</div>
 													</div>
 													<div class="col-md-3">
-														<div class="form-btn">
+														<div class="form-btn" style="color:#FF0000">
 															<button class="submit-btn">Show flights</button>
 														</div>
 													</div>
