@@ -40,14 +40,14 @@ public class TicketOrderInfoDAOHibernate implements TicketOrderInfoDAO {
 	}
 
 	@Override
-	public TicketOrderInfoBean update(Integer ticketOrderNO, String username, Integer ticketNo,
+	public TicketOrderInfoBean update(Integer ticketOrderNO, String accountName, Integer ticketNo,
 			java.util.Date orderDate, java.util.Date useDate, Integer adultTicketCount, Integer childTicketCount,
 			String recevingContact, String recevingAddress, String recevingPhone, Integer totalPrice) {
 	
 		TicketOrderInfoBean result = this.getSession().get(TicketOrderInfoBean.class, ticketOrderNO);
 		if (result != null) {
 			
-			result.setUsername(username);
+			result.setAccountName(accountName);
 			result.setTicketNo(ticketNo);
 			result.setOrderDate(orderDate);
 			result.setUseDate(useDate);

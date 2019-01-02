@@ -12,7 +12,7 @@ public interface TicketOrderInfoDAO {
 	//買票
 	public abstract TicketOrderInfoBean create(TicketOrderInfoBean bean);
 	//改數量	
-	public abstract TicketOrderInfoBean update(Integer ticketOrderNO,String username,
+	public abstract TicketOrderInfoBean update(Integer ticketOrderNO,String accountName,
 			Integer ticketNo,java.util.Date orderDate,java.util.Date useDate,Integer adultTicketCount,
 			Integer childTicketCount,String recevingContact,String recevingAddress,
 			String recevingPhone,Integer totalPrice);

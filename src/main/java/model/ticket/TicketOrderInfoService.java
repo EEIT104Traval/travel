@@ -37,7 +37,7 @@ public class TicketOrderInfoService {
 	public TicketOrderInfoBean update(TicketOrderInfoBean bean) {
 		TicketOrderInfoBean result = null;
 		if (bean != null) {
-			result = ticketOrderInfoDAO.update(bean.getTicketOrderNO(), bean.getUsername(), bean.getTicketNo(),
+			result = ticketOrderInfoDAO.update(bean.getTicketOrderNO(), bean.getAccountName(), bean.getTicketNo(),
 					bean.getOrderDate(), bean.getUseDate(), bean.getAdultTicketCount(), bean.getChildTicketCount(),
 					bean.getRecevingContact(), bean.getRecevingAddress(), bean.getRecevingPhone(),
 					bean.getTotalPrice());
