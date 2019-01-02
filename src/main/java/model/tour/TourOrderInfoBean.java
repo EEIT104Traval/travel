@@ -9,7 +9,7 @@ import javax.persistence.Table;
 public class TourOrderInfoBean {
 	@Id
 	private Integer serialNo;
-	private String username;
+	private String accountName;
 	private String tourNo;
 	private Integer quantity;
 	private Integer total;
@@ -17,7 +17,7 @@ public class TourOrderInfoBean {
 	
 	@Override
 	public String toString() {
-		return "TourOrderInfoBean [serialNo=" + serialNo + ", username=" + username + ", tourNo=" + tourNo
+		return "TourOrderInfoBean [serialNo=" + serialNo + ", accountName=" + accountName + ", tourNo=" + tourNo
 				+ ", quantity=" + quantity + ", total=" + total + ", orderStatus=" + orderStatus + "]";
 	}
 	
@@ -27,11 +27,11 @@ public class TourOrderInfoBean {
 	public void setSerialNo(Integer serialNo) {
 		this.serialNo = serialNo;
 	}
-	public String getUsername() {
-		return username;
+	public String getAccountName() {
+		return accountName;
 	}
-	public void setUsername(String username) {
-		this.username = username;
+	public void setAccountName(String accountName) {
+		this.accountName = accountName;
 	}
 	public String getTourNo() {
 		return tourNo;
