@@ -6,19 +6,20 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="Hotel")
-public class _01HotelBean {
+public class HotelBean {
 	@Id
 	private Integer hotelNo;
 	private String hotelName;
 	private String address;
 	private String phone;
 	private String email;
-	private Integer totalroom;
+	private Integer hotelTotalRooms;
+	private String pic;
 	
 	@Override
 	public String toString() {
 		return "HotelBean [hotelNo=" + hotelNo + ", hotelName=" + hotelName + ", address=" + address + ", phone="
-				+ phone + ", email=" + email + ", totalroom=" + totalroom + "]";
+				+ phone + ", email=" + email + ", hotelTotalRooms=" + hotelTotalRooms + ", pic=" + pic + "]";
 	}
 	public Integer getHotelNo() {
 		return hotelNo;
@@ -50,11 +51,17 @@ public class _01HotelBean {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public Integer getTotalroom() {
-		return totalroom;
+	public Integer getHotelTotalRooms() {
+		return hotelTotalRooms;
 	}
-	public void setTotalroom(Integer totalroom) {
-		this.totalroom = totalroom;
+	public void setHotelTotalRooms(Integer hotelTotalRooms) {
+		this.hotelTotalRooms = hotelTotalRooms;
+	}
+	public String getPic() {
+		return pic;
+	}
+	public void setPic(String pic) {
+		this.pic = pic;
 	}
 	
 }
