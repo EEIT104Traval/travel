@@ -11,7 +11,8 @@ import javax.persistence.Table;
 @Entity
 @Table(name="TicketOrderInfo")
 public class TicketOrderInfoBean {
-//	@ManyToOne
+
+	//	@ManyToOne
 //	@JoinColumn(
 //	name="username",
 //	referencedColumnName="username",

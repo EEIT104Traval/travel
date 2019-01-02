@@ -12,10 +12,14 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.jndi.JndiObjectFactoryBean;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 
+import model.flight.AirlineCompareBean;
+import model.flight.AirportCompareBean;
 import model.flight.FlightOrderInfoBean;
 import model.flight.FlightPassengerInfoBean;
+import model.flight.FlightTicketBean;
 import model.hotel._01HotelBean;
 import model.rate.RateBean;
+import model.rate.RateNoticeBean;
 import model.rate.Rate_JPYBean;
 import model.rate.Rate_USDBean;
 import model.ticket.TicketInfoBean;
@@ -48,8 +52,9 @@ public class SpringJavaConfiguration {
 		LocalSessionFactoryBuilder builder = new LocalSessionFactoryBuilder(dataSource());
 		builder.addAnnotatedClasses(UserInfoBean.class,GroupTourBean.class,TourBatchBean.class,
 				TourMemberInfoBean.class,TourPictureBean.class, TicketInfoBean.class, TicketOrderInfoBean.class,
-				_01HotelBean.class ,FlightOrderInfoBean.class,FlightPassengerInfoBean.class,RateBean.class,
-				Rate_USDBean.class,Rate_JPYBean.class);
+				_01HotelBean.class ,FlightOrderInfoBean.class,FlightPassengerInfoBean.class,FlightTicketBean.class,
+				AirlineCompareBean.class,AirportCompareBean.class,
+				RateBean.class,Rate_USDBean.class,Rate_JPYBean.class,RateNoticeBean.class);
 
 
 		Properties props = new Properties();

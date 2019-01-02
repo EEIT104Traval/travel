@@ -190,9 +190,5 @@ public class TicketInfoBean {
 				+ ", ticketPicture=" + Arrays.toString(ticketPicture) + ", ticketDescription=" + ticketDescription
 				+ ", traffic_information=" + traffic_information + ", special_restrictions=" + special_restrictions
 				+ ", googleAddressOrName=" + googleAddressOrName + "]";
-	}
-
-
-	  
-	
+	} 
 }

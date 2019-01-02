@@ -9,6 +9,38 @@
 </head>
 <body>
 
+	<h1>熊</h1>
+	<a href="<c:url value='TourtestfindPK' />">TourtestfindPK</a>
+	<br />
+	<br />
+	<a href="<c:url value='TourtestfindALL' />">TourtestfindALL</a>
+	<br />
+	<br />
+	<a href="<c:url value='Tourtestcreate' />">Tourtestcreate</a>
+	<br />
+	<br />
+	<a href="<c:url value='Tourtestupdate' />">Tourtestupdate</a>
+	<br />
+	<br />
+	<a href="<c:url value='Tourtestremove' />">Tourtestremove</a>
+	<br />
+	<br />
+	<a href="<c:url value='TourBatchtestfindPK' />">TourBatchtestfindPK</a>
+	<br />
+	<br />
+	<a href="<c:url value='TourBatchtestfindALL' />">TourBatchtestfindALL</a>
+	<br />
+	<br />
+	<a href="<c:url value='TourBatchtestInsert' />">TourBatchtestInsert</a>
+	<br />
+	<br />
+	<a href="<c:url value='TourBatchtestUpdate' />">TourBatchtestUpdate</a>
+	<br />
+	<br />
+	<a href="<c:url value='TourBatchtestremove' />">TourBatchtestremove</a>
+	<br />
+	<br />
+	<hr />
 	<h1>姚</h1>
 	<a href="<c:url value='ticketfindAll' />">ticketfindAll</a>
 	<a href="<c:url value='ticketfindpk' />">ticketfindpk</a>
@@ -23,26 +55,64 @@
 	<a href="<c:url value='ticketOrderRemove' />">ticketOrderRemove</a>
 	<hr>
 
-	<h1>婉萍</h1>
-	<a href="<c:url value='/userInfofindALL' />">Usetest</a>
+	<h3>婉萍</h3>
+	<a href="<c:url value='/userInfoPK' />">UserPK</a>
+	<a href="<c:url value='/userInfofindALL' />">UserfindAll</a>
 	<a href="<c:url value='/userInfocreate' />">Usercreat</a>
-	<a href="<c:url value='/userInforemove' />">Userremove</a>
 	<a href="<c:url value='/userInfoupdate' />">Userupdate</a>
-	<br />
+	<a href="<c:url value='/userInforemove' />">Userremove</a>
+	<hr />
+	<a href="<c:url value='/ratePK' />">RatePK</a>
+	<a href="<c:url value='/ratefindALL' />">RatefindAll</a>
+	<%-- 	<a href="<c:url value='/ratecreate' />">Ratecreat</a> --%>
+	<%-- 	<a href="<c:url value='/rateupdate' />">Rateupdate</a> --%>
+	<%-- 	<a href="<c:url value='/rateremove' />">Rateremove</a> --%>
+	<hr />
+	<a href="<c:url value='/rate_usdPK' />">Rate_UsdPK</a>
+	<%-- 	<a href="<c:url value='/rate_usdfindALL' />">Rate_UsdfindAll</a> --%>
+	<%-- 	<a href="<c:url value='/rate_usdcreate' />">Rate_Usdcreat</a> --%>
+	<%-- 	<a href="<c:url value='/rate_usdupdate' />">Rate_Usdupdate</a> --%>
+	<%-- 	<a href="<c:url value='/rate_usdremove' />">Rate_Usdremove</a> --%>
+	<hr />
+	<%-- 	<a href="<c:url value='/rate_jpyPK' />">Rate_jpyPK</a> --%>
+	<%-- 	<a href="<c:url value='/rate_jpyfindALL' />">Rate_jpyfindAll</a> --%>
+	<%-- 	<a href="<c:url value='/rate_jpycreate' />">Rate_jpycreat</a> --%>
+	<%-- 	<a href="<c:url value='/rate_jpyupdate' />">Rate_jpyupdate</a> --%>
+	<%-- 	<a href="<c:url value='/rate_jpyremove' />">Rate_jpyremove</a> --%>
+	<hr />
+	<a href="<c:url value='/ratenoticePK' />">RatenoticePK</a>
+	<%-- 	<a href="<c:url value='/ratenoticefindALL' />">RatenoticefindAll</a> --%>
+	<%-- 	<a href="<c:url value='/ratenoticecreate' />">Ratenoticecreat</a> --%>
+	<%-- 	<a href="<c:url value='/ratenoticeupdate' />">Ratenoticeupdate</a> --%>
+	<%-- 	<a href="<c:url value='/ratenoticeremove' />">Ratenoticeremove</a> --%>
 	<hr />
 
-	<h1>朱薇</h1>
-	<a href="<c:url value='/flight1' />">findAll</a>
-	<a href="<c:url value='/flight2' />">findByPrimaryKey</a>
-	<a href="<c:url value='/flight3' />">create</a>
-	<a href="<c:url value='/flight4' />">update</a>
-	<a href="<c:url value='/flight5' />">remove</a>
-	<a href="<c:url value='/flight6' />">findByPrimaryKey1</a>
-	<a href="<c:url value='/flight7' />">findAll2</a>
-	<a href="<c:url value='/flight8' />">create2</a>
 	<br />
-<hr />
 
+	<h1>朱薇</h1>
+	<a href="<c:url value='/flight1' />">FlightOrderfindAll</a>
+	<a href="<c:url value='/flight2' />">FlightOrderfindByPrimaryKey</a>
+	<a href="<c:url value='/flight3' />">FlightOrdercreate</a>
+	<a href="<c:url value='/flight4' />">FlightOrderupdate</a>
+	<a href="<c:url value='/flight5' />">FlightOrderremove</a>
+	<hr />
+	<a href="<c:url value='/flight6' />">FlightPassengerfindByPrimaryKey1</a>
+	<a href="<c:url value='/flight7' />">FlightPassengerfindAll2</a>
+	<a href="<c:url value='/flight8' />">FlightPassengercreate2</a>
+	<hr />
+	<a href="<c:url value='/flight9' />">FlightTicketfindByPrimaryKey</a>
+	<a href="<c:url value='/flight10' />">FlightTicketfindAll</a>
+	<a href="<c:url value='/flight11' />">FlightTicketcreate</a>
+	<hr />
+	<a href="<c:url value='/flight12' />">AirportfindByPrimaryKey</a>
+	<a href="<c:url value='/flight13' />">AirportCreate</a>
+	<hr />
+	<a href="<c:url value='/flight14' />">AirlinefindByPrimaryKey</a>
+	<a href="<c:url value='/flight15' />">AirlineCreate</a>
+	<hr />
+	<a href="<c:url value='/flight17' />">AirportTest</a>
+	<hr />
+	<br />
 	<h1>雅涵</h1>
 	<a href="<c:url value='/HotelfindByPK' />">HotelfindByPK</a>
 	<a href="<c:url value='/HoteltestfindALL' />">HoteltestfindALL</a>
@@ -88,10 +158,14 @@
 
 	<br />
 	<h2>周周</h2>
-	<a href="<c:url value='/TourMemberFindPK' />">TourMemberFindPK</a>
 	<a href="<c:url value='/TourMemberFindAll' />">TourMemberFindAll</a>
+	<a href="<c:url value='/TourMemberFindSerialNo' />">TourMemberFindSerialNo</a>
+	<a href="<c:url value='/TourMemberFindPrimartyKey' />">TourMemberFindPrimartyKey</a>
+	<a href="<c:url value='/update' />">update</a>
+	<a href="<c:url value='/create' />">create</a>
 
 	<br />
+
 
 </body>
 </html>

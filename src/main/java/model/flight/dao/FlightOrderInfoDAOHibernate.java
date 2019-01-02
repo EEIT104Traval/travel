@@ -45,7 +45,7 @@ public class FlightOrderInfoDAOHibernate implements FlightOrderInfoDAO {
 	@Override
 	public FlightOrderInfoBean update(Integer flightOrderNO, String username, 
 			String bookingCode, Integer phone,
-			String email, Integer peopleCount, 
+			String email, Integer adultCount, Integer childCount,
 			java.util.Date dealDate, String orderStatus) {
 		FlightOrderInfoBean result = this.getSession().get(FlightOrderInfoBean.class, flightOrderNO);
 		if(result!=null) {
@@ -53,7 +53,8 @@ public class FlightOrderInfoDAOHibernate implements FlightOrderInfoDAO {
 			result.setBookingCode(bookingCode);
 			result.setPhone(phone);
 			result.setEmail(email);
-			result.setPeopleCount(peopleCount);
+			result.setAdultCount(adultCount);
+			result.setChildCount(childCount);
 			result.setDealDate(dealDate);
 			result.setOrderStatus(orderStatus);
 			
