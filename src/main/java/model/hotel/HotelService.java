@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 //@Service
 //@Transactional
-public class _01HotelService {
+public class HotelService {
 //	@Autowired
 //	private _01HotelDAO hotelDAO;
 //	

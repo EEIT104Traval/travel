@@ -30,7 +30,7 @@ public class TourOrderInfoTest {
 	public TourOrderInfoBean create() {
 		TourOrderInfoBean bean = new TourOrderInfoBean();
 		bean.setSerialNo(2);
-		bean.setUsername("snoopy");
+		bean.setAccountName("snoopy");
 		bean.setTourNo("1002");
 		dao.create(bean);
 		return bean;
@@ -40,7 +40,7 @@ public class TourOrderInfoTest {
 	public TourOrderInfoBean update() {
 		TourOrderInfoBean bean = new TourOrderInfoBean();
 		bean.setSerialNo(2);
-		bean.setUsername("snoopy");
+		bean.setAccountName("snoopy");
 		bean.setTourNo("1003");
 		dao.create(bean);
 		return bean;

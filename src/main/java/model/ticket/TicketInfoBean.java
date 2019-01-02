@@ -1,33 +1,37 @@
 package model.ticket;
 
 import java.util.Arrays;
-import java.util.Date;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+
 
 @Entity
 @Table(name="ticketInfo")
 public class TicketInfoBean {
 
-//	@OneToMany(
-//			cascade=CascadeType.REMOVE,
-//			mappedBy="ticketInfo"	
-//			)
-//	private Set<TicketOrderInfoBean> TicketOrderInfos;
-//	public Set<TicketOrderInfoBean> getTicketOrderInfos(){
-//		return TicketOrderInfos;
-//	}
-//	
-//	public void setTicketOrderInfos(Set<TicketOrderInfoBean> TicketOrderInfos) {
-//		this.TicketOrderInfos = TicketOrderInfos;	
-//	}
+	@OneToMany(
+			cascade=CascadeType.REMOVE,
+			mappedBy="ticketOrderNO"	
+			)
+	private Set<TicketOrderInfoBean> TicketOrderInfos;
+	public Set<TicketOrderInfoBean> getTicketOrderInfos(){
+		return TicketOrderInfos;
+	}
+	
+	public void setTicketOrderInfos(Set<TicketOrderInfoBean> TicketOrderInfos) {
+		this.TicketOrderInfos = TicketOrderInfos;	
+	}
 	
 	@Id
 	  private Integer ticketNo ;
 	  private String ticketName;
-	  private java.util.Date validity;
+	  private Integer validity;
 	  private Integer adultTicketPrice;
 	  private Integer childTicketPrice;
 	  private Integer adultTicketSellQ;
@@ -60,11 +64,11 @@ public class TicketInfoBean {
 		this.ticketName = ticketName;
 	}
 
-	public Date getValidity() {
+	public Integer getValidity() {
 		return validity;
 	}
 
-	public void setValidity(Date validity) {
+	public void setValidity(Integer validity) {
 		this.validity = validity;
 	}
 
@@ -190,5 +194,9 @@ public class TicketInfoBean {
 				+ ", ticketPicture=" + Arrays.toString(ticketPicture) + ", ticketDescription=" + ticketDescription
 				+ ", traffic_information=" + traffic_information + ", special_restrictions=" + special_restrictions
 				+ ", googleAddressOrName=" + googleAddressOrName + "]";
-	} 
+	}
+
+	
+
+	
 }

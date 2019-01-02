@@ -121,13 +121,6 @@
 	<a href="<c:url value='Hoteltestremove' />">Hoteltestremove</a>
 	<hr />
 
-	<a href="<c:url value='/HotelPicfindByPK' />">HotelPicfindByPK</a>
-	<a href="<c:url value='/HotelPicfindALL' />">HotelPicfindALL</a>
-	<a href="<c:url value='/HotelPiccreate' />">HotelPiccreate</a>
-	<a href="<c:url value='/HotelPicupdate' />">HotelPicupdate</a>
-	<a href="<c:url value='/HotelPicremove' />">HotelPicremove</a>
-	<hr />
-
 	<a href="<c:url value='/RoomTypefindByPK' />">RoomTypefindByPK</a>
 	<a href="<c:url value='/RoomTypefindALL' />">RoomTypefindALL</a>
 	<a href="<c:url value='/RoomTypecreate' />">RoomTypecreate</a>
@@ -142,11 +135,11 @@
 	<a href="<c:url value='/RoomTypePicremove' />">RoomTypePicremove</a>
 	<hr />
 
-	<a href="<c:url value='/RoomLeftfindByPK' />">RoomLeftfindByPK</a>
-	<a href="<c:url value='/RoomLeftfindALL' />">RoomLeftfindALL</a>
-	<a href="<c:url value='/RoomLeftcreate' />">RoomLeftcreate</a>
-	<a href="<c:url value='/RoomLeftupdate' />">RoomLeftupdate</a>
-	<a href="<c:url value='/RoomLeftremove' />">RoomLeftremove</a>
+	<a href="<c:url value='/RoomAvailablefindByPK' />">RoomAvailablefindByPK</a>
+	<a href="<c:url value='/RoomAvailablefindALL' />">RoomAvailablefindALL</a>
+	<a href="<c:url value='/RoomAvailablecreate' />">RoomAvailablecreate</a>
+	<a href="<c:url value='/RoomAvailableupdate' />">RoomAvailableupdate</a>
+	<a href="<c:url value='/RoomAvailableremove' />">RoomAvailableremove</a>
 	<hr />
 
 	<a href="<c:url value='/HotelOrderDetailsfindByPK' />">HotelOrderDetailsfindByPK</a>

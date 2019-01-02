@@ -44,7 +44,7 @@ public class TourOrderInfoDAO {
 		System.out.println(result);
 		if(result!=null) {
 			result.setSerialNo(bean.getSerialNo());
-			result.setUsername(bean.getUsername());
+			result.setAccountName(bean.getAccountName());
 			result.setTourNo(bean.getTourNo());
 			result.setQuantity(bean.getQuantity());
 			result.setTotal(bean.getTotal());

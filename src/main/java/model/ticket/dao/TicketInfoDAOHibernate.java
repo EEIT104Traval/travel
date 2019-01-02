@@ -24,6 +24,28 @@ public class TicketInfoDAOHibernate implements TicketInfoDAO {
 		
 		return this.getSession().get(TicketInfoBean.class, ticketNo);
 	}
+	@Override
+	public List<TicketInfoBean> findAll() {
+		
+		return this.getSession().createQuery("from TicketInfoBean",TicketInfoBean.class).setMaxResults(50).list();
+	}
+	@Override
+	public TicketInfoBean findByTicketName(String ticketName) {
+	
+		return this.getSession().get(TicketInfoBean.class, ticketName);
+	}
+
+	@Override
+	public TicketInfoBean findByTicketCountry(String country) {
+	
+		return this.getSession().get(TicketInfoBean.class, country);
+	}
+
+	@Override
+	public TicketInfoBean findByTicketCategory(String category) {
+	
+		return this.getSession().get(TicketInfoBean.class, category);
+	}
 	
 	@Override
 	public TicketInfoBean create(TicketInfoBean bean) {
@@ -39,7 +61,7 @@ public class TicketInfoDAOHibernate implements TicketInfoDAO {
 	}
 	
 	@Override
-	public TicketInfoBean update(Integer ticketNo, String ticketName, java.util.Date validity, Integer adultTicketPrice,
+	public TicketInfoBean update(Integer ticketNo, String ticketName, Integer validity, Integer adultTicketPrice,
 			Integer childTicketPrice, Integer adultTicketSellQ, Integer childTicketSellQ, Integer adultTicketSelledQ,
 			Integer childTicketSelledQ, String country, String category, String productFeatures, Byte[] ticketPicture,
 			String ticketDescription, String traffic_information, String special_restrictions,
@@ -77,12 +99,6 @@ public class TicketInfoDAOHibernate implements TicketInfoDAO {
 			return true;
 		}	
 		return false;
-	}
-	
-	@Override
-	public List<TicketInfoBean> findAll() {
-		
-		return this.getSession().createQuery("from TicketInfoBean",TicketInfoBean.class).setMaxResults(50).list();
 	}
 }
 //	@Override
