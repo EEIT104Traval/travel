@@ -139,7 +139,7 @@
 													</div>
 													<div class="col-md-2">
 														<div class="form-group">
-															<span class="form-label">Adults (18+)</span> <select
+															<span class="form-label">成人(18+)</span> <select
 																class="form-control">
 																<option>1</option>
 																<option>2</option>
@@ -149,8 +149,8 @@
 													</div>
 													<div class="col-md-2">
 														<div class="form-group">
-															<span class="form-label">Children (0-17)</span> <select
-																class="form-control">
+															<span class="form-label">兒童(0-17)</span>
+															 <select class="form-control">
 																<option>0</option>
 																<option>1</option>
 																<option>2</option>
@@ -170,8 +170,19 @@
 														</div>
 													</div>
 													<div class="col-md-3">
-														<div class="form-btn" style="color:#FF0000">
-															<button class="submit-btn">Show flights</button>
+													<br/>
+														<div class="form-btn">
+															<button  style="color: #fff;
+    background-color: #f23e3e;
+    font-weight: 400;
+    height: 50px;
+    font-size: 14px;
+    border: none;
+    width: 100%;
+    border-radius: 40px;
+    text-transform: uppercase;
+    -webkit-transition: 0.2s all;
+    transition: 0.2s all;">Show flights</button>
 														</div>
 													</div>
 												</div>
