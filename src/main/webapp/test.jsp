@@ -121,13 +121,6 @@
 	<a href="<c:url value='Hoteltestremove' />">Hoteltestremove</a>
 	<hr />
 
-	<a href="<c:url value='/HotelPicfindByPK' />">HotelPicfindByPK</a>
-	<a href="<c:url value='/HotelPicfindALL' />">HotelPicfindALL</a>
-	<a href="<c:url value='/HotelPiccreate' />">HotelPiccreate</a>
-	<a href="<c:url value='/HotelPicupdate' />">HotelPicupdate</a>
-	<a href="<c:url value='/HotelPicremove' />">HotelPicremove</a>
-	<hr />
-
 	<a href="<c:url value='/RoomTypefindByPK' />">RoomTypefindByPK</a>
 	<a href="<c:url value='/RoomTypefindALL' />">RoomTypefindALL</a>
 	<a href="<c:url value='/RoomTypecreate' />">RoomTypecreate</a>
