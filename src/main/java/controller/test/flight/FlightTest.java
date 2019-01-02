@@ -144,7 +144,7 @@ public class FlightTest implements XmlDocument {
 		List<FlightTicketBean> list = tdao.findAll();
 		return list;
 	}
-
+	
 	@ResponseBody // @RestController可替代
 	@RequestMapping("/flight11")
 	public FlightTicketBean Ticketcreate() {
@@ -174,7 +174,8 @@ public class FlightTest implements XmlDocument {
 	@ResponseBody // @RestController可替代
 	@RequestMapping("/flight13")
 	public void AirlinecreateParserXml() {
-		File inputXml = new File("C:/Users/wei/Desktop/CITY_CHT.xml");
+		
+		File inputXml = new File("C:\\Users\\wei\\git\\travel\\src\\main\\resources\\flightRes");
 		SAXReader saxReader = new SAXReader();
 		try {
 			Document document = saxReader.read(inputXml);
