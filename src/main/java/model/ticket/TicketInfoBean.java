@@ -32,7 +32,7 @@ public class TicketInfoBean {
 	@Id
 	  private Integer ticketNo ;
 	  private String ticketName;
-	  private java.util.Date validity;
+	  private Integer validity;
 	  private Integer adultTicketPrice;
 	  private Integer childTicketPrice;
 	  private Integer adultTicketSellQ;
@@ -65,11 +65,11 @@ public class TicketInfoBean {
 		this.ticketName = ticketName;
 	}
 
-	public Date getValidity() {
+	public Integer getValidity() {
 		return validity;
 	}
 
-	public void setValidity(Date validity) {
+	public void setValidity(Integer validity) {
 		this.validity = validity;
 	}
 
@@ -187,13 +187,16 @@ public class TicketInfoBean {
 
 	@Override
 	public String toString() {
-		return "TicketInfoBean [ticketNo=" + ticketNo + ", ticketName=" + ticketName + ", validity=" + validity
-				+ ", adultTicketPrice=" + adultTicketPrice + ", childTicketPrice=" + childTicketPrice
-				+ ", adultTicketSellQ=" + adultTicketSellQ + ", childTicketSellQ=" + childTicketSellQ
-				+ ", adultTicketSelledQ=" + adultTicketSelledQ + ", childTicketSelledQ=" + childTicketSelledQ
-				+ ", country=" + country + ", category=" + category + ", productFeatures=" + productFeatures
-				+ ", ticketPicture=" + Arrays.toString(ticketPicture) + ", ticketDescription=" + ticketDescription
-				+ ", traffic_information=" + traffic_information + ", special_restrictions=" + special_restrictions
-				+ ", googleAddressOrName=" + googleAddressOrName + "]";
-	} 
+		return "TicketInfoBean [TicketOrderInfos=" + TicketOrderInfos + ", ticketNo=" + ticketNo + ", ticketName="
+				+ ticketName + ", validity=" + validity + ", adultTicketPrice=" + adultTicketPrice
+				+ ", childTicketPrice=" + childTicketPrice + ", adultTicketSellQ=" + adultTicketSellQ
+				+ ", childTicketSellQ=" + childTicketSellQ + ", adultTicketSelledQ=" + adultTicketSelledQ
+				+ ", childTicketSelledQ=" + childTicketSelledQ + ", country=" + country + ", category=" + category
+				+ ", productFeatures=" + productFeatures + ", ticketPicture=" + Arrays.toString(ticketPicture)
+				+ ", ticketDescription=" + ticketDescription + ", traffic_information=" + traffic_information
+				+ ", special_restrictions=" + special_restrictions + ", googleAddressOrName=" + googleAddressOrName
+				+ "]";
+	}
+
+	
 }
