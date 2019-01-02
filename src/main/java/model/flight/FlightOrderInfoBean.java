@@ -38,8 +38,8 @@ public class FlightOrderInfoBean {
 		return accountName;
 	}
 
-	public void setUsername(String username) {
-		this.accountName = username;
+	public void setUsername(String accountName) {
+		this.accountName = accountName;
 	}
 
 	public String getBookingCode() {
