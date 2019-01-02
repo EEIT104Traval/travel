@@ -17,7 +17,7 @@ public class FlightOrderInfoBean {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer flightOrderNO;
-	private String username;
+	private String accountName;
 	private String bookingCode;
 	private Integer phone;
 	private String email;
@@ -35,11 +35,11 @@ public class FlightOrderInfoBean {
 	}
 
 	public String getUsername() {
-		return username;
+		return accountName;
 	}
 
 	public void setUsername(String username) {
-		this.username = username;
+		this.accountName = username;
 	}
 
 	public String getBookingCode() {
@@ -101,7 +101,7 @@ public class FlightOrderInfoBean {
 
 	@Override
 	public String toString() {
-		return "FlightOrderInfoBean [flightOrderNO=" + flightOrderNO + ", username=" + username + ", bookingCode="
+		return "FlightOrderInfoBean [flightOrderNO=" + flightOrderNO + ", accountName=" + accountName + ", bookingCode="
 				+ bookingCode + ", phone=" + phone + ", email=" + email + ", adultCount=" + adultCount + ", childCount="
 				+ childCount + ", dealDate=" + dealDate + ", orderStatus=" + orderStatus + ", toString()="
 				+ super.toString() + "]";
