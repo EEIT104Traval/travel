@@ -28,6 +28,7 @@ import model.tour.GroupTourBean;
 import model.tour.TourBatchBean;
 import model.tour.TourMemberInfoBean;
 import model.tour.TourPictureBean;
+import model.tour.TourTagsBean;
 import model.userInfo.UserInfoBean;
 
 @Configuration
@@ -50,7 +51,7 @@ public class SpringJavaConfiguration {
 	@Bean
 	public SessionFactory sessionFactory() {
 		LocalSessionFactoryBuilder builder = new LocalSessionFactoryBuilder(dataSource());
-		builder.addAnnotatedClasses(UserInfoBean.class,GroupTourBean.class,TourBatchBean.class,
+		builder.addAnnotatedClasses(UserInfoBean.class,GroupTourBean.class,TourBatchBean.class,TourTagsBean.class,
 				TourMemberInfoBean.class,TourPictureBean.class, TicketInfoBean.class, TicketOrderInfoBean.class,
 				_01HotelBean.class ,FlightOrderInfoBean.class,FlightPassengerInfoBean.class,FlightTicketBean.class,
 				AirlineCompareBean.class,AirportCompareBean.class,
