@@ -68,6 +68,9 @@
             <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
             <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
             <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+<!--             <li class="nav-item" id="create-user">會員註冊/登入</li> -->
+<%--             <li class="nav-item"><a href="<c:url value="/NewFile.jsp" />" class="nav-link">會員註冊/登入</a></li> --%>
+<!--             <button id="create-user">會員註冊/登入</button>	 -->
           </ul>
         </div>
       </div>
