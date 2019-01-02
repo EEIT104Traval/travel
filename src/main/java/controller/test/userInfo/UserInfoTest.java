@@ -7,7 +7,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import model.tour.GroupTourBean;
 import model.userInfo.UserInfoBean;
 import model.userInfo.UserInfoDAO;
 
@@ -35,7 +34,7 @@ public class UserInfoTest {
  @RequestMapping("/userInfocreate")
  public UserInfoBean create() {
 	 UserInfoBean bean1 =new UserInfoBean();
-	 bean1.setUsername("Kitty2");
+	 bean1.setAccountName("Kitty2");
 //	 bean.setPassword(ABC);
 	 bean1.setFirstname("sun");
 	 bean1.setLastname("Reese");

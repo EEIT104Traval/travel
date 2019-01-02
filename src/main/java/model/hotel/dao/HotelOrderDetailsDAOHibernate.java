@@ -8,11 +8,11 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import model.hotel._04RoomTypePicBean;
-import model.hotel._06HotelOrderDetailsBean;
-import model.hotel._06HotelOrderDetailsDAO;
+import model.hotel.RoomTypePicBean;
+import model.hotel.HotelOrderDetailsBean;
+import model.hotel.HotelOrderDetailsDAO;
 @Repository
-public class HotelOrderDetailsDAOHibernate implements _06HotelOrderDetailsDAO{
+public class HotelOrderDetailsDAOHibernate implements HotelOrderDetailsDAO{
 
 	@Autowired
 	private SessionFactory sessionFactory;
@@ -22,20 +22,20 @@ public class HotelOrderDetailsDAOHibernate implements _06HotelOrderDetailsDAO{
 	}
 	
 	@Override
-	public _06HotelOrderDetailsBean findByPrimaryKey(Integer orderNo) {
-		return this.getSession().get(_06HotelOrderDetailsBean.class , orderNo);
+	public HotelOrderDetailsBean findByPrimaryKey(Integer orderNo) {
+		return this.getSession().get(HotelOrderDetailsBean.class , orderNo);
 	}
 
 	@Override
-	public List<_06HotelOrderDetailsBean> findAll() {
-		return this.getSession().createQuery("from _06HotelOrderDetailsBean",_06HotelOrderDetailsBean.class)
+	public List<HotelOrderDetailsBean> findAll() {
+		return this.getSession().createQuery("from HotelOrderDetailsBean",HotelOrderDetailsBean.class)
 				.setMaxResults(50).list();
 	}
 
 	@Override
-	public _06HotelOrderDetailsBean create(_06HotelOrderDetailsBean bean) {
+	public HotelOrderDetailsBean create(HotelOrderDetailsBean bean) {
 		if (bean != null) {
-			_06HotelOrderDetailsBean result = this.getSession().get(_06HotelOrderDetailsBean.class, bean.getOrderNo());
+			HotelOrderDetailsBean result = this.getSession().get(HotelOrderDetailsBean.class, bean.getOrderNo());
 			if (result == null) {
 				this.getSession().save(bean);
 				return bean;
@@ -45,22 +45,24 @@ public class HotelOrderDetailsDAOHibernate implements _06HotelOrderDetailsDAO{
 	}
 
 	@Override
-	public _06HotelOrderDetailsBean update(Integer orderNo, Integer hotelNo, String hotelName, String username,
-			String bookingPerson, String phone, Date bookingDate, Date checkIn, Date checkOut, String roomType,
-			Integer totalprice, String info) {
-		_06HotelOrderDetailsBean result = this.getSession().get(_06HotelOrderDetailsBean.class, orderNo);
+	public HotelOrderDetailsBean update(Integer orderNo, Integer hotelNo, String accountName, java.util.Date createDate, java.util.Date updateDate, String bookingPerson, String hotelName, String phone, java.util.Date bookingDate, java.util.Date checkIn, java.util.Date checkOut, String roomType, Integer roomPrice, Integer stayNights, Integer totalPrice, String info) {
+		HotelOrderDetailsBean result = this.getSession().get(HotelOrderDetailsBean.class, orderNo);
 		if (result != null) {
 			result.setOrderNo(orderNo);
 			result.setHotelNo(hotelNo);
-			result.setHotelName(hotelName);
-			result.setUsername(username);
+			result.setAccountName(accountName);
+			result.setCreateDate(createDate);
+			result.setUpdateDate(updateDate);
 			result.setBookingPerson(bookingPerson);
+			result.setHotelName(hotelName);
 			result.setPhone(phone);
 			result.setBookingDate(bookingDate);
 			result.setCheckIn(checkIn);
 			result.setCheckOut(checkOut);
 			result.setRoomType(roomType);
-			result.setTotalprice(totalprice);
+			result.setRoomPrice(roomPrice);
+			result.setStayNights(stayNights);
+			result.setTotalPrice(totalPrice);
 			result.setInfo(info);
 			return result;
 		}
@@ -69,7 +71,7 @@ public class HotelOrderDetailsDAOHibernate implements _06HotelOrderDetailsDAO{
 
 	@Override
 	public boolean remove(Integer orderNo) {
-		_06HotelOrderDetailsBean result = this.getSession().get(_06HotelOrderDetailsBean.class, orderNo);
+		HotelOrderDetailsBean result = this.getSession().get(HotelOrderDetailsBean.class, orderNo);
 		if (result != null) {
 			this.getSession().delete(result);
 			return true;

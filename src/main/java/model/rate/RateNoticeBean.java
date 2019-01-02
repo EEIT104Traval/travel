@@ -12,12 +12,12 @@ public class RateNoticeBean {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer serial;
-	private String username	;
+	private String accountName;
 	private String currency;
 	private Double targetRate;
 	@Override
 	public String toString() {
-		return "RateNoticeBean [serial=" + serial + ", username=" + username + ", currency=" + currency
+		return "RateNoticeBean [serial=" + serial + ", accountName=" + accountName + ", currency=" + currency
 				+ ", targetRate=" + targetRate + "]";
 	}
 	public Integer getSerial() {
@@ -26,11 +26,11 @@ public class RateNoticeBean {
 	public void setSerial(Integer serial) {
 		this.serial = serial;
 	}
-	public String getUsername() {
-		return username;
+	public String getAccountName() {
+		return accountName;
 	}
-	public void setUsername(String username) {
-		this.username = username;
+	public void setAccountName(String accountName) {
+		this.accountName = accountName;
 	}
 	public String getCurrency() {
 		return currency;
