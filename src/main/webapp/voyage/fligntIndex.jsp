@@ -65,7 +65,7 @@
 					<li class="nav-item"><a href="services.html" class="nav-link">Tours</a></li>
 					<li class="nav-item"><a href="hotels.html" class="nav-link">Hotels</a></li>
 					<li class="nav-item active"><a href="services.html"
-						class="nav-link">Services</a></li>
+						class="nav-link">Flight</a></li>
 					<li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
 					<li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
 					<li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
@@ -200,7 +200,7 @@
 	</section>
 	<!-- END slider -->
 
-	<section class="ftco-section">
+	<!-- <section class="ftco-section">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-3 promo ftco-animate">
@@ -394,31 +394,31 @@
 				<div class="col-md-12 text-center">
 
 					<p>
-						<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-						Copyright &copy;
+						 Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+					<!-- 	Copyright &copy;
 						<script>
 							document.write(new Date().getFullYear());
 						</script>
 						All rights reserved | This template is made with <i
 							class="icon-heart" aria-hidden="true"></i> by <a
 							href="https://colorlib.com" target="_blank">Colorlib</a>
-						<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+						Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0.
 					</p>
 				</div>
 			</div>
 		</div>
-	</footer>
+	</footer> -->
 
 
 
 	<!-- loader -->
-	<div id="ftco-loader" class="show fullscreen">
+<!-- 	<div id="ftco-loader" class="show fullscreen">
 		<svg class="circular" width="48px" height="48px">
 			<circle class="path-bg" cx="24" cy="24" r="22" fill="none"
 				stroke-width="4" stroke="#eeeeee" />
 			<circle class="path" cx="24" cy="24" r="22" fill="none"
 				stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" /></svg>
-	</div>
+	</div> -->
 
 
 	<script src="js/jquery.min.js"></script>
