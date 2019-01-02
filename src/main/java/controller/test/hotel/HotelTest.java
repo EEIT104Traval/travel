@@ -1,4 +1,3 @@
-
 package controller.test.hotel;
 
 import java.util.List;
@@ -9,6 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import model.hotel.HotelBean;
 import model.hotel.dao.HotelDAOHibernate;
+
 @RestController //可替代Controller(寫在類別上對全部方法作用)
 //@Controller
 	public class HotelTest{

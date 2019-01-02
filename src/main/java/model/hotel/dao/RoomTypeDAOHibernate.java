@@ -35,7 +35,7 @@ public class RoomTypeDAOHibernate implements RoomTypeDAO{
 	@Override
 	public RoomTypeBean create(RoomTypeBean bean) {
 		if (bean != null) {
-			RoomTypeBean result = this.getSession().get(RoomTypeBean.class, bean.getHotelNo());
+			RoomTypeBean result = this.getSession().get(RoomTypeBean.class, bean.getRoomTypeNo());
 			if (result == null) {
 				this.getSession().save(bean);
 				return bean;
@@ -46,7 +46,7 @@ public class RoomTypeDAOHibernate implements RoomTypeDAO{
 
 	@Override
 	public RoomTypeBean update(Integer roomTypeNo, Integer hotelNo, String roomType, Integer totalRooms, Integer price) {
-		RoomTypeBean result = this.getSession().get(RoomTypeBean.class, hotelNo);
+		RoomTypeBean result = this.getSession().get(RoomTypeBean.class, roomTypeNo);
 		if(result!=null) {
 			result.setRoomTypeNo(roomTypeNo);
 			result.setHotelNo(hotelNo);
