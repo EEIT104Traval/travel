@@ -8,27 +8,32 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="HotelOrderDetails")
-public class _06HotelOrderDetailsBean {
+public class HotelOrderDetailsBean {
 	@Id
 	private Integer orderNo;
 	private Integer hotelNo;
-	private String hotelName;
-	private String username;
+	private String accountName;
+	private java.util.Date createDate;
+	private java.util.Date updateDate;
 	private String bookingPerson;
+	private String hotelName;
 	private String phone;
 	private java.util.Date bookingDate;
 	private java.util.Date checkIn;
 	private java.util.Date checkOut;
 	private String roomType;
 	private Integer totalprice;
+	private Integer stayNights;
+	private Integer price;
 	private String info;
 	
 	@Override
 	public String toString() {
-		return "_06HotelOrderDetailsBean [orderNo=" + orderNo + ", hotelNo=" + hotelNo + ", hotelName=" + hotelName
-				+ ", username=" + username + ", bookingPerson=" + bookingPerson + ", phone=" + phone + ", bookingDate="
-				+ bookingDate + ", checkIn=" + checkIn + ", checkOut=" + checkOut + ", roomType=" + roomType
-				+ ", Totalprice=" + totalprice + ", info=" + info + "]";
+		return "HotelOrderDetailsBean [orderNo=" + orderNo + ", hotelNo=" + hotelNo + ", accountName=" + accountName
+				+ ", createDate=" + createDate + ", updateDate=" + updateDate + ", bookingPerson=" + bookingPerson
+				+ ", hotelName=" + hotelName + ", phone=" + phone + ", bookingDate=" + bookingDate + ", checkIn="
+				+ checkIn + ", checkOut=" + checkOut + ", roomType=" + roomType + ", totalprice=" + totalprice
+				+ ", stayNights=" + stayNights + ", price=" + price + ", info=" + info + "]";
 	}
 	public Integer getOrderNo() {
 		return orderNo;
@@ -42,23 +47,35 @@ public class _06HotelOrderDetailsBean {
 	public void setHotelNo(Integer hotelNo) {
 		this.hotelNo = hotelNo;
 	}
-	public String getHotelName() {
-		return hotelName;
+	public String getAccountName() {
+		return accountName;
 	}
-	public void setHotelName(String hotelName) {
-		this.hotelName = hotelName;
+	public void setAccountName(String accountName) {
+		this.accountName = accountName;
 	}
-	public String getUsername() {
-		return username;
+	public java.util.Date getCreateDate() {
+		return createDate;
 	}
-	public void setUsername(String username) {
-		this.username = username;
+	public void setCreateDate(java.util.Date createDate) {
+		this.createDate = createDate;
+	}
+	public java.util.Date getUpdateDate() {
+		return updateDate;
+	}
+	public void setUpdateDate(java.util.Date updateDate) {
+		this.updateDate = updateDate;
 	}
 	public String getBookingPerson() {
 		return bookingPerson;
 	}
 	public void setBookingPerson(String bookingPerson) {
 		this.bookingPerson = bookingPerson;
+	}
+	public String getHotelName() {
+		return hotelName;
+	}
+	public void setHotelName(String hotelName) {
+		this.hotelName = hotelName;
 	}
 	public String getPhone() {
 		return phone;
@@ -94,7 +111,19 @@ public class _06HotelOrderDetailsBean {
 		return totalprice;
 	}
 	public void setTotalprice(Integer totalprice) {
-		totalprice = totalprice;
+		this.totalprice = totalprice;
+	}
+	public Integer getStayNights() {
+		return stayNights;
+	}
+	public void setStayNights(Integer stayNights) {
+		this.stayNights = stayNights;
+	}
+	public Integer getPrice() {
+		return price;
+	}
+	public void setPrice(Integer price) {
+		this.price = price;
 	}
 	public String getInfo() {
 		return info;
