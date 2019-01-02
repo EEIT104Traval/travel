@@ -30,11 +30,11 @@ public class UserInfoBean {
 				+ ", googleId=" + googleId + ", facebookId=" + facebookId + "]";
 	}
 	
-	public String getUsername() {
+	public String getAccountName() {
 		return accountName;
 	}
-	public void setUsername(String username) {
-		this.accountName = username;
+	public void setAccountName(String accountName) {
+		this.accountName = accountName;
 	}
 	public byte[] getPassword() {
 		return password;

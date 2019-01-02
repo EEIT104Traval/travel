@@ -35,7 +35,7 @@ public class UserInfoTest {
  @RequestMapping("/userInfocreate")
  public UserInfoBean create() {
 	 UserInfoBean bean1 =new UserInfoBean();
-	 bean1.setUsername("Kitty2");
+	 bean1.setAccountName("Kitty2");
 //	 bean.setPassword(ABC);
 	 bean1.setFirstname("sun");
 	 bean1.setLastname("Reese");
