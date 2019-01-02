@@ -22,9 +22,9 @@ public class HotelOrderDetailsBean {
 	private java.util.Date checkIn;
 	private java.util.Date checkOut;
 	private String roomType;
-	private Integer totalprice;
+	private Integer roomPrice;
 	private Integer stayNights;
-	private Integer price;
+	private Integer totalPrice;
 	private String info;
 	
 	@Override
@@ -32,8 +32,8 @@ public class HotelOrderDetailsBean {
 		return "HotelOrderDetailsBean [orderNo=" + orderNo + ", hotelNo=" + hotelNo + ", accountName=" + accountName
 				+ ", createDate=" + createDate + ", updateDate=" + updateDate + ", bookingPerson=" + bookingPerson
 				+ ", hotelName=" + hotelName + ", phone=" + phone + ", bookingDate=" + bookingDate + ", checkIn="
-				+ checkIn + ", checkOut=" + checkOut + ", roomType=" + roomType + ", totalprice=" + totalprice
-				+ ", stayNights=" + stayNights + ", price=" + price + ", info=" + info + "]";
+				+ checkIn + ", checkOut=" + checkOut + ", roomType=" + roomType + ", roomPrice=" + roomPrice
+				+ ", stayNights=" + stayNights + ", totalPrice=" + totalPrice + ", info=" + info + "]";
 	}
 	public Integer getOrderNo() {
 		return orderNo;
@@ -107,11 +107,11 @@ public class HotelOrderDetailsBean {
 	public void setRoomType(String roomType) {
 		this.roomType = roomType;
 	}
-	public Integer getTotalprice() {
-		return totalprice;
+	public Integer getRoomPrice() {
+		return roomPrice;
 	}
-	public void setTotalprice(Integer totalprice) {
-		this.totalprice = totalprice;
+	public void setRoomPrice(Integer roomPrice) {
+		this.roomPrice = roomPrice;
 	}
 	public Integer getStayNights() {
 		return stayNights;
@@ -119,11 +119,11 @@ public class HotelOrderDetailsBean {
 	public void setStayNights(Integer stayNights) {
 		this.stayNights = stayNights;
 	}
-	public Integer getPrice() {
-		return price;
+	public Integer getTotalPrice() {
+		return totalPrice;
 	}
-	public void setPrice(Integer price) {
-		this.price = price;
+	public void setTotalPrice(Integer totalPrice) {
+		this.totalPrice = totalPrice;
 	}
 	public String getInfo() {
 		return info;
@@ -131,5 +131,5 @@ public class HotelOrderDetailsBean {
 	public void setInfo(String info) {
 		this.info = info;
 	}
-
+	
 }
