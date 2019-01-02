@@ -16,7 +16,7 @@ import model.userInfo.UserInfoBean;
 @Table(name="TicketOrderInfo")
 public class TicketOrderInfoBean {
 
-		@ManyToOne
+	@ManyToOne
 	@JoinColumn(
 	name="username",
 	referencedColumnName="username",
@@ -28,6 +28,12 @@ public class TicketOrderInfoBean {
 		return userinfo;
 	}
 	public void setUserInfo(UserInfoBean userinfo) {
+		this.userinfo = userinfo;
+	}
+	public UserInfoBean getUserinfo() {
+		return userinfo;
+	}
+	public void setUserinfo(UserInfoBean userinfo) {
 		this.userinfo = userinfo;
 	}
 	
@@ -46,12 +52,6 @@ public class TicketOrderInfoBean {
 	private Integer totalPrice;
 	
 		
-//	public UserInfoBean getUserinfo() {
-//		return userinfo;
-//	}
-//	public void setUserinfo(UserInfoBean userinfo) {
-//		this.userinfo = userinfo;
-//	}
 	public Integer getTicketOrderNO() {
 		return ticketOrderNO;
 	}

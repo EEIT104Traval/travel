@@ -1,7 +1,6 @@
 package model.ticket;
 
 import java.util.Arrays;
-import java.util.Date;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -18,7 +17,7 @@ public class TicketInfoBean {
 
 	@OneToMany(
 			cascade=CascadeType.REMOVE,
-			mappedBy="ticketInfo"	
+			mappedBy="ticketOrderNO"	
 			)
 	private Set<TicketOrderInfoBean> TicketOrderInfos;
 	public Set<TicketOrderInfoBean> getTicketOrderInfos(){
@@ -187,16 +186,17 @@ public class TicketInfoBean {
 
 	@Override
 	public String toString() {
-		return "TicketInfoBean [TicketOrderInfos=" + TicketOrderInfos + ", ticketNo=" + ticketNo + ", ticketName="
-				+ ticketName + ", validity=" + validity + ", adultTicketPrice=" + adultTicketPrice
-				+ ", childTicketPrice=" + childTicketPrice + ", adultTicketSellQ=" + adultTicketSellQ
-				+ ", childTicketSellQ=" + childTicketSellQ + ", adultTicketSelledQ=" + adultTicketSelledQ
-				+ ", childTicketSelledQ=" + childTicketSelledQ + ", country=" + country + ", category=" + category
-				+ ", productFeatures=" + productFeatures + ", ticketPicture=" + Arrays.toString(ticketPicture)
-				+ ", ticketDescription=" + ticketDescription + ", traffic_information=" + traffic_information
-				+ ", special_restrictions=" + special_restrictions + ", googleAddressOrName=" + googleAddressOrName
-				+ "]";
+		return "TicketInfoBean [ticketNo=" + ticketNo + ", ticketName=" + ticketName + ", validity=" + validity
+				+ ", adultTicketPrice=" + adultTicketPrice + ", childTicketPrice=" + childTicketPrice
+				+ ", adultTicketSellQ=" + adultTicketSellQ + ", childTicketSellQ=" + childTicketSellQ
+				+ ", adultTicketSelledQ=" + adultTicketSelledQ + ", childTicketSelledQ=" + childTicketSelledQ
+				+ ", country=" + country + ", category=" + category + ", productFeatures=" + productFeatures
+				+ ", ticketPicture=" + Arrays.toString(ticketPicture) + ", ticketDescription=" + ticketDescription
+				+ ", traffic_information=" + traffic_information + ", special_restrictions=" + special_restrictions
+				+ ", googleAddressOrName=" + googleAddressOrName + "]";
 	}
+
+	
 
 	
 }
