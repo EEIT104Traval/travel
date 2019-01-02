@@ -2,27 +2,32 @@ package model.ticket;
 
 import java.util.Arrays;
 import java.util.Date;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+
 
 @Entity
 @Table(name="ticketInfo")
 public class TicketInfoBean {
 
-//	@OneToMany(
-//			cascade=CascadeType.REMOVE,
-//			mappedBy="ticketInfo"	
-//			)
-//	private Set<TicketOrderInfoBean> TicketOrderInfos;
-//	public Set<TicketOrderInfoBean> getTicketOrderInfos(){
-//		return TicketOrderInfos;
-//	}
-//	
-//	public void setTicketOrderInfos(Set<TicketOrderInfoBean> TicketOrderInfos) {
-//		this.TicketOrderInfos = TicketOrderInfos;	
-//	}
+	@OneToMany(
+			cascade=CascadeType.REMOVE,
+			mappedBy="ticketInfo"	
+			)
+	private Set<TicketOrderInfoBean> TicketOrderInfos;
+	public Set<TicketOrderInfoBean> getTicketOrderInfos(){
+		return TicketOrderInfos;
+	}
+	
+	public void setTicketOrderInfos(Set<TicketOrderInfoBean> TicketOrderInfos) {
+		this.TicketOrderInfos = TicketOrderInfos;	
+	}
 	
 	@Id
 	  private Integer ticketNo ;

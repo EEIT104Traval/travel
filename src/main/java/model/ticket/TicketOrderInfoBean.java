@@ -6,26 +6,30 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import model.userInfo.UserInfoBean;
 
 @Entity
 @Table(name="TicketOrderInfo")
 public class TicketOrderInfoBean {
 
-	//	@ManyToOne
-//	@JoinColumn(
-//	name="username",
-//	referencedColumnName="username",
-//	insertable=false,
-//	updatable=false
-//			)
-//	private UserInfoBean userinfo;
-//	public UserInfoBean getUserInfo() {
-//		return userinfo;
-//	}
-//	public void setUserInfo(UserInfoBean userinfo) {
-//		this.userinfo = userinfo;
-//	}
+		@ManyToOne
+	@JoinColumn(
+	name="username",
+	referencedColumnName="username",
+	insertable=false,
+	updatable=false
+			)
+	private UserInfoBean userinfo;
+	public UserInfoBean getUserInfo() {
+		return userinfo;
+	}
+	public void setUserInfo(UserInfoBean userinfo) {
+		this.userinfo = userinfo;
+	}
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
