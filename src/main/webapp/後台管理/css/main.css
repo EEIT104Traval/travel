@@ -274,7 +274,7 @@ html {
     display: block;
     width: 200%;
     margin-left: -100%;
-    transition: margin 0.3s ease-in 0s;
+    transition: margin 0.6s ease-in 0s;
 }
 
 .switch_demo-inner:before,

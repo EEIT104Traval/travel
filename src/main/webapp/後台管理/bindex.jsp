@@ -30,63 +30,51 @@
                 <li><a href="bindex.jsp">會員管理</a>
                     <ul class="submenu">
                         <li><a href="01_01.jsp">會員查詢</a></li>
-                        <li><a href="01_02.jsp">奧客管理</a></li>
-                        <li><a href="01_03.jsp">紅利管理</a></li>
+                        <li><a href="01_02.jsp">名單管理</a></li>
                     </ul>
                 </li>
-                <li><a href="#s1">行程管理</a>
+                <li><a href="#s1">報表資訊</a>
+                    <ul class="submenu">
+                        <li><a href="#">月份報表</a></li>
+                        <li><a href="#">歷史紀錄</a></li>
+<!--                         <li><a href="#"></a></li> -->
+                    </ul>
+                </li>
+                <li><a href="#">行程管理</a>
                     <ul class="submenu">
                         <li><a href="#">新增行程</a></li>
-                        <li><a href="#">行程修改</a></li>
-                        <li><a href="#">上架行程</a></li>
                         <li><a href="#">下架行程</a></li>
+                        <li><a href="#">修改行程</a></li>
+                        <li><a href="#">查詢行程</a></li>
+<!--                         <li><a href="#">下載載具</a></li> -->
                     </ul>
                 </li>
-                <li><a href="#">行程細項</a>
+                <li class="active"><a href="#s2">票券管理</a>
                     <ul class="submenu">
-                        <li><a href="#">行程廣告</a></li>
-                        <li><a href="#">行程評價</a></li>
-                        <li><a href="#">行程費用</a></li>
-                        <li><a href="#">行程備註</a></li>
-                        <li><a href="#">報名須知</a></li>
-                        <li><a href="#">常見問題</a></li>
+                        <li><a href="#">機票資訊</a></li>
+                        <li><a href="#">飯店資訊</a></li>
+                        <li><a href="#">門票資訊</a></li>
                     </ul>
                 </li>
-                <li class="active"><a href="#s2">訂票系統</a>
+                <li><a href="#">版面管理</a>
                     <ul class="submenu">
-                        <li><a href="#">機票</a></li>
-                        <li><a href="#">飯店</a></li>
-                        <li><a href="#">門票</a></li>
-                    </ul>
-                </li>
-                <li><a href="#">主題控</a>
-                    <ul class="submenu">
-                        <li><a href="#">新增主題內容</a></li>
-                        <li><a href="#">修改主題內容</a></li>
-                        <li><a href="#">刪除主題內容</a></li>
-                    </ul>
-                </li>
-                <li><a href="#">報表查詢</a>
-                    <ul class="submenu">
-                        <li><a href="#">上月出團總數</a></li>
-                        <li><a href="#">上月即將成團</a></li>
-                        <li><a href="#">上月售票總數</a></li>
-                        <li><a href="#">本月出團總數</a></li>
-                        <li><a href="#">本月即將成團</a></li>
-                        <li><a href="#">本月售票總數</a></li>
+                        <li><a href="#">跑馬廣告</a></li>
+                        <li><a href="#">問與答改</a></li>
+                        <li><a href="#">關於我改</a></li>
+                        <li><a href="#">圖片修改</a></li>
                     </ul>
                 </li>
                 <li>
                     <a href="#">管理者</a>
                     <ul class="submenu">
-                        <li><a href="#">新增管理者</a></li>
+                        <li><a href="#">管理者帳號</a></li>
                         <li><a href="#">管理者權限</a></li>
                         <li><a href="#">登出</a></li>
                     </ul>
                 </li>
                 <li>
                     <div class="switch_demo">
-                        <a herf="#"></a>
+                        <a href="../voyage/index.jsp"></a>
                         <input type="checkbox" name="switch_demo" class="switch_demo-checkbox" id="switch_demo" checked>
                         <label class="switch_demo-label" for="switch_demo">
                             <span class="switch_demo-inner"></span>
