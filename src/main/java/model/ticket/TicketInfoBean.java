@@ -1,7 +1,6 @@
 package model.ticket;
 
 import java.util.Arrays;
-import java.util.Date;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -18,7 +17,7 @@ public class TicketInfoBean {
 
 	@OneToMany(
 			cascade=CascadeType.REMOVE,
-			mappedBy="ticketInfo"	
+			mappedBy="ticketOrderNO"	
 			)
 	private Set<TicketOrderInfoBean> TicketOrderInfos;
 	public Set<TicketOrderInfoBean> getTicketOrderInfos(){
@@ -32,7 +31,7 @@ public class TicketInfoBean {
 	@Id
 	  private Integer ticketNo ;
 	  private String ticketName;
-	  private java.util.Date validity;
+	  private Integer validity;
 	  private Integer adultTicketPrice;
 	  private Integer childTicketPrice;
 	  private Integer adultTicketSellQ;
@@ -65,11 +64,11 @@ public class TicketInfoBean {
 		this.ticketName = ticketName;
 	}
 
-	public Date getValidity() {
+	public Integer getValidity() {
 		return validity;
 	}
 
-	public void setValidity(Date validity) {
+	public void setValidity(Integer validity) {
 		this.validity = validity;
 	}
 
@@ -195,5 +194,9 @@ public class TicketInfoBean {
 				+ ", ticketPicture=" + Arrays.toString(ticketPicture) + ", ticketDescription=" + ticketDescription
 				+ ", traffic_information=" + traffic_information + ", special_restrictions=" + special_restrictions
 				+ ", googleAddressOrName=" + googleAddressOrName + "]";
-	} 
+	}
+
+	
+
+	
 }

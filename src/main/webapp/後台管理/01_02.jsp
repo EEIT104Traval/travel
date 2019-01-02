@@ -9,6 +9,5 @@
 </head>
 <body>
 	<jsp:include page="bindex.jsp" />
-	<div>你好嗎?</div>
 </body>
 </html>
