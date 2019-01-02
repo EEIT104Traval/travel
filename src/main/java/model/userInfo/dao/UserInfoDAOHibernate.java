@@ -21,8 +21,8 @@ public class UserInfoDAOHibernate implements UserInfoDAO{
 	}
 
 	@Override
-	public UserInfoBean findByPrimaryKey(String username) {
-		return this.getSession().get(UserInfoBean.class, username);
+	public UserInfoBean findByPrimaryKey(String accountName) {
+		return this.getSession().get(UserInfoBean.class, accountName);
 	}
 
 	@Override
@@ -35,7 +35,7 @@ public class UserInfoDAOHibernate implements UserInfoDAO{
 	@Override
 	public UserInfoBean create(UserInfoBean bean) {
 		if(bean!=null) {
-			UserInfoBean result = this.getSession().get(UserInfoBean.class, bean.getUsername());
+			UserInfoBean result = this.getSession().get(UserInfoBean.class, bean.getAccountName());
 			if(result==null) {
 				this.getSession().save(bean);
 				return bean;
@@ -47,8 +47,8 @@ public class UserInfoDAOHibernate implements UserInfoDAO{
 	@Override
 	public UserInfoBean update(byte[] password, String firstname, String lastname, String identityNo, String email,
 			Date birth, String sex, String phone, String address, String authority, String googleId, String facebookId,
-			String username) {
-		UserInfoBean result = this.getSession().get(UserInfoBean.class, username);
+			String accountName) {
+		UserInfoBean result = this.getSession().get(UserInfoBean.class, accountName);
 		if(result!=null) {
 			result.setPassword(password);
 			result.setFirstname(firstname);
@@ -70,8 +70,8 @@ public class UserInfoDAOHibernate implements UserInfoDAO{
 	
 	
 	@Override
-	public boolean remove(String username) {
-		UserInfoBean result = this.getSession().get(UserInfoBean.class, username);
+	public boolean remove(String accountName) {
+		UserInfoBean result = this.getSession().get(UserInfoBean.class, accountName);
 		if(result!=null) {
 			this.getSession().delete(result);
 			return true;

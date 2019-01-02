@@ -9,7 +9,7 @@ import javax.persistence.Table;
 @Table(name="UserInfo")
 public class UserInfoBean {
 	@Id
-	private String username;
+	private String accountName;
 	private byte[] password;
 	private String firstname;
 	private String lastname;
@@ -24,17 +24,17 @@ public class UserInfoBean {
 	private String facebookId;
 	@Override
 	public String toString() {
-		return "UserInfoBean [username=" + username + ", password=" + Arrays.toString(password) + ", firstname="
+		return "UserInfoBean [accountName=" + accountName + ", password=" + Arrays.toString(password) + ", firstname="
 				+ firstname + ", lastname=" + lastname + ", identityNo=" + identityNo + ", email=" + email + ", birth="
 				+ birth + ", sex=" + sex + ", phone=" + phone + ", address=" + address + ", authority=" + authority
 				+ ", googleId=" + googleId + ", facebookId=" + facebookId + "]";
 	}
 	
-	public String getUsername() {
-		return username;
+	public String getAccountName() {
+		return accountName;
 	}
-	public void setUsername(String username) {
-		this.username = username;
+	public void setAccountName(String accountName) {
+		this.accountName = accountName;
 	}
 	public byte[] getPassword() {
 		return password;
