@@ -9,6 +9,6 @@
 </head>
 <body>
 	<jsp:include page="bindex.jsp" />
-	<div> 測試2版</div>
+	<div> 測試2-1版</div>
 </body>
 </html>

@@ -59,7 +59,7 @@ public class TicketInfoTest {
 	 } 
 	 @RequestMapping("/ticketUpdate")
 	 public TicketInfoBean update() {
-		 TicketInfoBean update = dao.update(1,"迪士尼",2,3000,2000,10,10,2,5,"japan","test","test",null,"test","test","test","test");		  
+		 TicketInfoBean update = dao.update(1,"東京熱",2,3000,2000,10,10,2,5,"japan","test","test",null,"test","test","test","test");		  
 		 return update;	  		  
 	 } 
 	 @RequestMapping("/ticketRemove")
