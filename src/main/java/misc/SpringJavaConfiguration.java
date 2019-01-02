@@ -18,6 +18,8 @@ import model.flight.FlightOrderInfoBean;
 import model.flight.FlightPassengerInfoBean;
 import model.flight.FlightTicketBean;
 import model.hotel.HotelBean;
+import model.hotel.HotelOrderDetailsBean;
+import model.hotel.RoomAvailableBean;
 import model.hotel.RoomTypeBean;
 import model.hotel.RoomTypePicBean;
 import model.rate.RateBean;
@@ -29,6 +31,7 @@ import model.ticket.TicketOrderInfoBean;
 import model.tour.GroupTourBean;
 import model.tour.TourBatchBean;
 import model.tour.TourMemberInfoBean;
+import model.tour.TourOrderInfoBean;
 import model.tour.TourPictureBean;
 import model.userInfo.UserInfoBean;
 
@@ -56,8 +59,8 @@ public class SpringJavaConfiguration {
 				TourMemberInfoBean.class,TourPictureBean.class, TicketInfoBean.class, TicketOrderInfoBean.class,
 				HotelBean.class ,FlightOrderInfoBean.class,FlightPassengerInfoBean.class,FlightTicketBean.class,
 				AirlineCompareBean.class,AirportCompareBean.class,
-				RateBean.class,Rate_USDBean.class,Rate_JPYBean.class,RateNoticeBean.class,
-				RoomTypeBean.class, RoomTypePicBean.class);
+				RateBean.class,Rate_USDBean.class,Rate_JPYBean.class,RateNoticeBean.class, TourOrderInfoBean.class,
+				RoomTypeBean.class, RoomTypePicBean.class, RoomAvailableBean.class, HotelOrderDetailsBean.class);
 
 
 		Properties props = new Properties();

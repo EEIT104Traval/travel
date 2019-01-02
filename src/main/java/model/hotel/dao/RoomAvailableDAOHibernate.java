@@ -28,7 +28,7 @@ public class RoomAvailableDAOHibernate implements RoomAvailableDAO{
 
 	@Override
 	public List<RoomAvailableBean> findAll() {
-		return this.getSession().createQuery("from _05RoomLeftBean",RoomAvailableBean.class)
+		return this.getSession().createQuery("from RoomAvailableBean",RoomAvailableBean.class)
 				.setMaxResults(50).list();
 	}
 

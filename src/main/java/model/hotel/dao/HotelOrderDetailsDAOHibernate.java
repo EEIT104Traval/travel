@@ -45,7 +45,7 @@ public class HotelOrderDetailsDAOHibernate implements HotelOrderDetailsDAO{
 	}
 
 	@Override
-	public HotelOrderDetailsBean update(Integer orderNo, Integer hotelNo, String accountName, java.util.Date createDate, java.util.Date updateDate, String bookingPerson, String hotelName, String phone, java.util.Date bookingDate, java.util.Date checkIn, java.util.Date checkOut, String roomType, Integer totalprice, Integer stayNights, Integer price, String info) {
+	public HotelOrderDetailsBean update(Integer orderNo, Integer hotelNo, String accountName, java.util.Date createDate, java.util.Date updateDate, String bookingPerson, String hotelName, String phone, java.util.Date bookingDate, java.util.Date checkIn, java.util.Date checkOut, String roomType, Integer roomPrice, Integer stayNights, Integer totalPrice, String info) {
 		HotelOrderDetailsBean result = this.getSession().get(HotelOrderDetailsBean.class, orderNo);
 		if (result != null) {
 			result.setOrderNo(orderNo);
@@ -60,9 +60,9 @@ public class HotelOrderDetailsDAOHibernate implements HotelOrderDetailsDAO{
 			result.setCheckIn(checkIn);
 			result.setCheckOut(checkOut);
 			result.setRoomType(roomType);
-			result.setTotalprice(totalprice);
+			result.setRoomPrice(roomPrice);
 			result.setStayNights(stayNights);
-			result.setPrice(price);
+			result.setTotalPrice(totalPrice);
 			result.setInfo(info);
 			return result;
 		}
