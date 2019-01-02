@@ -38,7 +38,7 @@ import model.rate.RateNoticeDAO;
 	}
 
 	@Override
-	public RateNoticeBean update(Integer serial, String username, String currency, Double targetRate) {
+	public RateNoticeBean update(Integer serial, String accountName, String currency, Double targetRate) {
 		return null;
 	}
 

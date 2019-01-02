@@ -16,8 +16,5 @@ public interface UserInfoDAO {
 
 		public abstract boolean remove(String accountName);
 		
-//		public abstract boolean update(byte[] password, String firstname, String lastname, 
-//				String identityNo, String email, java.util.Date birth, String sex, String phone,
-//				String address, String authority, String googleId, String facebookId,String username);
-//	
+
 }

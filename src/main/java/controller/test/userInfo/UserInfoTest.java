@@ -7,7 +7,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import model.tour.GroupTourBean;
 import model.userInfo.UserInfoBean;
 import model.userInfo.UserInfoDAO;
 

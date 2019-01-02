@@ -12,7 +12,7 @@ public class RateNoticeBean {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer serial;
-	private String accountName	;
+	private String accountName;
 	private String currency;
 	private Double targetRate;
 	@Override

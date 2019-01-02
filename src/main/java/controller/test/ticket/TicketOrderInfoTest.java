@@ -40,7 +40,7 @@ public class TicketOrderInfoTest {
 		public TicketOrderInfoBean create() {
 			TicketOrderInfoBean result = new TicketOrderInfoBean();
 
-			result.setUsername("kitty");
+			result.setAccountName("kitty");
 			result.setTicketNo(1);
 			Date date = Date.valueOf("2015-05-02");
 			result.setOrderDate(date);
