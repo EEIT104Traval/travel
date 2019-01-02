@@ -31,6 +31,7 @@ import model.ticket.TicketOrderInfoBean;
 import model.tour.GroupTourBean;
 import model.tour.TourBatchBean;
 import model.tour.TourMemberInfoBean;
+import model.tour.TourOrderInfoBean;
 import model.tour.TourPictureBean;
 import model.userInfo.UserInfoBean;
 
@@ -58,7 +59,7 @@ public class SpringJavaConfiguration {
 				TourMemberInfoBean.class,TourPictureBean.class, TicketInfoBean.class, TicketOrderInfoBean.class,
 				HotelBean.class ,FlightOrderInfoBean.class,FlightPassengerInfoBean.class,FlightTicketBean.class,
 				AirlineCompareBean.class,AirportCompareBean.class,
-				RateBean.class,Rate_USDBean.class,Rate_JPYBean.class,RateNoticeBean.class, TourOrderInfoBean.class
+				RateBean.class,Rate_USDBean.class,Rate_JPYBean.class,RateNoticeBean.class, TourOrderInfoBean.class,
 				RoomTypeBean.class, RoomTypePicBean.class, RoomAvailableBean.class, HotelOrderDetailsBean.class);
 
 
