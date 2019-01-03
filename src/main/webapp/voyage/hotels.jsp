@@ -41,13 +41,13 @@
 
         <div class="collapse navbar-collapse" id="ftco-nav">
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item"><a href="index.jsp" class="nav-link">Home</a></li>
-            <li class="nav-item"><a href="services.html" class="nav-link">Tours</a></li>
+            <li class="nav-item"><a href="index.jsp" class="nav-link">首頁</a></li>
+            <li class="nav-item"><a href="services.html" class="nav-link">跟團</a></li>
             <li class="nav-item active"><a href="hotels.jsp" class="nav-link">飯店</a></li>
-            <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
+            <li class="nav-item"><a href="services.html" class="nav-link">機票</a></li>
             <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
-            <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
-            <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+            <li class="nav-item"><a href="about.html" class="nav-link">關於我們</a></li>
+            <li class="nav-item"><a href="contact.html" class="nav-link">聯絡我們</a></li>
           </ul>
         </div>
       </div>
@@ -60,8 +60,8 @@
         <div class="container">
           <div class="row slider-text align-items-center">
             <div class="col-md-7 col-sm-12 ftco-animate">
-              <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home</a></span> <span>Hotels</span></p>
-              <h1 class="mb-3">Hotels</h1>
+              <p class="breadcrumbs"><span class="mr-2"><a href="index.jsp">首頁</a></span> <span>飯店</span></p>
+              <h1 class="mb-3">飯店</h1>
             </div>
           </div>
         </div>
@@ -192,20 +192,31 @@
           <div class="col-lg-4 sidebar">
             <div class="sidebar-box ftco-animate">
               <div class="search-tours bg-light p-4">
-                <h3>Find your tour</h3>
+                <h3>快速訂房</h3>
                 <form action="" method="post">
                   <div class="fields">
                     <div class="row flex-column">
 
-                      <div class="textfield-search col-sm-12 group mb-3"><input type="text" class="form-control" placeholder="Search Location"></div>
+<!--                       <div class="textfield-search col-sm-12 group mb-3"><input type="text" class="form-control" placeholder="請輸入飯店名稱"></div> -->
+					  
+					  <div class="select-wrap col-sm-12 group mb-3">
+                        <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+                        <select name="" id="" class="form-control">
+                          <option value="">地區</option>
+                          <option value="">亞洲</option>
+                          <option value="">歐洲</option>
+                          <option value="">南美洲</option>
+                          <option value="">非洲</option>
+                        </select>
+                      </div>
+					  
+                      <div class="check-in col-sm-12 group mb-3"><input type="text" id="checkin_date" class="form-control" placeholder="入住日期"></div>
 
-                      <div class="check-in col-sm-12 group mb-3"><input type="text" id="checkin_date" class="form-control" placeholder="Check-in date"></div>
-
-                      <div class="check-out col-sm-12 group mb-3"><input type="text" id="checkout_date" class="form-control" placeholder="Check-out date"></div>
+                      <div class="check-out col-sm-12 group mb-3"><input type="text" id="checkout_date" class="form-control" placeholder="退房日期"></div>
                       <div class="select-wrap col-sm-12 group mb-3">
                         <div class="icon"><span class="ion-ios-arrow-down"></span></div>
                         <select name="" id="" class="form-control">
-                          <option value="">Guest</option>
+                          <option value="">人數</option>
                           <option value="">1</option>
                           <option value="">2</option>
                           <option value="">3</option>
@@ -213,7 +224,7 @@
                         </select>
                       </div>
                       <div class="col-sm-12 group mb-3">
-                        <input type="submit" class="search-submit btn btn-primary" value="Find Flights">
+                        <input type="submit" class="search-submit btn btn-primary" value="搜尋">
                       </div>
                     </div>
                   </div>
@@ -223,22 +234,23 @@
 
             <div class="sidebar-box ftco-animate">
               <div class="categories">
-                <h3>Categories</h3>
-                <li><a href="#">Tours <span>(12)</span></a></li>
-                <li><a href="#">Hotels <span>(22)</span></a></li>
-                <li><a href="#">Cruises <span>(37)</span></a></li>
-                <li><a href="#">Restaurant <span>(42)</span></a></li>
-                <li><a href="#">Destination <span>(14)</span></a></li>
+                <h3>類別</h3>
+                <li><a href="#">團體旅遊 <span>(12)</span></a></li>
+                <li><a href="#">飯店 <span>(22)</span></a></li>
+                <li><a href="#">郵輪 <span>(37)</span></a></li>
+                <li><a href="#">餐廳 <span>(42)</span></a></li>
+                <li><a href="#">主題樂園 <span>(14)</span></a></li>
               </div>
             </div>
 
             <div class="sidebar-box ftco-animate">
-              <h3>Tag Cloud</h3>
+              <h3>標籤
+              </h3>
               <div class="tagcloud">
-                <a href="#" class="tag-cloud-link">Life</a>
-                <a href="#" class="tag-cloud-link">Sport</a>
-                <a href="#" class="tag-cloud-link">Tech</a>
-                <a href="#" class="tag-cloud-link">Travel</a>
+                <a href="#" class="tag-cloud-link">生活</a>
+                <a href="#" class="tag-cloud-link">運動</a>
+                <a href="#" class="tag-cloud-link">科技</a>
+                <a href="#" class="tag-cloud-link">旅遊</a>
                 <a href="#" class="tag-cloud-link">Life</a>
                 <a href="#" class="tag-cloud-link">Sport</a>
                 <a href="#" class="tag-cloud-link">Tech</a>
@@ -247,8 +259,8 @@
             </div>
 
             <div class="sidebar-box ftco-animate">
-              <h3>Paragraph</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus itaque, autem necessitatibus voluptate quod mollitia delectus aut, sunt placeat nam vero culpa sapiente consectetur similique, inventore eos fugit cupiditate numquam!</p>
+<!--               <h3>Paragraph</h3> -->
+<!--               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus itaque, autem necessitatibus voluptate quod mollitia delectus aut, sunt placeat nam vero culpa sapiente consectetur similique, inventore eos fugit cupiditate numquam!</p> -->
             </div>
           </div>
         </div>
@@ -318,7 +330,7 @@
           <div class="col-md-12 text-center">
 
             <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+  Copyright &copy;<script>document.write(new Date().getFullYear());</script> Time To Travel All rights reserved. <i class="icon-heart" aria-hidden="true"></i>
   <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
           </div>
         </div>
