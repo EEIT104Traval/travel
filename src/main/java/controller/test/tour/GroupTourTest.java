@@ -65,7 +65,7 @@ public class GroupTourTest {
 	 @RequestMapping("/Tourtestremove")
 	 public boolean remove() {
 		 boolean remove = dao.remove("8787");		  
-		 return false;	  		  
+		 return remove;	  		  
 	 } 
 	 
 	 

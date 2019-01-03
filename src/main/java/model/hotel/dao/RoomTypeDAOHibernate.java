@@ -8,13 +8,13 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import model.hotel._03RoomTypeBean;
-import model.hotel._03RoomTypeDAO;
-import model.hotel._05RoomLeftBean;
+import model.hotel.RoomTypeBean;
+import model.hotel.RoomTypeDAO;
+import model.hotel.RoomAvailableBean;
 import model.ticket.TicketInfoBean;
 
 @Repository
-public class RoomTypeDAOHibernate implements _03RoomTypeDAO{
+public class RoomTypeDAOHibernate implements RoomTypeDAO{
 	@Autowired
 	private SessionFactory sessionFactory;
 
@@ -22,20 +22,20 @@ public class RoomTypeDAOHibernate implements _03RoomTypeDAO{
 		return this.sessionFactory.getCurrentSession();
 	}
 	@Override
-	public _03RoomTypeBean findByPrimaryKey(Integer hotelNo) {
-		return this.getSession().get(_03RoomTypeBean.class, hotelNo);
+	public RoomTypeBean findByPrimaryKey(Integer roomTypeNo) {
+		return this.getSession().get(RoomTypeBean.class, roomTypeNo);
 	}
 
 	@Override
-	public List<_03RoomTypeBean> findAll() {
-		return this.getSession().createQuery("from _03RoomTypeBean",_03RoomTypeBean.class)
+	public List<RoomTypeBean> findAll() {
+		return this.getSession().createQuery("from RoomTypeBean",RoomTypeBean.class)
 				.setMaxResults(50).list();
 	}
 
 	@Override
-	public _03RoomTypeBean create(_03RoomTypeBean bean) {
+	public RoomTypeBean create(RoomTypeBean bean) {
 		if (bean != null) {
-			_03RoomTypeBean result = this.getSession().get(_03RoomTypeBean.class, bean.getHotelNo());
+			RoomTypeBean result = this.getSession().get(RoomTypeBean.class, bean.getRoomTypeNo());
 			if (result == null) {
 				this.getSession().save(bean);
 				return bean;
@@ -45,13 +45,13 @@ public class RoomTypeDAOHibernate implements _03RoomTypeDAO{
 	}
 
 	@Override
-	public _03RoomTypeBean update(Integer hotelNo, Integer roomTypeNo, String roomType, java.util.Date saleDate, Integer price) {
-		_03RoomTypeBean result = this.getSession().get(_03RoomTypeBean.class, hotelNo);
+	public RoomTypeBean update(Integer roomTypeNo, Integer hotelNo, String roomType, Integer totalRooms, Integer price) {
+		RoomTypeBean result = this.getSession().get(RoomTypeBean.class, roomTypeNo);
 		if(result!=null) {
-			result.setHotelNo(hotelNo);
 			result.setRoomTypeNo(roomTypeNo);
+			result.setHotelNo(hotelNo);
 			result.setRoomType(roomType);
-			result.setSaleDate(saleDate);
+			result.setTotalRooms(totalRooms);
 			result.setPrice(price);
 			return result;
 		}
@@ -59,8 +59,8 @@ public class RoomTypeDAOHibernate implements _03RoomTypeDAO{
 	}
 
 	@Override
-	public boolean remove(Integer hotelNo) {
-		_03RoomTypeBean result = this.getSession().get(_03RoomTypeBean.class, hotelNo);
+	public boolean remove(Integer roomTypeNo) {
+		RoomTypeBean result = this.getSession().get(RoomTypeBean.class, roomTypeNo);
 		if(result != null) {
 			this.getSession().delete(result);
 			return true;

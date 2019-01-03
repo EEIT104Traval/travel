@@ -18,8 +18,8 @@ public class TicketOrderInfoBean {
 
 	@ManyToOne
 	@JoinColumn(
-	name="username",
-	referencedColumnName="username",
+	name="accountName",
+	referencedColumnName="accountName",
 	insertable=false,
 	updatable=false
 			)
@@ -40,7 +40,7 @@ public class TicketOrderInfoBean {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer ticketOrderNO;
-	private String username;
+	private String accountName;
 	private Integer ticketNo;
 	private java.util.Date orderDate;
 	private java.util.Date useDate;
@@ -58,11 +58,11 @@ public class TicketOrderInfoBean {
 	public void setTicketOrderNO(Integer ticketOrderNO) {
 		this.ticketOrderNO = ticketOrderNO;
 	}
-	public String getUsername() {
-		return username;
+	public String getAccountName() {
+		return accountName;
 	}
-	public void setUsername(String username) {
-		this.username = username;
+	public void setAccountName(String accountName) {
+		this.accountName = accountName;
 	}
 	public Integer getTicketNo() {
 		return ticketNo;
@@ -120,10 +120,11 @@ public class TicketOrderInfoBean {
 	}
 	@Override
 	public String toString() {
-		return "TicketOrderInfoBean [  ticketOrderNO=" + ticketOrderNO + ", username="
-				+ username + ", ticketNo=" + ticketNo + ", orderDate=" + orderDate + ", useDate=" + useDate
+		return "TicketOrderInfoBean [  ticketOrderNO=" + ticketOrderNO + ", accountName="
+				+ accountName + ", ticketNo=" + ticketNo + ", orderDate=" + orderDate + ", useDate=" + useDate
 				+ ", adultTicketCount=" + adultTicketCount + ", childTicketCount=" + childTicketCount
 				+ ", recevingContact=" + recevingContact + ", recevingAddress=" + recevingAddress + ", recevingPhone="
 				+ recevingPhone + ", totalPrice=" + totalPrice + "]";
 	}
+
 }

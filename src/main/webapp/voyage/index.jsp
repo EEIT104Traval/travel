@@ -275,7 +275,7 @@ function showLogin(){
             <li class="nav-item active"><a href="index.jsp" class="nav-link">Home</a></li>
             <li class="nav-item"><a href="tours.html" class="nav-link">Tours</a></li>
             <li class="nav-item"><a href="hotels.html" class="nav-link">Hotels</a></li>
-            <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
+            <li class="nav-item"><a href="services.html" class="nav-link">Flight</a></li>
             <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
             <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
             <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>

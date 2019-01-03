@@ -11,35 +11,22 @@
 
 	<h1>熊</h1>
 	<a href="<c:url value='TourtestfindPK' />">TourtestfindPK</a>
-	<br />
-	<br />
 	<a href="<c:url value='TourtestfindALL' />">TourtestfindALL</a>
-	<br />
-	<br />
 	<a href="<c:url value='Tourtestcreate' />">Tourtestcreate</a>
-	<br />
-	<br />
 	<a href="<c:url value='Tourtestupdate' />">Tourtestupdate</a>
-	<br />
-	<br />
 	<a href="<c:url value='Tourtestremove' />">Tourtestremove</a>
 	<br />
-	<br />
 	<a href="<c:url value='TourBatchtestfindPK' />">TourBatchtestfindPK</a>
-	<br />
-	<br />
 	<a href="<c:url value='TourBatchtestfindALL' />">TourBatchtestfindALL</a>
-	<br />
-	<br />
 	<a href="<c:url value='TourBatchtestInsert' />">TourBatchtestInsert</a>
-	<br />
-	<br />
 	<a href="<c:url value='TourBatchtestUpdate' />">TourBatchtestUpdate</a>
-	<br />
-	<br />
 	<a href="<c:url value='TourBatchtestremove' />">TourBatchtestremove</a>
 	<br />
-	<br />
+	<a href="<c:url value='TourTagsTestfindPK' />">TourTagsTestfindPK</a>
+	<a href="<c:url value='TourTagsTestfindALL' />">TourTagsTestfindALL</a>	
+    <a href="<c:url value='TourTagsTestInsert' />">TourTagsTestInsert</a>
+     <a href="<c:url value='TourTagsTestUpdate' />">TourTagsTestUpdate</a>
+    <a href="<c:url value='TourTagsTestDelete' />">TourTagsTestDelete</a>
 	<hr />
 	<h1>姚</h1>
 	<a href="<c:url value='ticketfindAll' />">ticketfindAll</a>
@@ -121,13 +108,6 @@
 	<a href="<c:url value='Hoteltestremove' />">Hoteltestremove</a>
 	<hr />
 
-	<a href="<c:url value='/HotelPicfindByPK' />">HotelPicfindByPK</a>
-	<a href="<c:url value='/HotelPicfindALL' />">HotelPicfindALL</a>
-	<a href="<c:url value='/HotelPiccreate' />">HotelPiccreate</a>
-	<a href="<c:url value='/HotelPicupdate' />">HotelPicupdate</a>
-	<a href="<c:url value='/HotelPicremove' />">HotelPicremove</a>
-	<hr />
-
 	<a href="<c:url value='/RoomTypefindByPK' />">RoomTypefindByPK</a>
 	<a href="<c:url value='/RoomTypefindALL' />">RoomTypefindALL</a>
 	<a href="<c:url value='/RoomTypecreate' />">RoomTypecreate</a>
@@ -142,11 +122,11 @@
 	<a href="<c:url value='/RoomTypePicremove' />">RoomTypePicremove</a>
 	<hr />
 
-	<a href="<c:url value='/RoomLeftfindByPK' />">RoomLeftfindByPK</a>
-	<a href="<c:url value='/RoomLeftfindALL' />">RoomLeftfindALL</a>
-	<a href="<c:url value='/RoomLeftcreate' />">RoomLeftcreate</a>
-	<a href="<c:url value='/RoomLeftupdate' />">RoomLeftupdate</a>
-	<a href="<c:url value='/RoomLeftremove' />">RoomLeftremove</a>
+	<a href="<c:url value='/RoomAvailablefindByPK' />">RoomAvailablefindByPK</a>
+	<a href="<c:url value='/RoomAvailablefindALL' />">RoomAvailablefindALL</a>
+	<a href="<c:url value='/RoomAvailablecreate' />">RoomAvailablecreate</a>
+	<a href="<c:url value='/RoomAvailableupdate' />">RoomAvailableupdate</a>
+	<a href="<c:url value='/RoomAvailableremove' />">RoomAvailableremove</a>
 	<hr />
 
 	<a href="<c:url value='/HotelOrderDetailsfindByPK' />">HotelOrderDetailsfindByPK</a>
@@ -158,12 +138,20 @@
 
 	<br />
 	<h2>周周</h2>
-	<a href="<c:url value='/TourMemberFindAll' />">TourMemberFindAll</a>
-	<a href="<c:url value='/TourMemberFindSerialNo' />">TourMemberFindSerialNo</a>
-	<a href="<c:url value='/TourMemberFindPrimartyKey' />">TourMemberFindPrimartyKey</a>
-	<a href="<c:url value='/update' />">update</a>
-	<a href="<c:url value='/create' />">create</a>
-
+	TourMemberInfoTest　
+	<a href="<c:url value='/TMIfindAll' />">findAll</a>　
+	<a href="<c:url value='/TMIfindSerialNo' />">findSerialNo</a>　
+	<a href="<c:url value='/TMIfindDoublePK' />">findDoublePK</a>　
+	<a href="<c:url value='/TMIupdate' />">update</a>　
+	<a href="<c:url value='/TMIcreate' />">create</a>　
+	<a href="<c:url value='/TMIremove' />">remove</a>　
+	<br />
+	TourOrderInfoTest　
+	<a href="<c:url value='/TOIfindAll' />">findAll</a>　
+	<a href="<c:url value='/TOIfindPK' />">findPK</a>　
+	<a href="<c:url value='/TOIcreate' />">create</a>　
+	<a href="<c:url value='/TOIupdate' />">update</a>　
+	<a href="<c:url value='/TOIremove' />">remove</a>　
 	<br />
 
 
