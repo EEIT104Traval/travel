@@ -20,12 +20,13 @@
 </head>
 
 <body>
+<div class="background_image" style="background-image:url(images/home_slider.jpg)"></div>
 <h1>hello</h1>
 	<div class="home_search">
 		<div class="container">
 			<div class="row">
 				<div class="col">
-					<div class="home_search_container">
+					<div class="home_search_container"><br><br><br><br><br><br><br><br><br><br>
 						<div class="home_search_title">Search for your trip</div>
 						<div class="home_search_content">
 							<form action="#" class="home_search_form" id="home_search_form">
