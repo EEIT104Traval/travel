@@ -13,7 +13,7 @@ public interface HotelOrderDetailsDAO {
 	public abstract HotelOrderDetailsBean update(Integer orderNo, Integer hotelNo, String accountName,
 			java.util.Date createDate, java.util.Date updateDate, String bookingPerson, String hotelName, String phone,
 			java.util.Date bookingDate, java.util.Date checkIn, java.util.Date checkOut, String roomType,
-			Integer totalprice, Integer stayNights, Integer price, String info);
+			Integer roomPrice, Integer stayNights, Integer totalPrice, String info);
 
 	public abstract boolean remove(Integer orderNo);
 

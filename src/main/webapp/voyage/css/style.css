@@ -886,9 +886,9 @@ pre {
     max-width: 8.33333%; }
   .col-md-2 {
     -webkit-box-flex: 0;
-    -ms-flex: 0 0 16.66667%;
-    flex: 0 0 16.66667%;
-    max-width: 16.66667%; }
+    -ms-flex: 0 0 25%;
+    flex: 0 0 25%;
+    max-width: 25%; }
   .col-md-3 {
     -webkit-box-flex: 0;
     -ms-flex: 0 0 25%;
@@ -8941,7 +8941,7 @@ textarea.form-control {
 	display: block;
 	margin-left: 20px;
 	margin-bottom: 5px;
-	font-weight: 400;
+	font-weight: 200;
 	text-transform: uppercase;
 	line-height: 24px;
 	height: 24px;

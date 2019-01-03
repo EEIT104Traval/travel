@@ -11,35 +11,22 @@
 
 	<h1>熊</h1>
 	<a href="<c:url value='TourtestfindPK' />">TourtestfindPK</a>
-	<br />
-	<br />
 	<a href="<c:url value='TourtestfindALL' />">TourtestfindALL</a>
-	<br />
-	<br />
 	<a href="<c:url value='Tourtestcreate' />">Tourtestcreate</a>
-	<br />
-	<br />
 	<a href="<c:url value='Tourtestupdate' />">Tourtestupdate</a>
-	<br />
-	<br />
 	<a href="<c:url value='Tourtestremove' />">Tourtestremove</a>
 	<br />
-	<br />
 	<a href="<c:url value='TourBatchtestfindPK' />">TourBatchtestfindPK</a>
-	<br />
-	<br />
 	<a href="<c:url value='TourBatchtestfindALL' />">TourBatchtestfindALL</a>
-	<br />
-	<br />
 	<a href="<c:url value='TourBatchtestInsert' />">TourBatchtestInsert</a>
-	<br />
-	<br />
 	<a href="<c:url value='TourBatchtestUpdate' />">TourBatchtestUpdate</a>
-	<br />
-	<br />
 	<a href="<c:url value='TourBatchtestremove' />">TourBatchtestremove</a>
 	<br />
-	<br />
+	<a href="<c:url value='TourTagsTestfindPK' />">TourTagsTestfindPK</a>
+	<a href="<c:url value='TourTagsTestfindALL' />">TourTagsTestfindALL</a>	
+    <a href="<c:url value='TourTagsTestInsert' />">TourTagsTestInsert</a>
+     <a href="<c:url value='TourTagsTestUpdate' />">TourTagsTestUpdate</a>
+    <a href="<c:url value='TourTagsTestDelete' />">TourTagsTestDelete</a>
 	<hr />
 	<h1>姚</h1>
 	<a href="<c:url value='ticketfindAll' />">ticketfindAll</a>

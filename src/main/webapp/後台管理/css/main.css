@@ -7,41 +7,54 @@ This stylesheet and the associated (x)html may be modified in any way to fit you
 ================================================================================================= */
 
 * {
-    margin: 0;
+    margin:auto;
     padding: 0;
 }
 
 html {
-    background:url(../images/tour-5.jpg);
+	background-color: #000000;
+/*     background:url(../images/tour-5.jpg); */
 	background-size: cover;
 	background-repeat : no-repeat ;
 }
 .container {
+	
     margin: 30px auto;
     width: 90%;
 }
+.boxmsg {
+	margin-left: 12%;
+	margin-right: 12%;
+	margin-bottom: 5%;
+	width: 1100px;
+	height: auto;
+/*  	border: 1px solid white  */
+}
 
+.title {
+	color: white
+}
 /* general styles */
 .menu, .menu ul {
     list-style: none;
     padding: 0;
-    margin: 0;
+    margin: 0 ;
 }
 .menu {
     height: 58px;
 }
 .menu li {
-    /* background: -moz-linear-gradient(#292929, #252525);
-    background: -ms-linear-gradient(#292929, #252525);
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #292929), color-stop(100%, #252525));
-    background: -webkit-linear-gradient(#292929, #252525);
-    background: -o-linear-gradient(#292929, #252525);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#292929', endColorstr='#252525');
-    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#292929', endColorstr='#252525')";
-    background: linear-gradient(#292929, #252525);
+/*     background: -moz-linear-gradient(#292929, #252525); */
+/*     background: -ms-linear-gradient(#292929, #252525); */
+/*     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #292929), color-stop(100%, #252525)); */
+/*     background: -webkit-linear-gradient(#292929, #252525); */
+/*     background: -o-linear-gradient(#292929, #252525); */
+/*     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#292929', endColorstr='#252525'); */
+/*     -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#292929', endColorstr='#252525')"; */
+/*     background: linear-gradient(#292929, #252525); */
 
-    border-bottom: 2px solid #181818;
-    border-top: 2px solid #303030; */
+/*     border-bottom: 2px solid #181818; */
+/*     border-top: 2px solid #303030; */
     min-width: 140px;
 }
 .menu > li {
