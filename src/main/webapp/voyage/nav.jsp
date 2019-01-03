@@ -273,13 +273,13 @@ function showLogin(){
 
         <div class="collapse navbar-collapse" id="ftco-nav">
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item active"><a href="index.jsp" class="nav-link">首頁</a></li>
-            <li class="nav-item"><a href="tours.jsp" class="nav-link">團體旅遊</a></li>
+            <li class="nav-item active"><a href="index.jsp" class="nav-link">Home</a></li>
+            <li class="nav-item"><a href="tours.jsp" class="nav-link">Tours</a></li>
             <li class="nav-item"><a href="hotels.jsp" class="nav-link">飯店</a></li>
-            <li class="nav-item"><a href="services.html" class="nav-link">機票</a></li>
+            <li class="nav-item"><a href="services.html" class="nav-link">Flight</a></li>
             <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
-            <li class="nav-item"><a href="about.html" class="nav-link">關於我們</a></li>
-            <li class="nav-item"><a href="contact.html" class="nav-link">聯絡我們</a></li>
+            <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+            <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
             <li class="nav-item"><a href="#" id="create-user" onclick="showLogin()" class="nav-link">會員註冊/登入</a></li>
           </ul>
         </div>
@@ -287,53 +287,5 @@ function showLogin(){
     </nav>
     <!-- END nav -->
 
-  <!-- loader -->
-  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
-    <div id="dialog-form" title="會員登入" style="display: none">
- 
-   <form>
-<!--     <fieldset> -->
-      <label for="name">帳號:</label>
-      <input type="text" name="name" id="name" class="text ui-widget-content ui-corner-all"><br>
-      <label for="password">密碼:</label>
-      <input type="password" name="password" id="password" value="" class="text ui-widget-content ui-corner-all">
-
-<!--     </fieldset> -->
-  </form>
-
- 
-    <div>
-<!--         Facebook登入：<input type="button"  value="Facebook登入" onclick="FBLogin();" /> -->
-    </div>
-    <div>
-<!--         Google登入：<input type="button"  value="Google登入" onclick="GoogleLogin();" /><br> -->
-		<button style="background-color: blue;color: white;margin-top: 5px">登入</button>	
-	
-		<p>快速登入</p>
-        <img src="./images/facebook.png" onclick="FBLogin();">
-        <img src="./images/google01.png" onclick="GoogleLogin();">
-        <button style="background-color: blue;color: white;margin-left: 80px">新會員註冊</button>	
-    </div>
-</div>
-
-  <script src="js/jquery.min.js"></script>
-  <script src="js/jquery-migrate-3.0.1.min.js"></script>
-  <script src="js/popper.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/jquery.easing.1.3.js"></script>
-  <script src="js/jquery.waypoints.min.js"></script>
-  <script src="js/jquery.stellar.min.js"></script>
-  <script src="js/owl.carousel.min.js"></script>
-  <script src="js/jquery.magnific-popup.min.js"></script>
-  <script src="js/aos.js"></script>
-  <script src="js/jquery.animateNumber.min.js"></script>
-  <script src="js/bootstrap-datepicker.js"></script>
-  <script src="js/jquery.timepicker.min.js"></script>
-<!--   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script> -->
-<!--   <script src="js/google-map.js"></script> -->
-  <script src="js/main.js"></script>
-  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    
-  </body>
+</body>
 </html>
