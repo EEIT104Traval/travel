@@ -9,6 +9,20 @@
   <title>jQuery UI Dialog - Modal form</title>
   <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <link rel="stylesheet" href="/resources/demos/style.css">
+<<<<<<< HEAD
+=======
+  <style>
+    label, input { display:block; }
+    input.text { margin-bottom:1px; width:95%; padding: .1em; }
+    fieldset { padding:0; border:0; margin-top:5px; }
+    h1 { font-size: 1.2em; margin: .6em 0; }
+    div#users-contain { width: 350px; margin: 10px 0; }
+    div#users-contain table { margin: 1em 0; border-collapse: collapse; width: 100%; }
+    div#users-contain table td, div#users-contain table th { border: 1px solid #eee; padding: .6em 10px; text-align: left; }
+    .ui-dialog .ui-state-error { padding: .3em; }
+    .validateTips { border: 1px solid transparent; padding: 0.3em; }
+  </style>
+>>>>>>> branch 'master' of https://github.com/EEIT104Traval/travel
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script>
@@ -43,6 +57,21 @@
       }
     }
  
+    function showLogin(){
+        console.log("showLoing start");
+        dialog = $( "#dialog-form" ).dialog({
+             autoOpen: false,
+             height: 400,
+             width: 350,
+             modal: true,
+
+             close: function() {
+               form[ 0 ].reset();
+               allFields.removeClass( "ui-state-error" );
+             }
+           });
+        dialog.dialog( "open" );
+    }
     function checkRegexp( o, regexp, n ) {
       if ( !( regexp.test( o.val() ) ) ) {
         o.addClass( "ui-state-error" );
@@ -92,7 +121,7 @@
       event.preventDefault();
       addUser();
     });
- 	
+ 
     $( "#create-user" ).button().on( "click", function() {
       dialog.dialog( "open" );
     });
@@ -281,8 +310,8 @@ function Del_FB_App() {
  
  
 
-<span id="create-user" style="border:0px;background:transparent;color:#f0f0f0">會員註冊/登入</span>	
-
+<button id="create-user">會員註冊/登入</button>	
+ 
  
 </body>
 </html>
