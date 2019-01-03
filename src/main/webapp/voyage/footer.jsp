@@ -1,61 +1,13 @@
-<!--
-                           _oo0oo_
-                          o8888888o
-                          88" . "88
-                          (| -_- |)
-                          0\  =  /0
-                        ___/`---'\___
-                      .' \\|     |// '.
-                     / \\|||  :  |||// \
-                    / _||||| -:- |||||- \
-                   |   | \\\  -  /// |   |
-                   | \_|  ''\---/''  |_/ |
-                   \  .-\__  '-'  ___/-. /
-                 ___'. .'  /--.--\  `. .'___
-              ."" '<  `.___\_<|>_/___.' >' "".
-             | | :  `- \`.;`\ _ /`;.`/ - ` : | |
-             \  \ `_.   \_ __\ /__ _/   .-` /  /
-         =====`-.____`.___ \_____/___.-`___.-'=====
-                           `=---='
-  ~~~~~~~~~~~~~~~~~~~~~ 佛祖保佑        永無bug~~~~~~~~~~~~~~~~~~~~~~
-                  
-    -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
-<html lang="tw-zh">
-  <head>
-    <title>Voyage - Free Bootstrap 4 Template by Colorlib</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
-    <link href="https://fonts.googleapis.com/css?family=Muli:300,400,600,700" rel="stylesheet">
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
 
-    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
-    <link rel="stylesheet" href="css/animate.css">
-    
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="css/magnific-popup.css">
-
-    <link rel="stylesheet" href="css/aos.css">
-
-    <link rel="stylesheet" href="css/ionicons.min.css">
-
-    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
-    <link rel="stylesheet" href="css/jquery.timepicker.css">
-
-    
-    <link rel="stylesheet" href="css/flaticon.css">
-    <link rel="stylesheet" href="css/icomoon.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <link rel="stylesheet" href="/resources/demos/style.css">
-    
-  </head>
-  <body>
-  
     <footer class="ftco-footer ftco-bg-dark ftco-section">
       <div class="container">
         <div class="row mb-5">
@@ -119,12 +71,43 @@
           <div class="col-md-12 text-center">
 
             <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script> Time To Travel All rights reserved. <i class="icon-heart" aria-hidden="true"></i>
+  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
   <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
           </div>
         </div>
       </div>
     </footer>
+    
+  
+
+  <!-- loader -->
+  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+    <div id="dialog-form" title="會員登入" style="display: none">
+ 
+   <form>
+<!--     <fieldset> -->
+      <label for="name">帳號:</label>
+      <input type="text" name="name" id="name" class="text ui-widget-content ui-corner-all"><br>
+      <label for="password">密碼:</label>
+      <input type="password" name="password" id="password" value="" class="text ui-widget-content ui-corner-all">
+
+<!--     </fieldset> -->
+  </form>
+
+ 
+    <div>
+<!--         Facebook登入：<input type="button"  value="Facebook登入" onclick="FBLogin();" /> -->
+    </div>
+    <div>
+<!--         Google登入：<input type="button"  value="Google登入" onclick="GoogleLogin();" /><br> -->
+		<button style="background-color: blue;color: white;margin-top: 5px">登入</button>	
+	
+		<p>快速登入</p>
+        <img src="./images/facebook.png" onclick="FBLogin();">
+        <img src="./images/google01.png" onclick="GoogleLogin();">
+        <button style="background-color: blue;color: white;margin-left: 80px">新會員註冊</button>	
+    </div>
+</div>
 
   <script src="js/jquery.min.js"></script>
   <script src="js/jquery-migrate-3.0.1.min.js"></script>
@@ -139,11 +122,11 @@
   <script src="js/jquery.animateNumber.min.js"></script>
   <script src="js/bootstrap-datepicker.js"></script>
   <script src="js/jquery.timepicker.min.js"></script>
-<!--   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script> -->
-<!--   <script src="js/google-map.js"></script> -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+  <script src="js/google-map.js"></script>
   <script src="js/main.js"></script>
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    
-  </body>
+
+</body>
 </html>

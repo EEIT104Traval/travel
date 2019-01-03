@@ -65,22 +65,29 @@
 
         <div class="collapse navbar-collapse" id="ftco-nav">
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item active"><a href="index.jsp" class="nav-link">首頁</a></li>
-            <li class="nav-item"><a href="tours.jsp" class="nav-link">團體旅遊</a></li>
+            <li class="nav-item active"><a href="index.jsp" class="nav-link">Home</a></li>
+            <li class="nav-item"><a href="tours.jsp" class="nav-link">Tours</a></li>
             <li class="nav-item"><a href="hotels.jsp" class="nav-link">飯店</a></li>
-            <li class="nav-item"><a href="services.html" class="nav-link">機票</a></li>
+            <li class="nav-item"><a href="services.html" class="nav-link">Flight</a></li>
             <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
+<<<<<<< HEAD
             <li class="nav-item"><a href="about.html" class="nav-link">關於我們</a></li>
             <li class="nav-item"><a href="contact.html" class="nav-link">聯絡我們</a></li>
             <li class="nav-item"><a href="#" class="nav-link">
             	<jsp:include page="login.jsp" />
             </a></li>
+=======
+            <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+            <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+            <li class="nav-item"><a href="#" id="create-user" onclick="showLogin()" class="nav-link">會員註冊/登入</a></li>
+>>>>>>> branch 'master' of https://github.com/EEIT104Traval/travel.git
           </ul>
         </div>
       </div>
     </nav>
     <!-- END nav -->
 
+<<<<<<< HEAD
 
   <script src="js/jquery.min.js"></script>
   <script src="js/jquery-migrate-3.0.1.min.js"></script>
@@ -102,4 +109,7 @@
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     
   </body>
+=======
+</body>
+>>>>>>> branch 'master' of https://github.com/EEIT104Traval/travel.git
 </html>
