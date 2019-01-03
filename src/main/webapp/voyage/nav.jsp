@@ -52,215 +52,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="/resources/demos/style.css">
-     <script>
-  $( function updateTips( t ) {
-      tips
-        .text( t )
-        .addClass( "ui-state-highlight" );
-      setTimeout(function() {
-        tips.removeClass( "ui-state-highlight", 1500 );
-      }, 500 );
-    
- 
-    function checkLength( o, n, min, max ) {
-      if ( o.val().length > max || o.val().length < min ) {
-        o.addClass( "ui-state-error" );
-        updateTips( "Length of " + n + " must be between " +
-          min + " and " + max + "." );
-        return false;
-      } else {
-        return true;
-      }
-    }
- 
-    function checkRegexp( o, regexp, n ) {
-      if ( !( regexp.test( o.val() ) ) ) {
-        o.addClass( "ui-state-error" );
-        updateTips( n );
-        return false;
-      } else {
-        return true;
-      }
-    }
-
- 
-    dialog = $( "#dialog-form" ).dialog({
-      autoOpen: false,
-      height: 400,
-      width: 350,
-      modal: true,
-
-      close: function() {
-        form[ 0 ].reset();
-        allFields.removeClass( "ui-state-error" );
-      }
-    });
- 
-    form = dialog.find( "form" ).on( "submit", function( event ) {
-      event.preventDefault();
-      addUser();
-    });
- 
-    $( "#create-user" ).button().on( "click", function() {
-      dialog.dialog( "open" );
-    });
-  } 
-  );
-  </script>
-  <script type="text/javascript">
-        let FB_appID = "967663670095757";
-
-        (function (d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-             if (d.getElementById(id)) return;
-            js = d.createElement(s); js.id = id;
-            js.src = "https://connect.facebook.net/en_US/sdk.js";
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
-
-        window.fbAsyncInit = function () {
-            FB.init({
-                appId: FB_appID,//FB appID
-                cookie: true,  // enable cookies to allow the server to access the session
-                
-                xfbml: true,  // parse social plugins on this page
-                version: 'v3.0' // use graph api version
-            });
-
-        };
-
-        function FBLogin() {  
-            FB.login(function (response) {
-                //debug用
-                console.log(response);
-                if (response.status === 'connected') {
-                    //user已登入FB
-                    //抓userID 
-                    let FB_ID = response["authResponse"]["userID"];
-                    console.log("userID:" + FB_ID);
-                    alert("Facebook登入OK");
-                    //導到驗證傳兩個值userID gorfb
-                    //資料庫查userID有無存在 再導回index
-                   window.location="http://localhost:8080/Travel/voyage/index.jsp";
-                } else {
-                // user FB取消授權
-                    alert("Facebook帳號無法登入");
-                }
-            }, { scope: 'public_profile,email' });
-
-        }
-    </script>
-
-    <!--Google登入-->
-    <script async defer src="https://apis.google.com/js/api.js" onload="this.onload=function(){};HandleGoogleApiLibrary()"
-            onreadystatechange="if (this.readyState === 'complete') this.onload()"></script>
-    <script type="text/javascript">
-        //進入 https://console.developers.google.com/，找「憑證」頁籤(記得先選對專案)，即可找到用戶端ID
-        let Google_appId = "152249642386-p0k54s40jac75e2gre5f6mqih80veto6.apps.googleusercontent.com";
-
-        // Called when Google Javascript API Javascript is loaded
-        function HandleGoogleApiLibrary() {
-            // Load "client" & "auth2" libraries
-            gapi.load('client:auth2', {
-                callback: function () {
-                    // Initialize client & auth libraries
-                    gapi.client.init({
-                        clientId: Google_appId,
-                        scope: 'https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/plus.me'
-                    }).then(
-                        function (success) {
-                            // Google Libraries are initialized successfully
-                            // You can now make API calls 
-                            console.log("Google Libraries are initialized successfully");
-                        },
-                        function (error) {
-                            // Error occurred
-                            console.log(error);// to find the reason 
-                        }
-                    );
-                },
-                onerror: function () {
-                    // Failed to load libraries
-                    console.log("Failed to load libraries");
-                }
-            });
-        }
-
-        function GoogleLogin() {
-            // API call for Google login  
-            gapi.auth2.getAuthInstance().signIn().then(
-                function (success) {
-                    // Login API call is successful 
-                    console.log(success);
-                    let Google_ID = success["El"];
-                    window.location="http://localhost:8080/Travel/%E5%BE%8C%E5%8F%B0%E7%AE%A1%E7%90%86/bindex.jsp";
-                },
-                function (error) {
-                 // Error occurred
-                    // console.log(error) to find the reason
-                    console.log(error);
-                }
-            );
-
-        }
-
-    </script>
-
-    <!--有些網站會做帳號和user FB帳號的綁定/解除綁定，或你想讓使用者刪除你的FB App，讓使用者下次可以切換不同FB帳號登入你的網站-->
-    <!--下面程式碼派得上用場-->
-     <script type="text/javascript">
-        
-//刪除使用者已授權你的FB App，好讓使用者下次重新授權你的FB App
-//參考：https://stackoverflow.com/questions/6634212/remove-the-application-from-a-user-using-graph-api/7741978#7741978
-function Del_FB_App() { 
-    FB.getLoginStatus(function (response) {//取得目前user是否登入FB網站
-        //debug用
-        console.log(response);
-        if (response.status === 'connected') {
-            // Logged into Facebook.
-            //抓userID
-            FB.api("/me/permissions", "DELETE", function (response) {
-                console.log("刪除結果");
-                console.log(response); //gives true on app delete success 
-            });
-        } else {
-            // FB取消授權
-            console.log("無法刪除FB App");
-        }
-    });
-     </script>
-
-     <!--類似上面Delete FB App的效果，呼叫此function後，下次使用者想再Google登入你的網站就必須重新選擇帳號-->
-     <script type="text/javascript">
    
-     //參考：https://developers.google.com/identity/sign-in/web/disconnect
-function showLogin(){
-    	 console.log("showLoing start");
-    	 dialog = $( "#dialog-form" ).dialog({
-    	      autoOpen: false,
-    	      height: 400,
-    	      width: 350,
-    	      modal: true,
-
-    	      close: function() {
-    	        form[ 0 ].reset();
-    	        allFields.removeClass( "ui-state-error" );
-    	      }
-    	    });
-    	 dialog.dialog( "open" );
-    	 //$("#dialog-form").attr("style","display: block");
-     }
-     
-     function Google_disconnect() {
-    var auth2 = gapi.auth2.getAuthInstance();
-    auth2.disconnect().then(function () {
-        console.log('User disconnect.'); 
-    });
-     
-     }
-
-    </script> 
-    
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
@@ -278,14 +70,46 @@ function showLogin(){
             <li class="nav-item"><a href="hotels.jsp" class="nav-link">飯店</a></li>
             <li class="nav-item"><a href="services.html" class="nav-link">Flight</a></li>
             <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
+<<<<<<< HEAD
+            <li class="nav-item"><a href="about.html" class="nav-link">關於我們</a></li>
+            <li class="nav-item"><a href="contact.html" class="nav-link">聯絡我們</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">
+            	<jsp:include page="login.jsp" />
+            </a></li>
+=======
             <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
             <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
             <li class="nav-item"><a href="#" id="create-user" onclick="showLogin()" class="nav-link">會員註冊/登入</a></li>
+>>>>>>> branch 'master' of https://github.com/EEIT104Traval/travel.git
           </ul>
         </div>
       </div>
     </nav>
     <!-- END nav -->
 
+<<<<<<< HEAD
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.easing.1.3.js"></script>
+  <script src="js/jquery.waypoints.min.js"></script>
+  <script src="js/jquery.stellar.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/jquery.magnific-popup.min.js"></script>
+  <script src="js/aos.js"></script>
+  <script src="js/jquery.animateNumber.min.js"></script>
+  <script src="js/bootstrap-datepicker.js"></script>
+  <script src="js/jquery.timepicker.min.js"></script>
+<!--   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script> -->
+<!--   <script src="js/google-map.js"></script> -->
+  <script src="js/main.js"></script>
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    
+  </body>
+=======
 </body>
+>>>>>>> branch 'master' of https://github.com/EEIT104Traval/travel.git
 </html>
