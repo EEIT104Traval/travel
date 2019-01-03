@@ -18,44 +18,40 @@ public class TourOrderInfoDAO {
 	public Session getSession() {
 		return this.sessionFactory.getCurrentSession();
 	}
-	
-	public TourOrderInfoBean findByPrimaryKey(Integer serialNo) {
-		return this.getSession().get(TourOrderInfoBean.class, serialNo);
+
+	public TourOrderInfoBean findByPrimaryKey(Integer orderNo) {
+		return this.getSession().get(TourOrderInfoBean.class, orderNo);
 	}
-	
+
 	public List<TourOrderInfoBean> findAll() {
-		return this.getSession().createQuery("from TourOrderInfoBean", TourOrderInfoBean.class)
-				.setMaxResults(100)
+		return this.getSession().createQuery("from TourOrderInfoBean", TourOrderInfoBean.class).setMaxResults(100)
 				.list();
 	}
+
 	public TourOrderInfoBean create(TourOrderInfoBean bean) {
-		if(bean!=null) {
-			TourOrderInfoBean result = this.getSession().get(TourOrderInfoBean.class, bean.getSerialNo());
-			if(result==null) {
-				this.getSession().save(bean);
-				return bean;
-			}
-		}
-		return null;
+		this.getSession().save(bean);
+		return bean;
 	}
 
 	public TourOrderInfoBean update(TourOrderInfoBean bean) {
-		TourOrderInfoBean result = this.getSession().get(TourOrderInfoBean.class, bean.getSerialNo());
+		TourOrderInfoBean result = this.getSession().get(TourOrderInfoBean.class, bean.getOrderNo());
 		System.out.println(result);
-		if(result!=null) {
-			result.setSerialNo(bean.getSerialNo());
+		if (result != null) {
+//			result.setOrderNo(bean.getOrderNo());
 			result.setAccountName(bean.getAccountName());
-			result.setTourNo(bean.getTourNo());
+			result.setSerialNo(bean.getSerialNo());
 			result.setQuantity(bean.getQuantity());
 			result.setTotal(bean.getTotal());
 			result.setOrderStatus(bean.getOrderStatus());
+			result.setOrderTime(bean.getOrderTime());
 			return result;
 		}
 		return null;
 	}
-	public boolean remove(Integer serialNo) {
-		TourOrderInfoBean result = this.getSession().get(TourOrderInfoBean.class, serialNo);
-		if(result!=null) {
+
+	public boolean remove(Integer orderNo) {
+		TourOrderInfoBean result = this.getSession().get(TourOrderInfoBean.class, orderNo);
+		if (result != null) {
 			this.getSession().delete(result);
 			return true;
 		}
