@@ -273,13 +273,13 @@ function showLogin(){
 
         <div class="collapse navbar-collapse" id="ftco-nav">
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item active"><a href="index.jsp" class="nav-link">Home</a></li>
-            <li class="nav-item"><a href="tours.jsp" class="nav-link">Tours</a></li>
+            <li class="nav-item active"><a href="index.jsp" class="nav-link">首頁</a></li>
+            <li class="nav-item"><a href="tours.jsp" class="nav-link">團體旅遊</a></li>
             <li class="nav-item"><a href="hotels.jsp" class="nav-link">飯店</a></li>
-            <li class="nav-item"><a href="services.html" class="nav-link">Flight</a></li>
-            <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
-            <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
-            <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+            <li class="nav-item"><a href="services.html" class="nav-link">機票</a></li>
+            <li class="nav-item"><a href="blog.html" class="nav-link">門票</a></li>
+            <li class="nav-item"><a href="about.html" class="nav-link">關於我們</a></li>
+            <li class="nav-item"><a href="contact.html" class="nav-link">聯絡我們</a></li>
             <li class="nav-item"><a href="#" id="create-user" onclick="showLogin()" class="nav-link">會員註冊/登入</a></li>
           </ul>
         </div>
