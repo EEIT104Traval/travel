@@ -1,5 +1,6 @@
 package model.tour;
 
+import java.io.Serializable;
 import java.util.Arrays;
 
 import javax.persistence.Entity;
@@ -8,41 +9,61 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="TourPicture")
-public class TourPictureBean {
+public class TourPictureBean implements Serializable{
+	private static final long serialVersionUID = 1L;
+	
 	@Id
 	private String tourNo;
-	private String tpicName;
+	@Id
+	private Integer tpicNo;
+	private String pictitle;
 	private String picDetail;
 	private Byte[] pic;
 	
 	@Override
 	public String toString() {
-		return "TourPictureBean [tourNo=" + tourNo + ", tpicName=" + tpicName + ", picDetail=" + picDetail + ", pic="
-				+ Arrays.toString(pic) + "]";
+		return "TourPictureBean [tourNo=" + tourNo + ", tpicNo=" + tpicNo + ", pictitle=" + pictitle + ", picDetail="
+				+ picDetail + ", pic=" + Arrays.toString(pic) + "]";
 	}
-	
+
 	public String getTourNo() {
 		return tourNo;
 	}
+
 	public void setTourNo(String tourNo) {
 		this.tourNo = tourNo;
 	}
-	public String getTpicName() {
-		return tpicName;
+
+	public Integer getTpicNo() {
+		return tpicNo;
 	}
-	public void setTpicName(String tpicName) {
-		this.tpicName = tpicName;
+
+	public void setTpicNo(Integer tpicNo) {
+		this.tpicNo = tpicNo;
 	}
+
+	public String getPictitle() {
+		return pictitle;
+	}
+
+	public void setPictitle(String pictitle) {
+		this.pictitle = pictitle;
+	}
+
 	public String getPicDetail() {
 		return picDetail;
 	}
+
 	public void setPicDetail(String picDetail) {
 		this.picDetail = picDetail;
 	}
+
 	public Byte[] getPic() {
 		return pic;
 	}
+
 	public void setPic(Byte[] pic) {
 		this.pic = pic;
 	}
+	
 }

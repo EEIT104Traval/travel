@@ -29,9 +29,8 @@ public class TourOrderInfoTest {
 	@RequestMapping("/TOIcreate")
 	public TourOrderInfoBean create() {
 		TourOrderInfoBean bean = new TourOrderInfoBean();
-		bean.setSerialNo(2);
 		bean.setAccountName("snoopy");
-		bean.setTourNo("1002");
+		bean.setSerialNo(1);
 		dao.create(bean);
 		return bean;
 	}
@@ -39,16 +38,16 @@ public class TourOrderInfoTest {
 	@RequestMapping("/TOIupdate")
 	public TourOrderInfoBean update() {
 		TourOrderInfoBean bean = new TourOrderInfoBean();
-		bean.setSerialNo(2);
+		bean.setOrderNo(1);
 		bean.setAccountName("snoopy");
-		bean.setTourNo("1003");
+		bean.setSerialNo(2);
 		dao.create(bean);
 		return bean;
 	}
 	
 	@RequestMapping("/TOIremove")
 	public boolean remove() {
-		Boolean result = dao.remove(2);
+		Boolean result = dao.remove(3);
 		return result;
 	}
 	

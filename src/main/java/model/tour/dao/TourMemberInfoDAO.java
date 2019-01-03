@@ -42,20 +42,20 @@ public class TourMemberInfoDAO {
 	}
 
 //  Hibernate 5.2之後的寫法與javax靠攏
-	public List<TourMemberInfoBean> findSerialNo(Integer serialNo) {
+	public List<TourMemberInfoBean> findOrderNo(Integer orderNo) {
 		CriteriaBuilder criteriaBuilder = getSession().getCriteriaBuilder();
 		CriteriaQuery<TourMemberInfoBean> criteria = criteriaBuilder.createQuery(TourMemberInfoBean.class);
 		Root<TourMemberInfoBean> from = criteria.from(TourMemberInfoBean.class);
-		criteria.select(from).where(from.get("serialNo").in(serialNo));
+		criteria.select(from).where(from.get("orderNo").in(orderNo));
 		List<TourMemberInfoBean> list = getSession().createQuery(criteria).getResultList();
 		return list;
 	}
 
 //  Hibernate 5.2之前的寫法
-	public List<TourMemberInfoBean> findDoublePK(Integer serialNo, Integer purchaseOrder) {
+	public List<TourMemberInfoBean> findDoublePK(Integer orderNo, Integer purchaseOrder) {
 		@SuppressWarnings("deprecation")
 		Criteria criteria = this.getSession().createCriteria(TourMemberInfoBean.class);
-		criteria.add(Restrictions.eq("serialNo", new Integer(serialNo)));
+		criteria.add(Restrictions.eq("orderNo", new Integer(orderNo)));
 		criteria.add(Restrictions.eq("purchaseOrder", new Integer(purchaseOrder)));
 		@SuppressWarnings("unchecked")
 		List<TourMemberInfoBean> users = criteria.list();
@@ -67,8 +67,8 @@ public class TourMemberInfoDAO {
 		return bean;
 	}
 
-	public boolean remove(Integer serialNo, Integer purchaseOrder) {
-		List<TourMemberInfoBean> users = Dao.findDoublePK(serialNo, purchaseOrder);
+	public boolean remove(Integer orderNo, Integer purchaseOrder) {
+		List<TourMemberInfoBean> users = Dao.findDoublePK(orderNo, purchaseOrder);
 		System.out.println(users);
 		if (!users.isEmpty()) {
 		TourMemberInfoBean result = users.get(0);
@@ -79,10 +79,10 @@ public class TourMemberInfoDAO {
 	}
 
 	public TourMemberInfoBean update(TourMemberInfoBean bean) {
-		List<TourMemberInfoBean> users = Dao.findDoublePK(bean.getSerialNo(), bean.getPurchaseOrder());
+		List<TourMemberInfoBean> users = Dao.findDoublePK(bean.getOrderNo(), bean.getPurchaseOrder());
 		if (!users.isEmpty()) {
 			TourMemberInfoBean result = users.get(0);
-			result.setSerialNo(bean.getSerialNo());
+			result.setOrderNo(bean.getOrderNo());
 			result.setPurchaseOrder(bean.getPurchaseOrder());
 			result.setfName(bean.getfName());
 			result.setlName(bean.getlName());

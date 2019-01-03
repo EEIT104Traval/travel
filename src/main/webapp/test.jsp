@@ -140,7 +140,7 @@
 	<h2>周周</h2>
 	TourMemberInfoTest　
 	<a href="<c:url value='/TMIfindAll' />">findAll</a>　
-	<a href="<c:url value='/TMIfindSerialNo' />">findSerialNo</a>　
+	<a href="<c:url value='/TMIfindOrderNo' />">findSerialNo</a>　
 	<a href="<c:url value='/TMIfindDoublePK' />">findDoublePK</a>　
 	<a href="<c:url value='/TMIupdate' />">update</a>　
 	<a href="<c:url value='/TMIcreate' />">create</a>　
@@ -152,6 +152,14 @@
 	<a href="<c:url value='/TOIcreate' />">create</a>　
 	<a href="<c:url value='/TOIupdate' />">update</a>　
 	<a href="<c:url value='/TOIremove' />">remove</a>　
+	<br />
+	TourPictureTest　
+	<a href="<c:url value='/TPfindAll' />">findAll</a>　
+	<a href="<c:url value='/TPfindOrderNo' />">findOrderNo</a>　
+	<a href="<c:url value='/TPfindDoublePK' />">findDoublePK</a>　
+	<a href="<c:url value='/TPcreate' />">create</a>　
+	<a href="<c:url value='/TPupdate' />">update</a>　
+	<a href="<c:url value='/TPremove' />">remove</a>　
 	<br />
 
 
