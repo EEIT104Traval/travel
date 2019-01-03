@@ -9,9 +9,10 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "TourMemberInfo")
 public class TourMemberInfoBean implements Serializable{
+	private static final long serialVersionUID = 1L;
 	
 	@Id
-	private Integer serialNo;
+	private Integer orderNo;
 	@Id
 	private Integer purchaseOrder;
 	
@@ -22,16 +23,16 @@ public class TourMemberInfoBean implements Serializable{
 
 	@Override
 	public String toString() {
-		return "TourMemberInfoBean [serialNo=" + serialNo + ", purchaseOrder=" + purchaseOrder + ", fName=" + fName
+		return "TourMemberInfoBean [serialNo=" + orderNo + ", purchaseOrder=" + purchaseOrder + ", fName=" + fName
 				+ ", lname=" + lName + ", price=" + price + ", passenger=" + passenger + "]";
 	}
 
-	public Integer getSerialNo() {
-		return serialNo;
+	public Integer getOrderNo() {
+		return orderNo;
 	}
 
-	public void setSerialNo(Integer serialNo) {
-		this.serialNo = serialNo;
+	public void setOrderNo(Integer orderNo) {
+		this.orderNo = orderNo;
 	}
 
 	public Integer getPurchaseOrder() {

@@ -153,7 +153,7 @@
 	<h2>周周</h2>
 	TourMemberInfoTest　
 	<a href="<c:url value='/TMIfindAll' />">findAll</a>　
-	<a href="<c:url value='/TMIfindSerialNo' />">findSerialNo</a>　
+	<a href="<c:url value='/TMIfindOrderNo' />">findSerialNo</a>　
 	<a href="<c:url value='/TMIfindDoublePK' />">findDoublePK</a>　
 	<a href="<c:url value='/TMIupdate' />">update</a>　
 	<a href="<c:url value='/TMIcreate' />">create</a>　
