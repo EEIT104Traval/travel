@@ -274,7 +274,7 @@ function showLogin(){
         <div class="collapse navbar-collapse" id="ftco-nav">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active"><a href="index.jsp" class="nav-link">Home</a></li>
-            <li class="nav-item"><a href="tours.html" class="nav-link">Tours</a></li>
+            <li class="nav-item"><a href="tours.jsp" class="nav-link">Tours</a></li>
             <li class="nav-item"><a href="hotels.jsp" class="nav-link">飯店</a></li>
             <li class="nav-item"><a href="services.html" class="nav-link">Flight</a></li>
             <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
