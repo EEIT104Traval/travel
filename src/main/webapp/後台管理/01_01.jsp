@@ -17,7 +17,7 @@
 	    	<option value="zero"></option>
 			<option value="one">會員帳號</option>
 			<option value="two">會員電話</option>
-            <input type="text" id="account" name="account" size="80" placeholder="請輸入會員資訊" maxlength="10" inputmode="button">
+            <input type="text" id="account" name="account" size="40" placeholder="請輸入會員資訊" maxlength="10" inputmode="button">
             <input type="button" value="確認">　　　
             <input type="button" value="顯示所有客戶" name="#">
           </select>

@@ -60,7 +60,7 @@
       setTimeout(function() {
         tips.removeClass( "ui-state-highlight", 1500 );
       }, 500 );
-    }
+    
  
     function checkLength( o, n, min, max ) {
       if ( o.val().length > max || o.val().length < min ) {
