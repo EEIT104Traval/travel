@@ -30,28 +30,28 @@
     <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
-    
-    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
-      <div class="container">
-        <a class="navbar-brand" href="index.html">Voyage</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="oi oi-menu"></span> Menu
-        </button>
+	<jsp:include page="nav.jsp"></jsp:include>
+<!--     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar"> -->
+<!--       <div class="container"> -->
+<!--         <a class="navbar-brand" href="index.html">Voyage</a> -->
+<!--         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation"> -->
+<!--           <span class="oi oi-menu"></span> Menu -->
+<!--         </button> -->
 
-        <div class="collapse navbar-collapse" id="ftco-nav">
-          <ul class="navbar-nav ml-auto">
-                       <li class="nav-item active"><a href="index.jsp" class="nav-link">Home</a></li>
-            <li class="nav-item"><a href="tours.jsp" class="nav-link">Tours</a></li>
-            <li class="nav-item"><a href="hotels.jsp" class="nav-link">飯店</a></li>
-            <li class="nav-item"><a href="services.html" class="nav-link">Flight</a></li>
-            <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
-            <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
-            <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
-            <li class="nav-item"><a href="#" id="create-user" onclick="showLogin()" class="nav-link">會員註冊/登入</a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+<!--         <div class="collapse navbar-collapse" id="ftco-nav"> -->
+<!--           <ul class="navbar-nav ml-auto"> -->
+<!--                        <li class="nav-item active"><a href="index.jsp" class="nav-link">Home</a></li> -->
+<!--             <li class="nav-item"><a href="tours.jsp" class="nav-link">Tours</a></li> -->
+<!--             <li class="nav-item"><a href="hotels.jsp" class="nav-link">飯店</a></li> -->
+<!--             <li class="nav-item"><a href="services.html" class="nav-link">Flight</a></li> -->
+<!--             <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li> -->
+<!--             <li class="nav-item"><a href="about.html" class="nav-link">About</a></li> -->
+<!--             <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li> -->
+<!--             <li class="nav-item"><a href="#" id="create-user" onclick="showLogin()" class="nav-link">會員註冊/登入</a></li> -->
+<!--           </ul> -->
+<!--         </div> -->
+<!--       </div> -->
+<!--     </nav> -->
     <!-- END nav -->
     
     <section class="home-slider owl-carousel">
@@ -331,7 +331,7 @@
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
 
-  <script src="js/jquery.min.js"></script>
+<!--   <script src="js/jquery.min.js"></script> -->
   <script src="js/jquery-migrate-3.0.1.min.js"></script>
   <script src="js/popper.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
@@ -344,8 +344,8 @@
   <script src="js/jquery.animateNumber.min.js"></script>
   <script src="js/bootstrap-datepicker.js"></script>
   <script src="js/jquery.timepicker.min.js"></script>
-<!--   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script> -->
-<!--   <script src="js/google-map.js"></script> -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+  <script src="js/google-map.js"></script>
   <script src="js/main.js"></script>
     
   </body>
