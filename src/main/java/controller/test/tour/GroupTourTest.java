@@ -42,8 +42,7 @@ public class GroupTourTest {
 	 public GroupTourBean create() {
 		 GroupTourBean bean = new GroupTourBean();
 //		 GroupTourBean bean = this.getSession().get(GroupTourBean.class,"8787");
-		 	bean.setTourNo("8787");
-		 	bean.setTag("楓葉");
+		 	bean.setTourNo("8787");		 	
 		 	bean.setCountry("楓之谷");
 		 	bean.setTourName("楓之谷1日遊");
 		 	bean.setDestination("為多莉亞港");
@@ -58,7 +57,7 @@ public class GroupTourTest {
 	 } 
 	 @RequestMapping("/Tourtestupdate")
 	 public GroupTourBean update() {
-		 GroupTourBean update = dao.update("沙漠888","中國","沙漠之旅-蒙古八七日遊","蒙古自治區"
+		 GroupTourBean update = dao.update("中國","沙漠之旅-蒙古八七日遊","蒙古自治區"
 				                           ,87,20,40,999,"安安你好PLAYER87","1001");		  
 		 return update;	  		  
 	 } 

@@ -13,8 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 @Table(name="GroupTour")
 public class GroupTourBean {
 	@Id
-	private String tourNo;
-	private String tag;
+	private String tourNo;	
 	private String country;
 	private String tourName;
 	private String destination;
@@ -71,12 +70,7 @@ public class GroupTourBean {
 	public void setTourNo(String tourNo) {
 		this.tourNo = tourNo;
 	}
-	public String getTag() {
-		return tag;
-	}
-	public void setTag(String tag) {
-		this.tag = tag;
-	}
+	
 	public String getCountry() {
 		return country;
 	}
@@ -128,7 +122,7 @@ public class GroupTourBean {
 	
 	@Override
 	public String toString() {
-		return "GroupTourBean [tourNo=" + tourNo + ", tag=" + tag + ", country=" + country + ", tourName=" + tourName
+		return "GroupTourBean [tourNo=" + tourNo + ", tag=" + ", country=" + country + ", tourName=" + tourName
 				+ ", destination=" + destination + ", tourDays=" + tourDays + ", guaranteedCount=" + guaranteedCount
 				+ ", fullPeopleCount=" + fullPeopleCount + ", clickCount=" + clickCount + ", content=" + content + "]";
 	}

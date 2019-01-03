@@ -50,12 +50,11 @@ public class GroupTourDAO {
 //		}
 //		return null;
 //	}
-	public GroupTourBean update(String tag, String country, String tourName, String destination,
+	public GroupTourBean update(String country, String tourName, String destination,
 	                            Integer tourDays, Integer guaranteedCount, Integer fullPeopleCount, 
 	                            Integer clickCount, String content, String tourNo) {
 		GroupTourBean result = this.getSession().get(GroupTourBean.class, tourNo);
-		if(result!=null) {
-			result.setTag(tag);
+		if(result!=null) {			
 			result.setCountry(country);
 			result.setTourName(tourName);
 			result.setDestination(destination);

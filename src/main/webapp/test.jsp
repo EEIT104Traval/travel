@@ -153,6 +153,14 @@
 	<a href="<c:url value='/TOIupdate' />">update</a>　
 	<a href="<c:url value='/TOIremove' />">remove</a>　
 	<br />
+	TourPictureTest　
+	<a href="<c:url value='/TPfindAll' />">findAll</a>　
+	<a href="<c:url value='/TPfindOrderNo' />">findOrderNo</a>　
+	<a href="<c:url value='/TPfindDoublePK' />">findDoublePK</a>　
+	<a href="<c:url value='/TPcreate' />">create</a>　
+	<a href="<c:url value='/TPupdate' />">update</a>　
+	<a href="<c:url value='/TPremove' />">remove</a>　
+	<br />
 
 
 </body>

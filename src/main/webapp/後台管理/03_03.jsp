@@ -9,5 +9,21 @@
 </head>
 <body>
 	<jsp:include page="bindex.jsp" />
+		<div class="boxmsg">
+<!--  -->	 　　　　　　　　　　　　　　　　　　　　　　　　　　　　修改行程　　　　　　　　　　　　　　　　　　　　　　　　
+<br>
+<div class="boxmsg">
+<table>
+	<tr>
+		<th>
+		
+		</th>
+</tr>
+</table>
+</div>
+</div>
+	<div class="boxmsg1">
+	 <label class="title">修改結果</label>
+	</div>
 </body>
 </html>

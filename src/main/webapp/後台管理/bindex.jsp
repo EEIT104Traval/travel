@@ -30,7 +30,7 @@
 		id="ftco-navbar">
 		<div class="container">
 			<div class="container" id="main" role="main">
-				<ul class="menu" style="padding-left:50px">
+				<ul class="menu" style="padding-left: 130px">
 					<li><a href="bindex.jsp">會員管理</a>
 						<ul class="submenu">
 							<li><a href="01_01.jsp">會員查詢</a></li>
@@ -67,7 +67,7 @@
 							<li><a href="06_02.jsp">管理者權限</a></li>
 							<li><a href="#">登出</a></li>
 						</ul></li>
-					<li>
+					<li style="height:54px">
 						<div class="switch_demo">
 							<a href="../voyage/index.jsp"></a> <input type="checkbox"
 								name="switch_demo" class="switch_demo-checkbox" id="switch_demo"
@@ -78,6 +78,7 @@
 						</div>
 					</li>
 				</ul>
+				<hr>
 			</div>
 		</div>
 	</nav>
