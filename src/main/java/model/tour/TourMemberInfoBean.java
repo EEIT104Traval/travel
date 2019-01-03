@@ -1,27 +1,29 @@
 package model.tour;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "TourMemberInfo")
-public class TourMemberInfoBean{
-
+public class TourMemberInfoBean implements Serializable{
+	
 	@Id
 	private Integer serialNo;
-
+	@Id
 	private Integer purchaseOrder;
 	
 	private String fName;
-	private String lname;
+	private String lName;
 	private Integer price;
 	private String passenger;
 
 	@Override
 	public String toString() {
 		return "TourMemberInfoBean [serialNo=" + serialNo + ", purchaseOrder=" + purchaseOrder + ", fName=" + fName
-				+ ", lname=" + lname + ", price=" + price + ", passenger=" + passenger + "]";
+				+ ", lname=" + lName + ", price=" + price + ", passenger=" + passenger + "]";
 	}
 
 	public Integer getSerialNo() {
@@ -48,12 +50,12 @@ public class TourMemberInfoBean{
 		this.fName = fName;
 	}
 
-	public String getLname() {
-		return lname;
+	public String getlName() {
+		return lName;
 	}
 
-	public void setLname(String lname) {
-		this.lname = lname;
+	public void setlName(String lName) {
+		this.lName = lName;
 	}
 
 	public Integer getPrice() {

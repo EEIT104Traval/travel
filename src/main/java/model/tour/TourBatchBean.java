@@ -8,14 +8,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import org.hibernate.SessionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 
 @Entity
 @Table(name="TourBatch")
 public class TourBatchBean {
-	@Autowired
-	public static SessionFactory sessionfactory;		
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)   
 	private Integer serialNo;

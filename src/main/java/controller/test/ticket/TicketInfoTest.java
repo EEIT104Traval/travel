@@ -35,9 +35,9 @@ public class TicketInfoTest {
 	 @RequestMapping("/ticketCreate")
 	 public TicketInfoBean create() {
 		 TicketInfoBean result = new TicketInfoBean();
-		 	result.setTicketNo(2);
-			result.setTicketName("環球大阪");
-			result.setValidity(new java.util.Date());
+		 	result.setTicketNo(6);
+			result.setTicketName("環球大大阪");
+			result.setValidity(2);
 			result.setAdultTicketPrice(2000);
 			result.setChildTicketPrice(1800);
 			result.setAdultTicketSellQ(10);
@@ -59,7 +59,7 @@ public class TicketInfoTest {
 	 } 
 	 @RequestMapping("/ticketUpdate")
 	 public TicketInfoBean update() {
-		 TicketInfoBean update = dao.update(1,"迪士尼",new java.util.Date(),3000,2000,10,10,2,5,"japan","test","test",null,"test","test","test","test");		  
+		 TicketInfoBean update = dao.update(1,"東京熱",2,3000,2000,10,10,2,5,"japan","test","test",null,"test","test","test","test");		  
 		 return update;	  		  
 	 } 
 	 @RequestMapping("/ticketRemove")

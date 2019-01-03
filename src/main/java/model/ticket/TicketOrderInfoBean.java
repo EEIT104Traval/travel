@@ -15,25 +15,32 @@ import model.userInfo.UserInfoBean;
 @Entity
 @Table(name="TicketOrderInfo")
 public class TicketOrderInfoBean {
-//	@ManyToOne
-//	@JoinColumn(
-//	name="username",
-//	referencedColumnName="username",
-//	insertable=false,
-//	updatable=false
-//			)
-//	private UserInfoBean userinfo;
-//	public UserInfoBean getUserInfo() {
-//		return userinfo;
-//	}
-//	public void setUserInfo(UserInfoBean userinfo) {
-//		this.userinfo = userinfo;
-//	}
+
+	@ManyToOne
+	@JoinColumn(
+	name="accountName",
+	referencedColumnName="accountName",
+	insertable=false,
+	updatable=false
+			)
+	private UserInfoBean userinfo;
+	public UserInfoBean getUserInfo() {
+		return userinfo;
+	}
+	public void setUserInfo(UserInfoBean userinfo) {
+		this.userinfo = userinfo;
+	}
+	public UserInfoBean getUserinfo() {
+		return userinfo;
+	}
+	public void setUserinfo(UserInfoBean userinfo) {
+		this.userinfo = userinfo;
+	}
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer ticketOrderNO;
-	private String username;
+	private String accountName;
 	private Integer ticketNo;
 	private java.util.Date orderDate;
 	private java.util.Date useDate;
@@ -45,23 +52,17 @@ public class TicketOrderInfoBean {
 	private Integer totalPrice;
 	
 		
-//	public UserInfoBean getUserinfo() {
-//		return userinfo;
-//	}
-//	public void setUserinfo(UserInfoBean userinfo) {
-//		this.userinfo = userinfo;
-//	}
 	public Integer getTicketOrderNO() {
 		return ticketOrderNO;
 	}
 	public void setTicketOrderNO(Integer ticketOrderNO) {
 		this.ticketOrderNO = ticketOrderNO;
 	}
-	public String getUsername() {
-		return username;
+	public String getAccountName() {
+		return accountName;
 	}
-	public void setUsername(String username) {
-		this.username = username;
+	public void setAccountName(String accountName) {
+		this.accountName = accountName;
 	}
 	public Integer getTicketNo() {
 		return ticketNo;
@@ -119,10 +120,11 @@ public class TicketOrderInfoBean {
 	}
 	@Override
 	public String toString() {
-		return "TicketOrderInfoBean [  ticketOrderNO=" + ticketOrderNO + ", username="
-				+ username + ", ticketNo=" + ticketNo + ", orderDate=" + orderDate + ", useDate=" + useDate
+		return "TicketOrderInfoBean [  ticketOrderNO=" + ticketOrderNO + ", accountName="
+				+ accountName + ", ticketNo=" + ticketNo + ", orderDate=" + orderDate + ", useDate=" + useDate
 				+ ", adultTicketCount=" + adultTicketCount + ", childTicketCount=" + childTicketCount
 				+ ", recevingContact=" + recevingContact + ", recevingAddress=" + recevingAddress + ", recevingPhone="
 				+ recevingPhone + ", totalPrice=" + totalPrice + "]";
 	}
+
 }
