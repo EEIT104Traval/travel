@@ -22,10 +22,14 @@
 <!--     <link rel="stylesheet" href="css/flaticon.css"> -->
 <!--     <link rel="stylesheet" href="css/icomoon.css"> -->
 <!--     <link rel="stylesheet" href="css/style.css"> -->
+<script
+  src="https://code.jquery.com/jquery-3.3.1.js"integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="crossorigin="anonymous"></script>
 </head>
 <script>
 	$(document).ready(function() {
-		
+		$(":checkbox").click(function(){
+			window.location.href="/Travel/voyage/index.jsp"		
+		});
 	})
 
 </script>
@@ -70,7 +74,6 @@
 					<li><a href="bindex.jsp">管理者</a>
 						<ul class="submenu">
 							<li><a href="06_01.jsp">管理者帳號</a></li>
-							<li><a href="06_02.jsp">管理者權限</a></li>
 							<li><a href="#">登出</a></li>
 						</ul></li>
 					<li style="height:54px">
