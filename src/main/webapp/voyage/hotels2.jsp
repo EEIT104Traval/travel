@@ -34,15 +34,16 @@
 			<div class="row">
 				<div class="col">
 					<div class="home_search_container">
-						<div class="home_search_title">Search for your trip</div>
+						<div class="home_search_title">想住哪就選哪</div>
 						<div class="home_search_content">
 							<form action="#" class="home_search_form" id="home_search_form">
 								<div class="d-flex flex-lg-row flex-column align-items-start justify-content-lg-between justify-content-start">
-									<input type="text" class="search_input search_input_1" placeholder="City" required="required">
-									<input type="text" class="search_input search_input_2" placeholder="Departure" required="required">
-									<input type="text" class="search_input search_input_3" placeholder="Arrival" required="required">
-									<input type="text" class="search_input search_input_4" placeholder="Budget" required="required">
-									<button class="home_search_button">search</button>
+									<input type="text" class="search_input search_input_1" placeholder="請輸入國家/城市" required="required">
+									<input type="text" class="search_input search_input_2" placeholder="入住日" required="required">
+									<input type="text" class="search_input search_input_3" placeholder="退房日" required="required">
+									<input type="text" class="search_input search_input_4" placeholder="人數" required="required">
+									<input type="text" class="search_input search_input_5" placeholder="房數" required="required">
+									<button class="home_search_button">搜尋</button>
 								</div>
 							</form>
 						</div>
