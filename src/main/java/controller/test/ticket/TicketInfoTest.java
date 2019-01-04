@@ -35,7 +35,7 @@ public class TicketInfoTest {
 	 @RequestMapping("/ticketCreate")
 	 public TicketInfoBean create() {
 		 TicketInfoBean result = new TicketInfoBean();
-		 	result.setTicketNo(6);
+		 	result.setTicketNo(9);
 			result.setTicketName("環球大大阪");
 			result.setValidity(2);
 			result.setAdultTicketPrice(2000);
@@ -47,7 +47,7 @@ public class TicketInfoTest {
 			result.setCountry("japan");
 			result.setCategory("test");
 			result.setProductFeatures("test");
-			result.setTicketPicture(null);
+			result.setTicketPicture("test");
 			result.setTicketDescription("test");
 			result.setTraffic_information("test");
 			result.setSpecial_restrictions("test");
@@ -59,7 +59,7 @@ public class TicketInfoTest {
 	 } 
 	 @RequestMapping("/ticketUpdate")
 	 public TicketInfoBean update() {
-		 TicketInfoBean update = dao.update(1,"東京熱",2,3000,2000,10,10,2,5,"japan","test","test",null,"test","test","test","test");		  
+		 TicketInfoBean update = dao.update(1,"東京熱",2,3000,2000,10,10,2,5,"japan","test","test","test","test","test","test","test");		  
 		 return update;	  		  
 	 } 
 	 @RequestMapping("/ticketRemove")
