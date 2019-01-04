@@ -167,6 +167,7 @@ public class FlightTest implements XmlDocument {
 	@ResponseBody // @RestController可替代
 	@RequestMapping("/flight12")
 	public AirportCompareBean Airportfind() {
+		System.out.println(System.getProperty("user.dir"));
 		AirportCompareBean bean = adao.findByPrimaryKey("SRI");
 		return bean;
 	}
@@ -175,7 +176,7 @@ public class FlightTest implements XmlDocument {
 	@RequestMapping("/flight13")
 	public void AirlinecreateParserXml() {
 		
-		File inputXml = new File("C:\\Users\\wei\\git\\travel\\src\\main\\resources\\flightRes");
+		File inputXml = new File("C:\\Travel\\TravelGit\\travel\\src\\main\\resources\\flight\\CITY_CHT.xml");
 		SAXReader saxReader = new SAXReader();
 		try {
 			Document document = saxReader.read(inputXml);
