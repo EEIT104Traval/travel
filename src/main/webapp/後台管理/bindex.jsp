@@ -23,6 +23,12 @@
 <!--     <link rel="stylesheet" href="css/icomoon.css"> -->
 <!--     <link rel="stylesheet" href="css/style.css"> -->
 </head>
+<script>
+	$(document).ready(function() {
+		
+	})
+
+</script>
 <body>
 
 	<nav
@@ -68,10 +74,9 @@
 						</ul></li>
 					<li style="height:54px">
 						<div class="switch_demo">
-							<a href="../voyage/index.jsp"></a> <input type="checkbox"
-								name="switch_demo" class="switch_demo-checkbox" id="switch_demo"
-								checked> <label class="switch_demo-label"
-								for="switch_demo"> <span class="switch_demo-inner"></span>
+							<input type="checkbox" name="switch_demo" class="switch_demo-checkbox" id="switch_demo"	checked> 
+							<label class="switch_demo-label" for="switch_demo">
+								<span class="switch_demo-inner"></span>
 								<span class="switch_demo-switch"></span>
 							</label>
 						</div>
