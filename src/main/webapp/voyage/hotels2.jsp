@@ -3,6 +3,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="tw-zh">
+	<!-- import this css by Alex -->
+	<link rel="stylesheet" href="css/main_styles.css">
   <head>
      <jsp:include page="/voyage/nav.jsp" />
   </head>
@@ -13,10 +15,10 @@
       <div class="slider-item" style="background-image: url('images/bg_3.jpg');" data-stellar-background-ratio="0.5">
         <div class="overlay"></div>
         <div class="container">
-          <div class="row slider-text align-items-center">
-            <div class="col-md-7 col-sm-12 ftco-animate">
-              <p class="breadcrumbs"><span class="mr-2"><a href="index.jsp">Home</a></span> <span>Hotels</span></p>
-              <h1 class="mb-3">Hotels</h1>
+<!--           <div class="row slider-text align-items-center"> -->
+<!--             <div class="col-md-7 col-sm-12 ftco-animate"> -->
+<!--               <p class="breadcrumbs"><span class="mr-2"><a href="index.jsp">Home</a></span> <span>Hotels XXXXXXXXXX</span></p> -->
+<!--               <h1 class="mb-3">Hotels</h1> -->
             </div>
           </div>
         </div>
@@ -24,6 +26,31 @@
     </section>
     <!-- END slider -->
     
+    <!-- add this div by Alex -->
+     <!-- Search -->
+
+	<div class="home_search">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="home_search_container">
+						<div class="home_search_title">Search for your trip</div>
+						<div class="home_search_content">
+							<form action="#" class="home_search_form" id="home_search_form">
+								<div class="d-flex flex-lg-row flex-column align-items-start justify-content-lg-between justify-content-start">
+									<input type="text" class="search_input search_input_1" placeholder="City" required="required">
+									<input type="text" class="search_input search_input_2" placeholder="Departure" required="required">
+									<input type="text" class="search_input search_input_3" placeholder="Arrival" required="required">
+									<input type="text" class="search_input search_input_4" placeholder="Budget" required="required">
+									<button class="home_search_button">search</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
     <section class="ftco-section">
       <div class="container">
         <div class="row">
@@ -41,6 +68,7 @@
                   </div>
                 </a>
               </div>
+              
               <div class="col-md-6 col-lg-6 mb-4 ftco-animate">
                 <a href="#" class="block-5" style="background-image: url('images/hotel-2.jpg');">
                   <div class="text">
