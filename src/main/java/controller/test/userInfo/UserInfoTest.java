@@ -35,7 +35,7 @@ public class UserInfoTest {
  public UserInfoBean create() {
 	 UserInfoBean bean1 =new UserInfoBean();
 	 bean1.setAccountName("Kitty2");
-//	 bean.setPassword(ABC);
+	 bean1.setPassword("ABC");
 	 bean1.setFirstname("sun");
 	 bean1.setLastname("Reese");
 	 bean1.setIdentityNo("A223456789");
@@ -45,8 +45,8 @@ public class UserInfoTest {
 	 bean1.setPhone("0912123123");
 	 bean1.setAddress("台北市松山");
 	 bean1.setAuthority("Z001");
-	 bean1.setGoogleId("Z01");
-	 bean1.setFacebookId("Z02");
+	 bean1.setGorfb("G");
+	 bean1.setLoginId("Z02");
 	 UserInfoBean bean2 = dao.create(bean1);
 	 return bean2;
  }

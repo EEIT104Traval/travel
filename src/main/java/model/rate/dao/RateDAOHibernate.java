@@ -44,7 +44,7 @@ public class RateDAOHibernate implements RateDAO{
 	}
 
 	@Override
-	public RateBean update(Byte[] flag, String currency, Double cashBuy, Double cashSell, Double spotBuy,
+	public RateBean update(String flag, String currency, Double cashBuy, Double cashSell, Double spotBuy,
 			Double spotSell, String country) {
 		return null;
 	}

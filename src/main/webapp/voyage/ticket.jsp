@@ -12,7 +12,6 @@
     <jsp:include page="/voyage/nav.jsp" />
     
     <!-- END nav -->
-    
     <section class="home-slider owl-carousel">
       <div class="slider-item" style="background-image: url('images/bg_1.jpg');" data-stellar-background-ratio="0.5">
         <div class="overlay"></div>
@@ -27,167 +26,155 @@
       </div>
     </section>
     <!-- END slider -->
-
     <section class="ftco-section bg-light">
       <div class="container">
         <div class="row">
           <div class="col-md-6 col-lg-3 ftco-animate">
             <div class="blog-entry">
-              <a href="blog-single.html" class="block-20" style="background-image: url('images/image_1.jpg');">
+              <a  class="block-20" style="background-image: url('images/image_1.jpg');">
               </a>
               <div class="text p-4">
                 <div class="meta">
-                  <div><a href="#">July 6, 2018</a></div>
-                  <div><a href="#">Admin</a></div>
+                  <div>艾菲爾鐵塔</div>
+                  <div>€50</div>
                 </div>
                 <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
                 <p class="clearfix">
-                  <a href="#" class="float-left">Read more</a>
-                  <a href="#" class="float-right meta-chat"><span class="icon-chat"></span> 3</a>
-                </p>
+                  <a href="https://zh.wikipedia.org/wiki/%E8%89%BE%E8%8F%B2%E7%88%BE%E9%90%B5%E5%A1%94" class="float-left">Read more</a>
+                 </p>
               </div>
             </div>
           </div>
           <div class="col-md-6 col-lg-3 ftco-animate">
             <div class="blog-entry">
-              <a href="blog-single.html" class="block-20" style="background-image: url('images/image_2.jpg');">
+              <a class="block-20" style="background-image: url('images/image_2.jpg');">
               </a>
               <div class="text p-4">
                 <div class="meta">
-                  <div><a href="#">July 6, 2018</a></div>
-                  <div><a href="#">Admin</a></div>
+                  <div>巴黎凱旋門</div>
+                  <div>€50</div>
                 </div>
                 <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
                 <p class="clearfix">
-                  <a href="#" class="float-left">Read more</a>
-                  <a href="#" class="float-right meta-chat"><span class="icon-chat"></span> 3</a>
+                  <a href="https://zh.wikipedia.org/wiki/%E5%B7%B4%E9%BB%8E%E5%87%AF%E6%97%8B%E9%97%A8" class="float-left">Read more</a>
                 </p>
               </div>
             </div>
           </div>
           <div class="col-md-6 col-lg-3 ftco-animate">
             <div class="blog-entry" data-aos-delay="200">
-              <a href="blog-single.html" class="block-20" style="background-image: url('images/image_3.jpg');">
+              <a class="block-20" style="background-image: url('images/image_3.jpg');">
               </a>
               <div class="text p-4">
                 <div class="meta">
-                  <div><a href="#">July 6, 2018</a></div>
-                  <div><a href="#">Admin</a></div>
+                  <div>羅浮宮</div>
+                  <div>€50</div>
                 </div>
                 <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
                 <p class="clearfix">
-                  <a href="#" class="float-left">Read more</a>
-                  <a href="#" class="float-right meta-chat"><span class="icon-chat"></span> 3</a>
+                  <a href="https://zh.wikipedia.org/wiki/%E5%8D%A2%E6%B5%AE%E5%AE%AB" class="float-left">Read more</a>
                 </p>
               </div>
             </div>
           </div>
           <div class="col-md-6 col-lg-3 ftco-animate">
             <div class="blog-entry" data-aos-delay="200">
-              <a href="blog-single.html" class="block-20" style="background-image: url('images/image_4.jpg');">
+              <a  class="block-20" style="background-image: url('images/image_4.jpg');">
               </a>
               <div class="text p-4">
                 <div class="meta">
-                  <div><a href="#">July 6, 2018</a></div>
-                  <div><a href="#">Admin</a></div>
+                  <div>新天鵝堡</div>
+                  <div>€50</div>
                 </div>
                 <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
                 <p class="clearfix">
-                  <a href="#" class="float-left">Read more</a>
-                  <a href="#" class="float-right meta-chat"><span class="icon-chat"></span> 3</a>
+                  <a href="https://zh.wikipedia.org/wiki/%E6%96%B0%E5%A4%A9%E9%B9%85%E5%A0%A1" class="float-left">Read more</a>
                 </p>
               </div>
             </div>
           </div>
           <div class="col-md-6 col-lg-3 ftco-animate">
             <div class="blog-entry" data-aos-delay="200">
-              <a href="blog-single.html" class="block-20" style="background-image: url('images/image_5.jpg');">
+              <a class="block-20" style="background-image: url('images/image_5.jpg');">
               </a>
               <div class="text p-4">
                 <div class="meta">
-                  <div><a href="#">July 6, 2018</a></div>
-                  <div><a href="#">Admin</a></div>
+                  <div>黃金快車</div>
+                  <div>€50</div>
                 </div>
                 <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
                 <p class="clearfix">
-                  <a href="#" class="float-left">Read more</a>
-                  <a href="#" class="float-right meta-chat"><span class="icon-chat"></span> 3</a>
+                  <a href="https://www.myswitzerland.com/zo-tw/goldenpass-line.html" class="float-left">Read more</a>
                 </p>
               </div>
             </div>
           </div>
           <div class="col-md-6 col-lg-3 ftco-animate">
             <div class="blog-entry" data-aos-delay="200">
-              <a href="blog-single.html" class="block-20" style="background-image: url('images/image_6.jpg');">
+              <a class="block-20" style="background-image: url('images/image_6.jpg');">
               </a>
               <div class="text p-4">
                 <div class="meta">
-                  <div><a href="#">July 6, 2018</a></div>
-                  <div><a href="#">Admin</a></div>
+                  <div>羅馬競技場</div>
+                  <div>€50</div>
                 </div>
                 <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
                 <p class="clearfix">
-                  <a href="#" class="float-left">Read more</a>
-                  <a href="#" class="float-right meta-chat"><span class="icon-chat"></span> 3</a>
+                  <a href="https://zh.wikipedia.org/wiki/%E7%BD%97%E9%A9%AC%E6%96%97%E5%85%BD%E5%9C%BA" class="float-left">Read more</a>
                 </p>
               </div>
             </div>
           </div>
           <div class="col-md-6 col-lg-3 ftco-animate">
             <div class="blog-entry" data-aos-delay="200">
-              <a href="blog-single.html" class="block-20" style="background-image: url('images/image_7.jpg');">
+              <a class="block-20" style="background-image: url('images/image_7.jpg');">
               </a>
               <div class="text p-4">
                 <div class="meta">
-                  <div><a href="#">July 6, 2018</a></div>
-                  <div><a href="#">Admin</a></div>
+                  <div>埃及金字塔</div>
+                  <div>€50</div>
                 </div>
                 <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
                 <p class="clearfix">
-                  <a href="#" class="float-left">Read more</a>
-                  <a href="#" class="float-right meta-chat"><span class="icon-chat"></span> 3</a>
+                  <a href="https://zh.wikipedia.org/wiki/%E5%9F%83%E5%8F%8A%E9%87%91%E5%AD%97%E5%A1%94" class="float-left">Read more</a>
                 </p>
               </div>
             </div>
           </div>
           <div class="col-md-6 col-lg-3 ftco-animate">
             <div class="blog-entry" data-aos-delay="200">
-              <a href="blog-single.html" class="block-20" style="background-image: url('images/image_8.jpg');">
+              <a class="block-20" style="background-image: url('images/image_8.jpg');">
               </a>
               <div class="text p-4">
                 <div class="meta">
-                  <div><a href="#">July 6, 2018</a></div>
-                  <div><a href="#">Admin</a></div>
+                  <div>米其林餐廳</div>
+                  <div>€50</div>
                 </div>
                 <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
                 <p class="clearfix">
-                  <a href="#" class="float-left">Read more</a>
-                  <a href="#" class="float-right meta-chat"><span class="icon-chat"></span> 3</a>
+                  <a href="#https://guide.michelin.com/" class="float-left">Read more</a>
                 </p>
               </div>
             </div>
           </div>
         </div>
-
-        <div class="row mt-5">
-          <div class="col text-center">
-            <div class="block-27">
-              <ul>
-                <li><a href="#">&lt;</a></li>
-                <li class="active"><span>1</span></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-                <li><a href="#">&gt;</a></li>
-              </ul>
+         <div class="row mt-5">
+              <div class="col text-center">
+                <div class="block-27">
+                  <ul>
+                    <li><a href="#">&lt;</a></li>
+                    <li class="active"><span>1</span></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li><a href="#">&gt;</a></li>
+                  </ul>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
       </div>
     </section>
-    
     <jsp:include page="/voyage/footer.jsp" />
-    
   </body>
 </html>
