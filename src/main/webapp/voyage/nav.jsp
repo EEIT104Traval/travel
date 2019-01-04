@@ -72,7 +72,9 @@
             <li class="nav-item"><a href="blog.html" class="nav-link">門票</a></li>
             <li class="nav-item"><a href="about.html" class="nav-link">關於我們</a></li>
             <li class="nav-item"><a href="contact.html" class="nav-link">聯絡我們</a></li>
-            <li class="nav-item"><a href="#" id="create-user" onclick="showLogin()" class="nav-link">會員註冊/登入</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">
+            	<jsp:include page="login.jsp"></jsp:include>
+            </a></li>
           </ul>
         </div>
       </div>
