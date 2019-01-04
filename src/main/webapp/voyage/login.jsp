@@ -1,28 +1,66 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>jQuery UI Dialog - Modal form</title>
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  <link rel="stylesheet" href="/resources/demos/style.css">
-  <style>
-    label, input { display:block; }
-    input.text { margin-bottom:1px; width:95%; padding: .1em; }
-    fieldset { padding:0; border:0; margin-top:5px; }
-    h1 { font-size: 1.2em; margin: .6em 0; }
-    div#users-contain { width: 350px; margin: 10px 0; }
-    div#users-contain table { margin: 1em 0; border-collapse: collapse; width: 100%; }
-    div#users-contain table td, div#users-contain table th { border: 1px solid #eee; padding: .6em 10px; text-align: left; }
-    .ui-dialog .ui-state-error { padding: .3em; }
-    .validateTips { border: 1px solid transparent; padding: 0.3em; }
-  </style>
-  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  <script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>jQuery UI Dialog - Modal form</title>
+<link rel="stylesheet"
+	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="/resources/demos/style.css">
+<style>
+label, input {
+	display: block;
+}
+
+input.text {
+	margin-bottom: 1px;
+	width: 95%;
+	padding: .1em;
+}
+
+fieldset {
+	padding: 0;
+	border: 0;
+	margin-top: 5px;
+}
+
+h1 {
+	font-size: 1.2em;
+	margin: .6em 0;
+}
+
+div#users-contain {
+	width: 350px;
+	margin: 10px 0;
+}
+
+div#users-contain table {
+	margin: 1em 0;
+	border-collapse: collapse;
+	width: 100%;
+}
+
+div#users-contain table td, div#users-contain table th {
+	border: 1px solid #eee;
+	padding: .6em 10px;
+	text-align: left;
+}
+
+.ui-dialog .ui-state-error {
+	padding: .3em;
+}
+
+.validateTips {
+	border: 1px solid transparent;
+	padding: 0.3em;
+}
+</style>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
   $( function() {
     var dialog, form,
  
@@ -126,34 +164,36 @@
   </script>
 </head>
 <body>
- 
-<div id="dialog-form" title="會員登入">
- 
-   <form>
-<!--     <fieldset> -->
-      <label for="name">帳號:</label>
-      <input type="text" name="name" id="name" class="text ui-widget-content ui-corner-all"><br>
-      <label for="password">密碼:</label>
-      <input type="password" name="password" id="password" value="" class="text ui-widget-content ui-corner-all">
 
-<!--     </fieldset> -->
-  </form>
+	<div id="dialog-form" title="會員登入">
 
- 
-    <div>
-<!--         Facebook登入：<input type="button"  value="Facebook登入" onclick="FBLogin();" /> -->
-    </div>
-    <div>
-<!--         Google登入：<input type="button"  value="Google登入" onclick="GoogleLogin();" /><br> -->
-		<button style="background-color: blue;color: white;margin-top: 5px">登入</button>	
-	
-		<p>快速登入</p>
-        <img src="./images/facebook.png" onclick="FBLogin();">
-        <img src="./images/google01.png" onclick="GoogleLogin();">
-        <button style="background-color: blue;color: white;margin-left: 80px">新會員註冊</button>	
-    </div>
+		<form>
+			<!--     <fieldset> -->
+			<label for="name">帳號:</label> <input type="text" name="name"
+				id="name" class="text ui-widget-content ui-corner-all"><br>
+			<label for="password">密碼:</label> <input type="password"
+				name="password" id="password" value=""
+				class="text ui-widget-content ui-corner-all">
 
-    <script type="text/javascript">
+			<!--     </fieldset> -->
+		</form>
+
+
+		<div>
+			<!--         Facebook登入：<input type="button"  value="Facebook登入" onclick="FBLogin();" /> -->
+		</div>
+		<div>
+			<!--         Google登入：<input type="button"  value="Google登入" onclick="GoogleLogin();" /><br> -->
+			<button style="background-color: blue; color: white; margin-top: 5px">登入</button>
+
+			<p>快速登入</p>
+			<img src="./images/facebook.png" onclick="FBLogin();"> <img
+				src="./images/google01.png" onclick="GoogleLogin();">
+			<button
+				style="background-color: blue; color: white; margin-left: 80px">新會員註冊</button>
+		</div>
+
+		<script type="text/javascript">
         //應用程式編號，進入 https://developers.facebook.com/apps/ 即可看到
         let FB_appID = "967663670095757";
 
@@ -204,10 +244,11 @@
 
 
 
-    <!--Google登入-->
-    <script async defer src="https://apis.google.com/js/api.js" onload="this.onload=function(){};HandleGoogleApiLibrary()"
-            onreadystatechange="if (this.readyState === 'complete') this.onload()"></script>
-    <script type="text/javascript">
+		<!--Google登入-->
+		<script async defer src="https://apis.google.com/js/api.js"
+			onload="this.onload=function(){};HandleGoogleApiLibrary()"
+			onreadystatechange="if (this.readyState === 'complete') this.onload()"></script>
+		<script type="text/javascript">
         //進入 https://console.developers.google.com/，找「憑證」頁籤(記得先選對專案)，即可找到用戶端ID
         let Google_appId = "152249642386-p0k54s40jac75e2gre5f6mqih80veto6.apps.googleusercontent.com";
 
@@ -264,9 +305,9 @@
 
     </script>
 
-    <!--有些網站會做帳號和user FB帳號的綁定/解除綁定，或你想讓使用者刪除你的FB App，讓使用者下次可以切換不同FB帳號登入你的網站-->
-    <!--下面程式碼派得上用場-->
-     <script type="text/javascript">
+		<!--有些網站會做帳號和user FB帳號的綁定/解除綁定，或你想讓使用者刪除你的FB App，讓使用者下次可以切換不同FB帳號登入你的網站-->
+		<!--下面程式碼派得上用場-->
+		<script type="text/javascript">
         
 //刪除使用者已授權你的FB App，好讓使用者下次重新授權你的FB App
 //參考：https://stackoverflow.com/questions/6634212/remove-the-application-from-a-user-using-graph-api/7741978#7741978
@@ -288,8 +329,8 @@ function Del_FB_App() {
     });
      </script>
 
-     <!--類似上面Delete FB App的效果，呼叫此function後，下次使用者想再Google登入你的網站就必須重新選擇帳號-->
-     <script type="text/javascript">
+		<!--類似上面Delete FB App的效果，呼叫此function後，下次使用者想再Google登入你的網站就必須重新選擇帳號-->
+		<script type="text/javascript">
    
      //參考：https://developers.google.com/identity/sign-in/web/disconnect
 
@@ -303,12 +344,12 @@ function Del_FB_App() {
 
     </script>
 
-</div>
- 
- 
+	</div>
 
-<button id="create-user">會員註冊/登入</button>	
- 
- 
+
+
+	<span id="create-user"
+		style="background: transparent; color: #f0f0f0; border: 0px;">會員註冊/登入</span>
+
 </body>
 </html>
