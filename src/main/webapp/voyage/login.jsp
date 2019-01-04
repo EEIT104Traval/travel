@@ -63,8 +63,7 @@ div#users-contain table td, div#users-contain table th {
 <script>
   $( function() {
     var dialog, form,
- 
-      // From http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#e-mail-state-%28type=email%29
+       // From http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#e-mail-state-%28type=email%29
       emailRegex = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/,
       name = $( "#name" ),
       email = $( "#email" ),
@@ -96,7 +95,7 @@ div#users-contain table td, div#users-contain table th {
         console.log("showLoing start");
         dialog = $( "#dialog-form" ).dialog({
              autoOpen: false,
-             height: 400,
+             height: 500,
              width: 350,
              modal: true,
 
@@ -142,7 +141,7 @@ div#users-contain table td, div#users-contain table th {
  
     dialog = $( "#dialog-form" ).dialog({
       autoOpen: false,
-      height: 400,
+      height: 450,
       width: 350,
       modal: true,
 
@@ -165,7 +164,7 @@ div#users-contain table td, div#users-contain table th {
 </head>
 <body>
  
-<div id="dialog-form" title="會員登入">
+<div id="dialog-form" title="會員登入" style="margin-top:20px">
  
    <form>
 <!--     <fieldset> -->
@@ -186,9 +185,10 @@ div#users-contain table td, div#users-contain table th {
 		<button style="background-color: blue;color: white;margin-top: 5px">登入</button>	
 	
 		<p>快速登入</p>
-        <img src="./images/facebook.png" onclick="FBLogin();">
-        <img src="./images/google01.png" onclick="GoogleLogin();">
-        <button style="background-color: blue;color: white;margin-left: 80px">新會員註冊</button>	
+        <img src="./images/facebook.png" onclick="FBLogin();"width="32%" height="32%">
+        <img src="./images/google01.png" onclick="GoogleLogin();"width="32%" height="32%">
+        <img src="./images/line.png" onclick="GoogleLogin();" width="32%" height="32%">
+        <button style="background-color: blue;color: white;margin-left: 100px;margin-top:20px">新會員註冊</button>	
     </div>
 
     <script type="text/javascript">
@@ -327,7 +327,7 @@ function Del_FB_App() {
     });
      </script>
 
-     <!--類似上面Delete FB App的效果，呼叫此function後，下次使用者想再Google登入你的網站就必須重新選擇帳號-->
+<!--      類似上面Delete FB App的效果，呼叫此function後，下次使用者想再Google登入你的網站就必須重新選擇帳號 -->
      <script type="text/javascript">
    
      //參考：https://developers.google.com/identity/sign-in/web/disconnect
@@ -337,7 +337,7 @@ function Del_FB_App() {
     auth2.disconnect().then(function () {
         console.log('User disconnect.'); 
     });
-     
+     }
      }
 
     </script>

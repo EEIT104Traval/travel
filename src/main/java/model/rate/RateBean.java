@@ -9,7 +9,7 @@ import javax.persistence.Table;
 @Table(name="Rate")
 public class RateBean {
 	
-	private Byte[] flag;
+	private String flag;
 	@Id
 	private String currency;
 	private Double cashBuy;
@@ -17,18 +17,21 @@ public class RateBean {
 	private Double spotBuy;
 	private Double spotSell;
 	private String country;
+	
 	@Override
 	public String toString() {
-		return "RateBean [flag=" + Arrays.toString(flag) + ", currency=" + currency + ", cashBuy=" + cashBuy
-				+ ", cashSell=" + cashSell + ", spotBuy=" + spotBuy + ", spotSell=" + spotSell + ", country=" + country
-				+ "]";
+		return "RateBean [flag=" + flag + ", currency=" + currency + ", cashBuy=" + cashBuy + ", cashSell=" + cashSell
+				+ ", spotBuy=" + spotBuy + ", spotSell=" + spotSell + ", country=" + country + "]";
 	}
-	public Byte[] getFlag() {
+
+	public String getFlag() {
 		return flag;
 	}
-	public void setFlag(Byte[] flag) {
+
+	public void setFlag(String flag) {
 		this.flag = flag;
 	}
+
 	public String getCurrency() {
 		return currency;
 	}

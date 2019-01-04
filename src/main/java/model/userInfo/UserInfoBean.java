@@ -1,6 +1,3 @@
-
-
-
 package model.userInfo;
 
 import java.util.Arrays;
@@ -13,7 +10,7 @@ import javax.persistence.Table;
 public class UserInfoBean {
 	@Id
 	private String accountName;
-	private byte[] password;
+	private String password;
 	private String firstname;
 	private String lastname;
 	private String identityNo;
@@ -23,29 +20,28 @@ public class UserInfoBean {
 	private String phone;
 	private String address;
 	private String authority;
-	private String googleId;
-	private String facebookId;
+	private String gorfb;
+	private String loginId;
+	
 	@Override
 	public String toString() {
-		return "UserInfoBean [accountName=" + accountName + ", password=" + Arrays.toString(password) + ", firstname="
-				+ firstname + ", lastname=" + lastname + ", identityNo=" + identityNo + ", email=" + email + ", birth="
-				+ birth + ", sex=" + sex + ", phone=" + phone + ", address=" + address + ", authority=" + authority
-				+ ", googleId=" + googleId + ", facebookId=" + facebookId + "]";
+		return "UserInfoBean [accountName=" + accountName + ", password=" + password + ", firstname=" + firstname
+				+ ", lastname=" + lastname + ", identityNo=" + identityNo + ", email=" + email + ", birth=" + birth
+				+ ", sex=" + sex + ", phone=" + phone + ", address=" + address + ", authority=" + authority + ", gorfb="
+				+ gorfb + ", loginId=" + loginId + "]";
 	}
-	
 	public String getAccountName() {
 		return accountName;
 	
 	}
 	public void setAccountName(String accountName) {
 		this.accountName = accountName;
-
-
 	}
-	public byte[] getPassword() {
+	
+	public String getPassword() {
 		return password;
 	}
-	public void setPassword(byte[] password) {
+	public void setPassword(String password) {
 		this.password = password;
 	}
 	public String getFirstname() {
@@ -102,17 +98,18 @@ public class UserInfoBean {
 	public void setAuthority(String authority) {
 		this.authority = authority;
 	}
-	public String getGoogleId() {
-		return googleId;
+	public String getGorfb() {
+		return gorfb;
 	}
-	public void setGoogleId(String googleId) {
-		this.googleId = googleId;
+	public void setGorfb(String gorfb) {
+		this.gorfb = gorfb;
 	}
-	public String getFacebookId() {
-		return facebookId;
+	public String getLoginId() {
+		return loginId;
 	}
-	public void setFacebookId(String facebookId) {
-		this.facebookId = facebookId;
+	public void setLoginId(String loginId) {
+		this.loginId = loginId;
 	}
+
 
 }

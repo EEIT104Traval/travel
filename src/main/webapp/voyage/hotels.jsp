@@ -8,21 +8,22 @@
   </head>
   <body>
     
+    
     <section class="home-slider owl-carousel">
       <div class="slider-item" style="background-image: url('images/bg_3.jpg');" data-stellar-background-ratio="0.5">
         <div class="overlay"></div>
         <div class="container">
           <div class="row slider-text align-items-center">
             <div class="col-md-7 col-sm-12 ftco-animate">
-              <p class="breadcrumbs"><span class="mr-2"><a href="index.jsp">首頁</a></span> <span>飯店</span></p>
-              <h1 class="mb-3">飯店</h1>
+              <p class="breadcrumbs"><span class="mr-2"><a href="index.jsp">Home</a></span> <span>Hotels</span></p>
+              <h1 class="mb-3">Hotels</h1>
             </div>
           </div>
         </div>
       </div>
     </section>
     <!-- END slider -->
-
+    
     <section class="ftco-section">
       <div class="container">
         <div class="row">
@@ -156,10 +157,14 @@
 					  <div class="select-wrap col-sm-12 group mb-3">
                         <div class="icon"><span class="ion-ios-arrow-down"></span></div>
                         <select name="" id="" class="form-control">
-                          <option value="">地區</option>
-                          <option value="">亞洲</option>
+                          <option value="">你要去哪裡？</option>
+                          <option value="">東北亞</option>
+                          <option value="">港澳大陸</option>
+                          <option value="">東南亞</option>
+                          <option value="">中南亞</option>
+                          <option value="">大洋洲</option>
+                          <option value="">美加</option>
                           <option value="">歐洲</option>
-                          <option value="">南美洲</option>
                           <option value="">非洲</option>
                         </select>
                       </div>
@@ -170,7 +175,18 @@
                       <div class="select-wrap col-sm-12 group mb-3">
                         <div class="icon"><span class="ion-ios-arrow-down"></span></div>
                         <select name="" id="" class="form-control">
-                          <option value="">人數</option>
+                          <option value="">成人</option>
+                          <option value="">1</option>
+                          <option value="">2</option>
+                          <option value="">3</option>
+                          <option value="">4+</option>
+                        </select>
+                      </div>
+                      
+                        <div class="select-wrap col-sm-12 group mb-3">
+                        <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+                        <select name="" id="" class="form-control">
+                          <option value="">兒童</option>
                           <option value="">1</option>
                           <option value="">2</option>
                           <option value="">3</option>
@@ -188,12 +204,14 @@
 
             <div class="sidebar-box ftco-animate">
               <div class="categories">
-                <h3>類別</h3>
-                <li><a href="#">團體旅遊 <span>(12)</span></a></li>
-                <li><a href="#">飯店 <span>(22)</span></a></li>
-                <li><a href="#">郵輪 <span>(37)</span></a></li>
-                <li><a href="#">餐廳 <span>(42)</span></a></li>
-                <li><a href="#">主題樂園 <span>(14)</span></a></li>
+                <h3>旅遊地區</h3>
+                <li><a href="#">英國</a></li>
+                <li><a href="#">德國</a></li>
+                <li><a href="#">東歐</a></li>
+                <li><a href="#">南歐</a></li>
+                <li><a href="#">義大利</a></li>
+                <li><a href="#">希臘</a></li>
+                <li><a href="#">北歐</a></li>
               </div>
             </div>
 
@@ -201,14 +219,29 @@
               <h3>標籤
               </h3>
               <div class="tagcloud">
-                <a href="#" class="tag-cloud-link">生活</a>
-                <a href="#" class="tag-cloud-link">運動</a>
-                <a href="#" class="tag-cloud-link">科技</a>
-                <a href="#" class="tag-cloud-link">旅遊</a>
-                <a href="#" class="tag-cloud-link">Life</a>
-                <a href="#" class="tag-cloud-link">Sport</a>
-                <a href="#" class="tag-cloud-link">Tech</a>
-                <a href="#" class="tag-cloud-link">Travel</a>
+                <a href="#" class="tag-cloud-link">公寓 <span>(685,710)</span></a>
+                <a href="#" class="tag-cloud-link">渡假村<span>(20,685)</span></a>
+                <a href="#" class="tag-cloud-link">Villa<span>(339,001)</span></a>
+                <a href="#" class="tag-cloud-link">木屋<span>(11,604)</span></a>
+                <a href="#" class="tag-cloud-link">小屋<span>(111,777)</span></a>
+                <a href="#" class="tag-cloud-link">豪華露營<span>(6,839)</span></a>
+                <a href="#" class="tag-cloud-link">飯店式公寓<span>(30,012)</span></a>
+                <a href="#" class="tag-cloud-link">度假屋<span>(339,001)</span></a>
+                <a href="#" class="tag-cloud-link">家庭旅館<span>(123,290)</span></a>
+                <a href="#" class="tag-cloud-link">青年旅館<span>(25,889)</span></a>
+                <a href="#" class="tag-cloud-link">汽車旅館<span>(15,624)</span></a>
+                <a href="#" class="tag-cloud-link">B&B<span>(220,778)</span></a>
+                <a href="#" class="tag-cloud-link">傳統日式旅館<span>(2,386)</span></a>
+                <a href="#" class="tag-cloud-link">摩洛哥傳統民宅<span>(1,245)</span></a>
+                <a href="#" class="tag-cloud-link">露營區<span>(65,11)</span></a>
+                <a href="#" class="tag-cloud-link">民宿<span>(159,235)</span></a>
+                <a href="#" class="tag-cloud-link">露營地<span>(5,519)</span></a>
+                <a href="#" class="tag-cloud-link">鄉間別墅<span>(16,678)</span></a>
+                <a href="#" class="tag-cloud-link">農莊<span>(11,022)</span></a>
+                <a href="#" class="tag-cloud-link">船屋<span>(1,772)</span></a>
+                <a href="#" class="tag-cloud-link">豪華帳篷<span>(1,973)</span></a>
+                <a href="#" class="tag-cloud-link">自炊式住宿<span>(579,580)</span></a>
+                <a href="#" class="tag-cloud-link">獨立小屋<span>(244)</span></a>
               </div>
             </div>
 
