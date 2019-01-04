@@ -33,7 +33,8 @@
     
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
       <div class="container">
-        <a class="navbar-brand" href="index.html">Voyage</a>
+       <a href="index.jsp"><img alt="" src="./images/TTT.png" width="250px" height: auto;></a>
+<!--         <a class="navbar-brand" href="index.html">Voyage</a> -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="oi oi-menu"></span> Menu
         </button>
@@ -60,8 +61,8 @@
         <div class="container">
           <div class="row slider-text align-items-center">
             <div class="col-md-7 col-sm-12 ftco-animate">
-              <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home</a></span> <span>Tour</span></p>
-              <h1 class="mb-3">Tours Destination</h1>
+              <p class="breadcrumbs"><span class="mr-2"><a href="index.jsp">Home</a></span> <span>Tour</span></p>
+              <h1 class="mb-3">Tours</h1>
             </div>
           </div>
         </div>
@@ -77,10 +78,10 @@
               <div class="col-md-6 col-lg-6 mb-4 ftco-animate">
                 <a href="#" class="block-5" style="background-image: url('images/tour-1.jpg');">
                   <div class="text">
-                    <span class="price">$399</span>
-                    <h3 class="heading">Group Tour in Maldives</h3>
+                    <span class="price">$9999</span>
+                    <h3 class="heading">沙漠之旅-蒙古八七日遊</h3> 
                     <div class="post-meta">
-                      <span>Ameeru Ahmed Magu Male’, Maldives</span>
+                      <span>安安你好PLAYER87</span>
                     </div>
                     <p class="star-rate"><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star-half-full"></span> <span>500 reviews</span></p>
                   </div>
@@ -221,24 +222,24 @@
               </div>
             </div>
 
-            <div class="sidebar-box ftco-animate">
-              <div class="categories">
-                <h3>Categories</h3>
-                <li><a href="#">Tours <span>(12)</span></a></li>
-                <li><a href="#">Hotels <span>(22)</span></a></li>
-                <li><a href="#">Cruises <span>(37)</span></a></li>
-                <li><a href="#">Restaurant <span>(42)</span></a></li>
-                <li><a href="#">Destination <span>(14)</span></a></li>
-              </div>
-            </div>
+<!--             <div class="sidebar-box ftco-animate"> -->
+<!--               <div class="categories"> -->
+<!--                 <h3>Categories</h3> -->
+<!--                 <li><a href="#">Tours <span>(12)</span></a></li> -->
+<!--                 <li><a href="#">Hotels <span>(22)</span></a></li> -->
+<!--                 <li><a href="#">Cruises <span>(37)</span></a></li> -->
+<!--                 <li><a href="#">Restaurant <span>(42)</span></a></li> -->
+<!--                 <li><a href="#">Destination <span>(14)</span></a></li> -->
+<!--               </div> -->
+<!--             </div> -->
 
             <div class="sidebar-box ftco-animate">
               <h3>Tag Cloud</h3>
               <div class="tagcloud">
-                <a href="#" class="tag-cloud-link">Life</a>
-                <a href="#" class="tag-cloud-link">Sport</a>
-                <a href="#" class="tag-cloud-link">Tech</a>
-                <a href="#" class="tag-cloud-link">Travel</a>
+                <a href="" class="tag-cloud-link">沙漠</a>
+                <a href="" class="tag-cloud-link">駱駝</a>
+                <a href="" class="tag-cloud-link">蠍子</a>
+                <a href="" class="tag-cloud-link">冷到靠北</a>
                 <a href="#" class="tag-cloud-link">Life</a>
                 <a href="#" class="tag-cloud-link">Sport</a>
                 <a href="#" class="tag-cloud-link">Tech</a>
@@ -329,7 +330,8 @@
 
   <!-- loader -->
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
-
+ 
+   
 
   <script src="js/jquery.min.js"></script>
   <script src="js/jquery-migrate-3.0.1.min.js"></script>
@@ -347,6 +349,23 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
   <script src="js/google-map.js"></script>
   <script src="js/main.js"></script>
+    <script>
+   	$(document).ready(function() {
+   		
+   		
+   		$('.tag-cloud-link').mouseover(over).mouseout(out);		
+		
+		function over(evt){
+			 $(this).css('color','purple').css('background','yellow');
+		 }
+		 function out(evt){
+			 $(this).css('color','orange').css('background','white');
+		 }
+		 
+		
+   	})
+		
+   </script>
     
   </body>
 </html>
