@@ -327,7 +327,7 @@ function Del_FB_App() {
     });
      </script>
 
-     <!--類似上面Delete FB App的效果，呼叫此function後，下次使用者想再Google登入你的網站就必須重新選擇帳號-->
+<!--      類似上面Delete FB App的效果，呼叫此function後，下次使用者想再Google登入你的網站就必須重新選擇帳號 -->
      <script type="text/javascript">
    
      //參考：https://developers.google.com/identity/sign-in/web/disconnect
