@@ -35,7 +35,6 @@ public class TicketInfoTest {
 	 @RequestMapping("/ticketCreate")
 	 public TicketInfoBean create() {
 		 TicketInfoBean result = new TicketInfoBean();
-		 	result.setTicketNo(9);
 			result.setTicketName("環球大大阪");
 			result.setValidity(2);
 			result.setAdultTicketPrice(2000);

@@ -21,45 +21,41 @@ public class TicketInfoDAOHibernate implements TicketInfoDAO {
 
 	@Override
 	public TicketInfoBean findByPrimaryKey(Integer ticketNo) {
-		
+
 		return this.getSession().get(TicketInfoBean.class, ticketNo);
 	}
+
 	@Override
 	public List<TicketInfoBean> findAll() {
-		
-		return this.getSession().createQuery("from TicketInfoBean",TicketInfoBean.class).setMaxResults(50).list();
+
+		return this.getSession().createQuery("from TicketInfoBean", TicketInfoBean.class).setMaxResults(50).list();
 	}
+
 	@Override
 	public TicketInfoBean findByTicketName(String ticketName) {
-	
+
 		return this.getSession().get(TicketInfoBean.class, ticketName);
 	}
 
 	@Override
 	public TicketInfoBean findByTicketCountry(String country) {
-	
+
 		return this.getSession().get(TicketInfoBean.class, country);
 	}
 
 	@Override
 	public TicketInfoBean findByTicketCategory(String category) {
-	
+
 		return this.getSession().get(TicketInfoBean.class, category);
 	}
-	
+
 	@Override
 	public TicketInfoBean create(TicketInfoBean bean) {
-		
-		if (bean != null) {
-			TicketInfoBean result = this.getSession().get(TicketInfoBean.class, bean.getTicketNo());
-			if (result == null) {
-				this.getSession().save(bean);
-				return bean;
-			}
-		}
-		return null;
+
+		this.getSession().save(bean);
+		return bean;
 	}
-	
+
 	@Override
 	public TicketInfoBean update(Integer ticketNo, String ticketName, Integer validity, Integer adultTicketPrice,
 			Integer childTicketPrice, Integer adultTicketSellQ, Integer childTicketSellQ, Integer adultTicketSelledQ,
@@ -85,19 +81,19 @@ public class TicketInfoDAOHibernate implements TicketInfoDAO {
 			result.setTraffic_information(traffic_information);
 			result.setSpecial_restrictions(special_restrictions);
 			result.setGoogleAddressOrName(googleAddressOrName);
-			
+
 			return result;
 		}
 		return null;
 	}
-	
+
 	@Override
 	public boolean remove(Integer ticketNo) {
 		TicketInfoBean result = this.getSession().get(TicketInfoBean.class, ticketNo);
-		if(result != null) {
+		if (result != null) {
 			this.getSession().delete(result);
 			return true;
-		}	
+		}
 		return false;
 	}
 }
@@ -157,4 +153,3 @@ public class TicketInfoDAOHibernate implements TicketInfoDAO {
 //		}
 //		return false;
 //	}
-

@@ -32,7 +32,7 @@ public class TicketOrderInfoTest {
 
 		@RequestMapping("/ticketOrderfindpk")
 		public TicketOrderInfoBean method() {
-			TicketOrderInfoBean bean = dao.findByPrimaryKey(2);
+			TicketOrderInfoBean bean = dao.findByPrimaryKey(1);
 			return bean;
 		}
 
