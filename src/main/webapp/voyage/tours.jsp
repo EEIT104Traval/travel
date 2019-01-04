@@ -23,9 +23,9 @@
 				<div class="row slider-text align-items-center">
 					<div class="col-md-7 col-sm-12 ftco-animate">
 						<p class="breadcrumbs">
-							<span class="mr-2"><a href="index.html">Home</a></span> <span>Tour</span>
+							<span class="mr-2"><a href="index.jsp">Home</a></span> <span>Tour</span>
 						</p>
-						<h1 class="mb-3">Tours Destination</h1>
+						<h1 class="mb-3">Tours </h1>
 					</div>
 				</div>
 			</div>
@@ -273,6 +273,23 @@
 			</div>
 		</div>
 	</section>
+	    <script>
+   	$(document).ready(function() {
+   		
+   		
+   		$('.tag-cloud-link').mouseover(over).mouseout(out);		
+		
+		function over(evt){
+			 $(this).css('color','purple').css('background','yellow');
+		 }
+		 function out(evt){
+			 $(this).css('color','orange').css('background','white');
+		 }
+		 
+		
+   	})
+		
+   </script>
 
 	<jsp:include page="footer.jsp"></jsp:include>
 
