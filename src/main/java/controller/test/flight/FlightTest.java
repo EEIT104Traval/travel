@@ -191,7 +191,7 @@ public class FlightTest implements XmlDocument {
 
 					if (node.getName() == "C") {
 						count++;
-						System.out.println("count=" + count);
+//						System.out.println("count=" + count);
 //						System.out.println(node.getName());
 //						System.out.println(node.getText());
 
@@ -231,6 +231,7 @@ public class FlightTest implements XmlDocument {
 	@RequestMapping("/flight15")
 	public void Airlinecreate() throws IOException {
 		String s1 = servletContext2.getRealPath("");
+		System.out.println(s1);
 		File inputXml = new File(s1 + "resource/flight/Airline_CHT.xml");
 		SAXReader saxReader = new SAXReader();
 		try {
@@ -261,7 +262,7 @@ public class FlightTest implements XmlDocument {
 							bean.setAirlineLogo(path);
 							System.out.println("have！");
 						} else {
-							file.createNewFile();
+//							file.createNewFile();
 							System.out.println("no");
 						}
 //						bean.setAirlineLogo(s);
