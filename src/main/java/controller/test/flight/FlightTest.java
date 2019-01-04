@@ -1,19 +1,17 @@
 package controller.test.flight;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Iterator;
 import java.util.List;
+
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletResponse;
 
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
-import org.hibernate.Hibernate;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.hibernate.internal.util.xml.Origin;
 import org.hibernate.internal.util.xml.XmlDocument;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,6 +43,8 @@ public class FlightTest implements XmlDocument {
 	private AirportCompareDAO adao;
 	@Autowired
 	private AirlineCompareDAO adao2;
+	@Autowired
+	ServletContext servletContext2;
 
 	@ResponseBody // @RestController可替代
 	@RequestMapping("/flight1")
@@ -166,16 +166,17 @@ public class FlightTest implements XmlDocument {
 
 	@ResponseBody // @RestController可替代
 	@RequestMapping("/flight12")
-	public AirportCompareBean Airportfind() {
-		AirportCompareBean bean = adao.findByPrimaryKey("SRI");
+	public AirportCompareBean Airportfind(HttpServletResponse request) {
+		 AirportCompareBean bean = adao.findByPrimaryKey("SRI");
 		return bean;
 	}
 
 	@ResponseBody // @RestController可替代
 	@RequestMapping("/flight13")
 	public void AirlinecreateParserXml() {
-//		/Travel/src/main/resources/flightRes/CITY_CHT.xml
-		File inputXml = new File("flight/CITY_CHT.xml");
+		String s1 = servletContext2.getRealPath("");
+		
+		File inputXml = new File(s1+"resource/flight/CITY_CHT.xml");
 		SAXReader saxReader = new SAXReader();
 		try {
 			Document document = saxReader.read(inputXml);

@@ -10,11 +10,7 @@
 <link rel="stylesheet"
 	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <link rel="stylesheet" href="/resources/demos/style.css">
-<link rel="stylesheet" href="css/style1.css">
 <style>
-
-
-
 label, input {
 	display: block;
 }
@@ -95,7 +91,6 @@ div#users-contain table td, div#users-contain table th {
       }
     }
  
- //------   
     function showLogin(){
         console.log("showLoing start");
         dialog = $( "#dialog-form" ).dialog({
@@ -149,7 +144,6 @@ div#users-contain table td, div#users-contain table th {
       height: 550,
       width: 350,
       modal: true,
-      
 
       close: function() {
         form[ 0 ].reset();
@@ -164,7 +158,6 @@ div#users-contain table td, div#users-contain table th {
  
     $( ".create-user" ).button().on( "click", function() {
       dialog.dialog( "open" );
-
     });
   } );
   </script>
@@ -311,9 +304,9 @@ div#users-contain table td, div#users-contain table th {
 
     </script>
 
-		<!--有些網站會做帳號和user FB帳號的綁定/解除綁定，或你想讓使用者刪除你的FB App，讓使用者下次可以切換不同FB帳號登入你的網站-->
-		<!--下面程式碼派得上用場-->
-		<script type="text/javascript">
+    <!--有些網站會做帳號和user FB帳號的綁定/解除綁定，或你想讓使用者刪除你的FB App，讓使用者下次可以切換不同FB帳號登入你的網站-->
+    <!--下面程式碼派得上用場-->
+     <script type="text/javascript">
         
 //刪除使用者已授權你的FB App，好讓使用者下次重新授權你的FB App
 //參考：https://stackoverflow.com/questions/6634212/remove-the-application-from-a-user-using-graph-api/7741978#7741978
@@ -335,8 +328,8 @@ function Del_FB_App() {
     });
      </script>
 
-		<!--類似上面Delete FB App的效果，呼叫此function後，下次使用者想再Google登入你的網站就必須重新選擇帳號-->
-		<script type="text/javascript">
+<!--      類似上面Delete FB App的效果，呼叫此function後，下次使用者想再Google登入你的網站就必須重新選擇帳號 -->
+     <script type="text/javascript">
    
      //參考：https://developers.google.com/identity/sign-in/web/disconnect
 

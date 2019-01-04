@@ -9,7 +9,7 @@ public interface RateDAO {
 
 	public abstract RateBean create(RateBean bean);
 
-	public abstract RateBean update(Byte[] flag,String currency,Double cashBuy,
+	public abstract RateBean update(String flag,String currency,Double cashBuy,
 			Double cashSell,Double spotBuy,Double spotSell,String country);
 
 	public abstract boolean remove(String currency);
