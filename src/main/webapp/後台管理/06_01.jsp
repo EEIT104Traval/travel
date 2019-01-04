@@ -72,7 +72,6 @@
 	    	<option value="L0"></option>
 			<option value="L2">　　　　超級管理者　　　　</option>
 			<option value="L1">　　　　一般管理者　　　　</option>
-			<option value="L2">　　　　踢掉管理者　　　　</option>
 			</select>
           </td>
            <tr>
@@ -90,9 +89,6 @@
           </td>
         </tr>
       </table>
-
     </form>
-
-  </div>
 </body>
 
