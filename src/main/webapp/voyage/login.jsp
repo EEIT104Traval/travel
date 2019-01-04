@@ -346,10 +346,8 @@ function Del_FB_App() {
 
 
 
-	<span id="create-user"
-		style="background: transparent; color: #f0f0f0; border: 0px;">會員註冊/登入</span>
+<span id="create-user" style="background: transparent; color: #f0f0f0; border: 0px;">會員註冊/登入</span>
 
-<button id="create-user">會員註冊/登入</button>	
  
  
 </body>
