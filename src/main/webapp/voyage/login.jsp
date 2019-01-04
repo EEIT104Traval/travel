@@ -95,7 +95,7 @@ div#users-contain table td, div#users-contain table th {
         console.log("showLoing start");
         dialog = $( "#dialog-form" ).dialog({
              autoOpen: false,
-             height: 400,
+             height: 500,
              width: 350,
              modal: true,
 
@@ -141,7 +141,7 @@ div#users-contain table td, div#users-contain table th {
  
     dialog = $( "#dialog-form" ).dialog({
       autoOpen: false,
-      height: 550,
+      height: 450,
       width: 350,
       modal: true,
 
@@ -156,43 +156,42 @@ div#users-contain table td, div#users-contain table th {
       addUser();
     });
  
-    $( ".create-user" ).button().on( "click", function() {
+    $( "#create-user" ).button().on( "click", function() {
       dialog.dialog( "open" );
     });
   } );
   </script>
 </head>
 <body>
+ 
+<div id="dialog-form" title="會員登入" style="margin-top:20px">
+ 
+   <form>
+<!--     <fieldset> -->
+      <label for="name">帳號:</label>
+      <input type="text" name="name" id="name" class="text ui-widget-content ui-corner-all"><br>
+      <label for="password">密碼:</label>
+      <input type="password" name="password" id="password" value="" class="text ui-widget-content ui-corner-all">
 
-	<div id="dialog-form" title="會員登入">
+<!--     </fieldset> -->
+  </form>
 
-		<form>
-			<!--     <fieldset> -->
-			<label for="name">帳號:</label> <input type="text" name="name"
-				id="name" class="text ui-widget-content ui-corner-all"><br>
-			<label for="password">密碼:</label> <input type="password"
-				name="password" id="password" value=""
-				class="text ui-widget-content ui-corner-all">
+ 
+    <div>
+<!--         Facebook登入：<input type="button"  value="Facebook登入" onclick="FBLogin();" /> -->
+    </div>
+    <div>
+<!--         Google登入：<input type="button"  value="Google登入" onclick="GoogleLogin();" /><br> -->
+		<button style="background-color: blue;color: white;margin-top: 5px">登入</button>	
+	
+		<p>快速登入</p>
+        <img src="./images/facebook.png" onclick="FBLogin();"width="32%" height="32%">
+        <img src="./images/google01.png" onclick="GoogleLogin();"width="32%" height="32%">
+        <img src="./images/line.png" onclick="GoogleLogin();" width="32%" height="32%">
+        <button style="background-color: blue;color: white;margin-left: 100px;margin-top:20px">新會員註冊</button>	
+    </div>
 
-			<!--     </fieldset> -->
-		</form>
-
-
-		<div>
-			<!--         Facebook登入：<input type="button"  value="Facebook登入" onclick="FBLogin();" /> -->
-		</div>
-		<div>
-			<!--         Google登入：<input type="button"  value="Google登入" onclick="GoogleLogin();" /><br> -->
-			<button style="background-color: blue; color: white; margin-top: 5px">登入</button>
-
-			<p>快速登入</p>
-			<img src="./images/facebook.png" onclick="FBLogin();"> <img
-				src="./images/google01.png" onclick="GoogleLogin();">
-			<button
-				style="background-color: blue; color: white; margin-left: 80px">新會員註冊</button>
-		</div>
-
-		<script type="text/javascript">
+    <script type="text/javascript">
         //應用程式編號，進入 https://developers.facebook.com/apps/ 即可看到
         let FB_appID = "967663670095757";
 
@@ -338,11 +337,18 @@ function Del_FB_App() {
     auth2.disconnect().then(function () {
         console.log('User disconnect.'); 
     });
-     
+     }
      }
 
     </script>
+
 	</div>
-	<span class="create-user" style="background: transparent; color: #ffffff; border: 0px;">會員註冊/登入</span>
+
+
+
+<span id="create-user" style="background: transparent; color: #f0f0f0; border: 0px;">會員註冊/登入</span>
+
+ 
+ 
 </body>
 </html>
