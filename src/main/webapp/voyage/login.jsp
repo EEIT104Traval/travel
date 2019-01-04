@@ -1,28 +1,66 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>jQuery UI Dialog - Modal form</title>
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  <link rel="stylesheet" href="/resources/demos/style.css">
-  <style>
-/*     label, input { display:block; } */
-/*     input.text { margin-bottom:1px; width:95%; padding: .1em; } */
-/*     fieldset { padding:0; border:0; margin-top:5px; } */
-/*     h1 { font-size: 1.2em; margin: .6em 0; } */
-/*     div#users-contain { width: 350px; margin: 10px 0; } */
-/*     div#users-contain table { margin: 1em 0; border-collapse: collapse; width: 100%; } */
-/*     div#users-contain table td, div#users-contain table th { border: 1px solid #eee; padding: .6em 10px; text-align: left; } */
-/*     .ui-dialog .ui-state-error { padding: .3em; } */
-/*     .validateTips { border: 1px solid transparent; padding: 0.3em; } */
-  </style>
-  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  <script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>jQuery UI Dialog - Modal form</title>
+<link rel="stylesheet"
+	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="/resources/demos/style.css">
+<style>
+label, input {
+	display: block;
+}
+
+input.text {
+	margin-bottom: 1px;
+	width: 95%;
+	padding: .1em;
+}
+
+fieldset {
+	padding: 0;
+	border: 0;
+	margin-top: 5px;
+}
+
+h1 {
+	font-size: 1.2em;
+	margin: .6em 0;
+}
+
+div#users-contain {
+	width: 350px;
+	margin: 10px 0;
+}
+
+div#users-contain table {
+	margin: 1em 0;
+	border-collapse: collapse;
+	width: 100%;
+}
+
+div#users-contain table td, div#users-contain table th {
+	border: 1px solid #eee;
+	padding: .6em 10px;
+	text-align: left;
+}
+
+.ui-dialog .ui-state-error {
+	padding: .3em;
+}
+
+.validateTips {
+	border: 1px solid transparent;
+	padding: 0.3em;
+}
+</style>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
   $( function() {
     var dialog, form,
  
@@ -54,6 +92,21 @@
       }
     }
  
+    function showLogin(){
+        console.log("showLoing start");
+        dialog = $( "#dialog-form" ).dialog({
+             autoOpen: false,
+             height: 400,
+             width: 350,
+             modal: true,
+
+             close: function() {
+               form[ 0 ].reset();
+               allFields.removeClass( "ui-state-error" );
+             }
+           });
+        dialog.dialog( "open" );
+    }
     function checkRegexp( o, regexp, n ) {
       if ( !( regexp.test( o.val() ) ) ) {
         o.addClass( "ui-state-error" );
@@ -103,7 +156,7 @@
       event.preventDefault();
       addUser();
     });
- 	
+ 
     $( "#create-user" ).button().on( "click", function() {
       dialog.dialog( "open" );
     });
@@ -189,10 +242,11 @@
 
 
 
-    <!--Google登入-->
-    <script async defer src="https://apis.google.com/js/api.js" onload="this.onload=function(){};HandleGoogleApiLibrary()"
-            onreadystatechange="if (this.readyState === 'complete') this.onload()"></script>
-    <script type="text/javascript">
+		<!--Google登入-->
+		<script async defer src="https://apis.google.com/js/api.js"
+			onload="this.onload=function(){};HandleGoogleApiLibrary()"
+			onreadystatechange="if (this.readyState === 'complete') this.onload()"></script>
+		<script type="text/javascript">
         //進入 https://console.developers.google.com/，找「憑證」頁籤(記得先選對專案)，即可找到用戶端ID
         let Google_appId = "152249642386-p0k54s40jac75e2gre5f6mqih80veto6.apps.googleusercontent.com";
 
@@ -288,12 +342,13 @@ function Del_FB_App() {
 
     </script>
 
-</div>
- 
- 
+	</div>
 
-<span id="create-user" style="border:0px;background:transparent;color:#f0f0f0">會員註冊/登入</span>	
 
+
+<span id="create-user" style="background: transparent; color: #f0f0f0; border: 0px;">會員註冊/登入</span>
+
+ 
  
 </body>
 </html>
