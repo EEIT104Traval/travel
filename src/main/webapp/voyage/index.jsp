@@ -60,7 +60,7 @@
       setTimeout(function() {
         tips.removeClass( "ui-state-highlight", 1500 );
       }, 500 );
-    }
+    
  
     function checkLength( o, n, min, max ) {
       if ( o.val().length > max || o.val().length < min ) {
@@ -946,7 +946,7 @@ function showLogin(){
           <div class="col-md-12 text-center">
 
             <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+  Copyright &copy;<script>document.write(new Date().getFullYear());</script>Time To Travel All rights reserved. <i class="icon-heart" aria-hidden="true"></i>
   <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
           </div>
         </div>

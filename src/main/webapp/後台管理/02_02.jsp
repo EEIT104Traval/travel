@@ -9,6 +9,25 @@
 </head>
 <body>
 	<jsp:include page="bindex.jsp" />
-		<div> 測試2-2版</div>
+	<div class="boxmsg">
+<!--  --> 　　　　　　　　　　　　　　　　　　　　　　　　　　　歷史報表查詢　　　　　　　　　　　　　　　　　　　　　　　
+            <br>
+            <br>
+            <br>
+<!--  --><label class="title">查詢年份</label>
+		<select name="option">
+			<option value="0000">選擇</option>
+	    	<option value="2017">2017</option>
+			<option value="2018">2018</option>
+			<option value="2019">2019</option>
+			<option value="2020">2020</option>
+			<option value="2021">2021</option>
+		　　<option value="2022">2022</option>
+          </select>
+<!--  -->	 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<a href="a.pdf"><img src="images/pdf_icon.gif">PDF下載</a>　　　　  
+	</div>
+	<div class="boxmsg1">
+	 <label class="title">查詢結果</label>
+	</div>
 </body>
 </html>

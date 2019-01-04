@@ -84,6 +84,4 @@ public class TourMemberInfoTest {
 		boolean result = dao.remove(1,3);
 		return result;
 	}
-	
-	
 }

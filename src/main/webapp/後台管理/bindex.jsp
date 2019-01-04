@@ -22,7 +22,17 @@
 <!--     <link rel="stylesheet" href="css/flaticon.css"> -->
 <!--     <link rel="stylesheet" href="css/icomoon.css"> -->
 <!--     <link rel="stylesheet" href="css/style.css"> -->
+<script
+  src="https://code.jquery.com/jquery-3.3.1.js"integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="crossorigin="anonymous"></script>
 </head>
+<script>
+	$(document).ready(function() {
+		$(":checkbox").click(function(){
+			window.location.href="/Travel/voyage/index.jsp"		
+		});
+	})
+
+</script>
 <body>
 
 	<nav
@@ -30,7 +40,7 @@
 		id="ftco-navbar">
 		<div class="container">
 			<div class="container" id="main" role="main">
-				<ul class="menu" style="padding-left:50px">
+				<ul class="menu" style="padding-left: 130px">
 					<li><a href="bindex.jsp">會員管理</a>
 						<ul class="submenu">
 							<li><a href="01_01.jsp">會員查詢</a></li>
@@ -63,21 +73,20 @@
 						</ul></li>
 					<li><a href="bindex.jsp">管理者</a>
 						<ul class="submenu">
-							<li><a href="06_01.jsp">管理者帳號</a></li>
-							<li><a href="06_02.jsp">管理者權限</a></li>
+							<li><a href="06_01.jsp">後台帳號權限</a></li>
 							<li><a href="#">登出</a></li>
 						</ul></li>
-					<li>
+					<li style="height:54px">
 						<div class="switch_demo">
-							<a href="../voyage/index.jsp"></a> <input type="checkbox"
-								name="switch_demo" class="switch_demo-checkbox" id="switch_demo"
-								checked> <label class="switch_demo-label"
-								for="switch_demo"> <span class="switch_demo-inner"></span>
+							<input type="checkbox" name="switch_demo" class="switch_demo-checkbox" id="switch_demo"	checked> 
+							<label class="switch_demo-label" for="switch_demo">
+								<span class="switch_demo-inner"></span>
 								<span class="switch_demo-switch"></span>
 							</label>
 						</div>
 					</li>
 				</ul>
+				<hr>
 			</div>
 		</div>
 	</nav>

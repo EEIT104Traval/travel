@@ -174,8 +174,8 @@ public class FlightTest implements XmlDocument {
 	@ResponseBody // @RestController可替代
 	@RequestMapping("/flight13")
 	public void AirlinecreateParserXml() {
-		
-		File inputXml = new File("C:\\Users\\wei\\git\\travel\\src\\main\\resources\\flightRes");
+//		/Travel/src/main/resources/flightRes/CITY_CHT.xml
+		File inputXml = new File("flight/CITY_CHT.xml");
 		SAXReader saxReader = new SAXReader();
 		try {
 			Document document = saxReader.read(inputXml);
