@@ -23,7 +23,15 @@ public class AirlineCompareDAOHibernate implements AirlineCompareDAO{
 	@Override
 	public AirlineCompareBean create(AirlineCompareBean bean) {
 		if (bean != null) {
+			
+			String code = bean.getAirlineCode();
+			System.out.println("code="+code);
+			
 			AirlineCompareBean result = this.getSession().get(AirlineCompareBean.class, bean.getAirlineCode());
+			
+			
+			
+			
 			if (result == null) {
 				this.getSession().save(bean);
 				return bean;

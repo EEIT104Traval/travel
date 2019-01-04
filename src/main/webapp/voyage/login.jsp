@@ -7,9 +7,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>jQuery UI Dialog - Modal form</title>
-<link rel="stylesheet"
-	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<link rel="stylesheet" href="/resources/demos/style.css">
+<!-- <link rel="stylesheet" href="/resources/demos/style.css"> -->
 <style>
 label, input {
 	display: block;
@@ -346,7 +344,7 @@ function Del_FB_App() {
 
 
 
-<span id="create-user" style="background: transparent; color: #f0f0f0; border: 0px;">會員註冊/登入</span>
+<span id="create-user" >會員註冊/登入</span>
 
  
  

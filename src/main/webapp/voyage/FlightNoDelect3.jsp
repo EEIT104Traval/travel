@@ -25,7 +25,7 @@
 <body>
 
 	<!-- Home -->
-	<jsp:include page="nav.jsp"></jsp:include>
+	<jsp:include page="nav.jsp" ></jsp:include>
 	<div class="home">
 
 		<!-- Home Slider -->
@@ -102,13 +102,17 @@
 							<div class="home_search_title">
 								<div class="form-group">
 									<div class="form-checkbox">
-										<label for="roundtrip"> <input type="radio"
-											id="roundtrip" name="flight-type"> <span></span>Roundtrip
-										</label> <label for="one-way"> <input type="radio"
-											id="one-way" name="flight-type"> <span></span>One way
-										</label> <label for="multi-city"> <input type="radio"
-											id="multi-city" name="flight-type"> <span></span>Multi-City
-										</label>
+<!-- 										<label for="roundtrip" style="display:inline-block;" > <input type="radio" -->
+<!-- 											id="roundtrip" name="flight-type">往返　 -->
+<!-- 										</label> <label for="one-way" style="display:inline-block;"> <input type="radio" -->
+<!-- 											id="one-way" name="flight-type">單程　 -->
+<!-- 										</label> <label for="multi-city" style="display:inline-block;"> <input type="radio" -->
+<!-- 											id="multi-city" name="flight-type">多程 -->
+<!-- 										</label> -->	
+											<input type="radio"  style="display: inline-block;">往返　
+											<input type="radio" style="display: inline-block;">單程　
+											<input type="radio" style="display: inline-block;">多程
+
 									</div>
 								</div>
 

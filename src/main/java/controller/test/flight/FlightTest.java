@@ -144,7 +144,7 @@ public class FlightTest implements XmlDocument {
 		List<FlightTicketBean> list = tdao.findAll();
 		return list;
 	}
-	
+
 	@ResponseBody // @RestController可替代
 	@RequestMapping("/flight11")
 	public FlightTicketBean Ticketcreate() {
@@ -167,7 +167,7 @@ public class FlightTest implements XmlDocument {
 	@ResponseBody // @RestController可替代
 	@RequestMapping("/flight12")
 	public AirportCompareBean Airportfind(HttpServletResponse request) {
-		 AirportCompareBean bean = adao.findByPrimaryKey("SRI");
+		AirportCompareBean bean = adao.findByPrimaryKey("SRI");
 		return bean;
 	}
 
@@ -175,8 +175,8 @@ public class FlightTest implements XmlDocument {
 	@RequestMapping("/flight13")
 	public void AirlinecreateParserXml() {
 		String s1 = servletContext2.getRealPath("");
-		
-		File inputXml = new File(s1+"resource/flight/CITY_CHT.xml");
+
+		File inputXml = new File(s1 + "resource/flight/CITY_CHT.xml");
 		SAXReader saxReader = new SAXReader();
 		try {
 			Document document = saxReader.read(inputXml);
@@ -216,7 +216,7 @@ public class FlightTest implements XmlDocument {
 	@ResponseBody // @RestController可替代
 	@RequestMapping("/flight14")
 	public AirlineCompareBean Airlinefind() {
-		AirlineCompareBean bean = adao2.findByPrimaryKey("");
+		AirlineCompareBean bean = adao2.findByPrimaryKey("0B");
 		return bean;
 	}
 
@@ -229,8 +229,9 @@ public class FlightTest implements XmlDocument {
 
 	@ResponseBody // @RestController可替代
 	@RequestMapping("/flight15")
-	public AirlineCompareBean Airlinecreate() throws IOException {
-		File inputXml = new File("C:/Users/wei/Desktop/Airline_CHT.xml");
+	public void Airlinecreate() throws IOException {
+		String s1 = servletContext2.getRealPath("");
+		File inputXml = new File(s1 + "resource/flight/Airline_CHT.xml");
 		SAXReader saxReader = new SAXReader();
 		try {
 			Document document = saxReader.read(inputXml);
@@ -247,11 +248,23 @@ public class FlightTest implements XmlDocument {
 
 					if (node.getName() == "C") {
 						count++;
-						System.out.println("count=" + count);
-//						System.out.println(node.getName());
-//						System.out.println(node.getText());
+						System.out.println("count=" + count+", type="+node.getName()+"， text="+node.getText());
+//						System.out.println();
+//						System.out.println(); 
+						
 						s = node.getText();
 						bean.setAirlineCode(node.getText());
+//						/Travel/src/main/webapp/   resource/flight/airlines_logo 56_50/0B.gif
+						String path = s1 + "resource/flight/airlines_logo 56_50/" + s + ".gif";
+						File file = new File(path);
+						if (file.exists()) {// 判断文件的存在性      
+							bean.setAirlineLogo(path);
+							System.out.println("have！");
+						} else {
+							file.createNewFile();
+							System.out.println("no");
+						}
+//						bean.setAirlineLogo(s);
 					} else {
 						count++;
 						s2 = node.getText();
@@ -259,19 +272,9 @@ public class FlightTest implements XmlDocument {
 
 					}
 					if (count % 2 == 0) {
-//						try {
-//							FileInputStream file = new FileInputStream(
-//									new File("C:/Users/wei/Desktop/airlines_logo 56_50/" + s + ".gif"));
-//							bean.setAirlineLogo(Hibernate.getLobCreator(this.getSession()).createBlob(file, 1024));
-//
-//						} catch (FileNotFoundException e) {
-//							System.out.println("找不到路徑");
-//						} finally {
 
-							AirlineCompareBean bean1 = adao2.create(bean);
-							System.out.println("新增成功=" + bean1);
-
-//						}
+						AirlineCompareBean bean1 = adao2.create(bean);
+						System.out.println("新增成功=" + bean1);
 					}
 
 				}
@@ -280,10 +283,7 @@ public class FlightTest implements XmlDocument {
 			System.out.println(e.getMessage());
 		}
 		System.out.println("dom4j parserXml");
-		AirlineCompareBean bean = new AirlineCompareBean();
-
-		AirlineCompareBean bean1 = adao2.create(bean);
-		return bean1;
+	
 	}
 
 	@Override
