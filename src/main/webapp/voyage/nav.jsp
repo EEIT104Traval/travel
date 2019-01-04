@@ -30,7 +30,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
-    <link href="https://fonts.googleapis.com/css?family=Muli:300,400,600,700" rel="stylesheet">
+<!--     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,600,700" rel="stylesheet"> -->
 
     <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
     <link rel="stylesheet" href="css/animate.css">
@@ -51,7 +51,7 @@
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
 <!--     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> -->
-    <link rel="stylesheet" href="/resources/demos/style.css">
+<!--     <link rel="stylesheet" href="/resources/demos/style.css"> -->
     <link href="css/jquery-ui.css" rel="stylesheet" type="text/css">
     
   </head>

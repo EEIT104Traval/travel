@@ -161,35 +161,38 @@ div#users-contain table td, div#users-contain table th {
   </script>
 </head>
 <body>
- 
-<div id="dialog-form" title="會員登入" style="margin-top:20px">
- 
-   <form>
-<!--     <fieldset> -->
-      <label for="name">帳號:</label>
-      <input type="text" name="name" id="name" class="text ui-widget-content ui-corner-all"><br>
-      <label for="password">密碼:</label>
-      <input type="password" name="password" id="password" value="" class="text ui-widget-content ui-corner-all">
 
-<!--     </fieldset> -->
-  </form>
+	<div id="dialog-form" title="會員登入" style="margin-top: 20px">
+		<form>
+			<!--     <fieldset> -->
+			<label for="name">帳號:</label> <input type="text" name="name"
+				id="name" class="text ui-widget-content ui-corner-all"><br>
+			<label for="password">密碼:</label> <input type="password"
+				name="password" id="password" value=""
+				class="text ui-widget-content ui-corner-all">
 
- 
-    <div>
-<!--         Facebook登入：<input type="button"  value="Facebook登入" onclick="FBLogin();" /> -->
-    </div>
-    <div>
-<!--         Google登入：<input type="button"  value="Google登入" onclick="GoogleLogin();" /><br> -->
-		<button style="background-color: blue;color: white;margin-top: 5px">登入</button>	
-	
-		<p>快速登入</p>
-        <img src="./images/facebook.png" onclick="FBLogin();"width="32%" height="32%">
-        <img src="./images/google01.png" onclick="GoogleLogin();"width="32%" height="32%">
-        <img src="./images/line.png" onclick="GoogleLogin();" width="32%" height="32%">
-        <button style="background-color: blue;color: white;margin-left: 100px;margin-top:20px">新會員註冊</button>	
-    </div>
+			<!--     </fieldset> -->
+		</form>
 
-    <script type="text/javascript">
+
+		<div>
+			<!--         Facebook登入：<input type="button"  value="Facebook登入" onclick="FBLogin();" /> -->
+		</div>
+		<div>
+			<!--         Google登入：<input type="button"  value="Google登入" onclick="GoogleLogin();" /><br> -->
+			<button style="background-color: blue; color: white; margin-top: 5px">登入</button>
+
+			<p>快速登入</p>
+			<img src="./images/facebook.png" onclick="FBLogin();" width="32%"
+				height="32%"> <img src="./images/google01.png"
+				onclick="GoogleLogin();" width="32%" height="32%"> <img
+				src="./images/line.png" onclick="GoogleLogin();" width="32%"
+				height="32%">
+			<button
+				style="background-color: blue; color: white; margin-left: 100px; margin-top: 20px">新會員註冊</button>
+		</div>
+
+		<script>
         //應用程式編號，進入 https://developers.facebook.com/apps/ 即可看到
         let FB_appID = "967663670095757";
 
@@ -244,7 +247,7 @@ div#users-contain table td, div#users-contain table th {
 		<script async defer src="https://apis.google.com/js/api.js"
 			onload="this.onload=function(){};HandleGoogleApiLibrary()"
 			onreadystatechange="if (this.readyState === 'complete') this.onload()"></script>
-		<script type="text/javascript">
+		<script>
         //進入 https://console.developers.google.com/，找「憑證」頁籤(記得先選對專案)，即可找到用戶端ID
         let Google_appId = "152249642386-p0k54s40jac75e2gre5f6mqih80veto6.apps.googleusercontent.com";
 
@@ -301,9 +304,9 @@ div#users-contain table td, div#users-contain table th {
 
     </script>
 
-    <!--有些網站會做帳號和user FB帳號的綁定/解除綁定，或你想讓使用者刪除你的FB App，讓使用者下次可以切換不同FB帳號登入你的網站-->
-    <!--下面程式碼派得上用場-->
-     <script type="text/javascript">
+		<!--有些網站會做帳號和user FB帳號的綁定/解除綁定，或你想讓使用者刪除你的FB App，讓使用者下次可以切換不同FB帳號登入你的網站-->
+		<!--下面程式碼派得上用場-->
+		<script>
         
 //刪除使用者已授權你的FB App，好讓使用者下次重新授權你的FB App
 //參考：https://stackoverflow.com/questions/6634212/remove-the-application-from-a-user-using-graph-api/7741978#7741978
@@ -325,18 +328,17 @@ function Del_FB_App() {
     });
      </script>
 
-<!--      類似上面Delete FB App的效果，呼叫此function後，下次使用者想再Google登入你的網站就必須重新選擇帳號 -->
-     <script type="text/javascript">
+		<!--      類似上面Delete FB App的效果，呼叫此function後，下次使用者想再Google登入你的網站就必須重新選擇帳號 -->
+	<script>
    
      //參考：https://developers.google.com/identity/sign-in/web/disconnect
 
-     function Google_disconnect() {
-    var auth2 = gapi.auth2.getAuthInstance();
-    auth2.disconnect().then(function () {
+    function Google_disconnect() {
+    	var auth2 = gapi.auth2.getAuthInstance();
+    	auth2.disconnect().then(function () {
         console.log('User disconnect.'); 
-    });
-     }
-     }
+    	});
+    }
 
     </script>
 
@@ -344,9 +346,9 @@ function Del_FB_App() {
 
 
 
-<span id="create-user" >會員註冊/登入</span>
+	<span id="create-user">會員註冊/登入</span>
 
- 
- 
+
+
 </body>
 </html>
