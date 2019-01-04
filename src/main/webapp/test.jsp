@@ -99,6 +99,9 @@
 	<hr />
 	<a href="<c:url value='/flight17' />">AirportTest</a>
 	<hr />
+	<a href="<c:url value='/flightxml' />">XMLTest</a>
+	
+	<hr />
 	<br />
 	<h1>雅涵</h1>
 	<a href="<c:url value='/HotelfindByPK' />">HotelfindByPK</a>

@@ -117,7 +117,23 @@
 								</div>
 
 							</div>
-							<div class="home_search_content">
+							<div class="home_search_content" style="padding-bottom: 0px">
+								<form action="#" class="home_search_form" id="home_search_form">
+									<div
+										class="d-flex flex-lg-row flex-column align-items-start justify-content-lg-between justify-content-start">
+										起始地<input type="text" class="search_input search_input_1"
+											placeholder="City" required="required"> <input
+											type="text" class="search_input search_input_2"
+											placeholder="Departure" required="required"> <input
+											type="text" class="search_input search_input_3"
+											placeholder="Arrival" required="required"> <input
+											type="text" class="search_input search_input_4"
+											placeholder="Budget" required="required">
+										<button class="home_search_button">search</button>
+									</div>
+								</form>
+							</div>
+								<div class="home_search_content">
 								<form action="#" class="home_search_form" id="home_search_form">
 									<div
 										class="d-flex flex-lg-row flex-column align-items-start justify-content-lg-between justify-content-start">

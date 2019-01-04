@@ -25,8 +25,7 @@ public class AirlineCompareDAOHibernate implements AirlineCompareDAO{
 		if (bean != null) {
 			
 			String code = bean.getAirlineCode();
-			System.out.println("code="+code);
-			
+
 			AirlineCompareBean result = this.getSession().get(AirlineCompareBean.class, bean.getAirlineCode());
 			
 			
