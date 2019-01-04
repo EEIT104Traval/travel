@@ -63,8 +63,7 @@
 						</ul></li>
 					<li><a href="bindex.jsp">管理者</a>
 						<ul class="submenu">
-							<li><a href="06_01.jsp">管理者帳號</a></li>
-							<li><a href="06_02.jsp">管理者權限</a></li>
+							<li><a href="06_01.jsp">後台帳號權限</a></li>
 							<li><a href="#">登出</a></li>
 						</ul></li>
 					<li style="height:54px">

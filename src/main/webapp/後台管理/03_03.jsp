@@ -88,7 +88,7 @@
 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<input type="image" img src="images/PEN.png" onClick="document.form1.submit()"  width="3%" height="3%">
 </div>
 </div>
-	<div class="boxmsg1">
+	<div class="boxmsg2">
 	 <label class="title">修改結果</label>
 	</div>
 </body>
