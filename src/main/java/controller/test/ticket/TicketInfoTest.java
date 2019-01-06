@@ -1,12 +1,12 @@
 package controller.test.ticket;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.ServletContext;
@@ -87,22 +87,26 @@ public class TicketInfoTest{
 	
 	@RequestMapping("/ticketDLtest")
 	public void DLticketform() throws IOException{
-		
 		String s1 = servletContext.getRealPath("");
 
 		File ticketincsv = new File(s1 + "resource/Ticket/ticket.csv"); // 讀取的CSV文檔
-		File ticketoutcsv = new File("Ticketfrom");// 寫出的CSV文檔
+		File ticketoutcsv = new File("C:\\Users\\wei\\Desktop\\Ticketfrom.csv");// 寫出的CSV文檔
+		if(!ticketoutcsv.exists()) {
+			ticketoutcsv.createNewFile();			
+		}
 		
 		InputStreamReader isr = new InputStreamReader(new FileInputStream(ticketincsv));// 待處理資料的檔案路徑
 		BufferedReader reader = new BufferedReader(isr);
-		BufferedWriter bw = new BufferedWriter(new FileWriter(ticketoutcsv));
+		PrintWriter pw = new PrintWriter(new FileWriter(ticketoutcsv));
 		String line = null;
 		while ((line = reader.readLine()) != null) {
-			String item[] = line.split(",");
-			bw.newLine();// 新起一行
-			bw.write(",");// 寫到新檔案中
+//			String item[] = line.split(",");
+//			bw.newLine();// 新起一行
+//			bw.write(",");// 寫到新檔案中
+			pw.println(line);
+			System.out.println("寫出成功");
 		}
-		bw.close();
+		pw.close();
 		reader.close();
 	}
 }

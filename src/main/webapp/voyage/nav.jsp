@@ -69,7 +69,7 @@
             <li class="nav-item active"><a href="index.jsp" class="nav-link">首頁</a></li>
             <li class="nav-item"><a href="tours.jsp" class="nav-link">團體旅遊</a></li>
             <li class="nav-item"><a href="hotels.jsp" class="nav-link">飯店</a></li>
-            <li class="nav-item"><a href="services.html" class="nav-link">機票</a></li>
+            <li class="nav-item"><a href="FlightNoDelect3.jsp" class="nav-link">機票</a></li>
             <li class="nav-item"><a href="ticket.jsp" class="nav-link">門票</a></li>
             <li class="nav-item"><a href="about.html" class="nav-link">關於我們</a></li>
             <li class="nav-item"><a href="contact.html" class="nav-link">聯絡我們</a></li>
