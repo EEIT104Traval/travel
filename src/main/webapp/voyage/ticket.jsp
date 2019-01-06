@@ -3,14 +3,15 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="tw-zh">
+  <link rel="stylesheet" href="css/main_styles.css">
   <head>
-    <title>Voyage - Free Bootstrap 4 Template by Colorlib</title>
+    <title>Time To Travel</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <jsp:include page="/voyage/nav.jsp" />
   </head>
   <body>
-    <jsp:include page="/voyage/nav.jsp" />
-    
+
     <!-- END nav -->
     <section class="home-slider owl-carousel">
       <div class="slider-item" style="background-image: url('images/bg_1.jpg');" data-stellar-background-ratio="0.5">
@@ -25,6 +26,29 @@
         </div>
       </div>
     </section>
+        
+	<div class="home_search">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="home_search_container">
+						<div class="home_search_title">旅遊票券</div>
+						<div class="home_search_content">
+							<form action="#" class="home_search_form" id="home_search_form">
+								<div class="d-flex flex-lg-row flex-column align-items-start justify-content-lg-between justify-content-start">
+									<input type="text" class="search_input search_input_1" style="width:24%" placeholder="請輸入國家" required="required">
+									<input type="text" class="search_input search_input_2" style="width:24%"placeholder="類型" required="required">
+									<input type="text" class="search_input search_input_3" style="width:24%"placeholder="關鍵字" required="required">
+									<button class="home_search_button">搜尋</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>    
+   
     <!-- END slider -->
     <section class="ftco-section bg-light">
       <div class="container">
@@ -38,7 +62,9 @@
                   <div>艾菲爾鐵塔</div>
                   <div>€50</div>
                 </div>
-                <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
+                <div>
+                <input type="image" img src="images/miuns.png" onClick="document.form1.submit()" width="3%" height="3%">
+                </div>
                 <p class="clearfix">
                   <a href="https://zh.wikipedia.org/wiki/%E8%89%BE%E8%8F%B2%E7%88%BE%E9%90%B5%E5%A1%94" class="float-left">Read more</a>
                  </p>
@@ -166,8 +192,6 @@
                     <li class="active"><span>1</span></li>
                     <li><a href="#">2</a></li>
                     <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
                     <li><a href="#">&gt;</a></li>
                   </ul>
                 </div>
