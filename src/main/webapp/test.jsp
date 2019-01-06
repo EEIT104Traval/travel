@@ -41,7 +41,7 @@
 	<a href="<c:url value='ticketOrderUpdate' />">ticketOrderUpdate</a>
 	<a href="<c:url value='ticketOrderRemove' />">ticketOrderRemove</a>
 	<br>
-	<a href="<c:url value='ticketDLtest' />">ticketDLtest </a>
+	<a href="<c:url value='/ticketDLtest' />">ticketDLtest </a>
 	<a href="<c:url value='tourDLtest' />">tourDLtest </a>
 	<hr>
 	
