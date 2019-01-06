@@ -759,7 +759,7 @@ section
 {
 	width: 161px;
 	height: 52px;
-	background: #181818;
+	background: red;
 	color: #FFFFFF;
 	font-family: 'Oswald', sans-serif;
 	font-size: 16px;
@@ -769,6 +769,7 @@ section
 	border: none;
 	outline: none;
 	cursor: pointer;
+	margin-top: 28px;
 }
 
 /*********************************
@@ -1361,4 +1362,30 @@ section
 .footer_contact_list ul li:not(:last-child)
 {
 	margin-bottom: 7px;
+}
+.radio-beauty-container {
+  font-size: 0;
+}
+.radio-beauty-container .radio-beauty:hover, .radio-beauty-container input[type="radio"]:checked + .radio-beauty {
+  padding: 2px;
+  background-color: red;
+  background-clip: content-box;
+}
+.radio-beauty-container .radio-name {
+	display: inline-block;
+  vertical-align: middle;
+  font-size: 16px;
+}
+.radio-beauty-container .radio-beauty {
+  width: 18px;
+  height: 18px;
+  box-sizing: border-box;
+  display: inline-block;
+  border: 1px solid green;
+  vertical-align: middle;
+  margin: 0 5px 0 15px;
+  border-radius: 50%;
+}
+.radio-beauty-container .radio-beauty:hover {
+  box-shadow: 0 0 7px red;
 }

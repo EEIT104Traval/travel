@@ -25,7 +25,7 @@
 <body>
 
 	<!-- Home -->
-	<jsp:include page="nav.jsp" ></jsp:include>
+	<jsp:include page="nav.jsp"></jsp:include>
 	<div class="home">
 
 		<!-- Home Slider -->
@@ -102,16 +102,27 @@
 							<div class="home_search_title">
 								<div class="form-group">
 									<div class="form-checkbox">
-<!-- 										<label for="roundtrip" style="display:inline-block;" > <input type="radio" -->
-<!-- 											id="roundtrip" name="flight-type">往返　 -->
-<!-- 										</label> <label for="one-way" style="display:inline-block;"> <input type="radio" -->
-<!-- 											id="one-way" name="flight-type">單程　 -->
-<!-- 										</label> <label for="multi-city" style="display:inline-block;"> <input type="radio" -->
-<!-- 											id="multi-city" name="flight-type">多程 -->
-<!-- 										</label> -->	
-											<input type="radio"  style="display: inline-block;">往返　
-											<input type="radio" style="display: inline-block;">單程　
-											<input type="radio" style="display: inline-block;">多程
+
+
+										<div class="radio-beauty-container">
+											<label style="display: inline-block;"> <input
+												type="radio" name="flystyle" id="flystyle1" hidden
+												style="display: inline-block;" checked="checked" /> <label
+												for="goandback" class="radio-beauty"
+												style="display: inline-block;"></label><span
+												class="radio-name">往返</span>
+											</label> <label style="display: inline-block;"> <input
+												type="radio" name="flystyle" id="go" hidden
+												style="display: inline-block;" /> <label for="flystyle2"
+												class="radio-beauty" style="display: inline-block;"></label><span
+												class="radio-name">單程</span>
+											</label> <label style="display: inline-block;"> <input
+												type="radio" name="flystyle" id="more" hidden
+												style="display: inline-block;" /> <label for="flystyle3"
+												class="radio-beauty" style="display: inline-block;"></label><span
+												class="radio-name">多程</span>
+											</label>
+										</div>
 
 									</div>
 								</div>
@@ -121,31 +132,65 @@
 								<form action="#" class="home_search_form" id="home_search_form">
 									<div
 										class="d-flex flex-lg-row flex-column align-items-start justify-content-lg-between justify-content-start">
-										起始地<input type="text" class="search_input search_input_1"
-											placeholder="City" required="required"> <input
-											type="text" class="search_input search_input_2"
-											placeholder="Departure" required="required"> <input
-											type="text" class="search_input search_input_3"
-											placeholder="Arrival" required="required"> <input
-											type="text" class="search_input search_input_4"
-											placeholder="Budget" required="required">
-										<button class="home_search_button">search</button>
+										<div>
+											<span class="form-label">出發地</span> <input type="text"
+												class="search_input search_input_1" style="width: 450px"
+												placeholder="請輸入機場/城市中英文或代碼" required="required">
+										</div>
+										<img alt="" src="images/changeTwoPlace.png" width="25px"
+											style="padding-top: 42px">
+										<div>
+											<span class="form-label">目的地</span> <input type="text"
+												class="search_input search_input_1" style="width: 450px"
+												placeholder="請輸入機場/城市中英文或代碼" required="required">
+										</div>
 									</div>
 								</form>
 							</div>
-								<div class="home_search_content">
+							<div class="home_search_content">
 								<form action="#" class="home_search_form" id="home_search_form">
 									<div
 										class="d-flex flex-lg-row flex-column align-items-start justify-content-lg-between justify-content-start">
-										<input type="text" class="search_input search_input_1"
-											placeholder="City" required="required"> <input
-											type="text" class="search_input search_input_2"
-											placeholder="Departure" required="required"> <input
-											type="text" class="search_input search_input_3"
-											placeholder="Arrival" required="required"> <input
-											type="text" class="search_input search_input_4"
-											placeholder="Budget" required="required">
-										<button class="home_search_button">search</button>
+										<div>
+											<span class="form-label">出發日期</span>
+											<button type="date" class="search_input search_input_1"
+												style="width: 180px; padding-right: 20px"
+												required="required">
+												<span style="text-align: left; padding-right: 140px">yyyy/MM/dd</span>
+											</button>
+										</div>
+										<div>
+											<span class="form-label">回程日期</span>
+											<button type="date" class="search_input search_input_1"
+												style="width: 180px; padding-right: 20px"
+												required="required">
+												<span style="text-align: left; padding-right: 140px">yyyy/MM/dd</span>
+											</button>
+										</div>
+										<div>
+											<span class="form-label">旅客類型</span>
+											<button class="search_input search_input_1"
+												style="width: 180px; padding-right: 20px">
+												<span style="text-align: left;">1位成人</span>
+											</button>
+										</div>
+										<!-- 										<div> -->
+										<!-- 											<span class="form-label">艙等</span> -->
+										<!-- 											<button class="search_input search_input_1" -->
+										<!-- 												style="width: 130px"></button> -->
+										<!-- 										</div> -->
+										<div>
+											<span class="form-label">艙等</span> <select
+												class="search_input search_input_1"
+												id="search-controls-cabin-class-dropdown"
+												name="search-controls-cabin-class-dropdown"style="width: 180px;">
+												<option value="Economy" selected="selected">經濟艙</option>
+												<option value="PremiumEconomy">高端經濟艙</option>
+												<option value="First">頭等艙</option>
+												<option value="Business">商務艙</option>
+											</select>
+										</div>
+										<button class="home_search_button" style="margin-top: 28px;">搜尋航班</button>
 									</div>
 								</form>
 							</div>
@@ -231,6 +276,8 @@
 	<script src="plugins/easing/easing.js"></script>
 	<script src="plugins/parallax-js-master/parallax.min.js"></script>
 	<script src="js/custom.js"></script>
+
+	<%-- 	<jsp:include page="footer.jsp"></jsp:include> --%>
 </body>
 </html>
 
