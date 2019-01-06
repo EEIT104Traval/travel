@@ -4,7 +4,6 @@
 <!DOCTYPE html>
 <html lang="tw-zh">
   <link rel="stylesheet" href="css/main_styles.css">
-  <link href="https://www.kkday.com/favicon.png" rel="shortcut icon" type="image/ico">
   <head>
     <title>Time To Travel</title>
     <meta charset="utf-8">
@@ -63,28 +62,16 @@
                   <div>艾菲爾鐵塔</div>
                   <div>€50</div>
                 </div>
-                <div>
-                	<div class="pull-right test-right mt-10">
-             			<a href="javascript:;" class="counter disabled">
-             				<i class="icons icon-minus">
-             				::before
-             				</i>
-             			</a>
-             			<input type="text" readonly="readonly" class="counter-num">
-             			<a href="javascript:;" class="counter">
-             				<i class="icons icon-plus">
-             				::before
-             				</i>
-             			</a>
-                	</div>
-            
-					<input type="image" img src="images/MIN.png" onClick="document.form1.submit()" width="10%" height="10%">
-					<input type="text" size="2" style="height:20px; width:80px;">
-					<input type="image" img src="images/PL.png" onClick="document.form1.submit()" width="10%" height="10%">
+                <br>
+                <div class="d-flex flex-lg-row flex-column align-items-start justify-content-start"  style="margin: auto;">
+                	<input type="image"  src="images/MIN.png" onClick="document.form1.submit()" width="10%" height="10%">
+					<input type="text" readonly="readonly"style="height:20px; width:80px;">
+					<input type="image"  src="images/PL.png" onClick="document.form1.submit()" width="10%" height="10%">
                 </div>
+                <br>
                 <p class="clearfix">
                   <a href="https://zh.wikipedia.org/wiki/%E8%89%BE%E8%8F%B2%E7%88%BE%E9%90%B5%E5%A1%94" class="float-left">Read more</a>
-                   <input type="image" img src="images/CK.png" onClick="document.form1.submit()" width="10%" height="10%">
+                   <input type="image"  src="images/CK.png" onClick="document.form1.submit()" width="10%" height="10%">
                  </p>
               </div>
             </div>
@@ -97,10 +84,17 @@
                 <div class="meta">
                   <div>巴黎凱旋門</div>
                   <div>€50</div>
+               </div>
+                <br>
+                <div class="d-flex flex-lg-row flex-column align-items-start justify-content-start"  style="margin: auto;">
+                	<input type="image"  src="images/MIN.png" onClick="document.form1.submit()" width="10%" height="10%">
+					<input type="text" readonly="readonly"style="height:20px; width:80px;">
+					<input type="image"  src="images/PL.png" onClick="document.form1.submit()" width="10%" height="10%">
                 </div>
-                <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
+                <br>
                 <p class="clearfix">
                   <a href="https://zh.wikipedia.org/wiki/%E5%B7%B4%E9%BB%8E%E5%87%AF%E6%97%8B%E9%97%A8" class="float-left">Read more</a>
+                     <input type="image"  src="images/CK.png" onClick="document.form1.submit()" width="10%" height="10%">
                 </p>
               </div>
             </div>
@@ -113,10 +107,17 @@
                 <div class="meta">
                   <div>羅浮宮</div>
                   <div>€50</div>
+               </div>
+                <br>
+                <div class="d-flex flex-lg-row flex-column align-items-start justify-content-start"  style="margin: auto;">
+                	<input type="image"  src="images/MIN.png" onClick="document.form1.submit()" width="10%" height="10%">
+					<input type="text" readonly="readonly"style="height:20px; width:80px;">
+					<input type="image"  src="images/PL.png" onClick="document.form1.submit()" width="10%" height="10%">
                 </div>
-                <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
+                <br>
                 <p class="clearfix">
                   <a href="https://zh.wikipedia.org/wiki/%E5%8D%A2%E6%B5%AE%E5%AE%AB" class="float-left">Read more</a>
+                   <input type="image"  src="images/CK.png" onClick="document.form1.submit()" width="10%" height="10%">
                 </p>
               </div>
             </div>
@@ -129,10 +130,17 @@
                 <div class="meta">
                   <div>新天鵝堡</div>
                   <div>€50</div>
+               </div>
+                <br>
+                <div class="d-flex flex-lg-row flex-column align-items-start justify-content-start"  style="margin: auto;">
+                	<input type="image"  src="images/MIN.png" onClick="document.form1.submit()" width="10%" height="10%">
+					<input type="text" readonly="readonly"style="height:20px; width:80px;">
+					<input type="image"  src="images/PL.png" onClick="document.form1.submit()" width="10%" height="10%">
                 </div>
-                <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
+                <br>
                 <p class="clearfix">
                   <a href="https://zh.wikipedia.org/wiki/%E6%96%B0%E5%A4%A9%E9%B9%85%E5%A0%A1" class="float-left">Read more</a>
+                     <input type="image"  src="images/CK.png" onClick="document.form1.submit()" width="10%" height="10%">
                 </p>
               </div>
             </div>
@@ -145,10 +153,17 @@
                 <div class="meta">
                   <div>黃金快車</div>
                   <div>€50</div>
+              </div>
+                <br>
+                <div class="d-flex flex-lg-row flex-column align-items-start justify-content-start"  style="margin: auto;">
+                	<input type="image"  src="images/MIN.png" onClick="document.form1.submit()" width="10%" height="10%">
+					<input type="text" readonly="readonly"style="height:20px; width:80px;">
+					<input type="image"  src="images/PL.png" onClick="document.form1.submit()" width="10%" height="10%">
                 </div>
-                <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
+                <br>
                 <p class="clearfix">
                   <a href="https://www.myswitzerland.com/zo-tw/goldenpass-line.html" class="float-left">Read more</a>
+                     <input type="image"  src="images/CK.png" onClick="document.form1.submit()" width="10%" height="10%">
                 </p>
               </div>
             </div>
@@ -161,10 +176,17 @@
                 <div class="meta">
                   <div>羅馬競技場</div>
                   <div>€50</div>
+            </div>
+                <br>
+                <div class="d-flex flex-lg-row flex-column align-items-start justify-content-start"  style="margin: auto;">
+                	<input type="image"  src="images/MIN.png" onClick="document.form1.submit()" width="10%" height="10%">
+					<input type="text" readonly="readonly"style="height:20px; width:80px;">
+					<input type="image"  src="images/PL.png" onClick="document.form1.submit()" width="10%" height="10%">
                 </div>
-                <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
+                <br>
                 <p class="clearfix">
                   <a href="https://zh.wikipedia.org/wiki/%E7%BD%97%E9%A9%AC%E6%96%97%E5%85%BD%E5%9C%BA" class="float-left">Read more</a>
+                     <input type="image"  src="images/CK.png" onClick="document.form1.submit()" width="10%" height="10%">
                 </p>
               </div>
             </div>
@@ -177,10 +199,17 @@
                 <div class="meta">
                   <div>埃及金字塔</div>
                   <div>€50</div>
+              </div>
+                <br>
+                <div class="d-flex flex-lg-row flex-column align-items-start justify-content-start"  style="margin: auto;">
+                	<input type="image"  src="images/MIN.png" onClick="document.form1.submit()" width="10%" height="10%">
+					<input type="text" readonly="readonly"style="height:20px; width:80px;">
+					<input type="image"  src="images/PL.png" onClick="document.form1.submit()" width="10%" height="10%">
                 </div>
-                <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
+                <br>
                 <p class="clearfix">
                   <a href="https://zh.wikipedia.org/wiki/%E5%9F%83%E5%8F%8A%E9%87%91%E5%AD%97%E5%A1%94" class="float-left">Read more</a>
+                     <input type="image"  src="images/CK.png" onClick="document.form1.submit()" width="10%" height="10%">
                 </p>
               </div>
             </div>
@@ -193,10 +222,17 @@
                 <div class="meta">
                   <div>米其林餐廳</div>
                   <div>€50</div>
+               </div>
+                <br>
+                <div class="d-flex flex-lg-row flex-column align-items-start justify-content-start"  style="margin: auto;">
+                	<input type="image"  src="images/MIN.png" onClick="document.form1.submit()" width="10%" height="10%">
+					<input type="text" readonly="readonly"style="height:20px; width:80px;">
+					<input type="image"  src="images/PL.png" onClick="document.form1.submit()" width="10%" height="10%">
                 </div>
-                <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
+                <br>
                 <p class="clearfix">
                   <a href="#https://guide.michelin.com/" class="float-left">Read more</a>
+                     <input type="image"  src="images/CK.png" onClick="document.form1.submit()" width="10%" height="10%">
                 </p>
               </div>
             </div>
