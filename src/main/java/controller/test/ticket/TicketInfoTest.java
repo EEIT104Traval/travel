@@ -90,7 +90,7 @@ public class TicketInfoTest{
 		String s1 = servletContext.getRealPath("");
 
 		File ticketincsv = new File(s1 + "resource/Ticket/ticket.csv"); // 讀取的CSV文檔
-		File ticketoutcsv = new File("C:\\Users\\wei\\Desktop\\Ticketfrom.csv");// 寫出的CSV文檔
+		File ticketoutcsv = new File("C:\\Users\\Emma\\Desktop\\Ticketfrom1.csv");// 寫出的CSV文檔
 		if(!ticketoutcsv.exists()) {
 			ticketoutcsv.createNewFile();			
 		}

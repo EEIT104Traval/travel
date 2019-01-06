@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html lang="tw-zh">
   <link rel="stylesheet" href="css/main_styles.css">
+  <link href="https://www.kkday.com/favicon.png" rel="shortcut icon" type="image/ico">
   <head>
     <title>Time To Travel</title>
     <meta charset="utf-8">
@@ -63,10 +64,27 @@
                   <div>€50</div>
                 </div>
                 <div>
-                <input type="image" img src="images/miuns.png" onClick="document.form1.submit()" width="3%" height="3%">
+                	<div class="pull-right test-right mt-10">
+             			<a href="javascript:;" class="counter disabled">
+             				<i class="icons icon-minus">
+             				::before
+             				</i>
+             			</a>
+             			<input type="text" readonly="readonly" class="counter-num">
+             			<a href="javascript:;" class="counter">
+             				<i class="icons icon-plus">
+             				::before
+             				</i>
+             			</a>
+                	</div>
+            
+					<input type="image" img src="images/MIN.png" onClick="document.form1.submit()" width="10%" height="10%">
+					<input type="text" size="2" style="height:20px; width:80px;">
+					<input type="image" img src="images/PL.png" onClick="document.form1.submit()" width="10%" height="10%">
                 </div>
                 <p class="clearfix">
                   <a href="https://zh.wikipedia.org/wiki/%E8%89%BE%E8%8F%B2%E7%88%BE%E9%90%B5%E5%A1%94" class="float-left">Read more</a>
+                   <input type="image" img src="images/CK.png" onClick="document.form1.submit()" width="10%" height="10%">
                  </p>
               </div>
             </div>
@@ -184,6 +202,67 @@
             </div>
           </div>
         </div>
+        
+<!--         iii -->
+<template id="quantityButton">
+	<div>
+		<a href="javascript:;" class="counter" :class="{ 'disabled' : value <= min }" @click="minus">
+			<i class="icons icon-minus"></i>
+		</a>
+		<input type="text" class="counter-num" :value="value" readonly>
+		<a href="javascript:;" class="counter" :class="{ 'disabled' : value >= max }" @click="plus">
+			<i class="icons icon-plus"></i>
+		</a>
+	</div>
+</template>
+
+<script type="text/javascript">
+Vue.component('quantity-button', {
+	template: '#quantityButton',
+	props: {
+		value: {
+			type: Number,
+			default: 0,
+		},
+		min: {
+			type: Number,
+			default: 0,
+		},
+		max: {
+			type: Number,
+			default: 20,
+		},
+		step: {
+			type: Number,
+			default: 1
+		},
+		quantityKey: {
+			type: String,
+			default: ''
+		}
+	},
+	methods: {
+		minus: function(){
+			if(this.value <= this.min){
+				return;
+			}
+
+			var data = {};
+			data[this.quantityKey] = this.value - this.step;
+			productDetailBus.$emit('update:bookData', data);
+		},
+		plus: function(){
+			if(this.value >= this.max){
+				return;
+			}
+
+			var data = {};
+			data[this.quantityKey] = this.value + this.step;
+			productDetailBus.$emit('update:bookData', data);
+		}
+	}
+});
+</script>
          <div class="row mt-5">
               <div class="col text-center">
                 <div class="block-27">

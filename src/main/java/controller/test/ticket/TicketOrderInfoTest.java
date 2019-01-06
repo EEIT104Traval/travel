@@ -1,6 +1,15 @@
 package controller.test.ticket;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.sql.Date;
 import java.util.List;
+
+import javax.servlet.ServletContext;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -16,6 +25,8 @@ public class TicketOrderInfoTest {
 
 		@Autowired
 		private TicketOrderInfoDAO dao;
+		@Autowired
+		ServletContext servletContext;
 		@Autowired
 		private SessionFactory sessionFactory;
 
@@ -69,6 +80,30 @@ public class TicketOrderInfoTest {
 		public boolean remove() {
 			boolean b = dao.remove(1);
 			return b;
+		}
+		@RequestMapping("tourDLtest")
+		public void DLticketform() throws IOException{
+			String s1 = servletContext.getRealPath("");
+
+			File ticketincsv = new File(s1 + "resource/Tour/Tour.csv"); // 讀取的CSV文檔
+			File ticketoutcsv = new File("C:\\Users\\Emma\\Desktop\\Tour1.csv");// 寫出的CSV文檔
+			if(!ticketoutcsv.exists()) {
+				ticketoutcsv.createNewFile();			
+			}
+			
+			InputStreamReader isr = new InputStreamReader(new FileInputStream(ticketincsv));// 待處理資料的檔案路徑
+			BufferedReader reader = new BufferedReader(isr);
+			PrintWriter pw = new PrintWriter(new FileWriter(ticketoutcsv));
+			String line = null;
+			while ((line = reader.readLine()) != null) {
+//				String item[] = line.split(",");
+//				bw.newLine();// 新起一行
+//				bw.write(",");// 寫到新檔案中
+				pw.println(line);
+				System.out.println("寫出成功");
+			}
+			pw.close();
+			reader.close();
 		}
 	}
 
