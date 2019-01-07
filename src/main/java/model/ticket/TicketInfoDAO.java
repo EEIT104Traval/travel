@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface TicketInfoDAO {
 
-	public  abstract TicketInfoBean findByPrimaryKey(Integer ticketNo);
+	public abstract TicketInfoBean findByPrimaryKey(Integer ticketNo);
 	
 	public abstract TicketInfoBean findByTicketName(String ticketName);
 	
@@ -24,6 +24,7 @@ public interface TicketInfoDAO {
 
 	public abstract boolean remove(Integer ticketNo);
 	
+	public abstract List<TicketInfoBean> searchByCountry(String country);
 	
 
 }

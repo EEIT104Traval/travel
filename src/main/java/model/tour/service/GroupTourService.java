@@ -28,6 +28,10 @@ public class GroupTourService {
 //		}
 		return result;
 	}
+	public Long countAll() {
+		Long count = groupTourDAO.countAll();
+		return count;
+	}
 	
 	public GroupTourBean select(String tourNo) {
 		GroupTourBean temp = groupTourDAO.findByPrimaryKey(tourNo);

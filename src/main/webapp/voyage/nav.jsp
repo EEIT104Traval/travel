@@ -65,7 +65,7 @@
             <li class="nav-item"><a href="hotels.jsp" class="nav-link">飯店</a></li>
             <li class="nav-item"><a href="FlightNoDelect3.jsp" class="nav-link">機票</a></li>
             <li class="nav-item"><a href="ticket.jsp" class="nav-link">門票</a></li>
-            <li class="nav-item"><a href="about.html" class="nav-link">關於我們</a></li>
+            <li class="nav-item"><a href="rate.jsp" class="nav-link">查詢匯率</a></li>
             <li class="nav-item"><a href="contact.html" class="nav-link">聯絡我們</a></li>
             <li class="nav-item"><a href="#" class="nav-link">
             	<jsp:include page="login.jsp"></jsp:include>

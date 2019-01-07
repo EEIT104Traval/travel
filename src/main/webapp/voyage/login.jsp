@@ -166,9 +166,9 @@ div#users-contain table td, div#users-contain table th {
 		<form>
 			<!--     <fieldset> -->
 			<label for="name">帳號:</label> <input type="text" name="name"
-				id="name" class="text ui-widget-content ui-corner-all"><br>
+				class="text ui-widget-content ui-corner-all"><br>
 			<label for="password">密碼:</label> <input type="password"
-				name="password" id="password" value=""
+				name="password" value=""
 				class="text ui-widget-content ui-corner-all">
 
 			<!--     </fieldset> -->
@@ -326,6 +326,9 @@ function Del_FB_App() {
             console.log("無法刪除FB App");
         }
     });
+    
+    
+}
      </script>
 
 		<!--      類似上面Delete FB App的效果，呼叫此function後，下次使用者想再Google登入你的網站就必須重新選擇帳號 -->

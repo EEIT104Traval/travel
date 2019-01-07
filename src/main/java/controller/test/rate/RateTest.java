@@ -18,11 +18,11 @@ public class RateTest {
 	@ResponseBody
 	@RequestMapping("/ratePK")
 	public RateBean method() {
-		RateBean bean =dao.findByPrimaryKey("日圓(JSP)");
+		RateBean bean =dao.findByPrimaryKey(1);
 		return bean;
 	}
 	@ResponseBody
-	  @RequestMapping("/ratefindALL")
+	@RequestMapping("/ratefindALL")
 	public List<RateBean> findAll(){
 		List<RateBean> all =dao.findAll();
 		return all;
@@ -30,7 +30,7 @@ public class RateTest {
 	 @ResponseBody
 	 @RequestMapping("/rateremove")
 	 public boolean remove() {
-		 boolean bean3 = dao.remove("Kitty");   
+		 boolean bean3 = dao.remove(1);   
 		  return true;
 	 }
 

@@ -107,10 +107,16 @@ public class GroupTourBean {
 	}
 	@Override
 	public String toString() {
+<<<<<<< HEAD
 		return "GroupTourBean [tourNo=" + tourNo + ", country=" + country + ", tourName=" + tourName + ", destination="
 				+ destination + ", tourDays=" + tourDays + ", guaranteedCount=" + guaranteedCount + ", fullPeopleCount="
 				+ fullPeopleCount + ", clickCount=" + clickCount + ", content=" + content + ", tourBatchBean="
 				+ tourBatchBean + ", TourPictureBean=" + TourPictureBean + "]";
+=======
+		return "GroupTourBean [tourNo=" + tourNo + ", country=" + country + ", tourName=" + tourName
+				+ ", destination=" + destination + ", tourDays=" + tourDays + ", guaranteedCount=" + guaranteedCount
+				+ ", fullPeopleCount=" + fullPeopleCount + ", clickCount=" + clickCount + ", content=" + content + "]";
+>>>>>>> branch 'master' of https://github.com/EEIT104Traval/travel
 	}
 
 	

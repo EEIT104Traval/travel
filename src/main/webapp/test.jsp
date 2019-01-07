@@ -34,6 +34,7 @@
 	<a href="<c:url value='ticketCreate' />">ticketCreate</a>
 	<a href="<c:url value='ticketUpdate' />">ticketUpdate</a>
 	<a href="<c:url value='ticketRemove' />">ticketRemove</a>
+	<a href="<c:url value='ticketcountry' />">findcountry</a>
 	<br>
 	<a href="<c:url value='ticketOrderfindAll' />">ticketOrderfindAll</a>
 	<a href="<c:url value='ticketOrderfindpk' />">ticketOrderfindpk</a>
@@ -60,12 +61,7 @@
 	<%-- 	<a href="<c:url value='/rateupdate' />">Rateupdate</a> --%>
 	<%-- 	<a href="<c:url value='/rateremove' />">Rateremove</a> --%>
 	<hr />
-	<a href="<c:url value='/rate_usdPK' />">Rate_UsdPK</a>
-	<%-- 	<a href="<c:url value='/rate_usdfindALL' />">Rate_UsdfindAll</a> --%>
-	<%-- 	<a href="<c:url value='/rate_usdcreate' />">Rate_Usdcreat</a> --%>
-	<%-- 	<a href="<c:url value='/rate_usdupdate' />">Rate_Usdupdate</a> --%>
-	<%-- 	<a href="<c:url value='/rate_usdremove' />">Rate_Usdremove</a> --%>
-	<hr />
+	
 	<%-- 	<a href="<c:url value='/rate_jpyPK' />">Rate_jpyPK</a> --%>
 	<%-- 	<a href="<c:url value='/rate_jpyfindALL' />">Rate_jpyfindAll</a> --%>
 	<%-- 	<a href="<c:url value='/rate_jpycreate' />">Rate_jpycreat</a> --%>
