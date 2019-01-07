@@ -4,17 +4,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="voyage/css/rate.css">
-<!-- <style> -->
-/* a:link{text-decoration: none} */
-/* a:visited{color: black} */
-<!-- </style> -->
+<link rel="stylesheet" href="./css/rate.css">
+
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<title>Flot Examples: Toggling Series</title>
-	<link href="./voyage/css/examples.css" rel="stylesheet" type="text/css">
+	<link href="./css/examples.css" rel="stylesheet" type="text/css">
 	<!--[if lte IE 8]><script language="javascript" type="text/javascript" src="../../excanvas.min.js"></script><![endif]-->
-	<script language="javascript" type="text/javascript" src="./voyage/js/jquery.js"></script>
-	<script language="javascript" type="text/javascript" src="./voyage/js/jquery.flot.js"></script>
+	<script language="javascript" type="text/javascript" src="./js/jquery.js"></script>
+	<script language="javascript" type="text/javascript" src="./js/jquery.flot.js"></script>
 	<script type="text/javascript">
 
 	$(function() {
@@ -155,15 +152,12 @@
 	<div id="header">
 		<h2>匯率</h2>
 	</div>
-
-	   <button type="button" style="float:right;margin-right: 300px"><a href="toggling.jsp" />180天折線圖</a></button>
+	   <button type="button" style="float:right;margin-right: 150px"><a href="rate.jsp" />回上一頁</a></button>
+	   <button type="button" style="float:right;margin-right: 10px"><a href="toggling.jsp" />180天折線圖</a></button>
 	   <button type="button" style="float:right;margin-right: 10px"><a href="toggling.jsp" />90天折線圖</a></button>
-	   <button type="button" style="float:right;margin-right: 10px"><a href="rate.jsp" />回首頁</a></button>
-	   
 
 	
 	
-
 	<div id="content">
 
 		<div class="demo-container">

@@ -6,7 +6,8 @@
 <html lang="zh-tw">
 
 <head>
-<link rel="stylesheet" href="./voyage/css/rate.css">
+<%-- <jsp:include page="/voyage/nav.jsp"/> --%>
+<link rel="stylesheet" href="./css/rate.css">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -49,9 +50,10 @@ tbody tr:hover {
 
 <body>
 	<div style="margin-top:20px">
-  	   <button type="button" style="float:right;margin-right: 520px"><a href="toggling.jsp" />180天折線圖</a></button>
+	   <button type="button" style="float:right;margin-right: 350px"><a href="index.jsp" />回首頁</a></button>
+  	   <button type="button" style="float:right;margin-right: 10px"><a href="toggling.jsp" />180天折線圖</a></button>
 	   <button type="button" style="float:right;margin-right: 10px"><a href="toggling.jsp" />90天折線圖</a></button>
-	   <button type="button" style="float:right;margin-right: 10px"><a href="rate.jsp" />回首頁</a></button>
+	  
 	</div>
 	<h2 style="margin-left:450px">匯率</h2>
 	<table id="productTable" class="tb1">
