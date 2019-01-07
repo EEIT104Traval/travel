@@ -2,13 +2,21 @@ package model.ticket.dao;
 
 import java.util.List;
 
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.util.StringUtils;
 
+import model.hotel.HotelBean;
 import model.ticket.TicketInfoBean;
 import model.ticket.TicketInfoDAO;
+import model.tour.TourMemberInfoBean;
 
 @Repository
 public class TicketInfoDAOHibernate implements TicketInfoDAO {
@@ -96,7 +104,25 @@ public class TicketInfoDAOHibernate implements TicketInfoDAO {
 		}
 		return false;
 	}
+	
+	@Override
+	public List<TicketInfoBean> searchByCountry(String  country) {
+		CriteriaBuilder criteriaBuilder = getSession().getCriteriaBuilder();
+		CriteriaQuery<TicketInfoBean> criteria = criteriaBuilder.createQuery(TicketInfoBean.class);
+		Root<TicketInfoBean> from = criteria.from(TicketInfoBean.class);
+		criteria.select(from).where(from.get("country").in(country));
+		List<TicketInfoBean> list = getSession().createQuery(criteria).getResultList();
+		return list;
+	}
+	
+//	@SuppressWarnings("unchecked")
+//	@Override(test)
+//	public List<TicketInfoBean> searchByCountry(TicketInfoBean bean)  {
+//
+//		return this.getSession().createQuery("from TicketInfoBean where country", TicketInfoBean.class).setMaxResults(50).list();
+//	}
 }
+
 //	@Override
 //	public ProductBean findByPrimaryKey(int id) {
 //		//利用id作為primary key取得product table資料

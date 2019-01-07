@@ -29,5 +29,9 @@ public class GroupTourService {
 //		}
 		return result;
 	}
+	public Long countAll() {
+		Long count = groupTourDAO.countAll();
+		return count;
+	}
 	
 }
