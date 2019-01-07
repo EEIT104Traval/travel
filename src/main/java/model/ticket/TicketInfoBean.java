@@ -14,16 +14,16 @@ import javax.persistence.Table;
 @Table(name = "ticketInfo")
 public class TicketInfoBean {
 
-	@OneToMany(cascade = CascadeType.REMOVE, mappedBy = "ticketOrderNO")
-	private Set<TicketOrderInfoBean> TicketOrderInfos;
-
-	public Set<TicketOrderInfoBean> getTicketOrderInfos() {
-		return TicketOrderInfos;
-	}
-
-	public void setTicketOrderInfos(Set<TicketOrderInfoBean> TicketOrderInfos) {
-		this.TicketOrderInfos = TicketOrderInfos;
-	}
+//	@OneToMany(cascade = CascadeType.REMOVE, mappedBy = "ticketOrderNO")
+//	private Set<TicketOrderInfoBean> TicketOrderInfos;
+//
+//	public Set<TicketOrderInfoBean> getTicketOrderInfos() {
+//		return TicketOrderInfos;
+//	}
+//
+//	public void setTicketOrderInfos(Set<TicketOrderInfoBean> TicketOrderInfos) {
+//		this.TicketOrderInfos = TicketOrderInfos;
+//	}
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -183,13 +183,16 @@ public class TicketInfoBean {
 
 	@Override
 	public String toString() {
-		return "TicketInfoBean [TicketOrderInfos=" + TicketOrderInfos + ", ticketNo=" + ticketNo + ", ticketName="
-				+ ticketName + ", validity=" + validity + ", adultTicketPrice=" + adultTicketPrice
-				+ ", childTicketPrice=" + childTicketPrice + ", adultTicketSellQ=" + adultTicketSellQ
-				+ ", childTicketSellQ=" + childTicketSellQ + ", adultTicketSelledQ=" + adultTicketSelledQ
-				+ ", childTicketSelledQ=" + childTicketSelledQ + ", country=" + country + ", category=" + category
-				+ ", productFeatures=" + productFeatures + ", ticketPicture=" + ticketPicture + ", ticketDescription="
-				+ ticketDescription + ", traffic_information=" + traffic_information + ", special_restrictions="
-				+ special_restrictions + ", googleAddressOrName=" + googleAddressOrName + "]";
+		return "TicketInfoBean [ticketNo=" + ticketNo + ", ticketName=" + ticketName + ", validity=" + validity
+				+ ", adultTicketPrice=" + adultTicketPrice + ", childTicketPrice=" + childTicketPrice
+				+ ", adultTicketSellQ=" + adultTicketSellQ + ", childTicketSellQ=" + childTicketSellQ
+				+ ", adultTicketSelledQ=" + adultTicketSelledQ + ", childTicketSelledQ=" + childTicketSelledQ
+				+ ", country=" + country + ", category=" + category + ", productFeatures=" + productFeatures
+				+ ", ticketPicture=" + ticketPicture + ", ticketDescription=" + ticketDescription
+				+ ", traffic_information=" + traffic_information + ", special_restrictions=" + special_restrictions
+				+ ", googleAddressOrName=" + googleAddressOrName + "]";
 	}
+
+	
+	
 }

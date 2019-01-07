@@ -19,27 +19,27 @@ public class TicketController {
 	
 	@Autowired
 	private TicketInfoService ticketInfoService;
+	
 	@ResponseBody
 	@RequestMapping("/voyage/ticket.controller")
 	public String method(@RequestParam(name="country")String country, Model model) {
-	//	Locale locale = LocaleContextHolder.getLocale();
+	//	Locale locale = LocaleContextHolder.getLocale(); //多國語系
 		System.out.println("country="+country);
 		
 //接收資料
-//驗證資料
 //呼叫model
 		
-		TicketInfoBean bean = new TicketInfoBean();
-		bean.setCountry(country);
+//		TicketInfoBean bean = new TicketInfoBean();
+//		bean.setCountry(country);
 			
 		List<TicketInfoBean> result = ticketInfoService.searchCountry(country);
 		System.out.println(result);
 //呼叫view		
 		if(result == null) {
 			
-			return "voyage/ticket.jsp";
+			return "redirect:voyage/ticket.jsp";
 		}else {
-			return "voyage/ticket.jsp";
+			return "redirect:voyage/ticket.jsp";
 		}
 	
 	}
