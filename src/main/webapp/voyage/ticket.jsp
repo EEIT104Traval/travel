@@ -58,20 +58,20 @@
               <a  class="block-20" style="background-image: url('images/image_1.jpg');">
               </a>
               <div class="text p-4">
-                <div class="meta">
+                <div class="meta" style="margin-left: 45px;">
                   <div>艾菲爾鐵塔</div>
                   <div>€50</div>
                 </div>
                 <br>
-                <div class="d-flex flex-lg-row flex-column align-items-start justify-content-start"  style="margin: auto;">
-                	<input type="image"  src="images/MIN.png" onClick="document.form1.submit()" width="10%" height="10%">
-					<input type="text" readonly="readonly"style="height:20px; width:80px;">
-					<input type="image"  src="images/PL.png" onClick="document.form1.submit()" width="10%" height="10%">
+                <div class="d-flex flex-lg-row flex-column align-items-start justify-content-start" style="margin-left: 58px;">
+                	<input type="image"  src="images/MIN.png" onClick="document.form1.submit()" width="15%" height="15%" >
+					<input type="text" value="0" readonly="readonly"style="text-align:center;height:20px; width:40px;margin:0;border:0px;" >
+					<input type="image"  src="images/PL.png" onClick="document.form1.submit()" width="15%" height="15%" >
                 </div>
                 <br>
                 <p class="clearfix">
                   <a href="https://zh.wikipedia.org/wiki/%E8%89%BE%E8%8F%B2%E7%88%BE%E9%90%B5%E5%A1%94" class="float-left">Read more</a>
-                   <input type="image"  src="images/CK.png" onClick="document.form1.submit()" width="10%" height="10%">
+                   <input type="image"  src="images/CK.png" onClick="document.form1.submit()" width="13%" height="13%"  style="float:right;">
                  </p>
               </div>
             </div>
