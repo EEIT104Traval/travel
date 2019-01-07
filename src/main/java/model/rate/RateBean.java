@@ -3,40 +3,47 @@ package model.rate;
 import java.util.Arrays;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 @Entity
 @Table(name="Rate")
 public class RateBean {
 	
-	private String flag;
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer serial;
 	private String currency;
+	private java.util.Date updateTime;
 	private Double cashBuy;
 	private Double cashSell;
 	private Double spotBuy;
 	private Double spotSell;
 	private String country;
-	
 	@Override
 	public String toString() {
-		return "RateBean [flag=" + flag + ", currency=" + currency + ", cashBuy=" + cashBuy + ", cashSell=" + cashSell
-				+ ", spotBuy=" + spotBuy + ", spotSell=" + spotSell + ", country=" + country + "]";
+		return "RateBean [serial=" + serial + ", currency=" + currency + ", updateTime=" + updateTime + ", cashBuy="
+				+ cashBuy + ", cashSell=" + cashSell + ", spotBuy=" + spotBuy + ", spotSell=" + spotSell + ", country="
+				+ country + "]";
 	}
-
-	public String getFlag() {
-		return flag;
+	public Integer getSerial() {
+		return serial;
 	}
-
-	public void setFlag(String flag) {
-		this.flag = flag;
+	public void setSerial(Integer serial) {
+		this.serial = serial;
 	}
-
 	public String getCurrency() {
 		return currency;
 	}
 	public void setCurrency(String currency) {
 		this.currency = currency;
+	}
+	public java.util.Date getUpdateTime() {
+		return updateTime;
+	}
+	public void setUpdateTime(java.util.Date updateTime) {
+		this.updateTime = updateTime;
 	}
 	public Double getCashBuy() {
 		return cashBuy;

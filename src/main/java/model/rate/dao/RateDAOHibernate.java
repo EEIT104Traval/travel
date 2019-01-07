@@ -20,8 +20,8 @@ public class RateDAOHibernate implements RateDAO{
 		}
 		
 	@Override
-	public RateBean findByPrimaryKey(String currency) {
-		return this.getSession().get(RateBean.class,currency);
+	public RateBean findByPrimaryKey(Integer serial) {
+		return this.getSession().get(RateBean.class,serial);
 	}
 
 	@Override
@@ -34,7 +34,7 @@ public class RateDAOHibernate implements RateDAO{
 	@Override
 	public RateBean create(RateBean bean) {
 		if(bean!=null) {
-			Rate_USDBean result = this.getSession().get(Rate_USDBean.class, bean.getCurrency());
+			RateBean result = this.getSession().get(RateBean.class, bean.getSerial());
 			if(result==null) {
 				this.getSession().save(bean);
 				return bean;
@@ -44,14 +44,14 @@ public class RateDAOHibernate implements RateDAO{
 	}
 
 	@Override
-	public RateBean update(String flag, String currency, Double cashBuy, Double cashSell, Double spotBuy,
-			Double spotSell, String country) {
+	public RateBean update(Integer serial,String currency,java.util.Date updateTime,Double cashBuy,
+			Double cashSell,Double spotBuy,Double spotSell,String country) {
 		return null;
 	}
 
 	@Override
-	public boolean remove(String currency) {
-		RateBean result = this.getSession().get(RateBean.class, currency);
+	public boolean remove(Integer serial) {
+		RateBean result = this.getSession().get(RateBean.class, serial);
 		if(result!=null) {
 			this.getSession().delete(result);
 			return true;
