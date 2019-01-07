@@ -34,11 +34,11 @@
 					<div class="home_search_container">
 						<div class="home_search_title">旅遊票券</div>
 						<div class="home_search_content">
-							<form action="#" class="home_search_form" id="home_search_form">
+							<form action="<c:url value="/voyage/ticket.controller" />" class="home_search_form" id="home_search_form" method="post">
 								<div class="d-flex flex-lg-row flex-column align-items-start justify-content-lg-between justify-content-start">
-									<input type="text" class="search_input search_input_1" style="width:24%" placeholder="請輸入國家" required="required">
-									<input type="text" class="search_input search_input_2" style="width:24%"placeholder="類型" required="required">
-									<input type="text" class="search_input search_input_3" style="width:24%"placeholder="關鍵字" required="required">
+									<input type="text" class="search_input search_input_1" style="width:24%"placeholder="請輸入國家" name="country" >
+									<input type="text" class="search_input search_input_2" style="width:24%"placeholder="類型 - (門票、交通、餐券)" name="">
+									<input type="text" class="search_input search_input_3" style="width:24%"placeholder="關鍵字" name="">
 									<button class="home_search_button">搜尋</button>
 								</div>
 							</form>
@@ -240,65 +240,7 @@
         </div>
         
 <!--         iii -->
-<template id="quantityButton">
-	<div>
-		<a href="javascript:;" class="counter" :class="{ 'disabled' : value <= min }" @click="minus">
-			<i class="icons icon-minus"></i>
-		</a>
-		<input type="text" class="counter-num" :value="value" readonly>
-		<a href="javascript:;" class="counter" :class="{ 'disabled' : value >= max }" @click="plus">
-			<i class="icons icon-plus"></i>
-		</a>
-	</div>
-</template>
 
-<script type="text/javascript">
-Vue.component('quantity-button', {
-	template: '#quantityButton',
-	props: {
-		value: {
-			type: Number,
-			default: 0,
-		},
-		min: {
-			type: Number,
-			default: 0,
-		},
-		max: {
-			type: Number,
-			default: 20,
-		},
-		step: {
-			type: Number,
-			default: 1
-		},
-		quantityKey: {
-			type: String,
-			default: ''
-		}
-	},
-	methods: {
-		minus: function(){
-			if(this.value <= this.min){
-				return;
-			}
-
-			var data = {};
-			data[this.quantityKey] = this.value - this.step;
-			productDetailBus.$emit('update:bookData', data);
-		},
-		plus: function(){
-			if(this.value >= this.max){
-				return;
-			}
-
-			var data = {};
-			data[this.quantityKey] = this.value + this.step;
-			productDetailBus.$emit('update:bookData', data);
-		}
-	}
-});
-</script>
          <div class="row mt-5">
               <div class="col text-center">
                 <div class="block-27">

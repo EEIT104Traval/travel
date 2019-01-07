@@ -54,4 +54,19 @@ public class TicketInfoService {
 		}
 		return result;
 	}
+	
+	
+	public List<TicketInfoBean> searchCountry(String country) {
+		List<TicketInfoBean> result = null;
+		if (country != null) {
+			TicketInfoBean tib = (TicketInfoBean) ticketInfoDAO.searchByCountry(country);
+			if (tib != null) {
+				result = new ArrayList<TicketInfoBean>();
+				result.add(tib);
+			} else {
+				result = ticketInfoDAO.findAll();
+			}
+		}
+		return result;
+	}
 }

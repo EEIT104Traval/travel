@@ -109,4 +109,11 @@ public class TicketInfoTest{
 		pw.close();
 		reader.close();
 	}
+	@RequestMapping("/ticketcountry")
+	public List<TicketInfoBean> searchByCountry() {
+		List<TicketInfoBean> all = dao.searchByCountry("France");
+		
+		return all;
+	}
+
 }
