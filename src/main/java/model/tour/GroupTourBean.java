@@ -1,13 +1,13 @@
 package model.tour;
 
+import java.util.List;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
-
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
-import org.springframework.beans.factory.annotation.Autowired;
 
 @Entity
 @Table(name="GroupTour")
@@ -23,46 +23,19 @@ public class GroupTourBean {
 	private Integer clickCount;
 	private String content;
 	
-	@Autowired
-	public static SessionFactory sessionfactory;
-	public static void main(String[] args) {
-		try {			
-			Session session = sessionfactory.getCurrentSession();
-			Transaction trx = session.beginTransaction();
-			
-			//select
-			GroupTourBean select = session.get(GroupTourBean.class,"1001");
-			System.out.println("select= "+select);
-			
-//			Set<EmpBean> s2 = select.emps;
-//			System.out.println("s2="+s2);
-			//insert
-//			Deptbean insert = new Deptbean();
-//			insert.setDeptid(101);
-//			insert.setDeptname("878787");
-//			session.save(insert);
-//			System.out.println("insert= "+insert);
-			
-			//update
-//			Deptbean update = session.get(Deptbean.class,101);			
-//			update.setDeptname("787878");
-//			System.out.println("update= "+update);
-			
-			//delete
-//			Deptbean delete = session.get(Deptbean.class,501);
-//			session.delete(delete);
-//			Set<EmpBean> empdelete = delete.emps;
-//			System.out.println("delete= "+delete);
-//			System.out.println("empdelete= "+empdelete);
-			
-			
-			trx.commit();
-			session.close();
-		} finally {
-//			HibernateUtil.closeSessionFactory();
-		}
-		
-	}	
+	@OneToMany(
+			cascade=CascadeType.REMOVE,
+			mappedBy="tourNo"
+	)
+	private List<TourBatchBean> tourBatchBean;
+	
+	@OneToMany(
+			cascade=CascadeType.REMOVE,
+			mappedBy="tourNo"
+	)
+	private List<TourPictureBean> TourPictureBean;
+	
+	
 	
 	public String getTourNo() {
 		return tourNo;
@@ -120,13 +93,26 @@ public class GroupTourBean {
 		this.content = content;
 	}
 	
+	public List<TourBatchBean> getTourBatchBean() {
+		return tourBatchBean;
+	}
+	public void setTourBatchBean(List<TourBatchBean> tourBatchBean) {
+		this.tourBatchBean = tourBatchBean;
+	}
+	public List<TourPictureBean> getTourPictureBean() {
+		return TourPictureBean;
+	}
+	public void setTourPictureBean(List<TourPictureBean> tourPictureBean) {
+		TourPictureBean = tourPictureBean;
+	}
 	@Override
 	public String toString() {
-		return "GroupTourBean [tourNo=" + tourNo + ", tag=" + ", country=" + country + ", tourName=" + tourName
-				+ ", destination=" + destination + ", tourDays=" + tourDays + ", guaranteedCount=" + guaranteedCount
-				+ ", fullPeopleCount=" + fullPeopleCount + ", clickCount=" + clickCount + ", content=" + content + "]";
+		return "GroupTourBean [tourNo=" + tourNo + ", country=" + country + ", tourName=" + tourName + ", destination="
+				+ destination + ", tourDays=" + tourDays + ", guaranteedCount=" + guaranteedCount + ", fullPeopleCount="
+				+ fullPeopleCount + ", clickCount=" + clickCount + ", content=" + content + ", tourBatchBean="
+				+ tourBatchBean + ", TourPictureBean=" + TourPictureBean + "]";
 	}
-	
+
 	
 	
 }

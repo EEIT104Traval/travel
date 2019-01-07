@@ -3,6 +3,10 @@ package model.tour.dao;
 import java.sql.Date;
 import java.util.List;
 
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import model.tour.GroupTourBean;
 import model.tour.TourBatchBean;
+import model.tour.TourMemberInfoBean;
 
 @Repository
 public class TourBatchDAO {
@@ -67,6 +72,15 @@ public class TourBatchDAO {
 			return true;
 		}
 		return false;
+	}
+	
+	public List<TourBatchBean> findTourNo(String tourNo) {
+		CriteriaBuilder criteriaBuilder = getSession().getCriteriaBuilder();
+		CriteriaQuery<TourBatchBean> criteria = criteriaBuilder.createQuery(TourBatchBean.class);
+		Root<TourBatchBean> from = criteria.from(TourBatchBean.class);
+		criteria.select(from).where(from.get("tourNo").in(tourNo));
+		List<TourBatchBean> list = getSession().createQuery(criteria).getResultList();
+		return list;
 	}
 
 }

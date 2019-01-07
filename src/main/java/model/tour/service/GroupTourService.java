@@ -1,6 +1,5 @@
 package model.tour.service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +15,7 @@ public class GroupTourService {
 	
 
 	
-	public List<GroupTourBean> select(){
+	public List<GroupTourBean> selectAll(){
 		List<GroupTourBean> result = groupTourDAO.findAll();
 //		if(bean!=null && bean.getTourNo()!="") {
 //			GroupTourBean tour = groupTourDAO.findByPrimaryKey(bean.getTourNo());
@@ -28,6 +27,11 @@ public class GroupTourService {
 			
 //		}
 		return result;
+	}
+	
+	public GroupTourBean select(String tourNo) {
+		GroupTourBean temp = groupTourDAO.findByPrimaryKey(tourNo);
+		return temp;
 	}
 	
 }

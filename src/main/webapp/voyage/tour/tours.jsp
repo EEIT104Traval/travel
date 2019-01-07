@@ -12,7 +12,7 @@
 </head>
 <body>
 
-	<jsp:include page="nav.jsp"></jsp:include>
+	<jsp:include page="../nav.jsp"></jsp:include>
 
 	<section class="home-slider owl-carousel">
 		<div class="slider-item"
@@ -23,7 +23,7 @@
 				<div class="row slider-text align-items-center">
 					<div class="col-md-7 col-sm-12 ftco-animate">
 						<p class="breadcrumbs">
-							<span class="mr-2"><a href="index.jsp">Home</a></span> <span>Tour</span>
+							<span class="mr-2"><a href="<c:url value='/voyage/index.jsp' />">Home</a></span> <span>Tour</span>
 						</p>
 						<h1 class="mb-3">Tours </h1>
 					</div>
@@ -40,7 +40,7 @@
 					<div class="row">
 						<div class="col-md-6 col-lg-6 mb-4 ftco-animate">
 							<a href="#" class="block-5"
-								style="background-image: url('images/tour-1.jpg');">
+								style="background-image: url('../images/tour-1.jpg');">
 								<div class="text">
 									<span class="price">$399</span>
 									<h3 class="heading">Group Tour in Maldives</h3>
@@ -57,7 +57,7 @@
 						</div>
 						<div class="col-md-6 col-lg-6 mb-4 ftco-animate">
 							<a href="#" class="block-5"
-								style="background-image: url('images/tour-2.jpg');">
+								style="background-image: url('../images/tour-2.jpg');">
 								<div class="text">
 									<span class="price">$399</span>
 									<h3 class="heading">Group Tour in Maldives</h3>
@@ -74,7 +74,7 @@
 						</div>
 						<div class="col-md-6 col-lg-6 mb-4 ftco-animate">
 							<a href="#" class="block-5"
-								style="background-image: url('images/tour-3.jpg');">
+								style="background-image: url('../images/tour-3.jpg');">
 								<div class="text">
 									<span class="price">$399</span>
 									<h3 class="heading">Group Tour in Maldives</h3>
@@ -91,7 +91,7 @@
 						</div>
 						<div class="col-md-6 col-lg-6 mb-4 ftco-animate">
 							<a href="#" class="block-5"
-								style="background-image: url('images/tour-4.jpg');">
+								style="background-image: url('../images/tour-4.jpg');">
 								<div class="text">
 									<span class="price">$399</span>
 									<h3 class="heading">Group Tour in Maldives</h3>
@@ -108,7 +108,7 @@
 						</div>
 						<div class="col-md-6 col-lg-6 mb-4 ftco-animate">
 							<a href="#" class="block-5"
-								style="background-image: url('images/tour-5.jpg');">
+								style="background-image: url('../images/tour-5.jpg');">
 								<div class="text">
 									<span class="price">$399</span>
 									<h3 class="heading">Group Tour in Maldives</h3>
@@ -125,7 +125,7 @@
 						</div>
 						<div class="col-md-6 col-lg-6 mb-4 ftco-animate">
 							<a href="#" class="block-5"
-								style="background-image: url('images/tour-6.jpg');">
+								style="background-image: url('../images/tour-6.jpg');">
 								<div class="text">
 									<span class="price">$399</span>
 									<h3 class="heading">Group Tour in Maldives</h3>
@@ -142,7 +142,7 @@
 						</div>
 						<div class="col-md-6 col-lg-6 mb-4 ftco-animate">
 							<a href="#" class="block-5"
-								style="background-image: url('images/tour-7.jpg');">
+								style="background-image: url('../images/tour-7.jpg');">
 								<div class="text">
 									<span class="price">$399</span>
 									<h3 class="heading">Group Tour in Maldives</h3>
@@ -159,7 +159,7 @@
 						</div>
 						<div class="col-md-6 col-lg-6 mb-4 ftco-animate">
 							<a href="#" class="block-5"
-								style="background-image: url('images/tour-8.jpg');">
+								style="background-image: url('../images/tour-8.jpg');">
 								<div class="text">
 									<span class="price">$399</span>
 									<h3 class="heading">Group Tour in Maldives</h3>
@@ -291,7 +291,7 @@
 		
    </script>
 
-	<jsp:include page="footer.jsp"></jsp:include>
+<%-- 	<jsp:include page="../footer.jsp"></jsp:include> --%>
 
 </body>
 </html>

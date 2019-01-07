@@ -36,7 +36,7 @@ public class GroupTourController {
 				}
 				System.out.println("errors="+errors);	
 				
-				List<GroupTourBean> result = groupTourService.select(); 				
+				List<GroupTourBean> result = groupTourService.selectAll();
 				model.addAttribute("select", result.get(0));				
 				return "/voyage/tourtest.jsp";
 	//呼叫view
