@@ -10,16 +10,20 @@ public class HotelBean {
 	@Id
 	private Integer hotelNo;
 	private String hotelName;
+	private String country;
+	private String city;
 	private String address;
 	private String phone;
 	private String email;
 	private Integer hotelTotalRooms;
 	private String pic;
 	
+
 	@Override
 	public String toString() {
-		return "HotelBean [hotelNo=" + hotelNo + ", hotelName=" + hotelName + ", address=" + address + ", phone="
-				+ phone + ", email=" + email + ", hotelTotalRooms=" + hotelTotalRooms + ", pic=" + pic + "]";
+		return "HotelBean [hotelNo=" + hotelNo + ", hotelName=" + hotelName + ", country=" + country + ", city=" + city
+				+ ", address=" + address + ", phone=" + phone + ", email=" + email + ", hotelTotalRooms="
+				+ hotelTotalRooms + ", pic=" + pic + "]";
 	}
 	public Integer getHotelNo() {
 		return hotelNo;
@@ -62,6 +66,18 @@ public class HotelBean {
 	}
 	public void setPic(String pic) {
 		this.pic = pic;
+	}
+	public String getCountry() {
+		return country;
+	}
+	public void setCountry(String country) {
+		this.country = country;
+	}
+	public String getCity() {
+		return city;
+	}
+	public void setCity(String city) {
+		this.city = city;
 	}
 	
 }

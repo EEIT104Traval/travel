@@ -1,7 +1,5 @@
 package model.flight;
 
-import java.sql.Blob;
-
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -12,7 +10,7 @@ public class AirlineCompareBean {
 	@Id
 	private String airlineCode;
 	private String airlineCompany;	
-	private Blob airlineLogo;
+	private String airlineLogo;
 
 	public String getAirlineCode() {
 		return airlineCode;
@@ -30,11 +28,11 @@ public class AirlineCompareBean {
 		this.airlineCompany = airlineCompany;
 	}
 
-	public Blob getAirlineLogo() {
+	public String getAirlineLogo() {
 		return airlineLogo;
 	}
 
-	public void setAirlineLogo(Blob airlineLogo) {
+	public void setAirlineLogo(String airlineLogo) {
 		this.airlineLogo = airlineLogo;
 	}
 

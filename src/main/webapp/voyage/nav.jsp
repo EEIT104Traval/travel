@@ -30,7 +30,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
-    <link href="https://fonts.googleapis.com/css?family=Muli:300,400,600,700" rel="stylesheet">
+<!--     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,600,700" rel="stylesheet"> -->
 
     <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
     <link rel="stylesheet" href="css/animate.css">
@@ -50,9 +50,10 @@
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <link rel="stylesheet" href="/resources/demos/style.css">
-   
+<!--     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> -->
+<!--     <link rel="stylesheet" href="/resources/demos/style.css"> -->
+    <link href="css/jquery-ui.css" rel="stylesheet" type="text/css">
+    
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
@@ -68,7 +69,7 @@
             <li class="nav-item active"><a href="index.jsp" class="nav-link">首頁</a></li>
             <li class="nav-item"><a href="tours.jsp" class="nav-link">團體旅遊</a></li>
             <li class="nav-item"><a href="hotels.jsp" class="nav-link">飯店</a></li>
-            <li class="nav-item"><a href="services.html" class="nav-link">機票</a></li>
+            <li class="nav-item"><a href="FlightNoDelect3.jsp" class="nav-link">機票</a></li>
             <li class="nav-item"><a href="ticket.jsp" class="nav-link">門票</a></li>
             <li class="nav-item"><a href="about.html" class="nav-link">關於我們</a></li>
             <li class="nav-item"><a href="contact.html" class="nav-link">聯絡我們</a></li>

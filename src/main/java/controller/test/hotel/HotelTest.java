@@ -20,7 +20,7 @@ import model.hotel.dao.HotelDAOHibernate;
 	 public HotelBean method() {
 		 HotelBean pk = dao.findByPrimaryKey(1);  
 	  return pk;
-	 } 
+	 }  
 	 
 	 @RequestMapping("/HoteltestfindALL")
 	 public List<HotelBean> findALL() {
@@ -33,6 +33,8 @@ import model.hotel.dao.HotelDAOHibernate;
 		 HotelBean insert = new HotelBean();
 		 insert.setHotelNo(2);
 		 insert.setHotelName("香港迪士尼樂園酒店");
+		 insert.setCountry("中國");
+		 insert.setCity("香港");
 		 insert.setAddress("香港離島大嶼山迪士尼樂園度假區");
 		 insert.setPhone("00852-35106000");
 		 insert.setEmail("NULL");
@@ -44,7 +46,7 @@ import model.hotel.dao.HotelDAOHibernate;
 	  
 	 @RequestMapping("/Hoteltestupdate")
 	 public HotelBean update() {
-		 HotelBean update = dao.update(2, "香港迪士尼樂園酒店", "香港離島大嶼山迪士尼樂園度假區", "00852-35106000", "NULL", 
+		 HotelBean update = dao.update(2, "香港迪士尼樂園酒店","中國", "香港", "香港離島大嶼山迪士尼樂園度假區", "00852-35106000", "NULL", 
 				 1200, "NULL");		  
 		 return update;
 	 }

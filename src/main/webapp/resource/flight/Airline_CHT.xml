@@ -1,0 +1,875 @@
+<?xml version="1.0" encoding="big5"?>
+<Coder Table="CARRIER">
+        <T><C>0B</C><D>藍色航空</D></T>
+        <T><C>0V</C><D>越南服務航空</D></T>
+        <T><C>0Y</C><D>雪人航空國內線</D></T>
+	<T><C>1E</C><D>TRAVELSKY TECHNOLOGY</D></T>
+	<T><C>1F</C><D>INFINI TRAVEL INFORMATION INC</D></T>
+	<T><C>1J</C><D>AXESS INTL NETWORK INC.</D></T>
+	<T><C>1K</C><D>SOUTHERN CROSS DISTRIBUTION SYSTEMS</D></T>
+	<T><C>1L</C><D>西方航空快捷</D></T>
+	<T><C>2A</C><D>德鐵</D></T>
+	<T><C>2B</C><D>OPEN JOINT STOCK/AK BARS AERO</D></T>
+	<T><C>2C</C><D>SNCF FRENCH RAILWAYS</D></T>
+	<T><C>2D</C><D>DYNAMIC AIRWAYS, LLC</D></T>
+	<T><C>2E</C><D>SMOKEY BAY AIR INC.</D></T>
+	<T><C>2F</C><D>邊疆航空服務</D></T>
+	<T><C>2H</C><D>THALYS INTL RAILWAYS</D></T>
+	<T><C>2I</C><D>STAR PERU/STAR UP S.A</D></T>
+	<T><C>2K</C><D>AEROLINEAS GALAPAGOS</D></T>
+	<T><C>2L</C><D>恩特雷里奧斯航空</D></T>
+	<T><C>2P</C><D>菲鷹航空</D></T>
+	<T><C>2R</C><D>加拿大國家鐵路</D></T>
+	<T><C>2S</C><D>ISLAND EXPRESS</D></T>
+	<T><C>2T</C><D>HAITI AMBASSADOR AIRLINES</D></T>
+	<T><C>2U</C><D>AIR CARAIBES DOMINICA LTD</D></T>
+	<T><C>2W</C><D>WELCOME AIR LUFTFAHRT</D></T>
+	<T><C>2X</C><D>AIRWAY EXPRESS INC</D></T>
+	<T><C>2Z</C><D>長安航空</D></T>
+	<T><C>3A</C><D>MAFIRA AIR CHARTER</D></T>
+	<T><C>3B</C><D>AVIONES DE ORIENTE C.A.</D></T>
+	<T><C>3C</C><D>CORPORATE AIRLINES</D></T>
+	<T><C>3D</C><D>代尼姆航空</D></T>
+	<T><C>3E</C><D>EAST ASIA AIRLINES</D></T>
+	<T><C>3F</C><D>PACIFIC AIRWAYS INC</D></T>
+	<T><C>3G</C><D>阿特蘭索尤茲航空</D></T>
+	<T><C>3H</C><D>伊努伊特航空</D></T>
+	<T><C>3J</C><D>ZIP AIR INC</D></T>
+	<T><C>3K</C><D>捷星亞洲航空</D></T>
+	<T><C>3L</C><D>INTERSKY LUFTFAHRT</D></T>
+	<T><C>3M</C><D>灣流國際航空</D></T>
+	<T><C>3N</C><D>烏爾加航空</D></T>
+	<T><C>3O</C><D>CORPORATE AIRCRAFT</D></T>
+	<T><C>3P</C><D>INTER TROPICAL AVIATION</D></T>
+	<T><C>3Q</C><D>KC INTERNATIONAL AIRLINE</D></T>
+	<T><C>3R</C><D>AVIA AIR N.V.</D></T>
+	<T><C>3S</C><D>AIR GUYANE S.P.</D></T>
+	<T><C>3T</C><D>TURAN AIR AIRLINE</D></T>
+	<T><C>3U</C><D>四川航空公司</D></T>
+	<T><C>3V</C><D>VIKING AIRWAYS</D></T>
+	<T><C>3W</C><D>EUROMANX</D></T>
+	<T><C>3Y</C><D>WAPITI AVIATION</D></T>
+	<T><C>3Z</C><D>內肯航空航空</D></T>
+	<T><C>4A</C><D>F. S. AIR SERVICE INC</D></T>
+	<T><C>4B</C><D>OLSON AIR SERVICE</D></T>
+	<T><C>4C</C><D>南美航空集團</D></T>
+	<T><C>4D</C><D>西奈航空</D></T>
+	<T><C>4E</C><D>TANANA AIR SERVICES</D></T>
+	<T><C>4F</C><D>航都</D></T>
+	<T><C>4G</C><D>GAZPROMAVIA AVIATION</D></T>
+	<T><C>4H</C><D>FLY S/A LINHAS AEREAS</D></T>
+	<T><C>4J</C><D>NATIONWIDE AIRLINES</D></T>
+	<T><C>4K</C><D>肯博雷克航空</D></T>
+	<T><C>4L</C><D>喬治亞國際航空</D></T>
+	<T><C>4M</C><D>南美航空集團</D></T>
+	<T><C>4N</C><D>北方航空</D></T>
+	<T><C>4P</C><D>BUSINESS AVIATION</D></T>
+	<T><C>4R</C><D>HI HAMBURG INTL</D></T>
+	<T><C>4S</C><D>SOL AIR</D></T>
+	<T><C>4T</C><D>GAWNE AVIATION</D></T>
+	<T><C>4U</C><D>德國之翼航空</D></T>
+	<T><C>4V</C><D>BIRDY AIRLINES S.A.</D></T>
+	<T><C>4W</C><D>WARBELOWS AIR VENTURES</D></T>
+	<T><C>4Y</C><D>YUTE AIR ALASKA INC</D></T>
+	<T><C>4Z</C><D>南非連結航空</D></T>
+	<T><C>5A</C><D>ALPINE AIR</D></T>
+	<T><C>5B</C><D>TRANS INTL EXPRESS</D></T>
+	<T><C>5C</C><D>佛羅里達航空</D></T>
+	<T><C>5D</C><D>AEROLITORAL S.A. DE C.V</D></T>
+	<T><C>5E</C><D>B.A.S.E. AIRLINES</D></T>
+	<T><C>5G</C><D>空中航空服務</D></T>
+	<T><C>5H</C><D>明星航空</D></T>
+	<T><C>5J</C><D>宿霧太平洋航空</D></T>
+	<T><C>5K</C><D>敖德薩航空</D></T>
+	<T><C>5L</C><D>AEROSUR</D></T>
+	<T><C>5M</C><D>蒙特塞拉特航空</D></T>
+	<T><C>5N</C><D>NORDAVIA RA/NORDAVIA REGIONAL AIRLINES</D></T>
+	<T><C>5P</C><D>PENTA</D></T>
+	<T><C>5R</C><D>IRS AERO</D></T>
+	<T><C>5S</C><D>SERVICIOS AEREOS</D></T>
+	<T><C>5T</C><D>CANADIAN NORTH</D></T>
+	<T><C>5U</C><D>LINEAS AEREAS DEL ESTADO</D></T>
+	<T><C>5V</C><D>LVIV AIRLINES</D></T>
+	<T><C>5W</C><D>ASTRAEUS LTD</D></T>
+	<T><C>5X</C><D>UPS</D></T>
+	<T><C>5Z</C><D>GONINI AIR SVC</D></T>
+	<T><C>6A</C><D>AVIACSA</D></T>
+	<T><C>6B</C><D>不列顛航空</D></T>
+	<T><C>6C</C><D>CAPE SMYTHE AIR SERVICE</D></T>
+	<T><C>6D</C><D>柏利達航空</D></T>
+	<T><C>6E</C><D>靛藍航空(印度)</D></T>
+	<T><C>6G</C><D>AIR WALES</D></T>
+	<T><C>6H</C><D>以斯雷航空</D></T>
+	<T><C>6K</C><D>ASIAN SPIRIT航空公司</D></T>
+	<T><C>6L</C><D>阿克拉克航空</D></T>
+	<T><C>6M</C><D>MAJESTIC AIR PL</D></T>
+	<T><C>6N</C><D>TRANS TRAVEL AIRLINES</D></T>
+	<T><C>6P</C><D>CLUBAIR SIXGO SPA</D></T>
+	<T><C>6R</C><D>格魯吉亞航空</D></T>
+	<T><C>6S</C><D>KATO AIRLINES</D></T>
+	<T><C>6T</C><D>曼德勒航空</D></T>
+	<T><C>6U</C><D>烏克蘭航空</D></T>
+	<T><C>6V</C><D>LIGNES AERIENNES</D></T>
+	<T><C>6W</C><D>薩拉托夫航空</D></T>
+	<T><C>6Y</C><D>拉脫維亞包機航空</D></T>
+	<T><C>6Z</C><D>烏克蘭貨運航空</D></T>
+	<T><C>7A</C><D>AFRIC AIR CHARTER SA</D></T>
+	<T><C>7B</C><D>克拉斯航空</D></T>
+	<T><C>7C</C><D>濟州航空</D></T>
+	<T><C>7D</C><D>DONBASS</D></T>
+	<T><C>7E</C><D>AEROLINE GMBH</D></T>
+	<T><C>7F</C><D>一流航空</D></T>
+	<T><C>7G</C><D>BELLAIR INC</D></T>
+	<T><C>7H</C><D>時代航空</D></T>
+	<T><C>7J</C><D>SKAGWAY AIR SERVICE</D></T>
+	<T><C>7K</C><D>VISA AIRWAYS PVT LTD</D></T>
+	<T><C>7L</C><D>AEROCARIBBEAN S. A.</D></T>
+	<T><C>7M</C><D>MAYAIR/MAYAIR S.A. DE C.V</D></T>
+	<T><C>7N</C><D>INLAND AVIATION SVCS INC</D></T>
+	<T><C>7P</C><D>PT METRO BATAVIA</D></T>
+	<T><C>7R</C><D>RED SEA AIR</D></T>
+	<T><C>7S</C><D>ARCTIC TRANS SVCS</D></T>
+	<T><C>7T</C><D>AIR GLACIERS</D></T>
+	<T><C>7U</C><D>AVIAENEGRO</D></T>
+	<T><C>7V</C><D>PELICAN AIR</D></T>
+	<T><C>7W</C><D>AVIATION ASSISTANCE</D></T>
+	<T><C>7Y</C><D>AIR INDUSTRIA SPA</D></T>
+	<T><C>7Z</C><D>萊克航空（巴哈馬）</D></T>
+	<T><C>8A</C><D>ARCTIC AIR A.S.</D></T>
+	<T><C>8B</C><D>CARIBBEAN STAR AIRLINES</D></T>
+	<T><C>8C</C><D>東星航空</D></T>
+	<T><C>8D</C><D>阿伍德航空</D></T>
+	<T><C>8E</C><D>百令航空</D></T>
+	<T><C>8F</C><D>STP AIRWAYS</D></T>
+	<T><C>8G</C><D>ANGEL AIRLINES</D></T>
+	<T><C>8H</C><D>HELIFRANCE</D></T>
+	<T><C>8I</C><D>INSELAIR ARUBA N.V. DBA/INSELAIR ARUBA</D></T>
+	<T><C>8K</C><D>ANGEL AIRLINES SA</D></T>
+	<T><C>8L</C><D>祥鵬航空</D></T>
+	<T><C>8M</C><D>緬甸航空</D></T>
+	<T><C>8N</C><D>NORDKALOTTFLYG AB</D></T>
+	<T><C>8P</C><D>太平洋之岸航空</D></T>
+	<T><C>8R</C><D>TRIP AIR</D></T>
+	<T><C>8T</C><D>AIR TINDI LTD.</D></T>
+	<T><C>8U</C><D>非洲利比亞航空</D></T>
+	<T><C>8V</C><D>WRIGHT AIR</D></T>
+	<T><C>8W</C><D>AIR TEAM</D></T>
+	<T><C>8Y</C><D>布隆迪航空</D></T>
+	<T><C>9A</C><D>VISA AIRWAYS PVT LTD</D></T>
+	<T><C>9B</C><D>鐵路周遊券</D></T>
+	<T><C>9C</C><D>春秋航空</D></T>
+	<T><C>9D</C><D>AEROCONTINENTE DOMINICAN</D></T>
+	<T><C>9E</C><D>西北航空鏈</D></T>
+	<T><C>9F</C><D>EUROSTAR/EUROSTAR</D></T>
+	<T><C>9H</C><D>ECOAIR</D></T>
+	<T><C>9I</C><D>泰國天鷹航空</D></T>
+	<T><C>9J</C><D>太平洋島航空</D></T>
+	<T><C>9K</C><D>科德角航空</D></T>
+	<T><C>9L</C><D>科爾根航空</D></T>
+	<T><C>9M</C><D>中央岳航空</D></T>
+	<T><C>9N</C><D>SATENA</D></T>
+	<T><C>9P</C><D>PANAIR S.P.A.</D></T>
+	<T><C>9R</C><D>普吉航空</D></T>
+	<T><C>9S</C><D>SWAZI EXPRESS</D></T>
+	<T><C>9T</C><D>TRANSWEST AIR</D></T>
+	<T><C>9U</C><D>默爾多瓦航空</D></T>
+	<T><C>9V</C><D>ATLANTIS AIRLINES</D></T>
+	<T><C>9W</C><D>印度捷特航空</D></T>
+	<T><C>9X</C><D>哥倫比亞航空</D></T>
+	<T><C>9Y</C><D>哈薩克航空</D></T>
+	<T><C>A3</C><D>愛琴海航空</D></T>
+	<T><C>A6</C><D>AIR ALPS AVIATION</D></T>
+	<T><C>AA</C><D>美國航空公司</D></T>
+	<T><C>AB</C><D>柏林航空</D></T>
+	<T><C>AC</C><D>加拿大航空</D></T>
+	<T><C>AD</C><D>AIR PARADISE INTL</D></T>
+	<T><C>AE</C><D>華信航空</D></T>
+	<T><C>AF</C><D>法國航空</D></T>
+	<T><C>AG</C><D>省航空</D></T>
+	<T><C>AH</C><D>阿爾及利亞航空</D></T>
+	<T><C>AI</C><D>印度航空</D></T>
+	<T><C>AJ</C><D>比利時國際航空</D></T>
+	<T><C>AK</C><D>亞洲航空(馬亞航)</D></T>
+	<T><C>AL</C><D>美國中西部聯運/空中之路航空</D></T>
+	<T><C>AM</C><D>墨西哥國際航空</D></T>
+	<T><C>AN</C><D>澳洲安捷航空</D></T>
+	<T><C>AO</C><D>澳亞航空</D></T>
+	<T><C>AP</C><D>一號航空</D></T>
+	<T><C>AR</C><D>阿根廷航空</D></T>
+	<T><C>AS</C><D>阿拉斯加航空</D></T>
+	<T><C>AT</C><D>摩洛哥皇家航</D></T>
+	<T><C>AU</C><D>澳斯特拉航空</D></T>
+	<T><C>AV</C><D>哥倫比亞航空</D></T>
+	<T><C>AW</C><D>DIRGANTARA AIR SERVICES</D></T>
+	<T><C>AY</C><D>芬蘭航空</D></T>
+	<T><C>AZ</C><D>義大利航空</D></T>
+	<T><C>B6</C><D>捷藍航空</D></T>
+	<T><C>B7</C><D>立榮航空</D></T>
+	<T><C>B8</C><D>厄利垂亞航空</D></T>
+	<T><C>BA</C><D>英國航空</D></T>
+	<T><C>BB</C><D>SANSA SVC AEREO NACIONAL</D></T>
+	<T><C>BC</C><D>SKYMARK AIRLINES</D></T>
+	<T><C>BD</C><D>BAYON AIRLINES</D></T>
+	<T><C>BE</C><D>FLYBE/澤西歐洲航空有限</D></T>
+	<T><C>BF</C><D>航空服務</D></T>
+	<T><C>BG</C><D>孟加拉航空</D></T>
+	<T><C>BH</C><D>HAWKAIR AVIATION SVCS</D></T>
+	<T><C>BI</C><D>汶萊皇家航空</D></T>
+	<T><C>BJ</C><D>突尼斯努威爾航空</D></T>
+	<T><C>BK</C><D>奧凱航空</D></T>
+	<T><C>BL</C><D>捷星太平洋航空</D></T>
+	<T><C>BM</C><D>AERO TRASPORTI ITALIANI</D></T>
+	<T><C>BO</C><D>BOURAQ INDONESIA AIR</D></T>
+	<T><C>BP</C><D>博茨瓦納航空</D></T>
+	<T><C>BQ</C><D>AEROMAR C. POR. A</D></T>
+	<T><C>BR</C><D>長榮航空</D></T>
+	<T><C>BS</C><D>BRITISH INTL</D></T>
+	<T><C>BT</C><D>波羅的海航空</D></T>
+	<T><C>BU</C><D>挪威布萊森航空</D></T>
+	<T><C>BV</C><D>BLUE PANORAMA AIRLINES</D></T>
+	<T><C>BW</C><D>CARIBBEAN AIRLINES</D></T>
+	<T><C>BX</C><D>釜山航空</D></T>
+	<T><C>BY</C><D>不列顛航空</D></T>
+	<T><C>BZ</C><D>KEYSTONE AIR SVC</D></T>
+	<T><C>C3</C><D>CONTACT AIR</D></T>
+	<T><C>C6</C><D>CANJET AIRLINES</D></T>
+	<T><C>CA</C><D>中國國際航空</D></T>
+	<T><C>CB</C><D>SCOTAIRWAYS</D></T>
+	<T><C>CC</C><D>MACAIR AIRLINES</D></T>
+	<T><C>CD</C><D>聯盟航空</D></T>
+	<T><C>CE</C><D>CHALAIR AVIATION</D></T>
+	<T><C>CF</C><D>CITY AIRLINE</D></T>
+	<T><C>CG</C><D>巴布亞新幾內亞航空</D></T>
+	<T><C>CH</C><D>BEMIDJI AVIATION SERVICE</D></T>
+	<T><C>CI</C><D>中華航空</D></T>
+	<T><C>CK</C><D>ANDESMAR LINEAS</D></T>
+	<T><C>CL</C><D>漢莎城市航空</D></T>
+	<T><C>CM</C><D>巴拿馬航空</D></T>
+	<T><C>CN</C><D>大新華航空</D></T>
+	<T><C>CO</C><D>美國大陸航空</D></T>
+	<T><C>CP</C><D>COMPASS AIRLINES</D></T>
+	<T><C>CQ</C><D>SUNSHINE EXPRESS AIR</D></T>
+	<T><C>CS</C><D>大陸米克羅尼西亞航空</D></T>
+	<T><C>CT</C><D>CAVE</D></T>
+	<T><C>CU</C><D>CUBANA AIRLINES</D></T>
+	<T><C>CV</C><D>盧森堡航空</D></T>
+	<T><C>CW</C><D>馬紹爾島航空</D></T>
+	<T><C>CX</C><D>國泰航空</D></T>
+	<T><C>CY</C><D>塞浦路斯航空</D></T>
+	<T><C>CZ</C><D>中國南方航空</D></T>
+	<T><C>D7</C><D>亞洲航空(亞航長程線)</D></T>
+	<T><C>DA</C><D>AIR GEORGIA</D></T>
+	<T><C>DB</C><D>不里特航空</D></T>
+	<T><C>DC</C><D>金色航空</D></T>
+	<T><C>DD</C><D>ATLANTIC COAST JET</D></T>
+	<T><C>DE</C><D>康多爾航空</D></T>
+	<T><C>DF</C><D>AEROLINEAS DE BALEARES</D></T>
+	<T><C>DG</C><D>東南亞航空</D></T>
+	<T><C>DH</C><D>大西洋延安航空</D></T>
+	<T><C>DI</C><D>德英航空</D></T>
+	<T><C>DJ</C><D>日本亞洲航空</D></T>
+	<T><C>DK</C><D>EASTLAND AIR</D></T>
+	<T><C>DL</C><D>達美航空</D></T>
+	<T><C>DM</C><D>丹麥梅爾斯克航空</D></T>
+	<T><C>DN</C><D>SENEGAL AIRLINES/GROUPE AIR SENEGAL S.A</D></T>
+	<T><C>DO</C><D>AIR VALLEE S.P.A.</D></T>
+	<T><C>DP</C><D>2000航空</D></T>
+	<T><C>DQ</C><D>COASTAL AIR TRANSPORT</D></T>
+	<T><C>DR</C><D>AIR LINK PTY. LTD</D></T>
+	<T><C>DS</C><D>瑞士易捷航空</D></T>
+	<T><C>DT</C><D>TAAG ANGOLA AIRLINES</D></T>
+	<T><C>DU</C><D>HEMUS AIR</D></T>
+	<T><C>DV</C><D>PLL SCAT AIRCOMPANY</D></T>
+	<T><C>DW</C><D>AERO-CHARTER</D></T>
+	<T><C>DX</C><D>DANISH AIR TRANSPORT</D></T>
+	<T><C>DY</C><D>挪威便捷航空</D></T>
+	<T><C>DZ</C><D>TRANSCARAIBES AIR INTL</D></T>
+	<T><C>EA</C><D>EUROPEAN AIR EXPRESS</D></T>
+	<T><C>ED</C><D>帕勞航空</D></T>
+	<T><C>EE</C><D>AERO AIRLINES A.S.</D></T>
+                  <T><C>EF</C><D>STRATEGIC AIRLINES/STRATEGIC AIRLINES </D></T>		
+	<T><C>EH</C><D>ALL NIPPON NETWORK CO</D></T>
+	<T><C>EI</C><D>愛爾蘭國際航空</D></T>
+	<T><C>EJ</C><D>新英格蘭航空</D></T>
+	<T><C>EK</C><D>阿聯酋航空</D></T>
+	<T><C>EL</C><D>葉林航空</D></T>
+	<T><C>EM</C><D>AERO BENIN SA</D></T>
+	<T><C>EN</C><D>多洛米蒂航空</D></T>
+	<T><C>EO</C><D>HEWA BORA AIRWAYS</D></T>
+	<T><C>EP</C><D>伊朗阿森曼航空</D></T>
+	<T><C>EQ</C><D>TAME</D></T>
+	<T><C>ET</C><D>衣索比亞航空</D></T>
+	<T><C>EU</C><D>成都航空</D></T>
+	<T><C>EV</C><D>東南亞大西洋航空</D></T>
+	<T><C>EW</C><D>歐洲之翼航空</D></T>
+	<T><C>EX</C><D>AIR SANTO DOMINGO</D></T>
+	<T><C>EY</C><D>阿提哈德航空</D></T>
+	<T><C>EZ</C><D>斯堪的納維亞太陽航空</D></T>
+	<T><C>F5</C><D>尼泊爾高士美航空</D></T>
+	<T><C>F9</C><D>邊疆航空</D></T>
+	<T><C>FA</C><D>AIRLINK AIRWAYS LIMITED</D></T>
+	<T><C>FB</C><D>BULGARIA AIR</D></T>
+	<T><C>FC</C><D>BERLINER SPEZIAL FLUG</D></T>
+	<T><C>FD</C><D>亞洲航空(泰亞航)</D></T>
+	<T><C>FE</C><D>遠東航空</D></T>
+	<T><C>FF</C><D>寶塔航空</D></T>
+	<T><C>FG</C><D>阿利亞納阿富汗航空</D></T>
+	<T><C>FH</C><D>未來國際航空</D></T>
+	<T><C>FI</C><D>冰島航空</D></T>
+	<T><C>FJ</C><D>斐濟航空</D></T>
+	<T><C>FK</C><D>KEEWATIN AIR</D></T>
+	<T><C>FL</C><D>穿越航空</D></T>
+	<T><C>FM</C><D>上海航空</D></T>
+	<T><C>FN</C><D>法國地區航空</D></T>
+	<T><C>FO</C><D>EXPEDITION AIRWAYS</D></T>
+	<T><C>FP</C><D>自由國際航空</D></T>
+	<T><C>FQ</C><D>BRINDABELLA AIRLINES</D></T>
+	<T><C>FR</C><D>瑞安航空</D></T>
+	<T><C>FS</C><D>MISSIONARY AVIATION</D></T>
+	<T><C>FT</C><D>暹粒航空</D></T>
+	<T><C>FU</C><D>法國濱海航空</D></T>
+	<T><C>FV</C><D>聖彼得堡航空</D></T>
+	<T><C>FW</C><D>FAIR INCORPORATED</D></T>
+	<T><C>FX</C><D>聯邦快遞</D></T>
+	<T><C>FY</C><D>飛螢航空</D></T>
+	<T><C>FZ</C><D>杜拜航空</D></T>
+	<T><C>G3</C><D>VRG LINHAS AEREAS S.A./VARIG-GOL AIRLINES</D></T>
+	<T><C>G4</C><D>忠實航空</D></T>
+	<T><C>G6</C><D>吳哥航空</D></T>
+	<T><C>GA</C><D>印尼航空</D></T>
+	<T><C>GB</C><D>孟加拉航空</D></T>
+	<T><C>GC</C><D>GAMBIA INTL AIRLINES</D></T>
+	<T><C>GD</C><D>AIR ALPHA GREENLAND</D></T>
+	<T><C>GE</C><D>復興航空</D></T>
+	<T><C>GF</C><D>海灣航空</D></T>
+	<T><C>GG</C><D>AIR GUYANE</D></T>
+	<T><C>GH</C><D>GLOBUS LLC</D></T>
+	<T><C>GI</C><D>AIR COMPANY ITEK-AIR LTD</D></T>
+	<T><C>GJ</C><D>浙江長龍航空</D></T>
+                  <T><C>GK</C><D>捷星日本航空</D></T>
+	<T><C>GL</C><D>AIR GREENLAND INC</D></T>
+	<T><C>GM</C><D>AIR SLOVAKIA BWJ</D></T>
+	<T><C>GN</C><D>加蓬航空</D></T>
+	<T><C>GO</C><D>GO FLY LTD</D></T>
+	<T><C>GP</C><D>APG航空</D></T>
+	<T><C>GQ</C><D>高空航空</D></T>
+	<T><C>GR</C><D>奧里尼航空</D></T>
+	<T><C>GS</C><D>天津航空</D></T>
+	<T><C>GT</C><D>直布羅陀航空</D></T>
+	<T><C>GU</C><D>瓜地馬拉航空</D></T>
+	<T><C>GV</C><D>里加快遞</D></T>
+	<T><C>GW</C><D>庫班航空</D></T>
+	<T><C>GX</C><D>菲律賓太平洋航空</D></T>
+	<T><C>GY</C><D>圭亞那航空</D></T>
+	<T><C>GZ</C><D>拉羅湯加航空</D></T>
+        <T><C>H1</C><D>哈恩航空</D></T>
+	<T><C>H2</C><D>天空航空</D></T>
+	<T><C>H8</C><D>俄羅斯伯力航空</D></T>
+	<T><C>HA</C><D>夏威夷航空</D></T>
+	<T><C>HB</C><D>HOMER AIR INC</D></T>
+	<T><C>HC</C><D>LIP AIR LTD</D></T>
+	<T><C>HD</C><D>北海道國際航空</D></T>
+	<T><C>HE</C><D>瓦爾特航空</D></T>
+	<T><C>HF</C><D>哈帕克-勞埃德航空</D></T>
+	<T><C>HG</C><D>NIKI/NL LUFTFAHRT GMBH</D></T>
+	<T><C>HH</C><D>冰島旗幟航空</D></T>
+	<T><C>HI</C><D>PAPILLON AIRWAYS</D></T>
+	<T><C>HJ</C><D>HELLENIC STAR AIRWAYS</D></T>
+	<T><C>HK</C><D>仰光航空</D></T>
+	<T><C>HM</C><D>賽席爾航空</D></T>
+	<T><C>HN</C><D>PROTEUS HELICOPTERES</D></T>
+	<T><C>HO</C><D>上海吉祥航空</D></T>
+	<T><C>HP</C><D>美西航空</D></T>
+	<T><C>HQ</C><D>HARMONY AIRWAYS</D></T>
+	<T><C>HR</C><D>漢恩航空</D></T>
+	<T><C>HS</C><D>SVENSKA DIREKTFLYG AB</D></T>
+	<T><C>HT</C><D>ROYAL AIRWAYS</D></T>
+	<T><C>HU</C><D>海南航空</D></T>
+	<T><C>HV</C><D>貫空航空</D></T>
+	<T><C>HW</C><D>NORTH-WRIGHT AIRWAYS</D></T>
+	<T><C>HX</C><D>香港航空</D></T>
+	<T><C>HY</C><D>烏茲別克航空</D></T>
+	<T><C>HZ</C><D>薩哈林航空</D></T>
+                  <T><C>I2</C><D>IBERIA EXPRESS AIRLINE</D></T>
+	<T><C>IA</C><D>伊拉克航空</D></T>
+	<T><C>IB</C><D>西班牙航空</D></T>
+	<T><C>IC</C><D>印度安航空</D></T>
+	<T><C>ID</C><D>INTERLINK AIRLINES PTY</D></T>
+	<T><C>IE</C><D>所羅門航空</D></T>
+	<T><C>IF</C><D>ISLAS AIRWAYS</D></T>
+	<T><C>IG</C><D>默里迪納航空</D></T>
+	<T><C>IH</C><D>額爾齊斯航空</D></T>
+	<T><C>II</C><D>美國商業航空</D></T>
+	<T><C>IJ</C><D>歐洲跨地區航空</D></T>
+	<T><C>IK</C><D>IM航空</D></T>
+	<T><C>IL</C><D>伊斯坦布爾航空</D></T>
+	<T><C>IM</C><D>INTENSIVE AIR</D></T>
+	<T><C>IN</C><D>馬其頓航空</D></T>
+	<T><C>IO</C><D>INDONESIAN  AIRLINES</D></T>
+	<T><C>IP</C><D>ATYRAU AUE JOLY</D></T>
+	<T><C>IQ</C><D>奧格斯堡航空</D></T>
+	<T><C>IR</C><D>伊朗航空</D></T>
+	<T><C>IS</C><D>ISLAND AIRLINES</D></T>
+	<T><C>IT</C><D>台灣虎航</D></T>
+	<T><C>IU</C><D>新几內亞</D></T>
+	<T><C>IV</C><D>DELSEY AIRLINES N.V.</D></T>
+	<T><C>IW</C><D>自由航空</D></T>
+	<T><C>IX</C><D>SELECT AIR</D></T>
+	<T><C>IY</C><D>葉門航空</D></T>
+	<T><C>IZ</C><D>阿基亞以色列航空</D></T>
+	<T><C>J2</C><D>亞塞拜然航空</D></T>
+	<T><C>J8</C><D>BERJAYA AIR/BERJAYA AIR(J8)</D></T>
+	<T><C>JA</C><D>AIR BOSNA</D></T>
+	<T><C>JB</C><D>HELIJET INTERNATIONAL</D></T>
+	<T><C>JC</C><D>JAL EXPRESS</D></T>
+	<T><C>JD</C><D>首都航空</D></T>
+	<T><C>JE</C><D>馬思克斯航空</D></T>
+	<T><C>JF</C><D>LAB飛行服務</D></T>
+	<T><C>JG</C><D>AIR GREECE-AERODROMISIS S.A.</D></T>
+	<T><C>JH</C><D>東北地區航空</D></T>
+	<T><C>JI</C><D>中途航空</D></T>
+	<T><C>JJ</C><D>南美航空集團</D></T>
+	<T><C>JK</C><D>西班牙斯班航空</D></T>
+	<T><C>JL</C><D>日本航空</D></T>
+	<T><C>JM</C><D>牙買加航空</D></T>
+	<T><C>JN</C><D>EXCEL AIRWAYS</D></T>
+	<T><C>JO</C><D>日線航空</D></T>
+	<T><C>JP</C><D>亞得利亞航空</D></T>
+	<T><C>JQ</C><D>捷星航空</D></T>
+	<T><C>JR</C><D>幸福航空</D></T>
+	<T><C>JS</C><D>朝鮮航空</D></T>
+	<T><C>JT</C><D>印尼獅子航空</D></T>
+	<T><C>JU</C><D>AIR SERBIA</D></T>
+	<T><C>JV</C><D>貝爾斯金航空/被爾斯金湖航空服務</D></T>
+	<T><C>JW</C><D>香草航空</D></T>
+	<T><C>JX</C><D>NICE HELICOPTERS</D></T>
+	<T><C>JY</C><D>INTERISLAND AIRWAYS</D></T>
+	<T><C>JZ</C><D>天空之路航空</D></T>
+	<T><C>K6</C><D>柬埔寨吳哥航空</D></T>
+	<T><C>KA</C><D>國泰港龍航空</D></T>
+	<T><C>KB</C><D>不丹皇家航空</D></T>
+	<T><C>KC</C><D>哈薩克航空</D></T>
+	<T><C>KD</C><D>肯德爾航空</D></T>
+	<T><C>KE</C><D>大韓航空</D></T>
+	<T><C>KF</C><D>BLUE 1</D></T>
+	<T><C>KG</C><D>KING ISLAND AIRLN</D></T>
+	<T><C>KH</C><D>HELISHUTTLE</D></T>
+	<T><C>KI</C><D>ADAM SKYCONNECTION AIR/ADAM SKYCONNECTION AIRLINES PT</D></T>
+	<T><C>KJ</C><D>英國地中海航空</D></T>
+	<T><C>KK</C><D>土耳其亞特力斯航空</D></T>
+	<T><C>KL</C><D>荷蘭航空</D></T>
+	<T><C>KM</C><D>馬耳他航空</D></T>
+	<T><C>KN</C><D>中國聯合航空</D></T>
+	<T><C>KO</C><D>阿拉斯加中部快遞</D></T>
+	<T><C>KP</C><D>ASKY/COMPAGNIE AERIENNE ASKY</D></T>
+	<T><C>KQ</C><D>肯亞航空</D></T>
+	<T><C>KR</C><D>MDA AIRLINES</D></T>
+	<T><C>KS</C><D>PENAIR</D></T>
+	<T><C>KT</C><D>KYRGYZ AIR</D></T>
+	<T><C>KU</C><D>科威特航空</D></T>
+	<T><C>KV</C><D>KAVMINVODYAVIA</D></T>
+	<T><C>KW</C><D>KAS AIR COMPANY</D></T>
+	<T><C>KX</C><D>開曼航空</D></T>
+	<T><C>KY</C><D>聖多美和普林西比航空</D></T>
+	<T><C>KZ</C><D>日本貨運航空</D></T>
+	<T><C>LA</C><D>南美航空集團</D></T>
+	<T><C>LB</C><D>玻利維亞勞埃德航空</D></T>
+	<T><C>LC</C><D>LEGEND AIRLINES INC</D></T>
+	<T><C>LD</C><D>旅遊航空</D></T>
+	<T><C>LE</C><D>HELGOLAND AIRLINES</D></T>
+	<T><C>LF</C><D>NORDIC EAST AIRLINK AB</D></T>
+	<T><C>LG</C><D>盧森堡航空</D></T>
+	<T><C>LH</C><D>德國漢莎航空</D></T>
+	<T><C>LI</C><D>北風群島航空</D></T>
+	<T><C>LJ</C><D>韓國真航空</D></T>
+	<T><C>LK</C><D>AIR LUXOR S.A</D></T>
+	<T><C>LL</C><D>阿勒格雷航空</D></T>
+	<T><C>LM</C><D>AIR ALM</D></T>
+	<T><C>LN</C><D>利比亞阿拉伯航空</D></T>
+	<T><C>LO</C><D>波蘭航空</D></T>
+	<T><C>LP</C><D>南美航空集團</D></T>
+	<T><C>LQ</C><D>柬埔寨瀾湄航空</D></T>
+	<T><C>LR</C><D>哥斯大黎加航空</D></T>
+	<T><C>LS</C><D>海峽航空快遞</D></T>
+	<T><C>LT</C><D>LTU溫特內曼國際航空</D></T>
+	<T><C>LU</C><D>LAN EXPRESS</D></T>
+	<T><C>LV</C><D>ALBANIAN AIRLINES S.H.P.K.</D></T>
+	<T><C>LW</C><D>PACIFIC WINGS</D></T>
+	<T><C>LX</C><D>瑞士航空</D></T>
+	<T><C>LY</C><D>以色列航空</D></T>
+	<T><C>LZ</C><D>SWISS GLOBAL AIRLINES AG</D></T>
+	<T><C>M3</C><D>NORTH FLYING AS</D></T>
+	<T><C>M8</C><D>MEKONG AIRLINES CO LTD</D></T>
+	<T><C>MA</C><D>匈牙利航空</D></T>
+	<T><C>MB</C><D>澳洲西方航空</D></T>
+	<T><C>MC</C><D>AIR MOBILITY COMMAND</D></T>
+	<T><C>MD</C><D>馬達加斯加航空</D></T>
+	<T><C>ME</C><D>中東航空</D></T>
+	<T><C>MF</C><D>廈門航空</D></T>
+	<T><C>MG</C><D>冠軍航空</D></T>
+	<T><C>MH</C><D>馬來西亞航空</D></T>
+	<T><C>MI</C><D>勝安航空</D></T>
+	<T><C>MJ</C><D>MIHIN LANKA PVT LTD</D></T>
+	<T><C>MK</C><D>模里西斯航空</D></T>
+	<T><C>ML</C><D>各斯達黎加航空</D></T>
+	<T><C>MM</C><D>SAM</D></T>
+	<T><C>MN</C><D>COMAIR LTD.</D></T>
+	<T><C>MO</C><D>卡姆國際航空</D></T>
+	<T><C>MP</C><D>荷蘭馬丁航空</D></T>
+	<T><C>MQ</C><D>美利堅鷹航</D></T>
+	<T><C>MR</C><D>匈奴航空</D></T>
+	<T><C>MS</C><D>埃及航空</D></T>
+	<T><C>MT</C><D>大西部航空</D></T>
+	<T><C>MU</C><D>中國東方航空</D></T>
+	<T><C>MV</C><D>亞美尼亞航空</D></T>
+	<T><C>MW</C><D>馬雅島航空</D></T>
+	<T><C>MX</C><D>墨西哥航空</D></T>
+	<T><C>MY</C><D>馬雅航空</D></T>
+	<T><C>MZ</C><D>梅巴迪航空</D></T>
+	<T><C>N6</C><D>祕魯航空</D></T>
+	<T><C>NA</C><D>北美航空</D></T>
+	<T><C>NB</C><D>斯特林歐洲航空</D></T>
+	<T><C>NC</C><D>NATIONAL JET SYSTEMS</D></T>
+	<T><C>ND</C><D>鏈環航空</D></T>
+	<T><C>NE</C><D>SKYEUROPE AIRLINES</D></T>
+	<T><C>NF</C><D>瓦努阿圖航空</D></T>
+	<T><C>NG</C><D>維也納航空</D></T>
+	<T><C>NH</C><D>全日空航空</D></T>
+	<T><C>NI</C><D>PORTUGALIA/葡萄牙航空</D></T>
+	<T><C>NJ</C><D>前衛航空</D></T>
+	<T><C>NK</C><D>精神航空</D></T>
+	<T><C>NL</C><D>沙欣國際航空</D></T>
+	<T><C>NM</C><D>MANX2/FLM AVIATION </D></T>
+	<T><C>NN</C><D>維姆航空</D></T>
+	<T><C>NO</C><D>澳洲航空</D></T>
+	<T><C>NP</C><D>SKYTRANS</D></T>
+	<T><C>NQ</C><D>AIR JAPAN COMPANY LTD</D></T>
+	<T><C>NR</C><D>RUSS JSC AIR TRANSPORT</D></T>
+	<T><C>NS</C><D>河北航空</D></T>
+	<T><C>NT</C><D>加那利航空</D></T>
+	<T><C>NU</C><D>日本越洋航空</D></T>
+	<T><C>NV</C><D>NAKANIHON AIRLINES</D></T>
+	<T><C>NW</C><D>西北航空</D></T>
+	<T><C>NX</C><D>澳門航空</D></T>
+	<T><C>NY</C><D>冰島航空</D></T>
+	<T><C>NZ</C><D>紐西蘭航空</D></T>
+	<T><C>O8</C><D>甘泉香港航空</D></T>
+	<T><C>OA</C><D>奧林匹克航空</D></T>
+	<T><C>OB</C><D>BOA/BOLIVIANA DE AVIACION</D></T>
+	<T><C>OC</C><D>OMNI</D></T>
+	<T><C>OD</C><D>馬印航空</D></T>
+	<T><C>OE</C><D>西方支線航空</D></T>
+	<T><C>OF</C><D>AIR FINLAND LTD/AIR FINLAND LTD</D></T>
+	<T><C>OG</C><D>瓜德羅普航空</D></T>
+	<T><C>OH</C><D>科姆航空</D></T>
+	<T><C>OI</C><D>普雷斯蒂航空</D></T>
+	<T><C>OJ</C><D>OVERLAND AIRWAYS LTD</D></T>
+	<T><C>OK</C><D>捷克航空</D></T>
+	<T><C>OL</C><D>OLT-OSTFRIESISCHE LUFFT</D></T>
+	<T><C>OM</C><D>蒙古航空</D></T>
+	<T><C>ON</C><D>瑙魯航空</D></T>
+	<T><C>OO</C><D>西方天空航空</D></T>
+	<T><C>OP</C><D>CHALKS OCEAN AIRWAYS</D></T>
+	<T><C>OQ</C><D>SUNRISE AIRLINES INC</D></T>
+	<T><C>OR</C><D>克利米亞航空</D></T>
+	<T><C>OS</C><D>奧地利航空</D></T>
+	<T><C>OT</C><D>鵜鶘航空</D></T>
+	<T><C>OU</C><D>克羅埃西亞航空</D></T>
+	<T><C>OV</C><D>愛沙尼亞航空</D></T>
+	<T><C>OW</C><D>美利堅鷹航/執行航空</D></T>
+	<T><C>OX</C><D>泰國東方航空</D></T>
+	<T><C>OY</C><D>澳姆尼國際航空</D></T>
+	<T><C>OZ</C><D>韓亞航空</D></T>
+	<T><C>PA</C><D>M/S AIRBLUE (PVT) LTD./M/S AIRBLUE (PVT) LTD. </D></T>
+	<T><C>PB</C><D>加拿大省航空</D></T>
+	<T><C>PC</C><D>帕格薩斯航空</D></T>
+	<T><C>PD</C><D>PORTER AIRLINES</D></T>
+	<T><C>PE</C><D>歐洲航空</D></T>
+	<T><C>PF</C><D>巴勒斯坦航空</D></T>
+	<T><C>PG</C><D>曼谷航空</D></T>
+	<T><C>PH</C><D>波利尼西亞航空</D></T>
+	<T><C>PI</C><D>太陽航空</D></T>
+	<T><C>PJ</C><D>聖皮埃爾航空</D></T>
+	<T><C>PK</C><D>巴基斯坦國際航空</D></T>
+	<T><C>PL</C><D>秘魯航空</D></T>
+	<T><C>PM</C><D>伯利茲熱帶航空</D></T>
+	<T><C>PN</C><D>中國西方航空</D></T>
+	<T><C>PO</C><D>鵜鶘航空</D></T>
+	<T><C>PP</C><D>JET AVIATION BUSINESS</D></T>
+	<T><C>PQ</C><D>亞洲航空(菲律賓亞航)</D></T>
+	<T><C>PR</C><D>菲律賓航空</D></T>
+	<T><C>PS</C><D>烏克蘭航空</D></T>
+	<T><C>PT</C><D>瑞典西方航空</D></T>
+	<T><C>PU</C><D>PLUNA/烏拉圭航空</D></T>
+	<T><C>PV</C><D>SAINT BARTH COMMUTER</D></T>
+	<T><C>PW</C><D>PRECISION AIR</D></T>
+	<T><C>PX</C><D>新幾內亞航空</D></T>
+	<T><C>PY</C><D>蘇里南航空</D></T>
+	<T><C>PZ</C><D>南美航空集團</D></T>
+	<T><C>Q5</C><D>FORTY MILE AIR</D></T>
+	<T><C>QA</C><D>卡里比航空</D></T>
+	<T><C>QB</C><D>阿爾馬航空</D></T>
+	<T><C>QC</C><D>AVIATION QUEBEC LABRADOR</D></T>
+	<T><C>QD</C><D>柬埔寨景成國際航空</D></T>
+	<T><C>QE</C><D>克羅斯歐洲航空/歐洲大陸航空</D></T>
+	<T><C>QF</C><D>澳洲航空</D></T>
+	<T><C>QG</C><D>PT CITILINK INDONESIA</D></T>
+	<T><C>QH</C><D>ALTYN AIR AIRLINES</D></T>
+	<T><C>QI</C><D>丹麥辛伯航空</D></T>
+	<T><C>QJ</C><D>AIR COMPANY LATPASS</D></T>
+	<T><C>QK</C><D>AIR CANADA JAZZ</D></T>
+	<T><C>QL</C><D>AIR GULF FALCON</D></T>
+	<T><C>QM</C><D>非洲馬拉威航空</D></T>
+	<T><C>QN</C><D>皇家航空</D></T>
+	<T><C>QO</C><D>太平洋之源航空</D></T>
+	<T><C>QP</C><D>地區航空/肯尼亞航空</D></T>
+	<T><C>QQ</C><D>聯盟航空</D></T>
+	<T><C>QR</C><D>卡達航空</D></T>
+	<T><C>QS</C><D>TRAVEL SERVICE AIRLINES</D></T>
+	<T><C>QT</C><D>REGIONAL AIR PTY</D></T>
+	<T><C>QU</C><D>EAST AFRICAN AIRLINES</D></T>
+	<T><C>QV</C><D>寮國航空</D></T>
+	<T><C>QW</C><D>澳洲地平線航空</D></T>
+	<T><C>QX</C><D>美洲地平線航空</D></T>
+	<T><C>QY</C><D>AERO VIRGIN ISLANDS</D></T>
+	<T><C>QZ</C><D>亞洲航空(印尼亞航)</D></T>
+                  <T><C>R3</C><D>雅庫特航空</D></T>
+	<T><C>RA</C><D>尼泊爾航空</D></T>
+	<T><C>RB</C><D>阿拉伯敘利亞航空</D></T>
+	<T><C>RC</C><D>法羅群島大西洋航空</D></T>
+	<T><C>RD</C><D>瑞安國際航空</D></T>
+	<T><C>RE</C><D>阿倫航空</D></T>
+	<T><C>RF</C><D>ORD AIR CHARTER</D></T>
+	<T><C>RG</C><D>巴西航空</D></T>
+	<T><C>RH</C><D>REGIONNAIR</D></T>
+	<T><C>RI</C><D>印度尼西亞曼達拉航空</D></T>
+	<T><C>RJ</C><D>皇家約旦航空</D></T>
+	<T><C>RK</C><D>非洲航空</D></T>
+	<T><C>RL</C><D>ROYAL PHNOM PENH AIRWAYS</D></T>
+	<T><C>RM</C><D>摩爾多瓦航空</D></T>
+	<T><C>RN</C><D>PARADISE AIR</D></T>
+	<T><C>RO</C><D>羅馬尼亞航空</D></T>
+	<T><C>RP</C><D>美國肖托夸航空</D></T>
+	<T><C>RQ</C><D>SWISSWINGS AG</D></T>
+	<T><C>RR</C><D>ROYAL AIRFORCE</D></T>
+	<T><C>RS</C><D>首爾航空</D></T>
+	<T><C>RT</C><D>AIRLINES OF SOUTH AUSTRALIA</D></T>
+	<T><C>RU</C><D>TCI SKYKING</D></T>
+	<T><C>RV</C><D>REDAIR LIMITED</D></T>
+	<T><C>RW</C><D>RAS航空</D></T>
+	<T><C>RX</C><D>瑞晶航空(孟加拉)</D></T>
+	<T><C>RY</C><D>EUROPEAN EXECUTIVE EXP</D></T>
+	<T><C>RZ</C><D>SANSA/國民航空服務</D></T>
+	<T><C>S2</C><D>JET LITE</D></T>
+	<T><C>S7</C><D>西伯利亞航空</D></T>
+	<T><C>SA</C><D>南非航空</D></T>
+	<T><C>SB</C><D>新喀里多尼亞航空</D></T>
+	<T><C>SC</C><D>山東航空</D></T>
+	<T><C>SD</C><D>蘇丹航空</D></T>
+	<T><C>SE</C><D>SAMOA AVIATION</D></T>
+	<T><C>SF</C><D>TASSILI AIRLINES</D></T>
+	<T><C>SG</C><D>香料航空</D></T>
+	<T><C>SH</C><D>圖盧玆國際航空</D></T>
+	<T><C>SI</C><D>SKYNET AIRLINES</D></T>
+	<T><C>SJ</C><D>PT SRIWIJAYA AIR</D></T>
+	<T><C>SK</C><D>北歐航空</D></T>
+	<T><C>SL</C><D>泰國獅子航空</D></T>
+	<T><C>SM</C><D>SWEDLINE EXPRESS</D></T>
+	<T><C>SN</C><D>比利時航空</D></T>
+	<T><C>SO</C><D>SUPERIOR AVIATION INC</D></T>
+	<T><C>SP</C><D>SATA</D></T>
+	<T><C>SQ</C><D>新加坡航空</D></T>
+	<T><C>SR</C><D>瑞士航空</D></T>
+	<T><C>SS</C><D>CORSE AIR INTERNATIONAL</D></T>
+	<T><C>ST</C><D>德國包機</D></T>
+	<T><C>SU</C><D>俄羅斯航空</D></T>
+	<T><C>SV</C><D>沙烏地阿拉伯航空</D></T>
+	<T><C>SW</C><D>內米比亞航空</D></T>
+	<T><C>SX</C><D>AEROEJECUTIVO S.A. DE C.V.</D></T>
+	<T><C>SY</C><D>陽光之鄉航空</D></T>
+	<T><C>SZ</C><D>AIR NEPAL INTL PVT LTD</D></T>
+	<T><C>T4</C><D>TRIP LINHAS AEREAS/TRANSP AEREOS REGIONAIS DO INTERIOR</D></T>
+	<T><C>T9</C><D>TRANSMERIDIAN AIRLINES/TRANSMERIDIAN AIRLINES INC</D></T>
+	<T><C>TA</C><D>薩爾瓦航空</D></T>
+	<T><C>TB</C><D>SHUTTLE, INC.</D></T>
+	<T><C>TC</C><D>坦桑尼亞航空</D></T>
+	<T><C>TD</C><D>ATLANTIS EUROPEAN</D></T>
+	<T><C>TE</C><D>立陶宛航空</D></T>
+	<T><C>TF</C><D>馬爾莫航空</D></T>
+	<T><C>TG</C><D>泰國航空</D></T>
+	<T><C>TH</C><D>BRITISH AIR CITIEXPRESS</D></T>
+	<T><C>TI</C><D>吳哥航空</D></T>
+	<T><C>TJ</C><D>祕魯國際航空</D></T>
+	<T><C>TK</C><D>土耳其航空</D></T>
+	<T><C>TL</C><D>澳洲北方航空</D></T>
+	<T><C>TM</C><D>非洲莫桑比克航空</D></T>
+	<T><C>TN</C><D>大溪地航空</D></T>
+	<T><C>TO</C><D>柬埔寨總統航空</D></T>
+	<T><C>TP</C><D>葡萄牙航空</D></T>
+	<T><C>TQ</C><D>TANDEM AERO LTD</D></T>
+	<T><C>TR</C><D>酷航</D></T>
+	<T><C>TS</C><D>跨大西洋航空</D></T>
+	<T><C>TT</C><D>立陶宛空運</D></T>
+	<T><C>TU</C><D>突尼斯航空</D></T>
+	<T><C>TV</C><D>維爾京快運</D></T>
+	<T><C>TW</C><D>德威航空</D></T>
+	<T><C>TX</C><D>AIR CARAIBES AERIENS</D></T>
+	<T><C>TY</C><D>喀里多尼亞航空</D></T>
+	<T><C>U2</C><D>易捷航空</D></T>
+	<T><C>U4</C><D>PROGRESS MULTITRADE CO LTD</D></T>
+	<T><C>U6</C><D>烏拉航空</D></T>
+	<T><C>UA</C><D>美國聯合航空</D></T>
+	<T><C>UB</C><D>緬甸國家航空</D></T>
+	<T><C>UC</C><D>拉德科航空</D></T>
+	<T><C>UD</C><D>赫克斯航空</D></T>
+	<T><C>UE</C><D>TRANSEUROPEAN AIRLINES</D></T>
+	<T><C>UF</C><D>UKRAINIAN MEDITERRANEAN AIRLINES</D></T>
+	<T><C>UG</C><D>突尼斯國內航空</D></T>
+	<T><C>UH</C><D>EURASIA AIRCOMPANY</D></T>
+	<T><C>UI</C><D>歐洲塞浦路斯航空</D></T>
+	<T><C>UJ</C><D>MONTAIR AVIATION INC</D></T>
+	<T><C>UK</C><D>VISTARA/TATA SIA AIRLINES LIMITED</D></T>
+	<T><C>UL</C><D>斯里蘭卡航空</D></T>
+	<T><C>UM</C><D>辛巴威航空</D></T>
+	<T><C>UN</C><D>全錄航空</D></T>
+	<T><C>UO</C><D>香港快運航空</D></T>
+	<T><C>UP</C><D>巴哈馬航空</D></T>
+	<T><C>UQ</C><D>OCONNOR AIRLINES</D></T>
+	<T><C>UR</C><D>烏克蘭國家航空</D></T>
+	<T><C>US</C><D>全美航空</D></T>
+	<T><C>UT</C><D>UTA</D></T>
+	<T><C>UU</C><D>留尼旺航空</D></T>
+	<T><C>UV</C><D>HELICOPTEROS DEL SURESTE</D></T>
+	<T><C>UW</C><D>UNIVERSAL AIRLINES</D></T>
+	<T><C>UX</C><D>西班牙歐洲航空</D></T>
+	<T><C>UY</C><D>喀麥隆航空</D></T>
+	<T><C>UZ</C><D>BURAQ AIR TRANSPORT</D></T>
+	<T><C>VA</C><D>維珍澳洲航空</D></T>
+	<T><C>VB</C><D>英國梅爾斯克航空</D></T>
+	<T><C>VC</C><D>委內瑞拉溫薩服務</D></T>
+	<T><C>VD</C><D>歐洲跨地區航空</D></T>
+	<T><C>VE</C><D>C.A.I SECOND S.P.A</D></T>
+	<T><C>VF</C><D>VALUAIR LTD</D></T>
+	<T><C>VG</C><D>比利時維爾姆航空</D></T>
+	<T><C>VH</C><D>委內瑞拉航空郵運</D></T>
+	<T><C>VI</C><D>別克斯航空</D></T>
+	<T><C>VJ</C><D>越捷航空</D></T>
+	<T><C>VK</C><D>愛爾蘭維爾京快運</D></T>
+	<T><C>VL</C><D>INTL EXPRESS AIR CHARTER</D></T>
+	<T><C>VM</C><D>VIAGGIO AIR</D></T>
+	<T><C>VN</C><D>越南航空</D></T>
+	<T><C>VO</C><D>提洛林航空</D></T>
+	<T><C>VP</C><D>巴西聖保羅航空</D></T>
+	<T><C>VQ</C><D>VINTAGE PROPS AND JETS</D></T>
+	<T><C>VR</C><D>TACV-CABO VERDE AIRLINE</D></T>
+	<T><C>VS</C><D>維珍航空</D></T>
+	<T><C>VT</C><D>塔希提航空</D></T>
+	<T><C>VU</C><D>SOCIETE NOUVELLE AIR</D></T>
+	<T><C>VV</C><D>VIVA AIRLINES PERU S.A.C</D></T>
+	<T><C>VW</C><D>馬爾航空</D></T>
+	<T><C>VX</C><D>維珍美國航空</D></T>
+	<T><C>VY</C><D>伏林航空</D></T>
+	<T><C>VZ</C><D>MYTRAVEL AIRWAYS LTD</D></T>
+	<T><C>W2</C><D>FLEXFLIGHT</D></T>
+	<T><C>W5</C><D>伊朗波斯馬罕航空</D></T>
+	<T><C>W9</C><D>AIR BAGAN/AIR BAGAN</D></T>
+	<T><C>WA</C><D>荷蘭皇家空城市短途</D></T>
+	<T><C>WB</C><D>RWANDAIR EXPRESS</D></T>
+	<T><C>WC</C><D>伊斯萊納航空</D></T>
+	<T><C>WD</C><D>DAS AIR LIMITED</D></T>
+	<T><C>WE</C><D>泰國微笑航空</D></T>
+	<T><C>WF</C><D>挪威威得婁航空</D></T>
+	<T><C>WG</C><D>SUNWING AIRLINES</D></T>
+	<T><C>WH</C><D>中國西北航空</D></T>
+	<T><C>WI</C><D>WHITE AIRWAYS S.A.</D></T>
+	<T><C>WJ</C><D>LABRADOR AIRWAYS</D></T>
+	<T><C>WK</C><D>AMERICAN FALCON S.A</D></T>
+	<T><C>WL</C><D>AEROPERLAS</D></T>
+	<T><C>WM</C><D>向風群島國際航空</D></T>
+	<T><C>WN</C><D>美國西南航空</D></T>
+	<T><C>WO</C><D>美國世界航空</D></T>
+	<T><C>WP</C><D>ALOHA ISLANDAIR</D></T>
+	<T><C>WQ</C><D>羅馬維亞航空</D></T>
+	<T><C>WR</C><D>湯加皇家航空</D></T>
+	<T><C>WS</C><D>西捷航空</D></T>
+	<T><C>WT</C><D>尼日利亞航空</D></T>
+	<T><C>WU</C><D>TIKAL JETS SA</D></T>
+	<T><C>WV</C><D>WESTEASTAIR AB</D></T>
+	<T><C>WW</C><D>哇航空</D></T>
+	<T><C>WX</C><D>CITY JET</D></T>
+	<T><C>WY</C><D>阿曼航空</D></T>
+	<T><C>WZ</C><D>WEST AFRICAN AIRLINES</D></T>
+	<T><C>XE</C><D>SBS AIRCRAFT</D></T>
+	<T><C>XF</C><D>海參威航空</D></T>
+	<T><C>XG</C><D>SUNEXPRESS DEUTSCHLAND</D></T>
+	<T><C>XJ</C><D>梅薩巴航空</D></T>
+	<T><C>XK</C><D>科西嘉航空</D></T>
+	<T><C>XL</C><D>南美航空集團</D></T>
+	<T><C>XM</C><D>意大利航空捷運</D></T>
+	<T><C>XN</C><D>AXON AIRLINES</D></T>
+	<T><C>XO</C><D>中國新疆航空</D></T>
+	<T><C>XP</C><D>TAHOE AIR</D></T>
+	<T><C>XQ</C><D>太陽快遞航空</D></T>
+	<T><C>XR</C><D>VIRGIN AUSTRALIA RGNL/SKYWEST AIRLINES PTY LTD</D></T>
+	<T><C>XT</C><D>KLM EXEL</D></T>
+	<T><C>XU</C><D>AFRICAN EXPRESS AIRWAYS</D></T>
+	<T><C>XV</C><D>WALTAIR I LINKOPING AB</D></T>
+	<T><C>XW</C><D>酷鳥航空</D></T>
+	<T><C>XY</C><D>NATIONAL AIR SERVICES</D></T>
+	<T><C>XZ</C><D>FLUGFELAG AUSTURLANDS</D></T>
+	<T><C>Y5</C><D>GOLDEN MYANMAR AIRLINES</D></T>
+	<T><C>Y6</C><D>METRO BATAVIA AIR</D></T>
+	<T><C>YB</C><D>南非快遞</D></T>
+	<T><C>YC</C><D>FLIGHT WEST AIRLINES</D></T>
+	<T><C>YD</C><D>GOMELAVIA</D></T>
+	<T><C>YE</C><D>YANDA AIRLINES</D></T>
+	<T><C>YG</C><D>南方航空</D></T>
+	<T><C>YH</C><D>WEST CARIBBEAN AIRWAYS</D></T>
+	<T><C>YI</C><D>AIR SUNSHINE INC</D></T>
+	<T><C>YJ</C><D>NATIONAL AIRLINES</D></T>
+	<T><C>YK</C><D>KIBRIS TURKISH AIRLINES</D></T>
+	<T><C>YL</C><D>YAMAL AIRLINES</D></T>
+	<T><C>YM</C><D>MONTENEGRO AIRLINES</D></T>
+	<T><C>YN</C><D>加拿大克利比克航空</D></T>
+	<T><C>YO</C><D>HELI AIR MONACO</D></T>
+	<T><C>YP</C><D>勞埃德航空</D></T>
+	<T><C>YQ</C><D>EURO AIR HELI SVC</D></T>
+	<T><C>YR</C><D>風景航空</D></T>
+	<T><C>YS</C><D>REGIONAL CAE</D></T>
+	<T><C>YT</C><D>雪人航空</D></T>
+	<T><C>YU</C><D>DOMINAIR AEROLINEAS DOMINICANAS S.A. DOMINA</D></T>
+	<T><C>YV</C><D>梅薩航空</D></T>
+	<T><C>YW</C><D>那斯綽航空</D></T>
+	<T><C>YX</C><D>中西部快運航空</D></T>
+	<T><C>YZ</C><D>TACAECUADOR S.A.</D></T>
+	<T><C>Z8</C><D>AMASZONAS SA</D></T>
+	<T><C>ZA</C><D>ASTAIR LIMITED COMPANY</D></T>
+	<T><C>ZB</C><D>君主航空</D></T>
+	<T><C>ZC</C><D>斯威士蘭皇家航空</D></T>
+	<T><C>ZD</C><D>FLYING DANDY</D></T>
+	<T><C>ZE</C><D>易斯達航空</D></T>
+	<T><C>ZF</C><D>ATLANTIC AIR HONDURAS</D></T>
+	<T><C>ZG</C><D>AIR EXPRESS LIMITED</D></T>
+	<T><C>ZH</C><D>深圳航空</D></T>
+	<T><C>ZI</C><D>阿祖爾天鷹座航空</D></T>
+	<T><C>ZJ</C><D>挪威泰迪航空</D></T>
+	<T><C>ZK</C><D>大湖航空</D></T>
+	<T><C>ZL</C><D>地區快遞/黑澤爾頓航空</D></T>
+	<T><C>ZM</C><D>ALLIANCE EXPRESS RWANDA</D></T>
+	<T><C>ZN</C><D>AIR BOURBON</D></T>
+	<T><C>ZO</C><D>GREAT PLAINS AIRLINES</D></T>
+	<T><C>ZQ</C><D>CARIBBEAN SUN AIRLINES</D></T>
+	<T><C>ZR</C><D>穆克航空</D></T>
+	<T><C>ZS</C><D>意大利阿祖拉航空</D></T>
+	<T><C>ZT</C><D>AIR ZAMBEZI</D></T>
+	<T><C>ZU</C><D>HELIOS AIRWAYS</D></T>
+	<T><C>ZV</C><D>威航航空</D></T>
+	<T><C>ZW</C><D>威斯康星航空</D></T>
+	<T><C>ZX</C><D>AIR ALLIANCE</D></T>
+	<T><C>ZY</C><D>阿達航空</D></T></Coder>
+	
+
+
+
+
+

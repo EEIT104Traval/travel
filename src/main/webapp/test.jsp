@@ -40,8 +40,13 @@
 	<a href="<c:url value='ticketOrderCreate' />">ticketOrderCreate</a>
 	<a href="<c:url value='ticketOrderUpdate' />">ticketOrderUpdate</a>
 	<a href="<c:url value='ticketOrderRemove' />">ticketOrderRemove</a>
+	<br>
+	<a href="<c:url value='/ticketDLtest' />">ticketDLtest </a>
+	<br>
+	<a href="<c:url value='tourDLtest' />">tourDLtest </a>
 	<hr>
-
+	
+	
 	<h3>婉萍</h3>
 	<a href="<c:url value='/userInfoPK' />">UserPK</a>
 	<a href="<c:url value='/userInfofindALL' />">UserfindAll</a>
@@ -93,6 +98,9 @@
 	<a href="<c:url value='/flight15' />">AirlineCreate</a>
 	<hr />
 	<a href="<c:url value='/flight17' />">AirportTest</a>
+	<hr />
+	<a href="<c:url value='/flightxml' />">XMLTest</a>
+	
 	<hr />
 	<br />
 	<h1>雅涵</h1>
