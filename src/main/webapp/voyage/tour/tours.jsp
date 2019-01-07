@@ -36,7 +36,7 @@
 				<div class="col-lg-8">
 					<div class="row">
 						<div class="col-md-6 col-lg-6 mb-4 ftco-animate">
-							<a href="#" class="block-5"
+							<a href="<c:url value='tourDisplay.jsp'/>" class="block-5"
 								style="background-image: url('<c:url value='/voyage/images/tour-1.jpg' />');">
 								<div class="text">
 									<span class="price">$399</span>
