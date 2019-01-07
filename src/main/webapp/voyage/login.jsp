@@ -183,10 +183,10 @@ div#users-contain table td, div#users-contain table th {
 			<button style="background-color: blue; color: white; margin-top: 5px">登入</button>
 
 			<p>快速登入</p>
-			<img src="./images/facebook.png" onclick="FBLogin();" width="32%"
-				height="32%"> <img src="./images/google01.png"
+			<img src="<c:url value='/voyage/images/facebook.png' />" onclick="FBLogin();" width="32%"
+				height="32%"> <img src="<c:url value='/voyage/images/google01.png' />"
 				onclick="GoogleLogin();" width="32%" height="32%"> <img
-				src="./images/line.png" onclick="GoogleLogin();" width="32%"
+				src="<c:url value='/voyage/images/line.png' />" onclick="GoogleLogin();" width="32%"
 				height="32%">
 			<button
 				style="background-color: blue; color: white; margin-left: 100px; margin-top: 20px">新會員註冊</button>

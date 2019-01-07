@@ -11,6 +11,25 @@
 <title>Insert title here</title>
 </head>
 <body>
+
+	<section class="home-slider owl-carousel">
+		<div class="slider-item"
+			style="background-image: url('<c:url value='/voyage/images/bg_2.jpg'/>');"data-stellar-background-ratio="0.5">
+			<div class="overlay"></div>
+			<div class="container">
+				<div class="row slider-text align-items-center">
+					<div class="col-md-7 col-sm-12 ftco-animate">
+						<p class="breadcrumbs">
+							<span class="mr-2"><a href="<c:url value='/voyage/index.jsp' />">Home</a></span> <span>Tour</span>
+						</p>
+						<h1 class="mb-3">Tours </h1>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- END slider -->
+
 	<a href="<c:url value='/tour/display'/>">display</a>
 	<h2>商品展示</h2>
 	<table id='JSON_table'>
@@ -44,5 +63,6 @@
 
 				});
 	</script>
+	<jsp:include page="../foo.jsp"/>
 </body>
 </html>

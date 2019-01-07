@@ -7,16 +7,17 @@
 <title>我要出去玩</title>
 </head>
 <style>
-	
 </style>
 <body>
+
+
 	<div class="modal-header"
-		style="padding: 14px 10px; border-bottom-color: rgb(230, 230, 230); color: rgb(45, 124, 209); text-align: center; position: relative; font-family: Arial,&amp; quot;Microsoft JhengHei&amp;quot;, &amp;quot;Helvetica Neue&amp;quot;, Helvetica, sans-serif;">
+		style="padding: 14px 10px; border-bottom-color: rgb(230, 230, 230); color: rgb(45, 124, 209); text-align: center; position: relative; font-family: Arial,&amp; amp;">
 		<h4 class="modal-title"
 			style="font-weight: 700; line-height: 28px; font-size: 22px; padding: 0px 40px;">航班資訊</h4>
 	</div>
 	<div class="modal-body no-btn"
-		style="padding: 0px; color: rgb(51, 51, 51); font-family: Arial,&amp; quot;Microsoft JhengHei&amp;quot;, &amp;quot;Helvetica Neue&amp;quot;, Helvetica, sans-serif;">
+		style="padding: 0px; color: rgb(51, 51, 51); font-family: Arial,&amp; amp;">
 		<form>
 			<div class="container-fluid" style="padding: 0px;">
 				<div class="modal-base"
@@ -175,5 +176,6 @@
 			</div>
 		</form>
 	</div>
+	
 </body>
 </html>
