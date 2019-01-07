@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import model.tour.GroupTourBean;
 import model.tour.service.GroupTourService;
@@ -17,9 +18,9 @@ public class GroupTourController {
 
 	@Autowired
 	private GroupTourService groupTourService;
-	
-	@RequestMapping("/groupTour.controller")
-	public String method(GroupTourBean bean, Model model) {
+	@ResponseBody
+	@RequestMapping("/groupTour")
+	public List<GroupTourBean> method(GroupTourBean bean, Model model) {
 		System.out.println("bean="+bean);		
 				
 		//驗證資料
@@ -32,13 +33,16 @@ public class GroupTourController {
 //				}	
 				if(errors!=null && !errors.isEmpty()) {
 					
-					return "product.error";
+//					return "product.error";
 				}
 				System.out.println("errors="+errors);	
 				
+				Long count = groupTourService.countAll();
+				model.addAttribute("count",count);
 				List<GroupTourBean> result = groupTourService.select(); 				
-				model.addAttribute("select", result.get(0));				
-				return "/voyage/tourtest.jsp";
+				model.addAttribute("select", result.get(0));	
+				return result;
+//				return "/voyage/tourtest.jsp";
 	//呼叫view
 //				if("Select".equals(prodaction)) {
 //					List<ProductBean> result = productService.select(bean);

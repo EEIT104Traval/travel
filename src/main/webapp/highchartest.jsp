@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,7 +20,24 @@
 </head>
 <body>
 <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+
 <script type="text/javascript">
+var xhttp = new XMLHttpRequest();
+var chartJson = '';
+xhttp.onreadystatechange = function(){
+	if (this.status == 200){
+		console.log(this.responseText);
+		chartJson = this.responseText;
+		var chartData = JSON.parse(chartJson);
+		console.log("currency 1 = "+ chartData[1]["currency"]);
+		//foreach(  chartData ){
+			
+		}
+	
+};
+xhttp.open("POST", "./ratefindALL", true);
+xhttp.send();
+
 Highcharts.chart('container', {
 
     title: {
@@ -58,7 +76,7 @@ Highcharts.chart('container', {
 //             pointStart: 10
 //         }
 //     },
-
+//jason.stringify陣列轉jason
     series: [{
         name: '現金匯率 本行買入',
         data: [30.4, 30.41, 30.38, 30.39, 30.37, 30.295, 30.365, 30.465]

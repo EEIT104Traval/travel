@@ -28,6 +28,16 @@ public class GroupTourDAO {
 				.setMaxResults(100)
 				.list();
 	}
+//	   Long count = (Long)HibernateUtil.getSession()
+//               .createQuery( "select count(*) from Employee" )
+//               .uniqueResult();
+//       System.out.println(count);
+	
+	//取筆數 值為Object cast成Long型態                                          
+    public Long countAll() {
+    	return (Long)this.getSession().createQuery("select count(*) from GroupTourBean").uniqueResult();
+    }
+    
 	public GroupTourBean create(GroupTourBean bean) {
 		if(bean!=null) {
 			GroupTourBean result = this.getSession().get(GroupTourBean.class, bean.getTourNo());
