@@ -122,7 +122,7 @@ public class GroupTourBean {
 	
 	@Override
 	public String toString() {
-		return "GroupTourBean [tourNo=" + tourNo + ", tag=" + ", country=" + country + ", tourName=" + tourName
+		return "GroupTourBean [tourNo=" + tourNo + ", country=" + country + ", tourName=" + tourName
 				+ ", destination=" + destination + ", tourDays=" + tourDays + ", guaranteedCount=" + guaranteedCount
 				+ ", fullPeopleCount=" + fullPeopleCount + ", clickCount=" + clickCount + ", content=" + content + "]";
 	}
