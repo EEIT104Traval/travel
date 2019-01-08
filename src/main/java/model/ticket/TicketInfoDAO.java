@@ -5,12 +5,6 @@ import java.util.List;
 public interface TicketInfoDAO {
 
 	public abstract TicketInfoBean findByPrimaryKey(Integer ticketNo);
-	
-	public abstract TicketInfoBean findByTicketName(String ticketName);
-	
-	public abstract TicketInfoBean findByTicketCountry(String country);
-	
-	public abstract TicketInfoBean findByTicketCategory(String category);
 
 	public abstract List<TicketInfoBean> findAll();
 

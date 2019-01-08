@@ -56,4 +56,10 @@ public class TourTagsTest {
 		 boolean delete = dao.remove(1);		  
 		 return false;	  		  
 	 }  
+	@RequestMapping("/TourTagsTestfindTag")
+	 public List<String> findTags() {
+		List<String> fa = dao.findTags();
+		return fa;
+				
+	}
 }

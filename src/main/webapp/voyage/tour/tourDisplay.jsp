@@ -43,9 +43,10 @@
 						contentType : 'application/json; charset=UTF-8',
 						type : 'get',
 						dataType : 'json',
+						
 					}).done(
 							function(JData) {
-// 								console.log(JData.TourPictureBean)
+								console.log(JData)
 								$.each(JData.TourPictureBean, function(index, value) {
 									console.log(value)
 									$("#JSON_table").append(
