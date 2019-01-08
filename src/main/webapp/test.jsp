@@ -101,6 +101,7 @@
 	<a href="<c:url value='/flight17' />">AirportTest</a>
 	<hr />
 	<a href="<c:url value='/flightxml' />">XMLTest</a>
+	<a href="<c:url value='Travel/FlightInfo' />">FlightInfoTest</a>
 	
 	<hr />
 	<br />

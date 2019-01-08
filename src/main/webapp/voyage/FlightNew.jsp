@@ -6,8 +6,8 @@
 <html lang="tw-zh">
 <!-- import this css by Alex -->
 <!-- <link rel="stylesheet" href="css/main_styles.css"> -->
-<link rel="stylesheet" type="text/css" href="styles/main_styles.css">
-<head>
+<link rel="stylesheet" type="text/css" href="<c:url value='styles/main_styles.css'/>">
+<head>									
 <jsp:include page="/voyage/nav.jsp" />
 </head>
 <body>
@@ -15,14 +15,10 @@
 
 	<section class="home-slider owl-carousel">
 		<div class="slider-item"
-			style="background-image: url('images/home_slider.jpg');"
+			style="background-image: url('<c:url value='/voyage/images/home_slider.jpg'/>')"
 			data-stellar-background-ratio="0.5">
 			<div class="overlay">
 				<div class="container">
-					<!--           <div class="row slider-text align-items-center"> -->
-					<!--             <div class="col-md-7 col-sm-12 ftco-animate"> -->
-					<!--               <p class="breadcrumbs"><span class="mr-2"><a href="index.jsp">Home</a></span> <span>Hotels XXXXXXXXXX</span></p> -->
-					<!--               <h1 class="mb-3">Hotels</h1> -->
 				</div>
 			</div>
 		</div>
@@ -79,7 +75,7 @@
 											class="search_input_1" style="width: 450px"
 											placeholder="請輸入機場/城市中英文或代碼" required="required">
 									</div>
-									<img alt="" src="images/changeTwoPlace.png" width="25px"
+									<img alt="" src="<c:url value='images/changeTwoPlace.png'/>" width="25px"
 										style="padding-top: 42px">
 									<div>
 										<span class="form-label">目的地</span> <input type="text"
@@ -133,7 +129,7 @@
 
 	<div class="intro">
 		<div class="intro_background"
-			style="background-image: url(images/intro.png)"></div>
+			style="background-image: url( <c:url value='images/intro.png'/>)"></div>
 		<div class="container">
 			<div class="row">
 				<div class="col">
@@ -145,7 +141,7 @@
 								<div
 									class="intro_item d-flex flex-row align-items-end justify-content-start">
 									<div class="intro_icon">
-										<img src="images/beach.svg" alt="">
+										<img src="<c:url value='images/beach.svg'/>" alt="">
 									</div>
 									<div class="intro_content">
 										<div class="intro_title">Top Destinations</div>
@@ -161,7 +157,7 @@
 								<div
 									class="intro_item d-flex flex-row align-items-end justify-content-start">
 									<div class="intro_icon">
-										<img src="images/wallet.svg" alt="">
+										<img src="<c:url value='images/wallet.svg'/>" alt="">
 									</div>
 									<div class="intro_content">
 										<div class="intro_title">The Best Prices</div>
@@ -177,7 +173,7 @@
 								<div
 									class="intro_item d-flex flex-row align-items-end justify-content-start">
 									<div class="intro_icon">
-										<img src="images/suitcase.svg" alt="">
+										<img src=" <c:url value='images/suitcase.svg'/>" alt="">
 									</div>
 									<div class="intro_content">
 										<div class="intro_title">Amazing Services</div>
@@ -196,6 +192,6 @@
 	</div>
 
 	<jsp:include page="/voyage/footer.jsp" />
-	<script src="js/main.js"></script>
+	<script src=" <c:url value='js/main.js'/>"></script>
 </body>
 </html>
