@@ -1,21 +1,25 @@
 package model.rate;
 
-import java.util.Arrays;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import org.springframework.format.annotation.DateTimeFormat;
 @Entity
 @Table(name="Rate")
 public class RateBean {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Integer serial;
 	private String currency;
-	private java.util.Date updateTime;
+	
+	private Date updateTime;
 	private Double cashBuy;
 	private Double cashSell;
 	private Double spotBuy;

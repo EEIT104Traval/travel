@@ -27,6 +27,15 @@ public class RateTest {
 		List<RateBean> all =dao.findAll();
 		return all;
 	}
+	
+	@ResponseBody
+	@RequestMapping("/ratefindALL01")
+	public List<RateBean> findAll01(){
+		List<RateBean> all =dao.findAll01();
+		return all;
+	}
+	
+	
 	 @ResponseBody
 	 @RequestMapping("/rateremove")
 	 public boolean remove() {

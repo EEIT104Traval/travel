@@ -51,8 +51,8 @@ tbody tr:hover {
 <body>
 	<div style="margin-top:20px">
 	   <button type="button" style="float:right;margin-right: 350px"><a href="index.jsp" />回首頁</a></button>
-  	   <button type="button" style="float:right;margin-right: 10px"><a href="toggling.jsp" />180天折線圖</a></button>
-	   <button type="button" style="float:right;margin-right: 10px"><a href="toggling.jsp" />90天折線圖</a></button>
+  	   <button type="button" style="float:right;margin-right: 10px"><a href="toggling1.jsp" />最近半年走勢圖</a></button>
+<!-- 	   <button type="button" style="float:right;margin-right: 10px"><a href="toggling.jsp" />最近三個月走勢圖</a></button> -->
 	  
 	</div>
 	<h2 style="margin-left:450px">匯率</h2>
@@ -79,19 +79,37 @@ tbody tr:hover {
 		<tbody>
 			<tr>
 				<td>美金(USD)</td>
-				<td>30.65</td>
-				<td>31.055</td>
-				<td>30.735</td>
-				<td>30.835</td>
+				<td>30.415</td>
+				<td>31.105</td>
+				<td>30.785</td>
+				<td>30.885</td>
 <!-- 				<td><a href="">查詢</a></td> -->
 <!-- 				<td><a href="">查詢</a></td> -->
 			</tr>
 			<tr>
-				<td>港幣(HKD)</td>
-				<td>3.762</td>
-				<td>3.978</td>
-				<td>3.898</td>
-				<td>3.958</td>
+				<td>英鎊(GBP)</td>
+				<td>38.16</td>
+				<td>40.28</td>
+				<td>39.16</td>
+				<td>39.58</td>
+<!-- 				<td><a href="">查詢</a></td> -->
+<!-- 				<td><a href="">查詢</a></td> -->
+
+						<tr>
+				<td>瑞士法郎(CHF)</td>
+				<td>30.63</td>
+				<td>31.83</td>
+				<td>31.29</td>
+				<td>31.58</td>
+<!-- 				<td><a href="">查詢</a></td> -->
+<!-- 				<td><a href="">查詢</a></td> -->
+			</tr>
+						<tr>
+				<td>歐元(EUR)</td>
+				<td>34.48</td>
+				<td>35.82</td>
+				<td>35.1</td>
+				<td>35.5</td>
 <!-- 				<td><a href="">查詢</a></td> -->
 <!-- 				<td><a href="">查詢</a></td> -->
 			</tr>

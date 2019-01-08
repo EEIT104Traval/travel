@@ -27,7 +27,14 @@ public class RateDAOHibernate implements RateDAO{
 	@Override
 	public List<RateBean> findAll() {
 		return this.getSession().createQuery("from RateBean", RateBean.class)
-				.setMaxResults(50)
+				.setMaxResults(280)
+				.list();
+	}
+	
+	@Override
+	public List<RateBean> findAll01() {
+		return this.getSession().createQuery("from RateBean", RateBean.class)
+				.setMaxResults(600)
 				.list();
 	}
 

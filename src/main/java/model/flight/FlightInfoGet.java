@@ -7,13 +7,10 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.zip.GZIPInputStream;
 
-import controller.test.flight.BFMSearch;
-import controller.test.flight.Token;
-
-public class FlightInfoService {
+public class FlightInfoGet{
 
 	
-	public static String getBFM(Token token) throws Exception {
+	public static String getBFM(Token token,String bfmsearch) throws Exception {
 
 		// https: //api.sabre.com正式環境
 		// https: //api.test.sabre.com測試環境
@@ -26,7 +23,7 @@ public class FlightInfoService {
 		hreq.setDoOutput(true); 
 		
 		OutputStream os = hreq.getOutputStream();
-		os.write(BFMSearch.getRequestBody().getBytes("utf-8"));
+		os.write(bfmsearch.getBytes("utf-8"));
 		os.close();
 		
 		GZIPInputStream zipBFMinformation = null;

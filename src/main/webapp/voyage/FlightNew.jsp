@@ -1,14 +1,48 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"
+	integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+	crossorigin="anonymous"></script>
 <!DOCTYPE html>
 <html lang="tw-zh">
 <!-- import this css by Alex -->
 <!-- <link rel="stylesheet" href="css/main_styles.css"> -->
-<link rel="stylesheet" type="text/css" href="<c:url value='styles/main_styles.css'/>">
-<head>									
-<jsp:include page="/voyage/nav.jsp" />
+<link rel="stylesheet" type="text/css"
+	href="<c:url value='styles/main_styles.css'/>">
+<head>
+<%-- <jsp:include page="/voyage/nav.jsp" /> --%>
+<script>
+	$(document).ready(function(){
+			$('#home_search_button').click(function() {
+				alert("button被按了一下");
+				var goPlace = $('#goPlace').val();
+				var goPlace2 = $('#goPlace2').val();
+				var checkin_date = $('#checkin_date').val();
+				var checkout_date = $('#checkout_date').val();
+				var peopleType = $('#peopleType').val();
+				var cabin = $('#search-controls-cabin-class-dropdown').val();
+				$.ajax({
+					url : '/Travel/FlightInfo',
+					contentType : 'application/json; charset=UTF-8',
+					type : 'get',
+					dataType : 'json',
+					data:{
+						"takeOffPlace": goPlace,
+						"landingPlace":goPlace2,
+						"checkin_date":checkin_date,
+						"checkout_date":checkout_date,
+						"peopleType":peopleType,
+						"cabinclass":cabin
+					}
+				}).done(function(JData) {
+					console.log(JData)
+							
+					})
+
+			});
+	});
+</script>
 </head>
 <body>
 
@@ -18,8 +52,7 @@
 			style="background-image: url('<c:url value='/voyage/images/home_slider.jpg'/>')"
 			data-stellar-background-ratio="0.5">
 			<div class="overlay">
-				<div class="container">
-				</div>
+				<div class="container"></div>
 			</div>
 		</div>
 	</section>
@@ -29,64 +62,56 @@
 	<!-- Search -->
 
 	<div class="home_search" style="margin-top: -150px">
-		<div class="container">
-			<div class="row">
-				<div class="col">
-					<div class="home_search_container">
-						<!-- 						<div class="home_search_title">想飛哪就選哪</div> -->
-						<div class="home_search_title">
-							<div class="form-group">
-								<div class="form-checkbox">
-
-
-									<div class="radio-beauty-container">
-										<label style="display: inline-block;"> <input
-											type="radio" name="flystyle" id="flystyle1" hidden
-											style="display: inline-block;" checked="checked" /> 
-											<label for="goandback" class="radio-beauty"
-											style="display: inline-block;"></label><span
-											class="radio-name">往返</span>
-										</label> <label style="display: inline-block;"> <input
-											type="radio" name="flystyle" id="go" hidden
-											style="display: inline-block;" /> <label for="flystyle2"
-											class="radio-beauty" style="display: inline-block;"></label><span
-											class="radio-name">單程</span>
-										</label> <label style="display: inline-block;"> <input
-											type="radio" name="flystyle" id="more" hidden
-											style="display: inline-block;" /> <label for="flystyle3"
-											class="radio-beauty" style="display: inline-block;"></label><span
-											class="radio-name">多程</span>
-										</label>
+		<form action="<c:url value="#" />" class="home_search_form"
+			id="home_search_form" method="post">
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						<div class="home_search_container">
+							<!-- 						<div class="home_search_title">想飛哪就選哪</div> -->
+							<div class="home_search_title">
+								<div class="form-group">
+									<div class="form-checkbox">
+										<div class="radio-beauty-container">
+											<label style="display: inline-block;"> <input
+												type="radio" name="flystyle" id="flystyle1" hidden
+												style="display: inline-block;" checked="checked" /> <label
+												for="goandback" class="radio-beauty"
+												style="display: inline-block;"></label><span
+												class="radio-name">往返</span>
+											</label> <label style="display: inline-block;"> <input
+												type="radio" name="flystyle" id="go" hidden
+												style="display: inline-block;" /> <label for="flystyle2"
+												class="radio-beauty" style="display: inline-block;"></label><span
+												class="radio-name">單程</span>
+											</label> <label style="display: inline-block;"> <input
+												type="radio" name="flystyle" id="more" hidden
+												style="display: inline-block;" /> <label for="flystyle3"
+												class="radio-beauty" style="display: inline-block;"></label><span
+												class="radio-name">多程</span>
+											</label>
+										</div>
 									</div>
-
 								</div>
 							</div>
-						</div>
 
+							<div class="home_search_content">
 
-						<div class="home_search_content">
-							<form action="<c:url value="/voyage/hotels.controller" />"
-								class="home_search_form" id="home_search_form" method="post">
 								<div
 									class="d-flex flex-lg-row flex-column align-items-start justify-content-lg-between justify-content-start">
-
 									<div>
-										<span class="form-label">出發地</span> <input type="text"
+										<span class="form-label">出發地</span> <input id='goPlace' type="text"
 											class="search_input_1" style="width: 450px"
 											placeholder="請輸入機場/城市中英文或代碼" required="required">
 									</div>
-									<img alt="" src="<c:url value='images/changeTwoPlace.png'/>" width="25px"
-										style="padding-top: 42px">
+									<img alt="" src="<c:url value='images/changeTwoPlace.png'/>"
+										width="25px" style="padding-top: 42px">
 									<div>
-										<span class="form-label">目的地</span> <input type="text"
+										<span class="form-label">目的地</span> <input id='goPlace2' type="text"
 											class="search_input search_input_1" style="width: 450px"
 											placeholder="請輸入機場/城市中英文或代碼" required="required">
 									</div>
 								</div>
-							</form>
-						</div>
-						<div class="home_search_content">
-							<form action="#" class="home_search_form" id="home_search_form">
 
 								<div style="display: inline-block; padding-right: 40px;">
 									<span class="form-label">出發日期</span> <input type="text"
@@ -99,7 +124,7 @@
 										name="" id="checkout_date">
 								</div>
 								<div style="display: inline-block; padding-right: 40px;">
-									<span class="form-label">旅客類型</span> <input type="text"
+									<span class="form-label">旅客類型</span> <input id='peopleType' type="text"
 										class="search_input search_input_1" placeholder="人數" name="">
 								</div>
 								<div style="display: inline-block; padding-right: 85px;">
@@ -116,16 +141,16 @@
 								</div>
 
 
-								<button class="home_search_button">搜尋</button>
-								<!-- 									    <div class="check-in col-sm-12 group mb-3"><input type="text" id="checkin_date" class="form-control" placeholder="入住日期"></div> -->
-						</form>
+								<button class="home_search_button" id="home_search_button">搜尋</button>
+							</div>
 						</div>
-						
 					</div>
 				</div>
 			</div>
-		</div>
+		</form>
+
 	</div>
+
 
 	<div class="intro">
 		<div class="intro_background"
@@ -191,7 +216,7 @@
 		</div>
 	</div>
 
-	<jsp:include page="/voyage/footer.jsp" />
+	<jsp:include page="/voyage/foo.jsp" />
 	<script src=" <c:url value='js/main.js'/>"></script>
 </body>
 </html>
