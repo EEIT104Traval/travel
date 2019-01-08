@@ -61,12 +61,12 @@
         <div class="collapse navbar-collapse" id="ftco-nav">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active"><a href="index.jsp" class="nav-link">首頁</a></li>
-            <li class="nav-item"><a href="tours.jsp" class="nav-link">團體旅遊</a></li>
-            <li class="nav-item"><a href="hotels.jsp" class="nav-link">飯店</a></li>
-            <li class="nav-item"><a href="FlightNoDelect3.jsp" class="nav-link">機票</a></li>
-            <li class="nav-item"><a href="ticket.jsp" class="nav-link">門票</a></li>
-            <li class="nav-item"><a href="rate.jsp" class="nav-link">查詢匯率</a></li>
-            <li class="nav-item"><a href="contact.html" class="nav-link">聯絡我們</a></li>
+            <li class="nav-item"><a href="<c:url value='/voyage/tour/tours.jsp'/>" class="nav-link">團體旅遊</a></li>
+            <li class="nav-item"><a href="<c:url value='/voyage/hotels.jsp'/>" class="nav-link">飯店</a></li>
+            <li class="nav-item"><a href="<c:url value='/voyage/FlightNoDelect3.jsp'/>" class="nav-link">機票</a></li>
+            <li class="nav-item"><a href="<c:url value='/voyage/ticket.jsp'/>" class="nav-link">門票</a></li>
+            <li class="nav-item"><a href="<c:url value='/voyage/rate.jsp'/>" class="nav-link">查詢匯率</a></li>
+            <li class="nav-item"><a href="<c:url value='/voyage/contact.html'/>" class="nav-link">聯絡我們</a></li>
             <li class="nav-item"><a href="#" class="nav-link">
             	<jsp:include page="login.jsp"></jsp:include>
             </a></li>

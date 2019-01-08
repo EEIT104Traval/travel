@@ -13,14 +13,16 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	
+<!--	https://hk.saowen.com/a/3bb2d62596486787bb77995a447207f180a828af15cddf5912c0aceaad24caf0 -->
 		<script>
 			var params = {};
+			
 			$(document).ready(function() {
 				ticketSearch1();
-	
+				
 			});
 
-			
+		
 
 				function ticketSearch1(){
 						params.country = $('#country').val();
@@ -48,9 +50,9 @@
 		'</div>'+
 		'<br>'+
 		'<div class="d-flex flex-lg-row flex-column align-items-start justify-content-start" style="margin-left: 58px;">'+
-			'<input type="image" src="images/MIN.png" onClick="document.form1.submit()" width="15%"> '+
-			'<input type="text" value="0" readonly="readonly"style="text-align: center; height: 20px; width: 40px; margin: 0; border: 0px;">'+
-			'<input type="image" src="images/PL.png" onClick="document.form1.submit()" width="15%">'+
+			'<input type="image" src="images/MIN.png" id="QLess" width="15%"> '+
+			'<input type="text" value="0" readonly="readonly" id="text_box" style="text-align: center; height: 20px; width: 40px; margin: 0; border: 0px;">'+
+			'<input type="image" src="images/PL.png" id="QAdd"  width="15%">'+
 		'</div>'+
 		'<br>'+
 		'<p class="clearfix">'+
@@ -63,7 +65,38 @@
 									});
 							})
 // 					});
-					}
+				 $(function() {  
+		                $("#QAdd").click(function() {  
+		                	alert("ggg")
+		                    var t = $(this).parent().find('input[id*=text_box]');  
+		                    if(t.val()==""||undefined||null){  
+		                        t.val(0);  
+		                    }  
+		                    t.val(parseInt(t.val()) + 1)  
+		                    setTotal();  
+		                })  
+		                $("#QLess").click(function() {  
+		                	alert("ggg")
+		                    var t = $(this).parent().find('input[id*=text_box]');  
+		                    if(t.val()==""||undefined||null){  
+		                        t.val(0);  
+		                    }  
+		                    t.val(parseInt(t.val()) - 1)  
+		                    if(parseInt(t.val()) < 0) {  
+		                        t.val(0);  
+		                    }  
+		                    setTotal();  
+		                })  
+		                $("#text_box").keyup(function(){  
+		                    var t = $(this).parent().find('input[id*=text_box]');  
+		                    if(parseInt(t.val())==""||undefined||null || isNaN(t.val())) {  
+		                        t.val(0);  
+		                    }  
+		                    setTotal();  
+		                })  
+		               
+		            })  
+			}
 
 	</script>
 </head>

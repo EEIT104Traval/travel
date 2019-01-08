@@ -199,10 +199,11 @@ public class FlightTest implements XmlDocument {
 					} else {
 						count++;
 						bean.setAirportName(node.getText());
+						System.out.print("'"+ node.getText()+"',");
 					}
 					if (count % 2 == 0) {
 						AirportCompareBean bean1 = adao.create(bean);
-						System.out.println("新增成功=" + bean1);
+//						System.out.println("新增成功=" + bean1);
 					}
 
 				}
@@ -210,7 +211,7 @@ public class FlightTest implements XmlDocument {
 		} catch (DocumentException e) {
 			System.out.println(e.getMessage());
 		}
-		System.out.println("dom4j parserXml");
+//		System.out.println("dom4j parserXml");
 	}
 
 	@ResponseBody // @RestController可替代

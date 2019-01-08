@@ -2,12 +2,14 @@ package model.hotel.dao;
 
 import java.util.List;
 
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import org.springframework.util.StringUtils;
 
 import model.hotel.HotelBean;
 import model.hotel.HotelDAO;
@@ -74,18 +76,32 @@ public class HotelDAOHibernate implements HotelDAO {
 		
 		return false;
 	}
-
-	@SuppressWarnings("unchecked")
+	
 	@Override
-	public List<HotelBean> searchByCountry(HotelBean bean) {
-		String sql = "from HotelBean where country = :country and city like :city";
-		Query<HotelBean> query = this.getSession().createQuery(sql);
-		
-		if (!StringUtils.containsWhitespace(bean.getCity())) {
-			bean.setCity("%");
-		}
-		
-		return query.setProperties(bean).list();
+	public List<HotelBean> searchByCountry(String country) {
+		CriteriaBuilder criteriaBuilder = getSession().getCriteriaBuilder();
+		CriteriaQuery<HotelBean> criteria = criteriaBuilder.createQuery(HotelBean.class);
+		Root<HotelBean> from = criteria.from(HotelBean.class);
+		criteria.select(from).where(from.get("country").in(country));
+		List<HotelBean> list = getSession().createQuery(criteria).getResultList();
+		return list;
 	}
+	
+
+	
+	
+//
+//	@SuppressWarnings("unchecked")
+//	@Override
+//	public List<HotelBean> searchByCountry(HotelBean bean) {
+//		String sql = "from HotelBean where country = :country and city like :city";
+//		Query<HotelBean> query = this.getSession().createQuery(sql);
+//		
+//		if (!StringUtils.containsWhitespace(bean.getCity())) {
+//			bean.setCity("%");
+//		}
+//		
+//		return query.setProperties(bean).list();
+//	}
 
 }
