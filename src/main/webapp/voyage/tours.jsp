@@ -174,17 +174,18 @@
 		 
 		 $.getJSON( "/Travel/groupTour", function( data ) {
 			 var contents ="";
+			 var contentss ="";
 			 $.each(data, function(idx,val){
 				 console.log(idx+",  "+val.tourName+","+val.content);
-				 contentss +="<p>ACKAHLHDLJHLKDHLDKHLKDHL!!FUCKKKK!!</p>"
-				 
-				contents +="		<div class=\"col-md-6 col-lg-6 mb-4 ftco-animate\">"
+				 contentss +="<div class=\"col-md-6 col-lg-6 mb-4 \"><p>ACKAHLHDLJHLKDHLDKHLKDHL!!FUCKKKK!!</p></div>"
+// 					                                           ftco-animate
+				contents +="<div class=\"col-md-6 col-lg-6 mb-4             \">"
 					+"<a href=\"#\" class=\"block-5\" style=\"background-image: url('images/tour-1.jpg');\">"						
 					+	"<div class=\"text\">"
-					+		"<span class=\"price\">$399</span>"
-					+		"<h3 class=\"heading\">Group Tour in Maldives</h3>"
+					+		"<span class=\"price\">"+val.tourName+"</span>"
+					+		"<h3 class=\"heading\">"+val.destination+"</h3>"
 					+		"<div class=\"post-meta\">"
-					+			"<span>Ameeru Ahmed Magu Male’, Maldives</span>"
+					+			"<span>"+val.content+"</span>"
 					+		"</div>"
 					+		"<p class=\"star-rate\">"
 					+			"<span class=\"icon-star\"></span><span class=\"icon-star\"></span><span class=\"icon-star\"></span><span class=\"icon-star\"></span><span class=\"icon-star-half-full\"></span> <span>500 reviews</span>"							
