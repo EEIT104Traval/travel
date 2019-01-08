@@ -43,10 +43,9 @@
 						contentType : 'application/json; charset=UTF-8',
 						type : 'get',
 						dataType : 'json',
-						
 					}).done(
 							function(JData) {
-								console.log(JData)
+// 								console.log(JData.TourPictureBean)
 								$.each(JData.TourPictureBean, function(index, value) {
 									console.log(value)
 									$("#JSON_table").append(
@@ -64,6 +63,6 @@
 
 				});
 	</script>
-	<jsp:include page="../foo.jsp"/>
+	<jsp:include page="foo.jsp"></jsp:include>
 </body>
 </html>
