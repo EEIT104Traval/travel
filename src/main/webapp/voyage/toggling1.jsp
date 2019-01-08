@@ -22,7 +22,7 @@
 	var dataCurrency = [];
 	var dataForChartJson;
 
-	xhttp.open("POST", "../ratefindALL", false);
+	xhttp.open("POST", "../ratefindALL01", false);
 	xhttp.send();
 	console.log(xhttp.responseText);
 	chartJson = xhttp.responseText;

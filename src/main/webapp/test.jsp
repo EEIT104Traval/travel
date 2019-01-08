@@ -58,6 +58,8 @@
 	<hr />
 	<a href="<c:url value='/ratePK' />">RatePK</a>
 	<a href="<c:url value='/ratefindALL' />">RatefindAll</a>
+	<a href="<c:url value='/ratefindALL01' />">RatefindAll01</a>
+	
 	<%-- 	<a href="<c:url value='/ratecreate' />">Ratecreat</a> --%>
 	<%-- 	<a href="<c:url value='/rateupdate' />">Rateupdate</a> --%>
 	<%-- 	<a href="<c:url value='/rateremove' />">Rateremove</a> --%>
