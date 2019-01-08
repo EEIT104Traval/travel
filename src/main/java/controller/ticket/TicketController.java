@@ -20,7 +20,7 @@ public class TicketController {
 	
 	@ResponseBody
 	@RequestMapping("/voyage/ticket.controller")
-	public List<TicketInfoBean> method(@RequestParam(name="country")String country, Model model) {
+	public List<TicketInfoBean> method(@RequestParam(value="country",required=false)String country) {
 	//	Locale locale = LocaleContextHolder.getLocale(); //多國語系
 		System.out.println("country="+country);
 //接收資料
@@ -31,5 +31,6 @@ public class TicketController {
 //呼叫view		
 			return result;
 		}
+	
 	}
 

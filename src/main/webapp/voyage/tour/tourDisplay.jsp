@@ -43,6 +43,7 @@
 						contentType : 'application/json; charset=UTF-8',
 						type : 'get',
 						dataType : 'json',
+						
 					}).done(
 							function(JData) {
 								console.log(JData)
