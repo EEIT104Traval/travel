@@ -186,7 +186,7 @@
 					+"<a href=\"<c:url value='tourDisplay.jsp'/>\" class=\"block-5\" style=\"background-image: url('"+val.TourPictureBean[0].pic +"');\">"						
 					+	"<div class=\"text\">"  
 					+		"<span class=\"price\" style=\"color:red ; font-weight:bold\"><b><u>$"+val.tourBatchBean[0].price_adult+"</u></b></span>"
-					+		"<h3 class=\"heading\">"+val.destination+"</h3>"
+					+		"<h3 class=\"heading\">"+val.tourName+"</h3>"
 					+		"<div class=\"post-meta\">"
 					+			"<span>"+val.content+"</span>"
 					+		"</div>"
