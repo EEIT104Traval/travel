@@ -35,6 +35,13 @@ public class GroupTourBean {
 	)
 	private List<TourPictureBean> TourPictureBean;
 	
+	@OneToMany(
+			cascade=CascadeType.REMOVE,
+			mappedBy="tourNo"
+	)
+	private List<TourTagsBean> TourTagsBean;
+	
+	
 	
 	
 	public String getTourNo() {
@@ -105,13 +112,20 @@ public class GroupTourBean {
 	public void setTourPictureBean(List<TourPictureBean> tourPictureBean) {
 		TourPictureBean = tourPictureBean;
 	}
+	public List<TourTagsBean> getTourTagsBean() {
+		return TourTagsBean;
+	}
+	public void setTourTagsBean(List<TourTagsBean> tourTagsBean) {
+		TourTagsBean = tourTagsBean;
+	}
 	@Override
 	public String toString() {
 		return "GroupTourBean [tourNo=" + tourNo + ", country=" + country + ", tourName=" + tourName + ", destination="
 				+ destination + ", tourDays=" + tourDays + ", guaranteedCount=" + guaranteedCount + ", fullPeopleCount="
 				+ fullPeopleCount + ", clickCount=" + clickCount + ", content=" + content + ", tourBatchBean="
-				+ tourBatchBean + ", TourPictureBean=" + TourPictureBean + "]";
+				+ tourBatchBean + ", TourPictureBean=" + TourPictureBean + ", TourTagsBean=" + TourTagsBean + "]";
 	}
+	
 
 	
 }
