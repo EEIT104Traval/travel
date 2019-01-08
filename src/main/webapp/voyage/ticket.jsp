@@ -16,34 +16,47 @@
 	<script>
 		$(document).ready(function() {
 			var params = {};
+			
 					$('#ticketsh').click(function(){
 						params.country = $('#country').val();
-						alert(params.country)
 					$.ajax({
 						url : '/Travel/voyage/ticket.controller',
-// 						contentType : 'application/json; charset=UTF-8',
+ 						contentType : 'application/json; charset=UTF-8',
 						type : 'get',
 						dataType : 'json',
 						data :params,
 					}).done(
 							function(JData) {
-								console.log(JData)
-// 								$.each(JData.TourPictureBean, function(index, value) {
-// 									console.log(value)
-// 									$("#JSON_table").append(
-// 											"<tr>" + "<td>"
-// 													+ value.tpicNo
-// 													+ "</td>" + "<td>"
-// 													+ "<img src= "+value.pic+"/>"
-// 													+ "</td>" + "<td>"
-// 													+ value.picDetail
-// 													+ "</td>" + "<td>"
-// 													+ value.pictitle
-// 													+ "</td>" + "</tr>");
-// 								});
+								$.each(JData, function(index, value) {
+									console.log(value);
+									$("#div_ticket_search").append(
+// ------------------------------------------------------------------------------------------------------------------------------------------------------
+'<div class="col-md-6 col-lg-3">'+
+'<div class="blog-entry">'+
+	'<a class="block-20" style="background-image: url('+value.ticketPicture+');"> </a>'+
+	'<div class="text p-4">'+
+		'<div class="meta" style="margin-left: 45px;">'+
+			'<div>'+ value.ticketName +'</div>'+
+			'<div>€'+ value.adultTicketPrice +'</div>'+
+		'</div>'+
+		'<br>'+
+		'<div class="d-flex flex-lg-row flex-column align-items-start justify-content-start" style="margin-left: 58px;">'+
+			'<input type="image" src="images/MIN.png" onClick="document.form1.submit()" width="15%"> '+
+			'<input type="text" value="0" readonly="readonly"style="text-align: center; height: 20px; width: 40px; margin: 0; border: 0px;">'+
+			'<input type="image" src="images/PL.png" onClick="document.form1.submit()" width="15%">'+
+		'</div>'+
+		'<br>'+
+		'<p class="clearfix">'+
+			'<a	href="'+ value.traffic_information +'" class="float-left">Read more</a> <input type="image"	src="images/CK.png" onClick="document.form1.submit()" width="13%" style="float: right;">'+
+		'</p>'+
+	'</div>'+
+'</div>'+
+'</div>'					 
+												);
+									});
 							})
 					});
-		});
+	 		});
 		
 	</script>
 <body>
@@ -100,259 +113,10 @@
 
 
 		<div class="container">
-			<div class="row">
-				<div class="col-md-6 col-lg-3 ftco-animate">
-					<div class="blog-entry">
-						<!--   --------------------------------------------------------------------------------------------------------------------------------------- -->
-						<a class="block-20"
-							style="background-image: url('images/image_1.jpg');"> </a>
-						<div class="text p-4">
-							<div class="meta" style="margin-left: 45px;">
-								<div>艾菲爾鐵塔</div>
-								<div>€50</div>
-							</div>
-							<br>
-							<div
-								class="d-flex flex-lg-row flex-column align-items-start justify-content-start"
-								style="margin-left: 58px;">
-								<input type="image" src="images/MIN.png"
-									onClick="document.form1.submit()" width="15%"> <input
-									type="text" value="0" readonly="readonly"
-									style="text-align: center; height: 20px; width: 40px; margin: 0; border: 0px;">
-								<input type="image" src="images/PL.png"
-									onClick="document.form1.submit()" width="15%">
-							</div>
-							<br>
-							<p class="clearfix">
-								<a
-									href="https://zh.wikipedia.org/wiki/%E8%89%BE%E8%8F%B2%E7%88%BE%E9%90%B5%E5%A1%94"
-									class="float-left">Read more</a> <input type="image"
-									src="images/CK.png" onClick="document.form1.submit()"
-									width="13%" style="float: right;">
-							</p>
-							<!--   --------------------------------------------------------------------------------------------------------------------------------------- -->
-						</div>
-					</div>
-				</div>
-				<div class="col-md-6 col-lg-3 ftco-animate">
-					<div class="blog-entry">
-						<a class="block-20"
-							style="background-image: url('images/image_2.jpg');"> </a>
-						<div class="text p-4">
-							<div class="meta">
-								<div>巴黎凱旋門</div>
-								<div>€50</div>
-							</div>
-							<br>
-							<div
-								class="d-flex flex-lg-row flex-column align-items-start justify-content-start"
-								style="margin: auto;">
-								<input type="image" src="images/MIN.png"
-									onClick="document.form1.submit()" width="10%"> <input
-									type="text" readonly="readonly"
-									style="height: 20px; width: 80px;"> <input type="image"
-									src="images/PL.png" onClick="document.form1.submit()"
-									width="10%">
-							</div>
-							<br>
-							<p class="clearfix">
-								<a
-									href="https://zh.wikipedia.org/wiki/%E5%B7%B4%E9%BB%8E%E5%87%AF%E6%97%8B%E9%97%A8"
-									class="float-left">Read more</a> <input type="image"
-									src="images/CK.png" onClick="document.form1.submit()"
-									width="10%">
-							</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-6 col-lg-3 ftco-animate">
-					<div class="blog-entry" data-aos-delay="200">
-						<a class="block-20"
-							style="background-image: url('images/image_3.jpg');"> </a>
-						<div class="text p-4">
-							<div class="meta">
-								<div>羅浮宮</div>
-								<div>€50</div>
-							</div>
-							<br>
-							<div
-								class="d-flex flex-lg-row flex-column align-items-start justify-content-start"
-								style="margin: auto;">
-								<input type="image" src="images/MIN.png"
-									onClick="document.form1.submit()" width="10%" height="10%">
-								<input type="text" readonly="readonly"
-									style="height: 20px; width: 80px;"> <input type="image"
-									src="images/PL.png" onClick="document.form1.submit()"
-									width="10%" height="10%">
-							</div>
-							<br>
-							<p class="clearfix">
-								<a
-									href="https://zh.wikipedia.org/wiki/%E5%8D%A2%E6%B5%AE%E5%AE%AB"
-									class="float-left">Read more</a> <input type="image"
-									src="images/CK.png" onClick="document.form1.submit()"
-									width="10%" height="10%">
-							</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-6 col-lg-3 ftco-animate">
-					<div class="blog-entry" data-aos-delay="200">
-						<a class="block-20"
-							style="background-image: url('images/image_4.jpg');"> </a>
-						<div class="text p-4">
-							<div class="meta">
-								<div>新天鵝堡</div>
-								<div>€50</div>
-							</div>
-							<br>
-							<div
-								class="d-flex flex-lg-row flex-column align-items-start justify-content-start"
-								style="margin: auto;">
-								<input type="image" src="images/MIN.png"
-									onClick="document.form1.submit()" width="10%" height="10%">
-								<input type="text" readonly="readonly"
-									style="height: 20px; width: 80px;"> <input type="image"
-									src="images/PL.png" onClick="document.form1.submit()"
-									width="10%" height="10%">
-							</div>
-							<br>
-							<p class="clearfix">
-								<a
-									href="https://zh.wikipedia.org/wiki/%E6%96%B0%E5%A4%A9%E9%B9%85%E5%A0%A1"
-									class="float-left">Read more</a> <input type="image"
-									src="images/CK.png" onClick="document.form1.submit()"
-									width="10%" height="10%">
-							</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-6 col-lg-3 ftco-animate">
-					<div class="blog-entry" data-aos-delay="200">
-						<a class="block-20"
-							style="background-image: url('images/image_5.jpg');"> </a>
-						<div class="text p-4">
-							<div class="meta">
-								<div>黃金快車</div>
-								<div>€50</div>
-							</div>
-							<br>
-							<div
-								class="d-flex flex-lg-row flex-column align-items-start justify-content-start"
-								style="margin: auto;">
-								<input type="image" src="images/MIN.png"
-									onClick="document.form1.submit()" width="10%" height="10%">
-								<input type="text" readonly="readonly"
-									style="height: 20px; width: 80px;"> <input type="image"
-									src="images/PL.png" onClick="document.form1.submit()"
-									width="10%" height="10%">
-							</div>
-							<br>
-							<p class="clearfix">
-								<a
-									href="https://www.myswitzerland.com/zo-tw/goldenpass-line.html"
-									class="float-left">Read more</a> <input type="image"
-									src="images/CK.png" onClick="document.form1.submit()"
-									width="10%" height="10%">
-							</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-6 col-lg-3 ftco-animate">
-					<div class="blog-entry" data-aos-delay="200">
-						<a class="block-20"
-							style="background-image: url('images/image_6.jpg');"> </a>
-						<div class="text p-4">
-							<div class="meta">
-								<div>羅馬競技場</div>
-								<div>€50</div>
-							</div>
-							<br>
-							<div
-								class="d-flex flex-lg-row flex-column align-items-start justify-content-start"
-								style="margin: auto;">
-								<input type="image" src="images/MIN.png"
-									onClick="document.form1.submit()" width="10%" height="10%">
-								<input type="text" readonly="readonly"
-									style="height: 20px; width: 80px;"> <input type="image"
-									src="images/PL.png" onClick="document.form1.submit()"
-									width="10%" height="10%">
-							</div>
-							<br>
-							<p class="clearfix">
-								<a
-									href="https://zh.wikipedia.org/wiki/%E7%BD%97%E9%A9%AC%E6%96%97%E5%85%BD%E5%9C%BA"
-									class="float-left">Read more</a> <input type="image"
-									src="images/CK.png" onClick="document.form1.submit()"
-									width="10%" height="10%">
-							</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-6 col-lg-3 ftco-animate">
-					<div class="blog-entry" data-aos-delay="200">
-						<a class="block-20"
-							style="background-image: url('images/image_7.jpg');"> </a>
-						<div class="text p-4">
-							<div class="meta">
-								<div>埃及金字塔</div>
-								<div>€50</div>
-							</div>
-							<br>
-							<div
-								class="d-flex flex-lg-row flex-column align-items-start justify-content-start"
-								style="margin: auto;">
-								<input type="image" src="images/MIN.png"
-									onClick="document.form1.submit()" width="10%" height="10%">
-								<input type="text" readonly="readonly"
-									style="height: 20px; width: 80px;"> <input type="image"
-									src="images/PL.png" onClick="document.form1.submit()"
-									width="10%" height="10%">
-							</div>
-							<br>
-							<p class="clearfix">
-								<a
-									href="https://zh.wikipedia.org/wiki/%E5%9F%83%E5%8F%8A%E9%87%91%E5%AD%97%E5%A1%94"
-									class="float-left">Read more</a> <input type="image"
-									src="images/CK.png" onClick="document.form1.submit()"
-									width="10%" height="10%">
-							</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-6 col-lg-3 ftco-animate">
-					<div class="blog-entry" data-aos-delay="200">
-						<a class="block-20"
-							style="background-image: url('images/image_8.jpg');"> </a>
-						<div class="text p-4">
-							<div class="meta">
-								<div>米其林餐廳</div>
-								<div>€50</div>
-							</div>
-							<br>
-							<div
-								class="d-flex flex-lg-row flex-column align-items-start justify-content-start"
-								style="margin: auto;">
-								<input type="image" src="images/MIN.png"
-									onClick="document.form1.submit()" width="10%" height="10%">
-								<input type="text" readonly="readonly"
-									style="height: 20px; width: 80px;"> <input type="image"
-									src="images/PL.png" onClick="document.form1.submit()"
-									width="10%" height="10%">
-							</div>
-							<br>
-							<p class="clearfix">
-								<a href="#https://guide.michelin.com/" class="float-left">Read
-									more</a> <input type="image" src="images/CK.png"
-									onClick="document.form1.submit()" width="10%" height="10%">
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<!--  iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii -->
-
+			<div class="row" id="div_ticket_search">
+<!--   --------------------------------------------------------------------------------------------------------------------------------------- -->
+<!--   --------------------------------------------------------------------------------------------------------------------------------------- -->
+		</div>
 			<div class="row mt-5">
 				<div class="col text-center">
 					<div class="block-27">
