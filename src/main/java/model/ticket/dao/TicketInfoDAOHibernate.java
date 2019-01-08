@@ -40,24 +40,6 @@ public class TicketInfoDAOHibernate implements TicketInfoDAO {
 	}
 
 	@Override
-	public TicketInfoBean findByTicketName(String ticketName) {
-
-		return this.getSession().get(TicketInfoBean.class, ticketName);
-	}
-
-	@Override
-	public TicketInfoBean findByTicketCountry(String country) {
-
-		return this.getSession().get(TicketInfoBean.class, country);
-	}
-
-	@Override
-	public TicketInfoBean findByTicketCategory(String category) {
-
-		return this.getSession().get(TicketInfoBean.class, category);
-	}
-
-	@Override
 	public TicketInfoBean create(TicketInfoBean bean) {
 
 		this.getSession().save(bean);
@@ -114,13 +96,6 @@ public class TicketInfoDAOHibernate implements TicketInfoDAO {
 		List<TicketInfoBean> list = getSession().createQuery(criteria).getResultList();
 		return list;
 	}
-	
-//	@SuppressWarnings("unchecked")
-//	@Override(test)
-//	public List<TicketInfoBean> searchByCountry(TicketInfoBean bean)  {
-//
-//		return this.getSession().createQuery("from TicketInfoBean where country", TicketInfoBean.class).setMaxResults(50).list();
-//	}
 }
 
 //	@Override

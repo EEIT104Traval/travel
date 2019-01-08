@@ -92,7 +92,7 @@ public class HotelServlet extends HttpServlet {
 //		}
 
 		if (errors != null && !errors.isEmpty()) {
-			request.getRequestDispatcher("/voyage/hotels.jsp").forward(request, response);
+			request.getRequestDispatcher("/voyage/hotel/hotels.jsp").forward(request, response);
 			return;
 		}
 
@@ -102,7 +102,7 @@ public class HotelServlet extends HttpServlet {
 
 		// 呼叫view
 		session.setAttribute("hotelList", hotelList);
-		response.sendRedirect("hotels1.jsp");
+		response.sendRedirect("hotel/hotelSearch.jsp");
 	}
 
 	@Override
