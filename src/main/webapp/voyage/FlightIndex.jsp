@@ -25,7 +25,8 @@
 <body>
 
 	<!-- Home -->
-	<jsp:include page="nav.jsp"></jsp:include>
+	<header><jsp:include page="nav.jsp"></jsp:include></header>
+
 	<div class="home">
 
 		<!-- Home Slider -->
@@ -51,43 +52,6 @@
 					</div>
 				</div>
 
-				<!-- 				Slide -->
-				<!-- 				<div class="owl-item"> -->
-				<!-- 					<div class="background_image" -->
-				<!-- 						style="background-image: url(images/home_slider.jpg)"></div> -->
-				<!-- 					<div class="home_slider_content_container"> -->
-				<!-- 						<div class="container"> -->
-				<!-- 							<div class="row"> -->
-				<!-- 								<div class="col"> -->
-				<!-- 									<div class="home_slider_content"> -->
-				<!-- 										<div class="home_title"> -->
-				<!-- 											<h2>Let us take you away</h2> -->
-				<!-- 										</div> -->
-				<!-- 									</div> -->
-				<!-- 								</div> -->
-				<!-- 							</div> -->
-				<!-- 						</div> -->
-				<!-- 					</div> -->
-				<!-- 				</div> -->
-
-				<!-- 				Slide -->
-				<!-- 				<div class="owl-item"> -->
-				<!-- 					<div class="background_image" -->
-				<!-- 						style="background-image: url(images/home_slider.jpg)"></div> -->
-				<!-- 					<div class="home_slider_content_container"> -->
-				<!-- 						<div class="container"> -->
-				<!-- 							<div class="row"> -->
-				<!-- 								<div class="col"> -->
-				<!-- 									<div class="home_slider_content"> -->
-				<!-- 										<div class="home_title"> -->
-				<!-- 											<h2>Let us take you away</h2> -->
-				<!-- 										</div> -->
-				<!-- 									</div> -->
-				<!-- 								</div> -->
-				<!-- 							</div> -->
-				<!-- 						</div> -->
-				<!-- 					</div> -->
-				<!-- 				</div> -->
 
 			</div>
 		</div>
@@ -151,14 +115,18 @@
 								<form action="#" class="home_search_form" id="home_search_form">
 									<div
 										class="d-flex flex-lg-row flex-column align-items-start justify-content-lg-between justify-content-start">
-										<div>
-											<span class="form-label">出發日期</span>
-											<button type="date" class="search_input search_input_1"
-												style="width: 180px; padding-right: 20px"
-												required="required">
-												<span style="text-align: left; padding-right: 140px">yyyy/MM/dd</span>
-											</button>
+										<div class="check-in col-sm-12 group mb-3">
+											<input type="text" id="checkin_date" class="form-control"
+												placeholder="Check-in date">
 										</div>
+
+										<!-- 									<div> -->
+										<!-- 										<span class="form-label">出發日期</span> -->
+										<!-- 										<button type="date" class="search_input search_input_1" -->
+										<!-- 											style="width: 180px; padding-right: 20px" required="required"> -->
+										<!-- 											<span style="text-align: left; padding-right: 140px">yyyy/MM/dd</span> -->
+										<!-- 										</button> -->
+										<!-- 									</div> -->
 										<div>
 											<span class="form-label">回程日期</span>
 											<button type="date" class="search_input search_input_1"
@@ -174,16 +142,12 @@
 												<span style="text-align: left;">1位成人</span>
 											</button>
 										</div>
-										<!-- 										<div> -->
-										<!-- 											<span class="form-label">艙等</span> -->
-										<!-- 											<button class="search_input search_input_1" -->
-										<!-- 												style="width: 130px"></button> -->
-										<!-- 										</div> -->
 										<div>
 											<span class="form-label">艙等</span> <select
 												class="search_input search_input_1"
 												id="search-controls-cabin-class-dropdown"
-												name="search-controls-cabin-class-dropdown"style="width: 180px;">
+												name="search-controls-cabin-class-dropdown"
+												style="width: 180px;">
 												<option value="Economy" selected="selected">經濟艙</option>
 												<option value="PremiumEconomy">高端經濟艙</option>
 												<option value="First">頭等艙</option>
@@ -265,19 +229,18 @@
 				</div>
 			</div>
 		</div>
-	</div>
 
+		<script src="styles/bootstrap4/popper.js"></script>
+		<script src="styles/bootstrap4/bootstrap.min.js"></script>
+		<script src="plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
+		<script src="plugins/Isotope/isotope.pkgd.min.js"></script>
+		<script src="plugins/scrollTo/jquery.scrollTo.min.js"></script>
+		<script src="plugins/easing/easing.js"></script>
+		<script src="plugins/parallax-js-master/parallax.min.js"></script>
+		<script src="js/custom.js"></script>
+		<script src="js/main.js"></script>
 
-	<script src="styles/bootstrap4/popper.js"></script>
-	<script src="styles/bootstrap4/bootstrap.min.js"></script>
-	<script src="plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
-	<script src="plugins/Isotope/isotope.pkgd.min.js"></script>
-	<script src="plugins/scrollTo/jquery.scrollTo.min.js"></script>
-	<script src="plugins/easing/easing.js"></script>
-	<script src="plugins/parallax-js-master/parallax.min.js"></script>
-	<script src="js/custom.js"></script>
-
-	<%-- 	<jsp:include page="footer.jsp"></jsp:include> --%>
+		<%-- 	<jsp:include page="footer.jsp"></jsp:include> --%>
 </body>
 </html>
 

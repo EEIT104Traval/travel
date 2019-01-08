@@ -14,7 +14,7 @@ public class TourTagsBean {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)  
 	private Integer serialNo;
 	private String tourNo;
-	private String Tag;
+	private String tag;
 	
 	public Integer getSerialNo() {
 		return serialNo;
@@ -29,14 +29,14 @@ public class TourTagsBean {
 		this.tourNo = tourNo;
 	}
 	public String getTag() {
-		return Tag;
+		return tag;
 	}
 	public void setTag(String tag) {
-		Tag = tag;
+		this.tag = tag;
 	}
 	@Override
 	public String toString() {
-		return "TourTagsBean [serialNo=" + serialNo + ", tourNo=" + tourNo + ", Tag=" + Tag + "]";
+		return "TourTagsBean [serialNo=" + serialNo + ", tourNo=" + tourNo + ", Tag=" + tag + "]";
 	}
 	
 	

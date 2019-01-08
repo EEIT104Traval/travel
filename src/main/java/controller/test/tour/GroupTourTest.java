@@ -29,7 +29,7 @@ public class GroupTourTest {
 	// @ResponseBody  //@RestController可替代
 	 @RequestMapping("/TourtestfindPK")
 	 public GroupTourBean findPK() {
-		 GroupTourBean pk = dao.findByPrimaryKey("1001"); 
+		 GroupTourBean pk = dao.findByPrimaryKey("2"); 
 		 return pk;	  
 	  
 	 } 

@@ -18,12 +18,12 @@ public class TourPictureBean implements Serializable{
 	private Integer tpicNo;
 	private String pictitle;
 	private String picDetail;
-	private Byte[] pic;
+	private String pic;
 	
 	@Override
 	public String toString() {
 		return "TourPictureBean [tourNo=" + tourNo + ", tpicNo=" + tpicNo + ", pictitle=" + pictitle + ", picDetail="
-				+ picDetail + ", pic=" + Arrays.toString(pic) + "]";
+				+ picDetail + ", pic=" + pic + "]";
 	}
 
 	public String getTourNo() {
@@ -58,11 +58,11 @@ public class TourPictureBean implements Serializable{
 		this.picDetail = picDetail;
 	}
 
-	public Byte[] getPic() {
+	public String getPic() {
 		return pic;
 	}
 
-	public void setPic(Byte[] pic) {
+	public void setPic(String pic) {
 		this.pic = pic;
 	}
 	

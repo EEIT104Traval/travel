@@ -29,6 +29,11 @@ public class TourTagsDAO {
 				.setMaxResults(100)
 				.list();
 	}
+	 public List<String> findTags(){
+		 return this.getSession().createQuery("select tag from TourTagsBean ",String.class)
+				 .setMaxResults(50)
+				 .list();		 
+	 }
 	
 	public TourTagsBean create(TourTagsBean bean) {
 				this.getSession().save(bean);

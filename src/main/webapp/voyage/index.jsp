@@ -626,6 +626,6 @@
       </div>
     </section>
 
-  <jsp:include page="/voyage/footer.jsp" />
+  <jsp:include page="/voyage/foo.jsp" />
   </body>
 </html>

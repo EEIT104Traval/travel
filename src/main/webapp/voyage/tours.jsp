@@ -10,9 +10,15 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 </head>
+
+<script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
 <body>
 
-	<jsp:include page="nav.jsp"></jsp:include>
+
+<%-- 	<jsp:include page="nav.jsp"></jsp:include> --%>
 
 	<section class="home-slider owl-carousel">
 		<div class="slider-item"
@@ -138,15 +144,10 @@
 
 					<div class="sidebar-box ftco-animate">
 						<h3>Tag Cloud</h3>
-						<div class="tagcloud">
-							<a href="#" class="tag-cloud-link">Life</a> <a href="#"
-								class="tag-cloud-link">Sport</a> <a href="#"
-								class="tag-cloud-link">Tech</a> <a href="#"
-								class="tag-cloud-link">Travel</a> <a href="#"
-								class="tag-cloud-link">Life</a> <a href="#"
-								class="tag-cloud-link">Sport</a> <a href="#"
-								class="tag-cloud-link">Tech</a> <a href="#"
-								class="tag-cloud-link">Travel</a>
+						<div id="tagcloud" class="tagcloud">
+						
+							<a href="#" class="tag-cloud-link">Life</a> 
+
 						</div>
 					</div>
 
@@ -171,20 +172,23 @@
 		 function out(evt){
 			 $(this).css('color','orange').css('background','white');
 		 }
-		 
+
 		 $.getJSON( "/Travel/groupTour", function( data ) {
 			 var contents ="";
+			 var contentss ="";
+// 			 console.log(data);
 			 $.each(data, function(idx,val){
-				 console.log(idx+",  "+val.tourName+","+val.content);
-				 contentss +="<p>ACKAHLHDLJHLKDHLDKHLKDHL!!FUCKKKK!!</p>"
-				 
-				contents +="		<div class=\"col-md-6 col-lg-6 mb-4 ftco-animate\">"
-					+"<a href=\"#\" class=\"block-5\" style=\"background-image: url('images/tour-1.jpg');\">"						
-					+	"<div class=\"text\">"
-					+		"<span class=\"price\">$399</span>"
-					+		"<h3 class=\"heading\">Group Tour in Maldives</h3>"
+// 				 console.log(idx+",  "+val.tourName+","+val.content);
+// 					 console.log(data[idx].tourBatchBean[0].price_adult);
+// 				 console.log(data[idx].TourPictureBean[0].pic);
+// 					                                            ftco-animate  "+val.TourPictureBean[0].pic +"
+				contents +="<div class=\"col-md-6 col-lg-6 mb-4              \">"
+					+"<a href=\"<c:url value='tourDisplay.jsp'/>\" class=\"block-5\" style=\"background-image: url('"+val.TourPictureBean[0].pic +"');\">"						
+					+	"<div class=\"text\">"  
+					+		"<span class=\"price\" style=\"color:red ; font-weight:bold\"><b><u>$"+val.tourBatchBean[0].price_adult+"</u></b></span>"
+					+		"<h3 class=\"heading\">"+val.destination+"</h3>"
 					+		"<div class=\"post-meta\">"
-					+			"<span>Ameeru Ahmed Magu Male’, Maldives</span>"
+					+			"<span>"+val.content+"</span>"
 					+		"</div>"
 					+		"<p class=\"star-rate\">"
 					+			"<span class=\"icon-star\"></span><span class=\"icon-star\"></span><span class=\"icon-star\"></span><span class=\"icon-star\"></span><span class=\"icon-star-half-full\"></span> <span>500 reviews</span>"							
@@ -198,16 +202,25 @@
 		 });
 	
 			
+		 $.getJSON( "/Travel/tourTags", function( data ) {
+			 var contents ="";
+			 var contentss ="";
+			 console.log(data);
+			 $.each(data, function(idx,val){
+				 console.log(val);
+				contents +='<a href="#" class="tag-cloud-link">'+val+'</a>'; 
+					 
+			 })
+			 $("#tagcloud").html(contents);
+		 });
+		 
 		}) 
 
-		 
-		
-   	
 		
    </script>
   
 
-	<jsp:include page="footer.jsp"></jsp:include>
+	<jsp:include page="foo.jsp"></jsp:include>
 
 </body>
 </html>

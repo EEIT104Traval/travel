@@ -2,13 +2,21 @@ package model.ticket.dao;
 
 import java.util.List;
 
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.util.StringUtils;
 
+import model.hotel.HotelBean;
 import model.ticket.TicketInfoBean;
 import model.ticket.TicketInfoDAO;
+import model.tour.TourMemberInfoBean;
 
 @Repository
 public class TicketInfoDAOHibernate implements TicketInfoDAO {
@@ -29,24 +37,6 @@ public class TicketInfoDAOHibernate implements TicketInfoDAO {
 	public List<TicketInfoBean> findAll() {
 
 		return this.getSession().createQuery("from TicketInfoBean", TicketInfoBean.class).setMaxResults(50).list();
-	}
-
-	@Override
-	public TicketInfoBean findByTicketName(String ticketName) {
-
-		return this.getSession().get(TicketInfoBean.class, ticketName);
-	}
-
-	@Override
-	public TicketInfoBean findByTicketCountry(String country) {
-
-		return this.getSession().get(TicketInfoBean.class, country);
-	}
-
-	@Override
-	public TicketInfoBean findByTicketCategory(String category) {
-
-		return this.getSession().get(TicketInfoBean.class, category);
 	}
 
 	@Override
@@ -96,7 +86,18 @@ public class TicketInfoDAOHibernate implements TicketInfoDAO {
 		}
 		return false;
 	}
+	
+	@Override
+	public List<TicketInfoBean> searchByCountry(String  country) {
+		CriteriaBuilder criteriaBuilder = getSession().getCriteriaBuilder();
+		CriteriaQuery<TicketInfoBean> criteria = criteriaBuilder.createQuery(TicketInfoBean.class);
+		Root<TicketInfoBean> from = criteria.from(TicketInfoBean.class);
+		criteria.select(from).where(from.get("country").in(country));
+		List<TicketInfoBean> list = getSession().createQuery(criteria).getResultList();
+		return list;
+	}
 }
+
 //	@Override
 //	public ProductBean findByPrimaryKey(int id) {
 //		//利用id作為primary key取得product table資料

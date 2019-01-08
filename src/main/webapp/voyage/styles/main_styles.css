@@ -695,7 +695,7 @@ section
 .search_input
 {
 	height: 50px;
-	background: #f2f5f6;
+	background: #d5d5d5;
 	border: none;
 	outline: none;
 	padding-left: 17px;
@@ -706,7 +706,16 @@ section
 }
 .search_input_1
 {
-	width: 25%;
+/* 	display:inline-block; */
+	height: 50px;
+	background: #eae6e6;
+	border: none;
+	outline: none;
+	padding-left: 17px;
+	font-family: 'Oswald', sans-serif;
+	font-size: 14px !important;
+	font-weight: 500 !important;
+	color: #72728c !important;
 }
 .search_input_2
 {
@@ -781,6 +790,7 @@ section
 	width: 100%;
 	background: #FFFFFF;
 	z-index: 1;
+	margin-top: 100px;
 }
 .intro_background
 {
@@ -1389,3 +1399,5 @@ section
 .radio-beauty-container .radio-beauty:hover {
   box-shadow: 0 0 7px red;
 }
+
+

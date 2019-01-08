@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 @Service
 public class TicketInfoService {
@@ -51,6 +52,22 @@ public class TicketInfoService {
 		boolean result = false;
 		if (bean != null) {
 			result = ticketInfoDAO.remove(bean.getTicketNo());
+		}
+		return result;
+	}
+
+	
+	public List<TicketInfoBean> searchCountry(String country) {
+		List<TicketInfoBean> result = null;
+		if (!StringUtils.isEmpty(country)) {
+//		if (country != null || country.length() != 0) {
+			List<TicketInfoBean> tib = ticketInfoDAO.searchByCountry(country);
+			if (tib != null) {
+				result = new ArrayList<TicketInfoBean>();
+				result.addAll(tib);
+			}
+		} else {
+			result = ticketInfoDAO.findAll();
 		}
 		return result;
 	}

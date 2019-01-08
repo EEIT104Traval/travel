@@ -25,8 +25,9 @@
 	<a href="<c:url value='TourTagsTestfindPK' />">TourTagsTestfindPK</a>
 	<a href="<c:url value='TourTagsTestfindALL' />">TourTagsTestfindALL</a>	
     <a href="<c:url value='TourTagsTestInsert' />">TourTagsTestInsert</a>
-     <a href="<c:url value='TourTagsTestUpdate' />">TourTagsTestUpdate</a>
+    <a href="<c:url value='TourTagsTestUpdate' />">TourTagsTestUpdate</a>
     <a href="<c:url value='TourTagsTestDelete' />">TourTagsTestDelete</a>
+    <a href="<c:url value='TourTagsTestfindTag' />">TourTagsTestfindTag</a>
 	<hr />
 	<h1>姚</h1>
 	<a href="<c:url value='ticketfindAll' />">ticketfindAll</a>
@@ -34,6 +35,7 @@
 	<a href="<c:url value='ticketCreate' />">ticketCreate</a>
 	<a href="<c:url value='ticketUpdate' />">ticketUpdate</a>
 	<a href="<c:url value='ticketRemove' />">ticketRemove</a>
+	<a href="<c:url value='ticketcountry' />">findcountry</a>
 	<br>
 	<a href="<c:url value='ticketOrderfindAll' />">ticketOrderfindAll</a>
 	<a href="<c:url value='ticketOrderfindpk' />">ticketOrderfindpk</a>
@@ -102,6 +104,7 @@
 	<a href="<c:url value='/flight17' />">AirportTest</a>
 	<hr />
 	<a href="<c:url value='/flightxml' />">XMLTest</a>
+	<a href="<c:url value='Travel/FlightInfo' />">FlightInfoTest</a>
 	
 	<hr />
 	<br />

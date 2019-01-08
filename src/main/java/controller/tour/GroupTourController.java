@@ -39,7 +39,7 @@ public class GroupTourController {
 				
 				Long count = groupTourService.countAll();
 				model.addAttribute("count",count);
-				List<GroupTourBean> result = groupTourService.select(); 				
+				List<GroupTourBean> result = groupTourService.selectAll(); 				
 				model.addAttribute("select", result.get(0));	
 				return result;
 //				return "/voyage/tourtest.jsp";
