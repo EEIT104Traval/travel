@@ -12,12 +12,17 @@
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-</head>
-	<script>
-		$(document).ready(function() {
+	
+		<script>
 			var params = {};
+			$(document).ready(function() {
+				ticketSearch1();
+	
+			});
+
 			
-					$('#ticketsh').click(function(){
+
+				function ticketSearch1(){
 						params.country = $('#country').val();
 					$.ajax({
 						url : '/Travel/voyage/ticket.controller',
@@ -27,9 +32,11 @@
 						data :params,
 					}).done(
 							function(JData) {
+									$("#div_ticket_search").html("")
 								$.each(JData, function(index, value) {
 									console.log(value);
 									$("#div_ticket_search").append(
+//動態生成票券選項
 // ------------------------------------------------------------------------------------------------------------------------------------------------------
 '<div class="col-md-6 col-lg-3">'+
 '<div class="blog-entry">'+
@@ -55,10 +62,12 @@
 												);
 									});
 							})
-					});
-	 		});
-		
+// 					});
+					}
+
 	</script>
+</head>
+
 <body>
 
 	<!-- END nav -->
@@ -96,9 +105,8 @@
 									<input type="text" class="search_input search_input_2"
 										style="width: 24%" placeholder="類型 - (門票、交通、餐券)" name="">
 									<input type="text" class="search_input search_input_3"
-										style="width: 24%" placeholder="關鍵字" name=""> <input
-										type="submit" id='ticketsh' class="home_search_button"
-										value="搜尋">
+										style="width: 24%" placeholder="關鍵字" name="">
+									<input	type="button" id='ticketsh' onclick="ticketSearch1()" class="home_search_button" value="搜尋">
 								</div>
 							</form>
 						</div>
@@ -133,5 +141,7 @@
 		</div>
 	</section>
 	<jsp:include page="/voyage/foo.jsp" />
+	
+	
 </body>
 </html>
