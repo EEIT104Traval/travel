@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"
+	integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+	crossorigin="anonymous"></script>
 <!DOCTYPE html>
 <html lang="tw-zh">
   <link rel="stylesheet" href="css/main_styles.css">
@@ -10,6 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <jsp:include page="/voyage/nav.jsp" />
   </head>
+  
   <body>
 
     <!-- END nav -->
@@ -34,12 +39,12 @@
 					<div class="home_search_container">
 						<div class="home_search_title">旅遊票券</div>
 						<div class="home_search_content">
-							<form action="<c:url value="/voyage/ticket.controller" />" class="home_search_form" id="home_search_form" method="post">
+							<form class="home_search_form" method="get">
 								<div class="d-flex flex-lg-row flex-column align-items-start justify-content-lg-between justify-content-start">
 									<input type="text" class="search_input search_input_1" style="width:24%"placeholder="請輸入國家" name="country" >
 									<input type="text" class="search_input search_input_2" style="width:24%"placeholder="類型 - (門票、交通、餐券)" name="">
 									<input type="text" class="search_input search_input_3" style="width:24%"placeholder="關鍵字" name="">
-									<button class="home_search_button">搜尋</button>
+									<input type="submit" id='ticketsh' class="home_search_button" value="搜尋">
 								</div>
 							</form>
 						</div>
@@ -51,10 +56,40 @@
    
     <!-- END slider -->
     <section class="ftco-section bg-light">
+  <script>
+		$(document).ready(
+				function() {
+					$.ajax({
+						url : '/Travel/voyage/ticket.controller',
+						contentType : 'application/json; charset=UTF-8',
+						type : 'get',
+						dataType : 'json',
+					}).done(
+							function(JData) {
+								console.log(JData)
+// 								$.each(JData, function(index, value) {
+// 									console.log(value)
+// 									$("#JSON_table").append(
+// 											"<tr>" + "<td>"
+// 													+ value.tpicNo
+// 													+ "</td>" + "<td>"
+// 													+ "<img src= "+value.pic+"/>"
+// 													+ "</td>" + "<td>"
+// 													+ value.picDetail
+// 													+ "</td>" + "<td>"
+// 													+ value.pictitle
+// 													+ "</td>" + "</tr>");
+// 								});
+							})
+
+				});
+	</script>
+
       <div class="container">
         <div class="row">
           <div class="col-md-6 col-lg-3 ftco-animate">
             <div class="blog-entry">
+<!--   --------------------------------------------------------------------------------------------------------------------------------------- -->
               <a  class="block-20" style="background-image: url('images/image_1.jpg');">
               </a>
               <div class="text p-4">
@@ -73,6 +108,7 @@
                   <a href="https://zh.wikipedia.org/wiki/%E8%89%BE%E8%8F%B2%E7%88%BE%E9%90%B5%E5%A1%94" class="float-left">Read more</a>
                    <input type="image"  src="images/CK.png" onClick="document.form1.submit()" width="13%" height="13%"  style="float:right;">
                  </p>
+<!--   --------------------------------------------------------------------------------------------------------------------------------------- -->          
               </div>
             </div>
           </div>
@@ -239,7 +275,7 @@
           </div>
         </div>
         
-<!--         iii -->
+<!--  iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii -->
 
          <div class="row mt-5">
               <div class="col text-center">

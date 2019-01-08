@@ -1,10 +1,8 @@
 package controller.ticket;
 
 import java.util.List;
-import java.util.Locale;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,25 +20,16 @@ public class TicketController {
 	
 	@ResponseBody
 	@RequestMapping("/voyage/ticket.controller")
-	public String method(@RequestParam(name="country")String country, Model model) {
+	public List<TicketInfoBean> method(@RequestParam(name="country")String country, Model model) {
 	//	Locale locale = LocaleContextHolder.getLocale(); //多國語系
 		System.out.println("country="+country);
-		
 //接收資料
 //呼叫model
-		
-//		TicketInfoBean bean = new TicketInfoBean();
-//		bean.setCountry(country);
-			
 		List<TicketInfoBean> result = ticketInfoService.searchCountry(country);
-		System.out.println(result);
+		for(TicketInfoBean TI : result)
+		System.out.println(TI);
 //呼叫view		
-		if(result == null) {
-			
-			return "redirect:voyage/ticket.jsp";
-		}else {
-			return "redirect:voyage/ticket.jsp";
+			return result;
 		}
-	
 	}
-}
+
