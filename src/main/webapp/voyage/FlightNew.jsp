@@ -68,24 +68,24 @@
 				<div class="row">
 					<div class="col">
 						<div class="home_search_container">
-							<!-- 						<div class="home_search_title">想飛哪就選哪</div> -->
+							<!-- 						<div class="home_search_title">想飛哪就選哪</div> hidden-->
 							<div class="home_search_title">
 								<div class="form-group">
 									<div class="form-checkbox">
 										<div class="radio-beauty-container">
 											<label style="display: inline-block;"> <input
-												type="radio" name="flystyle" id="flystyle1" hidden
+												type="radio" name="flystyle" id="flystyle1" 
 												style="display: inline-block;" checked="checked" /> <label
 												for="goandback" class="radio-beauty"
 												style="display: inline-block;"></label><span
 												class="radio-name">往返</span>
 											</label> <label style="display: inline-block;"> <input
-												type="radio" name="flystyle" id="go" hidden
+												type="radio" name="flystyle" id="go" 
 												style="display: inline-block;" /> <label for="flystyle2"
 												class="radio-beauty" style="display: inline-block;"></label><span
 												class="radio-name">單程</span>
 											</label> <label style="display: inline-block;"> <input
-												type="radio" name="flystyle" id="more" hidden
+												type="radio" name="flystyle" id="more"
 												style="display: inline-block;" /> <label for="flystyle3"
 												class="radio-beauty" style="display: inline-block;"></label><span
 												class="radio-name">多程</span>
@@ -127,7 +127,7 @@
 									<span class="form-label">旅客類型</span> <input id='peopleType' type="text"
 										class="search_input search_input_1" placeholder="人數" name="">
 								</div>
-								<div style="display: inline-block; padding-right: 85px;">
+								<div style="display: inline-block; padding-right: 65px;">
 									<span class="form-label">艙等</span> <select
 										class="search_input search_input_1"
 										id="search-controls-cabin-class-dropdown"
