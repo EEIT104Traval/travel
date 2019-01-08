@@ -112,6 +112,7 @@
 	<a href="<c:url value='/Hoteltestcreate' />">Hoteltestcreate</a>
 	<a href="<c:url value='Hoteltestupdate' />">Hoteltestupdate</a>
 	<a href="<c:url value='Hoteltestremove' />">Hoteltestremove</a>
+	<a href="<c:url value='Hotelsearch' />">Hotelsearch</a>
 	<hr />
 
 	<a href="<c:url value='/RoomTypefindByPK' />">RoomTypefindByPK</a>

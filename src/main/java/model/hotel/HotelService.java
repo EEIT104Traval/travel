@@ -3,15 +3,16 @@ package model.hotel;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.transaction.Transactional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
+
+
 @Service
-@Transactional
+//@TransactionalO
 public class HotelService {
 	@Autowired
-	private HotelDAO hotelDAO;
+	private HotelDAO hotelDAO = null;
 	
 	public List<HotelBean> select(HotelBean bean) {
 		List<HotelBean> result = null;
@@ -49,8 +50,25 @@ public class HotelService {
 		return result;
 	}
 	
-	public List<HotelBean> searchByCountry(HotelBean bean) {
-		return hotelDAO.searchByCountry(bean);
-		
+	
+	public List<HotelBean> searchCountry(String country) {
+		List<HotelBean> result = null;
+		if (!StringUtils.isEmpty(country)) {
+			List<HotelBean> tib = hotelDAO.searchByCountry(country);
+			if (tib != null) {
+				result = new ArrayList<HotelBean>();
+				result.addAll(tib);
+			}
+		} else {
+			result = hotelDAO.findAll();
+		}
+		return result;
 	}
+	
+	
+	
+//	public List<HotelBean> searchByCountry(HotelBean bean) {
+//		return hotelDAO.searchByCountry(bean);
+//		
+//	}
 }

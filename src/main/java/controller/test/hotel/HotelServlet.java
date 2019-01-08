@@ -20,7 +20,7 @@ import org.springframework.web.context.WebApplicationContext;
 import model.hotel.HotelBean;
 import model.hotel.HotelService;
 
-@WebServlet("/voyage/hotels.controller")
+//@WebServlet("/voyage/hotels.controller")
 public class HotelServlet extends HttpServlet {
 	private static SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
 	private HotelService hotelService;
@@ -41,10 +41,10 @@ public class HotelServlet extends HttpServlet {
 		String country = request.getParameter("country");
 		System.out.println(country);
 
-		HotelBean hotelBean = new HotelBean();
-		hotelBean.setCountry(country);
-		List<HotelBean> hotelList = hotelService.searchByCountry(hotelBean);
-		System.out.println(hotelList.toString());
+//		HotelBean hotelBean = new HotelBean();
+//		hotelBean.setCountry(country);
+//		List<HotelBean> hotelList = hotelService.searchByCountry(hotelBean);
+//		System.out.println(hotelList.toString());
 
 		// 驗證資料
 		Map<String, String> errors = new HashMap<>();
@@ -101,7 +101,7 @@ public class HotelServlet extends HttpServlet {
 		bean.setCountry(country);
 
 		// 呼叫view
-		session.setAttribute("hotelList", hotelList);
+//		session.setAttribute("hotelList", hotelList);
 		response.sendRedirect("hotel/hotelSearch.jsp");
 	}
 
