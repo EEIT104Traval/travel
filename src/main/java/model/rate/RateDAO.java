@@ -6,6 +6,8 @@ public interface RateDAO {
 	public abstract RateBean findByPrimaryKey(Integer serial);
 
 	public abstract List<RateBean> findAll();
+	
+	public abstract List<RateBean> findAll01();
 
 	public abstract RateBean create(RateBean bean);
 
