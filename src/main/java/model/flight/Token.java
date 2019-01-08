@@ -1,5 +1,5 @@
 
-package controller.test.flight;
+package model.flight;
 
 public class Token {
 
