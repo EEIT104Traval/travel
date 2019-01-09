@@ -1,19 +1,28 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<!DOCTYPE html>
-<html>
-<head>
-<link rel="stylesheet" href="./css/rate.css">
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<title>Flot Examples: Toggling Series</title>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"
+	integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+	crossorigin="anonymous"></script>
+	
+<!DOCTYPE html>
+<html lang="tw-zh">
+<link rel="stylesheet" href="./css/main_styles.css">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>RateIndex</title>
+    <link rel="stylesheet" href="./css/rate.css">
 	<link href="./css/examples.css" rel="stylesheet" type="text/css">
 	<script language="javascript" type="text/javascript" src="./js/jquery.js"></script>
 	<script language="javascript" type="text/javascript" src="./js/jquery.flot.js"></script>
 	<script language="javascript" type="text/javascript" src="./js/jquery.flot.time.js"></script>
 	<script language="javascript" type="text/javascript" src="./js/moment.js"></script>
+
 	
+<!--	https://hk.saowen.com/a/3bb2d62596486787bb77995a447207f180a828af15cddf5912c0aceaad24caf0 -->
 	<script type="text/javascript">
 
 	$(function(){
@@ -71,15 +80,6 @@
 		choiceContainer.find("input").click(plotAccordingToChoices);
 
 		function plotAccordingToChoices() {
-// 			var options={
-// 					series:{
-// 						lines:{show:true},
-// 						points:{
-// 							radius:3,
-// 							show:true
-// 						}
-// 					}
-// 			};
 
 			var data = [];
 
@@ -112,36 +112,65 @@
 
 		$("#footer").prepend("Flot " + $.plot.version + " &ndash; ");
 	});
-// 		$('#Toggle').change(function(){
-// 			var b =$(this).prop("checked");
-// 			$(':checkbox[name=key]').prop("checked",b);
-// 		})
-	</script>
+
+	</script>	
 </head>
+
 <body>
 
-
-	<div id="header">
-		<h2>匯率</h2>
-	</div>
-	   <button type="button" style="float:right;margin-right: 150px"><a href="rateindex2.jsp" />回上一頁</a></button>
-<!-- 	   <button type="button" style="float:right;margin-right: 10px"><a href="toggling1.jsp" />最近半年走勢圖</a></button> -->
-<!-- 	   <button type="button" style="float:right;margin-right: 10px"><a href="toggling.jsp" />最近三個月走勢圖</a></button> -->
-
+	<!-- END nav -->
+	<section class="home-slider owl-carousel">
+		<div class="slider-item"
+			style="background-image: url('images/pic01.jpg');"
+			data-stellar-background-ratio="0.5">
+			<div class="overlay"></div>
+			<div class="container">
+				<div class="row slider-text align-items-center">
+					<div class="col-md-7 col-sm-12 ftco-animate">
+						<p class="breadcrumbs">
+<!-- 							<span class="mr-2"><a href="index.jsp">Home</a></span> <span>ticket</span> -->
+						</p>
+<!-- 						<h1 class="mb-3"></h1> -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 	
-	<div id="content">
-
+		<div class="home_search">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="home_search_container">
+						<div class="home_search_title">匯率</div>
+						<div class="home_search_content">
+							<form action="#" class="home_search_form" id="home_search_form"
+								method="get">
+								<div >
+  	   							 <button type="button" style="float:right;margin-bottom: 10px ;margin-left: 10px"><a href="rate.jsp" />回上一頁</a></button>
+	   <button type="button" style="float:right;margin-bottom: 10px"><a href="toggling1.jsp" />最近半年走勢圖</a></button>
+       
+       <div id="content">
 		<div class="demo-container">
 			<div id="placeholder" class="demo-placeholder" style="float:left; width:675px;"></div>
-<!-- 			<input type="checkbox" id="Toggle"/>全選<br/> -->
 			<p id="choices" style="float:right; width:135px;"></p>
 		</div>
 
+	    </div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 
-	<div id="footer">
-		Copyright &copy; 2019 Time To Travel
-	</div>
 
+	<!-- END slider -->
+
+	<jsp:include page="/voyage/foo.jsp" />
+	
+	
 </body>
 </html>

@@ -1,13 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"
+	integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+	crossorigin="anonymous"></script>
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" href="./css/main_styles.css">
 <link rel="stylesheet" href="./css/rate.css">
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<title>Flot Examples: Toggling Series</title>
+	<style type="text/css">
+	body {background-image:url(./images/pic01.jpg);}
+	</style>
 	<link href="./css/examples.css" rel="stylesheet" type="text/css">
 	<script language="javascript" type="text/javascript" src="./js/jquery.js"></script>
 	<script language="javascript" type="text/javascript" src="./js/jquery.flot.js"></script>
@@ -119,7 +126,23 @@
 	</script>
 </head>
 <body>
-
+	<section class="home-slider owl-carousel">
+		<div class="slider-item"
+			style="background-image: url('images/pic01.jpg');"
+			data-stellar-background-ratio="0.5">
+			<div class="overlay"></div>
+			<div class="container">
+				<div class="row slider-text align-items-center">
+					<div class="col-md-7 col-sm-12 ftco-animate">
+						<p class="breadcrumbs">
+<!-- 							<span class="mr-2"><a href="index.jsp">Home</a></span> <span>ticket</span> -->
+						</p>
+<!-- 						<h1 class="mb-3"></h1> -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 
 	<div id="header">
 		<h2>匯率</h2>
