@@ -6,20 +6,26 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+<script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
 <body>
 
-	<a href="<c:url value='/tour/display'/>">display</a>
-	<h2>商品展示</h2>
-	<table id='JSON_table'>
-	</table>
+
+	<div id='div_apend2'>
+	</div>	
+	
+	<div id='div_apend'>
+	</div>
 	
 	
 <script>
-		var url = location.href;
-		var ary = {}
+
 		var params ={}
 
-		    	params.tourNo = 2
+		    params.tourNo = 2
 
 		
 		$(document).ready(
@@ -32,19 +38,26 @@
 						data:params,
 					}).done(
 							function(JData) {
-								console.log(JData)
+								$("#div_apend2").append(
+										"<h1>"+JData.tourName+"</h1>"	
+								)
 								$.each(JData.TourPictureBean, function(index, value) {
 									console.log(value)
-									$("#JSON_table").append(
-											"<tr>" + "<td>"
+									if(index==0){
+										$("#div_apend2").append(
+											"<div class='row'>"+
+											"<div class='col-lg-5'><img src="+value.pic+" width='775px'></div><div class='col-lg-7'><p>2121133456</p></div></div>"+
+											"<h2>"+value.pictitle+"</h2>"+
+											"<div>"+value.picDetail+"</div>"
+										)
+									}else{
+										$("#div_apend").append(
 													+ value.tpicNo
-													+ "</td>" + "<td>"
-													+ "<img src= "+value.pic+"/>"
-													+ "</td>" + "<td>"
+													+ +value.pic
 													+ value.picDetail
-													+ "</td>" + "<td>"
 													+ value.pictitle
-													+ "</td>" + "</tr>");
+										);
+									}
 								});
 							})
 

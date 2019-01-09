@@ -162,29 +162,27 @@
 			</div>
 		</div>
 	</section>
+	
+	
+	
+	
 	    <script>
    	$(document).ready(function() {
-//    		$('.tag-cloud-link').mouseover(over).mouseout(out);		
+   		$('.tag-cloud-link').mouseover(over).mouseout(out);		
 		
-// 		function over(evt){
-// 			 $(this).css('color','purple').css('background','yellow');
-// 		 }
-// 		 function out(evt){
-// 			 $(this).css('color','orange').css('background','white');
-// 		 }
+		function over(evt){
+			 $(this).css('color','purple').css('background','yellow');
+		 }
+		 function out(evt){
+			 $(this).css('color','orange').css('background','white');
+		 }
 
 		 $.getJSON( "/Travel/groupTour", function( data ) {
 			 var contents ="";
 			 var contentss ="";
 			 console.log(data);
-<<<<<<< HEAD
 			 $.each(data.result, function(idx,val){
-				 console.log(data.count);
-// 				 console.log(idx+",  "+val.tourName+","+val.content); 
-=======
-			 $.each(data, function(idx,val){
 // 				 console.log(idx+",  "+val.tourName+","+val.content);
->>>>>>> branch 'master' of https://github.com/EEIT104Traval/travel.git
 // 					 console.log(data[idx].tourBatchBean[0].price_adult);
 // 				 console.log(data[idx].TourPictureBean[0].pic);
 // 					                                            ftco-animate  "+val.TourPictureBean[0].pic +"
