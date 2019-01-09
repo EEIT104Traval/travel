@@ -16,6 +16,8 @@ public interface TicketInfoDAO {
 			String productFeatures, String ticketPicture, String ticketDescription, String traffic_information,
 			String special_restrictions, String googleAddressOrName);
 
+	public abstract TicketInfoBean qupdate(TicketInfoBean bean);
+	
 	public abstract boolean remove(Integer ticketNo);
 	
 	public abstract List<TicketInfoBean> searchByCountry(String country);

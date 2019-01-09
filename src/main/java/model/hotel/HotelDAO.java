@@ -14,7 +14,7 @@ public interface HotelDAO {
 
 	public abstract boolean remove(Integer hotelNo);
 
-	public abstract List<HotelBean> searchByCountry(HotelBean bean);
+	public abstract List<HotelBean> searchByCountry(String country);
 
 	
 }

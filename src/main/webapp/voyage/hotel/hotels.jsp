@@ -38,10 +38,10 @@
 								class="home_search_form" id="home_search_form" method="post">
 								<div
 									class="d-flex flex-lg-row flex-column align-items-start justify-content-lg-between justify-content-start">
-									<input type="text" class="search_input search_input_1" placeholder="請輸入國家" name="country" required="required">
-									<input type="text" class="search_input search_input_2" placeholder="請輸入城市" name="city"> <input type="text"
-										class="search_input search_input_3" id="checkin_date" placeholder="入住日期" name="date"> <input type="text"
-										class="search_input search_input_4" id="checkout_date" placeholder="退房日期" name="date">
+									<input type="text" class="search_input search_input_1" placeholder="請輸入國家" name="country">
+									<input type="text" class="search_input search_input_2" placeholder="請輸入城市" name="city">
+									<input type="text" class="search_input search_input_3" id="checkin_date" placeholder="入住日期" name="checkIndate">
+									<input type="text" class="search_input search_input_4" id="checkout_date" placeholder="退房日期" name="checkOutdate">
 									<!-- <input type="text" class="search_input search_input_5" placeholder="人數" name=""> -->
 									<button class="home_search_button">搜尋</button>
 								</div>
@@ -72,9 +72,6 @@
 							<a href="blog-single.html" class="block-20" style="background-image: url('<c:url value='/voyage/hotel/hotelPic/國家/法國.jpg'/>');"> </a>
 							<div class="text p-4">
 								<div class="meta">
-<!-- 									<div> -->
-<%-- 										<a href="<c:url value='#'/>">法國</a> --%>
-<!-- 									</div> -->
 								</div>
 								<h3 class="heading">
 									<a href="<c:url value='#'/>">巴黎的飯店（法國）</a>
@@ -277,7 +274,167 @@
 	<!-- END 熱門城市 -->
 
 	<!-- 熱門飯店 -->
-	
+
+   <section class="ftco-section bg-light">
+      <div class="container">
+      	<div class="row no-gutters justify-content-center mb-5 pb-5 ftco-animate" style="margin-top: -80px">
+			<div class="col-md-7 text-center heading-section">
+				<h2>熱門飯店推薦</h2>
+			</div>
+		</div>
+      <div class="row">
+          <div class="col-md-6 col-lg-3 ftco-animate">
+            <div class="blog-entry">
+              <a href="blog-single.html" class="block-20" style="background-image: url('images/image_1.jpg');">
+              </a>
+              <div class="text p-4">
+                <div class="meta">
+                  <div><a href="#">July 6, 2018</a></div>
+                  <div><a href="#">Admin</a></div>
+                </div>
+                <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
+                <p class="clearfix">
+                  <a href="#" class="float-left">Read more</a>
+                  <a href="#" class="float-right meta-chat"><span class="icon-chat"></span> 3</a>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3 ftco-animate">
+            <div class="blog-entry">
+              <a href="blog-single.html" class="block-20" style="background-image: url('images/image_2.jpg');">
+              </a>
+              <div class="text p-4">
+                <div class="meta">
+                  <div><a href="#">July 6, 2018</a></div>
+                  <div><a href="#">Admin</a></div>
+                </div>
+                <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
+                <p class="clearfix">
+                  <a href="#" class="float-left">Read more</a>
+                  <a href="#" class="float-right meta-chat"><span class="icon-chat"></span> 3</a>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3 ftco-animate">
+            <div class="blog-entry" data-aos-delay="200">
+              <a href="blog-single.html" class="block-20" style="background-image: url('images/image_3.jpg');">
+              </a>
+              <div class="text p-4">
+                <div class="meta">
+                  <div><a href="#">July 6, 2018</a></div>
+                  <div><a href="#">Admin</a></div>
+                </div>
+                <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
+                <p class="clearfix">
+                  <a href="#" class="float-left">Read more</a>
+                  <a href="#" class="float-right meta-chat"><span class="icon-chat"></span> 3</a>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3 ftco-animate">
+            <div class="blog-entry" data-aos-delay="200">
+              <a href="blog-single.html" class="block-20" style="background-image: url('images/image_4.jpg');">
+              </a>
+              <div class="text p-4">
+                <div class="meta">
+                  <div><a href="#">July 6, 2018</a></div>
+                  <div><a href="#">Admin</a></div>
+                </div>
+                <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
+                <p class="clearfix">
+                  <a href="#" class="float-left">Read more</a>
+                  <a href="#" class="float-right meta-chat"><span class="icon-chat"></span> 3</a>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3 ftco-animate">
+            <div class="blog-entry" data-aos-delay="200">
+              <a href="blog-single.html" class="block-20" style="background-image: url('images/image_5.jpg');">
+              </a>
+              <div class="text p-4">
+                <div class="meta">
+                  <div><a href="#">July 6, 2018</a></div>
+                  <div><a href="#">Admin</a></div>
+                </div>
+                <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
+                <p class="clearfix">
+                  <a href="#" class="float-left">Read more</a>
+                  <a href="#" class="float-right meta-chat"><span class="icon-chat"></span> 3</a>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3 ftco-animate">
+            <div class="blog-entry" data-aos-delay="200">
+              <a href="blog-single.html" class="block-20" style="background-image: url('images/image_6.jpg');">
+              </a>
+              <div class="text p-4">
+                <div class="meta">
+                  <div><a href="#">July 6, 2018</a></div>
+                  <div><a href="#">Admin</a></div>
+                </div>
+                <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
+                <p class="clearfix">
+                  <a href="#" class="float-left">Read more</a>
+                  <a href="#" class="float-right meta-chat"><span class="icon-chat"></span> 3</a>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3 ftco-animate">
+            <div class="blog-entry" data-aos-delay="200">
+              <a href="blog-single.html" class="block-20" style="background-image: url('images/image_7.jpg');">
+              </a>
+              <div class="text p-4">
+                <div class="meta">
+                  <div><a href="#">July 6, 2018</a></div>
+                  <div><a href="#">Admin</a></div>
+                </div>
+                <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
+                <p class="clearfix">
+                  <a href="#" class="float-left">Read more</a>
+                  <a href="#" class="float-right meta-chat"><span class="icon-chat"></span> 3</a>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3 ftco-animate">
+            <div class="blog-entry" data-aos-delay="200">
+              <a href="blog-single.html" class="block-20" style="background-image: url('images/image_8.jpg');">
+              </a>
+              <div class="text p-4">
+                <div class="meta">
+                  <div><a href="#">July 6, 2018</a></div>
+                  <div><a href="#">Admin</a></div>
+                </div>
+                <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
+                <p class="clearfix">
+                  <a href="#" class="float-left">Read more</a>
+                  <a href="#" class="float-right meta-chat"><span class="icon-chat"></span> 3</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+	<!-- END 熱門飯店 -->
+
+
+
+
+
+
+
+
+
+
 	<section class="ftco-section">
 		<div class="container-fluid">
 			<div class="row no-gutters justify-content-center mb-5 pb-5 ftco-animate" style="margin-top: -80px">
@@ -287,6 +444,7 @@
 			</div>
 			<div class="row no-gutters">
 				<div class="col-md-6 col-lg-3 ftco-animate">
+<!-- 				<----------------------------------------------------->
 					<a href="<c:url value='#'/>" class="block-5" style="background-image: url('<c:url value='/voyage/images/tour-1.jpg'/>');">
 						<div class="text">
 							<span class="price">$399</span>
@@ -443,206 +601,158 @@
 				<div class="carousel1 owl-carousel ftco-owl">
 					<div class="item">
 						<div class="blog-entry">
-							<a href="blog-single.html" class="block-20" style="background-image: url('<c:url value='/voyage/hotel/hotelPic/國家/法國.jpg'/>');"> </a>
+							<a href="blog-single.html" class="block-20" style="background-image: url('<c:url value='/voyage/hotel/hotelPic/住宿類型/公寓.jpg'/>');"> </a>
 							<div class="text p-4">
-								<div class="meta">
-<!-- 									<div> -->
-<%-- 										<a href="<c:url value='#'/>">法國</a> --%>
-<!-- 									</div> -->
-								</div>
+								<div class="meta"></div>
 								<h3 class="heading">
-									<a href="<c:url value='#'/>">巴黎的飯店（法國）</a>
+									<a href="<c:url value='#'/>">公寓</a>
 								</h3>
 								<div>
-									<a href="<c:url value='#'/>">造訪法國，千萬別錯過環境安寧、風景、古城！</a>
+									<p>685,710 間公寓</p>
 								</div>
 								<p class="clearfix">
 									<a href="<c:url value='#'/>" class="float-left">更多</a>
-<%-- 									<a href="<c:url value='#'/>" class="float-right meta-chat"><span class="icon-chat"></span>更多</a> --%>
 								</p>
 							</div>
 						</div>
 					</div>
 					<div class="item">
-						<div class="blog-entry" data-aos-delay="100">
-							<a href="blog-single.html" class="block-20"
-								style="background-image: url('<c:url value='/voyage/hotel/hotelPic/國家/英國.jpg'/>');"> </a>
+						<div class="blog-entry">
+							<a href="blog-single.html" class="block-20" style="background-image: url('<c:url value='/voyage/hotel/hotelPic/住宿類型/渡假村.jpg'/>');"> </a>
 							<div class="text p-4">
-								<div class="meta">
-								</div>
+								<div class="meta"></div>
 								<h3 class="heading">
-									<a href="<c:url value='#'/>">倫敦的飯店（英國）</a>
+									<a href="<c:url value='#'/>">渡假村</a>
 								</h3>
 								<div>
-									<a href="<c:url value='#'/>">來趟英國之旅吧！盡情享受當地購物、休閒與風景。</a>
+									<p>20,764 個渡假村</p>
 								</div>
 								<p class="clearfix">
 									<a href="<c:url value='#'/>" class="float-left">更多</a>
-<%-- 									<a href="<c:url value='#'/>" class="float-right meta-chat"><span class="icon-chat"></span>3</a> --%>
 								</p>
 							</div>
 						</div>
 					</div>
 					<div class="item">
-						<div class="blog-entry" data-aos-delay="200">
-							<a href="<c:url value='blog-single.html'/>" class="block-20"
-								style="background-image: url('<c:url value='/voyage/hotel/hotelPic/國家/西班牙.jpg'/>');"> </a>
+						<div class="blog-entry">
+							<a href="blog-single.html" class="block-20" style="background-image: url('<c:url value='/voyage/hotel/hotelPic/住宿類型/木屋.jpg'/>');"> </a>
 							<div class="text p-4">
-								<div class="meta">
-								</div>
+								<div class="meta"></div>
 								<h3 class="heading">
-									<a href="<c:url value='#'/>">巴塞隆那的飯店（西班牙）</a>
+									<a href="<c:url value='#'/>">木屋</a>
 								</h3>
 								<div>
-									<a href="<c:url value='#'/>">若你喜歡環境安寧、美食、海灘，絕對別錯過西班牙！</a>
+									<p>11,743 間木屋</p>
 								</div>
 								<p class="clearfix">
 									<a href="<c:url value='#'/>" class="float-left">更多</a>
-<%-- 									<a href="<c:url value='#'/>" class="float-right meta-chat"><span class="icon-chat"></span>3</a> --%>
 								</p>
 							</div>
 						</div>
 					</div>
 					<div class="item">
-						<div class="blog-entry" data-aos-delay="200">
-							<a href="blog-single.html" class="block-20"
-								style="background-image: url('<c:url value='/voyage/hotel/hotelPic/國家/臺灣.jpg'/>');"></a>
+						<div class="blog-entry">
+							<a href="blog-single.html" class="block-20" style="background-image: url('<c:url value='/voyage/hotel/hotelPic/住宿類型/小屋.jpg'/>');"> </a>
 							<div class="text p-4">
-								<div class="meta">
-								</div>
+								<div class="meta"></div>
 								<h3 class="heading">
-									<a href="<c:url value='#'/>">台北的飯店（臺灣）</a>
+									<a href="<c:url value='#'/>">小屋</a>
 								</h3>
 								<div>
-									<a href="<c:url value='#'/>">夜市、風景、美食，讓你愛上臺灣。</a>
+									<p>111,777 間小屋</p>
 								</div>
 								<p class="clearfix">
 									<a href="<c:url value='#'/>" class="float-left">更多</a>
-<%-- 									<a href="<c:url value='#'/>" class="float-right meta-chat"><span class="icon-chat"></span>3</a> --%>
 								</p>
 							</div>
 						</div>
 					</div>
 					<div class="item">
-						<div class="blog-entry" data-aos-delay="200">
-							<a href="blog-single.html" class="block-20" 
-								style="background-image: url('<c:url value='/voyage/hotel/hotelPic/國家/瑞士.jpg'/>');"> </a>
+						<div class="blog-entry">
+							<a href="blog-single.html" class="block-20" style="background-image: url('<c:url value='/voyage/hotel/hotelPic/住宿類型/豪華露營.jpg'/>');"> </a>
 							<div class="text p-4">
-								<div class="meta">
-								</div>
+								<div class="meta"></div>
 								<h3 class="heading">
-									<a href="<c:url value='#'/>">蘇黎世的飯店（瑞士）</a>
+									<a href="<c:url value='#'/>">豪華露營</a>
 								</h3>
 								<div>
-									<a href="<c:url value='#'/>">如果你喜歡風景、高山、自然風光，絕對別錯過瑞士！</a>
+									<p>6,920 個豪華露營地點</p>
 								</div>
 								<p class="clearfix">
 									<a href="<c:url value='#'/>" class="float-left">更多</a>
-<%-- 									<a href="<c:url value='#'/>" class="float-right meta-chat"><span class="icon-chat"></span>3</a> --%>
 								</p>
 							</div>
 						</div>
 					</div>
 					<div class="item">
-						<div class="blog-entry" data-aos-delay="200">
-							<a href="blog-single.html" class="block-20"
-								style="background-image: url('<c:url value='/voyage/hotel/hotelPic/國家/加拿大.jpg'/>');"></a>
+						<div class="blog-entry">
+							<a href="blog-single.html" class="block-20" style="background-image: url('<c:url value='/voyage/hotel/hotelPic/住宿類型/飯店式公寓.jpg'/>');"> </a>
 							<div class="text p-4">
-								<div class="meta">
-								</div>
+								<div class="meta"></div>
 								<h3 class="heading">
-									<a href="<c:url value='#'/>">多倫多的飯店（加拿大）</a>
+									<a href="<c:url value='#'/>">飯店式公寓</a>
 								</h3>
 								<div>
-									<a href="<c:url value='#'/>">造訪加拿大，千萬別錯過風景、自然風光、休閒！</a>
+									<p>30,012 間飯店式公寓</p>
 								</div>
 								<p class="clearfix">
 									<a href="<c:url value='#'/>" class="float-left">更多</a>
-<%-- 									<a href="<c:url value='#'/>" class="float-right meta-chat"><span class="icon-chat"></span>3</a> --%>
 								</p>
 							</div>
 						</div>
 					</div>
 					<div class="item">
-						<div class="blog-entry" data-aos-delay="200">
-							<a href="blog-single.html" class="block-20"
-								style="background-image: url('<c:url value='/voyage/hotel/hotelPic/國家/日本.jpg'/>');"></a>
+						<div class="blog-entry">
+							<a href="blog-single.html" class="block-20" style="background-image: url('<c:url value='/voyage/hotel/hotelPic/住宿類型/度假屋.jpg'/>');"> </a>
 							<div class="text p-4">
-								<div class="meta">
-								</div>
+								<div class="meta"></div>
 								<h3 class="heading">
-									<a href="<c:url value='#'/>">東京的飯店（日本）</a>
+									<a href="<c:url value='#'/>">度假屋</a>
 								</h3>
 								<div>
-									<a href="<c:url value='#'/>">別錯過日本！美食、觀光、風景必訪人氣目的地。</a>
+									<p>339,001間度假屋</p>
 								</div>
 								<p class="clearfix">
 									<a href="<c:url value='#'/>" class="float-left">更多</a>
-<%-- 									<a href="<c:url value='#'/>" class="float-right meta-chat"><span class="icon-chat"></span>3</a> --%>
 								</p>
 							</div>
 						</div>
 					</div>
 					<div class="item">
-						<div class="blog-entry" data-aos-delay="200">
-							<a href="blog-single.html" class="block-20"
-								style="background-image: url('<c:url value='/voyage/hotel/hotelPic/國家/喬治亞.jpg'/>');"></a>
+						<div class="blog-entry">
+							<a href="blog-single.html" class="block-20" style="background-image: url('<c:url value='/voyage/hotel/hotelPic/住宿類型/家庭旅館.jpg'/>');"> </a>
 							<div class="text p-4">
-								<div class="meta">
-								</div>
+								<div class="meta"></div>
 								<h3 class="heading">
-									<a href="<c:url value='#'/>">第比利希的飯店（喬治亞）</a>
+									<a href="<c:url value='#'/>">家庭旅館</a>
 								</h3>
 								<div>
-									<a href="<c:url value='#'/>">喬治亞是居民友善、自然風光、美食的絕佳選擇。</a>
+									<p>123,290間家庭旅館</p>
 								</div>
 								<p class="clearfix">
 									<a href="<c:url value='#'/>" class="float-left">更多</a>
-<%-- 									<a href="<c:url value='#'/>" class="float-right meta-chat"><span class="icon-chat"></span>3</a> --%>
 								</p>
 							</div>
 						</div>
 					</div>
 					<div class="item">
-						<div class="blog-entry" data-aos-delay="200">
-							<a href="blog-single.html" class="block-20"
-								style="background-image: url('<c:url value='/voyage/hotel/hotelPic/國家/韓國.jpg'/>');"></a>
+						<div class="blog-entry">
+							<a href="blog-single.html" class="block-20" style="background-image: url('<c:url value='/voyage/hotel/hotelPic/住宿類型/青年旅館.jpg'/>');"> </a>
 							<div class="text p-4">
-								<div class="meta">
-								</div>
+								<div class="meta"></div>
 								<h3 class="heading">
-									<a href="<c:url value='#'/>">首爾的飯店（韓國）</a>
+									<a href="<c:url value='#'/>">青年旅館</a>
 								</h3>
 								<div>
-									<a href="<c:url value='#'/>">美食、購物、觀光，讓你愛上韓國。</a>
+									<p>25,889間青年旅館</p>
 								</div>
 								<p class="clearfix">
 									<a href="<c:url value='#'/>" class="float-left">更多</a>
-<%-- 									<a href="<c:url value='#'/>" class="float-right meta-chat"><span class="icon-chat"></span>3</a> --%>
 								</p>
 							</div>
 						</div>
 					</div>
-					<div class="item">
-						<div class="blog-entry" data-aos-delay="200">
-							<a href="blog-single.html" class="block-20"
-								style="background-image: url('<c:url value='/voyage/hotel/hotelPic/國家/巴西.jpg'/>');"></a>
-							<div class="text p-4">
-								<div class="meta">
-								</div>
-								<h3 class="heading">
-									<a href="<c:url value='#'/>">里約熱內盧的飯店（巴西）</a>
-								</h3>
-								<div>
-									<a href="<c:url value='#'/>">造訪巴西，千萬別錯過環境安寧、自然風光、海灘！</a>
-								</div>
-								<p class="clearfix">
-									<a href="<c:url value='#'/>" class="float-left">更多</a>
-<%-- 									<a href="<c:url value='#'/>" class="float-right meta-chat"><span class="icon-chat"></span>3</a> --%>
-								</p>
-							</div>
-						</div>
-					</div>
+						
 				</div>
 			</div>
 		</div>
@@ -690,73 +800,70 @@
 
 	<!-- END 標籤 -->
 
-	<!-- 住宿類型 -->
+ 	<!-- 住宿類型 -->
 
-	<div class="why">
-		<div class="parallax_background parallax-window" data-parallax="scroll" data-speed="0.8"></div>
-		<div class="container">
-			<div class="row">
-				<div class="col text-center">
-					<div class="section_title"><h2>不論您想尋找哪種住宿，我們都有...</h2></div>
-				</div>
-			</div>
-		<div class="row why_row">
+<!-- 	<div class="why"> -->
+<!-- 		<div class="parallax_background parallax-window" data-parallax="scroll" data-speed="0.8"></div> -->
+<!-- 		<div class="container"> -->
+<!-- 			<div class="row"> -->
+<!-- 				<div class="col text-center"> -->
+<!-- 					<div class="section_title"><h2>不論您想尋找哪種住宿，我們都有...</h2></div> -->
+<!-- 				</div> -->
+<!-- 			</div> -->
+<!-- 		<div class="row why_row"> -->
 				
-				<!-- Why item -->
-				<div class="col-lg-4 why_col">
-					<div class="why_item">
-						<div class="why_image">
-							<img src="./hotelPic/住宿類型/公寓.jpg" alt="">
-							<div class="d-flex flex-column align-items-center justify-content-center"></div>
-						</div>
-						<div class="why_content text-center">
-							<div class="why_title">公寓</div>
-							<div class="why_text">
-<!-- 								<p>Pellentesque sit amet elementum ccumsan sit amet mattis eget, tristique at leo.</p> -->
-							</div>
-						</div>
-					</div>
-				</div>
+<!-- 				Why item -->
+<!-- 				<div class="col-lg-4 why_col"> -->
+<!-- 					<div class="why_item"> -->
+<!-- 						<div class="why_image"> -->
+<!-- 							<img src="./hotelPic/住宿類型/公寓.jpg" alt=""> -->
+<!-- 							<div class="d-flex flex-column align-items-center justify-content-center"></div> -->
+<!-- 						</div> -->
+<!-- 						<div class="why_content text-center"> -->
+<!-- 							<div class="why_title">公寓</div> -->
+<!-- 							<div class="why_text"> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
+<!-- 					</div> -->
+<!-- 				</div> -->
 
-				<!-- Why item -->
-				<div class="col-lg-4 why_col">
-					<div class="why_item">
-						<div class="why_image">
-							<img src="./hotelPic/住宿類型/公寓.jpg" alt="">
-							<div class="d-flex flex-column align-items-center justify-content-center">
-							</div>
-						</div>
-						<div class="why_content text-center">
-							<div class="why_title">Great Team</div>
-							<div class="why_text">
-<!-- 								<p>Pellentesque sit amet elementum ccumsan sit amet mattis eget, tristique at leo.</p> -->
-							</div>
-						</div>
-					</div>
-				</div>
+<!-- 				Why item -->
+<!-- 				<div class="col-lg-4 why_col"> -->
+<!-- 					<div class="why_item"> -->
+<!-- 						<div class="why_image"> -->
+<!-- 							<img src="./hotelPic/住宿類型/公寓.jpg" alt=""> -->
+<!-- 							<div class="d-flex flex-column align-items-center justify-content-center"> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
+<!-- 						<div class="why_content text-center"> -->
+<!-- 							<div class="why_title">Great Team</div> -->
+<!-- 							<div class="why_text"> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
+<!-- 					</div> -->
+<!-- 				</div> -->
 
-				<!-- Why item -->
-				<div class="col-lg-4 why_col">
-					<div class="why_item">
-						<div class="why_image">
-							<img src="./hotelPic/住宿類型/公寓.jpg" alt="">
-							<div class="d-flex flex-column align-items-center justify-content-center">
-							</div>
-						</div>
-						<div class="why_content text-center">
-							<div class="why_title">Best Deals</div>
-							<div class="why_text">
-<!-- 								<p>Pellentesque sit amet elementum ccumsan sit amet mattis eget, tristique at leo.</p> -->
-							</div>
-						</div>
-					</div>
-				</div>
+<!-- 				Why item -->
+<!-- 				<div class="col-lg-4 why_col"> -->
+<!-- 					<div class="why_item"> -->
+<!-- 						<div class="why_image"> -->
+<!-- 							<img src="./hotelPic/住宿類型/公寓.jpg" alt=""> -->
+<!-- 							<div class="d-flex flex-column align-items-center justify-content-center"> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
+<!-- 						<div class="why_content text-center"> -->
+<!-- 							<div class="why_title">Best Deals</div> -->
+<!-- 							<div class="why_text"> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
+<!-- 					</div> -->
+<!-- 				</div> -->
 				
-			</div>
-		</div>
-	</div>
+<!-- 			</div> -->
+<!-- 		</div> -->
+<!-- 	</div> -->
 	
-	<!-- END 住宿類型 -->
+		<!-- END 住宿類型 -->
 
 	<jsp:include page="../foo.jsp"/>
 

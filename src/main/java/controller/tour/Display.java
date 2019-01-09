@@ -1,9 +1,8 @@
 package controller.tour;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,9 +17,8 @@ public class Display {
 	
 	@ResponseBody
 	@RequestMapping("/tour/display")
-	public GroupTourBean method() {
-		
-		String tourNo = "2"; //這邊寫要接收的tourNo參數
+	public GroupTourBean method(@RequestParam(value="tourNo",required=false)String tourNo) {	
+//		System.out.println(tourNo);
 		GroupTourBean GT = groupTourService.select(tourNo);
 		System.out.println(GT);
 		return GT;
