@@ -7,6 +7,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.ServletContext;
@@ -14,21 +16,28 @@ import javax.servlet.ServletContext;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.expression.ParseException;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import model.ticket.TicketInfoBean;
 import model.ticket.TicketInfoDAO;
+import model.ticket.TicketOrderInfoBean;
+import model.ticket.TicketOrderInfoDAO;
 
 @RestController
-public class TicketInfoTest{
+public class TicketInfoTest {
 
 	@Autowired
 	private TicketInfoDAO dao;
 	@Autowired
+	private TicketOrderInfoDAO odao;
+	@Autowired
 	ServletContext servletContext;
 	@Autowired
 	private SessionFactory sessionFactory;
+
+	public SimpleDateFormat sdFormat = new SimpleDateFormat("yyyy/MM/dd");
 
 	public Session getSession() {
 		return this.sessionFactory.getCurrentSession();
@@ -84,17 +93,17 @@ public class TicketInfoTest{
 		boolean remove = dao.remove(1);
 		return remove;
 	}
-	
+
 	@RequestMapping("/ticketDLtest")
-	public void DLticketform() throws IOException{
+	public void DLticketform() throws IOException {
 		String s1 = servletContext.getRealPath("");
 
 		File ticketincsv = new File(s1 + "resource/Ticket/ticket.csv"); // 讀取的CSV文檔
 		File ticketoutcsv = new File("C:\\Users\\Emma\\Desktop\\Ticketfrom1.csv");// 寫出的CSV文檔
-		if(!ticketoutcsv.exists()) {
-			ticketoutcsv.createNewFile();			
+		if (!ticketoutcsv.exists()) {
+			ticketoutcsv.createNewFile();
 		}
-		
+
 		InputStreamReader isr = new InputStreamReader(new FileInputStream(ticketincsv));// 待處理資料的檔案路徑
 		BufferedReader reader = new BufferedReader(isr);
 		PrintWriter pw = new PrintWriter(new FileWriter(ticketoutcsv));
@@ -109,11 +118,42 @@ public class TicketInfoTest{
 		pw.close();
 		reader.close();
 	}
+
 	@RequestMapping("/ticketcountry")
 	public List<TicketInfoBean> searchByCountry() {
 		List<TicketInfoBean> all = dao.searchByCountry("France");
-		
+
 		return all;
 	}
 
+	@RequestMapping("/ticketbuyandsave")
+	public boolean qupdate() throws ParseException, java.text.ParseException {
+		TicketOrderInfoBean bean = new TicketOrderInfoBean();
+
+		Integer adultTicketSellQ = 10; // 給假資料購買張數
+		String accountName = "pigwind"; //// 給假資料購買性名
+		Integer ticketNo = 1;
+		Integer adultTicketPrice = 3;
+
+		
+			TicketInfoBean TI = dao.findByPrimaryKey(1);
+			Integer Q = TI.getAdultTicketSellQ();
+			Integer SaveQ = adultTicketSellQ - Q;
+			TI.setAdultTicketSellQ(SaveQ);
+			TI.setAdultTicketSelledQ(TI.getAdultTicketSelledQ() + adultTicketSellQ);
+			dao.qupdate(TI);
+//			// --------------------------(↑購買更改庫存數量 )(↓購買更改訂單表格)---------------------------
+			TicketOrderInfoBean TOI = odao.create(bean);
+			TOI.setAccountName(accountName);
+			TOI.setTicketNo(ticketNo);
+			Date date = new Date();
+			String strDate = sdFormat.format(date);
+			Date TD = sdFormat.parse(strDate);
+			TOI.setOrderDate(TD);
+			TOI.setAdultTicketCount(adultTicketSellQ);
+			Integer TT = adultTicketSellQ * adultTicketPrice;
+			TOI.setTotalPrice(TT);
+			return true;
+			 
+	}
 }

@@ -1,10 +1,9 @@
 package model.userInfo;
 
-import java.util.Arrays;
-
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
 @Entity
 @Table(name="UserInfo")
 public class UserInfoBean {

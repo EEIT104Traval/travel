@@ -46,12 +46,12 @@
 	'<div class="text p-4">'+
 		'<div class="meta" style="margin-left: 45px;">'+
 			'<div>'+ value.ticketName +'</div>'+
-			'<div>€'+ value.adultTicketPrice +'</div>'+
+			'<div>$.'+ value.adultTicketPrice +'</div>'+
 		'</div>'+
 		'<br>'+
 		'<div class="d-flex flex-lg-row flex-column align-items-start justify-content-start" style="margin-left: 58px;">'+
 			'<input type="image" src="images/MIN.png" class="min" width="15%"> '+
-			'<input type="text" value="" placeholder="0" class="text_box" readonly="readonly" id="text_box" style="text-align: center; height: 20px; width: 30px; margin:0; border: 0px;">'+
+			'<input type="text" value="" placeholder="0" class="text_box" readonly="readonly" style="text-align: center; height: 20px; width: 30px; margin:0; border: 0px;">'+
 			'<input type="image" src="images/PL.png" class="add"  width="15%">'+
 		'</div>'+
 		'<br>'+
