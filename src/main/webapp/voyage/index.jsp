@@ -26,7 +26,7 @@
 <!DOCTYPE html>
 <html lang="tw-zh">
   <head>
-     <jsp:include page="/voyage/nav.jsp" />
+<%--      <jsp:include page="/voyage/nav.jsp" /> --%>
   </head>
   <body>
   

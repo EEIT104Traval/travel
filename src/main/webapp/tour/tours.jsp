@@ -22,7 +22,7 @@
 
 	<section class="home-slider owl-carousel">
 		<div class="slider-item"
-			style="background-image: url('images/bg_2.jpg');"
+			style="background-image: url('<c:url value='/voyage/images/bg_2.jpg'/>');"
 			data-stellar-background-ratio="0.5">
 			<div class="overlay"></div>
 			<div class="container">
@@ -164,26 +164,32 @@
 	</section>
 	    <script>
    	$(document).ready(function() {
-   		$('.tag-cloud-link').mouseover(over).mouseout(out);		
+//    		$('.tag-cloud-link').mouseover(over).mouseout(out);		
 		
-		function over(evt){
-			 $(this).css('color','purple').css('background','yellow');
-		 }
-		 function out(evt){
-			 $(this).css('color','orange').css('background','white');
-		 }
+// 		function over(evt){
+// 			 $(this).css('color','purple').css('background','yellow');
+// 		 }
+// 		 function out(evt){
+// 			 $(this).css('color','orange').css('background','white');
+// 		 }
 
 		 $.getJSON( "/Travel/groupTour", function( data ) {
 			 var contents ="";
 			 var contentss ="";
-// 			 console.log(data);
+			 console.log(data);
+<<<<<<< HEAD
+			 $.each(data.result, function(idx,val){
+				 console.log(data.count);
+// 				 console.log(idx+",  "+val.tourName+","+val.content); 
+=======
 			 $.each(data, function(idx,val){
 // 				 console.log(idx+",  "+val.tourName+","+val.content);
+>>>>>>> branch 'master' of https://github.com/EEIT104Traval/travel.git
 // 					 console.log(data[idx].tourBatchBean[0].price_adult);
 // 				 console.log(data[idx].TourPictureBean[0].pic);
 // 					                                            ftco-animate  "+val.TourPictureBean[0].pic +"
 				contents +="<div class=\"col-md-6 col-lg-6 mb-4              \">"
-					+"<a href=\"<c:url value='tourDisplay.jsp'/>\" class=\"block-5\" style=\"background-image: url('"+val.TourPictureBean[0].pic +"');\">"						
+					+"<a href=\"<c:url value='tourDisplay.jsp?tourNo="+val.tourNo+"'/>\" class=\"block-5\" style=\"background-image: url('"+val.TourPictureBean[0].pic +"');\">"						
 					+	"<div class=\"text\">"  
 					+		"<span class=\"price\" style=\"color:red ; font-weight:bold\"><b><u>$"+val.tourBatchBean[0].price_adult+"</u></b></span>"
 					+		"<h3 class=\"heading\">"+val.tourName+"</h3>"
@@ -220,7 +226,7 @@
    </script>
   
 
-	<jsp:include page="foo.jsp"></jsp:include>
+	<jsp:include page="/voyage/foo.jsp"></jsp:include>
 
 </body>
 </html>

@@ -36,6 +36,20 @@
 	</table>
 
 	<script>
+		var url = location.href;
+		var ary = {}
+		var params ={}
+		if(url.indexOf('?')!=-1)
+		{
+		    //在此直接將各自的參數資料切割放進ary中
+		        ary = {}
+		    	ary = url.split('tourNo=');
+		    	params.tourNo = ary[1]
+		    //此時ary的內容為：
+			console.log(ary)
+// 			alert(ary[1])
+		}
+		
 		$(document).ready(
 				function() {
 					$.ajax({
@@ -43,7 +57,7 @@
 						contentType : 'application/json; charset=UTF-8',
 						type : 'get',
 						dataType : 'json',
-						
+						data:params,
 					}).done(
 							function(JData) {
 								console.log(JData)
@@ -64,6 +78,6 @@
 
 				});
 	</script>
-	<jsp:include page="../foo.jsp"/>
+	<jsp:include page="/voyage/foo.jsp"/>
 </body>
 </html>
