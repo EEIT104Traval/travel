@@ -18,11 +18,12 @@ public class UserController {
 	@ResponseBody
 	@RequestMapping("/bindex/User.controller")
 	public UserInfoBean method(@RequestParam(value="found",required=false)String found) {
+		
 		System.out.println("found="+found);
 		
 		UserInfoBean result = userInfoService.findByUser(found);
 		
 		
-		return null;
+		return result;
 	}	
 }
