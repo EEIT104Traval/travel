@@ -1,13 +1,15 @@
 package model.flight.dao;
 
+import java.util.List;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import model.flight.AirportCompareBean;
 import model.flight.AirportCompareDAO;
-import model.flight.FlightPassengerInfoBean;
 
 @Repository
 public class AirportCompareDAOHibernate implements AirportCompareDAO {
@@ -33,6 +35,19 @@ public class AirportCompareDAOHibernate implements AirportCompareDAO {
 			}
 		}
 		return null;
+	}
+
+	@Override
+	public List<AirportCompareBean> findAll() {
+		return this.getSession().createQuery("from AirportCompareBean", AirportCompareBean.class).setMaxResults(50)
+				.list();
+	}
+
+	@Override
+	public List<AirportCompareBean> findByAirportName(String AirportName) {
+		String queryString = "from AirportCompareTable a where a.AirportName like'%" + AirportName + "%'";
+		Query queryObject = this.getSession().createQuery(queryString,AirportCompareBean.class);
+		return queryObject.list();
 	}
 
 }

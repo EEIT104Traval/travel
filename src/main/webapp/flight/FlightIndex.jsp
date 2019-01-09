@@ -25,7 +25,7 @@
 <body>
 
 	<!-- Home -->
-	<header><jsp:include page="nav.jsp"></jsp:include></header>
+<%-- 	<header><jsp:include page="nav.jsp"></jsp:include></header> --%>
 
 	<div class="home">
 
