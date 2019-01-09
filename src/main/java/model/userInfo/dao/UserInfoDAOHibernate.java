@@ -79,5 +79,19 @@ public class UserInfoDAOHibernate implements UserInfoDAO{
 		return false;
 	}
 
+	//--------------↓↓↓↓↓↓後台使用專區↓↓↓↓↓↓-------------
+	@Override
+	public UserInfoBean findByaccountName(String accountName) {
+		UserInfoBean result = this.getSession().get(UserInfoBean.class, accountName);
+		return result;
+	}
+
+	@Override
+	public UserInfoBean findByPhone(String phone) {
+		UserInfoBean result = this.getSession().get(UserInfoBean.class, phone);
+		return result;
+	}
+
 	
+
 }

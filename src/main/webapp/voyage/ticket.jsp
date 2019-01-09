@@ -46,7 +46,7 @@
 	'<div class="text p-4">'+
 		'<div class="meta" style="margin-left: 45px;">'+
 			'<div>'+ value.ticketName +'</div>'+
-			'<div>€'+ value.adultTicketPrice +'</div>'+
+			'<div>$.'+ value.adultTicketPrice +'</div>'+
 		'</div>'+
 		'<br>'+
 		'<div class="d-flex flex-lg-row flex-column align-items-start justify-content-start" style="margin-left: 58px;">'+
