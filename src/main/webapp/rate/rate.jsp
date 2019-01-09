@@ -50,7 +50,7 @@ tbody tr:hover {
 
 <body>
 	<div style="margin-top:20px">
-	   <button type="button" style="float:right;margin-right: 350px"><a href="index.jsp" />回首頁</a></button>
+	   <button type="button" style="float:right;margin-right: 350px"><a href="../voyage/index.jsp" />回首頁</a></button>
   	   <button type="button" style="float:right;margin-right: 10px"><a href="toggling1.jsp" />最近半年走勢圖</a></button>
 <!-- 	   <button type="button" style="float:right;margin-right: 10px"><a href="toggling.jsp" />最近三個月走勢圖</a></button> -->
 	  
