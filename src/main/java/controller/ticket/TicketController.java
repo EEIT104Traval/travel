@@ -11,12 +11,15 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import model.ticket.TicketInfoBean;
 import model.ticket.TicketInfoService;
+import model.ticket.TicketOrderInfoService;
 
 @Controller
 public class TicketController {
 	
 	@Autowired
 	private TicketInfoService ticketInfoService;
+	@Autowired
+	private TicketOrderInfoService ticketOrderInfoService;
 	
 	@ResponseBody
 	@RequestMapping("/voyage/ticket.controller")
@@ -30,6 +33,16 @@ public class TicketController {
 		System.out.println(TI);
 //呼叫view		
 			return result;
+		}
+	
+	@ResponseBody
+	@RequestMapping("/12131321")
+	public void method1(String ticketName, Model model) {
+//接收資料
+		System.out.println("country="+ticketName);
+//呼叫model		
+//呼叫view		
+
 		}
 	
 	}
