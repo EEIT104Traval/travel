@@ -176,7 +176,7 @@
 		 $.getJSON( "/Travel/groupTour", function( data ) {
 			 var contents ="";
 			 var contentss ="";
-// 			 console.log(data);
+			 console.log(data);
 			 $.each(data, function(idx,val){
 // 				 console.log(idx+",  "+val.tourName+","+val.content);
 // 					 console.log(data[idx].tourBatchBean[0].price_adult);
