@@ -19,7 +19,7 @@
 			
 			$(document).ready(function() {
 				ticketSearch1();
-				
+				ticketSearch2();
 			});
 
 		
@@ -32,7 +32,7 @@
 						type : 'get',
 						dataType : 'json',
 						data :params,
-					}).done(
+						}).done(
 							function(JData) {
 									$("#div_ticket_search").html("")
 								$.each(JData, function(index, value) {
@@ -50,9 +50,9 @@
 		'</div>'+
 		'<br>'+
 		'<div class="d-flex flex-lg-row flex-column align-items-start justify-content-start" style="margin-left: 58px;">'+
-			'<input type="image" src="images/MIN.png" id="QLess" width="15%"> '+
-			'<input type="text" value="0" readonly="readonly" id="text_box" style="text-align: center; height: 20px; width: 40px; margin: 0; border: 0px;">'+
-			'<input type="image" src="images/PL.png" id="QAdd"  width="15%">'+
+			'<input type="image" src="images/MIN.png" class="min" width="15%"> '+
+			'<input type="number" value="" placeholder="0" class="text_box" readonly="readonly" id="text_box" style="number-align: center; height: 20px; width: 30px; margin:0; border: 0px;">'+
+			'<input type="image" src="images/PL.png" class="add"  width="15%">'+
 		'</div>'+
 		'<br>'+
 		'<p class="clearfix">'+
@@ -63,21 +63,21 @@
 '</div>'					 
 												);
 									});
-							})
-// 					});
-				 $(function() {  
-		                $("#QAdd").click(function() {  
-		                	alert("ggg")
-		                    var t = $(this).parent().find('input[id*=text_box]');  
+							});
+			}
+//動態生成+-功能
+// ------------------------------------------------------------------------------------------------------------------------------------------------------				
+				function ticketSearch2(){				
+						$("#div_ticket_search").on("click",".add",function(){ 
+		                    var t = $(this).parent().find('input[class*=text_box]');  
 		                    if(t.val()==""||undefined||null){  
 		                        t.val(0);  
 		                    }  
 		                    t.val(parseInt(t.val()) + 1)  
 		                    setTotal();  
 		                })  
-		                $("#QLess").click(function() {  
-		                	alert("ggg")
-		                    var t = $(this).parent().find('input[id*=text_box]');  
+		                $("#div_ticket_search").on("click",".min",function(){ 
+		                    var t = $(this).parent().find('input[class*=text_box]');  
 		                    if(t.val()==""||undefined||null){  
 		                        t.val(0);  
 		                    }  
@@ -87,17 +87,16 @@
 		                    }  
 		                    setTotal();  
 		                })  
-		                $("#text_box").keyup(function(){  
-		                    var t = $(this).parent().find('input[id*=text_box]');  
+		                $("#div_ticket_search").on("click",".text_box",function(){
+		                    var t = $(this).parent().find('input[class*=text_box]');  
 		                    if(parseInt(t.val())==""||undefined||null || isNaN(t.val())) {  
 		                        t.val(0);  
 		                    }  
 		                    setTotal();  
 		                })  
 		               
-		            })  
-			}
-
+		            }  
+// ------------------------------------------------------------------------------------------------------------------------------------------------------
 	</script>
 </head>
 
