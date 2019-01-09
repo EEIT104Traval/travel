@@ -220,7 +220,7 @@
    </script>
   
 
-	<jsp:include page="foo.jsp"></jsp:include>
+	<jsp:include page="/voyage/foo.jsp"></jsp:include>
 
 </body>
 </html>

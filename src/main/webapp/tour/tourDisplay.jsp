@@ -64,6 +64,6 @@
 
 				});
 	</script>
-	<jsp:include page="../foo.jsp"/>
+	<jsp:include page="/voyage/foo.jsp"/>
 </body>
 </html>
