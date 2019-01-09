@@ -201,7 +201,7 @@
 			</div>
 			<div class="row no-gutters">
 				<div class="col-md-6 col-lg-3 ftco-animate">
-					<a href="<c:url value='#'/>" class="block-5" style="background-image: url('<c:url value='/voyage/images/tour-1.jpg'/>');">
+					<a href="<c:url value='#'/>" class="block-5" style="background-image: url('<c:url value='/voyage/hotel/hotelPic/熱門飯店/新加坡半島怡東酒店.jpg'/>');">
 						<div class="text">
 							<span class="price">$399</span>
 							<h3 class="heading">Group Tour in Maldives</h3>
@@ -218,7 +218,7 @@
 					</a>
 				</div>
 				<div class="col-md-6 col-lg-3 ftco-animate">
-					<a href="<c:url value='#'/>" class="block-5" style="background-image: url('<c:url value='/voyage/images/tour-2.jpg'/>');">
+					<a href="<c:url value='#'/>" class="block-5" style="background-image: url('<c:url value='/voyage/hotel/hotelPic/熱門飯店/新宿華盛頓酒店.jpg'/>');">
 						<div class="text">
 							<span class="price">$399</span>
 							<h3 class="heading">Group Tour in Maldives</h3>
@@ -235,7 +235,7 @@
 					</a>
 				</div>
 				<div class="col-md-6 col-lg-3 ftco-animate">
-					<a href="<c:url value='#'/>" class="block-5" style="background-image: url('<c:url value='/voyage/images/tour-3.jpg'/>');">
+					<a href="<c:url value='#'/>" class="block-5" style="background-image: url('<c:url value='/voyage/hotel/hotelPic/熱門飯店/首爾皇家酒店.jpg'/>');">
 						<div class="text">
 							<span class="price">$399</span>
 							<h3 class="heading">Group Tour in Maldives</h3>
@@ -251,7 +251,7 @@
 					</a>
 				</div>
 				<div class="col-md-6 col-lg-3 ftco-animate">
-					<a href="<c:url value='#'/>" class="block-5" style="background-image: url('<c:url value='/voyage/images/tour-4.jpg'/>');">
+					<a href="<c:url value='#'/>" class="block-5" style="background-image: url('<c:url value='/voyage/hotel/hotelPic/熱門飯店/曼谷塔瓦納酒店(The Tawana Bangkok).jpg'/>');">
 						<div class="text">
 							<span class="price">$399</span>
 							<h3 class="heading">Group Tour in Maldives</h3>
@@ -268,7 +268,7 @@
 				</div>
 				<div class="col-md-6 col-lg-3 ftco-animate">
 					<a href="<c:url value='#'/>" class="block-5"
-						style="background-image: url('<c:url value='/voyage/images/tour-5.jpg'/>');">
+						style="background-image: url('<c:url value='/voyage/hotel/hotelPic/熱門飯店/上海帝璟麗致大酒店.jpg'/>');">
 						<div class="text">
 							<span class="price">$399</span>
 							<h3 class="heading">Group Tour in Maldives</h3>
@@ -286,7 +286,7 @@
 				</div>
 				<div class="col-md-6 col-lg-3 ftco-animate">
 					<a href="<c:url value='#'/>" class="block-5"
-						style="background-image: url('<c:url value='/voyage/images/tour-6.jpg'/>');">
+						style="background-image: url('<c:url value='/voyage/hotel/hotelPic/熱門飯店/香港皇悅卓越酒店.jpg'/>');">
 						<div class="text">
 							<span class="price">$399</span>
 							<h3 class="heading">Group Tour in Maldives</h3>
@@ -304,7 +304,7 @@
 				</div>
 				<div class="col-md-6 col-lg-3 ftco-animate">
 					<a href="<c:url value='#'/>" class="block-5"
-						style="background-image: url('<c:url value='/voyage/images/tour-7.jpg'/>');">
+						style="background-image: url('<c:url value='/voyage/hotel/hotelPic/熱門飯店/巴黎貝斯特韋斯特沃塞特歌劇酒店(Best Western Hotel Horset Opera Paris).jpg'/>');">
 						<div class="text">
 							<span class="price">$399</span>
 							<h3 class="heading">Group Tour in Maldives</h3>
@@ -322,7 +322,7 @@
 				</div>
 				<div class="col-md-6 col-lg-3 ftco-animate">
 					<a href="<c:url value='#'/>" class="block-5"
-						style="background-image: url('<c:url value='/voyage/images/tour-8.jpg'/>');">
+						style="background-image: url('<c:url value='/voyage/hotel/hotelPic/熱門飯店/倫敦肯辛頓千禧國際百麗酒店.jpg'/>');">
 						<div class="text">
 							<span class="price">$399</span>
 							<h3 class="heading">Group Tour in Maldives</h3>
