@@ -8,15 +8,12 @@ import javax.persistence.criteria.Root;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import org.springframework.util.StringUtils;
 
-import model.hotel.HotelBean;
 import model.ticket.TicketInfoBean;
 import model.ticket.TicketInfoDAO;
-import model.tour.TourMemberInfoBean;
+
 
 @Repository
 public class TicketInfoDAOHibernate implements TicketInfoDAO {
@@ -78,6 +75,18 @@ public class TicketInfoDAOHibernate implements TicketInfoDAO {
 	}
 
 	@Override
+	public TicketInfoBean qupdate(TicketInfoBean bean) {
+		TicketInfoBean result = this.getSession().get(TicketInfoBean.class, bean.getTicketNo());
+		
+		if(result != null) {
+			result.setAdultTicketSellQ(bean.getAdultTicketSellQ());
+			result.setAdultTicketSelledQ(bean.getAdultTicketSelledQ());
+			return result;
+		}
+		return null;
+	}
+	
+	@Override
 	public boolean remove(Integer ticketNo) {
 		TicketInfoBean result = this.getSession().get(TicketInfoBean.class, ticketNo);
 		if (result != null) {
@@ -96,6 +105,7 @@ public class TicketInfoDAOHibernate implements TicketInfoDAO {
 		List<TicketInfoBean> list = getSession().createQuery(criteria).getResultList();
 		return list;
 	}
+
 }
 
 //	@Override

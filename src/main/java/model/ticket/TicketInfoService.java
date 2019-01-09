@@ -1,6 +1,9 @@
 package model.ticket;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +15,13 @@ public class TicketInfoService {
 
 	@Autowired
 	private TicketInfoDAO ticketInfoDAO = null;
+	@Autowired
+	private TicketOrderInfoDAO ticketOrderInfoDAO = null;
 
+	
+	public SimpleDateFormat sdFormat = new SimpleDateFormat("yyyy/MM/dd");
+	
+	
 	public List<TicketInfoBean> select(TicketInfoBean bean) {
 		List<TicketInfoBean> result = null;
 		if (bean != null && bean.getTicketNo() != 0) {
@@ -48,6 +57,33 @@ public class TicketInfoService {
 		return result;
 	}
 
+	public boolean qupdate(String accountName ,Integer ticketNo, Integer adultTicketSellQ, Integer adultTicketPrice) throws ParseException {
+		TicketInfoBean bean = new TicketInfoBean();
+		TicketOrderInfoBean bean1 = new TicketOrderInfoBean();
+		if (ticketNo != null) {
+			TicketInfoBean TI = ticketInfoDAO.findByPrimaryKey(ticketNo);
+			Integer Q = TI.getAdultTicketSellQ();
+			Integer SaveQ = adultTicketSellQ - Q ;
+			TI.setAdultTicketSellQ(SaveQ);
+			TI.setAdultTicketSelledQ(TI.getAdultTicketSelledQ()+adultTicketSellQ);
+			ticketInfoDAO.qupdate(TI);
+			//--------------------------(↑購買更改庫存數量 )(↓購買更改訂單表格)---------------------------		
+			TicketOrderInfoBean TOI = ticketOrderInfoDAO.create(bean1);
+			TOI.setAccountName(accountName);
+			TOI.setTicketNo(ticketNo);
+			
+			Date date = new Date();
+			String strDate = sdFormat.format(date);
+			Date xx = sdFormat.parse(strDate);
+			TOI.setOrderDate(xx);
+			TOI.setAdultTicketCount(adultTicketSellQ);
+			Integer TT = adultTicketSellQ * adultTicketPrice;
+			TOI.setTotalPrice(TT);
+		
+			}
+		return false;
+	}
+
 	public boolean delete(TicketInfoBean bean) {
 		boolean result = false;
 		if (bean != null) {
@@ -56,7 +92,6 @@ public class TicketInfoService {
 		return result;
 	}
 
-	
 	public List<TicketInfoBean> searchCountry(String country) {
 		List<TicketInfoBean> result = null;
 		if (!StringUtils.isEmpty(country)) {

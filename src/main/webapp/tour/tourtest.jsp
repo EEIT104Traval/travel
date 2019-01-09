@@ -26,21 +26,10 @@ count = ${count}
 <%-- 		<c:forEach var="select" begin="0" end="${count}" items="${select}"> --%>
 		<tr>
 			<td>1</td>
-<!-- 			<td></td> -->
-<!-- 			<td>1</td> -->
-<!-- 			<td>2</td> -->
-<!-- 			<td>1</td> -->
-<!-- 			<td>2</td> -->
-<!-- 			<td>1</td> -->
-<!-- 			<td>2</td> -->
-<!-- 			<td>1</td> -->
+
 		</tr>
 <%-- 		</c:forEach> --%>
-<!-- 		<tr> -->
-<!-- 			<td>3</td> -->
-<!-- 			<td>4</td> -->
-<!-- 			<td>5</td> -->
-<!-- 		</tr> -->
+
 		<tr><td> <input type="submit"></td></tr>
 	</table>
 </form>

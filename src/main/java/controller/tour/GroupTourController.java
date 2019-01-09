@@ -20,28 +20,21 @@ public class GroupTourController {
 	private GroupTourService groupTourService;
 	@ResponseBody
 	@RequestMapping("/groupTour")
-	public List<GroupTourBean> method(GroupTourBean bean, Model model) {
+	public Map<String,Object> method(GroupTourBean bean, Model model) {
 		System.out.println("bean="+bean);		
 				
-		//驗證資料
-				Map<String, String> errors = new HashMap<>();
-				model.addAttribute("errors", errors);	
-//				if("Insert".equals(prodaction) || "Update".equals(prodaction) || "Delete".equals(prodaction)) {
-//					if (bean == null || bean.getId()== 0) {
-//						errors.put("id", "Please enter id for " + prodaction);
-//					} 
-//				}	
-				if(errors!=null && !errors.isEmpty()) {
-					
-//					return "product.error";
-				}
-				System.out.println("errors="+errors);	
+	
 				
 				Long count = groupTourService.countAll();
 				model.addAttribute("count",count);
 				List<GroupTourBean> result = groupTourService.selectAll(); 				
-				model.addAttribute("select", result.get(0));	
-				return result;
+				model.addAttribute("select", result.get(0));
+				
+				//放count跟bean
+				Map<String,Object> re = new HashMap<>();
+				re.put("result", result);
+				re.put("count", count);
+				return re;
 //				return "/voyage/tourtest.jsp";
 	//呼叫view
 //				if("Select".equals(prodaction)) {
