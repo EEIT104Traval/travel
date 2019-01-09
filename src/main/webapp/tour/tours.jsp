@@ -162,59 +162,61 @@
 			</div>
 		</div>
 	</section>
-	        <script>
-    $(document).ready(function() {
-     $('.tag-cloud-link').mouseover(over).mouseout(out);  
-  
-  function over(evt){
-    $(this).css('color','purple').css('background','yellow');
-   }
-   function out(evt){
-    $(this).css('color','orange').css('background','white');
-   }
-
-   $.getJSON( "/Travel/groupTour", function( data ) {
-    var contents ="";
-    var contentss ="";
-    console.log(data);
-    $.each(data.result, function(idx,val){
-//      console.log(idx+",  "+val.tourName+","+val.content);
-//       console.log(data[idx].tourBatchBean[0].price_adult);
-//      console.log(data[idx].TourPictureBean[0].pic);
-//                                                  ftco-animate  "+val.TourPictureBean[0].pic +"
-    contents +="<div class=\"col-md-6 col-lg-6 mb-4              \">"
-     +"<a href=\"<c:url value='tourDisplay.jsp?tourNo="+val.tourNo+"'/>\" class=\"block-5\" style=\"background-image: url('"+val.TourPictureBean[0].pic +"');\">"      
-     + "<div class=\"text\">"  
-     +  "<span class=\"price\" style=\"color:red ; font-weight:bold\"><b><u>$"+val.tourBatchBean[0].price_adult+"</u></b></span>"
-     +  "<h3 class=\"heading\">"+val.tourName+"</h3>"
-     +  "<div class=\"post-meta\">"
-     +   "<span>"+val.content+"</span>"
-     +  "</div>"
-     +  "<p class=\"star-rate\">"
-     +   "<span class=\"icon-star\"></span><span class=\"icon-star\"></span><span class=\"icon-star\"></span><span class=\"icon-star\"></span><span class=\"icon-star-half-full\"></span> <span>500 reviews</span>"       
-     +  "</p>"
-     + "</div>"
-     +"</a>"
-    +"</div>"
-      
-    })
-    $("#box").html(contents);
-   });
- 
-   
-   $.getJSON( "/Travel/tourTags", function( data ) {
-    var contents ="";
-    var contentss ="";
-    console.log(data);
-    $.each(data, function(idx,val){
-     console.log(val);
-    contents +='<a href="#" class="tag-cloud-link">'+val+'</a>'; 
-      
-    })
-    $("#tagcloud").html(contents);
-   });
-   
-  }) 
+	
+	
+	    <script>
+   	$(document).ready(function() {
+   		$('.tag-cloud-link').mouseover(over).mouseout(out);		
+		
+		function over(evt){
+			 $(this).css('color','purple').css('background','yellow');
+		 }
+		 function out(evt){
+			 $(this).css('color','orange').css('background','white');
+		 }
+		 
+		 $.getJSON( "/Travel/groupTour", function( data ) {
+			 var contents ="";
+			 var contentss ="";
+			 console.log(data);
+			 $.each(data.result, function(idx,val){
+// 				 console.log(idx+",  "+val.tourName+","+val.content);
+// 					 console.log(data[idx].tourBatchBean[0].price_adult);
+// 				 console.log(data[idx].TourPictureBean[0].pic);
+// 					                                            ftco-animate  "+val.TourPictureBean[0].pic +"
+				contents +="<div class=\"col-md-6 col-lg-6 mb-4              \">"
+					+"<a href=\"<c:url value='tourDisplay.jsp?tourNo="+val.tourNo+"'/>\" class=\"block-5\" style=\"background-image: url('"+val.TourPictureBean[0].pic +"');\">"						
+					+	"<div class=\"text\">"  
+					+		"<span class=\"price\" style=\"color:red ; font-weight:bold\"><b><u>$"+val.tourBatchBean[0].price_adult+"</u></b></span>"
+					+		"<h3 class=\"heading\">"+val.tourName+"</h3>"
+					+		"<div class=\"post-meta\">"
+					+			"<span>"+val.content+"</span>"
+					+		"</div>"
+					+		"<p class=\"star-rate\">"
+					+			"<span class=\"icon-star\"></span><span class=\"icon-star\"></span><span class=\"icon-star\"></span><span class=\"icon-star\"></span><span class=\"icon-star-half-full\"></span> <span>500 reviews</span>"							
+					+		"</p>"
+					+	"</div>"
+					+"</a>"
+				+"</div>"
+					 
+			 })
+			 $("#box").html(contents);
+		 });
+	
+			
+		 $.getJSON( "/Travel/tourTags", function( data ) {
+			 var contents ="";
+			 var contentss ="";
+			 console.log(data);
+			 $.each(data, function(idx,val){
+				 console.log(val);
+				contents +='<a href="#" class="tag-cloud-link">'+val+'</a>'; 
+					 
+			 })
+			 $("#tagcloud").html(contents);
+		 });
+		 
+		}) 
 
   
    </script>
