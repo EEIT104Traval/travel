@@ -9,12 +9,13 @@
 <head>
 <link rel="stylesheet" href="./css/main_styles.css">
 <link rel="stylesheet" href="./css/rate.css">
-
+<style type="text/css">
+	body{
+		background: url("images/pic01.jpg");
+	}
+</style>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<title>Flot Examples: Toggling Series</title>
-	<style type="text/css">
-	body {background-image:url(./images/pic01.jpg);}
-	</style>
 	<link href="./css/examples.css" rel="stylesheet" type="text/css">
 	<script language="javascript" type="text/javascript" src="./js/jquery.js"></script>
 	<script language="javascript" type="text/javascript" src="./js/jquery.flot.js"></script>
@@ -128,7 +129,6 @@
 <body>
 	<section class="home-slider owl-carousel">
 		<div class="slider-item"
-			style="background-image: url('images/pic01.jpg');"
 			data-stellar-background-ratio="0.5">
 			<div class="overlay"></div>
 			<div class="container">

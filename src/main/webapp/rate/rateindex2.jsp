@@ -86,7 +86,7 @@ tbody tr:hover {
 							<form action="#" class="home_search_form" id="home_search_form"
 								method="get">
 								<div >
-  	   							<button type="button" style="float:right;margin-bottom: 10px"><a href="toggling1.jsp" />最近半年走勢圖</a></button>
+  	   							<button type="button" style="float:right;margin-bottom: 10px"><a href="toggling3.jsp" />最近半年走勢圖</a></button>
 								<table id="" class="tb1">
 
 		<thead>
