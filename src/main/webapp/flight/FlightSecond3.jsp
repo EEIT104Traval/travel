@@ -21,7 +21,8 @@ $(document).ready(function(){
 		 var contentss ="";
 		 console.log(data);
 		 $.each(data, function(idx,val){
-			 console.log(val);
+			 console.log(data[idx].OriginDestinationOptions);
+			 console.log(data[idx].OriginDestinationOptions.OriginDestinationOption.ElapsedTime);
 // 			contents +='<a href="#" class="tag-cloud-link">'+val+'</a>'; 
 				 
 		 })
