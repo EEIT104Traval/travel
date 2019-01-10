@@ -1,10 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" 
+		integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+		crossorigin="anonymous">
+</script>
 <!DOCTYPE html>
 <html lang="tw-zh">
-<!-- <link rel="stylesheet" href="css/main_styles.css"> -->
 <link rel="stylesheet"
 	href="<c:url value='/voyage/css/main_styles.css' />">
 <link rel="stylesheet" href="<c:url value='/voyage/css/about.css' />">
@@ -13,8 +15,60 @@
 <meta charset="UTF-8">
 <title>飯店搜尋</title>
 </head>
-<body>
 
+<script>
+			var params = {};
+			$(document).ready(function() {
+		
+			});
+
+				function hotelSearch(){
+					$("#hotel_pic").html("")
+					$('#hotel_title').html("")
+						params.country = $('#country').val();
+// 					alert(params.country)
+					
+					$.ajax({
+						url : '/Travel/voyage/hotels.controller',
+ 						contentType : 'application/json; charset=UTF-8',
+						type : 'get',
+						dataType : 'json',
+						data :params,
+					}).done(
+				function(JData) {
+		
+// 		        console.log(c);
+
+								$.each(JData, function(index, value) {
+									console.log(value);
+									$("#hotel_pic").append(
+//動態生成票券選項
+// ------------------------------------------------------------------------------------------------------------------------------------------------------
+										'<div class="col-md-6 col-lg-3">'+
+											'<div class="blog-entry">'+
+												'<a href="blog-single.html" class="block-20" style="background-image: url('+value.pic+');"></a>'+
+												'<div class="text p-4">'+
+													'<div class="meta"></div>'+
+													'<h6><a href="#">'+value.hotelName+'</a></h6>'+
+						                   			'<p style="margin-bottom:0">'+value.starRate+'</p>'+
+													'<p class="float-left" style="margin">'+value.price+'</p>'+
+												'</div>'+
+											'</div>'+
+										'</div>'
+												);
+									});
+								$("#hotel_title").append(
+									'<div class="col-md-7 text-center heading-section">'+
+										'<h2>'+JData[0].country+'飯店</h2>'+
+									'</div>'
+									       );
+							})
+					}
+
+	</script>
+
+
+<body>
 	<!-- slider -->
 
 	<section class="home-slider owl-carousel">
@@ -35,23 +89,22 @@
 			<div class="row">
 				<div class="col">
 					<div class="home_search_container">
-						<div class="home_search_title">想住哪就選哪</div>
+						<div class="home_search_title" style="font-family:Microsoft JhengHei">想住哪就選哪</div>
 						<div class="home_search_content">
-							<form action="<c:url value="/voyage/hotels.controller" />"
+							<form action="#"
 								class="home_search_form" id="home_search_form" method="post">
 								<div
 									class="d-flex flex-lg-row flex-column align-items-start justify-content-lg-between justify-content-start">
-									<input type="text" class="search_input search_input_1"
-										style="width: 20%" placeholder="請輸入國家" name="country">
-									<input type="text" class="search_input search_input_2"
-										style="width: 20%" placeholder="請輸入城市" name="city"> <input
-										type="text" class="search_input search_input_3"
-										style="width: 20%" id="checkin_date" placeholder="入住日期"
-										name="checkIndate"> <input type="text"
-										class="search_input search_input_4" style="width: 20%"
-										id="checkout_date" placeholder="退房日期" name="checkOutdate">
+									<input type="text" class="search_input search_input_1" style="font-family:Microsoft JhengHei"
+										style="width: 20%" placeholder="請輸入國家" id="country">
+									<input type="text" class="search_input search_input_2" style="font-family:Microsoft JhengHei"
+										style="width: 20%" placeholder="請輸入城市" id="city">
+									<input type="text" class="search_input search_input_3" style="font-family:Microsoft JhengHei"
+										style="width: 20%" id="checkin_date" placeholder="入住日期" id="checkIndate">
+									<input type="text" class="search_input search_input_4" style="font-family:Microsoft JhengHei"
+										style="width: 20%" id="checkout_date" placeholder="退房日期" id="checkOutdate">
 									<!-- <input type="text" class="search_input search_input_5" placeholder="人數" name=""> -->
-									<button class="home_search_button">搜尋</button>
+									<input type="button" class="home_search_button" style="font-family:Microsoft JhengHei" value="搜尋" onclick="hotelSearch()"/>
 								</div>
 							</form>
 						</div>
@@ -62,6 +115,38 @@
 	</div>
 
 	<!-- END Search -->
+
+
+<section class="ftco-section bg-light">
+		<div class="container" >
+			<div id="hotel_title" class="row justify-content-center mb-5 pb-5">
+<!-- 				<div class="col-md-7 text-center heading-section"> -->
+<!-- 					<h2>熱門城市</h2> -->
+<!-- 				</div> -->
+			</div>
+			<div  id ="hotel_pic" class="row">
+<!-- 		------------------------------------ -->
+<!-- ftco-animate -->
+<!-- 				<div class="col-md-6 col-lg-3 "> -->
+<!-- 					<div class="blog-entry"> -->
+<!-- 						<a href="blog-single.html" class="block-20" -->
+<%-- 							style="background-image: url('<c:url value='/voyage/hotel/hotelPic/熱門飯店/紐約市中心希爾頓酒店(New York Hilton Midtown).jpg'/>');"> --%>
+<!-- 						</a> -->
+<!-- 						<div class="text p-4"> -->
+<!-- 							<div class="meta"></div> -->
+<!-- 							<h6> -->
+<!-- 								<a href="#">紐約市中心希爾頓酒店(New York Hilton Midtown)</a> -->
+<!-- 							</h6> -->
+<!--                    			<p style="margin-bottom:0"><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star-half-full"></span></p> -->
+<!-- 							<p class="float-left" style="margin">NT$ 5,158</p> -->
+<!-- 						</div> -->
+<!-- 					</div> -->
+<!-- 				</div> -->
+<!-- 		------------------------------------ -->
+		</div>
+	</div>
+</section>
+
 
 
 	<!-- 熱門城市  -->
@@ -281,8 +366,7 @@
 	<section class="ftco-section bg-light">
 		<div class="container">
 			<div
-				class="row no-gutters justify-content-center mb-5 pb-5 ftco-animate"
-				style="margin-top: -80px">
+				class="row no-gutters justify-content-center mb-5 pb-5 ftco-animate" style="margin-top: -80px">
 				<div class="col-md-7 text-center heading-section">
 					<h2>熱門飯店推薦</h2>
 				</div>
@@ -298,9 +382,8 @@
 							<h6>
 								<a href="#">紐約市中心希爾頓酒店(New York Hilton Midtown)</a>
 							</h6>
-							<p class="clearfix">
-							<p class="float-left">NT$ 5,158</p>
-							</p>
+                   			<p style="margin-bottom:0"><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star-half-full"></span></p>
+							<p class="float-left" style="margin">NT$ 5,158</p>
 						</div>
 					</div>
 				</div>
@@ -312,10 +395,9 @@
 						<div class="text p-4">
 							<div class="meta"></div>
 							<h6>
-								<a href="#">洛杉磯市中心菲格羅亞酒店(Hotel Figueroa Downtown Los
-									Angeles)</a>
+								<a href="#">洛杉磯市中心菲格羅亞酒店(Hotel Figueroa Downtown Los Angeles)</a>
 							</h6>
-							<p class="clearfix">
+							<p style="margin-bottom:0"><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star-half-full"></span></p>
 							<p class="float-left">NT$ 5,630</p>
 							</p>
 						</div>
@@ -331,7 +413,7 @@
 							<h6>
 								<a href="#">倫敦肯辛頓千禧國際百麗酒店(The Bailey's Hotel London)</a>
 							</h6>
-							<p class="clearfix">
+							<p style="margin-bottom:0"><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star-half-full"></span></p>
 							<p class="float-left">NT$ 3,941</p>
 							</p>
 						</div>
@@ -345,10 +427,9 @@
 						<div class="text p-4">
 							<div class="meta"></div>
 							<h6>
-								<a href="#">巴黎貝斯特韋斯特沃塞特歌劇酒店(Best Western Hotel Horset Opera
-									Paris)</a>
+								<a href="#">巴黎貝斯特韋斯特沃塞特歌劇酒店(Best Western Hotel Horset Opera Paris)</a>
+							<p style="margin-bottom:0"><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star-half-full"></span></p>
 							</h6>
-							<p class="clearfix">
 							<p class="float-left">NT$ 4,732</p>
 							</p>
 						</div>
@@ -364,7 +445,7 @@
 							<h6>
 								<a href="#">香港皇悅卓越酒店(尖沙咀店)(Empire Prestige Tsim Sha Tsui)</a>
 							</h6>
-							<p class="clearfix">
+							<p style="margin-bottom:0"><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star-half-full"></span></p>
 							<p class="float-left">NT$ 5,768</p>
 							</p>
 						</div>
@@ -380,7 +461,7 @@
 							<h6>
 								<a href="#">上海帝璟麗致大酒店</a>
 							</h6>
-							<p class="clearfix">
+							<p style="margin-bottom:0"><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star-half-full"></span></p>
 							<p class="float-left">NT$ 4,348</p>
 							</p>
 						</div>
@@ -396,7 +477,7 @@
 							<h6>
 								<a href="#">曼谷塔瓦納酒店(The Tawana Bangkok)</a>
 							</h6>
-							<p class="clearfix">
+							<p style="margin-bottom:0"><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star-half-full"></span></p>
 							<p class="float-left">NT$ 1,221</p>
 							</p>
 						</div>
@@ -412,7 +493,7 @@
 							<h6>
 								<a href="#">首爾皇家酒店(Royal Hotel Seoul)</a>
 							</h6>
-							<p class="clearfix">
+							<p style="margin-bottom:0"><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star-half-full"></span></p>
 							<p class="float-left">NT$ 3,297</p>
 							</p>
 						</div>
@@ -428,7 +509,7 @@
 							<h6>
 								<a href="#">新宿華盛頓酒店(Shinjuku Washington Hotel)</a>
 							</h6>
-							<p class="clearfix">
+							<p style="margin-bottom:0"><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star-half-full"></span></p>
 							<p class="float-left">NT$ 2,763</p>
 							</p>
 						</div>
@@ -444,7 +525,7 @@
 							<h6>
 								<a href="#">新加坡半島怡東酒店(Peninsula Excelsior Hotel Singapore)</a>
 							</h6>
-							<p class="clearfix">
+							<p style="margin-bottom:0"><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star-half-full"></span></p>
 							<p class="float-left">NT$ 3,217</p>
 							</p>
 						</div>

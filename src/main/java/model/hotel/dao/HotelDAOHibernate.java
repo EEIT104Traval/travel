@@ -48,7 +48,7 @@ public class HotelDAOHibernate implements HotelDAO {
 	}
 	
 	@Override
-	public HotelBean update(Integer hotelNo,  String hotelName, String country, String city, String address, String phone, String email, Integer hotelTotalRooms, String pic) {
+	public HotelBean update(Integer hotelNo,  String hotelName, String country, String city, String address, Integer hotelTotalRooms, String starRate, String price, String pic) {
 		HotelBean result = this.getSession().get(HotelBean.class, hotelNo);
 		
 		if(result!=null) {
@@ -57,9 +57,9 @@ public class HotelDAOHibernate implements HotelDAO {
 			result.setCountry(country);
 			result.setCity(city);
 			result.setAddress(address);
-			result.setPhone(phone);
-			result.setEmail(email);
 			result.setHotelTotalRooms(hotelTotalRooms);
+			result.setStarRate(starRate);
+			result.setPrice(price);
 			result.setPic(pic);
 			return result;
 		}
