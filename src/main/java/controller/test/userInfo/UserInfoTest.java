@@ -65,6 +65,13 @@ public class UserInfoTest {
 	 boolean bean3 = dao.remove("Kitty");   
 	  return true;
  }
- 
-}
+ @ResponseBody
+ @RequestMapping("/userfound")
+ public UserInfoBean findByaccountName(String accountName) {
+		UserInfoBean result = dao.findByaccountName("kitty");
+		System.out.println(result);
+		return result;
+	}
+ }
+
  

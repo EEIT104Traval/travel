@@ -11,23 +11,27 @@ import model.userInfo.UserInfoService;
 
 @Controller
 public class UserController {
-
+	
 	@Autowired
 	private UserInfoService userInfoService;
 	
 	@ResponseBody
 	@RequestMapping("/bindex/User.controller")
-	public UserInfoBean method(@RequestParam(value="found",required=false)String found ,String number) {
+	public UserInfoBean method(@RequestParam(value="user")String user ,@RequestParam(value="number")String number) {
 		UserInfoBean result = null;
 		
-		System.out.println("found="+found);
+		System.out.println("user="+user);
 		System.out.println("number="+number);
 		
-		if ( number == "one") {
-			result = userInfoService.findByAccountName(found);
-		} else if (number =="two") {
-			result = userInfoService.findByPhone(found);
+		if ( number.equals("one")) {
+			result = userInfoService.findByAccountName(user);
+			System.out.println(result);
+		} else if ( number.equals("two")) {
+			result = userInfoService.findByPhone(user);
+			System.out.println(result);
 		}
 		return result;
 	}	
+	
+	
 }
