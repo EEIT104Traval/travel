@@ -65,6 +65,13 @@ public class UserInfoTest {
 	 boolean bean3 = dao.remove("Kitty");   
 	  return true;
  }
- 
-}
+ @ResponseBody
+ @RequestMapping("/userfound")
+ public List<UserInfoBean> findByPhone(String phone) {
+	 List<UserInfoBean> result = dao.findByphone("0987654321");
+		System.out.println(result);
+		return result;
+	}
+ }
+
  

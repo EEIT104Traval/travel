@@ -56,6 +56,8 @@
 	<a href="<c:url value='/userInfocreate' />">Usercreat</a>
 	<a href="<c:url value='/userInfoupdate' />">Userupdate</a>
 	<a href="<c:url value='/userInforemove' />">Userremove</a>
+	<br>
+	<a href="<c:url value='/userfound' />">userfound</a>
 	<hr />
 	<a href="<c:url value='/ratePK' />">RatePK</a>
 	<a href="<c:url value='/ratefindALL' />">RatefindAll</a>
