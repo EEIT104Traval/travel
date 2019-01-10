@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import model.ticket.TicketInfoBean;
 import model.userInfo.UserInfoBean;
 import model.userInfo.UserInfoService;
 import model.userInfo.dao.UserInfoDAOHibernate;
@@ -17,9 +18,6 @@ public class UserController {
 	
 	@Autowired
 	private UserInfoService userInfoService;
-	@Autowired
-	private UserInfoDAOHibernate udao;
-	
 	
 	@ResponseBody
 	@RequestMapping("/bindex/User.controller")
@@ -32,19 +30,16 @@ public class UserController {
 		if ( number.equals("one")) {
 			result = userInfoService.findByAccountName(user);
 			System.out.println(result);
+			return result;
 		} else if ( number.equals("two")) {
 			result =  userInfoService.findByPhone(user);
 			System.out.println(result);
+			return result;
+		}else if (number.equals("zero")) {
+			result = userInfoService.findAll();
+			for(UserInfoBean TI : result)
+				System.out.println(TI);
 		}
 		return result;
-	
-	}	
-	
-	@ResponseBody
-	@RequestMapping("/bindex/UserAll.controller")
-	public List<UserInfoBean> method1() {
-		List<UserInfoBean> result = udao.findAll();
-		
-		return result;		
 	}	
 }

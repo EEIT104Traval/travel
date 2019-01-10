@@ -21,7 +21,6 @@ var params = {}
 			params.number = $('#select1').val()
 		})
 	});
-
   			function fundmember(){
  			params.user = $('#user').val();
 			$("#searchuser").html("")
@@ -33,31 +32,31 @@ var params = {}
  					dataType : 'json',
  					data:params,
  				   }).done(function(JData) {
-						$.each(JData, function(index, value) {
-							console.log(value)
-							$("#searchuser").append(
-		 							'<table><tr><th>accountName</th><th>firstname</th><th>lastname</th><th>identityNo</th><th>email</th></tr><tr>'
-		 							+'<th>'+value.accountName +'</th>'
-		 							+'<th>'+value.firstname +'</th>'
-		 							+'<th>'+value.lastname +'</th>'
-		 							+'<th>'+value.identityNo +'</th>'
-		 							+'<th>'+value.email +'</th>'
-		 							+'</tr><tr><th>sex</th><th>phone</th><th>birth</th><th colspan="2">address</th></tr><tr>'
-		 							+'<th>'+value.sex +'</th>'
-		 							+'<th>'+value.phone +'</th>'
-		 							+'<th>'+value.birth +'</th>'
-		 							+'<th colspan="2">'+value.address +'</th></tr></table>'
-		 				);	
-					})
- 					
-			});		
- 		};
+							$.each(JData, function(index, value) {
+								console.log(value)
+ 						$("#searchuser").append(
+ 							'<table><tr><th>accountName</th><th>firstname</th><th>lastname</th><th>identityNo</th><th>email</th></tr><tr>'
+ 							+'<th>'+value.accountName +'</th>'
+ 							+'<th>'+value.firstname +'</th>'
+ 							+'<th>'+value.lastname +'</th>'
+ 							+'<th>'+value.identityNo +'</th>'
+ 							+'<th>'+value.email +'</th>'
+ 							+'</tr><tr><th>sex</th><th>phone</th><th>birth</th><th colspan="2">address</th></tr><tr>'
+ 							+'<th>'+value.sex +'</th>'
+ 							+'<th>'+value.phone +'</th>'
+ 							+'<th>'+value.birth +'</th>'
+ 							+'<th colspan="2">'+value.address +'</th></tr></table>'
+							)};
+				)};
+ 	)};		
 </script>
 </head>
 <body>
 	<jsp:include page="bindex.jsp" />
 	<div class="boxmsg">
-<!--  -->	 　　　　　　　　　　　　　　　　　　　　　　　　　　　會員資料查詢　　　　　　　　　　　　　　　　　　　　　　　<input type="button" value="顯示所有客戶" onclick="fundmember1()">
+			<br>
+            <br>
+<!--  -->	 　　　　　　　　　　　　　　　　　　　　　　　　　　　會員資料查詢　　　　　　　　　　　　　　　　　　　　　　
             <br>
             <br>
             <br>
