@@ -21,7 +21,7 @@ public class UserController {
 	
 	@ResponseBody
 	@RequestMapping("/bindex/User.controller")
-	public List<UserInfoBean> method(@RequestParam(value="user")String user ,@RequestParam(value="number")String number) {
+	public List<UserInfoBean> method(@RequestParam(value="user",required=false)String user ,@RequestParam(value="number",required=false)String number) {
 		List<UserInfoBean> result = null;
 		
 		System.out.println("user="+user);
@@ -35,10 +35,11 @@ public class UserController {
 			result =  userInfoService.findByPhone(user);
 			System.out.println(result);
 			return result;
-		}else if (number.equals("zero")) {
+		}else if ( number.equals("three")) {
 			result = userInfoService.findAll();
 			for(UserInfoBean TI : result)
 				System.out.println(TI);
+			return result;
 		}
 		return result;
 	}	
