@@ -9,39 +9,39 @@
 <!-- import this css by Alex -->
 <!-- <link rel="stylesheet" href="css/main_styles.css"> -->
 <link rel="stylesheet" type="text/css"
-	href="<c:url value='styles/main_styles.css'/>">
+	href="<c:url value='/voyage/styles/main_styles.css'/>">
 <head>
 <%-- <jsp:include page="/voyage/nav.jsp" /> --%>
 <script>
-	$(document).ready(function(){
-			$('#home_search_button').click(function() {
-				alert("button被按了一下");
-				var goPlace = $('#goPlace').val();
-				var goPlace2 = $('#goPlace2').val();
-				var checkin_date = $('#checkin_date').val();
-				var checkout_date = $('#checkout_date').val();
-				var peopleType = $('#peopleType').val();
-				var cabin = $('#search-controls-cabin-class-dropdown').val();
-				$.ajax({
-					url : '/Travel/FlightInfo',
-					contentType : 'application/json; charset=UTF-8',
-					type : 'get',
-					dataType : 'json',
-					data:{
-						"takeOffPlace": goPlace,
-						"landingPlace":goPlace2,
-						"checkin_date":checkin_date,
-						"checkout_date":checkout_date,
-						"peopleType":peopleType,
-						"cabinclass":cabin
-					}
-				}).done(function(JData) {
-					console.log(JData)
+// 	$(document).ready(function(){
+// 			$('#home_search_button').click(function() {
+// 				alert("button被按了一下");
+// 				var goPlace = $('#goPlace').val();
+// 				var goPlace2 = $('#goPlace2').val();
+// 				var checkin_date = $('#checkin_date').val();
+// 				var checkout_date = $('#checkout_date').val();
+// 				var peopleType = $('#peopleType').val();
+// 				var cabin = $('#search-controls-cabin-class-dropdown').val();
+// 				$.ajax({
+// 					url : '/Travel/FlightInfo',
+// 					contentType : 'application/json; charset=UTF-8',
+// 					type : 'get',
+// 					dataType : 'json',
+// 					data:{
+// 						"takeOffPlace": goPlace,
+// 						"landingPlace":goPlace2,
+// 						"checkin_date":checkin_date,
+// 						"checkout_date":checkout_date,
+// 						"peopleType":peopleType,
+// 						"cabinclass":cabin
+// 					}
+// 				}).done(function(JData) {
+// 					console.log(JData)
 							
-					})
+// 					})
 
-			});
-	});
+// 			});
+// 	});
 </script>
 </head>
 <body>
@@ -62,8 +62,8 @@
 	<!-- Search -->
 
 	<div class="home_search" style="margin-top: -150px">
-		<form action="<c:url value="#" />" class="home_search_form"
-			id="home_search_form" method="post">
+		<form action="<c:url value="/FlightInfo" />" class="home_search_form"
+			id="home_search_form" method="POST">
 			<div class="container">
 				<div class="row">
 					<div class="col">
@@ -73,23 +73,23 @@
 								<div class="form-group">
 									<div class="form-checkbox">
 										<div class="radio-beauty-container">
-											<label style="display: inline-block;"> <input
-												type="radio" name="flystyle" id="flystyle1" 
+											<div style="display: inline-block;"> <input
+												type="radio" name="flystyle" id="flystyle1" hidden=true
 												style="display: inline-block;" checked="checked" /> <label
 												for="goandback" class="radio-beauty"
 												style="display: inline-block;"></label><span
 												class="radio-name">往返</span>
-											</label> <label style="display: inline-block;"> <input
-												type="radio" name="flystyle" id="go" 
+											</div> <div style="display: inline-block;"> <input
+												type="radio" name="flystyle" id="go" hidden=true
 												style="display: inline-block;" /> <label for="flystyle2"
 												class="radio-beauty" style="display: inline-block;"></label><span
 												class="radio-name">單程</span>
-											</label> <label style="display: inline-block;"> <input
-												type="radio" name="flystyle" id="more"
+											</div> <div style="display: inline-block;"> <input
+												type="radio" name="flystyle" id="more" hidden=true
 												style="display: inline-block;" /> <label for="flystyle3"
 												class="radio-beauty" style="display: inline-block;"></label><span
 												class="radio-name">多程</span>
-											</label>
+											</div>
 										</div>
 									</div>
 								</div>
@@ -100,31 +100,31 @@
 								<div
 									class="d-flex flex-lg-row flex-column align-items-start justify-content-lg-between justify-content-start">
 									<div>
-										<span class="form-label">出發地</span> <input id='goPlace' type="text"
+										<span class="form-label">出發地</span> <input id='goPlace' type="text" autocomplete="off"
 											class="search_input_1" style="width: 450px"
 											placeholder="請輸入機場/城市中英文或代碼" required="required">
 									</div>
-									<img alt="" src="<c:url value='images/changeTwoPlace.png'/>"
+									<img alt="" src="<c:url value='/voyage/images/changeTwoPlace.png'/>"
 										width="25px" style="padding-top: 42px">
 									<div>
-										<span class="form-label">目的地</span> <input id='goPlace2' type="text"
+										<span class="form-label">目的地</span> <input id='goPlace2' type="text" autocomplete="off"
 											class="search_input search_input_1" style="width: 450px"
 											placeholder="請輸入機場/城市中英文或代碼" required="required">
 									</div>
 								</div>
 
 								<div style="display: inline-block; padding-right: 40px;">
-									<span class="form-label">出發日期</span> <input type="text"
+									<span class="form-label">出發日期</span> <input type="text" autocomplete="off"
 										class="search_input search_input_1" id="checkin_date"
 										placeholder="yyyy/MM/dd" name="">
 								</div>
 								<div style="display: inline-block; padding-right: 40px;">
-									<span class="form-label">回程日期</span> <input type="text"
+									<span class="form-label">回程日期</span> <input type="text" autocomplete="off"
 										class="search_input search_input_1" placeholder="yyyy/MM/dd"
 										name="" id="checkout_date">
 								</div>
 								<div style="display: inline-block; padding-right: 40px;">
-									<span class="form-label">旅客類型</span> <input id='peopleType' type="text"
+									<span class="form-label">旅客類型</span> <input id='peopleType' type="text" autocomplete="off"
 										class="search_input search_input_1" placeholder="人數" name="">
 								</div>
 								<div style="display: inline-block; padding-right: 65px;">
@@ -141,7 +141,7 @@
 								</div>
 
 
-								<button class="home_search_button" id="home_search_button">搜尋</button>
+								<button class="home_search_button" id="home_search_button" type="submit">搜尋</button>
 							</div>
 						</div>
 					</div>
@@ -154,7 +154,7 @@
 
 	<div class="intro">
 		<div class="intro_background"
-			style="background-image: url( <c:url value='images/intro.png'/>)"></div>
+			style="background-image: url( <c:url value='/voyage/images/intro.png'/>)"></div>
 		<div class="container">
 			<div class="row">
 				<div class="col">
@@ -166,7 +166,7 @@
 								<div
 									class="intro_item d-flex flex-row align-items-end justify-content-start">
 									<div class="intro_icon">
-										<img src="<c:url value='images/beach.svg'/>" alt="">
+										<img src="<c:url value='/voyage/images/beach.svg'/>" alt="">
 									</div>
 									<div class="intro_content">
 										<div class="intro_title">Top Destinations</div>
@@ -182,7 +182,7 @@
 								<div
 									class="intro_item d-flex flex-row align-items-end justify-content-start">
 									<div class="intro_icon">
-										<img src="<c:url value='images/wallet.svg'/>" alt="">
+										<img src="<c:url value='/voyage/images/wallet.svg'/>" alt="">
 									</div>
 									<div class="intro_content">
 										<div class="intro_title">The Best Prices</div>
@@ -198,7 +198,7 @@
 								<div
 									class="intro_item d-flex flex-row align-items-end justify-content-start">
 									<div class="intro_icon">
-										<img src=" <c:url value='images/suitcase.svg'/>" alt="">
+										<img src=" <c:url value='/voyage/images/suitcase.svg'/>" alt="">
 									</div>
 									<div class="intro_content">
 										<div class="intro_title">Amazing Services</div>
@@ -217,6 +217,6 @@
 	</div>
 
 	<jsp:include page="/voyage/foo.jsp" />
-	<script src=" <c:url value='js/main.js'/>"></script>
+	<script src=" <c:url value='/voyage/js/main.js'/>"></script>
 </body>
 </html>

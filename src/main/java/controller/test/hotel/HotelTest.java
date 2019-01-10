@@ -60,7 +60,7 @@ public class HotelTest {
 
 	@RequestMapping("/Hotelsearch")
 	public List<HotelBean> searchByCountry() {
-		List<HotelBean> all = dao.searchByCountry("France");
+		List<HotelBean> all = dao.searchByCountry("法國");
 
 		return all;
 	}

@@ -18,10 +18,8 @@ public class TicketInfoService {
 	@Autowired
 	private TicketOrderInfoDAO ticketOrderInfoDAO = null;
 
-	
 	public SimpleDateFormat sdFormat = new SimpleDateFormat("yyyy/MM/dd");
-	
-	
+
 	public List<TicketInfoBean> select(TicketInfoBean bean) {
 		List<TicketInfoBean> result = null;
 		if (bean != null && bean.getTicketNo() != 0) {
@@ -57,31 +55,33 @@ public class TicketInfoService {
 		return result;
 	}
 
-	public boolean qupdate(String accountName ,Integer ticketNo, Integer adultTicketSellQ, Integer adultTicketPrice) throws ParseException {
-		TicketInfoBean bean = new TicketInfoBean();
-		TicketOrderInfoBean bean1 = new TicketOrderInfoBean();
+	public boolean qupdate(String accountName, Integer ticketNo, Integer adultTicketSellQ, Integer adultTicketPrice)
+			throws ParseException {
+//		TicketInfoBean bean = new TicketInfoBean();
+		TicketOrderInfoBean bean = new TicketOrderInfoBean();
 		if (ticketNo != null) {
 			TicketInfoBean TI = ticketInfoDAO.findByPrimaryKey(ticketNo);
 			Integer Q = TI.getAdultTicketSellQ();
-			Integer SaveQ = adultTicketSellQ - Q ;
+			Integer SaveQ = Q - adultTicketSellQ;
 			TI.setAdultTicketSellQ(SaveQ);
-			TI.setAdultTicketSelledQ(TI.getAdultTicketSelledQ()+adultTicketSellQ);
+			TI.setAdultTicketSelledQ(TI.getAdultTicketSelledQ() + adultTicketSellQ);
 			ticketInfoDAO.qupdate(TI);
-			//--------------------------(↑購買更改庫存數量 )(↓購買更改訂單表格)---------------------------		
-			TicketOrderInfoBean TOI = ticketOrderInfoDAO.create(bean1);
+			// --------------------------(↑購買更改庫存數量 )(↓購買更改訂單表格)---------------------------
+			TicketOrderInfoBean TOI = ticketOrderInfoDAO.create(bean);
 			TOI.setAccountName(accountName);
 			TOI.setTicketNo(ticketNo);
-			
 			Date date = new Date();
 			String strDate = sdFormat.format(date);
-			Date xx = sdFormat.parse(strDate);
-			TOI.setOrderDate(xx);
+			Date TD = sdFormat.parse(strDate);
+			TOI.setOrderDate(TD);
 			TOI.setAdultTicketCount(adultTicketSellQ);
 			Integer TT = adultTicketSellQ * adultTicketPrice;
 			TOI.setTotalPrice(TT);
-		
-			}
-		return false;
+
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	public boolean delete(TicketInfoBean bean) {

@@ -36,6 +36,7 @@
 	<a href="<c:url value='ticketUpdate' />">ticketUpdate</a>
 	<a href="<c:url value='ticketRemove' />">ticketRemove</a>
 	<a href="<c:url value='ticketcountry' />">findcountry</a>
+	<a href="<c:url value='ticketbuyandsave' />">ticketbuyandsave</a>
 	<br>
 	<a href="<c:url value='ticketOrderfindAll' />">ticketOrderfindAll</a>
 	<a href="<c:url value='ticketOrderfindpk' />">ticketOrderfindpk</a>
