@@ -21,7 +21,7 @@ public class UserInfoTest {
  @RequestMapping("/userInfoPK")
  public UserInfoBean method() {
   System.out.println("test controller");  
-  UserInfoBean bean = dao.findByPrimaryKey("Micky");   
+  UserInfoBean bean = dao.findByPrimaryKey("snoopy");   
   return bean;
  }
  @ResponseBody

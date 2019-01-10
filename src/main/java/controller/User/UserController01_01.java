@@ -14,13 +14,13 @@ import model.userInfo.UserInfoService;
 import model.userInfo.dao.UserInfoDAOHibernate;
 
 @Controller
-public class UserController {
+public class UserController01_01 {
 	
 	@Autowired
 	private UserInfoService userInfoService;
 	
 	@ResponseBody
-	@RequestMapping("/bindex/User.controller")
+	@RequestMapping("/bindex01_01/User.controller")
 	public List<UserInfoBean> method(@RequestParam(value="user",required=false)String user ,@RequestParam(value="number",required=false)String number) {
 		List<UserInfoBean> result = null;
 		
