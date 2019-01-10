@@ -33,10 +33,7 @@ public class UserInfoService {
 	public List<UserInfoBean> findAll() {
 		
 		List<UserInfoBean> result = userInfoDAO.findAll();
-			if (result != null) {
-				result = new ArrayList<UserInfoBean>();
-				result.addAll(result);
-								}
+		
 		return result;
-	}
+		}	
 }

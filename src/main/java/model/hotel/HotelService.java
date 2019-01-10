@@ -38,8 +38,8 @@ public class HotelService {
 		HotelBean result = null;
 		if(bean!=null) {
 			result = hotelDAO.update(bean.getHotelNo(), bean.getHotelName(), bean.getCountry(), bean.getCity(), 
-					bean.getAddress(), bean.getPhone(), bean.getEmail(), bean.getHotelTotalRooms(), bean.getPhone());
-		}
+					bean.getAddress(), bean.getHotelTotalRooms(), bean.getStarRate(), bean.getPrice(), bean.getPic());
+					}
 		return result;
 	}
 	public boolean delete(HotelBean bean) {
