@@ -17,13 +17,17 @@ public class UserController {
 	
 	@ResponseBody
 	@RequestMapping("/bindex/User.controller")
-	public UserInfoBean method(@RequestParam(value="found",required=false)String found) {
+	public UserInfoBean method(@RequestParam(value="found",required=false)String found ,String number) {
+		UserInfoBean result = null;
 		
 		System.out.println("found="+found);
+		System.out.println("number="+number);
 		
-		UserInfoBean result = userInfoService.findByUser(found);
-		
-		
+		if ( number == "one") {
+			result = userInfoService.findByAccountName(found);
+		} else if (number =="two") {
+			result = userInfoService.findByPhone(found);
+		}
 		return result;
 	}	
 }
