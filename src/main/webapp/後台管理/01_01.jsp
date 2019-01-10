@@ -15,107 +15,49 @@
 <script>
 var number
 var user
-
+var params = {}
 	$(document).ready(function() {
-		
-	
 		$('#select1').change(function() {
-			number = $('#select1').val()
-// 			alert(number)
+			params.number = $('#select1').val()
 		})
-		
-//   		$('#check').click( 
+	});
+
   			function fundmember(){
- 			user = $('#user').val();
- 			console.log(number)
- 			console.log(user)
+ 			params.user = $('#user').val();
+			$("#searchuser").html("")
+
  			$.ajax({
  					url : '/Travel/bindex/User.controller',
  					contentType : 'application/json; charset=UTF-8',
  					type : 'get',
  					dataType : 'json',
- 					data:{"number":number , "found":user},
- 				   })
-					 .done(function(JData) {
-							$("#div_ticket_search").html("")
- 							$.each(JData, function(index, value) {
- 								console.log(value);
- 								$("#div_ticket_search").append(
-
- 							'<table>'+
- 								'<tr>'+
- 									'<th>'+
- 											'accountName'+
- 									'</th>'+
- 									'<th>'+
- 											'firstname'+
- 									'</th>'+
- 									'<th>'+
- 											'lastname'+
- 									'</th>'+
- 									'<th>'+
- 											'identityNo'+
- 									'</th>'+
- 									'<th>'+
- 											'email'+
- 									'</th>'+
- 								'</tr>'+
- 								'<tr>'+
- 									'<th>'+
- 										value.accountName +
- 									'</th>'+
- 									'<th>'+
- 										value.firstname +
- 									'</th>'+
- 									'<th>'+
- 										value.lastname +
- 									'</th>'+
- 									'<th>'+
- 										value.identityNo +
- 									'</th>'+
- 									'<th>'+
- 										value.email +
- 									'</th>'+
- 								'</tr>'+
- 								'<tr>'+
-									'<th>'+
- 											'sex'+
- 									'</th>'+
- 									'<th>'+
- 											'phone'+
- 									'</th>'+
- 									'<th>'+
- 											'birth'+
- 									'</th>'+
- 									'<th colspan="2">'+
- 											'address'+
- 									'</th>'+
- 								'</tr>'+
- 								'<tr>'+
- 									'<th>'+
- 										value.sex +
- 									'</th>'+
- 									'<th>'+
- 										value.phone +
- 									'</th>'+
- 									'<th>'+
- 										value.birth +
- 									'</th>'+
- 									'<th colspan="2">'+
- 										value.address +
- 									'</th>'+
- 								'</tr>'+
- 							'</table>'
- 				)});	
+ 					data:params,
+ 				   }).done(function(JData) {
+						$.each(JData, function(index, value) {
+							console.log(value)
+							$("#searchuser").append(
+		 							'<table><tr><th>accountName</th><th>firstname</th><th>lastname</th><th>identityNo</th><th>email</th></tr><tr>'
+		 							+'<th>'+value.accountName +'</th>'
+		 							+'<th>'+value.firstname +'</th>'
+		 							+'<th>'+value.lastname +'</th>'
+		 							+'<th>'+value.identityNo +'</th>'
+		 							+'<th>'+value.email +'</th>'
+		 							+'</tr><tr><th>sex</th><th>phone</th><th>birth</th><th colspan="2">address</th></tr><tr>'
+		 							+'<th>'+value.sex +'</th>'
+		 							+'<th>'+value.phone +'</th>'
+		 							+'<th>'+value.birth +'</th>'
+		 							+'<th colspan="2">'+value.address +'</th></tr></table>'
+		 				);	
+					})
+ 					
 			});		
  		};
-	});
 </script>
 </head>
 <body>
 	<jsp:include page="bindex.jsp" />
 	<div class="boxmsg">
-<!--  -->	 　　　　　　　　　　　　　　　　　　　　　　　　　　　會員資料查詢　　　　　　　　　　　　　　　　　　　　　　　<input type="button" value="顯示所有客戶" name="#">
+<!--  -->	 　　　　　　　　　　　　　　　　　　　　　　　　　　　會員資料查詢　　　　　　　　　　　　　　　　　　　　　　　<input type="button" value="顯示所有客戶" onclick="fundmember1()">
             <br>
             <br>
             <br>
