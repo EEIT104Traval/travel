@@ -6,6 +6,7 @@
 	crossorigin="anonymous"></script>
 <!DOCTYPE html>
 <html lang="tw-zh">
+
 <!-- import this css by Alex -->
 <!-- <link rel="stylesheet" href="css/main_styles.css"> -->
 <link rel="stylesheet" type="text/css"
@@ -102,14 +103,15 @@
 									<div>
 										<span class="form-label">出發地</span> <input id='goPlace' type="text" autocomplete="off"
 											class="search_input_1" style="width: 450px"
-											placeholder="請輸入機場/城市中英文或代碼" required="required">
+											placeholder="請輸入機場/城市中英文或代碼" >
+<!-- 											required="required" -->
 									</div>
 									<img alt="" src="<c:url value='/voyage/images/changeTwoPlace.png'/>"
 										width="25px" style="padding-top: 42px">
 									<div>
 										<span class="form-label">目的地</span> <input id='goPlace2' type="text" autocomplete="off"
 											class="search_input search_input_1" style="width: 450px"
-											placeholder="請輸入機場/城市中英文或代碼" required="required">
+											placeholder="請輸入機場/城市中英文或代碼" >
 									</div>
 								</div>
 
@@ -217,6 +219,5 @@
 	</div>
 
 	<jsp:include page="/voyage/foo.jsp" />
-	<script src=" <c:url value='/voyage/js/main.js'/>"></script>
 </body>
 </html>

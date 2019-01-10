@@ -1,9 +1,10 @@
 package controller.flight;
 
-import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletResponse;
 
@@ -15,11 +16,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
+import model.flight.AirlineCompareDAO;
 import model.flight.service.FlightInfoGetService;
 
 @Controller
 public class FlightInfoController {
-	
+	@Autowired
+	AirlineCompareDAO dao;
 	@Autowired
 	private FlightInfoGetService flightInfoGetService;	
 	//Model model,FlightTicketBean bean,String flystyle,String params,
@@ -32,7 +35,9 @@ public class FlightInfoController {
 //			@RequestParam(value="checkout_date")Date checkout_date,
 //			@RequestParam(value="peopleType")String peopleType,
 //			@RequestParam(value="cabinclass")String cabinclass	
-			) throws IOException {
+			) throws Exception {
+		response.setCharacterEncoding("UTF-8");
+		
 		PrintWriter out = response.getWriter();
 //		System.out.println("Controller方法開始");
 //		System.out.println("params="+takeOffPlace);
@@ -70,27 +75,42 @@ public class FlightInfoController {
 		bfmsearch.append("{\"OTA_AirLowFareSearchRQ\":{\"ResponseType\":\"OTA\",\"ResponseVersion\":\"3.4.0\",\"Target\":\"Production\",\"Version\":\"3.4.0\",\"POS\":{\"Source\":[{\"PseudoCityCode\":\"A2U8\",\"RequestorID\":{\"Type\":\"1\",\"ID\":\"1\",\"CompanyName\":{\"Code\":\"TN\"}}}]},\"OriginDestinationInformation\":[{\"RPH\":\"1\",\"DepartureDateTime\":\""
 				+date1+"\",\"OriginLocation\":{\"LocationCode\":\""
 				+"TPE"+"\"},\"DestinationLocation\":{\"LocationCode\":\""
-				+"KIX"+"\"},\"TPA_Extensions\":{\"SegmentType\":{\"Code\":\"O\"}}},{\"RPH\":\"2\",\"DepartureDateTime\":\""
+				+"CDG"+"\"},\"TPA_Extensions\":{\"SegmentType\":{\"Code\":\"O\"}}},{\"RPH\":\"2\",\"DepartureDateTime\":\""
 				+date2+"\",\"OriginLocation\":{\"LocationCode\":\""
-				+"KIX"+"\"},\"DestinationLocation\":{\"LocationCode\":\""
-				+"TPE"+"\"},\"TPA_Extensions\":{\"SegmentType\":{\"Code\":\"O\"}}}],\"TravelPreferences\":{\"ValidInterlineTicket\":true,\"CabinPref\":[{\"Cabin\":\"Y\",\"PreferLevel\":\"Preferred\"}],\"TPA_Extensions\":{\"TripType\":{\"Value\":\"Return\"},\"LongConnectTime\":{\"Min\":780,\"Max\":1200,\"Enable\":true},\"ExcludeCallDirectCarriers\":{\"Enabled\":true}}},\"TravelerInfoSummary\":{\"SeatsRequested\":[1],\"AirTravelerAvail\":[{\"PassengerTypeQuantity\":[{\"Code\":\"ADT\",\"Quantity\":"
+				+"CDG"+"\"},\"DestinationLocation\":{\"LocationCode\":\""
+				+"TPE"+"\"},\"TPA_Extensions\":{\"SegmentType\":{\"Code\":\"O\"}}}],\"TravelPreferences\":{\"ValidInterlineTicket\":true,"
+//						+ "\"FlightTypePref\":{\"MaxConnections\":\"0\"}"
+						+ "\"CabinPref\":[{\"Cabin\":\"Y\",\"PreferLevel\":\"Preferred\"}],\"TPA_Extensions\":{\"TripType\":{\"Value\":\"Return\"},\"LongConnectTime\":{\"Min\":780,\"Max\":1200,\"Enable\":true},\"ExcludeCallDirectCarriers\":{\"Enabled\":true}}},\"TravelerInfoSummary\":{\"SeatsRequested\":[1],\"AirTravelerAvail\":[{\"PassengerTypeQuantity\":[{\"Code\":\"ADT\",\"Quantity\":"
 				+"1"+"}]}]},\"TPA_Extensions\":{\"IntelliSellTransaction\":{\"RequestType\":{\"Name\":\"50ITINS\"}}}}}");
 		try {
 			String result = flightInfoGetService.getInfo(bfmsearch.toString());
 			System.out.println("result="+result);
+			int index = result.indexOf("OperatingAirline\":{\"Code\":\"");
+			System.out.println("index="+index);
+			model.addAttribute("result", result);
+			for(int i=0;i<result.length()-1;i++) {
+				Map<String,String> codeMap = new HashMap<>();
+				String code = result.substring(index,index+2);
+				System.out.println("{code1="+code);
+				String value = dao.findByPrimaryKey(result.substring(index,index+1)).getAirlineCompany();
+				codeMap.put(code, value);	
+				result = result.substring(index);
+				System.out.println(code);
+				System.out.println(value);
+			}
+	
 			JsonObject returnData = new JsonParser().parse(result).getAsJsonObject();
 			
 //			List<FlightTicketBean> personlist = new ArrayList<FlightTicketBean>();
 //            JSONObject jsonObject = JSONObject.fromObject(result);
 //            int result2 = jsonObject.getInt("result");
-
-			model.addAttribute("result", returnData);
-			out.println(result);
+			
+//			out.println(result);
 			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
-		return "/flight/FlightSecond3.jsp";
+		return "/flight/xianqi/step1.jsp";
 	}
 }
