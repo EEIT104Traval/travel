@@ -33,23 +33,23 @@ var params = {}
  					dataType : 'json',
  					data:params,
  				   }).done(function(JData) {
-//  					   console.log(JData)
-// 							$.each(JData, function(index, value) {
-// 								console.log(value)
-// 							})
- 						$("#searchuser").append(
- 							'<table><tr><th>accountName</th><th>firstname</th><th>lastname</th><th>identityNo</th><th>email</th></tr><tr>'
- 							+'<th>'+JData.accountName +'</th>'
- 							+'<th>'+JData.firstname +'</th>'
- 							+'<th>'+JData.lastname +'</th>'
- 							+'<th>'+JData.identityNo +'</th>'
- 							+'<th>'+JData.email +'</th>'
- 							+'</tr><tr><th>sex</th><th>phone</th><th>birth</th><th colspan="2">address</th></tr><tr>'
- 							+'<th>'+JData.sex +'</th>'
- 							+'<th>'+JData.phone +'</th>'
- 							+'<th>'+JData.birth +'</th>'
- 							+'<th colspan="2">'+JData.address +'</th></tr></table>'
- 				);	
+						$.each(JData, function(index, value) {
+							console.log(value)
+							$("#searchuser").append(
+		 							'<table><tr><th>accountName</th><th>firstname</th><th>lastname</th><th>identityNo</th><th>email</th></tr><tr>'
+		 							+'<th>'+value.accountName +'</th>'
+		 							+'<th>'+value.firstname +'</th>'
+		 							+'<th>'+value.lastname +'</th>'
+		 							+'<th>'+value.identityNo +'</th>'
+		 							+'<th>'+value.email +'</th>'
+		 							+'</tr><tr><th>sex</th><th>phone</th><th>birth</th><th colspan="2">address</th></tr><tr>'
+		 							+'<th>'+value.sex +'</th>'
+		 							+'<th>'+value.phone +'</th>'
+		 							+'<th>'+value.birth +'</th>'
+		 							+'<th colspan="2">'+value.address +'</th></tr></table>'
+		 				);	
+					})
+ 					
 			});		
  		};
 </script>
@@ -57,7 +57,7 @@ var params = {}
 <body>
 	<jsp:include page="bindex.jsp" />
 	<div class="boxmsg">
-<!--  -->	 　　　　　　　　　　　　　　　　　　　　　　　　　　　會員資料查詢　　　　　　　　　　　　　　　　　　　　　　　<input type="button" value="顯示所有客戶" name="#">
+<!--  -->	 　　　　　　　　　　　　　　　　　　　　　　　　　　　會員資料查詢　　　　　　　　　　　　　　　　　　　　　　　<input type="button" value="顯示所有客戶" onclick="fundmember1()">
             <br>
             <br>
             <br>

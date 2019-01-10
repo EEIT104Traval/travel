@@ -16,16 +16,16 @@ public class UserInfoService {
 	
 	
 //--------------↓↓↓↓↓↓後台使用專區↓↓↓↓↓↓-------------
-	public UserInfoBean findByAccountName (String user) {
+	public List<UserInfoBean> findByAccountName (String user) {
 	
-		UserInfoBean uba = userInfoDAO.findByaccountName(user);
+		List<UserInfoBean> uba = userInfoDAO.findByaccountName(user);
 		
 				return uba;
 	}
 
-	public UserInfoBean findByPhone (String user) {
+	public List<UserInfoBean> findByPhone (String user) {
 		
-		UserInfoBean ubp = userInfoDAO.findByaccountName(user);
+		List<UserInfoBean> ubp = userInfoDAO.findByphone(user);
 		
 				return ubp;
 	}

@@ -67,8 +67,8 @@ public class UserInfoTest {
  }
  @ResponseBody
  @RequestMapping("/userfound")
- public UserInfoBean findByaccountName(String accountName) {
-		UserInfoBean result = dao.findByaccountName("kitty");
+ public List<UserInfoBean> findByPhone(String phone) {
+	 List<UserInfoBean> result = dao.findByphone("0987654321");
 		System.out.println(result);
 		return result;
 	}
