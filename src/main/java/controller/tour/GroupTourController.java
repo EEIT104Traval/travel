@@ -50,4 +50,20 @@ public class GroupTourController {
 //				}
 		
 	}
+	
+	@RequestMapping("/groupTour2")
+	public String method2(GroupTourBean bean, Model model) {
+		System.out.println("bean="+bean);		
+				
+	
+				
+				Long count = groupTourService.countAll();
+				model.addAttribute("count",count);
+				List<GroupTourBean> result = groupTourService.selectAll(); 				
+				model.addAttribute("select", result.get(0));
+				
+				return "/tour/tourtest.jsp";
+
+	}
+	
 }
