@@ -24,20 +24,21 @@ public class FlightInfoController {
 	@Autowired
 	AirlineCompareDAO dao;
 	@Autowired
-	private FlightInfoGetService flightInfoGetService;	
-	//Model model,FlightTicketBean bean,String flystyle,String params,
+	private FlightInfoGetService flightInfoGetService;
+
+	// Model model,FlightTicketBean bean,String flystyle,String params,
 //	@ResponseBody
 	@RequestMapping("/FlightInfo")
-	public String method(Model model,HttpServletResponse response
+	public String method(Model model, HttpServletResponse response
 //			@RequestParam(value="takeOffPlace")String takeOffPlace,
 //			@RequestParam(value="landingPlace")String landingPlace,
 //			@RequestParam(value="checkin_date")Date checkin_date,
 //			@RequestParam(value="checkout_date")Date checkout_date,
 //			@RequestParam(value="peopleType")String peopleType,
 //			@RequestParam(value="cabinclass")String cabinclass	
-			) throws Exception {
+	) throws Exception {
 		response.setCharacterEncoding("UTF-8");
-		
+
 		PrintWriter out = response.getWriter();
 //		System.out.println("Controller方法開始");
 //		System.out.println("params="+takeOffPlace);
@@ -57,11 +58,11 @@ public class FlightInfoController {
 //        System.out.println("出發時間 ="+godatetime);
 //        String backdatetime = format1.format(checkout_date.getTime());
 //        System.out.println("出發時間 ="+backdatetime);
-        
-        Date go = java.sql.Date.valueOf("2019-02-04");
-        Date back  = java.sql.Date.valueOf("2019-02-20");
-        String date1 = format1.format(go.getTime());
-        String date2 = format1.format(back.getTime());
+
+		Date go = java.sql.Date.valueOf("2019-02-04");
+		Date back = java.sql.Date.valueOf("2019-02-20");
+		String date1 = format1.format(go.getTime());
+		String date2 = format1.format(back.getTime());
 		StringBuffer bfmsearch = new StringBuffer();
 //		bfmsearch.append("{\"OTA_AirLowFareSearchRQ\":{\"ResponseType\":\"OTA\",\"ResponseVersion\":\"3.4.0\",\"Target\":\"Production\",\"Version\":\"3.4.0\",\"POS\":{\"Source\":[{\"PseudoCityCode\":\"A2U8\",\"RequestorID\":{\"Type\":\"1\",\"ID\":\"1\",\"CompanyName\":{\"Code\":\"TN\"}}}]},\"OriginDestinationInformation\":[{\"RPH\":\"1\",\"DepartureDateTime\":\"2019-09-01T11:00:00\",\"OriginLocation\":{\"LocationCode\":\"TPE\"},\"DestinationLocation\":{\"LocationCode\":\"HKG\"},\"TPA_Extensions\":{\"SegmentType\":{\"Code\":\"O\"}}},{\"RPH\":\"2\",\"DepartureDateTime\":\"2019-09-15T11:00:00\",\"OriginLocation\":{\"LocationCode\":\"HKG\"},\"DestinationLocation\":{\"LocationCode\":\"TPE\"},\"TPA_Extensions\":{\"SegmentType\":{\"Code\":\"O\"}}}],\"TravelPreferences\":{\"ValidInterlineTicket\":true,\"CabinPref\":[{\"Cabin\":\"Y\",\"PreferLevel\":\"Preferred\"}],\"TPA_Extensions\":{\"TripType\":{\"Value\":\"Return\"},\"LongConnectTime\":{\"Min\":780,\"Max\":1200,\"Enable\":true},\"ExcludeCallDirectCarriers\":{\"Enabled\":true}}},\"TravelerInfoSummary\":{\"SeatsRequested\":[1],\"AirTravelerAvail\":[{\"PassengerTypeQuantity\":[{\"Code\":\"ADT\",\"Quantity\":1}]}]},\"TPA_Extensions\":{\"IntelliSellTransaction\":{\"RequestType\":{\"Name\":\"50ITINS\"}}}}}");
 //		bfmsearch.append("{\"OTA_AirLowFareSearchRQ\":{\"ResponseType\":\"OTA\",\"ResponseVersion\":\"3.4.0\",\"Target\":\"Production\",\"Version\":\"3.4.0\",\"POS\":{\"Source\":[{\"PseudoCityCode\":\"A2U8\",\"RequestorID\":{\"Type\":\"1\",\"ID\":\"1\",\"CompanyName\":{\"Code\":\"TN\"}}}]},\"OriginDestinationInformation\":[{\"RPH\":\"1\",\"DepartureDateTime\":\""
@@ -72,45 +73,52 @@ public class FlightInfoController {
 //				+landingPlaceRE+"\"},\"DestinationLocation\":{\"LocationCode\":\""
 //				+takeOffPlaceRE+"\"},\"TPA_Extensions\":{\"SegmentType\":{\"Code\":\"O\"}}}],\"TravelPreferences\":{\"ValidInterlineTicket\":true,\"CabinPref\":[{\"Cabin\":\"Y\",\"PreferLevel\":\"Preferred\"}],\"TPA_Extensions\":{\"TripType\":{\"Value\":\"Return\"},\"LongConnectTime\":{\"Min\":780,\"Max\":1200,\"Enable\":true},\"ExcludeCallDirectCarriers\":{\"Enabled\":true}}},\"TravelerInfoSummary\":{\"SeatsRequested\":[1],\"AirTravelerAvail\":[{\"PassengerTypeQuantity\":[{\"Code\":\"ADT\",\"Quantity\":"
 //				+peopleType+"}]}]},\"TPA_Extensions\":{\"IntelliSellTransaction\":{\"RequestType\":{\"Name\":\"50ITINS\"}}}}}");
-		bfmsearch.append("{\"OTA_AirLowFareSearchRQ\":{\"ResponseType\":\"OTA\",\"ResponseVersion\":\"3.4.0\",\"Target\":\"Production\",\"Version\":\"3.4.0\",\"POS\":{\"Source\":[{\"PseudoCityCode\":\"A2U8\",\"RequestorID\":{\"Type\":\"1\",\"ID\":\"1\",\"CompanyName\":{\"Code\":\"TN\"}}}]},\"OriginDestinationInformation\":[{\"RPH\":\"1\",\"DepartureDateTime\":\""
-				+date1+"\",\"OriginLocation\":{\"LocationCode\":\""
-				+"TPE"+"\"},\"DestinationLocation\":{\"LocationCode\":\""
-				+"CDG"+"\"},\"TPA_Extensions\":{\"SegmentType\":{\"Code\":\"O\"}}},{\"RPH\":\"2\",\"DepartureDateTime\":\""
-				+date2+"\",\"OriginLocation\":{\"LocationCode\":\""
-				+"CDG"+"\"},\"DestinationLocation\":{\"LocationCode\":\""
-				+"TPE"+"\"},\"TPA_Extensions\":{\"SegmentType\":{\"Code\":\"O\"}}}],\"TravelPreferences\":{\"ValidInterlineTicket\":true,"
+		bfmsearch.append(
+				"{\"OTA_AirLowFareSearchRQ\":{\"ResponseType\":\"OTA\",\"ResponseVersion\":\"3.4.0\",\"Target\":\"Production\",\"Version\":\"3.4.0\",\"POS\":{\"Source\":[{\"PseudoCityCode\":\"A2U8\",\"RequestorID\":{\"Type\":\"1\",\"ID\":\"1\",\"CompanyName\":{\"Code\":\"TN\"}}}]},\"OriginDestinationInformation\":[{\"RPH\":\"1\",\"DepartureDateTime\":\""
+						+ date1 + "\",\"OriginLocation\":{\"LocationCode\":\"" + "TPE"
+						+ "\"},\"DestinationLocation\":{\"LocationCode\":\"" + "CDG"
+						+ "\"},\"TPA_Extensions\":{\"SegmentType\":{\"Code\":\"O\"}}},{\"RPH\":\"2\",\"DepartureDateTime\":\""
+						+ date2 + "\",\"OriginLocation\":{\"LocationCode\":\"" + "CDG"
+						+ "\"},\"DestinationLocation\":{\"LocationCode\":\"" + "TPE"
+						+ "\"},\"TPA_Extensions\":{\"SegmentType\":{\"Code\":\"O\"}}}],\"TravelPreferences\":{\"ValidInterlineTicket\":true,"
 //						+ "\"FlightTypePref\":{\"MaxConnections\":\"0\"}"
 						+ "\"CabinPref\":[{\"Cabin\":\"Y\",\"PreferLevel\":\"Preferred\"}],\"TPA_Extensions\":{\"TripType\":{\"Value\":\"Return\"},\"LongConnectTime\":{\"Min\":780,\"Max\":1200,\"Enable\":true},\"ExcludeCallDirectCarriers\":{\"Enabled\":true}}},\"TravelerInfoSummary\":{\"SeatsRequested\":[1],\"AirTravelerAvail\":[{\"PassengerTypeQuantity\":[{\"Code\":\"ADT\",\"Quantity\":"
-				+"1"+"}]}]},\"TPA_Extensions\":{\"IntelliSellTransaction\":{\"RequestType\":{\"Name\":\"50ITINS\"}}}}}");
+						+ "1"
+						+ "}]}]},\"TPA_Extensions\":{\"IntelliSellTransaction\":{\"RequestType\":{\"Name\":\"50ITINS\"}}}}}");
 		try {
 			String result = flightInfoGetService.getInfo(bfmsearch.toString());
-			System.out.println("result="+result);
-			int index = result.indexOf("OperatingAirline\":{\"Code\":\"");
-			System.out.println("index="+index);
+			System.out.println("result=" + result);
+			int index = 0;
 			model.addAttribute("result", result);
-			for(int i=0;i<result.length()-1;i++) {
-				Map<String,String> codeMap = new HashMap<>();
-				String code = result.substring(index,index+2);
-				System.out.println("{code1="+code);
-				String value = dao.findByPrimaryKey(result.substring(index,index+1)).getAirlineCompany();
-				codeMap.put(code, value);	
-				result = result.substring(index);
-				System.out.println(code);
-				System.out.println(value);
+			Map<String, String> codeMap = new HashMap<>();
+			for (int i = 0; i < result.length() - 1; i=i+index-1) {
+				index = result.indexOf("OperatingAirline\":{\"Code\":\"");
+				String code = result.substring(index + 27, index + 29);
+//				System.out.println("{code1="+code);
+				String value = dao.findByPrimaryKey(code).getAirlineCompany();
+//				String value = dao.findByPrimaryKey("CA").getAirlineCompany();
+				if (!codeMap.containsValue(code)) {
+					codeMap.put(code, value);
+					System.out.println("不包含code="+code+"  value="+value);
+				}
+//				System.out.println("code=" + code);
+//				System.out.println("value=" + value);
+				result = result.substring(index+29);
 			}
-	
-			JsonObject returnData = new JsonParser().parse(result).getAsJsonObject();
-			
+			model.addAttribute("flightCompany",codeMap);
+
+//			JsonObject returnData = new JsonParser().parse(result).getAsJsonObject();
+
 //			List<FlightTicketBean> personlist = new ArrayList<FlightTicketBean>();
 //            JSONObject jsonObject = JSONObject.fromObject(result);
 //            int result2 = jsonObject.getInt("result");
-			
+
 //			out.println(result);
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
 		return "/flight/xianqi/step1.jsp";
 	}
 }

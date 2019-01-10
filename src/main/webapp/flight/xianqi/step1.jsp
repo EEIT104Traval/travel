@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
+<head>
 <meta charset="utf-8">
 <meta http-equiv="x-ua-compatible" content="IE=edge, chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale = 1.0, maximum-scale=1.0, user-scalable=no" />
@@ -17,6 +18,7 @@
 <link rel="stylesheet" type="text/css"  href="<c:url value='/flight/xianqi/css/bootstrap.min.css?sv=1'/>"/>
 
 <link rel="stylesheet" type="text/css" href="<c:url value='/flight/xianqi/css/style.css?sv=1'/>"/>
+
 <script src="https://code.jquery.com/jquery-3.3.1.js"
 	integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
 	crossorigin="anonymous"></script>
@@ -32,22 +34,43 @@
 	<script type="text/javascript">
 var result = ${result}
 // console.log(result.OTA_AirLowFareSearchRS.PricedItineraries.PricedItinerary[0].AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].DepartureDateTime)
-<!--console.log(result.OTA_AirLowFareSearchRS.PricedItineraries.PricedItinerary+"測試亂碼專用")
+console.log(result.OTA_AirLowFareSearchRS.PricedItineraries.PricedItinerary+"測試亂碼專用")
+console.log('${flightCompany.CX}')
+$(document).ready(function() {
+$.each(result.OTA_AirLowFareSearchRS.PricedItineraries.PricedItinerary, function(index, value) {
+	$('#gofirst').append(
+			
+			" <div class='col-xs-10 text-center fly-leftbox'>"
+            +" <div class='col-xs-3 fl-namebox text-center'>"
+              +" <div class='fl-name'>"+'${flightCompany.CX}'+"</div>"
+              +" <div class='+fl-num'>"+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].OperatingAirline.Code+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].OperatingAirline.FlightNumber+"</div>"
+            +"</div>"
+	
+	)
+	
+	
+	
+})
+})
 
+
+
+<!--
 $(document).ready(function() {
 $.each(result.OTA_AirLowFareSearchRS.PricedItineraries.PricedItinerary, function(index, value) {
 	$('#div_apend').append(
 		"<div>1去程第1段DepartureDateTime="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].DepartureDateTime+"</div>"		
 		+"<div>2去程第1段ArrivalDateTime="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].ArrivalDateTime+"</div>"
-		+"<div>3去程第1段ResBookDesigCode="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].ResBookDesigCode+"</div>"
-		+"<div>4去程第1段DLocationCode="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].DepartureAirport.LocationCode+"</div>"
-		+"<div>5去程第1段ALocationCode="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].ArrivalAirport.LocationCode+"</div>"
-		+"<div>6去程第1段Code="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].OperatingAirline.Code+"</div>"
-		+"<div>7去程第1段FlightNumber="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].OperatingAirline.FlightNumber+"</div>"
-		+"<div>8去程第1段Equipment="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].Equipment[0].AirEquipType+"</div>"
-		+"<div>9去程第1段Amount="+value.AirItineraryPricingInfo[0].ItinTotalFare.BaseFare.Amount+"</div>"
-		+"<div>10去程第1段TAXAmount="+value.AirItineraryPricingInfo[0].ItinTotalFare.Taxes.Tax[0].Amount+"</div>"
-		+"<div>11去程第1段TotalAmount="+value.AirItineraryPricingInfo[0].ItinTotalFare.TotalFare.Amount+"</div>"
+		+"<div>3去程第1段ElapsedTime="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].ElapsedTime+"</div>"
+		+"<div>4去程第1段ResBookDesigCode="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].ResBookDesigCode+"</div>"
+		+"<div>5去程第1段DLocationCode="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].DepartureAirport.LocationCode+"</div>"
+		+"<div>6去程第1段ALocationCode="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].ArrivalAirport.LocationCode+"</div>"
+		+"<div>7去程第1段Code="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].OperatingAirline.Code+"</div>"
+		+"<div>8去程第1段FlightNumber="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].OperatingAirline.FlightNumber+"</div>"
+		+"<div>9去程第1段Equipment="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].Equipment[0].AirEquipType+"</div>"
+		+"<div>10去程第1段Amount="+value.AirItineraryPricingInfo[0].ItinTotalFare.BaseFare.Amount+"</div>"
+		+"<div>11去程第1段TAXAmount="+value.AirItineraryPricingInfo[0].ItinTotalFare.Taxes.Tax[0].Amount+"</div>"
+		+"<div>12去程第1段TotalAmount="+value.AirItineraryPricingInfo[0].ItinTotalFare.TotalFare.Amount+"</div>"
 		+ "===========================================================================================<br/>")
 	
 	var s = value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment
@@ -82,18 +105,20 @@ $.each(result.OTA_AirLowFareSearchRS.PricedItineraries.PricedItinerary, function
 			$('#div_apend').append(
 					"<div>1回程第1段DepartureDateTime="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[0].DepartureDateTime+"</div>"		
 					+"<div>2回程第1段ArrivalDateTime="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[0].ArrivalDateTime+"</div>"
-					+"<div>3回程第1段ResBookDesigCode="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[0].ResBookDesigCode+"</div>"
-					+"<div>4回程第1段DLocationCode="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[0].DepartureAirport.LocationCode+"</div>"
-					+"<div>5回程第1段ALocationCode="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[0].ArrivalAirport.LocationCode+"</div>"
-					+"<div>6回程第1段Code="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[0].OperatingAirline.Code+"</div>"
-					+"<div>7回程第1段FlightNumber="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[0].OperatingAirline.FlightNumber+"</div>"
-					+"<div>8回程第1段Equipment="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[0].Equipment[0].AirEquipType+"</div>"
+					+"<div>3回程第1段ElapsedTime="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].ElapsedTime+"</div>"
+					+"<div>4回程第1段ResBookDesigCode="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[0].ResBookDesigCode+"</div>"
+					+"<div>5回程第1段DLocationCode="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[0].DepartureAirport.LocationCode+"</div>"
+					+"<div>6回程第1段ALocationCode="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[0].ArrivalAirport.LocationCode+"</div>"
+					+"<div>7回程第1段Code="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[0].OperatingAirline.Code+"</div>"
+					+"<div>8回程第1段FlightNumber="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[0].OperatingAirline.FlightNumber+"</div>"
+					+"<div>9回程第1段Equipment="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[0].Equipment[0].AirEquipType+"</div>"
 					+"===========================================================================================<br/>"	
 				)
-		var back2 = value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment
+		var back2 = value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment
 		if (back2.length==2){
 //		 	var len = s.length()
 			$('#div_apend').append(
+					
 			 		"<div>1回程第2段DepartureDateTime="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[1].DepartureDateTime+"</div>"		
 			 		+"<div>2回程第2段ArrivalDateTime="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[1].ArrivalDateTime+"</div>"
 			 		+"<div>3回程第2段ResBookDesigCode="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[1].ResBookDesigCode+"</div>"
@@ -119,7 +144,8 @@ $.each(result.OTA_AirLowFareSearchRS.PricedItineraries.PricedItinerary, function
 						)}
 	
 });
-});-->
+});
+-->
  </script>
 
 	<!--  <h1>Hello</h1> -->
@@ -223,10 +249,10 @@ $.each(result.OTA_AirLowFareSearchRS.PricedItineraries.PricedItinerary, function
             <div class="border"> 
               <!--第1段-->
               <div class="num-tag">1</div>
-              <div class="flybox row">
+              <div class="flybox row" id="gofirst">
                 <div class="col-xs-10 text-center fly-leftbox">
                   <div class="col-xs-3 fl-namebox text-center">
-                    <div class="fl-name">奧地利航空</div>
+                    <div class="fl-name">${flightCompany.CX}</div>
                     <div class="fl-num">OS100</div>
                   </div>
                   <div class="col-xs-3 fl-timebox text-right">

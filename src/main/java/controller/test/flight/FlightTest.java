@@ -218,6 +218,7 @@ public class FlightTest implements XmlDocument {
 	@RequestMapping("/flight14")
 	public AirlineCompareBean Airlinefind() {
 		AirlineCompareBean bean = adao2.findByPrimaryKey("0B");
+		System.out.println("測試結果為"+bean.getAirlineCompany());
 		return bean;
 	}
 
