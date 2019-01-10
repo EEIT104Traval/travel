@@ -28,7 +28,7 @@ var params = {}
 			$("#searchuser").html("")
 
  			$.ajax({
- 					url : '/Travel/bindex/User.controller',
+ 					url : '/Travel//bindex01_01/User.controller',
  					contentType : 'application/json; charset=UTF-8',
  					type : 'get',
  					dataType : 'json',
