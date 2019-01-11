@@ -1,17 +1,15 @@
 package model.userInfo;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.util.StringUtils;
 
 @Service
 public class UserInfoService {
+	
 	@Autowired
     private UserInfoDAO userInfoDAO = null;
-	
 	
 	
 	
@@ -33,10 +31,7 @@ public class UserInfoService {
 	public List<UserInfoBean> findAll() {
 		
 		List<UserInfoBean> result = userInfoDAO.findAll();
-			if (result != null) {
-				result = new ArrayList<UserInfoBean>();
-				result.addAll(result);
-								}
+		
 		return result;
-	}
+		}	
 }

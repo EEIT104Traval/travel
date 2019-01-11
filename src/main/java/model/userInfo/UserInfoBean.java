@@ -1,8 +1,16 @@
 package model.userInfo;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import model.hotel.HotelOrderDetailsBean;
+import model.ticket.TicketOrderInfoBean;
+import model.tour.TourOrderInfoBean;
 
 @Entity
 @Table(name="UserInfo")
@@ -22,13 +30,57 @@ public class UserInfoBean {
 	private String gorfb;
 	private String loginId;
 	
+	@OneToMany(
+			cascade=CascadeType.REMOVE,
+			mappedBy="accountName"
+	)
+	private List<TourOrderInfoBean> tourOrderInfoBean;
+	
+	@OneToMany(
+			cascade=CascadeType.REMOVE,
+			mappedBy="accountName"
+	)
+	private List<TicketOrderInfoBean> ticketOrderInfoBean;
+	
+	@OneToMany(
+			cascade=CascadeType.REMOVE,
+			mappedBy="accountName"
+	)
+	private List<HotelOrderDetailsBean> hotelOrderDetailsBean;
+			
 	@Override
 	public String toString() {
 		return "UserInfoBean [accountName=" + accountName + ", password=" + password + ", firstname=" + firstname
 				+ ", lastname=" + lastname + ", identityNo=" + identityNo + ", email=" + email + ", birth=" + birth
 				+ ", sex=" + sex + ", phone=" + phone + ", address=" + address + ", authority=" + authority + ", gorfb="
-				+ gorfb + ", loginId=" + loginId + "]";
+				+ gorfb + ", loginId=" + loginId + ", tourOrderInfoBean=" + tourOrderInfoBean + ", ticketOrderInfoBean="
+				+ ticketOrderInfoBean + ", hotelOrderDetailsBean=" + hotelOrderDetailsBean + "]";
 	}
+
+	public List<TicketOrderInfoBean> getTicketOrderInfoBean() {
+		return ticketOrderInfoBean;
+	}
+
+	public void setTicketOrderInfoBean(List<TicketOrderInfoBean> ticketOrderInfoBean) {
+		this.ticketOrderInfoBean = ticketOrderInfoBean;
+	}
+
+	public List<HotelOrderDetailsBean> getHotelOrderDetailsBean() {
+		return hotelOrderDetailsBean;
+	}
+
+	public void setHotelOrderDetailsBean(List<HotelOrderDetailsBean> hotelOrderDetailsBean) {
+		this.hotelOrderDetailsBean = hotelOrderDetailsBean;
+	}
+
+	public List<TourOrderInfoBean> getTourOrderInfoBean() {
+		return tourOrderInfoBean;
+	}
+
+	public void setTourOrderInfoBean(List<TourOrderInfoBean> tourOrderInfoBean) {
+		this.tourOrderInfoBean = tourOrderInfoBean;
+	}
+
 	public String getAccountName() {
 		return accountName;
 	
