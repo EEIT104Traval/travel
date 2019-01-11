@@ -38,7 +38,7 @@ public class UserInfoTest {
  public UserInfoBean create() {
 	 UserInfoBean bean1 =new UserInfoBean();
 	 bean1.setAccountName("Kitty2");
-	 bean1.setPassword("ABC");
+	 bean1.setPassword("ABC".getBytes());
 	 bean1.setFirstname("sun");
 	 bean1.setLastname("Reese");
 	 bean1.setIdentityNo("A223456789");
