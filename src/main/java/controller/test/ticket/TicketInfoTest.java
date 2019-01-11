@@ -52,7 +52,7 @@ public class TicketInfoTest {
 
 	@RequestMapping("/ticketfindpk")
 	public TicketInfoBean method() {
-		TicketInfoBean bean = dao.findByPrimaryKey(1);
+		TicketInfoBean bean = dao.findByPrimaryKey(2);
 		return bean;
 	}
 
