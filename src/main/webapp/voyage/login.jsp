@@ -149,10 +149,10 @@ div#users-contain table td, div#users-contain table th {
       }
     });
  
-    form = dialog.find( "form" ).on( "submit", function( event ) {
-      event.preventDefault();
-      addUser();
-    });
+//     form = dialog.find( "form" ).on( "submit", function( event ) {
+//       event.preventDefault();
+//       addUser();
+//     });
  
     $( "#create-user" ).button().on( "click", function() {
       dialog.dialog( "open" );
@@ -163,16 +163,16 @@ div#users-contain table td, div#users-contain table th {
 <body>
 
 	<div id="dialog-form" title="會員登入" style="margin-top: 20px">
-		<form>
+		<form action="<c:url value="/secure/login.controller" />" method="get">
+
 			<!--     <fieldset> -->
 			<label for="name">帳號:</label> <input type="text" name="name"
 				class="text ui-widget-content ui-corner-all"><br>
 			<label for="password">密碼:</label> <input type="password"
-				name="password" value=""
+				name=" " value=""
 				class="text ui-widget-content ui-corner-all">
 
 			<!--     </fieldset> -->
-		</form>
 
 
 		<div>
@@ -181,7 +181,8 @@ div#users-contain table td, div#users-contain table th {
 		<div>
 			<!--         Google登入：<input type="button"  value="Google登入" onclick="GoogleLogin();" /><br> -->
 			<button style="background-color: blue; color: white; margin-top: 5px">登入</button>
-
+<input type="submit" value="Login">
+		</form>
 			<p>快速登入</p>
 			<img src="<c:url value='/voyage/images/facebook.png' />" onclick="FBLogin();" width="32%"
 				height="32%"> <img src="<c:url value='/voyage/images/google01.png' />"
@@ -199,7 +200,7 @@ div#users-contain table td, div#users-contain table th {
         //FB Login 官方文件：https://developers.facebook.com/docs/facebook-login/web
 
         // Load the Facebook Javascript SDK asynchronously
-        (function (d, s, id) {
+        ( function (d, s, id) {
             var js, fjs = d.getElementsByTagName(s)[0];
              if (d.getElementById(id)) return;
             js = d.createElement(s); js.id = id;

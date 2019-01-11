@@ -18,7 +18,7 @@
 <table>
 	<tr>
 		<td>ID : </td>    
-		<td><input type="text" name="username" value="${param.username}"></td>
+		<td><input type="text" name="name" value="${param.username}"></td>
 		<td><span class="error">${errors.xxx1}</span></td>
 	</tr>
 	<tr>
