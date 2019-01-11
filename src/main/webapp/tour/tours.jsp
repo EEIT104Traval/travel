@@ -39,9 +39,10 @@
 	<section class="ftco-section">
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-8">
+			<p id= "idd"></p>
+				<div class="col-lg-8">				
 					<div id="box" class="row">
-					<p>1231346513164313</p>
+					<p>1231346513164313</p>					
 <!-- 						<div class="col-md-6 col-lg-6 mb-4 ftco-animate"> -->
 <!-- 							<a href="#" class="block-5" -->
 <!-- 								style="background-image: url('images/tour-1.jpg');"> -->
@@ -190,14 +191,14 @@
 			 $("#box").html(contents);
 			 
 			 
-			 var rowsShown=4;                             //每頁顯示的行
+			 var rowsShown=6;                             //每頁顯示的行
 		     var rowsTotal=data.count;         //獲取總共的行
 		     var numPages=Math.ceil(rowsTotal/rowsShown); //計算出有多少頁
 // 		     alert(data.count);
 		     //顯示頁碼
 		      for(var i=0;i<numPages;i++){
 		          var pageNum=i+1;
-		         $('#nav').append( '<li><a href="#" rel="'+i+'" ><span>'+pageNum+'</span></a></li>');
+		         $('#nav').append( '<li><a href="#idd" rel="'+i+'" ><span>'+pageNum+'</span></a></li>');
 		     }                     //'<a href="#" rel="'+i+'">'+pageNum+'</a>&nbsp;'
 		    
 		     $('#box > #tourpage').hide(); // 先將全部行隱藏
@@ -205,14 +206,13 @@
 		     $('#nav li:first').addClass('active');//為第一個頁碼加一個值為active的class屬性，方便加樣式
 		     
 		     //頁碼點擊事件
-		     $('#nav a').bind('click',function(){
+		     $('#nav').on("click", "a", function(){
 		         $('#nav li ').removeClass('active');    //移除所有頁碼的active類
-		         $(this).addClass('active');           //為當前頁碼加入active類
+		         $(this).parent("li").addClass('active');//為當前頁碼加入active類
 		         var currPage=$(this).attr('rel');     //取出頁碼上的值
 		         var startItem=currPage*rowsShown;     //行數的開始=頁碼*每頁顯示的行
 		         var endItem=startItem+rowsShown;      //行數的結束=開始+每頁顯示的行
 		         $('#box > #tourpage').hide();                 //全部行都隱藏
-		         
 		         //顯示從開始到結束的行
 		         $('#box > #tourpage').slice(startItem,endItem).show();//.css('display','table-row')
 		     });
