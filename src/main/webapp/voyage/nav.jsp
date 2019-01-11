@@ -29,7 +29,7 @@
     <title>Voyage - Free Bootstrap 4 Template by Colorlib</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
+    <link href="css/main.css" rel="stylesheet" type="text/css" />
 <!--     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,600,700" rel="stylesheet"> -->
 
     <link rel="stylesheet" href="<c:url value='/voyage/css/open-iconic-bootstrap.min.css' />">
@@ -67,6 +67,12 @@
             <li class="nav-item"><a href="<c:url value='/voyage/ticket.jsp'/>" class="nav-link">門票</a></li>
             <li class="nav-item"><a href="<c:url value='/rate/rateindex2.jsp'/>" class="nav-link">查詢匯率</a></li>
             <li class="nav-item"><a href="<c:url value='/voyage/contact.html'/>" class="nav-link">聯絡我們</a></li>
+            <ul class="menu" style="padding-left: 130px">
+            <li><a href="bindex.jsp">會員管理</a>
+						<ul class="submenu">
+							<li><a href="01_01.jsp">會員查詢</a></li>
+							<li><a href="01_02.jsp">訂單查詢</a></li>
+						</ul></li></ul>
             <li class="nav-item"><a href="#" class="nav-link">
             	<jsp:include page="login.jsp"></jsp:include>
             </a></li>
