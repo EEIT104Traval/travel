@@ -7,8 +7,22 @@
 </script>
 <!DOCTYPE html>
 <html lang="tw-zh">
-<link rel="stylesheet"
-	href="<c:url value='/voyage/css/main_styles.css' />">
+
+<link rel="stylesheet" href="<c:url value='/voyage/css/open-iconic-bootstrap.min.css' />">
+<link rel="stylesheet" href="<c:url value='/voyage/css/animate.css' />">
+<link rel="stylesheet" href="<c:url value='/voyage/css/owl.carousel.min.css' />">
+<link rel="stylesheet" href="<c:url value='/voyage/css/owl.theme.default.min.css' />">
+<link rel="stylesheet" href="<c:url value='/voyage/css/magnific-popup.css' />">
+<link rel="stylesheet" href="<c:url value='/voyage/css/aos.css' />">
+<link rel="stylesheet" href="<c:url value='/voyage/css/ionicons.min.css' />">
+<link rel="stylesheet" href="<c:url value='/voyage/css/bootstrap-datepicker.css' />">
+<link rel="stylesheet" href="<c:url value='/voyage/css/jquery.timepicker.css' />">
+<link rel="stylesheet" href="<c:url value='/voyage/css/flaticon.css' />">
+<link rel="stylesheet" href="<c:url value='/voyage/css/icomoon.css' />">
+<link rel="stylesheet" href="<c:url value='/voyage/css/style.css' />">
+  
+<link rel="stylesheet" href="<c:url value='/voyage/css/jquery-ui.css' />">
+<link rel="stylesheet" href="<c:url value='/voyage/css/main_styles.css' />">
 <link rel="stylesheet" href="<c:url value='/voyage/css/about.css' />">
 
 <head>
@@ -46,10 +60,10 @@
 // ------------------------------------------------------------------------------------------------------------------------------------------------------
 										'<div class="col-md-6 col-lg-3">'+
 											'<div class="blog-entry">'+
-												'<a href="blog-single.html" class="block-20" style="background-image: url('+value.pic+');"></a>'+
+												'<a href="<c:url value="/voyage/hotel/room/hotelRoom.jsp" />" class="block-20" style="background-image: url('+value.pic+');"></a>'+
 												'<div class="text p-4">'+
 													'<div class="meta"></div>'+
-													'<h6><a href="#">'+value.hotelName+'</a></h6>'+
+													'<h6><a href="<c:url value="/voyage/hotel/room/hotelRoom.jsp" />">'+value.hotelName+'</a></h6>'+
 						                   			'<p style="margin-bottom:0">'+value.starRate+'</p>'+
 													'<p class="float-left" style="margin">'+value.price+'</p>'+
 												'</div>'+
@@ -58,7 +72,7 @@
 												);
 									});
 								$("#hotel_title").append(
-									'<div class="col-md-7 text-center heading-section">'+
+									'<div class="col-md-7 text-center heading-section" style="padding-top:40px">'+
 										'<h2>'+JData[0].country+'飯店</h2>'+
 									'</div>'
 									       );
@@ -69,6 +83,8 @@
 
 
 <body>
+	<jsp:include page="../../voyage/nav.jsp"></jsp:include>
+
 	<!-- slider -->
 
 	<section class="home-slider owl-carousel">
@@ -117,9 +133,9 @@
 	<!-- END Search -->
 
 
-<section class="ftco-section bg-light">
+<section class="bg-light">
 		<div class="container" >
-			<div id="hotel_title" class="row justify-content-center mb-5 pb-5">
+			<div id="hotel_title" class="row justify-content-center mb-5">
 <!-- 				<div class="col-md-7 text-center heading-section"> -->
 <!-- 					<h2>熱門城市</h2> -->
 <!-- 				</div> -->
@@ -151,9 +167,9 @@
 
 	<!-- 熱門城市  -->
 
-	<section class="ftco-section bg-light">
+	<section class="bg-light">
 		<div class="container">
-			<div class="row justify-content-center mb-5 pb-5">
+			<div class="row justify-content-center mb-5">
 				<div class="col-md-7 text-center heading-section ftco-animate">
 					<h2>熱門城市</h2>
 				</div>
@@ -363,24 +379,24 @@
 
 	<!-- 熱門飯店 -->
 
-	<section class="ftco-section bg-light">
+	<section class="bg-light">
 		<div class="container">
 			<div
-				class="row no-gutters justify-content-center mb-5 pb-5 ftco-animate" style="margin-top: -80px">
-				<div class="col-md-7 text-center heading-section">
+				class="row no-gutters justify-content-center mb-5 ftco-animate" style="margin-top: -80px">
+				<div class="col-md-7 text-center heading-section" style="padding-top: 40px">
 					<h2>熱門飯店推薦</h2>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-md-6 col-lg-3 ftco-animate">
 					<div class="blog-entry">
-						<a href="blog-single.html" class="block-20"
+						<a href="<c:url value='/voyage/hotel/room/hotelRoom.jsp' />" class="block-20"
 							style="background-image: url('<c:url value='/voyage/hotel/hotelPic/熱門飯店/紐約市中心希爾頓酒店(New York Hilton Midtown).jpg'/>');">
 						</a>
 						<div class="text p-4">
 							<div class="meta"></div>
 							<h6>
-								<a href="#">紐約市中心希爾頓酒店(New York Hilton Midtown)</a>
+								<a href="<c:url value='/voyage/hotel/room/hotelRoom.jsp' />">紐約市中心希爾頓酒店(New York Hilton Midtown)</a>
 							</h6>
                    			<p style="margin-bottom:0"><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star-half-full"></span></p>
 							<p class="float-left" style="margin">NT$ 5,158</p>
@@ -540,10 +556,10 @@
 
 	<!-- 住宿類型  -->
 
-	<section class="ftco-section bg-light">
+	<section class="bg-light">
 		<div class="container">
-			<div class="row justify-content-center mb-5 pb-5">
-				<div class="col-md-7 text-center heading-section ftco-animate">
+			<div class="row justify-content-center mb-5">
+				<div class="col-md-7 text-center heading-section ftco-animate" style="padding-top: 40px">
 					<h2>不論您想尋找哪種住宿，我們都有...</h2>
 				</div>
 			</div>
@@ -731,7 +747,7 @@
 
 	<!-- 標籤 -->
 
-	<section class="ftco-section">
+	<section>
 		<div class="container">
 			<div class="row">
 				<div class="sidebar-box ftco-animate">
@@ -833,6 +849,24 @@
 
 	<!-- END 住宿類型 -->
 
+
+	<script src="<c:url value='/voyage/js/jquery.min.js' />"></script>
+	<script src="<c:url value='/voyage/js/jquery-migrate-3.0.1.min.js' />"></script>
+	<script src="<c:url value='/voyage/js/popper.min.js' />"></script>
+	<script src="<c:url value='/voyage/js/bootstrap.min.js' />"></script>
+	<script src="<c:url value='/voyage/js/jquery.easing.1.3.js' />"></script>
+	<script src="<c:url value='/voyage/js/jquery.waypoints.min.js' />"></script>
+	<script src="<c:url value='/voyage/js/jquery.stellar.min.js' />"></script>
+	<script src="<c:url value='/voyage/js/owl.carousel.min.js' />"></script>
+	<script src="<c:url value='/voyage/js/jquery.magnific-popup.min.js' />"></script>
+	<script src="<c:url value='/voyage/js/aos.js' />"></script>
+	<script src="<c:url value='/voyage/js/jquery.animateNumber.min.js' />"></script>
+	<script src="<c:url value='/voyage/js/bootstrap-datepicker.js' />"></script>
+	<script src="<c:url value='/voyage/js/jquery.timepicker.min.js' />"></script>
+	<script src="<c:url value='/voyage/js/main.js' />"></script>
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	  
 	<jsp:include page="../foo.jsp" />
 
 </body>
