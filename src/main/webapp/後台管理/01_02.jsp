@@ -13,6 +13,48 @@
 	<jsp:include page="bindex.jsp" />
 	
 <title>後台管理者介面</title>
+<script>
+var number
+var user
+var params = {}
+	$(document).ready(function() {
+// 		$('#select1').change(function() {
+// 			params.number = $('#select1').val()
+// 			alert(params.number)
+// 		})
+	});
+  			function fundmember(){
+ 			params.user = $('#user').val();
+ 			alert(params.user)
+			$("#searchuser").html("")
+
+ 			$.ajax({
+ 					url : '/Travel//bindex01_02/User.controller',
+ 					contentType : 'application/json; charset=UTF-8',
+ 					type : 'get',
+ 					dataType : 'json',
+ 					data:params,
+ 				   }).done(function(JData) {
+							$.each(JData, function(index, value) {
+								console.log(value)
+ 						$("#searchuser").append(
+ 								
+ 								
+//  							'<table class="table"><tr><th>accountName</th><th>firstname</th><th>lastname</th><th>identityNo</th><th>email</th></tr><tr>'
+//  							+'<th>'+value.accountName +'</th>'
+//  							+'<th>'+value.firstname +'</th>'
+//  							+'<th>'+value.lastname +'</th>'
+//  							+'<th>'+value.identityNo +'</th>'
+//  							+'<th>'+value.email +'</th>'
+//  							+'</tr><tr><th>sex</th><th>phone</th><th>birth</th><th colspan="2">address</th></tr><tr>'
+//  							+'<th>'+value.sex +'</th>'
+//  							+'<th>'+value.phone +'</th>'
+//  							+'<th>'+value.birth +'</th>'
+//  							+'<th colspan="2">'+value.address +'</th></tr></table>'
+							)}
+				)}
+ 	)};		
+</script>
 </head>
 <body>
 	<div class="boxmsg">

@@ -44,34 +44,4 @@ public class UserController01_01 {
 		}
 		return result;
 	}
-
-	@ResponseBody
-	@RequestMapping("/bindex01_11/User.controller")
-	public Map<String, Object> method1(@RequestParam(value = "user", required = false) String user,
-			@RequestParam(value = "number", required = false) String number, Model model) {
-		System.out.println("bean=" + user);
-		System.out.println("number=" + number);
-
-//		
-//		if (number.equals("one")) {
-//			result = userInfoService.findByAccountName(user);
-//			System.out.println(result);
-//			return result;
-//		} else if (number.equals("two")) {
-//			result = userInfoService.findByPhone(user);
-//			System.out.println(result);
-//			return result;
-//		} else if (number.equals("three")) {
-//			result = userInfoService.findAll();
-//			for (UserInfoBean TI : result)
-//				System.out.println(TI);
-//			return result;
-//		}
-//		return result;
-		List<UserInfoBean> count = userInfoService.findByAccountName(user);
-		
-		
-		
-		return null;
-	}
 }

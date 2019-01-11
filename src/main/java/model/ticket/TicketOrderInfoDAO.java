@@ -19,5 +19,9 @@ public interface TicketOrderInfoDAO {
 	
 	//取消購買票券
 	public abstract boolean remove(Integer ticketOrderNO);
+
+	//查詢訂單
+	public abstract List<TicketOrderInfoBean> findOrderaccountName(String accountName);
 	
+	public abstract String foundName(Integer ticketNo);
 }

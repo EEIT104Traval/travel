@@ -5,13 +5,15 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import model.ticket.TicketOrderInfoDAO;
+
 @Service
 public class UserInfoService {
 	
 	@Autowired
     private UserInfoDAO userInfoDAO = null;
-	
-	
+	@Autowired
+	private TicketOrderInfoDAO tdao = null;
 	
 //--------------↓↓↓↓↓↓後台使用專區↓↓↓↓↓↓-------------
 	public List<UserInfoBean> findByAccountName (String user) {
@@ -34,4 +36,14 @@ public class UserInfoService {
 		
 		return result;
 		}	
+	
+	public List<UserInfoBean> findByuserOrderInfo(String user){
+		
+		List<UserInfoBean> userorderinfo = userInfoDAO.findByaccountName(user);
+		System.out.println(userorderinfo);
+		
+//		if()
+//		String ticketname = ticketOrderInfoDAO.foundName(ticketNo);
+		return userorderinfo;
+	}
 }

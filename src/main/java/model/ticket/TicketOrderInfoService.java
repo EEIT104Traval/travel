@@ -11,7 +11,8 @@ public class TicketOrderInfoService {
 
 	@Autowired
 	private TicketOrderInfoDAO ticketOrderInfoDAO = null;
-
+	
+	
 	public List<TicketOrderInfoBean> select(TicketOrderInfoBean bean) {
 		List<TicketOrderInfoBean> result = null;
 		if (bean != null && bean.getTicketOrderNO() != 0) {
@@ -23,6 +24,14 @@ public class TicketOrderInfoService {
 				result = ticketOrderInfoDAO.findAll();
 			}
 		}
+		return result;
+	}
+
+	public List<TicketOrderInfoBean> foundOrderaccountName(String accountName) {
+
+		List<TicketOrderInfoBean> result = null;
+		result = ticketOrderInfoDAO.findOrderaccountName(accountName);
+        
 		return result;
 	}
 
