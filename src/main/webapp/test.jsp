@@ -43,6 +43,9 @@
 	<a href="<c:url value='ticketOrderCreate' />">ticketOrderCreate</a>
 	<a href="<c:url value='ticketOrderUpdate' />">ticketOrderUpdate</a>
 	<a href="<c:url value='ticketOrderRemove' />">ticketOrderRemove</a>
+	<a href="<c:url value='ticketfoundname' />">ticketfoundname</a>
+	<a href="<c:url value='userinfoorder' />">userinfoorder</a>
+	<a href="<c:url value='ticketfoundnumber' />">ticketfoundnumber</a>
 	<br>
 	<a href="<c:url value='/ticketDLtest' />">ticketDLtest </a>
 	<br>
@@ -58,6 +61,7 @@
 	<a href="<c:url value='/userInforemove' />">Userremove</a>
 	<br>
 	<a href="<c:url value='/userfound' />">userfound</a>
+	<a href="<c:url value='/userInfoname' />">userInfoname</a>
 	<hr />
 	<a href="<c:url value='/ratePK' />">RatePK</a>
 	<a href="<c:url value='/ratefindALL' />">RatefindAll</a>

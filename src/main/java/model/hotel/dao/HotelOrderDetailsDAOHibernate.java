@@ -3,12 +3,17 @@ package model.hotel.dao;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import model.hotel.RoomTypePicBean;
+import model.ticket.TicketOrderInfoBean;
 import model.hotel.HotelOrderDetailsBean;
 import model.hotel.HotelOrderDetailsDAO;
 @Repository
@@ -77,5 +82,16 @@ public class HotelOrderDetailsDAOHibernate implements HotelOrderDetailsDAO{
 			return true;
 		}
 		return false;
+	}
+	//查詢訂單------------------------後台寫的---------------------------
+	
+	@Override
+	public List<HotelOrderDetailsBean> findOrderaccountName(String accountName) {
+		CriteriaBuilder criteriaBuilder = getSession().getCriteriaBuilder();
+		CriteriaQuery<HotelOrderDetailsBean> criteria = criteriaBuilder.createQuery(HotelOrderDetailsBean.class);
+		Root<HotelOrderDetailsBean> from = criteria.from(HotelOrderDetailsBean.class);
+		criteria.select(from).where(from.get("accountName").in(accountName));
+		List<HotelOrderDetailsBean> list = getSession().createQuery(criteria).getResultList();
+		return list;
 	}
 }
