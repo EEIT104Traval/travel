@@ -31,7 +31,7 @@ p:last-child { margin-bottom: 0; }
 }
 
 .tm-container-outer {
-    max-width: 100px;
+    max-width: 1400px;
     margin: 0 auto;    
 }
 
@@ -43,7 +43,8 @@ p:last-child { margin-bottom: 0; }
     font-weight: 600;
 }
 
-.tm-bg-primary { background: #69c6ba; }
+.tm-bg-primary { background: rgb(239,239,239); }
+/* .tm-bg-primary { background: rgba(239,239,239,0.8); } */
 .tm-bg-highlight { background: #c66995; }
 
 .btn-primary {
@@ -244,11 +245,11 @@ label { font-weight: 700; }
 .tm-slideshow { width: 50%; }
 
 .tm-slideshow-description {
-    padding: 50px;
-    color: white;
-    width: 48%;
-    z-index: 100;
-    margin-left: -42px;
+/*     padding: 50px; */
+/*     color: white; */
+/*     width: 48%; */
+/*     z-index: 100; */
+/*     margin-left: -42px; */
 }
 
 .tm-slideshow-description-left {
@@ -315,7 +316,7 @@ label { font-weight: 700; }
     -webkit-justify-content: space-evenly;
     -ms-flex-pack: space-evenly;
     justify-content: space-evenly;
-    background: #69c6ba;
+    background: rgb(44,46,62);
 }
 
 .tm-tab-link {
@@ -342,7 +343,7 @@ label { font-weight: 700; }
     color: white;
     font-weight: 400;
     font-size: 0.9rem;
-    height: 100%;
+/*     height: 100%; */
 }
 
 .tm-tab-link:hover { color: white; }
@@ -391,7 +392,7 @@ label { font-weight: 700; }
 }
 
 .tm-recommended-price-box {    
-    background-color: #69c6ba;
+    background-color: rgb(44,46,62);
     background-image: url(../img/button-curve.png);
     background-repeat: no-repeat;
     background-size: auto 100%;

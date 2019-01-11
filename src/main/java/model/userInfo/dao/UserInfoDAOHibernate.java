@@ -48,7 +48,7 @@ public class UserInfoDAOHibernate implements UserInfoDAO {
 	}
 
 	@Override
-	public UserInfoBean update(String password, String firstname, String lastname, String identityNo, String email,
+	public UserInfoBean update(byte[] password, String firstname, String lastname, String identityNo, String email,
 			Date birth, String sex, String phone, String address, String authority, String gorfb, String loginId,
 			String accountName) {
 		UserInfoBean result = this.getSession().get(UserInfoBean.class, accountName);

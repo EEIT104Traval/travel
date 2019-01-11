@@ -1,19 +1,20 @@
 package model.ticket;
 
-import java.util.Date;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
-import model.userInfo.UserInfoBean;
 
 @Entity
 @Table(name="TicketOrderInfo")
+//@NamedQueries(
+//	value{
+//		@NamedQuery(name="model.TicketOrderInfoBean.accountName",
+//					query = "from model.TicketOrderInfoBean where accountName = :accountName")
+//					
+//		}
+//		)
 public class TicketOrderInfoBean {
 
 //	@ManyToOne
@@ -124,7 +125,4 @@ public class TicketOrderInfoBean {
 				+ ", recevingAddress=" + recevingAddress + ", recevingPhone=" + recevingPhone + ", totalPrice="
 				+ totalPrice + "]";
 	}
-	
-
-
 }

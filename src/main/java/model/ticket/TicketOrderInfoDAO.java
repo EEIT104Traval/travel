@@ -2,6 +2,8 @@ package model.ticket;
 
 import java.util.List;
 
+import org.hibernate.query.Query;
+
 public interface TicketOrderInfoDAO {
 
 	
@@ -19,5 +21,10 @@ public interface TicketOrderInfoDAO {
 	
 	//取消購買票券
 	public abstract boolean remove(Integer ticketOrderNO);
+
+	//查詢訂單  給使用者名查出多少票券
+	public abstract List<TicketOrderInfoBean> finduser(String accountName);
+	//給使用者名子取出票券號碼
+	public abstract TicketOrderInfoBean fundNumber(String accountName);
 	
 }

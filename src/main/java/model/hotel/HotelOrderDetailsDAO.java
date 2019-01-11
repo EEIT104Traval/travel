@@ -16,5 +16,9 @@ public interface HotelOrderDetailsDAO {
 			Integer roomPrice, Integer stayNights, Integer totalPrice, String info);
 
 	public abstract boolean remove(Integer orderNo);
-
+	
+	
+	
+	//查詢訂單-----------------後台寫的
+	public abstract List<HotelOrderDetailsBean> findOrderaccountName(String accountName);
 }

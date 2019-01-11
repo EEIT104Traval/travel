@@ -29,7 +29,6 @@
   src="https://code.jquery.com/jquery-3.3.1.js"
   integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
   crossorigin="anonymous"></script>
-<script src="<c:url value='/jqPaginator-2.0.1/src/jq-paginator.js' />"></script>
 
 <%-- ${fn:length(select)}! --%>
 <form action="<c:url value="/groupTour2" />">
@@ -98,6 +97,8 @@ count = ${count}
 <script>
 
 $(document).ready(function() {
+	console.log('${count}')
+		console.log('${select}')
 	      var rowsShown=5;                             //每頁顯示的行
 	      var rowsTotal=$('#id tr').length;          //獲取總共的行
 	      var numPages=Math.ceil(rowsTotal/rowsShown); //計算出有多少頁

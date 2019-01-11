@@ -2,6 +2,10 @@ package model.tour.dao;
 
 import java.util.List;
 
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -58,4 +62,14 @@ public class TourOrderInfoDAO {
 		return false;
 	}
 
+	//查詢訂單------------------------後台寫的---------------------------
+	
+	public List<TourOrderInfoBean> findOrderaccountName (String accountName){
+		CriteriaBuilder criteriaBuilder = getSession().getCriteriaBuilder();
+		CriteriaQuery<TourOrderInfoBean> criteria = criteriaBuilder.createQuery(TourOrderInfoBean.class);
+		Root<TourOrderInfoBean> from = criteria.from(TourOrderInfoBean.class);
+		criteria.select(from).where(from.get("accountName").in(accountName));
+		List<TourOrderInfoBean> list = getSession().createQuery(criteria).getResultList();
+		return list;
+		}
 }
