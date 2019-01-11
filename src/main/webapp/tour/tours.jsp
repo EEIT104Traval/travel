@@ -8,18 +8,14 @@
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-
-
 </head>
-
 <script
   src="https://code.jquery.com/jquery-3.3.1.js"
   integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
   crossorigin="anonymous"></script>
 <body>
 
-
+<jsp:include page="../voyage/nav.jsp"></jsp:include>
 
 	<section class="home-slider owl-carousel">
 		<div class="slider-item"
