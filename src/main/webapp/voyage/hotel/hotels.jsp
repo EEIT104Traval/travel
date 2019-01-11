@@ -28,7 +28,7 @@
 <head>
 <meta charset="UTF-8">
 <title>飯店搜尋</title>
-</head>
+	<jsp:include page="/voyage/nav.jsp"></jsp:include>
 
 <script>
 			var params = {};
@@ -80,10 +80,9 @@
 					}
 
 	</script>
-
+</head>
 
 <body>
-	<jsp:include page="../../voyage/nav.jsp"></jsp:include>
 
 	<!-- slider -->
 
@@ -867,7 +866,7 @@
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	  
-	<jsp:include page="../foo.jsp" />
+	<jsp:include page="/voyage/foo.jsp"></jsp:include>
 
 </body>
 </html>
