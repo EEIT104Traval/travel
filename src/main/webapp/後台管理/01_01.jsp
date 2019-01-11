@@ -20,7 +20,7 @@ var params = {}
 	$(document).ready(function() {
 		$('#select1').change(function() {
 			params.number = $('#select1').val()
-			alert(params.number)
+// 			alert(params.number)
 		})
 	});
   			function fundmember(){
@@ -34,10 +34,13 @@ var params = {}
  					dataType : 'json',
  					data:params,
  				   }).done(function(JData) {
+ 					   console.log(JData)
 							$.each(JData, function(index, value) {
-								console.log(value)
+// 								console.log(value)
+								console.log(value.accountName)
+								
  						$("#searchuser").append(
- 							'<table class="table"><tr><th>accountName</th><th>firstname</th><th>lastname</th><th>identityNo</th><th>email</th></tr><tr>'
+ 							'<table><tr><th>accountName</th><th>firstname</th><th>lastname</th><th>identityNo</th><th>email</th></tr><tr>'
  							+'<th>'+value.accountName +'</th>'
  							+'<th>'+value.firstname +'</th>'
  							+'<th>'+value.lastname +'</th>'
@@ -80,5 +83,4 @@ var params = {}
 		
 	</div>
 </body>
-<script src="<c:url value='/voyage/js/bootstrap-datepicker.js' />"></script>
 </html>

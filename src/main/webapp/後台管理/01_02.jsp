@@ -35,25 +35,28 @@ var params = {}
  					dataType : 'json',
  					data:params,
  				   }).done(function(JData) {
+							$("#searchuser").append(
+									'<div style="text-align: center;"><h2>'+JData[0].accountName +'</h2></div>'
+									       );
 							$.each(JData, function(index, value) {
 								console.log(value)
  						$("#searchuser").append(
- 								
- 								
-//  							'<table class="table"><tr><th>accountName</th><th>firstname</th><th>lastname</th><th>identityNo</th><th>email</th></tr><tr>'
-//  							+'<th>'+value.accountName +'</th>'
-//  							+'<th>'+value.firstname +'</th>'
-//  							+'<th>'+value.lastname +'</th>'
-//  							+'<th>'+value.identityNo +'</th>'
-//  							+'<th>'+value.email +'</th>'
-//  							+'</tr><tr><th>sex</th><th>phone</th><th>birth</th><th colspan="2">address</th></tr><tr>'
-//  							+'<th>'+value.sex +'</th>'
-//  							+'<th>'+value.phone +'</th>'
-//  							+'<th>'+value.birth +'</th>'
-//  							+'<th colspan="2">'+value.address +'</th></tr></table>'
+ 								 								
+ 							'<table class="table"><tr><th>accountName</th><th>firstname</th><th>lastname</th><th>identityNo</th><th>email</th></tr><tr>'
+ 							+'<th>'+value.accountName +'</th>'
+ 							+'<th>'+value.firstname +'</th>'
+ 							+'<th>'+value.ticketOrderInfoBean[1].orderDate +'</th>'
+ 							+'<th>'+value.identityNo +'</th>'
+ 							+'<th>'+value.email +'</th>'
+ 							+'</tr><tr><th>sex</th><th>phone</th><th>birth</th><th colspan="2">address</th></tr><tr>'
+ 							+'<th>'+value.sex +'</th>'
+ 							+'<th>'+value.phone +'</th>'
+ 							+'<th>'+value.birth +'</th>'
+ 							+'<th colspan="2">'+value.address +'</th></tr></table>'
+ 							 						
 							)}
-				)}
- 	)};		
+						)}
+ 				   )};		
 </script>
 </head>
 <body>

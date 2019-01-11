@@ -43,7 +43,7 @@ public class UserInfoService {
 		System.out.println(userorderinfo);
 				
 		if(tdao.finduser(user) != null) {
-//			tdao.foundName(tdao.)
+			tdao.finduser(user);
 //			userorderinfo.add(e);
 			
 		}
