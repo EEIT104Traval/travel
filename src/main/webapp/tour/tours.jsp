@@ -9,6 +9,8 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+
+
 </head>
 
 <script
@@ -43,12 +45,7 @@
 			<div class="row">
 				<div class="col-lg-8">
 					<div id="box" class="row">
-					
 					<p>1231346513164313</p>
-					
-					
-						
-					
 <!-- 						<div class="col-md-6 col-lg-6 mb-4 ftco-animate"> -->
 <!-- 							<a href="#" class="block-5" -->
 <!-- 								style="background-image: url('images/tour-1.jpg');"> -->
@@ -66,19 +63,18 @@
 <!-- 								</div> -->
 <!-- 							</a> -->
 <!-- 						</div> -->
-						
 					</div>
 					<div class="row mt-5">
 						<div class="col text-center">
 							<div class="block-27">
-								<ul>
-									<li><a href="#">&lt;</a></li>
-									<li class="active"><span>1</span></li>
-									<li><a href="#">2</a></li>
-									<li><a href="#">3</a></li>
-									<li><a href="#">4</a></li>
-									<li><a href="#">5</a></li>
-									<li><a href="#">&gt;</a></li>
+								<ul id="nav">
+<!-- 									<li><a href="#">&lt;</a></li> -->
+<!-- 									<li class="active"><span>1</span></li> -->
+<!-- 									<li><a href="#">2</a></li> -->
+<!-- 									<li><a href="#">3</a></li> -->
+<!-- 									<li><a href="#">4</a></li> -->
+<!-- 									<li><a href="#">5</a></li> -->
+<!-- 									<li><a href="#">&gt;</a></li> -->
 								</ul>
 							</div>
 						</div>
@@ -179,11 +175,7 @@
 			 var contentss ="";
 			 console.log(data);
 			 $.each(data.result, function(idx,val){
-// 				 console.log(idx+",  "+val.tourName+","+val.content);
-// 					 console.log(data[idx].tourBatchBean[0].price_adult);
-// 				 console.log(data[idx].TourPictureBean[0].pic);
-// 					                                            ftco-animate  "+val.TourPictureBean[0].pic +"
-				contents +="<div class=\"col-md-6 col-lg-6 mb-4              \">"
+				contents +="<div class=\"col-md-6 col-lg-6 mb-4\">"
 					+"<a href=\"<c:url value='/tour/Display/NewFile.jsp?tourNo="+val.tourNo+"'/>\" class=\"block-5\" style=\"background-image: url('/Travel/tour/Display/images/"+val.TourPictureBean[0].pic +"');\">"						
 					+	"<div class=\"text\">"  
 					+		"<span class=\"price\" style=\"color:red ; font-weight:bold\"><b><u>$"+val.tourBatchBean[0].price_adult+"</u></b></span>"
@@ -200,6 +192,36 @@
 					 
 			 })
 			 $("#box").html(contents);
+			 
+			 
+			 var rowsShown=4;                             //每頁顯示的行
+		     var rowsTotal=data.count;         //獲取總共的行
+		     var numPages=Math.ceil(rowsTotal/rowsShown); //計算出有多少頁
+// 		     alert(data.count);
+		     //顯示頁碼
+		      for(var i=0;i<numPages;i++){
+		          var pageNum=i+1;
+		         $('#nav').append( '<li><a href="#" rel="'+i+'" ><span>'+pageNum+'</span></a></li>');
+		     }                     //'<a href="#" rel="'+i+'">'+pageNum+'</a>&nbsp;'
+		    
+		     $('#box > #tourpage').hide(); // 先將全部行隱藏
+		     $('#box > #tourpage').slice(0,rowsShown).show();// 再顯示第一頁應該顯示的行數(
+		     $('#nav li:first').addClass('active');//為第一個頁碼加一個值為active的class屬性，方便加樣式
+		     
+		     //頁碼點擊事件
+		     $('#nav a').bind('click',function(){
+		         $('#nav li ').removeClass('active');    //移除所有頁碼的active類
+		         $(this).addClass('active');           //為當前頁碼加入active類
+		         var currPage=$(this).attr('rel');     //取出頁碼上的值
+		         var startItem=currPage*rowsShown;     //行數的開始=頁碼*每頁顯示的行
+		         var endItem=startItem+rowsShown;      //行數的結束=開始+每頁顯示的行
+		         $('#box > #tourpage').hide();                 //全部行都隱藏
+		         
+		         //顯示從開始到結束的行
+		         $('#box > #tourpage').slice(startItem,endItem).show();//.css('display','table-row')
+		     });
+		     
+		     
 		 });
 	
 			
