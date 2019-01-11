@@ -30,7 +30,7 @@ public class TicketOrderInfoService {
 	public List<TicketOrderInfoBean> foundOrderaccountName(String accountName) {
 
 		List<TicketOrderInfoBean> result = null;
-		result = ticketOrderInfoDAO.findOrderaccountName(accountName);
+		result = ticketOrderInfoDAO.finduser(accountName);
         
 		return result;
 	}

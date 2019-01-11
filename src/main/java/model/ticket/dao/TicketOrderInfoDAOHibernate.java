@@ -37,7 +37,7 @@ public class TicketOrderInfoDAOHibernate implements TicketOrderInfoDAO {
 	}
 
 	@Override
-	public List<TicketOrderInfoBean> findOrderaccountName (String accountName) {
+	public List<TicketOrderInfoBean> finduser (String accountName) {
 		CriteriaBuilder criteriaBuilder = getSession().getCriteriaBuilder();
 		CriteriaQuery<TicketOrderInfoBean> criteria = criteriaBuilder.createQuery(TicketOrderInfoBean.class);
 		Root<TicketOrderInfoBean> from = criteria.from(TicketOrderInfoBean.class);
@@ -46,7 +46,13 @@ public class TicketOrderInfoDAOHibernate implements TicketOrderInfoDAO {
 		return list;
 	}
 	@Override
-	   public String foundName(Integer ticketNo) {
+	public Integer[] fundNumber(String accountName) {
+		
+		return (Integer[])this.getSession().createQuery("select ticketOrderNo from TicketOrderInfoBean where accountName="+accountName+"").uniqueResult();
+		
+	}
+	@Override
+	   public String findTKName(Integer ticketNo) {
 		System.out.println(ticketNo);
 
 		return (String)this.getSession().createQuery("select ticketName from TicketInfoBean where ticketNo="+ticketNo+"").uniqueResult();
@@ -93,4 +99,5 @@ public class TicketOrderInfoDAOHibernate implements TicketOrderInfoDAO {
 		}
 		return false;
 	}
+
 }

@@ -110,13 +110,24 @@ public class TicketOrderInfoTest {
 		reader.close();
 
 	}
-
+	@RequestMapping("/userinfoorder")
+	public List<TicketOrderInfoBean> userinfoorder() {
+		List<TicketOrderInfoBean> result = dao.finduser("micky");
+		return result;
+	}
+	
+	@RequestMapping("/ticketfoundnumber")
+	public Integer[] foundNumber(String user, HttpServletResponse res) {
+		res.setCharacterEncoding("UTF-8");
+		Integer[] a = dao.fundNumber("micky");
+		System.out.println(a);
+		return a;
+	}
 	@RequestMapping("/ticketfoundname")
 	public String foundName(Integer ticketNo, HttpServletResponse res) {
 		res.setCharacterEncoding("UTF-8");
-		String a = dao.foundName(1);
+		String a = dao.findTKName(1);
 		System.out.println(a);
 		return a;
-
 	}
 }

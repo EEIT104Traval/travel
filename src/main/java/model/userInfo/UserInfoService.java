@@ -41,9 +41,13 @@ public class UserInfoService {
 		
 		List<UserInfoBean> userorderinfo = userInfoDAO.findByaccountName(user);
 		System.out.println(userorderinfo);
-		
-//		if()
-//		String ticketname = ticketOrderInfoDAO.foundName(ticketNo);
+				
+		if(tdao.finduser(user) != null) {
+//			tdao.foundName(tdao.)
+//			userorderinfo.add(e);
+			
+		}
+
 		return userorderinfo;
 	}
 }
