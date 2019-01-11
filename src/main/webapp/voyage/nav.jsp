@@ -1,25 +1,3 @@
-<!--
-                           _oo0oo_
-                          o8888888o
-                          88" . "88
-                          (| -_- |)
-                          0\  =  /0
-                        ___/`---'\___
-                      .' \\|     |// '.
-                     / \\|||  :  |||// \
-                    / _||||| -:- |||||- \
-                   |   | \\\  -  /// |   |
-                   | \_|  ''\---/''  |_/ |
-                   \  .-\__  '-'  ___/-. /
-                 ___'. .'  /--.--\  `. .'___
-              ."" '<  `.___\_<|>_/___.' >' "".
-             | | :  `- \`.;`\ _ /`;.`/ - ` : | |
-             \  \ `_.   \_ __\ /__ _/   .-` /  /
-         =====`-.____`.___ \_____/___.-`___.-'=====
-                           `=---='
-  ~~~~~~~~~~~~~~~~~~~~~ 佛祖保佑        永無bug~~~~~~~~~~~~~~~~~~~~~~
-                  
-    -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -50,10 +28,17 @@
     
   </head>
   <body>
+	pageEncoding="UTF-8"%>
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+	pageEncoding="UTF-8"%>
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+	pageEncoding="UTF-8"%>
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+	pageEncoding="UTF-8"%>
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
       <div class="container">
       	<img alt="" src="<c:url value='/voyage/images/TTT.png' />" width="250px" height: auto;>
-<!--         <a class="navbar-brand" href="index.html">Voyage</a> -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="oi oi-menu"></span> Menu
         </button>
@@ -67,12 +52,6 @@
             <li class="nav-item"><a href="<c:url value='/voyage/ticket.jsp'/>" class="nav-link">門票</a></li>
             <li class="nav-item"><a href="<c:url value='/rate/rateindex2.jsp'/>" class="nav-link">查詢匯率</a></li>
             <li class="nav-item"><a href="<c:url value='/voyage/contact.html'/>" class="nav-link">聯絡我們</a></li>
-            <ul class="menu" style="padding-left: 130px">
-            <li><a href="bindex.jsp">會員管理</a>
-						<ul class="submenu">
-							<li><a href="01_01.jsp">會員查詢</a></li>
-							<li><a href="01_02.jsp">訂單查詢</a></li>
-						</ul></li></ul>
             <li class="nav-item"><a href="#" class="nav-link">
             	<jsp:include page="login.jsp"></jsp:include>
             </a></li>

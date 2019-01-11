@@ -26,6 +26,7 @@ public class RateDAOHibernate implements RateDAO{
 
 	@Override
 	public List<RateBean> findAll() {
+		System.out.println("有連到DAO findAll");
 		return this.getSession().createQuery("from RateBean", RateBean.class)
 				.setMaxResults(280)
 				.list();

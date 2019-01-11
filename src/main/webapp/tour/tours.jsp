@@ -8,18 +8,26 @@
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+	<link rel="stylesheet" href="<c:url value='/voyage/css/open-iconic-bootstrap.min.css' />">
+    <link rel="stylesheet" href="<c:url value='/voyage/css/animate.css' />">
+    <link rel="stylesheet" href="<c:url value='/voyage/css/owl.carousel.min.css' />">
+    <link rel="stylesheet" href="<c:url value='/voyage/css/owl.theme.default.min.css' />">
+    <link rel="stylesheet" href="<c:url value='/voyage/css/magnific-popup.css' />">
+    <link rel="stylesheet" href="<c:url value='/voyage/css/aos.css' />">
+    <link rel="stylesheet" href="<c:url value='/voyage/css/ionicons.min.css' />">
+    <link rel="stylesheet" href="<c:url value='/voyage/css/bootstrap-datepicker.css' />">
+    <link rel="stylesheet" href="<c:url value='/voyage/css/jquery.timepicker.css' />">
+    <link rel="stylesheet" href="<c:url value='/voyage/css/flaticon.css' />">
+    <link rel="stylesheet" href="<c:url value='/voyage/css/icomoon.css' />">
+    <link rel="stylesheet" href="<c:url value='/voyage/css/style.css' />">
+    <link href="<c:url value='/voyage/css/jquery-ui.css' />" rel="stylesheet" type="text/css">
 </head>
-
 <script
   src="https://code.jquery.com/jquery-3.3.1.js"
   integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
   crossorigin="anonymous"></script>
 <body>
-
-
-<%-- 	<jsp:include page="nav.jsp"></jsp:include> --%>
-
+<jsp:include page="../voyage/nav.jsp"></jsp:include>
 	<section class="home-slider owl-carousel">
 		<div class="slider-item"
 			style="background-image: url('<c:url value='/voyage/images/bg_2.jpg'/>');"
@@ -42,14 +50,10 @@
 	<section class="ftco-section">
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-8">
+			<p id= "idd"></p>
+				<div class="col-lg-8">				
 					<div id="box" class="row">
-					
-					<p>1231346513164313</p>
-					
-					
-						
-					
+					<p>1231346513164313</p>					
 <!-- 						<div class="col-md-6 col-lg-6 mb-4 ftco-animate"> -->
 <!-- 							<a href="#" class="block-5" -->
 <!-- 								style="background-image: url('images/tour-1.jpg');"> -->
@@ -67,19 +71,18 @@
 <!-- 								</div> -->
 <!-- 							</a> -->
 <!-- 						</div> -->
-						
 					</div>
 					<div class="row mt-5">
 						<div class="col text-center">
 							<div class="block-27">
-								<ul>
-									<li><a href="#">&lt;</a></li>
-									<li class="active"><span>1</span></li>
-									<li><a href="#">2</a></li>
-									<li><a href="#">3</a></li>
-									<li><a href="#">4</a></li>
-									<li><a href="#">5</a></li>
-									<li><a href="#">&gt;</a></li>
+								<ul id="nav">
+<!-- 									<li><a href="#">&lt;</a></li> -->
+<!-- 									<li class="active"><span>1</span></li> -->
+<!-- 									<li><a href="#">2</a></li> -->
+<!-- 									<li><a href="#">3</a></li> -->
+<!-- 									<li><a href="#">4</a></li> -->
+<!-- 									<li><a href="#">5</a></li> -->
+<!-- 									<li><a href="#">&gt;</a></li> -->
 								</ul>
 							</div>
 						</div>
@@ -162,64 +165,106 @@
 			</div>
 		</div>
 	</section>
-	        <script>
-    $(document).ready(function() {
-     $('.tag-cloud-link').mouseover(over).mouseout(out);  
-  
-  function over(evt){
-    $(this).css('color','purple').css('background','yellow');
-   }
-   function out(evt){
-    $(this).css('color','orange').css('background','white');
-   }
-
-   $.getJSON( "/Travel/groupTour", function( data ) {
-    var contents ="";
-    var contentss ="";
-    console.log(data);
-    $.each(data.result, function(idx,val){
-//      console.log(idx+",  "+val.tourName+","+val.content);
-//       console.log(data[idx].tourBatchBean[0].price_adult);
-//      console.log(data[idx].TourPictureBean[0].pic);
-//                                                  ftco-animate  "+val.TourPictureBean[0].pic +"
-    contents +="<div class=\"col-md-6 col-lg-6 mb-4              \">"
-     +"<a href=\"<c:url value='tourDisplay.jsp?tourNo="+val.tourNo+"'/>\" class=\"block-5\" style=\"background-image: url('"+val.TourPictureBean[0].pic +"');\">"      
-     + "<div class=\"text\">"  
-     +  "<span class=\"price\" style=\"color:red ; font-weight:bold\"><b><u>$"+val.tourBatchBean[0].price_adult+"</u></b></span>"
-     +  "<h3 class=\"heading\">"+val.tourName+"</h3>"
-     +  "<div class=\"post-meta\">"
-     +   "<span>"+val.content+"</span>"
-     +  "</div>"
-     +  "<p class=\"star-rate\">"
-     +   "<span class=\"icon-star\"></span><span class=\"icon-star\"></span><span class=\"icon-star\"></span><span class=\"icon-star\"></span><span class=\"icon-star-half-full\"></span> <span>500 reviews</span>"       
-     +  "</p>"
-     + "</div>"
-     +"</a>"
-    +"</div>"
-      
-    })
-    $("#box").html(contents);
-   });
- 
-   
-   $.getJSON( "/Travel/tourTags", function( data ) {
-    var contents ="";
-    var contentss ="";
-    console.log(data);
-    $.each(data, function(idx,val){
-     console.log(val);
-    contents +='<a href="#" class="tag-cloud-link">'+val+'</a>'; 
-      
-    })
-    $("#tagcloud").html(contents);
-   });
-   
-  }) 
+	
+	
+	    <script>
+   	$(document).ready(function() {
+//    		$('.tag-cloud-link').mouseover(over).mouseout(out);		
+		
+// 		function over(evt){
+// 			 $(this).css('color','purple').css('background','yellow');
+// 		 }
+// 		 function out(evt){
+// 			 $(this).css('color','orange').css('background','white');
+// 		 }
+		 
+		 $.getJSON( "/Travel/groupTour", function( data ) {
+			 var contents ="";
+			 var contentss ="";
+			 console.log(data);
+			 $.each(data.result, function(idx,val){
+				contents +="<div id=\"tourpage\" class=\"col-md-6 col-lg-6 mb-4\">"
+					+"<a href=\"<c:url value='/tour/Display/NewFile.jsp?tourNo="+val.tourNo+"'/>\" class=\"block-5\" style=\"background-image: url('/Travel/tour/Display/images/"+val.TourPictureBean[0].pic +"');\">"						
+					+	"<div class=\"text\">"  
+					+		"<span class=\"price\" style=\"color:red ; font-weight:bold\"><b><u>$"+val.tourBatchBean[0].price_adult+"</u></b></span>"
+					+		"<h3 class=\"heading\">"+val.tourName+"</h3>"
+					+		"<div class=\"post-meta\">"
+					+			"<span>"+val.content+"</span>"
+					+		"</div>"
+					+		"<p class=\"star-rate\">"
+					+			"<span class=\"icon-star\"></span><span class=\"icon-star\"></span><span class=\"icon-star\"></span><span class=\"icon-star\"></span><span class=\"icon-star-half-full\"></span> <span>500 reviews</span>"							
+					+		"</p>"
+					+	"</div>"
+					+"</a>"
+				+"</div>"
+					 
+			 })
+			 $("#box").html(contents);
+			 
+			 
+			 var rowsShown=6;                             //每頁顯示的行
+		     var rowsTotal=data.count;         //獲取總共的行
+		     var numPages=Math.ceil(rowsTotal/rowsShown); //計算出有多少頁
+// 		     alert(data.count);
+		     //顯示頁碼
+		      for(var i=0;i<numPages;i++){
+		          var pageNum=i+1;
+		         $('#nav').append( '<li><a href="#idd" rel="'+i+'" ><span>'+pageNum+'</span></a></li>');
+		     }                     //'<a href="#" rel="'+i+'">'+pageNum+'</a>&nbsp;'
+		    
+		     $('#box > #tourpage').hide(); // 先將全部行隱藏
+		     $('#box > #tourpage').slice(0,rowsShown).show();// 再顯示第一頁應該顯示的行數(
+		     $('#nav li:first').addClass('active');//為第一個頁碼加一個值為active的class屬性，方便加樣式
+		     
+		     //頁碼點擊事件
+		     $('#nav').on("click", "a", function(){
+		         $('#nav li ').removeClass('active');    //移除所有頁碼的active類
+		         $(this).parent("li").addClass('active');//為當前頁碼加入active類
+		         var currPage=$(this).attr('rel');     //取出頁碼上的值
+		         var startItem=currPage*rowsShown;     //行數的開始=頁碼*每頁顯示的行
+		         var endItem=startItem+rowsShown;      //行數的結束=開始+每頁顯示的行
+		         $('#box > #tourpage').hide();                 //全部行都隱藏
+		         //顯示從開始到結束的行
+		         $('#box > #tourpage').slice(startItem,endItem).show();//.css('display','table-row')
+		     });
+		     
+		     
+		 });
+	
+			
+		 $.getJSON( "/Travel/tourTags", function( data ) {
+			 var contents ="";
+			 var contentss ="";
+			 console.log(data);
+			 $.each(data, function(idx,val){
+				 console.log(val);
+				contents +='<a href="" class="tag-cloud-link">'+val+'</a>'; 
+					 
+			 })
+			 $("#tagcloud").html(contents);
+		 });
+		 
+		}) 
 
   
    </script>
   
-
+ 	<script src="<c:url value='/voyage/js/jquery.min.js' />"></script>
+	<script src="<c:url value='/voyage/js/jquery-migrate-3.0.1.min.js' />"></script>
+	<script src="<c:url value='/voyage/js/popper.min.js' />"></script>
+	<script src="<c:url value='/voyage/js/bootstrap.min.js' />"></script>
+	<script src="<c:url value='/voyage/js/jquery.easing.1.3.js' />"></script>
+	<script src="<c:url value='/voyage/js/jquery.waypoints.min.js' />"></script>
+	<script src="<c:url value='/voyage/js/jquery.stellar.min.js' />"></script>
+	<script src="<c:url value='/voyage/js/owl.carousel.min.js' />"></script>
+	<script src="<c:url value='/voyage/js/jquery.magnific-popup.min.js' />"></script>
+	<script src="<c:url value='/voyage/js/aos.js' />"></script>
+	<script src="<c:url value='/voyage/js/jquery.animateNumber.min.js' />"></script>
+	<script src="<c:url value='/voyage/js/bootstrap-datepicker.js' />"></script>
+	<script src="<c:url value='/voyage/js/jquery.timepicker.min.js' />"></script>
+	<script src="<c:url value='/voyage/js/main.js' />"></script>
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<jsp:include page="/voyage/foo.jsp"></jsp:include>
 
 </body>

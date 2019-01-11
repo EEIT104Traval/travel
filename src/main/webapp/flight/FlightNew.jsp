@@ -6,6 +6,7 @@
 	crossorigin="anonymous"></script>
 <!DOCTYPE html>
 <html lang="tw-zh">
+
 <!-- import this css by Alex -->
 <!-- <link rel="stylesheet" href="css/main_styles.css"> -->
 <link rel="stylesheet" type="text/css"
@@ -13,35 +14,35 @@
 <head>
 <%-- <jsp:include page="/voyage/nav.jsp" /> --%>
 <script>
-	$(document).ready(function(){
-			$('#home_search_button').click(function() {
-				alert("button被按了一下");
-				var goPlace = $('#goPlace').val();
-				var goPlace2 = $('#goPlace2').val();
-				var checkin_date = $('#checkin_date').val();
-				var checkout_date = $('#checkout_date').val();
-				var peopleType = $('#peopleType').val();
-				var cabin = $('#search-controls-cabin-class-dropdown').val();
-				$.ajax({
-					url : '/Travel/FlightInfo',
-					contentType : 'application/json; charset=UTF-8',
-					type : 'get',
-					dataType : 'json',
-					data:{
-						"takeOffPlace": goPlace,
-						"landingPlace":goPlace2,
-						"checkin_date":checkin_date,
-						"checkout_date":checkout_date,
-						"peopleType":peopleType,
-						"cabinclass":cabin
-					}
-				}).done(function(JData) {
-					console.log(JData)
+// 	$(document).ready(function(){
+// 			$('#home_search_button').click(function() {
+// 				alert("button被按了一下");
+// 				var goPlace = $('#goPlace').val();
+// 				var goPlace2 = $('#goPlace2').val();
+// 				var checkin_date = $('#checkin_date').val();
+// 				var checkout_date = $('#checkout_date').val();
+// 				var peopleType = $('#peopleType').val();
+// 				var cabin = $('#search-controls-cabin-class-dropdown').val();
+// 				$.ajax({
+// 					url : '/Travel/FlightInfo',
+// 					contentType : 'application/json; charset=UTF-8',
+// 					type : 'get',
+// 					dataType : 'json',
+// 					data:{
+// 						"takeOffPlace": goPlace,
+// 						"landingPlace":goPlace2,
+// 						"checkin_date":checkin_date,
+// 						"checkout_date":checkout_date,
+// 						"peopleType":peopleType,
+// 						"cabinclass":cabin
+// 					}
+// 				}).done(function(JData) {
+// 					console.log(JData)
 							
-					})
+// 					})
 
-			});
-	});
+// 			});
+// 	});
 </script>
 </head>
 <body>
@@ -62,8 +63,8 @@
 	<!-- Search -->
 
 	<div class="home_search" style="margin-top: -150px">
-		<form action="<c:url value="#" />" class="home_search_form"
-			id="home_search_form" method="post">
+		<form action="<c:url value="/FlightInfo" />" class="home_search_form"
+			id="home_search_form" method="POST">
 			<div class="container">
 				<div class="row">
 					<div class="col">
@@ -102,14 +103,15 @@
 									<div>
 										<span class="form-label">出發地</span> <input id='goPlace' type="text" autocomplete="off"
 											class="search_input_1" style="width: 450px"
-											placeholder="請輸入機場/城市中英文或代碼" required="required">
+											placeholder="請輸入機場/城市中英文或代碼" >
+<!-- 											required="required" -->
 									</div>
 									<img alt="" src="<c:url value='/voyage/images/changeTwoPlace.png'/>"
 										width="25px" style="padding-top: 42px">
 									<div>
 										<span class="form-label">目的地</span> <input id='goPlace2' type="text" autocomplete="off"
 											class="search_input search_input_1" style="width: 450px"
-											placeholder="請輸入機場/城市中英文或代碼" required="required">
+											placeholder="請輸入機場/城市中英文或代碼" >
 									</div>
 								</div>
 
@@ -141,7 +143,7 @@
 								</div>
 
 
-								<button class="home_search_button" id="home_search_button">搜尋</button>
+								<button class="home_search_button" id="home_search_button" type="submit">搜尋</button>
 							</div>
 						</div>
 					</div>
@@ -217,6 +219,5 @@
 	</div>
 
 	<jsp:include page="/voyage/foo.jsp" />
-	<script src=" <c:url value='/voyage/js/main.js'/>"></script>
 </body>
 </html>

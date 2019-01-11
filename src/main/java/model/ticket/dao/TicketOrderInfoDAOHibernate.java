@@ -2,6 +2,10 @@ package model.ticket.dao;
 
 import java.util.List;
 
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +36,29 @@ public class TicketOrderInfoDAOHibernate implements TicketOrderInfoDAO {
 				.list();
 	}
 
+	@Override
+	public List<TicketOrderInfoBean> finduser (String accountName) {
+		CriteriaBuilder criteriaBuilder = getSession().getCriteriaBuilder();
+		CriteriaQuery<TicketOrderInfoBean> criteria = criteriaBuilder.createQuery(TicketOrderInfoBean.class);
+		Root<TicketOrderInfoBean> from = criteria.from(TicketOrderInfoBean.class);
+		criteria.select(from).where(from.get("accountName").in(accountName));
+		List<TicketOrderInfoBean> list = getSession().createQuery(criteria).getResultList();
+		return list;
+	}
+	@Override
+	public Integer[] fundNumber(String accountName) {
+		
+		return (Integer[])this.getSession().createQuery("select ticketOrderNo from TicketOrderInfoBean where accountName="+accountName+"").uniqueResult();
+		
+	}
+	@Override
+	   public String findTKName(Integer ticketNo) {
+		System.out.println(ticketNo);
+
+		return (String)this.getSession().createQuery("select ticketName from TicketInfoBean where ticketNo="+ticketNo+"").uniqueResult();
+ 	
+ }
+	
 	@Override
 	public TicketOrderInfoBean create(TicketOrderInfoBean bean) {
 
@@ -72,4 +99,5 @@ public class TicketOrderInfoDAOHibernate implements TicketOrderInfoDAO {
 		}
 		return false;
 	}
+
 }

@@ -1,41 +1,35 @@
 package model.ticket;
 
-import java.util.Date;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
-import model.userInfo.UserInfoBean;
 
 @Entity
 @Table(name="TicketOrderInfo")
 public class TicketOrderInfoBean {
 
-	@ManyToOne
-	@JoinColumn(
-	name="accountName",
-	referencedColumnName="accountName",
-	insertable=false,
-	updatable=false
-			)
-	private UserInfoBean userinfo;
-	public UserInfoBean getUserInfo() {
-		return userinfo;
-	}
-	public void setUserInfo(UserInfoBean userinfo) {
-		this.userinfo = userinfo;
-	}
-	public UserInfoBean getUserinfo() {
-		return userinfo;
-	}
-	public void setUserinfo(UserInfoBean userinfo) {
-		this.userinfo = userinfo;
-	}
+//	@ManyToOne
+//	@JoinColumn(
+//	name="accountName",
+//	referencedColumnName="accountName",
+//	insertable=false,
+//	updatable=false
+//			)
+//	private UserInfoBean userinfo;
+//	public UserInfoBean getUserInfo() {
+//		return userinfo;
+//	}
+//	public void setUserInfo(UserInfoBean userinfo) {
+//		this.userinfo = userinfo;
+//	}
+//	public UserInfoBean getUserinfo() {
+//		return userinfo;
+//	}
+//	public void setUserinfo(UserInfoBean userinfo) {
+//		this.userinfo = userinfo;
+//	}
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -50,8 +44,6 @@ public class TicketOrderInfoBean {
 	private String recevingAddress;
 	private String recevingPhone;
 	private Integer totalPrice;
-	
-		
 	public Integer getTicketOrderNO() {
 		return ticketOrderNO;
 	}
@@ -70,16 +62,16 @@ public class TicketOrderInfoBean {
 	public void setTicketNo(Integer ticketNo) {
 		this.ticketNo = ticketNo;
 	}
-	public Date getOrderDate() {
+	public java.util.Date getOrderDate() {
 		return orderDate;
 	}
-	public void setOrderDate(Date orderDate) {
+	public void setOrderDate(java.util.Date orderDate) {
 		this.orderDate = orderDate;
 	}
-	public Date getUseDate() {
+	public java.util.Date getUseDate() {
 		return useDate;
 	}
-	public void setUseDate(Date useDate) {
+	public void setUseDate(java.util.Date useDate) {
 		this.useDate = useDate;
 	}
 	public Integer getAdultTicketCount() {
@@ -120,11 +112,13 @@ public class TicketOrderInfoBean {
 	}
 	@Override
 	public String toString() {
-		return "TicketOrderInfoBean [  ticketOrderNO=" + ticketOrderNO + ", accountName="
-				+ accountName + ", ticketNo=" + ticketNo + ", orderDate=" + orderDate + ", useDate=" + useDate
-				+ ", adultTicketCount=" + adultTicketCount + ", childTicketCount=" + childTicketCount
-				+ ", recevingContact=" + recevingContact + ", recevingAddress=" + recevingAddress + ", recevingPhone="
-				+ recevingPhone + ", totalPrice=" + totalPrice + "]";
+		return "TicketOrderInfoBean [ticketOrderNO=" + ticketOrderNO + ", accountName=" + accountName + ", ticketNo="
+				+ ticketNo + ", orderDate=" + orderDate + ", useDate=" + useDate + ", adultTicketCount="
+				+ adultTicketCount + ", childTicketCount=" + childTicketCount + ", recevingContact=" + recevingContact
+				+ ", recevingAddress=" + recevingAddress + ", recevingPhone=" + recevingPhone + ", totalPrice="
+				+ totalPrice + "]";
 	}
+	
+
 
 }

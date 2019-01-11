@@ -105,7 +105,6 @@ public class TicketInfoDAOHibernate implements TicketInfoDAO {
 		List<TicketInfoBean> list = getSession().createQuery(criteria).getResultList();
 		return list;
 	}
-
 }
 
 //	@Override

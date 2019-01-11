@@ -17,8 +17,8 @@ public class Display {
 	
 	@ResponseBody
 	@RequestMapping("/tour/display")
-	public GroupTourBean method(@RequestParam(value="tourNo",required=false)String tourNo) {	
-//		System.out.println(tourNo);
+	public GroupTourBean method(@RequestParam(value="tourNo",required=false)String tourNo) {
+		System.out.println(tourNo);
 		GroupTourBean GT = groupTourService.select(tourNo);
 		System.out.println(GT);
 		return GT;

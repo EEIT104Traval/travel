@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import model.userInfo.UserInfoBean;
 import model.userInfo.UserInfoDAO;
+import model.userInfo.UserInfoService;
 
 
 @Controller
@@ -16,12 +17,14 @@ public class UserInfoTest {
 
  @Autowired
  private UserInfoDAO dao ;
+ @Autowired
+ private UserInfoService udao;
  
  @ResponseBody  //@RestController可替代
  @RequestMapping("/userInfoPK")
  public UserInfoBean method() {
   System.out.println("test controller");  
-  UserInfoBean bean = dao.findByPrimaryKey("Micky");   
+  UserInfoBean bean = dao.findByPrimaryKey("snoopy");   
   return bean;
  }
  @ResponseBody
@@ -35,7 +38,7 @@ public class UserInfoTest {
  public UserInfoBean create() {
 	 UserInfoBean bean1 =new UserInfoBean();
 	 bean1.setAccountName("Kitty2");
-	 bean1.setPassword("ABC");
+	 bean1.setPassword("ABC".getBytes());
 	 bean1.setFirstname("sun");
 	 bean1.setLastname("Reese");
 	 bean1.setIdentityNo("A223456789");
@@ -66,5 +69,21 @@ public class UserInfoTest {
 	  return true;
  }
  
-}
+ @ResponseBody
+ @RequestMapping("/userfound")
+ public List<UserInfoBean> findByAccountName(String user) {
+	 List<UserInfoBean> result = udao.findByAccountName("micky");
+	 System.out.println(user);
+		return result;
+	}
+ @ResponseBody
+ @RequestMapping("/userInfoname")
+ public List<UserInfoBean> userInfoname(String user) {
+	 List<UserInfoBean> result = udao.findByuserOrderInfo("micky");
+	 System.out.println(user);
+		return result;
+	}
+ 
+ }
+
  

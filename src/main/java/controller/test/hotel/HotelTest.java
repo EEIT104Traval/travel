@@ -37,9 +37,9 @@ public class HotelTest {
 		insert.setCountry("中國");
 		insert.setCity("香港");
 		insert.setAddress("香港離島大嶼山迪士尼樂園度假區");
-		insert.setPhone("00852-35106000");
-		insert.setEmail("NULL");
 		insert.setHotelTotalRooms(800);
+		insert.setStarRate("starRate");
+		insert.setPrice("NT$1,234");
 		insert.setPic("NULL");
 		HotelBean bean = dao.create(insert);
 		return insert;
@@ -47,7 +47,7 @@ public class HotelTest {
 
 	@RequestMapping("/Hoteltestupdate")
 	public HotelBean update() {
-		HotelBean update = dao.update(2, "香港迪士尼樂園酒店", "中國", "香港", "香港離島大嶼山迪士尼樂園度假區", "00852-35106000", "NULL", 1200,
+		HotelBean update = dao.update(2, "香港迪士尼樂園酒店", "中國", "香港", "香港離島大嶼山迪士尼樂園度假區", 1200, "starRate", "NT $2,266",
 				"NULL");
 		return update;
 	}
@@ -60,7 +60,7 @@ public class HotelTest {
 
 	@RequestMapping("/Hotelsearch")
 	public List<HotelBean> searchByCountry() {
-		List<HotelBean> all = dao.searchByCountry("France");
+		List<HotelBean> all = dao.searchByCountry("法國");
 
 		return all;
 	}
