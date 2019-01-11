@@ -25,15 +25,14 @@ public class LoginController {
 	@RequestMapping(path = { "/secure/login.controller" })
 	public String method(String name, String password, Model model) {
 //接收資料
-		Locale locale = LocaleContextHolder.getLocale();
 // 驗證資料
 		Map<String, String> errors = new HashMap<>();
 		model.addAttribute("errors", errors);
 		if (name == null || name.length() == 0) {
-			errors.put("xxx1", context.getMessage("name",null, locale));
+//			errors.put("xxx1", context.getMessage("name",null, locale));
 		}
 		if (password == null || password.length() == 0) {
-			errors.put("xxx2", context.getMessage("password",null, locale));
+//			errors.put("xxx2", context.getMessage("password",null, locale));
 		}
 		if (errors != null && !errors.isEmpty()) {
 			return "login.error";
