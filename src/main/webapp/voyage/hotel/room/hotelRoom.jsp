@@ -42,7 +42,7 @@
 </head>
 
 <body>
-
+<jsp:include page="../../../voyage/nav.jsp"></jsp:include>
 	<!-- slider -->
 
 	<section class="home-slider owl-carousel">
