@@ -8,6 +8,7 @@ import javax.persistence.criteria.Root;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -46,18 +47,11 @@ public class TicketOrderInfoDAOHibernate implements TicketOrderInfoDAO {
 		return list;
 	}
 	@Override
-	public Integer[] fundNumber(String accountName) {
-		
-		return (Integer[])this.getSession().createQuery("select ticketOrderNo from TicketOrderInfoBean where accountName="+accountName+"").uniqueResult();
-		
+	public TicketOrderInfoBean fundNumber(String accountName) {
+		Query<TicketOrderInfoBean> a = this.getSession().createQuery("from TicketOrderInfoBean where accountName="+accountName,TicketOrderInfoBean.class);
+		TicketOrderInfoBean TOIB = a.uniqueResult();
+		return TOIB;	
 	}
-	@Override
-	   public String findTKName(Integer ticketNo) {
-		System.out.println(ticketNo);
-
-		return (String)this.getSession().createQuery("select ticketName from TicketInfoBean where ticketNo="+ticketNo+"").uniqueResult();
- 	
- }
 	
 	@Override
 	public TicketOrderInfoBean create(TicketOrderInfoBean bean) {

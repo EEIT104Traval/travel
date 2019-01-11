@@ -42,7 +42,7 @@ public class UserInfoService {
 		List<UserInfoBean> userorderinfo = userInfoDAO.findByaccountName(user);
 		System.out.println(userorderinfo);	
 		if(tdao.finduser(user) != null) {
-//			tdao.foundName(tdao.)
+			tdao.finduser(user);
 //			userorderinfo.add(e);
 		}
 		return userorderinfo;

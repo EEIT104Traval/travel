@@ -17,6 +17,7 @@
 var number
 var user
 var params = {}
+
 	$(document).ready(function() {
 // 		$('#select1').change(function() {
 // 			params.number = $('#select1').val()
@@ -25,7 +26,7 @@ var params = {}
 	});
   			function fundmember(){
  			params.user = $('#user').val();
- 			alert(params.user)
+//  			alert(params.user)
 			$("#searchuser").html("")
 
  			$.ajax({
@@ -35,15 +36,23 @@ var params = {}
  					dataType : 'json',
  					data:params,
  				   }).done(function(JData) {
+ 					   console.log(JData)
+ 					   console.log(JData[0].hotelOrderDetailsBean)
+							$("#searchuser").append(
+							'<div style="text-align: center;"><h2>'+JData[0].accountName +'</h2></div>'+
+							'<br>'+
+							'<table ><th style="width:150px">類型</th><th style="width:150px">名稱</th>'+
+							'<th style="width:150px">數量</th><th style="width:150px">購買日期</th><th style="width:150px">總價格</th></table>'+
+							'<br>'		       );
+			
 							$.each(JData, function(index, value) {
 								console.log(value)
  						$("#searchuser").append(
- 								
- 								
-//  							'<table class="table"><tr><th>accountName</th><th>firstname</th><th>lastname</th><th>identityNo</th><th>email</th></tr><tr>'
+ 								 								
+//  							'<table><tr><th>accountName</th><th>firstname</th><th>lastname</th><th>identityNo</th><th>email</th></tr><tr>'
 //  							+'<th>'+value.accountName +'</th>'
 //  							+'<th>'+value.firstname +'</th>'
-//  							+'<th>'+value.lastname +'</th>'
+//  							+'<th>'+value.ticketOrderInfoBean[1].orderDate +'</th>'
 //  							+'<th>'+value.identityNo +'</th>'
 //  							+'<th>'+value.email +'</th>'
 //  							+'</tr><tr><th>sex</th><th>phone</th><th>birth</th><th colspan="2">address</th></tr><tr>'
@@ -51,9 +60,10 @@ var params = {}
 //  							+'<th>'+value.phone +'</th>'
 //  							+'<th>'+value.birth +'</th>'
 //  							+'<th colspan="2">'+value.address +'</th></tr></table>'
+ 							 						
 							)}
-				)}
- 	)};		
+						)}
+ 				   )};		
 </script>
 </head>
 <body>

@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -116,18 +117,12 @@ public class TicketOrderInfoTest {
 		return result;
 	}
 	
-	@RequestMapping("/ticketfoundnumber")
-	public Integer[] foundNumber(String user, HttpServletResponse res) {
+	@RequestMapping("/foundNumber")
+	public TicketOrderInfoBean foundNumber(String user, HttpServletResponse res) {
 		res.setCharacterEncoding("UTF-8");
-		Integer[] a = dao.fundNumber("micky");
+		TicketOrderInfoBean a = dao.fundNumber("micky");
 		System.out.println(a);
 		return a;
 	}
-	@RequestMapping("/ticketfoundname")
-	public String foundName(Integer ticketNo, HttpServletResponse res) {
-		res.setCharacterEncoding("UTF-8");
-		String a = dao.findTKName(1);
-		System.out.println(a);
-		return a;
-	}
+
 }

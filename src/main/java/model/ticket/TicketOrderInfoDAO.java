@@ -2,6 +2,8 @@ package model.ticket;
 
 import java.util.List;
 
+import org.hibernate.query.Query;
+
 public interface TicketOrderInfoDAO {
 
 	
@@ -23,9 +25,6 @@ public interface TicketOrderInfoDAO {
 	//查詢訂單  給使用者名查出多少票券
 	public abstract List<TicketOrderInfoBean> finduser(String accountName);
 	//給使用者名子取出票券號碼
-	public abstract Integer[] fundNumber(String accountName);
-	//給票券號碼 取出票券名子
-	public abstract String findTKName(Integer ticketNo);
-	
+	public abstract TicketOrderInfoBean fundNumber(String accountName);
 	
 }
