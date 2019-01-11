@@ -2,8 +2,10 @@ package controller.flight;
 
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletResponse;
@@ -12,9 +14,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
 
 import model.flight.AirlineCompareDAO;
 import model.flight.service.FlightInfoGetService;
@@ -89,22 +88,32 @@ public class FlightInfoController {
 			String result = flightInfoGetService.getInfo(bfmsearch.toString());
 			System.out.println("result=" + result);
 			int index = 0;
-			model.addAttribute("result", result);
 			Map<String, String> codeMap = new HashMap<>();
+//			List<Test> list = new ArrayList<>();
+			model.addAttribute("result", result);
+			
 			for (int i = 0; i < result.length() - 1; i=i+index-1) {
 				index = result.indexOf("OperatingAirline\":{\"Code\":\"");
 				String code = result.substring(index + 27, index + 29);
 //				System.out.println("{code1="+code);
 				String value = dao.findByPrimaryKey(code).getAirlineCompany();
 //				String value = dao.findByPrimaryKey("CA").getAirlineCompany();
-				if (!codeMap.containsValue(code)) {
+				if (!codeMap.containsKey(code)) {
 					codeMap.put(code, value);
+//					Test t = new Test();
+//					t.setCode(code);
+//					t.setAirline(value);
+					
+//					list.add(t);
 					System.out.println("不包含code="+code+"  value="+value);
 				}
 //				System.out.println("code=" + code);
 //				System.out.println("value=" + value);
 				result = result.substring(index+29);
 			}
+			System.out.println("codeMap:");
+			System.out.println(codeMap);
+			System.out.println(codeMap);
 			model.addAttribute("flightCompany",codeMap);
 
 //			JsonObject returnData = new JsonParser().parse(result).getAsJsonObject();
@@ -119,6 +128,6 @@ public class FlightInfoController {
 			e.printStackTrace();
 		}
 
-		return "/flight/xianqi/step1.jsp";
+		return "/flight/xianqi/test.jsp";
 	}
 }

@@ -39,14 +39,118 @@ console.log('${flightCompany.CX}')
 $(document).ready(function() {
 $.each(result.OTA_AirLowFareSearchRS.PricedItineraries.PricedItinerary, function(index, value) {
 	$('#gofirst').append(
-			
-			" <div class='col-xs-10 text-center fly-leftbox'>"
+			'<div class="romde_box act">'
+	         +'<div class="border" id="redborder">' 
+	              <!--第1段-->
+	              +'<div class="num-tag">1</div>'
+			+'<div class="flybox row" >'
+			+" <div class='col-xs-10 text-center fly-leftbox'>"
             +" <div class='col-xs-3 fl-namebox text-center'>"
               +" <div class='fl-name'>"+'${flightCompany.CX}'+"</div>"
               +" <div class='+fl-num'>"+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].OperatingAirline.Code+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].OperatingAirline.FlightNumber+"</div>"
             +"</div>"
+            + "<div class='col-xs-3 fl-timebox text-right'>"
+            +'<div class="fl-time">'+'去程第一段(四)'+'</div>'
+            +'<div class="fl-place">'+'20:05'+'<span>'+'TPE'+'</span></div>'
+          +'</div>'
+         +'<div class=" col-xs-3 fl-durationbox text-center">'
+         +'<div class="fl-dutime"> <span>'+'0'+'</span>小時<span>'+'55'+'</span>分 </div>'
+         +'<div class="t-line" ></div>'
+         +'<div class="fl-flyname">實際飛行荷蘭航空</div>'
+         +' </div>'
+         +'<div class=" col-xs-3 fl-timebox text-left">'
+         +'<div class="fl-time">'+'2019/10/10(四)'+'</div>'
+         +'<div class="fl-place">'+'22:05'+'<span>'+'BKK'+'</span></div>'
+         +' </div>'
+         +' </div>'
+         +' <div class="col-xs-2 fly-info">'
+         +' <div class="fltool">'
+         +' <li class="icon_fl1">'+'空中巴士330'+'</li>'
+         +' <li class="icon_fl2">'+'經濟艙 V'+'</li>'
+         +' <li class="icon_fl3">'+'30kg/人'+'</li>'
+//          +'</div>'
+         +'</div>'
+         +'</div>'
 	
 	)
+		var s = value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment
+	console.log(s.length)
+	if (s.length==2){
+	$('#redborder').append(
+			"第二段測試是否有跑到"
+			+" <div class='col-xs-10 text-center fly-leftbox'>"
+            +" <div class='col-xs-3 fl-namebox text-center'>"
+              +" <div class='fl-name'>"+'${flightCompany.CX}'+"</div>"
+              +" <div class='+fl-num'>"+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[1].OperatingAirline.Code+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[1].OperatingAirline.FlightNumber+"</div>"
+            +"</div>"
+            + "<div class='col-xs-3 fl-timebox text-right'>"
+            +'<div class="fl-time">'+'去程第二段(四)'+'</div>'
+            +'<div class="fl-place">'+'00:05'+'<span>'+'TPE'+'</span></div>'
+          +'</div>'
+         +'<div class=" col-xs-3 fl-durationbox text-center">'
+         +'<div class="fl-dutime"> <span>'+'0'+'</span>小時<span>'+'55'+'</span>分 </div>'
+         +'<div class="t-line" ></div>'
+         +' </div>'
+         +'<div class=" col-xs-3 fl-timebox text-left">'
+         +'<div class="fl-time">'+'2019/10/10(四)'+'</div>'
+         +'<div class="fl-place">'+'03:05'+'<span>'+'BKK'+'</span></div>'
+         +' </div>'
+         +' </div>'
+         +' <div class="col-xs-2 fly-info">'
+         +' <div class="fltool">'
+         +' <li class="icon_fl1">'+'空中巴士330'+'</li>'
+         +' <li class="icon_fl2">'+'經濟艙 V'+'</li>'
+         +' <li class="icon_fl3">'+'30kg/人'+'</li>'
+         +'</div>'
+         +'</div>'
+         +'</div>'
+	
+
+	)}
+// 	$('#gofirst').append(
+// 			'<div class="flybox row border-top">'
+// 			+" <div class='col-xs-10 text-center fly-leftbox'>"
+// 		    +" <div class='col-xs-3 fl-namebox text-center'>"
+// 		      +" <div class='fl-name'>"+'${flightCompany.CX}'+"</div>"
+// 		      +" <div class='+fl-num'>"+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[0].OperatingAirline.Code+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[0].OperatingAirline.FlightNumber+"</div>"
+// 		    +"</div>"
+// 		    + "<div class='col-xs-3 fl-timebox text-right'>"
+// 		    +'<div class="fl-time">'+'2019/10/20(四)'+'</div>'
+// 		    +'<div class="fl-place">'+'00:05'+'<span>'+'TPE'+'</span></div>'
+// 		  +'</div>'
+// 		 +'<div class=" col-xs-3 fl-durationbox text-center">'
+// 		 +'<div class="fl-dutime"> <span>'+'0'+'</span>小時<span>'+'55'+'</span>分 </div>'
+// 		 +'<div class="t-line" ></div>'
+// 		 +' </div>'
+// 		 +'<div class=" col-xs-3 fl-timebox text-left">'
+// 		 +'<div class="fl-time">'+'2019/10/20(四)'+'</div>'
+// 		 +'<div class="fl-place">'+'03:05'+'<span>'+'BKK'+'</span></div>'
+// 		 +' </div>'
+// 		 +' </div>'
+// 		 +' <div class="col-xs-2 fly-info">'
+// 		 +' <div class="fltool">'
+// 		 +' <li class="icon_fl1">'+'空中巴士330'+'</li>'
+// 		 +' <li class="icon_fl2">'+'經濟艙 V'+'</li>'
+// 		 +' <li class="icon_fl3">'+'30kg/人'+'</li>'
+// 		 +'</div>'
+// 		 +'</div>'
+// 		 +'</div>'
+// 		 +'</div>'
+		 
+	
+// 	)
+		
+
+	$('#gofirst').append(
+			
+			'erg'
+		+'</div>'
+		+'</div>'
+		+'</div>'
+		+'</div>'
+	
+	)
+	
 	
 	
 	
@@ -149,7 +253,7 @@ $.each(result.OTA_AirLowFareSearchRS.PricedItineraries.PricedItinerary, function
  </script>
 
 	<!--  <h1>Hello</h1> -->
-	<div id='div_apend'></div>
+<!-- 	<div id='div_apend'></div> -->
 <!--內容-->
 
 <div class="container"> 
@@ -242,14 +346,14 @@ $.each(result.OTA_AirLowFareSearchRS.PricedItineraries.PricedItinerary, function
       
       <div class="main_right">
 <!--         <h3 class="title">可選航班共<span>10</span>組 </h3> -->
-        <div class=" flylist"> 
+        <div class=" flylist"id="gofirst"> 
           
           <!--航班n,第一個最便宜多一個act 標籤名稱，其它的沒有-->
           <div class="romde_box act">
             <div class="border"> 
               <!--第1段-->
               <div class="num-tag">1</div>
-              <div class="flybox row" id="gofirst">
+              <div class="flybox row" >
                 <div class="col-xs-10 text-center fly-leftbox">
                   <div class="col-xs-3 fl-namebox text-center">
                     <div class="fl-name">${flightCompany.CX}</div>
