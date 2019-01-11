@@ -814,7 +814,7 @@
 		</div>
 	</div>
 
-	<jsp:include page="/voyage/footer.jsp" />
+	<jsp:include page="/voyage/foo.jsp" />
 	<script src="js/main.js"></script>
 </body>
 </html>
