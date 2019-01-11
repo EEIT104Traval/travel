@@ -2682,7 +2682,7 @@
 
 		.spotlight.alt {
 			background: #1e1f23;
-			color: rgba(255, 255, 255, 0.25);
+			color: rgba(255, 255, 255, 0.6);
 			display: -moz-flex;
 			display: -webkit-flex;
 			display: -ms-flex;
@@ -3028,13 +3028,13 @@
 	}
 
 		.wrapper > header h2 {
-			position: relative;
+/* 			position: relative; */
 			padding-bottom: .75rem;
 		}
 
 			.wrapper > header h2:after {
 				content: '';
-				position: absolute;
+/* 				position: absolute; */
 				margin: auto;
 				right: 0;
 				bottom: 0;

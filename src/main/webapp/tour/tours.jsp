@@ -18,7 +18,6 @@
 <body>
 
 
-<%-- 	<jsp:include page="nav.jsp"></jsp:include> --%>
 
 	<section class="home-slider owl-carousel">
 		<div class="slider-item"
@@ -185,7 +184,7 @@
 // 				 console.log(data[idx].TourPictureBean[0].pic);
 // 					                                            ftco-animate  "+val.TourPictureBean[0].pic +"
 				contents +="<div class=\"col-md-6 col-lg-6 mb-4              \">"
-					+"<a href=\"<c:url value='tourDisplay.jsp?tourNo="+val.tourNo+"'/>\" class=\"block-5\" style=\"background-image: url('"+val.TourPictureBean[0].pic +"');\">"						
+					+"<a href=\"<c:url value='/tour/Display/NewFile.jsp?tourNo="+val.tourNo+"'/>\" class=\"block-5\" style=\"background-image: url('/Travel/tour/Display/images/"+val.TourPictureBean[0].pic +"');\">"						
 					+	"<div class=\"text\">"  
 					+		"<span class=\"price\" style=\"color:red ; font-weight:bold\"><b><u>$"+val.tourBatchBean[0].price_adult+"</u></b></span>"
 					+		"<h3 class=\"heading\">"+val.tourName+"</h3>"
