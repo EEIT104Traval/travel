@@ -17,9 +17,7 @@
 var number
 var user
 var params = {}
-var hotelNo
-var ticketNo
-var orderNo
+
 	$(document).ready(function() {
 // 		$('#select1').change(function() {
 // 			params.number = $('#select1').val()
@@ -38,29 +36,15 @@ var orderNo
  					dataType : 'json',
  					data:params,
  				   }).done(function(JData) {
+ 					   console.log(JData)
+ 					   console.log(JData[0].hotelOrderDetailsBean)
 							$("#searchuser").append(
 							'<div style="text-align: center;"><h2>'+JData[0].accountName +'</h2></div>'+
 							'<br>'+
 							'<table ><th style="width:150px">類型</th><th style="width:150px">名稱</th>'+
 							'<th style="width:150px">數量</th><th style="width:150px">購買日期</th><th style="width:150px">總價格</th></table>'+
 							'<br>'		       );
-							console.log('--------------------------')
-							
-							if (typeof(hotelNo) == "null"){ 
-							    alert("hotelNo"); 
-							}else{
-								alert("NO hotelNo"); 
-							}
-							if (typeof(ticketNo) == "null"){ 
-							    alert("ticketNo"); 
-							}else{
-								alert("NO ticketNo"); 
-							}if (typeof(orderNo) == "null"){ 
-							    alert("orderNo"); 
-							}else{
-								alert("NO orderNo"); 
-							}
-							
+			
 							$.each(JData, function(index, value) {
 								console.log(value)
  						$("#searchuser").append(
