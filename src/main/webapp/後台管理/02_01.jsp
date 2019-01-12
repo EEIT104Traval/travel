@@ -13,14 +13,12 @@
 <jsp:include page="bindex.jsp" />
 <title>後台管理者介面</title>
 <script>
-
+var month
+var params = {}
 	$(document).ready(function() {
-		$('#select1').change(function() {
-			month = Number($('#select1').val())
+			$('#select1').change(function() {
 
-			alert(typeof(month))
-			alert(month)
-//   			function fundmember(){
+			params.month =  $('#select1').val()
 			$("#searchuser").html("")
 
  			$.ajax({
@@ -28,34 +26,39 @@
  					contentType : 'application/json; charset=UTF-8',
  					type : 'get',
  					dataType : 'json',
- 					data:month
- 				   }).done(function(JData) {
- 					   console.log(JData)
+ 					data:params,
+ 				   }).done(function(JData) {  
+ 					  $("#searchuser").append(
+ 								'<div style="text-align: center;"><h2>'+Number($('#select1').val()) +'月份報表</h2></div>'+
+ 								'<br>'+
+ 								'<table ><th style="width:50px">國家</th><th style="width:350px">名稱</th>'+
+ 								'<th style="width:50px">數量</th><th style="width:200px">購買日期</th><th style="width:100px">價格</th></table>'+
+ 								'<br>'		 );
+// 					  console.log(JData)
+// 					  console.log(JData.length);
+						if(JData.length != 0 || JData.length == null){
 							$.each(JData, function(index, value) {
-					  console.log(value)
-//  						$("#searchuser").append(
-//  							'<table><tr><th>accountName</th><th>firstname</th><th>lastname</th><th>identityNo</th><th>email</th></tr><tr>'
-//  							+'<th>'+value.accountName +'</th>'
-//  							+'<th>'+value.firstname +'</th>'
-//  							+'<th>'+value.lastname +'</th>'
-//  							+'<th>'+value.identityNo +'</th>'
-//  							+'<th>'+value.email +'</th>'
-//  							+'</tr><tr><th>sex</th><th>phone</th><th>birth</th><th colspan="2">address</th></tr><tr>'
-//  							+'<th>'+value.sex +'</th>'
-//  							+'<th>'+value.phone +'</th>'
-//  							+'<th>'+value.birth +'</th>'
-//  							+'<th colspan="2">'+value.address +'</th></tr></table>'
-// 							)
-							}
-				)}
- 	)
-//  	};		
-		})
-	});
+							
+  							for(var i = 0;i<JData.length;i++){
+	 							$("#searchuser").append(		
+	 		 							'<table ><th style="width:50px">'+ value.serialNo +'</th>'+
+	 		 									'<th style="width:350px">'+ value.serialNo +'</th>'+
+	 		 							        '<th style="width:50px">'+ value.quantity +'</th>'+
+	 		 							        '<th style="width:200px">'+ value.orderTime +'</th>'+
+	 		 							        '<th style="width:100px">'+ value.total +'</th></table>'								
+	 													)
+	 														 }
+								                       })}
+						 $("#searchuser").append('<table><th style="width:50px">合計</th><th style="width:727px">value.total</th></table>')
+											})
+								})
+					});
 </script>
 </head>
 <body>
 	<div class="boxmsg">
+	        <br>
+            <br>
 <!--  --> 　　　　　　　　　　　　　　　　　　　　　　　　　　　月份報表查詢　　　　　　　　　　　　　　　　　　　　　　　
             <br>
             <br>
