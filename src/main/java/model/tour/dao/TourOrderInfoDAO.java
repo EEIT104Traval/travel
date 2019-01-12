@@ -8,10 +8,13 @@ import javax.persistence.criteria.Root;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import model.tour.TourMemberInfoBean;
 import model.tour.TourOrderInfoBean;
+
 
 @Repository
 public class TourOrderInfoDAO {
@@ -72,4 +75,16 @@ public class TourOrderInfoDAO {
 		List<TourOrderInfoBean> list = getSession().createQuery(criteria).getResultList();
 		return list;
 		}
+
+
+	public List<TourOrderInfoBean> findBuyMonth(Integer month) {
+		
+		String hql = "from TourOrderInfoBean where orderTime >= '2018/"+month+"/01' and orderTime <='2018/"+month+"/31 23:59:59'" ;
+		
+		Query<TourOrderInfoBean> OrderMonth = this.getSession().createQuery( hql ,TourOrderInfoBean.class);
+		
+		List<TourOrderInfoBean> OdMonth = OrderMonth.list();
+		
+		return OdMonth;
+	}
 }

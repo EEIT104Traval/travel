@@ -47,7 +47,7 @@ var hotelOrderDetailsBean ;
 							'<th style="width:150px">數量</th><th style="width:150px">購買日期</th><th style="width:150px">總價格</th></table>'+
 							'<br>'		       );
 										  
-// 	console.log(JData);
+	console.log(JData);
 //  if(JData[0].hotelOrderDetailsBean.length != 0 )
 		if(JData[0].tourOrderInfoBean.length != 0){
 					$.each(JData, function(index, value) {	
