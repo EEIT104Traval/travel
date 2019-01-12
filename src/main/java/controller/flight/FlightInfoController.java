@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import model.flight.AirlineCompareDAO;
 import model.flight.service.FlightInfoGetService;
 
-@Controller
+//@Controller
 public class FlightInfoController {
 	@Autowired
 	AirlineCompareDAO dao;

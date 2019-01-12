@@ -34,17 +34,40 @@
 	<script type="text/javascript">
 var result = ${result}
 var test = ${test}
-// console.log(result)
+console.log(result)
 // console.log(test)
 // console.log(result.OTA_AirLowFareSearchRS)
 // console.log(result.OTA_AirLowFareSearchRS.PricedItineraries.PricedItinerary[0].AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].DepartureDateTime)
 // console.log(result.OTA_AirLowFareSearchRS.PricedItineraries.PricedItinerary+"測試亂碼專用")
 // console.log('${flightCompany.CX}')
+week = new Array("日","一","二","三","四","五","六");
 
 console.log(result.OTA_AirLowFareSearchRS.PricedItineraries.PricedItinerary[0].SequenceNumber)
 $(document).ready(function() {
 $.each(result.OTA_AirLowFareSearchRS.PricedItineraries.PricedItinerary, function(index, value) {
 	console.log(value.SequenceNumber)
+	var DepartureDateTime = value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].DepartureDateTime
+	var Ddate = DepartureDateTime.substr(0,10);
+	var DsetTime = new Date(Ddate);
+	var Ddateweek = week[DsetTime.getDay()];
+	var Dtime = DepartureDateTime.substring(11,16);
+	var ArrivalDateTime = value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].ArrivalDateTime
+	var Adate = ArrivalDateTime.substr(0,10);
+	var AsetTime = new Date(Adate);
+	var Adateweek = week[AsetTime.getDay()];
+	var Atime = ArrivalDateTime.substring(11,16);
+	var totalgotime = value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].ElapsedTime;
+	var totalbacktime = value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].ElapsedTime;
+	
+	var gotimehour = Math.floor(totalgotime/60);
+	var gotimemin = totalgotime%60;
+	var backtimehour = Math.floor(totalbacktime/60);
+	var backtimemin = totalbacktime%60;
+	
+// 	console.log(gotimehour":"gotimemin":"backtimehour":"backtimemin);
+	
+	
+	
 	$('#gofirst').append(
 			'<div class="romde_box act">'
 	         +'<div class="border" id="redborder'+value.SequenceNumber+'">' 
@@ -53,21 +76,21 @@ $.each(result.OTA_AirLowFareSearchRS.PricedItineraries.PricedItinerary, function
 					+'<div class="flybox row" >'
 				  	  +"<div class='col-xs-10 text-center fly-leftbox'>"
                         +"<div class='col-xs-3 fl-namebox text-center'>"
-              			  +"<div class='fl-name'>"+'${flightCompany.CX}'+"</div>"
+              			  +"<div class='fl-name'>"+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].OperatingAirline.Company+"</div>"
                           +"<div class='+fl-num'>"+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].OperatingAirline.Code+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].OperatingAirline.FlightNumber+"</div>"
             +"</div>"
             + "<div class='col-xs-3 fl-timebox text-right'>"
-            +'<div class="fl-time">'+'去程第一段(四)'+'</div>'
-            +'<div class="fl-place">'+'20:05'+'<span>'+'TPE'+'</span></div>'
+            +'<div class="fl-time">'+Ddate+"("+Ddateweek+")"+'</div>'
+            +'<div class="fl-place">'+Dtime+'<span>'+'TPE'+'</span></div>'
           +'</div>'
          +'<div class=" col-xs-3 fl-durationbox text-center">'
-         +'<div class="fl-dutime"> <span>'+'0'+'</span>小時<span>'+'55'+'</span>分 </div>'
+         +'<div class="fl-dutime"> <span>'+gotimehour+'</span>小時<span>'+gotimemin+'</span>分 </div>'
          +'<div class="t-line" ></div>'
          +'<div class="fl-flyname" style="color:green" id="fl-flyname'+value.SequenceNumber+'">直飛</div>'
          +' </div>'
-         +'<div class=" col-xs-3 fl-timebox text-left">'
-         +'<div class="fl-time">'+'2019/10/10(四)'+'</div>'
-         +'<div class="fl-place">'+'22:05'+'<span>'+'BKK'+'</span></div>'
+         +'<div class="col-xs-3 fl-timebox text-left">'
+         +'<div class="fl-time" id="fl-time'+value.SequenceNumber+'">'+Adate+'('+Adateweek+')</div>'
+         +'<div class="fl-place" id="fl-place'+value.SequenceNumber+'">'+Atime+'<span>'+'BKK'+'</span></div>'
          +' </div>'
          +' </div>'
          +' <div class="col-xs-2 fly-info">'
@@ -83,33 +106,57 @@ $.each(result.OTA_AirLowFareSearchRS.PricedItineraries.PricedItinerary, function
 		var s = value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment
 // 	console.log(s.length)
 	if (s.length==2){
+		var ArrivalDateTime = value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[1].ArrivalDateTime
+		var Adate = ArrivalDateTime.substr(0,10);
+		var AsetTime = new Date(Adate);
+		
+		var Adateweek = week[AsetTime.getDay()];
+		var Atime = ArrivalDateTime.substring(11,16);
+// 		console.log(Adate+":"+Adateweek+":"+Atime)
 	$('#fl-flyname'+value.SequenceNumber).html(
-			'<div class="fl-flyname" id="fl-flyname'+value.SequenceNumber+'">轉機一次</div>'
-
-	)}else if(s.length==3){
+			'<div class="fl-flyname" id="fl-flyname'+value.SequenceNumber+'">轉機一次1</div>'
+			)
+		$('#fl-time'+value.SequenceNumber).html(
+				'<div class="fl-time" id="fl-time'+value.SequenceNumber+'">'+Adate+"("+Adateweek+")"+'</div>'
+				)
+		$('#fl-place'+value.SequenceNumber).html(
+		        '<div class="fl-place" id="fl-place'+value.SequenceNumber+'">'+Atime+'<span>'+'BoK'+'</span></div>'
+		
+		)
+		
+	}else if(s.length==3){
 		$('#fl-flyname'+value.SequenceNumber).html(
 		'<div class="fl-flyname" id="fl-flyname'+value.SequenceNumber+'">轉機兩次</div>'
 	)}
-	
+	var DepartureDateTime2 = value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[0].DepartureDateTime
+	var ArrivalDateTime2 = value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[0].ArrivalDateTime
+	var Ddate2 = DepartureDateTime2.substr(0,10)
+	var DsetTime2 = new Date(Ddate2);
+	var Ddateweek2 = week[DsetTime2.getDay()]
+	var Dtime2 = DepartureDateTime2.substring(11,16);
+	var Adate2 = ArrivalDateTime2.substr(0,10)
+	var AsetTime2 = new Date(Adate2);
+	var Adateweek2 = week[AsetTime2.getDay()]
+	var Atime2 = ArrivalDateTime2.substring(11,16);
 	$('#redborder'+value.SequenceNumber).append(
 			'<div class="flybox row border-top">'
 			+" <div class='col-xs-10 text-center fly-leftbox'>"
 		    +" <div class='col-xs-3 fl-namebox text-center'>"
-		      +" <div class='fl-name'>"+'${flightCompany.CX}'+"</div>"
+		      +" <div class='fl-name'>"+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[0].OperatingAirline.Company+"</div>"
 		      +" <div class='+fl-num'>"+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[0].OperatingAirline.Code+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[0].OperatingAirline.FlightNumber+"</div>"
 		    +"</div>"
 		    + "<div class='col-xs-3 fl-timebox text-right'>"
-		    +'<div class="fl-time">'+'2019/10/20(四)'+'</div>'
-		    +'<div class="fl-place">'+'00:05'+'<span>'+'TPE'+'</span></div>'
+		    +'<div class="fl-time">'+Ddate2+"("+Ddateweek2+")"+'</div>'
+		    +'<div class="fl-place">'+Dtime2+'<span>'+'TPE'+'</span></div>'
 		  +'</div>'
 		 +'<div class=" col-xs-3 fl-durationbox text-center">'
-		 +'<div class="fl-dutime"> <span>'+'0'+'</span>小時<span>'+'55'+'</span>分 </div>'
+		 +'<div class="fl-dutime"> <span>'+backtimehour+'</span>小時<span>'+backtimemin+'</span>分 </div>'
 		 +'<div class="t-line" ></div>'
 		 +'<div class="fl-flyname" style="color:green" id="fl-flyname1'+value.SequenceNumber+'">直飛</div>'
 		 +' </div>'
 		 +'<div class=" col-xs-3 fl-timebox text-left">'
-		 +'<div class="fl-time">'+'2019/10/20(四)'+'</div>'
-		 +'<div class="fl-place">'+'03:05'+'<span>'+'BKK'+'</span></div>'
+		 +'<div class="fl-time" id="fl-timeoo'+value.SequenceNumber+'">'+Adate2+"("+Adateweek2+")"+'</div>'
+		 +'<div class="fl-place" id="fl-placeoo'+value.SequenceNumber+'">'+Atime2+'<span>'+'BKK'+'</span></div>'
 		 +' </div>'
 		 +' </div>'
 		 +' <div class="col-xs-2 fly-info">'
@@ -126,10 +173,26 @@ $.each(result.OTA_AirLowFareSearchRS.PricedItineraries.PricedItinerary, function
 	)
 		var back2 = value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment
 		if (back2.length==2){
-			$('#fl-flyname1'+value.SequenceNumber).html(
-					'<div class="fl-flyname" id="fl-flyname1'+value.SequenceNumber+'">轉機一次</div>'
-
-			)}else if(s.length==3){
+			var ArrivalDateTime2 = value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[1].ArrivalDateTime
+			var Adate2 = ArrivalDateTime2.substr(0,10);
+			var AsetTime2 = new Date(Adate2);
+			var Adateweek2 = week[AsetTime2.getDay()];
+			
+			var Atime2 = ArrivalDateTime2.substring(11,16);
+			console.log(Adate2+Adateweek2+Atime2)
+			$('#fl-flynameoo'+value.SequenceNumber).html(
+					'<div class="fl-flyname" id="fl-flynameoo'+value.SequenceNumber+'">轉機一次</div>')
+			
+			$('#fl-timeoo'+value.SequenceNumber).html(
+				'<div class="fl-time" id="fl-timeoo'+value.SequenceNumber+'">'+Adate2+"("+Adateweek2+")"+'</div>')
+			$('#fl-placeoo'+value.SequenceNumber).html(
+		        '<div class="fl-place" id="fl-placeoo'+value.SequenceNumber+'">'+Atime2+'<span>'+'FucK'+'</span></div>')
+		
+		}else if(s.length==3){
+			
+			
+			
+			
 				
 				$('#fl-flyname1'+value.SequenceNumber).html(
 				'<div class="fl-flyname" id="fl-flyname1'+value.SequenceNumber+'">轉機兩次</div>'

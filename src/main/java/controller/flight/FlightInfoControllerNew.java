@@ -43,13 +43,17 @@ public class FlightInfoControllerNew {
 						+ "}]}]},\"TPA_Extensions\":{\"IntelliSellTransaction\":{\"RequestType\":{\"Name\":\"50ITINS\"}}}}}");
 		String result = flightInfoGetService.getInfo(bfmsearch.toString());
 		System.out.println("result=" + result);
+		System.out.println("為什麼執行不到這裡");
 		String result1 = result;
 		int index = 0;
 		Map<String, String> codeMap = new HashMap<>();
 		
-		for (int i = 0; i < result.length() - 1; i=i+index) {
+		for (int i = 0; i < result.length() - 1; i++) {
 			
 			index = result.indexOf("OperatingAirline\":{\"Code\":\""); 
+			if(index==-1) {
+				break;
+			}
 			String code = result.substring(index + 27, index + 29);
 //			System.out.println("{code1="+code);
 			String value = dao.findByPrimaryKey(code).getAirlineCompany();
@@ -60,7 +64,7 @@ public class FlightInfoControllerNew {
 			result = result.substring(index+29);				
 		}
 		
-		System.out.println(codeMap);
+		System.out.println("codeMap"+codeMap);
 		
 		 
 		for (Map.Entry<String, String> entry : codeMap.entrySet()) {
@@ -71,9 +75,7 @@ public class FlightInfoControllerNew {
 		    }
 		 
 		}
-		System.out.println("result1="+result1);
-		String test  = "{\"subject\":\"Math\",\"score\":80}";
-		model.addAttribute("test", test);
+//		System.out.println("result2="+result1);
 		model.addAttribute("result", result1);
 		
 		return "flightsecound";
