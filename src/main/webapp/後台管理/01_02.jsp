@@ -94,6 +94,8 @@ var hotelOrderDetailsBean ;
 </head>
 <body>
 	<div class="boxmsg">
+	  	    <br>
+            <br>
 <!--  -->	 　　　　　　　　　　　　　　　　　　　　　　　　　　　會員訂單查詢　　　　　　　　　　　　　　　　　　　　　　　
             <br>
             <br>

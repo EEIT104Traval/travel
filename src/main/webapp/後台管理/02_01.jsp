@@ -13,14 +13,12 @@
 <jsp:include page="bindex.jsp" />
 <title>後台管理者介面</title>
 <script>
-
+var month
+var params = {}
 	$(document).ready(function() {
 		$('#select1').change(function() {
-			month = Number($('#select1').val())
 
-			alert(typeof(month))
-			alert(month)
-//   			function fundmember(){
+			params.month =  $('#select1').val()
 			$("#searchuser").html("")
 
  			$.ajax({
@@ -28,34 +26,34 @@
  					contentType : 'application/json; charset=UTF-8',
  					type : 'get',
  					dataType : 'json',
- 					data:month
+ 					data:params,
  				   }).done(function(JData) {
  					   console.log(JData)
 							$.each(JData, function(index, value) {
 					  console.log(value)
-//  						$("#searchuser").append(
-//  							'<table><tr><th>accountName</th><th>firstname</th><th>lastname</th><th>identityNo</th><th>email</th></tr><tr>'
-//  							+'<th>'+value.accountName +'</th>'
-//  							+'<th>'+value.firstname +'</th>'
-//  							+'<th>'+value.lastname +'</th>'
-//  							+'<th>'+value.identityNo +'</th>'
-//  							+'<th>'+value.email +'</th>'
-//  							+'</tr><tr><th>sex</th><th>phone</th><th>birth</th><th colspan="2">address</th></tr><tr>'
-//  							+'<th>'+value.sex +'</th>'
-//  							+'<th>'+value.phone +'</th>'
-//  							+'<th>'+value.birth +'</th>'
-//  							+'<th colspan="2">'+value.address +'</th></tr></table>'
-// 							)
-							}
-				)}
- 	)
-//  	};		
-		})
-	});
+ 						$("#searchuser").append(
+ 							'<table><tr><th>accountName</th><th>firstname</th><th>lastname</th><th>identityNo</th><th>email</th></tr><tr>'
+ 							+'<th>'+value.accountName +'</th>'
+ 							+'<th>'+value.firstname +'</th>'
+ 							+'<th>'+value.lastname +'</th>'
+ 							+'<th>'+value.identityNo +'</th>'
+ 							+'<th>'+value.email +'</th>'
+ 							+'</tr><tr><th>sex</th><th>phone</th><th>birth</th><th colspan="2">address</th></tr><tr>'
+ 							+'<th>'+value.sex +'</th>'
+ 							+'<th>'+value.phone +'</th>'
+ 							+'<th>'+value.birth +'</th>'
+ 							+'<th colspan="2">'+value.address +'</th></tr></table>'
+										)
+								})
+						})
+				})
+		});
 </script>
 </head>
 <body>
 	<div class="boxmsg">
+	        <br>
+            <br>
 <!--  --> 　　　　　　　　　　　　　　　　　　　　　　　　　　　月份報表查詢　　　　　　　　　　　　　　　　　　　　　　　
             <br>
             <br>
