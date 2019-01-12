@@ -13,15 +13,15 @@
 <jsp:include page="bindex.jsp" />
 <title>後台管理者介面</title>
 <script>
-var month
+var month = Number('x')
 
 	$(document).ready(function() {
 		$('#select1').change(function() {
-			month = $('#select1').val()
+			x = $('#select1').val()
+
+			alert(typeof(month))
 			alert(month)
-		
 //   			function fundmember(){
- 			
 			$("#searchuser").html("")
 
  			$.ajax({
@@ -29,7 +29,7 @@ var month
  					contentType : 'application/json; charset=UTF-8',
  					type : 'get',
  					dataType : 'json',
- 					data:month,
+ 					data:month
  				   }).done(function(JData) {
  					   console.log(JData)
 							$.each(JData, function(index, value) {
