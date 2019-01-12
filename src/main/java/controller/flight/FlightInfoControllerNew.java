@@ -2,6 +2,8 @@ package controller.flight;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -41,25 +43,41 @@ public class FlightInfoControllerNew {
 						+ "}]}]},\"TPA_Extensions\":{\"IntelliSellTransaction\":{\"RequestType\":{\"Name\":\"50ITINS\"}}}}}");
 		String result = flightInfoGetService.getInfo(bfmsearch.toString());
 		System.out.println("result=" + result);
+		String result1 = result;
+		int index = 0;
+		Map<String, String> codeMap = new HashMap<>();
 		
+		for (int i = 0; i < result.length() - 1; i=i+index) {
+			
+			index = result.indexOf("OperatingAirline\":{\"Code\":\""); 
+			String code = result.substring(index + 27, index + 29);
+//			System.out.println("{code1="+code);
+			String value = dao.findByPrimaryKey(code).getAirlineCompany();
+//			String value = dao.findByPrimaryKey("CA").getAirlineCompany();
+			if (!codeMap.containsKey(code)) {
+				codeMap.put(code, value);
+			}
+			result = result.substring(index+29);				
+		}
 		
+		System.out.println(codeMap);
 		
+		 
+		for (Map.Entry<String, String> entry : codeMap.entrySet()) {
+		 
+//		    System.out.println("Key = " + entry.getKey() + ", Value = " + entry.getValue());
+		    if(result1.contains(entry.getKey())) {
+		    	result1 = result1.replace("OperatingAirline\":{\"Code\":\""+entry.getKey(),"OperatingAirline\":{\"Code\":\""+entry.getKey()+"\",\"Company\":\""+entry.getValue());
+		    }
+		 
+		}
+		System.out.println("result1="+result1);
+		String test  = "{\"subject\":\"Math\",\"score\":80}";
+		model.addAttribute("test", test);
+		model.addAttribute("result", result1);
 		
-		
-		
-		
-		
-		return "/voyage/index.jsp";
+		return "flightsecound";
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 }
