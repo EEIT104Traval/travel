@@ -76,14 +76,6 @@ public class UserInfoTest {
 	 System.out.println(user);
 		return result;
 	}
- @ResponseBody
- @RequestMapping("/userInfoname")
- public List<UserInfoBean> userInfoname(String user) {
-	 List<UserInfoBean> result = udao.findByuserOrderInfo("micky");
-	 System.out.println(user);
-		return result;
-	}
- 
  }
 
  

@@ -28,7 +28,7 @@ var params = {}
 			$("#searchuser").html("")
 
  			$.ajax({
- 					url : '/Travel//bindex01_01/User.controller',
+ 					url : '/Travel/bindex01_01/User.controller',
  					contentType : 'application/json; charset=UTF-8',
  					type : 'get',
  					dataType : 'json',
@@ -40,17 +40,19 @@ var params = {}
 								console.log(value.accountName)
 								
  						$("#searchuser").append(
- 							'<table><tr><th>accountName</th><th>firstname</th><th>lastname</th><th>identityNo</th><th>email</th></tr><tr>'
+ 							'<table><th style="width:150px">accountName</th><th style="width:150px">firstname</th>'+
+ 							'<th style="width:150px">lastname</th><th style="width:150px">identityNo</th><th style="width:150px">email</th><tr>'
  							+'<th>'+value.accountName +'</th>'
  							+'<th>'+value.firstname +'</th>'
  							+'<th>'+value.lastname +'</th>'
  							+'<th>'+value.identityNo +'</th>'
  							+'<th>'+value.email +'</th>'
- 							+'</tr><tr><th>sex</th><th>phone</th><th>birth</th><th colspan="2">address</th></tr><tr>'
+ 							+'</tr><th>sex</th><th>phone</th><th>birth</th><th colspan="2">address</th><tr>'
  							+'<th>'+value.sex +'</th>'
  							+'<th>'+value.phone +'</th>'
  							+'<th>'+value.birth +'</th>'
- 							+'<th colspan="2">'+value.address +'</th></tr></table>'
+ 							+'<th colspan="2">'+value.address +'</th></tr></table><br>'
+ 							
 							)}
 				)}
  	)};		

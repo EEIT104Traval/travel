@@ -9,15 +9,19 @@ import javax.persistence.criteria.Root;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import model.ticket.TicketInfoBean;
+import model.ticket.TicketOrderInfoBean;
+import model.tour.TourMemberInfoBean;
 import model.userInfo.UserInfoBean;
 import model.userInfo.UserInfoDAO;
 
 @Repository
 public class UserInfoDAOHibernate implements UserInfoDAO {
+	
 	@Autowired
 	private SessionFactory sessionFactory;
 
@@ -92,7 +96,7 @@ public class UserInfoDAOHibernate implements UserInfoDAO {
 		return list;
 
 	}
-	
+
 	@Override
 	public List<UserInfoBean> findByphone(String phone) {
 		CriteriaBuilder criteriaBuilder = getSession().getCriteriaBuilder();
@@ -103,4 +107,5 @@ public class UserInfoDAOHibernate implements UserInfoDAO {
 		return list;
 
 	}
+
 }

@@ -20,4 +20,5 @@ public interface UserInfoDAO {
 		public abstract List<UserInfoBean> findByaccountName(String accountName);
 		
 		public abstract List<UserInfoBean> findByphone (String phone);
+
 }

@@ -10,6 +10,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="TourOrderInfo")
+
 public class TourOrderInfoBean {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)  

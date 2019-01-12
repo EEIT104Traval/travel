@@ -28,6 +28,8 @@
     <a href="<c:url value='TourTagsTestUpdate' />">TourTagsTestUpdate</a>
     <a href="<c:url value='TourTagsTestDelete' />">TourTagsTestDelete</a>
     <a href="<c:url value='TourTagsTestfindTag' />">TourTagsTestfindTag</a>
+    <br />
+    <a href="<c:url value='findBuyMonth' />">findBuyMonth</a>
 	<hr />
 	<h1>姚</h1>
 	<a href="<c:url value='ticketfindAll' />">ticketfindAll</a>
