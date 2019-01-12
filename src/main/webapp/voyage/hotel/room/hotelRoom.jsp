@@ -32,17 +32,20 @@
 <link rel="stylesheet" href="<c:url value='/voyage/css/jquery-ui.css' />">
 <link rel="stylesheet" href="<c:url value='/voyage/css/main_styles.css' />">
 
-<link rel="stylesheet" href="<c:url value='/voyage/css/main_styles.css' />">
+<%-- <link rel="stylesheet" href="<c:url value='/voyage/css/main_styles.css' />"> --%>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
 <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="css/bootstrap.min.css">
+<!-- <link rel="stylesheet" href="css/bootstrap.min.css"> -->
 <link rel="stylesheet" type="text/css" href="slick/slick.css" />
 <link rel="stylesheet" type="text/css" href="slick/slick-theme.css" />
 <link rel="stylesheet" href="css/templatemo-style.css">
+	
 </head>
 
 <body>
-<jsp:include page="../../../voyage/nav.jsp"></jsp:include>
+
+	<jsp:include page="/voyage/nav.jsp"></jsp:include>
+	
 	<!-- slider -->
 
 	<section class="home-slider owl-carousel">
@@ -58,14 +61,15 @@
 
 	<!-- Hotel Info -->
 
-	<div class="home_search" style="margin-top: -200px">
+	<div class="home_search" style="margin-top: -250px">
 		<div class="container">
 			<div class="row">
 				<div class="col">
 					<div class="home_search_container">
 						<!-- 						<div class="home_search_content"> -->
 						<div class="col-xs-12 mx-auto tm-about-text-wrap text-center">
-							<h2 style="color: white">紐約市中心希爾頓酒店(New York Hilton Midtown)</h2>
+							<h2 style="color: white">紐約市中心希爾頓酒店</h2>
+							<h2 style="color: white">New York Hilton Midtown</h2>
 							<p style="color: white">地址 : 美國 紐約 曼哈頓 1335 Avenue of the
 								Americas 10019</p>
 							<p style="color: white">
@@ -709,7 +713,7 @@
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
-	<jsp:include page="../../foo.jsp" />
+	<jsp:include page="/voyage/foo.jsp"></jsp:include>
 
 </body>
 </html>
