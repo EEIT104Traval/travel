@@ -13,11 +13,10 @@
 <jsp:include page="bindex.jsp" />
 <title>後台管理者介面</title>
 <script>
-var month = Number('x')
 
 	$(document).ready(function() {
 		$('#select1').change(function() {
-			x = $('#select1').val()
+			month = Number($('#select1').val())
 
 			alert(typeof(month))
 			alert(month)
