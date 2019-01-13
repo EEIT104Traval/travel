@@ -117,109 +117,74 @@
 			<div class="tm-container-outer" id="tm-section-3"
 				style="margin-top: 50px">
 				<ul class="nav nav-pills tm-tabs-links">
-					<li class="tm-tab-link-li"><a href="#1a" data-toggle="tab"
-						class="tm-tab-link"> <img src="img/north-america.png"
-							alt="Image" class="img-fluid"> North America
-					</a></li>
-					<li class="tm-tab-link-li"><a href="#2a" data-toggle="tab"
-						class="tm-tab-link"> <img src="img/south-america.png"
-							alt="Image" class="img-fluid"> South America
-					</a></li>
-					<li class="tm-tab-link-li"><a href="#3a" data-toggle="tab"
-						class="tm-tab-link"> <img src="img/europe.png" alt="Image"
-							class="img-fluid"> Europe
-					</a></li>
-					<li class="tm-tab-link-li"><a href="#4a" data-toggle="tab"
-						class="tm-tab-link active"> <!-- Current Active Tab --> <img
-							src="img/asia.png" alt="Image" class="img-fluid"> Asia
-					</a></li>
-					<li class="tm-tab-link-li"><a href="#5a" data-toggle="tab"
-						class="tm-tab-link"> <img src="img/africa.png" alt="Image"
-							class="img-fluid"> Africa
-					</a></li>
-					<li class="tm-tab-link-li"><a href="#6a" data-toggle="tab"
-						class="tm-tab-link"> <img src="img/australia.png" alt="Image"
-							class="img-fluid"> Australia
-					</a></li>
-					<li class="tm-tab-link-li"><a href="#7a" data-toggle="tab"
-						class="tm-tab-link"> <img src="img/antartica.png" alt="Image"
-							class="img-fluid"> Antartica
-					</a></li>
+					<li class="tm-tab-link-li"><a href="#1a" data-toggle="tab" class="tm-tab-link">客房</a></li>
+					<li class="tm-tab-link-li"><a href="#2a" data-toggle="tab" class="tm-tab-link">豪華房</a></li>
+					<li class="tm-tab-link-li"><a href="#3a" data-toggle="tab" class="tm-tab-link">豪華無菸房</a></li>
+					<li class="tm-tab-link-li"><a href="#4a" data-toggle="tab" class="tm-tab-link">行政樓層迷你套房</a></li>
+					<li class="tm-tab-link-li"><a href="#5a" data-toggle="tab" class="tm-tab-link">主人套房</a></li>
+					<li class="tm-tab-link-li"><a href="#6a" data-toggle="tab" class="tm-tab-link">總統套房</a></li>
 				</ul>
 				<div class="tab-content clearfix">
 
 					<!-- Tab 1 -->
-					<div class="tab-pane fade" id="1a">
+					<div class="tab-pane fade show active" id="1a">
 						<div class="tm-recommended-place-wrap">
-							<div class="tm-recommended-place">
-								<img src="img/tm-img-06.jpg" alt="Image"
-									class="img-fluid tm-recommended-img">
-								<div class="tm-recommended-description-box">
-									<h3 class="tm-recommended-title">North Garden Resort</h3>
-									<p class="tm-text-highlight">One North</p>
-									<p class="tm-text-gray">Sed egestas, odio nec bibendum
-										mattis, quam odio hendrerit risus, eu varius eros lacus sit
-										amet lectus. Donec blandit luctus dictum...</p>
-								</div>
-								<a href="#" class="tm-recommended-price-box">
-									<p class="tm-recommended-price">$110</p>
-									<p class="tm-recommended-price-link">Continue Reading</p>
-								</a>
-							</div>
 
 							<div class="tm-recommended-place">
-								<img src="img/tm-img-07.jpg" alt="Image"
-									class="img-fluid tm-recommended-img">
+								<img src="https://secure3.hilton.com/resources/media/hi/NYCNHHH/en_US/img/hotel/roomtypeimages/main/HH_highfloor1bed01_2_386x310_FitToBoxSmallDimension_Center.jpg" alt="Image" class="tm-recommended-img" width="270px" height="200px">
 								<div class="tm-recommended-description-box">
-									<h3 class="tm-recommended-title">Felis nec dignissim</h3>
-									<p class="tm-text-highlight">Two North</p>
-									<p class="tm-text-gray">Sed egestas, odio nec bibendum
-										mattis, quam odio hendrerit risus, eu varius eros lacus sit
-										amet lectus. Donec blandit luctus dictum...</p>
-								</div>
-								<div id="preload-hover-img"></div>
-								<a href="#" class="tm-recommended-price-box">
-									<p class="tm-recommended-price">$120</p>
-									<p class="tm-recommended-price-link">Continue Reading</p>
-								</a>
-							</div>
-
-							<div class="tm-recommended-place">
-								<img src="img/tm-img-05.jpg" alt="Image"
-									class="img-fluid tm-recommended-img">
-								<div class="tm-recommended-description-box">
-									<h3 class="tm-recommended-title">Sed fermentum justo</h3>
-									<p class="tm-text-highlight">Three North</p>
-									<p class="tm-text-gray">Sed egestas, odio nec bibendum
-										mattis, quam odio hendrerit risus, eu varius eros lacus sit
-										amet lectus. Donec blandit luctus dictum...</p>
+									<h3 class="tm-recommended-title">天際線客房（1 張睡床）</h3>
+									<p class="tm-text-highlight" style="margin-bottom:5px">從高樓層客房盡情飽覽著名鬧市美景。一張大床。 2 人入住。</p>
+									<p class="tm-text-gray"> 紐約市的迷人景致盡收眼底，同時在客房內收看 55 吋高清電視，讓自己徹底放鬆；在大型辦公桌前趕上工作進度；並且使用 WiFi 無線上網與外界保持連線。</p>
 								</div>
 								<a href="#" class="tm-recommended-price-box">
-									<p class="tm-recommended-price">$130</p>
-									<p class="tm-recommended-price-link">Continue Reading</p>
-								</a>
-							</div>
-
-							<div class="tm-recommended-place">
-								<img src="img/tm-img-04.jpg" alt="Image"
-									class="img-fluid tm-recommended-img">
-								<div class="tm-recommended-description-box">
-									<h3 class="tm-recommended-title">Maecenas ultricies neque</h3>
-									<p class="tm-text-highlight">Four North</p>
-									<p class="tm-text-gray">Sed egestas, odio nec bibendum
-										mattis, quam odio hendrerit risus, eu varius eros lacus sit
-										amet lectus. Donec blandit luctus dictum...</p>
-								</div>
-								<a href="#" class="tm-recommended-price-box">
-									<p class="tm-recommended-price">$140</p>
-									<p class="tm-recommended-price-link">Continue Reading</p>
+									<p class="tm-recommended-price">$NT 6,836</p>
+									<p class="tm-recommended-price-link">訂購</p>
 								</a>
 							</div>
 						</div>
 
-						<a href="#"
-							class="text-uppercase btn-primary tm-btn mx-auto tm-d-table">Show
-							More Places</a>
+							<div class="tm-recommended-place">
+								<img src="https://secure3.hilton.com/resources/media/hi/NYCNHHH/en_US/img/hotel/roomtypeimages/main/HH_deluxequeenroom_386x310_FitToBoxSmallDimension_Center.jpg" alt="Image" class="tm-recommended-img" width="270px" height="200px">
+								<div class="tm-recommended-description-box">
+									<h3 class="tm-recommended-title">城市景觀客房（大床）</h3>
+									<p class="tm-text-highlight" style="margin-bottom:5px">現代設計，一張大床。 情侶夫妻或商務旅客的理想之選。 2 人入住。</p>
+									<p class="tm-text-gray">這間寬敞的現代豪華客房設有一張 Hilton Serenity 大床、一張扶手椅及一間淋浴間，讓您好好犒賞自己。 設施包括一部 37 吋高清電視、可連接 MP3 的時鐘收音機、一張寬大辦公桌，以及 WiFi 無線上網。</p>
+								</div>
+								<div id="preload-hover-img"></div>
+								<a href="#" class="tm-recommended-price-box">
+									<p class="tm-recommended-price">$NT 5,727</p>
+									<p class="tm-recommended-price-link">訂購</p>
+								</a>
+							</div>
+
+							<div class="tm-recommended-place">
+								<img src="https://secure3.hilton.com/resources/media/hi/NYCNHHH/en_US/img/hotel/roomtypeimages/main/HH_rm002_386x310_FitToBoxSmallDimension_Center.jpg" alt="Image" class="tm-recommended-img" width="270px" height="200px">
+								<div class="tm-recommended-description-box">
+									<h3 class="tm-recommended-title">城市景觀客房（2 張睡床）</h3>
+									<p class="tm-text-highlight" style="margin-bottom:5px">設計時尚，提供兩張雙人床。 適合家庭或團體。 4 人入住。</p>
+									<p class="tm-text-gray">這間寬敞的當代豪華客房設有兩張雙人床、一張扶手椅及一個淋浴間，讓您好好犒賞自己及各住客。 設施包括一部 37 吋高清電視、可連接 MP3 的時鐘收音機、一張寬大辦公桌，以及 WiFi 無線上網。</p>
+								</div>
+								<a href="#" class="tm-recommended-price-box">
+									<p class="tm-recommended-price">$NT 5,727</p>
+									<p class="tm-recommended-price-link">訂購</p>
+								</a>
+							</div>
+
+							<div class="tm-recommended-place">
+								<img src="https://secure3.hilton.com/resources/media/hi/NYCNHHH/en_US/img/hotel/roomtypeimages/main/HH_execfloorroom01_386x310_FitToBoxSmallDimension_Center.jpg" alt="Image" class="tm-recommended-img" width="270px" height="200px">
+								<div class="tm-recommended-description-box">
+									<h3 class="tm-recommended-title">市景客房（2 張睡床）</h3>
+									<p class="tm-text-highlight" style="margin-bottom:5px">透過大型窗戶可欣賞紐約市景。 客房內冰箱及 55 吋高清電視。 4 人入住。</p>
+									<p class="tm-text-gray">享受我們的城市住宿，探索紐約市更多精彩面貌。 位於酒店的中心樓層，您可從您客房的窗戶飽覽曼哈頓中城的熱鬧繁囂光景。 收看 55 吋高清電視，讓自己徹底放鬆；在大型辦公桌前趕上工作進度；並且使用 WiFi 無線上網與外界保持聯繫。 此客房可入住最多 4 人。</p>
+								</div>
+								<a href="#" class="tm-recommended-price-box">
+									<p class="tm-recommended-price">$NT 6,528</p>
+									<p class="tm-recommended-price-link">訂購</p>
+								</a>
+							</div>
+
+						<a href="#" class="text-uppercase btn-primary tm-btn mx-auto tm-d-table">Show More Places</a>
 					</div>
 					<!-- tab-pane -->
 
@@ -228,8 +193,7 @@
 
 						<div class="tm-recommended-place-wrap">
 							<div class="tm-recommended-place">
-								<img src="img/tm-img-05.jpg" alt="Image"
-									class="img-fluid tm-recommended-img">
+								<img src="img/tm-img-05.jpg" alt="Image" class="tm-recommended-img" width="270px" height="200px">
 								<div class="tm-recommended-description-box">
 									<h3 class="tm-recommended-title">South Resort Hotel</h3>
 									<p class="tm-text-highlight">South One</p>
@@ -239,13 +203,12 @@
 								</div>
 								<a href="#" class="tm-recommended-price-box">
 									<p class="tm-recommended-price">$220</p>
-									<p class="tm-recommended-price-link">Continue Reading</p>
+									<p class="tm-recommended-price-link">訂購</p>
 								</a>
 							</div>
 
 							<div class="tm-recommended-place">
-								<img src="img/tm-img-04.jpg" alt="Image"
-									class="img-fluid tm-recommended-img">
+								<img src="img/tm-img-04.jpg" alt="Image" class="tm-recommended-img" width="270px" height="200px">
 								<div class="tm-recommended-description-box">
 									<h3 class="tm-recommended-title">Aenean ac ante nec diam</h3>
 									<p class="tm-text-highlight">South Second</p>
@@ -255,13 +218,12 @@
 								</div>
 								<a href="#" class="tm-recommended-price-box">
 									<p class="tm-recommended-price">$230</p>
-									<p class="tm-recommended-price-link">Continue Reading</p>
+									<p class="tm-recommended-price-link">訂購</p>
 								</a>
 							</div>
 
 							<div class="tm-recommended-place">
-								<img src="img/tm-img-07.jpg" alt="Image"
-									class="img-fluid tm-recommended-img">
+								<img src="img/tm-img-07.jpg" alt="Image" class="tm-recommended-img" width="270px" height="200px">
 								<div class="tm-recommended-description-box">
 									<h3 class="tm-recommended-title">Suspendisse nec dapibus</h3>
 									<p class="tm-text-highlight">South Third</p>
@@ -271,13 +233,12 @@
 								</div>
 								<a href="#" class="tm-recommended-price-box">
 									<p class="tm-recommended-price">$240</p>
-									<p class="tm-recommended-price-link">Continue Reading</p>
+									<p class="tm-recommended-price-link">訂購</p>
 								</a>
 							</div>
 
 							<div class="tm-recommended-place">
-								<img src="img/tm-img-06.jpg" alt="Image"
-									class="img-fluid tm-recommended-img">
+								<img src="img/tm-img-06.jpg" alt="Image" class="tm-recommended-img" width="270px" height="200px">
 								<div class="tm-recommended-description-box">
 									<h3 class="tm-recommended-title">Aliquam viverra mi at
 										nisl</h3>
@@ -288,14 +249,12 @@
 								</div>
 								<a href="#" class="tm-recommended-price-box">
 									<p class="tm-recommended-price">$250</p>
-									<p class="tm-recommended-price-link">Continue Reading</p>
+									<p class="tm-recommended-price-link">訂購</p>
 								</a>
 							</div>
 						</div>
 
-						<a href="#"
-							class="text-uppercase btn-primary tm-btn mx-auto tm-d-table">Show
-							More Places</a>
+						<a href="#" class="text-uppercase btn-primary tm-btn mx-auto tm-d-table">Show More Places</a>
 					</div>
 					<!-- tab-pane -->
 
@@ -304,8 +263,7 @@
 
 						<div class="tm-recommended-place-wrap">
 							<div class="tm-recommended-place">
-								<img src="img/tm-img-04.jpg" alt="Image"
-									class="img-fluid tm-recommended-img">
+								<img src="img/tm-img-04.jpg" alt="Image" class="tm-recommended-img" width="270px" height="200px">
 								<div class="tm-recommended-description-box">
 									<h3 class="tm-recommended-title">Europe Hotel</h3>
 									<p class="tm-text-highlight">Venecia, Italy</p>
@@ -315,13 +273,12 @@
 								</div>
 								<a href="#" class="tm-recommended-price-box">
 									<p class="tm-recommended-price">$330</p>
-									<p class="tm-recommended-price-link">Continue Reading</p>
+									<p class="tm-recommended-price-link">訂購</p>
 								</a>
 							</div>
 
 							<div class="tm-recommended-place">
-								<img src="img/tm-img-05.jpg" alt="Image"
-									class="img-fluid tm-recommended-img">
+								<img src="img/tm-img-05.jpg" alt="Image" class="tm-recommended-img" width="270px" height="200px">
 								<div class="tm-recommended-description-box">
 									<h3 class="tm-recommended-title">In viverra enim turpis</h3>
 									<p class="tm-text-highlight">Paris, France</p>
@@ -331,13 +288,12 @@
 								</div>
 								<a href="#" class="tm-recommended-price-box">
 									<p class="tm-recommended-price">$340</p>
-									<p class="tm-recommended-price-link">Continue Reading</p>
+									<p class="tm-recommended-price-link">訂購</p>
 								</a>
 							</div>
 
 							<div class="tm-recommended-place">
-								<img src="img/tm-img-06.jpg" alt="Image"
-									class="img-fluid tm-recommended-img">
+								<img src="img/tm-img-06.jpg" alt="Image" class="tm-recommended-img" width="270px" height="200px">
 								<div class="tm-recommended-description-box">
 									<h3 class="tm-recommended-title">Volutpat pellentesque</h3>
 									<p class="tm-text-highlight">Barcelona, Spain</p>
@@ -347,13 +303,12 @@
 								</div>
 								<a href="#" class="tm-recommended-price-box">
 									<p class="tm-recommended-price">$350</p>
-									<p class="tm-recommended-price-link">Continue Reading</p>
+									<p class="tm-recommended-price-link">訂購</p>
 								</a>
 							</div>
 
 							<div class="tm-recommended-place">
-								<img src="img/tm-img-07.jpg" alt="Image"
-									class="img-fluid tm-recommended-img">
+								<img src="img/tm-img-07.jpg" alt="Image" class="tm-recommended-img" width="270px" height="200px">
 								<div class="tm-recommended-description-box">
 									<h3 class="tm-recommended-title">Grand Resort Pasha</h3>
 									<p class="tm-text-highlight">Istanbul, Turkey</p>
@@ -363,91 +318,48 @@
 								</div>
 								<a href="#" class="tm-recommended-price-box">
 									<p class="tm-recommended-price">$360</p>
-									<p class="tm-recommended-price-link">Continue Reading</p>
+									<p class="tm-recommended-price-link">訂購</p>
 								</a>
 							</div>
 						</div>
 
-						<a href="#"
-							class="text-uppercase btn-primary tm-btn mx-auto tm-d-table">Show
-							More Places</a>
+						<a href="#" class="text-uppercase btn-primary tm-btn mx-auto tm-d-table">Show More Places</a>
 					</div>
 					<!-- tab-pane -->
 
 					<!-- Tab 4 -->
-					<div class="tab-pane fade show active" id="4a">
-						<!-- Current Active Tab WITH "show active" classes in DIV tag -->
+					<div class="tab-pane fade" id="4a">
+
 						<div class="tm-recommended-place-wrap">
 							<div class="tm-recommended-place">
-								<img src="img/tm-img-06.jpg" alt="Image"
-									class="img-fluid tm-recommended-img">
+								<img src="https://secure3.hilton.com/resources/media/hi/NYCNHHH/en_US/img/hotel/roomtypeimages/main/HH_prssuiterm_386x310_FitToBoxSmallDimension_Center.jpg" alt="Image" class="tm-recommended-img" width="270px" height="200px">
 								<div class="tm-recommended-description-box">
-									<h3 class="tm-recommended-title">Asia Resort Hotel</h3>
-									<p class="tm-text-highlight">Singapore</p>
-									<p class="tm-text-gray">Sed egestas, odio nec bibendum
-										mattis, quam odio hendrerit risus, eu varius eros lacus sit
-										amet lectus. Donec blandit luctus dictum...</p>
+									<h3 class="tm-recommended-title">行政套房（單床）</h3>
+									<p class="tm-text-highlight" style="margin-bottom:5px">從客房內可飽覽迷人的曼克頓中城天際線景色。一張大床。最多可入住 4 人</p>
+									<p class="tm-text-gray">在紐約盡情遊玩探索，並將您的住宿升級至此時尚行政套房。 位於酒店高樓層，此寬敞的行政套房讓您對豪華住宿另有一番見解。</p>
 								</div>
 								<a href="#" class="tm-recommended-price-box">
-									<p class="tm-recommended-price">$440</p>
-									<p class="tm-recommended-price-link">Continue Reading</p>
+									<p class="tm-recommended-price">$NT 15,335</p>
+									<p class="tm-recommended-price-link">訂購</p>
 								</a>
 							</div>
 
 							<div class="tm-recommended-place">
-								<img src="img/tm-img-07.jpg" alt="Image"
-									class="img-fluid tm-recommended-img">
+								<img src="https://secure3.hilton.com/resources/media/hi/NYCNHHH/en_US/img/hotel/roomtypeimages/main/HH_prescnr01_386x310_FitToBoxSmallDimension_Center.jpg" alt="Image" class="tm-recommended-img" width="270px" height="200px">
 								<div class="tm-recommended-description-box">
-									<h3 class="tm-recommended-title">Nullam eget est a nisl</h3>
-									<p class="tm-text-highlight">Yangon, Myanmar</p>
-									<p class="tm-text-gray">Sed egestas, odio nec bibendum
-										mattis, quam odio hendrerit risus, eu varius eros lacus sit
-										amet lectus. Donec blandit luctus dictum...</p>
+									<h3 class="tm-recommended-title">行政套房（雙床）</h3>
+									<p class="tm-text-highlight" style="margin-bottom:5px">從客房內可飽覽迷人的曼克頓中城天際線景色。兩張雙人床。最多可入住 6 人</p>
+									<p class="tm-text-gray">在紐約盡情遊玩探索，並將您的住宿升級至此時尚行政套房。 位於酒店高樓層，此寬敞的行政套房讓您對豪華住宿另有一番見解。</p>
 								</div>
-								<div id="preload-hover-img"></div>
 								<a href="#" class="tm-recommended-price-box">
-									<p class="tm-recommended-price">$450</p>
-									<p class="tm-recommended-price-link">Continue Reading</p>
+									<p class="tm-recommended-price">$NT 15,920</p>
+									<p class="tm-recommended-price-link">訂購</p>
 								</a>
 							</div>
 
-							<div class="tm-recommended-place">
-								<img src="img/tm-img-05.jpg" alt="Image"
-									class="img-fluid tm-recommended-img">
-								<div class="tm-recommended-description-box">
-									<h3 class="tm-recommended-title">Proin interdum
-										ullamcorper</h3>
-									<p class="tm-text-highlight">Bangkok, Thailand</p>
-									<p class="tm-text-gray">Sed egestas, odio nec bibendum
-										mattis, quam odio hendrerit risus, eu varius eros lacus sit
-										amet lectus. Donec blandit luctus dictum...</p>
-								</div>
-								<a href="#" class="tm-recommended-price-box">
-									<p class="tm-recommended-price">$460</p>
-									<p class="tm-recommended-price-link">Continue Reading</p>
-								</a>
-							</div>
-
-							<div class="tm-recommended-place">
-								<img src="img/tm-img-04.jpg" alt="Image"
-									class="img-fluid tm-recommended-img">
-								<div class="tm-recommended-description-box">
-									<h3 class="tm-recommended-title">Lorem ipsum dolor sit</h3>
-									<p class="tm-text-highlight">Vientiane, Laos</p>
-									<p class="tm-text-gray">Sed egestas, odio nec bibendum
-										mattis, quam odio hendrerit risus, eu varius eros lacus sit
-										amet lectus. Donec blandit luctus dictum...</p>
-								</div>
-								<a href="#" class="tm-recommended-price-box">
-									<p class="tm-recommended-price">$470</p>
-									<p class="tm-recommended-price-link">Continue Reading</p>
-								</a>
-							</div>
 						</div>
 
-						<a href="#"
-							class="text-uppercase btn-primary tm-btn mx-auto tm-d-table">Show
-							More Places</a>
+						<a href="#" class="text-uppercase btn-primary tm-btn mx-auto tm-d-table">Show More Places</a>
 					</div>
 					<!-- tab-pane -->
 
@@ -456,8 +368,7 @@
 
 						<div class="tm-recommended-place-wrap">
 							<div class="tm-recommended-place">
-								<img src="img/tm-img-05.jpg" alt="Image"
-									class="img-fluid tm-recommended-img">
+								<img src="img/tm-img-05.jpg" alt="Image" class="tm-recommended-img" width="270px" height="200px">
 								<div class="tm-recommended-description-box">
 									<h3 class="tm-recommended-title">Africa Resort Hotel</h3>
 									<p class="tm-text-highlight">First City</p>
@@ -467,13 +378,12 @@
 								</div>
 								<a href="#" class="tm-recommended-price-box">
 									<p class="tm-recommended-price">$550</p>
-									<p class="tm-recommended-price-link">Continue Reading</p>
+									<p class="tm-recommended-price-link">訂購</p>
 								</a>
 							</div>
 
 							<div class="tm-recommended-place">
-								<img src="img/tm-img-04.jpg" alt="Image"
-									class="img-fluid tm-recommended-img">
+								<img src="img/tm-img-04.jpg" alt="Image" class="img-fluid tm-recommended-img" width="270px" height="200px">
 								<div class="tm-recommended-description-box">
 									<h3 class="tm-recommended-title">Aenean ac magna diam</h3>
 									<p class="tm-text-highlight">Second City</p>
@@ -483,13 +393,12 @@
 								</div>
 								<a href="#" class="tm-recommended-price-box">
 									<p class="tm-recommended-price">$560</p>
-									<p class="tm-recommended-price-link">Continue Reading</p>
+									<p class="tm-recommended-price-link">訂購</p>
 								</a>
 							</div>
 
 							<div class="tm-recommended-place">
-								<img src="img/tm-img-07.jpg" alt="Image"
-									class="img-fluid tm-recommended-img">
+								<img src="img/tm-img-07.jpg" alt="Image" class="img-fluid tm-recommended-img" width="270px" height="200px">
 								<div class="tm-recommended-description-box">
 									<h3 class="tm-recommended-title">Beach Barbecue Sunset</h3>
 									<p class="tm-text-highlight">Third City</p>
@@ -499,13 +408,12 @@
 								</div>
 								<a href="#" class="tm-recommended-price-box">
 									<p class="tm-recommended-price">$570</p>
-									<p class="tm-recommended-price-link">Continue Reading</p>
+									<p class="tm-recommended-price-link">訂購</p>
 								</a>
 							</div>
 
 							<div class="tm-recommended-place">
-								<img src="img/tm-img-06.jpg" alt="Image"
-									class="img-fluid tm-recommended-img">
+								<img src="img/tm-img-06.jpg" alt="Image" class="tm-recommended-img" width="270px" height="200px">
 								<div class="tm-recommended-description-box">
 									<h3 class="tm-recommended-title">Grand Resort Pasha</h3>
 									<p class="tm-text-highlight">Fourth City</p>
@@ -515,14 +423,12 @@
 								</div>
 								<a href="#" class="tm-recommended-price-box">
 									<p class="tm-recommended-price">$580</p>
-									<p class="tm-recommended-price-link">Continue Reading</p>
+									<p class="tm-recommended-price-link">訂購</p>
 								</a>
 							</div>
 						</div>
 
-						<a href="#"
-							class="text-uppercase btn-primary tm-btn mx-auto tm-d-table">Show
-							More Places</a>
+						<a href="#" class="text-uppercase btn-primary tm-btn mx-auto tm-d-table">Show More Places</a>
 					</div>
 					<!-- tab-pane -->
 
@@ -531,151 +437,37 @@
 
 						<div class="tm-recommended-place-wrap">
 							<div class="tm-recommended-place">
-								<img src="img/tm-img-04.jpg" alt="Image"
-									class="img-fluid tm-recommended-img">
+								<img src="https://secure3.hilton.com/resources/media/hi/NYCNHHH/en_US/img/hotel/roomtypeimages/main/HH_prssuiterm_386x310_FitToBoxSmallDimension_Center.jpg" alt="Image" class="tm-recommended-img" width="270px" height="200px">
 								<div class="tm-recommended-description-box">
-									<h3 class="tm-recommended-title">Hotel Australia</h3>
-									<p class="tm-text-highlight">City One</p>
-									<p class="tm-text-gray">Sed egestas, odio nec bibendum
-										mattis, quam odio hendrerit risus, eu varius eros lacus sit
-										amet lectus. Donec blandit luctus dictum...</p>
+									<h3 class="tm-recommended-title">單臥室總統套房</h3>
+									<p class="tm-text-highlight" style="margin-bottom:5px">從客房內可飽覽迷人的曼克頓中城天際線景色。一張大床。最多可入住 4 人。</p>
+									<p class="tm-text-gray">在紐約盡情遊玩探索，並將您的住宿升級至此時尚行政套房。 位於酒店高樓層，此寬敞的行政套房讓您對豪華住宿另有一番見解。</p>
 								</div>
 								<a href="#" class="tm-recommended-price-box">
-									<p class="tm-recommended-price">$660</p>
-									<p class="tm-recommended-price-link">Continue Reading</p>
+									<p class="tm-recommended-price">$NT 53,888</p>
+									<p class="tm-recommended-price-link">訂購</p>
 								</a>
 							</div>
 
 							<div class="tm-recommended-place">
-								<img src="img/tm-img-05.jpg" alt="Image"
-									class="img-fluid tm-recommended-img">
+								<img src="https://secure3.hilton.com/resources/media/hi/NYCNHHH/en_US/img/hotel/roomtypeimages/main/HH_prescnr01_386x310_FitToBoxSmallDimension_Center.jpg" alt="Image" class="tm-recommended-img" width="270px" height="200px">
 								<div class="tm-recommended-description-box">
-									<h3 class="tm-recommended-title">Proin interdum
-										ullamcorper</h3>
-									<p class="tm-text-highlight">City Two</p>
-									<p class="tm-text-gray">Sed egestas, odio nec bibendum
-										mattis, quam odio hendrerit risus, eu varius eros lacus sit
-										amet lectus. Donec blandit luctus dictum...</p>
+									<h3 class="tm-recommended-title">總統轉角套房</h3>
+									<p class="tm-text-highlight" style="margin-bottom:5px">從客房內可飽覽迷人的曼克頓中城天際線景色。一張大床。最多可入住 6人。</p>
+									<p class="tm-text-gray">在紐約盡情遊玩探索，並將您的住宿升級至此時尚行政套房。 位於酒店高樓層，此寬敞的行政套房讓您對豪華住宿另有一番見解。</p>
 								</div>
 								<a href="#" class="tm-recommended-price-box">
-									<p class="tm-recommended-price">$650</p>
-									<p class="tm-recommended-price-link">Continue Reading</p>
+									<p class="tm-recommended-price">$NT 64,666</p>
+									<p class="tm-recommended-price-link">訂購</p>
 								</a>
 							</div>
 
-							<div class="tm-recommended-place">
-								<img src="img/tm-img-06.jpg" alt="Image"
-									class="img-fluid tm-recommended-img">
-								<div class="tm-recommended-description-box">
-									<h3 class="tm-recommended-title">Beach Barbecue Sunset</h3>
-									<p class="tm-text-highlight">City Three</p>
-									<p class="tm-text-gray">Sed egestas, odio nec bibendum
-										mattis, quam odio hendrerit risus, eu varius eros lacus sit
-										amet lectus. Donec blandit luctus dictum...</p>
-								</div>
-								<a href="#" class="tm-recommended-price-box">
-									<p class="tm-recommended-price">$640</p>
-									<p class="tm-recommended-price-link">Continue Reading</p>
-								</a>
-							</div>
-
-							<div class="tm-recommended-place">
-								<img src="img/tm-img-07.jpg" alt="Image"
-									class="img-fluid tm-recommended-img">
-								<div class="tm-recommended-description-box">
-									<h3 class="tm-recommended-title">Grand Resort Pasha</h3>
-									<p class="tm-text-highlight">City Four</p>
-									<p class="tm-text-gray">Sed egestas, odio nec bibendum
-										mattis, quam odio hendrerit risus, eu varius eros lacus sit
-										amet lectus. Donec blandit luctus dictum...</p>
-								</div>
-								<a href="#" class="tm-recommended-price-box">
-									<p class="tm-recommended-price">$630</p>
-									<p class="tm-recommended-price-link">Continue Reading</p>
-								</a>
-							</div>
 						</div>
 
-						<a href="#"
-							class="text-uppercase btn-primary tm-btn mx-auto tm-d-table">Show
-							More Places</a>
+						<a href="#" class="text-uppercase btn-primary tm-btn mx-auto tm-d-table">Show More Places</a>
 					</div>
 					<!-- tab-pane -->
 
-					<!-- Tab 7 -->
-					<div class="tab-pane fade" id="7a">
-
-						<div class="tm-recommended-place-wrap">
-							<div class="tm-recommended-place">
-								<img src="img/tm-img-04.jpg" alt="Image"
-									class="img-fluid tm-recommended-img">
-								<div class="tm-recommended-description-box">
-									<h3 class="tm-recommended-title">Antartica Resort</h3>
-									<p class="tm-text-highlight">Ant City One</p>
-									<p class="tm-text-gray">Sed egestas, odio nec bibendum
-										mattis, quam odio hendrerit risus, eu varius eros lacus sit
-										amet lectus. Donec blandit luctus dictum...</p>
-								</div>
-								<a href="#" class="tm-recommended-price-box">
-									<p class="tm-recommended-price">$770</p>
-									<p class="tm-recommended-price-link">Continue Reading</p>
-								</a>
-							</div>
-
-							<div class="tm-recommended-place">
-								<img src="img/tm-img-05.jpg" alt="Image"
-									class="img-fluid tm-recommended-img">
-								<div class="tm-recommended-description-box">
-									<h3 class="tm-recommended-title">Pulvinar Semper</h3>
-									<p class="tm-text-highlight">Ant City Two</p>
-									<p class="tm-text-gray">Sed egestas, odio nec bibendum
-										mattis, quam odio hendrerit risus, eu varius eros lacus sit
-										amet lectus. Donec blandit luctus dictum...</p>
-								</div>
-								<a href="#" class="tm-recommended-price-box">
-									<p class="tm-recommended-price">$230</p>
-									<p class="tm-recommended-price-link">Continue Reading</p>
-								</a>
-							</div>
-
-							<div class="tm-recommended-place">
-								<img src="img/tm-img-06.jpg" alt="Image"
-									class="img-fluid tm-recommended-img">
-								<div class="tm-recommended-description-box">
-									<h3 class="tm-recommended-title">Cras vel sapien</h3>
-									<p class="tm-text-highlight">Ant City Three</p>
-									<p class="tm-text-gray">Sed egestas, odio nec bibendum
-										mattis, quam odio hendrerit risus, eu varius eros lacus sit
-										amet lectus. Donec blandit luctus dictum...</p>
-								</div>
-								<a href="#" class="tm-recommended-price-box">
-									<p class="tm-recommended-price">$140</p>
-									<p class="tm-recommended-price-link">Continue Reading</p>
-								</a>
-							</div>
-
-							<div class="tm-recommended-place">
-								<img src="img/tm-img-07.jpg" alt="Image"
-									class="img-fluid tm-recommended-img">
-								<div class="tm-recommended-description-box">
-									<h3 class="tm-recommended-title">Nullam eget est</h3>
-									<p class="tm-text-highlight">Ant City Four</p>
-									<p class="tm-text-gray">Sed egestas, odio nec bibendum
-										mattis, quam odio hendrerit risus, eu varius eros lacus sit
-										amet lectus. Donec blandit luctus dictum...</p>
-								</div>
-								<a href="#" class="tm-recommended-price-box">
-									<p class="tm-recommended-price">$190</p>
-									<p class="tm-recommended-price-link">Continue Reading</p>
-								</a>
-							</div>
-						</div>
-
-						<a href="#"
-							class="text-uppercase btn-primary tm-btn mx-auto tm-d-table">Show
-							More Places</a>
-					</div>
-					<!-- tab-pane -->
 				</div>
 			</div>
 

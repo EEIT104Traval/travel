@@ -26,7 +26,6 @@
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	
 <!--	https://hk.saowen.com/a/3bb2d62596486787bb77995a447207f180a828af15cddf5912c0aceaad24caf0 -->
 		<script>
 			var params = {};
@@ -152,11 +151,11 @@
 								<div
 									class="d-flex flex-lg-row flex-column align-items-start justify-content-lg-between justify-content-start">
 									<input type="text" class="search_input search_input_1" id="country"
-										style="width: 24%" placeholder="請輸入國家" name="country">
-									<input type="text" class="search_input search_input_2"
-										style="width: 24%" placeholder="類型 - (門票、交通、餐券)" name="">
+										style="width: 24%" placeholder="請輸入國家" >
+									<input type="text" class="search_input search_input_2" id="country"
+										style="width: 24%" placeholder="類型 - (門票、交通、餐券)">
 									<input type="text" class="search_input search_input_3"
-										style="width: 24%" placeholder="關鍵字" name="">
+										style="width: 24%" placeholder="關鍵字" id="country">
 									<input	type="button" id='ticketsh' onclick="ticketSearch1()" class="home_search_button" value="搜尋">
 								</div>
 							</form>
