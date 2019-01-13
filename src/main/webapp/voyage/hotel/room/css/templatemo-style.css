@@ -387,7 +387,7 @@ label { font-weight: 700; }
 .tm-recommended-img { width: 270px; }
 
 .tm-recommended-description-box {
-    padding: 30px;
+    padding: 10px 0px 0px 10px;
     width: 500px;
 }
 
