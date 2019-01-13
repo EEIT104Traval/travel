@@ -25,11 +25,31 @@
     <link rel="stylesheet" href="<c:url value='/voyage/css/icomoon.css' />">
     <link rel="stylesheet" href="<c:url value='/voyage/css/style.css' />">
     <link href="<c:url value='/voyage/css/jquery-ui.css' />" rel="stylesheet" type="text/css">
+    
 	
 <head>
 <%-- <jsp:include page="/voyage/nav.jsp" /> --%>
 <script>
-// 	$(document).ready(function(){
+	$(document).ready(function(){
+		$('input').hover(over,out);
+		function over(){
+			//$(this).removeClass('s1',1000).addClass('s2',1000)
+			$(this).switchClass('search_input_1','search_input_1hover',1000)
+		}
+		function out(){
+			//$(this).removeClass('s2',1000).addClass('s1',1000)
+			$(this).switchClass('search_input_1hover','search_input_1',1000)
+		}
+		$('#peopleType').onclick(function() {
+			$(this).append(
+					
+			'<div>111</div>'
+			)
+			
+		})
+		
+		
+	})
 // 			$('#home_search_button').click(function() {
 // 				alert("button被按了一下");
 // 				var goPlace = $('#goPlace').val();
@@ -116,37 +136,37 @@
 								<div
 									class="d-flex flex-lg-row flex-column align-items-start justify-content-lg-between justify-content-start">
 									<div>
-										<span class="form-label">出發地</span> <input id='goPlace' type="text" autocomplete="off"
+										<span class="form-label">出發地</span> <input id='demo2' type="text" autocomplete="off"
 											class="search_input_1" style="width: 450px"
-											placeholder="請輸入機場/城市中英文或代碼" >
+											placeholder="請輸入機場/城市中英文或代碼"1 >
 <!-- 											required="required" -->
 									</div>
 									<img alt="" src="<c:url value='/voyage/images/changeTwoPlace.png'/>"
 										width="25px" style="padding-top: 42px">
 									<div>
-										<span class="form-label">目的地</span> <input id='goPlace2' type="text" autocomplete="off"
-											class="search_input search_input_1" style="width: 450px"
+										<span class="form-label">目的地</span> <input id='demo1' type="text" autocomplete="off"
+											class="search_input_1" style="width: 450px"
 											placeholder="請輸入機場/城市中英文或代碼" >
 									</div>
 								</div>
 
 								<div style="display: inline-block; padding-right: 40px;">
 									<span class="form-label">出發日期</span> <input type="text" autocomplete="off"
-										class="search_input search_input_1" id="checkin_date"
+										class="search_input_1" id="checkin_date"
 										placeholder="yyyy/MM/dd" name="">
 								</div>
 								<div style="display: inline-block; padding-right: 40px;">
 									<span class="form-label">回程日期</span> <input type="text" autocomplete="off"
-										class="search_input search_input_1" placeholder="yyyy/MM/dd"
+										class="search_input_1" placeholder="yyyy/MM/dd"
 										name="" id="checkout_date">
 								</div>
 								<div style="display: inline-block; padding-right: 40px;">
 									<span class="form-label">旅客類型</span> <input id='peopleType' type="text" autocomplete="off"
-										class="search_input search_input_1" placeholder="人數" name="">
+										class="search_input_1" placeholder="人數" name="">
 								</div>
 								<div style="display: inline-block; padding-right: 65px;">
 									<span class="form-label">艙等</span> <select
-										class="search_input search_input_1"
+										class="search_input_1"
 										id="search-controls-cabin-class-dropdown"
 										name="search-controls-cabin-class-dropdown"
 										style="width: 150px; display: block;">
@@ -248,6 +268,13 @@
 	<script src="<c:url value='/voyage/js/main.js' />"></script>
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	 <script src=" <c:url value='/flight/mohu/demo/js/demo.js'/>" type="text/javascript"></script>
+<%-- 	<link href=" <c:url value='/flight/mohu/demo/css/prettify.css'/>" rel="stylesheet" /> --%>
+<!--     <link href="css/bootstrap.css" rel="stylesheet"> -->
+<%--     <link href=" <c:url value='/flight/mohu/demo/css/demo.css'/>" rel="stylesheet"> --%>
+    <script src=" <c:url value='/flight/mohu/demo/js/prettify.js'/>" type="text/javascript"></script>
+    <script src=" <c:url value='/flight/mohu/demo/js/mockjax.js'/>" type="text/javascript"></script>
+    <script src=" <c:url value='/flight/mohu/js/bootstrap-typeahead.js'/>" type="text/javascript"></script>
 	 
 	<jsp:include page="/voyage/foo.jsp" />
 </body>

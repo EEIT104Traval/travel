@@ -181,6 +181,7 @@ public class FlightTest implements XmlDocument {
 		try {
 			Document document = saxReader.read(inputXml);
 			Element employees = document.getRootElement();
+			int input = 0;
 			for (Iterator i = employees.elementIterator(); i.hasNext();) {
 				Element employee = (Element) i.next();
 				AirportCompareBean bean = new AirportCompareBean();
@@ -197,9 +198,10 @@ public class FlightTest implements XmlDocument {
 
 						bean.setAirportCode(node.getText());
 					} else {
+						input++;
 						count++;
 						bean.setAirportName(node.getText());
-						System.out.print("'"+ node.getText()+"',");
+						System.out.print("{ ID:"+input +", Name: '"+ node.getText()+"'},");
 					}
 					if (count % 2 == 0) {
 						AirportCompareBean bean1 = adao.create(bean);

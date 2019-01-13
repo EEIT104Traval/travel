@@ -717,6 +717,21 @@ section
 	font-weight: 500 !important;
 	color: #72728c !important;
 }
+.search_input_1hover
+{
+/* 	display:inline-block; */
+	height: 50px;
+	background: #eae6e6;
+	border: red;
+	outline: none;
+	padding-left: 17px;
+	font-family: 'Oswald', sans-serif;
+	font-size: 14px !important;
+	font-weight: 500 !important;
+	color: #72728c !important;
+}
+
+
 .search_input_2
 {
 	width: 15%;

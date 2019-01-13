@@ -32,12 +32,12 @@ public class FlightInfoControllerNew {
 		bfmsearch.append(
 				"{\"OTA_AirLowFareSearchRQ\":{\"ResponseType\":\"OTA\",\"ResponseVersion\":\"3.4.0\",\"Target\":\"Production\",\"Version\":\"3.4.0\",\"POS\":{\"Source\":[{\"PseudoCityCode\":\"A2U8\",\"RequestorID\":{\"Type\":\"1\",\"ID\":\"1\",\"CompanyName\":{\"Code\":\"TN\"}}}]},\"OriginDestinationInformation\":[{\"RPH\":\"1\",\"DepartureDateTime\":\""
 						+ date1 + "\",\"OriginLocation\":{\"LocationCode\":\"" + "TPE"
-						+ "\"},\"DestinationLocation\":{\"LocationCode\":\"" + "CDG"
+						+ "\"},\"DestinationLocation\":{\"LocationCode\":\"" + "PVG"
 						+ "\"},\"TPA_Extensions\":{\"SegmentType\":{\"Code\":\"O\"}}},{\"RPH\":\"2\",\"DepartureDateTime\":\""
-						+ date2 + "\",\"OriginLocation\":{\"LocationCode\":\"" + "CDG"
+						+ date2 + "\",\"OriginLocation\":{\"LocationCode\":\"" + "PVG"
 						+ "\"},\"DestinationLocation\":{\"LocationCode\":\"" + "TPE"
 						+ "\"},\"TPA_Extensions\":{\"SegmentType\":{\"Code\":\"O\"}}}],\"TravelPreferences\":{\"ValidInterlineTicket\":true,"
-//						+ "\"FlightTypePref\":{\"MaxConnections\":\"0\"}"
+						+ "\"FlightTypePref\":{\"MaxConnections\":\"0\"},"
 						+ "\"CabinPref\":[{\"Cabin\":\"Y\",\"PreferLevel\":\"Preferred\"}],\"TPA_Extensions\":{\"TripType\":{\"Value\":\"Return\"},\"LongConnectTime\":{\"Min\":780,\"Max\":1200,\"Enable\":true},\"ExcludeCallDirectCarriers\":{\"Enabled\":true}}},\"TravelerInfoSummary\":{\"SeatsRequested\":[1],\"AirTravelerAvail\":[{\"PassengerTypeQuantity\":[{\"Code\":\"ADT\",\"Quantity\":"
 						+ "1"
 						+ "}]}]},\"TPA_Extensions\":{\"IntelliSellTransaction\":{\"RequestType\":{\"Name\":\"50ITINS\"}}}}}");
