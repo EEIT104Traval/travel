@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import model.ticket.TicketOrderInfoService;
 import model.userInfo.UserInfoBean;
 import model.userInfo.UserInfoService;
 
@@ -16,6 +17,8 @@ public class UserController01_02 {
 
 	@Autowired
 	private UserInfoService userInfoService;
+	@Autowired
+	private TicketOrderInfoService ticketOrderInfoService;
 	
 	
 	@ResponseBody
@@ -25,6 +28,15 @@ public class UserController01_02 {
 		System.out.println("user=" + user);
 		
 		result = userInfoService.findByAccountName(user);
+		System.out.println(result);
+		
+		for(int i = 0 ; i<= result.size() ; i++) {			
+			int no = result.get(0).getTicketOrderInfoBean().get(i).getTicketNo();
+			System.out.println("ticketNo:"+no);
+			
+		}
+		
+
 			
 		return result;
 		

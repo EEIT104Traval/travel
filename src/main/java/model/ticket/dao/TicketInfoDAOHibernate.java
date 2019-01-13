@@ -1,10 +1,18 @@
 package model.ticket.dao;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.util.List;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
+import javax.servlet.ServletContext;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -17,6 +25,9 @@ import model.ticket.TicketInfoDAO;
 
 @Repository
 public class TicketInfoDAOHibernate implements TicketInfoDAO {
+	
+	@Autowired
+	ServletContext servletContext;
 	@Autowired
 	private SessionFactory sessionFactory;
 
@@ -104,6 +115,32 @@ public class TicketInfoDAOHibernate implements TicketInfoDAO {
 		criteria.select(from).where(from.get("country").in(country));
 		List<TicketInfoBean> list = getSession().createQuery(criteria).getResultList();
 		return list;
+	}
+
+	@Override
+	public void DLticketInfo() throws IOException {
+		
+		String s1 = servletContext.getRealPath("");
+
+		File ticketincsv = new File(s1 + "resource/Ticket/ticket.csv"); // 讀取的CSV文檔
+		File ticketoutcsv = new File("C:/Users/Emma/Desktop/Ticketfrom1.csv");// 寫出的CSV文檔
+		if (!ticketoutcsv.exists()) {
+			ticketoutcsv.createNewFile();
+		}
+
+		InputStreamReader isr = new InputStreamReader(new FileInputStream(ticketincsv));// 待處理資料的檔案路徑
+		BufferedReader reader = new BufferedReader(isr);
+		PrintWriter pw = new PrintWriter(new FileWriter(ticketoutcsv));
+		String line = null;
+		while ((line = reader.readLine()) != null) {
+//			String item[] = line.split(",");
+//			bw.newLine();// 新起一行
+//			bw.write(",");// 寫到新檔案中
+			pw.println(line);
+			System.out.println("寫出成功");
+		}
+		pw.close();
+		reader.close();		
 	}
 }
 

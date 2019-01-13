@@ -40,14 +40,14 @@ var params = {}
 								console.log(value.accountName)
 								
  						$("#searchuser").append(
- 							'<table><th style="width:150px">accountName</th><th style="width:150px">firstname</th>'+
- 							'<th style="width:150px">lastname</th><th style="width:150px">identityNo</th><th style="width:150px">email</th><tr>'
+ 							'<table><th style="width:150px">帳號</th><th style="width:150px">姓</th>'+
+ 							'<th style="width:150px">名</th><th style="width:150px">identityNo</th><th style="width:150px">email</th><tr>'
  							+'<th>'+value.accountName +'</th>'
  							+'<th>'+value.firstname +'</th>'
  							+'<th>'+value.lastname +'</th>'
  							+'<th>'+value.identityNo +'</th>'
  							+'<th>'+value.email +'</th>'
- 							+'</tr><th>sex</th><th>phone</th><th>birth</th><th colspan="2">address</th><tr>'
+ 							+'</tr><th>性別</th><th>電話號碼</th><th>出生年月日</th><th colspan="2">地址</th><tr>'
  							+'<th>'+value.sex +'</th>'
  							+'<th>'+value.phone +'</th>'
  							+'<th>'+value.birth +'</th>'

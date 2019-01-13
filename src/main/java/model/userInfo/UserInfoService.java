@@ -3,6 +3,7 @@ package model.userInfo;
 import java.util.Arrays;
 import java.util.List;
 
+import org.hibernate.mapping.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -45,7 +46,7 @@ public class UserInfoService {
 	public List<UserInfoBean> findByAccountName (String user) {
 	
 		List<UserInfoBean> uba = userInfoDAO.findByaccountName(user);
-		
+
 				return uba;
 	}
 
