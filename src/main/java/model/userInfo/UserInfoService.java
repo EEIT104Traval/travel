@@ -100,7 +100,6 @@ public class UserInfoService {
 				
 		List<HotelOrderDetailsBean> HotelInfo = hotelOrderDetailsService.foundOrderaccountName(user);
 		
-		
 		if (TourInfo.size()>0) {
 			map.put("TourOrderInfoBean", TourInfo);
 		}
