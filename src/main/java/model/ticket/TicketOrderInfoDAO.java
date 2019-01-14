@@ -2,8 +2,6 @@ package model.ticket;
 
 import java.util.List;
 
-import org.hibernate.query.Query;
-
 public interface TicketOrderInfoDAO {
 
 	

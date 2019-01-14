@@ -1,11 +1,10 @@
 package controller.User;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -29,18 +28,20 @@ public class UserController01_01 {
 		System.out.println("number=" + number);
 
 		if (number.equals("one")) {
-			result = userInfoService.findByAccountName(user);
+			result = new ArrayList<>();
+			result.add(userInfoService.findByAccountName(user));
 			System.out.println(result);
-			return result;
+//			return result;
 		} else if (number.equals("two")) {
-			result = userInfoService.findByPhone(user);
+			result = new ArrayList<>();
+			result.add(userInfoService.findByPhone(user));
 			System.out.println(result);
-			return result;
+//			return result;
 		} else if (number.equals("three")) {
 			result = userInfoService.findAll();
 			for (UserInfoBean TI : result)
 				System.out.println(TI);
-			return result;
+//			return result;
 		}
 		return result;
 	}

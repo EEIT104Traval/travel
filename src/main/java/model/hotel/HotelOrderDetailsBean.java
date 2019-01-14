@@ -1,7 +1,5 @@
 package model.hotel;
 
-import java.util.Arrays;
-
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -9,6 +7,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name="HotelOrderDetails")
 public class HotelOrderDetailsBean {
+	
 	@Id
 	private Integer orderNo;
 	private Integer hotelNo;

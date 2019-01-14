@@ -28,6 +28,7 @@
     <a href="<c:url value='TourTagsTestUpdate' />">TourTagsTestUpdate</a>
     <a href="<c:url value='TourTagsTestDelete' />">TourTagsTestDelete</a>
     <a href="<c:url value='TourTagsTestfindTag' />">TourTagsTestfindTag</a>
+    <a href="<c:url value='TourTagsTestfindByT' />">TourTagsTestfindByT</a>
     <br />
     <a href="<c:url value='findBuyMonth' />">findBuyMonth</a>
 	<hr />
@@ -62,7 +63,7 @@
 	<a href="<c:url value='/userInforemove' />">Userremove</a>
 	<br>
 	<a href="<c:url value='/userfound' />">userfound</a>
-	<a href="<c:url value='/userInfoname' />">userInfoname</a>
+	<a href="<c:url value='/userphone' />">userphone</a>
 	<hr />
 	<a href="<c:url value='/ratePK' />">RatePK</a>
 	<a href="<c:url value='/ratefindALL' />">RatefindAll</a>
@@ -151,6 +152,8 @@
 	<a href="<c:url value='/HotelOrderDetailscreate' />">HotelOrderDetailscreate</a>
 	<a href="<c:url value='/HotelOrderDetailsupdate' />">HotelOrderDetailsupdate</a>
 	<a href="<c:url value='/HotelOrderDetailsremove' />">HotelOrderDetailsremove</a>
+	<br>
+	<a href="<c:url value='/findOrderaccountName' />">HOTELfindOrderaccountName</a>
 	<hr />
 
 	<br />

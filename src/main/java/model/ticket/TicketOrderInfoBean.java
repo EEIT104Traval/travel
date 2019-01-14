@@ -51,6 +51,7 @@ public class TicketOrderInfoBean {
 	private String recevingAddress;
 	private String recevingPhone;
 	private Integer totalPrice;
+	
 	public Integer getTicketOrderNO() {
 		return ticketOrderNO;
 	}

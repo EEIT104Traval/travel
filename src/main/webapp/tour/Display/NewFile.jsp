@@ -36,10 +36,9 @@
 					data:params,
 			}).done(function(JData) {
 					console.log(JData);
-					console.log(JData.TourPictureBean[0].pictitle);
 					$("#one div:first-child").append("<img src=images/"+JData.TourPictureBean[0].pic+" alt=/ height='500px'>");
 					$("#one>header").append("<h2>"+JData.tourName+"</h2>");
-// 					$("#one>div:eq(1)").append("<p>"+JData.TourPictureBean[0].picDetail+"</p>");
+					$("#one>div:eq(1)").append("<p>"+JData.TourPictureBean[0].picDetail+"</p>");
 					$.each(JData.TourPictureBean, function(index, value) {
 						if(index!=0){
 							if(index % 2 != 0){
@@ -49,7 +48,8 @@
 											+"<img src=images/"+value.pic+">"
 										+"</div>"
 										+"<div class='inner'>"
-											+"<h3>"+value.pictitle+"</h3>"
+											+"<h3>第"+index+"天</h3>"
+											+"<h4>"+value.pictitle+"</h4>"
 											+"<p>"+value.picDetail+"</p>"
 										+"</div>"
 									+"</div>"
@@ -61,7 +61,8 @@
 												+"<img src=images/"+value.pic+">"
 											+"</div>"
 											+"<div class='inner'>"
-												+"<h3>"+value.pictitle+"</h3>"
+												+"<h3>第"+index+"天</h3>"
+												+"<h4>"+value.pictitle+"</h4>"
 												+"<p>"+value.picDetail+"</p>"
 											+"</div>"
 										+"</div>"
@@ -94,10 +95,10 @@
 <!-- 							<h2>Fringilla Fermentum Tellus</h2> -->
 <!-- 							<p>vehicula urna sed justo bibendum</p> -->
 						</header>
-<!-- 						<div class="content"> -->
+						<div class="content">
 <!-- 							<p>Curabitur eget semper ante. Morbi eleifend ultricies est, a blandit diam vehicula vel. Vestibulum porttitor nisi quis viverra hendrerit. Suspendisse vel volutpat nibh, vel elementum lacus. Maecenas commodo pulvinar dui, at cursus metus imperdiet vel. Vestibulum et efficitur urna. Duis velit nulla, interdum sed felis sit amet, facilisis auctor nunc. Cras luctus urna at risus feugiat scelerisque nec sed diam. </p> -->
 <!-- 							<p>Nunc fringilla metus odio, at rutrum augue tristique vel. Nulla ac tellus a neque ullamcorper porta a vitae ipsum. Morbi est sapien, hendrerit quis mi in, aliquam bibendum orci. Vestibulum imperdiet nibh vitae maximus posuere. Aenean sit amet nibh feugiat, condimentum tellus eu, malesuada nunc. Mauris ac pulvinar turpis, sit amet pharetra est. Ut bibendum justo condimentum, vehicula ex vel, venenatis libero. Etiam vehicula urna sed justo bibendum, ac lacinia nunc pulvinar. Integer nec velit orci. Vestibulum pellentesque varius dapibus. Morbi ullamcorper augue est, sed luctus orci fermentum dictum. Nunc tincidunt, nisl consequat convallis viverra, metus nisl ultricies dui, vitae dapibus ligula urna sit amet nibh. Duis ut venenatis enim.</p> -->
-<!-- 						</div> -->
+						</div>
 					</section>
 
 				<!-- Two -->

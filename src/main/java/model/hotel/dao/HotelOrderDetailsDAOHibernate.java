@@ -1,6 +1,5 @@
 package model.hotel.dao;
 
-import java.util.Date;
 import java.util.List;
 
 import javax.persistence.criteria.CriteriaBuilder;
@@ -12,8 +11,6 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import model.hotel.RoomTypePicBean;
-import model.ticket.TicketOrderInfoBean;
 import model.hotel.HotelOrderDetailsBean;
 import model.hotel.HotelOrderDetailsDAO;
 @Repository

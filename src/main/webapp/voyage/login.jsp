@@ -181,7 +181,7 @@ div#users-contain table td, div#users-contain table th {
 		<div>
 			<!--         Google登入：<input type="button"  value="Google登入" onclick="GoogleLogin();" /><br> -->
 			<button style="background-color: blue; color: white; margin-top: 5px">登入</button>
-<input type="submit" value="Login">
+			<input type="submit" value="Login">
 		</form>
 			<p>快速登入</p>
 			<img src="<c:url value='/voyage/images/facebook.png' />" onclick="FBLogin();" width="32%"

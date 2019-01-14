@@ -17,8 +17,7 @@ public interface UserInfoDAO {
 		public abstract boolean remove(String accountName);
 		
 		//--------------↓↓↓↓↓↓後台使用專區↓↓↓↓↓↓-------------
-		public abstract List<UserInfoBean> findByaccountName(String accountName);
 		
-		public abstract List<UserInfoBean> findByphone (String phone);
+		public abstract UserInfoBean findByphone (String phone);
 
 }

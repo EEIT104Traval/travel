@@ -24,6 +24,11 @@ public class TourTagsDAO {
 		return this.getSession().get(TourTagsBean.class, serialNo);
 	}
 	
+	public List<TourTagsBean> findByTag (String tag){
+		return this.getSession().createQuery("from TourTagsBean where tag = '"+tag+"'", TourTagsBean.class).list();
+				
+	}
+	
 	public List<TourTagsBean> findAll(){
 		return this.getSession().createQuery("from TourTagsBean", TourTagsBean.class)
 				.setMaxResults(100)
