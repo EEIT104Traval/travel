@@ -26,6 +26,39 @@
 <!DOCTYPE html>
 <html lang="tw-zh">
   <head>
+     <jsp:include page="/voyage/nav.jsp" />
+  	<title>Time To Travel</title>
+	<link rel="icon" href="favicon.ico" type="image/x-icon" />
+	
+  	<link rel="stylesheet" href="<c:url value='/voyage/css/open-iconic-bootstrap.min.css' />">
+    <link rel="stylesheet" href="<c:url value='/voyage/css/animate.css' />">
+    <link rel="stylesheet" href="<c:url value='/voyage/css/owl.carousel.min.css' />">
+    <link rel="stylesheet" href="<c:url value='/voyage/css/owl.theme.default.min.css' />">
+    <link rel="stylesheet" href="<c:url value='/voyage/css/magnific-popup.css' />">
+    <link rel="stylesheet" href="<c:url value='/voyage/css/aos.css' />">
+    <link rel="stylesheet" href="<c:url value='/voyage/css/ionicons.min.css' />">
+    <link rel="stylesheet" href="<c:url value='/voyage/css/bootstrap-datepicker.css' />">
+    <link rel="stylesheet" href="<c:url value='/voyage/css/jquery.timepicker.css' />">
+    <link rel="stylesheet" href="<c:url value='/voyage/css/flaticon.css' />">
+    <link rel="stylesheet" href="<c:url value='/voyage/css/icomoon.css' />">
+    <link rel="stylesheet" href="<c:url value='/voyage/css/style.css' />">
+    <link href="<c:url value='/voyage/css/jquery-ui.css' />" rel="stylesheet" type="text/css">
+  	<title>Time To Travel</title>
+	<link rel="icon" href="favicon.ico" type="image/x-icon" />
+	
+  	<link rel="stylesheet" href="<c:url value='/voyage/css/open-iconic-bootstrap.min.css' />">
+    <link rel="stylesheet" href="<c:url value='/voyage/css/animate.css' />">
+    <link rel="stylesheet" href="<c:url value='/voyage/css/owl.carousel.min.css' />">
+    <link rel="stylesheet" href="<c:url value='/voyage/css/owl.theme.default.min.css' />">
+    <link rel="stylesheet" href="<c:url value='/voyage/css/magnific-popup.css' />">
+    <link rel="stylesheet" href="<c:url value='/voyage/css/aos.css' />">
+    <link rel="stylesheet" href="<c:url value='/voyage/css/ionicons.min.css' />">
+    <link rel="stylesheet" href="<c:url value='/voyage/css/bootstrap-datepicker.css' />">
+    <link rel="stylesheet" href="<c:url value='/voyage/css/jquery.timepicker.css' />">
+    <link rel="stylesheet" href="<c:url value='/voyage/css/flaticon.css' />">
+    <link rel="stylesheet" href="<c:url value='/voyage/css/icomoon.css' />">
+    <link rel="stylesheet" href="<c:url value='/voyage/css/style.css' />">
+    <link href="<c:url value='/voyage/css/jquery-ui.css' />" rel="stylesheet" type="text/css">
   	<title>Time To Travel</title>
 	<link rel="icon" href="favicon.ico" type="image/x-icon" />
 	
@@ -622,7 +655,7 @@
             </div>
             <div class="item">
               <div class="blog-entry" data-aos-delay="200">
-                <a href="blog-single.html" class="block-20" style="background-image: url('images/image_1.jpg');">
+                <a href="blog-single.html" class="block-20" style="background-image: url('images/image_9.jpg');">
                 </a>
                 <div class="text p-4">
                   <div class="meta">

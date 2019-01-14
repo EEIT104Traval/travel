@@ -24,8 +24,19 @@
 	border-collapse: collapse;
 }
 
-td, th {
+th {
 	border: 1px solid gray;
+}
+
+td {
+	border: 1px solid gray;
+	vertical-align:middle;
+}
+
+img{
+/* 	display:block; */
+	margin-bottom:-5px;
+	margin-right:4px;
 }
 
 thead {
@@ -62,19 +73,55 @@ $(document).ready(function() {
 // 			url:"/Travel/tour/display?tourNo=1",
 			dataType: "json",
 			success: function(json) {
-			console.log(json.country)
-			var text = "<ul><li>" +json.country + "</li></ul>"
-			$('#123').html(text)
-				}
+				console.log(json)
+				
+				for(item in json){
+					var row = '<tr>'+
+				      '<td><img src="./images/'+ json[item].currency +'.png">  </img>'+json[item].currency+'</td>'+
+				      '<td>'+json[item].cashBuy+'</td>'+
+				      '<td>'+json[item].cashSell+'</td>'+
+				      '<td>'+json[item].spotBuy+'</td>'+
+				      '<td>'+json[item].spotSell+'</td>'+
+					  '</tr>';
+					   $('table> tbody:last').append(row);		
+					   }
+				//var text = "<ul><li>" +json[0].currency + "</li></ul>"
+				//$('#123').html(text)
+			}
 			
-		})
+		});
 });
+function update(){
+	$.ajax({
+		method: "POST",
+		url:"https://rate.bot.com.tw/xrt?Lang=zh-TW",
+//			url:"/Travel/tour/display?tourNo=1",
+		dataType: "json",
+		success: function(json) {
+			console.log(json)
+			/*
+			for(item in json){
+				var row = '<tr>'+
+			      '<td>'+json[item].currency+'<img src="./images/'+ json[item].currency +'.png"></img></td>'+
+			      '<td>'+json[item].cashBuy+'</td>'+
+			      '<td>'+json[item].cashSell+'</td>'+
+			      '<td>'+json[item].spotBuy+'</td>'+
+			      '<td>'+json[item].spotSell+'</td>'+
+				  '</tr>';
+				   $('table> tbody:last').append(row);		
+				   }
+			*/
+		}
+		
+	});
+}
 </script>
 	<div id='123'></div>
 	<div style="margin-top:20px">
 	   <button type="button" style="float:right;margin-right: 350px"><a href="../voyage/index.jsp" />回首頁</a></button>
   	   <button type="button" style="float:right;margin-right: 10px"><a href="toggling1.jsp" />最近半年走勢圖</a></button>
-<!-- 	   <button type="button" style="float:right;margin-right: 10px"><a href="toggling.jsp" />最近三個月走勢圖</a></button> -->
+	   <button type="button" style="float:right;margin-right: 10px"><a href="toggling.jsp" />最近三個月走勢圖</a></button>
+	   <button type="button" style="float:right;margin-right: 10px"><a href="#" onclick="update()"/>update</a></button>
 	  
 	</div>
 	<h2 style="margin-left:450px">匯率</h2>
@@ -99,24 +146,8 @@ $(document).ready(function() {
 			</tr>
 		</thead>
 		<tbody>
-		<c:forEach var="bean" items="${rateResult}">
-		<c:url value="/rate/toggling3.jsp" var="path">
-			<c:param name="currency" value="${bean.currency}" />
-			<c:param name="updateTime" value="${bean.updateTime}" />
-			<c:param name="cashBuy" value="${bean.cashBuy}" />
-			<c:param name="cashSell" value="${bean.cashSell}" />
-			<c:param name="spotBuy" value="${bean.spotBuy}" />
-			<c:param name="spotSell" value="${bean.spotSell}" />
-		</c:url>
-	<tr>
-		<td>${bean.cashBuy}</td>
-<%-- 		<td><a href="${path}">${bean.name}</a></td> --%>
-		<td>${bean.cashSell}</td>
-<%-- 		<td><fmt:formatDate value="${bean.make}" pattern="yyyy/MM/dd G"/></td> --%>
-		<td>${bean.spotBuy}</td>
-		<td>${bean.spotSell}</td>
-	</tr>	
-	</c:forEach>
+
+	
 <!-- 			<tr> -->
 <!-- 				<td>美金(USD)</td> -->
 <!-- 				<td>30.415</td> -->

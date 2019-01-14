@@ -27,15 +27,20 @@ public class RateDAOHibernate implements RateDAO{
 	@Override
 	public List<RateBean> findAll() {
 		System.out.println("有連到DAO findAll");
-		return this.getSession().createQuery("from RateBean", RateBean.class)
-				.setMaxResults(280)
+		return this.getSession().createQuery("from RateBean where updateTime >= DATEADD(MONTH, -3, GETDATE())", RateBean.class)
+				.list();
+	}
+	@Override
+	public List<RateBean> findNew() {
+		System.out.println("有連到DAO findNew");
+		return this.getSession().createQuery("from RateBean where updateTime >= DATEADD(DAY, -1, GETDATE())", RateBean.class)
 				.list();
 	}
 	
 	@Override
 	public List<RateBean> findAll01() {
-		return this.getSession().createQuery("from RateBean", RateBean.class)
-				.setMaxResults(600)
+		
+		return this.getSession().createQuery("from RateBean where updateTime >= DATEADD(MONTH, -6, GETDATE())", RateBean.class)
 				.list();
 	}
 

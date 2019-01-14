@@ -8,6 +8,8 @@ public interface RateDAO {
 	public abstract List<RateBean> findAll();
 	
 	public abstract List<RateBean> findAll01();
+	
+	public abstract List<RateBean> findNew();
 
 	public abstract RateBean create(RateBean bean);
 
