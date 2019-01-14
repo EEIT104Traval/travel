@@ -27,7 +27,8 @@
 <html lang="tw-zh">
   <head>
   	<title>Time To Travel</title>
-  
+	<link rel="icon" href="favicon.ico" type="image/x-icon" />
+	
   	<link rel="stylesheet" href="<c:url value='/voyage/css/open-iconic-bootstrap.min.css' />">
     <link rel="stylesheet" href="<c:url value='/voyage/css/animate.css' />">
     <link rel="stylesheet" href="<c:url value='/voyage/css/owl.carousel.min.css' />">
