@@ -3,6 +3,9 @@ package model.ticket;
 import java.io.IOException;
 import java.util.List;
 
+import model.tour.GroupTourBean;
+import model.tour.TourOrderInfoBean;
+
 public interface TicketInfoDAO {
 
 	public abstract TicketInfoBean findByPrimaryKey(Integer ticketNo);
@@ -26,5 +29,7 @@ public interface TicketInfoDAO {
 	public abstract List<TicketInfoBean>searchByTicketName(Integer ticketNo);
 	
 	public abstract void DLticketInfo() throws IOException;
+	
+	public abstract List<TicketInfoBean> findByTicketOrderList(List<TicketOrderInfoBean> list);
 
 }

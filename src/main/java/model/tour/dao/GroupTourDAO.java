@@ -13,7 +13,6 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import org.springframework.util.StringUtils;
 
 import model.tour.GroupTourBean;
 import model.tour.TourOrderInfoBean;
@@ -33,34 +32,13 @@ public class GroupTourDAO {
 	}
 	
 	
-	public List<GroupTourBean> findByTourOrderList(List<TourOrderInfoBean> list){
-		EntityManager em = sessionFactory.createEntityManager();
-		  CriteriaBuilder criteriaBuilder = this.getSession().getCriteriaBuilder();
-	      CriteriaQuery<GroupTourBean> criteriaQuery = criteriaBuilder.createQuery(GroupTourBean.class);
-	      Root<GroupTourBean> root = criteriaQuery.from(GroupTourBean.class);
-	      CriteriaQuery<GroupTourBean> query = criteriaQuery.select(root);
-	      List<Predicate> predicate =  new ArrayList<>();
-	      for (TourOrderInfoBean tourOrder:list) {
-	    	  predicate.add(criteriaBuilder.equal(root.get("tourNo"), tourOrder.getSerialNo()));
-	      }
-//	      if (!StringUtils.isEmpty(tourNo)) {
-//	    	  predicate.add(criteriaBuilder.between(root.get("tourNo"), tourOrder.getSerialNo()));
-//	      }
-	      Predicate[] p = new Predicate[predicate.size()];
-	      query.where(criteriaBuilder.or(predicate.toArray(p)));
-	      return em.createQuery(query).getResultList();
-	}
 	public List<GroupTourBean> findAll() {
 		return this.getSession().createQuery("from GroupTourBean", GroupTourBean.class)
 				.setMaxResults(100)
 				.list();
 	}
-//	   Long count = (Long)HibernateUtil.getSession()
-//               .createQuery( "select count(*) from Employee" )
-//               .uniqueResult();
-//       System.out.println(count);
 	
-	//取筆數 值為Object cast成Long型態                                          
+	
     public Long countAll() {
     	return (Long)this.getSession().createQuery("select count(*) from GroupTourBean").uniqueResult();
     }
@@ -103,4 +81,23 @@ public class GroupTourDAO {
 		}
 		return false;
 	}
+//--------------------------------------後台----------------------------------------
+						
+	public List<GroupTourBean> findByTourOrderList(List<TourOrderInfoBean> list){
+		EntityManager em = sessionFactory.createEntityManager();
+		  CriteriaBuilder criteriaBuilder = this.getSession().getCriteriaBuilder();
+	      CriteriaQuery<GroupTourBean> criteriaQuery = criteriaBuilder.createQuery(GroupTourBean.class);
+	      Root<GroupTourBean> root = criteriaQuery.from(GroupTourBean.class);
+	      CriteriaQuery<GroupTourBean> query = criteriaQuery.select(root);
+	      List<Predicate> predicate =  new ArrayList<>();
+	      for (TourOrderInfoBean tourOrder:list) {
+	    	  predicate.add(criteriaBuilder.equal(root.get("tourNo"), tourOrder.getSerialNo()));
+	      }
+//	      if (!StringUtils.isEmpty(tourNo)) {
+//	    	  predicate.add(criteriaBuilder.between(root.get("tourNo"), tourOrder.getSerialNo()));
+//	      }
+	      Predicate[] p = new Predicate[predicate.size()];
+	      query.where(criteriaBuilder.or(predicate.toArray(p)));
+	      return em.createQuery(query).getResultList();
+	}	
 }

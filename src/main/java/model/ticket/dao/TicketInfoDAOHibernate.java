@@ -7,10 +7,13 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.EntityManager;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import javax.servlet.ServletContext;
 
@@ -21,6 +24,7 @@ import org.springframework.stereotype.Repository;
 
 import model.ticket.TicketInfoBean;
 import model.ticket.TicketInfoDAO;
+import model.ticket.TicketOrderInfoBean;
 
 
 @Repository
@@ -126,6 +130,28 @@ public class TicketInfoDAOHibernate implements TicketInfoDAO {
 		List<TicketInfoBean> list = getSession().createQuery(criteria).getResultList();
 		return list;
 	}
+	
+//------------------------------------------------------------------------------------------------------------
+	public List<TicketInfoBean> findByTicketOrderList(List<TicketOrderInfoBean> list){
+		  EntityManager em = sessionFactory.createEntityManager();
+		  CriteriaBuilder criteriaBuilder = this.getSession().getCriteriaBuilder();
+	      CriteriaQuery<TicketInfoBean> criteriaQuery = criteriaBuilder.createQuery(TicketInfoBean.class);
+	      Root<TicketInfoBean> root = criteriaQuery.from(TicketInfoBean.class);
+	      CriteriaQuery<TicketInfoBean> query = criteriaQuery.select(root);
+	      List<Predicate> predicate =  new ArrayList<>();
+	      for (TicketOrderInfoBean TicketOrder:list) {
+	    	  predicate.add(criteriaBuilder.equal(root.get("ticketNo"), TicketOrder.getTicketNo()));
+	      }
+//	      if (!StringUtils.isEmpty(tourNo)) {
+//	    	  predicate.add(criteriaBuilder.between(root.get("tourNo"), tourOrder.getSerialNo()));
+//	      }
+	      Predicate[] p = new Predicate[predicate.size()];
+	      query.where(criteriaBuilder.or(predicate.toArray(p)));
+	      return em.createQuery(query).getResultList();
+	}	
+	
+	
+	
 	@Override
 	public void DLticketInfo() throws IOException {
 		

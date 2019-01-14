@@ -10,6 +10,8 @@ import org.springframework.stereotype.Service;
 
 import model.hotel.HotelOrderDetailsBean;
 import model.hotel.HotelOrderDetailsService;
+import model.ticket.TicketInfoBean;
+import model.ticket.TicketInfoDAO;
 import model.ticket.TicketOrderInfoBean;
 import model.ticket.TicketOrderInfoService;
 import model.tour.GroupTourBean;
@@ -80,7 +82,10 @@ public class UserInfoService {
 	}	
 	//--------------↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ 01_01 Controller↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑-------------	
 	@Autowired
-	private GroupTourDAO GroupTourDAO;
+	private GroupTourDAO groupTourDAO;
+	@Autowired
+	private TicketInfoDAO ticketInfoDAO;
+	
 	public Map<String, List<?>> findByPrimaryKey(String user) {
 		
 		Map<String, List<?>> map = new HashMap<String, List<?>>();
@@ -88,22 +93,32 @@ public class UserInfoService {
 		UserInfoBean result = userInfoDAO.findByPrimaryKey(user);
 															
 		List<TourOrderInfoBean> TourInfo = tourOrderInfoService.foundOrderaccountName(user);
+		List<GroupTourBean> tourList = groupTourDAO.findByTourOrderList(TourInfo);
 		
-		List<TicketOrderInfoBean> TicketOrderInfo = ticketOrderInfoService.foundOrderaccountName(user);
-		
+		List<TicketOrderInfoBean> TicketInfo = ticketOrderInfoService.foundOrderaccountName(user);
+		List<TicketInfoBean> ticketList = ticketInfoDAO.findByTicketOrderList(TicketInfo);
+				
 		List<HotelOrderDetailsBean> HotelInfo = hotelOrderDetailsService.foundOrderaccountName(user);
 		
-		List<GroupTourBean> tourList = GroupTourDAO.findByTourOrderList(TourInfo);
 		
 		if (TourInfo.size()>0) {
 			map.put("TourOrderInfoBean", TourInfo);
 		}
-		if (TicketOrderInfo.size()>0) {
-			map.put("TicketOrderInfoBean", TicketOrderInfo);
+		if(tourList.size()>0) {
+			map.put("tourList", tourList);
+		}
+		if (TicketInfo.size()>0) {
+			map.put("TicketOrderInfoBean", TicketInfo);
+		}
+		if(ticketList.size()>0) {
+			map.put("ticketList", ticketList);
 		}
 		if (HotelInfo.size()>0) {
 			map.put("HotelOrderDetailsBean", HotelInfo);
 		}
+		
+		
+		
 		System.out.println(result);
 		
 		return map;
