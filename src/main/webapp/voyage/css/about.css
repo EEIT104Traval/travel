@@ -25,6 +25,7 @@
 ***********/
 
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800|Oswald:400,500,600,700');
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+TC&subset=chinese-traditional');
 
 /*********************************
 2. Body and some general stuff
@@ -40,7 +41,7 @@
 }
 body
 {
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'Noto Sans TC', sans-serif;
 	font-size: 14px;
 	font-weight: 400;
 	background: #FFFFFF;
@@ -61,7 +62,7 @@ ul
 }
 p
 {
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'Noto Sans TC', sans-serif;
 	font-size: 14px;
 	line-height: 1.9285;
 	font-weight: 400;
@@ -122,7 +123,7 @@ h4{font-size: 24px;}
 h5{font-size: 18px;}
 h1, h2, h3, h4, h5, h6
 {
-	font-family: 'Oswald', sans-serif;
+	font-family: 'Noto Sans TC', sans-serif;
 	font-weight: 400;
 	-webkit-font-smoothing: antialiased;
 	-webkit-text-shadow: rgba(0,0,0,.01) 0 0 1px;
@@ -251,7 +252,7 @@ section
 }
 .section_subtitle
 {
-	font-family: 'Oswald', sans-serif;
+	font-family: 'Noto Sans TC', sans-serif;
 	font-size: 12px;
 	font-weight: 400;
 	color: #72728c;
@@ -281,7 +282,7 @@ section
 .button a
 {
 	display: block;
-	font-family: 'Oswald', sans-serif;
+	font-family: 'Noto Sans TC', sans-serif;
 	font-size: 16px;
 	font-weight: 400;
 	text-transform: uppercase;
@@ -334,7 +335,7 @@ section
 }
 .logo a
 {
-	font-family: 'Oswald', sans-serif;
+	font-family: 'Noto Sans TC', sans-serif;
 	font-size: 30px;
 	font-weight: 500;
 	color: #FFFFFF;
@@ -384,7 +385,7 @@ section
 }
 .main_nav ul li a
 {
-	font-family: 'Oswald', sans-serif;
+	font-family: 'Noto Sans TC', sans-serif;
 	font-size: 16px;
 	font-weight: 400;
 	color: #FFFFFF;
@@ -393,7 +394,7 @@ section
 .header_phone
 {
 	margin-right: 60px;
-	font-family: 'Oswald', sans-serif;
+	font-family: 'Noto Sans TC', sans-serif;
 	font-size: 18px;
 	font-weight: 500;
 	color: #FFFFFF;
@@ -488,7 +489,7 @@ section
 }
 .menu_logo a
 {
-	font-family: 'Oswald', sans-serif;
+	font-family: 'Noto Sans TC', sans-serif;
 	font-size: 30px;
 	font-weight: 500;
 	color: #181818;
@@ -571,7 +572,7 @@ section
 }
 .menu_phone
 {
-	font-family: 'Oswald', sans-serif;
+	font-family: 'Noto Sans TC', sans-serif;
 	font-size: 18px;
 	font-weight: 500;
 	color: rgba(0,0,0,0.5);
@@ -661,7 +662,7 @@ section
 	border-top-left-radius: 10px;
 	border-top-right-radius: 10px;
 	line-height: 55px;
-	font-family: 'Oswald', sans-serif;
+	font-family: 'Noto Sans TC', sans-serif;
 	font-size: 18px;
 	color: #2e2e2e;
 	font-weight: 400;
@@ -683,7 +684,7 @@ section
 	border: none;
 	outline: none;
 	padding-left: 17px;
-	font-family: 'Oswald', sans-serif;
+	font-family: 'Noto Sans TC', sans-serif;
 	font-size: 14px !important;
 	font-weight: 500 !important;
 	color: #72728c !important;
@@ -706,35 +707,35 @@ section
 }
 .search_input::-webkit-input-placeholder
 {
-	font-family: 'Oswald', sans-serif;
+	font-family: 'Noto Sans TC', sans-serif;
 	font-size: 14px !important;
 	font-weight: 400 !important;
 	color: #72728c !important;
 }
 .search_input:-moz-placeholder
 {
-	font-family: 'Oswald', sans-serif;
+	font-family: 'Noto Sans TC', sans-serif;
 	font-size: 14px !important;
 	font-weight: 400 !important;
 	color: #72728c !important;
 }
 .search_input::-moz-placeholder
 {
-	font-family: 'Oswald', sans-serif;
+	font-family: 'Noto Sans TC', sans-serif;
 	font-size: 14px !important;
 	font-weight: 400 !important;
 	color: #72728c !important;
 } 
 .search_input:-ms-input-placeholder
 { 
-	font-family: 'Oswald', sans-serif;
+	font-family: 'Noto Sans TC', sans-serif;
 	font-size: 14px !important;
 	font-weight: 400 !important;
 	color: #72728c !important;
 }
 .search_input::input-placeholder
 {
-	font-family: 'Oswald', sans-serif;
+	font-family: 'Noto Sans TC', sans-serif;
 	font-size: 14px !important;
 	font-weight: 400 !important;
 	color: #72728c !important;
@@ -745,7 +746,7 @@ section
 	height: 52px;
 	background: #181818;
 	color: #FFFFFF;
-	font-family: 'Oswald', sans-serif;
+	font-family: 'Noto Sans TC', sans-serif;
 	font-size: 16px;
 	font-weight: 400;
 	text-transform: uppercase;
@@ -825,7 +826,7 @@ section
 }
 .milestone_counter
 {
-	font-family: 'Oswald', sans-serif;
+	font-family: 'Noto Sans TC', sans-serif;
 	font-size: 60px;
 	font-weight: 500;
 	color: #181818;
@@ -834,7 +835,7 @@ section
 }
 .milestone_text
 {
-	font-family: 'Oswald', sans-serif;
+	font-family: 'Noto Sans TC', sans-serif;
 	font-size: 18px;
 	font-weight: 500;
 	color: #838383;
@@ -883,7 +884,7 @@ section
 }
 .why_title
 {
-	font-family: 'Oswald', sans-serif;
+	font-family: 'Noto Sans TC', sans-serif;
 	font-size: 30px;
 	font-weight: 500;
 	color: #181818;
@@ -954,7 +955,7 @@ section
 }
 .team_title a
 {
-	font-family: 'Oswald', sans-serif;
+	font-family: 'Noto Sans TC', sans-serif;
 	font-size: 24px;
 	font-weight: 400;
 	color: rgba(24,24,24,1);
@@ -986,7 +987,7 @@ section
 }
 .newsletter_title
 {
-	font-family: 'Oswald', sans-serif;
+	font-family: 'Noto Sans TC', sans-serif;
 	font-size: 36px;
 	font-weight: 400;
 	color: #FFFFFF;
@@ -994,7 +995,7 @@ section
 }
 .newsletter_subtitle
 {
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'Noto Sans TC', sans-serif;
 	font-size: 18px;
 	color: #FFFFFF;
 	font-weight: 300;
@@ -1087,7 +1088,7 @@ section
 	height: 50px;
 	border-radius: 20px;
 	background: rgba(255,255,255,0.5);
-	font-family: 'Oswald', sans-serif;
+	font-family: 'Noto Sans TC', sans-serif;
 	font-size: 16px;
 	font-weight: 400;
 	color: #FFFFFF;
@@ -1128,7 +1129,7 @@ section
 }
 .footer_contact_title
 {
-	font-family: 'Oswald', sans-serif;
+	font-family: 'Noto Sans TC', sans-serif;
 	font-size: 24px;
 	color: #FFFFFF;
 	font-weight: 400;
