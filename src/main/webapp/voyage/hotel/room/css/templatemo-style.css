@@ -8,9 +8,12 @@ Highlight color (pink)		: #c66995
 --------------------------------------
 
 */
+
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+TC&subset=chinese-traditional');
+
 body {
-	font-family: 'Open Sans', Helvetica, Arial, sans-serif;
-	font-size: 13px;
+	font-family: 'Noto Sans TC', sans-serif;
+	font-size: 14px;
 	font-weight: 300;
     background: #e6e6e6;
 }
@@ -22,7 +25,18 @@ a:focus {
 	outline: none;
 }
 
+p
+{
+	font-family: 'Noto Sans TC', sans-serif;
+	font-size: 14px;
+}
+
 p:last-child { margin-bottom: 0; }
+
+h1, h2, h3, h4, h5, h6
+{
+	font-family: 'Noto Sans TC', sans-serif;
+}
 
 .tm-page-wrap { 
     max-width: 1400px;

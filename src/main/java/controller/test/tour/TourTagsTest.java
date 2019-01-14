@@ -31,6 +31,12 @@ public class TourTagsTest {
 	    return pk;	  
 	  
 	 } 
+	@RequestMapping("/TourTagsTestfindByT")
+	 public List<TourTagsBean> findByT() {
+		List<TourTagsBean> t = dao.findByTag("沙漠"); 
+	    return t;	  
+	  
+	 } 
 	@RequestMapping("/TourTagsTestfindALL")
 	 public List<TourTagsBean> findALL() {
 		List<TourTagsBean> fa = dao.findAll();

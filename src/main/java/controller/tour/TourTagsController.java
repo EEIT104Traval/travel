@@ -25,9 +25,9 @@ public class TourTagsController {
 	TourTagsService tourTagsService = null;
 	@ResponseBody
 	@RequestMapping("/tourTags")	
-	public List<String> method(TourTagsBean bean, Model model) {
-		
-		List<String> result = tourTagsService.findTags(); 				
+	public Integer method(String tag, Model model) {
+		Integer result = tourTagsService.findByTags(tag); 	
+		System.out.println("AAAAAAAAAAAAAAAAAAAAAAAA"+result);
 		return result;
 	}
 }
