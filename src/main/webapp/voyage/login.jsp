@@ -291,7 +291,16 @@ div#users-contain table td, div#users-contain table th {
                     console.log(success);
                     let Google_ID = success["El"];
                 	alert("登入成功!! Welcome ChuChu");
-                  
+                	$.ajax({
+                		method: "GET",
+                		url:"/Travel/login?loginId="+Google_ID,
+//                			url:"/Travel/tour/display?tourNo=1",
+                		dataType: "json",
+                		success: function(json) {
+                			console.log(json)
+                		}
+                		
+                	});
                 },
                 function (error) {
                  // Error occurred

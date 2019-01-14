@@ -164,7 +164,7 @@ tbody tr:hover {
 
 	<!-- END slider -->
 
-	<jsp:include page="/voyage/foo.jsp" />
+<%-- 	<jsp:include page="/voyage/foo.jsp" /> --%>
 	
 	
 </body>

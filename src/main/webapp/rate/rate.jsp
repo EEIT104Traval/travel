@@ -52,7 +52,7 @@ tbody tr:hover {
 	<div style="margin-top:20px">
 	   <button type="button" style="float:right;margin-right: 350px"><a href="../voyage/index.jsp" />回首頁</a></button>
   	   <button type="button" style="float:right;margin-right: 10px"><a href="toggling1.jsp" />最近半年走勢圖</a></button>
-<!-- 	   <button type="button" style="float:right;margin-right: 10px"><a href="toggling.jsp" />最近三個月走勢圖</a></button> -->
+	   <button type="button" style="float:right;margin-right: 10px"><a href="toggling.jsp" />最近三個月走勢圖</a></button>
 	  
 	</div>
 	<h2 style="margin-left:450px">匯率</h2>

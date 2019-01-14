@@ -7,7 +7,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="./css/main_styles.css">
+<!-- <link rel="stylesheet" href="./css/main_styles.css"> -->
 <link rel="stylesheet" href="./css/rate.css">
 <style type="text/css">
 	body{
@@ -15,7 +15,7 @@
 	}
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<title>Flot Examples: Toggling Series</title>
+	<title>Toggling3</title>
 	<link href="./css/examples.css" rel="stylesheet" type="text/css">
 	<script language="javascript" type="text/javascript" src="./js/jquery.js"></script>
 	<script language="javascript" type="text/javascript" src="./js/jquery.flot.js"></script>
@@ -145,11 +145,11 @@
 	</section>
 
 	<div id="header">
-		<h2>匯率</h2>
+		<h2 style="color:white;margin-bottom: 20px">最近半年走勢圖</h2>
 	</div>
-	   <button type="button" style="float:right;margin-right: 150px"><a href="rateindex2.jsp" />回上一頁</a></button>
-<!-- 	   <button type="button" style="float:right;margin-right: 10px"><a href="toggling1.jsp" />最近半年走勢圖</a></button> -->
-<!-- 	   <button type="button" style="float:right;margin-right: 10px"><a href="toggling.jsp" />最近三個月走勢圖</a></button> -->
+	   <button type="button" style="float:right;margin-right: 10px;margin-bottom: 20px;"><a href="rateindex2.jsp" />回上一頁</a></button>
+<!-- 	   <button type="button" style="float:right;margin-right: 10px;margin-bottom: 20px;"><a href="toggling1.jsp" />最近半年走勢圖</a></button> -->
+	   <button type="button" style="float:right;margin-right: 10px;margin-bottom: 20px;"><a href="toggling.jsp" />最近三個月走勢圖</a></button>
 
 	
 	<div id="content">

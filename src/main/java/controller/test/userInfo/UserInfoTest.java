@@ -55,7 +55,8 @@ public class UserInfoTest {
  }
  
  @ResponseBody
- @RequestMapping("/userInfoupdate")
+// @RequestMapping("/userInfoupdate")
+ @RequestMapping("/Travel/login")
  public UserInfoBean update() {
 	 UserInfoBean update = dao.update(null,"moon","star","A112233445","reese@lab.com",new java.util.Date(),"F","0912456456","台北市南港"
 			                           ,"Y001","Y01","Y02","Kitty2");		  
