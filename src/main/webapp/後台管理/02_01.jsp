@@ -1,39 +1,90 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"
+	integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+	crossorigin="anonymous"></script>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="css/main.css" rel="stylesheet" type="text/css" />
+<jsp:include page="bindex.jsp" />
 <title>後台管理者介面</title>
+<script>
+var month
+var params = {}
+	$(document).ready(function() {
+			$('#select1').change(function() {
+
+			params.month =  $('#select1').val()
+			$("#searchuser").html("")
+
+ 			$.ajax({
+ 					url : '/Travel/bindex02_01/User.controller',
+ 					contentType : 'application/json; charset=UTF-8',
+ 					type : 'get',
+ 					dataType : 'json',
+ 					data:params,
+ 				   }).done(function(JData) {  
+ 					  $("#searchuser").append(
+ 								'<div style="text-align: center;"><h2>'+Number($('#select1').val()) +'月份報表</h2></div>'+
+ 								'<br>'+
+ 								'<table ><th style="width:50px">國家</th><th style="width:350px">名稱</th>'+
+ 								'<th style="width:50px">數量</th><th style="width:200px">購買日期</th><th style="width:100px">價格</th></table>'+
+ 								'<br>'		 );
+// 					  console.log(JData)
+// 					  console.log(JData.length);
+						if(JData.length != 0 || JData.length == null){
+							$.each(JData, function(index, value) {
+							
+  							for(var i = 0;i<JData.length;i++){
+	 							$("#searchuser").append(		
+	 		 							'<table ><th style="width:50px">'+ value.serialNo +'</th>'+
+	 		 									'<th style="width:350px">'+ value.serialNo +'</th>'+
+	 		 							        '<th style="width:50px">'+ value.quantity +'</th>'+
+	 		 							        '<th style="width:200px">'+ value.orderTime +'</th>'+
+	 		 							        '<th style="width:100px">'+ value.total +'</th></table>'								
+	 													)
+	 														 }
+								                       })}
+						 $("#searchuser").append('<table><th style="width:50px">合計</th><th style="width:727px">value.total</th></table>')
+											})
+								})
+					});
+</script>
 </head>
 <body>
-	<jsp:include page="bindex.jsp" />
 	<div class="boxmsg">
+	        <br>
+            <br>
 <!--  --> 　　　　　　　　　　　　　　　　　　　　　　　　　　　月份報表查詢　　　　　　　　　　　　　　　　　　　　　　　
             <br>
             <br>
             <br>
 <!--  --><label class="title">查詢月份</label>
-		<select name="option">
+		<select id="select1">
 	    	<option value="zero"></option>
-			<option value="january">JAN</option>
-			<option value="february">FEB</option>
-			<option value="march">MAR</option>
-			<option value="april">APR</option>
-			<option value="may">MAY</option>
-			<option value="june">JUN</option>
-			<option value="july">JUL</option>
-			<option value="august">AUG</option>
-			<option value="september">SEP</option>
-			<option value="october">OCT</option>
-			<option value="november">NOV</option>
-			<option value="december">DEC</option>　　　
+			<option value="1">JAN</option>
+			<option value="2">FEB</option>
+			<option value="3">MAR</option>
+			<option value="4">APR</option>
+			<option value="5">MAY</option>
+			<option value="6">JUN</option>
+			<option value="7">JUL</option>
+			<option value="8">AUG</option>
+			<option value="9">SEP</option>
+			<option value="10">OCT</option>
+			<option value="11">NOV</option>
+			<option value="12">DEC</option>　　　
           </select>
 <!--  -->	 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<a href="a.pdf"><img src="images/pdf_icon.gif">PDF下載</a>　　　　  
 	</div>
-	<div class="boxmsg1">
+	<div class="boxmsg" id="searchuser">
+<!-- 	----------------------加東西--------------------- -->
 	 <label class="title">查詢結果</label>
+		
 	</div>
 </body>
 </html>

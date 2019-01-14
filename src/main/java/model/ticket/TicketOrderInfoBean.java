@@ -8,6 +8,13 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="TicketOrderInfo")
+//@NamedQueries(
+//	value{
+//		@NamedQuery(name="model.TicketOrderInfoBean.accountName",
+//					query = "from model.TicketOrderInfoBean where accountName = :accountName")
+//					
+//		}
+//		)
 public class TicketOrderInfoBean {
 
 //	@ManyToOne
@@ -44,6 +51,7 @@ public class TicketOrderInfoBean {
 	private String recevingAddress;
 	private String recevingPhone;
 	private Integer totalPrice;
+	
 	public Integer getTicketOrderNO() {
 		return ticketOrderNO;
 	}
@@ -118,7 +126,4 @@ public class TicketOrderInfoBean {
 				+ ", recevingAddress=" + recevingAddress + ", recevingPhone=" + recevingPhone + ", totalPrice="
 				+ totalPrice + "]";
 	}
-	
-
-
 }

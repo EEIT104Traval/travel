@@ -33,123 +33,305 @@
 <body>
 	<script type="text/javascript">
 var result = ${result}
+var test = ${test}
+console.log(result)
+// console.log(test)
+// console.log(result.OTA_AirLowFareSearchRS)
 // console.log(result.OTA_AirLowFareSearchRS.PricedItineraries.PricedItinerary[0].AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].DepartureDateTime)
-console.log(result.OTA_AirLowFareSearchRS.PricedItineraries.PricedItinerary+"測試亂碼專用")
-console.log('${flightCompany.CX}')
+// console.log(result.OTA_AirLowFareSearchRS.PricedItineraries.PricedItinerary+"測試亂碼專用")
+// console.log('${flightCompany.CX}')
+week = new Array("日","一","二","三","四","五","六");
+serialNum = 0;
+
+console.log(result.OTA_AirLowFareSearchRS.PricedItineraries.PricedItinerary[0].SequenceNumber)
 $(document).ready(function() {
 $.each(result.OTA_AirLowFareSearchRS.PricedItineraries.PricedItinerary, function(index, value) {
+	serialNum = serialNum+1;
+	console.log(value.SequenceNumber)
+	var DepartureDateTime = value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].DepartureDateTime
+	var Ddate = DepartureDateTime.substr(0,10);
+	var DsetTime = new Date(Ddate);
+	var Ddateweek = week[DsetTime.getDay()];
+	var Dtime = DepartureDateTime.substring(11,16);
+	var ArrivalDateTime = value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].ArrivalDateTime
+	var Adate = ArrivalDateTime.substr(0,10);
+	var AsetTime = new Date(Adate);
+	var Adateweek = week[AsetTime.getDay()];
+	var Atime = ArrivalDateTime.substring(11,16);
+	var totalgotime = value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].ElapsedTime;
+	var totalbacktime = value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].ElapsedTime;
+	
+	var gotimehour = Math.floor(totalgotime/60);
+	var gotimemin = totalgotime%60;
+	var backtimehour = Math.floor(totalbacktime/60);
+	var backtimemin = totalbacktime%60;
+	
+	
+// 	if(serialNum==1){
+// 		$('#gofirst').append(
+// 				'<div class="romde_box act">')
+// 	}else{
+// 		$('#gofirst').append(
+// 		'<div class="romde_box">')
+// 	}
+	
 	$('#gofirst').append(
 			
-			" <div class='col-xs-10 text-center fly-leftbox'>"
-            +" <div class='col-xs-3 fl-namebox text-center'>"
-              +" <div class='fl-name'>"+'${flightCompany.CX}'+"</div>"
-              +" <div class='+fl-num'>"+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].OperatingAirline.Code+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].OperatingAirline.FlightNumber+"</div>"
+			'<div class="romde_box act">'
+	         +'<div class="border" id="redborder'+value.SequenceNumber+'">' 
+	              <!--第1段-->
+	              +'<div class="num-tag">'+serialNum+'</div>'
+					+'<div class="flybox row" >'
+				  	  +"<div class='col-xs-10 text-center fly-leftbox'>"
+                        +"<div class='col-xs-3 fl-namebox text-center'>"
+              			  +"<div class='fl-name'>"+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].OperatingAirline.Company+"</div>"
+                          +"<div class='+fl-num'>"+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].OperatingAirline.Code+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].OperatingAirline.FlightNumber+"</div>"
             +"</div>"
+            + "<div class='col-xs-3 fl-timebox text-right'>"
+            +'<div class="fl-time">'+Ddate+"("+Ddateweek+")"+'</div>'
+            +'<div class="fl-place">'+Dtime+'<span>'+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].DepartureAirport.LocationCode+'</span></div>'
+          +'</div>'
+         +'<div class=" col-xs-3 fl-durationbox text-center">'
+         +'<div class="fl-dutime"> <span>'+gotimehour+'</span>小時<span>'+gotimemin+'</span>分 </div>'
+         +'<div class="t-line" ></div>'
+         +'<div class="fl-flyname" style="color:green" id="fl-flyname'+value.SequenceNumber+'">直飛</div>'
+         +' </div>'
+         +'<div class="col-xs-3 fl-timebox text-left">'
+         +'<div class="fl-time" id="fl-time'+value.SequenceNumber+'">'+Adate+'('+Adateweek+')</div>'
+         +'<div class="fl-place" id="fl-place'+value.SequenceNumber+'">'+Atime+'<span>'+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].ArrivalAirport.LocationCode+'</span></div>'
+         +' </div>'
+         +' </div>'
+         +' <div class="col-xs-2 fly-info">'
+         +' <div class="fltool">'
+         +' <li class="icon_fl1">'+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].Equipment[0].AirEquipType+'</li>'
+         +' <li class="icon_fl2">'+'經濟艙 V'+'</li>'
+         +' <li class="icon_fl3">'+'30kg/人'+'</li>'
+//          +'</div>'
+         +'</div>'
+         +'</div>'
+	
+	)
+		var s = value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment
+// 	console.log(s.length)
+	if (s.length==2){
+		var ArrivalDateTime = value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[1].ArrivalDateTime
+		var Adate = ArrivalDateTime.substr(0,10);
+		var AsetTime = new Date(Adate);
+		
+		var Adateweek = week[AsetTime.getDay()];
+		var Atime = ArrivalDateTime.substring(11,16);
+	$('#fl-flyname'+value.SequenceNumber).html(
+			'<div class="fl-flyname" id="fl-flyname'+value.SequenceNumber+'">轉機一次1</div>'
+			)
+		$('#fl-time'+value.SequenceNumber).html(
+				'<div class="fl-time" id="fl-time'+value.SequenceNumber+'">'+Adate+"("+Adateweek+")"+'</div>'
+				)
+		$('#fl-place'+value.SequenceNumber).html(
+		        '<div class="fl-place" id="fl-place'+value.SequenceNumber+'">'+Atime+'<span>'+'BoK'+'</span></div>'
+		
+		)
+		
+	}else if(s.length==3){
+		$('#fl-flyname'+value.SequenceNumber).html(
+		'<div class="fl-flyname" id="fl-flyname'+value.SequenceNumber+'">轉機兩次</div>'
+	)}
+	var DepartureDateTime2 = value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[0].DepartureDateTime
+	var ArrivalDateTime2 = value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[0].ArrivalDateTime
+	var Ddate2 = DepartureDateTime2.substr(0,10)
+	var DsetTime2 = new Date(Ddate2);
+	var Ddateweek2 = week[DsetTime2.getDay()]
+	var Dtime2 = DepartureDateTime2.substring(11,16);
+	var Adate2 = ArrivalDateTime2.substr(0,10)
+	var AsetTime2 = new Date(Adate2);
+	var Adateweek2 = week[AsetTime2.getDay()]
+	var Atime2 = ArrivalDateTime2.substring(11,16);
+	$('#redborder'+value.SequenceNumber).append(
+			'<div class="flybox row border-top">'
+			+" <div class='col-xs-10 text-center fly-leftbox'>"
+		    +" <div class='col-xs-3 fl-namebox text-center'>"
+// 		    +'<img alt="" width="20px" src="<c:url value='/resource/flight/airlines_logo 56_50/0B.gif'/>"'
+		      +'<div class="fl-name">'+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[0].OperatingAirline.Company+'</div>'
+		      +" <div class='+fl-num'>"+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[0].OperatingAirline.Code+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[0].OperatingAirline.FlightNumber+"</div>"
+		    +"</div>"
+		    + "<div class='col-xs-3 fl-timebox text-right'>"
+		    +'<div class="fl-time">'+Ddate2+"("+Ddateweek2+")"+'</div>'
+		    +'<div class="fl-place">'+Dtime2+'<span>'+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[0].DepartureAirport.LocationCode+'</span></div>'
+		  +'</div>'
+		 +'<div class=" col-xs-3 fl-durationbox text-center">'
+		 +'<div class="fl-dutime"> <span>'+backtimehour+'</span>小時<span>'+backtimemin+'</span>分 </div>'
+		 +'<div class="t-line" ></div>'
+		 +'<div class="fl-flyname" style="color:green" id="fl-flyname1'+value.SequenceNumber+'">直飛</div>'
+		 +' </div>'
+		 +'<div class=" col-xs-3 fl-timebox text-left">'
+		 +'<div class="fl-time" id="fl-timeoo'+value.SequenceNumber+'">'+Adate2+"("+Adateweek2+")"+'</div>'
+		 +'<div class="fl-place" id="fl-placeoo'+value.SequenceNumber+'">'+Atime2+'<span>'+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[0].ArrivalAirport.LocationCode+'</span></div>'
+		 +' </div>'
+		 +' </div>'
+		 +' <div class="col-xs-2 fly-info">'
+		 +' <div class="fltool">'
+		 +' <li class="icon_fl1">'+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].Equipment[0].AirEquipType+'</li>'
+		 +' <li class="icon_fl2">'+'經濟艙 V'+'</li>'
+		 +' <li class="icon_fl3">'+'30kg/人'+'</li>'
+		 +'</div>'
+		 +'</div>'
+		 +'</div>'
+		 +'</div>'
+		 
+	
+	)
+		var back2 = value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment
+		if (back2.length==2){
+			var ArrivalDateTime2 = value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[1].ArrivalDateTime
+			var Adate2 = ArrivalDateTime2.substr(0,10);
+			var AsetTime2 = new Date(Adate2);
+			var Adateweek2 = week[AsetTime2.getDay()];
+			
+			var Atime2 = ArrivalDateTime2.substring(11,16);
+			$('#fl-flynameoo'+value.SequenceNumber).html(
+					'<div class="fl-flyname" id="fl-flynameoo'+value.SequenceNumber+'">轉機一次</div>')
+			
+			$('#fl-timeoo'+value.SequenceNumber).html(
+				'<div class="fl-time" id="fl-timeoo'+value.SequenceNumber+'">'+Adate2+"("+Adateweek2+")"+'</div>')
+			$('#fl-placeoo'+value.SequenceNumber).html(
+		        '<div class="fl-place" id="fl-placeoo'+value.SequenceNumber+'">'+Atime2+'<span>'+'FucK'+'</span></div>')
+		
+		}else if(s.length==3){
+			
+			
+			
+			
+				
+				$('#fl-flyname1'+value.SequenceNumber).html(
+				'<div class="fl-flyname" id="fl-flyname1'+value.SequenceNumber+'">轉機兩次</div>'
+			)}
+	
+	$('#redborder'+value.SequenceNumber).append(
+	 '<div class="row">'
+     +'<div class="tickbox ">'
+     +'<div class="col-xs-6  btn-tickbox">'
+     +'<div class="btn-tick-pr btn" data-toggle="modal" data-target="#pop_fdetail"> 票價規則 </div>'
+     +'<div class="btn-tick-ba btn" data-toggle="modal" data-target="#pop_fdetail"> 行李說明 </div>'
+     +'</div>'
+     +'<div class="col-xs-6 fpric text-right"> <span class="list_pricet">'
+     +'<div class="price">NT$<span class="fontb">'+value.AirItineraryPricingInfo[0].ItinTotalFare.TotalFare.Amount+'</span></div>'
+     +'<div class="price_de">每成人含稅</div>'
+     +'</span> <span class="check">'
+     +'<button type="button" class="btn btn_check" onClick="javascript:location.href="step2.html"">訂 位</button>'
+     +'</span> </div>'
+     +'</div>'
+     +'</div>'
+	)
+			
+	$('#gofirst').append(
+		'</div>'
+		+'</div>'
+		+'</div>'
 	
 	)
 	
 	
 	
-})
-})
-
-
-
-<!--
-$(document).ready(function() {
-$.each(result.OTA_AirLowFareSearchRS.PricedItineraries.PricedItinerary, function(index, value) {
-	$('#div_apend').append(
-		"<div>1去程第1段DepartureDateTime="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].DepartureDateTime+"</div>"		
-		+"<div>2去程第1段ArrivalDateTime="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].ArrivalDateTime+"</div>"
-		+"<div>3去程第1段ElapsedTime="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].ElapsedTime+"</div>"
-		+"<div>4去程第1段ResBookDesigCode="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].ResBookDesigCode+"</div>"
-		+"<div>5去程第1段DLocationCode="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].DepartureAirport.LocationCode+"</div>"
-		+"<div>6去程第1段ALocationCode="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].ArrivalAirport.LocationCode+"</div>"
-		+"<div>7去程第1段Code="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].OperatingAirline.Code+"</div>"
-		+"<div>8去程第1段FlightNumber="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].OperatingAirline.FlightNumber+"</div>"
-		+"<div>9去程第1段Equipment="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].Equipment[0].AirEquipType+"</div>"
-		+"<div>10去程第1段Amount="+value.AirItineraryPricingInfo[0].ItinTotalFare.BaseFare.Amount+"</div>"
-		+"<div>11去程第1段TAXAmount="+value.AirItineraryPricingInfo[0].ItinTotalFare.Taxes.Tax[0].Amount+"</div>"
-		+"<div>12去程第1段TotalAmount="+value.AirItineraryPricingInfo[0].ItinTotalFare.TotalFare.Amount+"</div>"
-		+ "===========================================================================================<br/>")
 	
-	var s = value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment
-	console.log(s.length)
-	if (s.length==2){
-// 	var len = s.length()
-	$('#div_apend').append(
-	 		"<div>1去程第2段DepartureDateTime="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[1].DepartureDateTime+"</div>"		
-	 		+"<div>2去程第2段ArrivalDateTime="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[1].ArrivalDateTime+"</div>"
-	 		+"<div>3去程第2段ResBookDesigCode="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[1].ResBookDesigCode+"</div>"
-	 		+"<div>4去程第2段DLocationCode="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[1].DepartureAirport.LocationCode+"</div>"
-	 		+"<div>5去程第2段ALocationCode="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[1].ArrivalAirport.LocationCode+"</div>"
-	 		+"<div>6去程第2段Code="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[1].OperatingAirline.Code+"</div>"
-	 		+"<div>7去程第2段FlightNumber="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[1].OperatingAirline.FlightNumber+"</div>"
-	 		+"<div>8去程第2段Equipment="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[1].Equipment[0].AirEquipType+"</div>"
-	 		+"===========================================================================================<br/>"
-	)}
-		if (s.length==3){
-	//	 	var len = s.length()
-			$('#div_apend').append(
-			 		"<div>1去程第3part段DepartureDateTime="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[2].DepartureDateTime+"</div>"		
-			 		+"<div>2去程第3part段ArrivalDateTime="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[2].ArrivalDateTime+"</div>"
-			 		+"<div>3去程第3part段ResBookDesigCode="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[2].ResBookDesigCode+"</div>"
-			 		+"<div>4去程第3part段DLocationCode="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[2].DepartureAirport.LocationCode+"</div>"
-			 		+"<div>5去程第3part段ALocationCode="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[2].ArrivalAirport.LocationCode+"</div>"
-			 		+"<div>6去程第3part段Code="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[2].OperatingAirline.Code+"</div>"
-			 		+"<div>7去程第3part段FlightNumber="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[2].OperatingAirline.FlightNumber+"</div>"
-			 		+"<div>8去程第3part段Equipment="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[2].Equipment[0].AirEquipType+"</div>"
-			 		+"===========================================================================================<br/>"
-			)}
+})
+})
+
+
+
+
+// $(document).ready(function() {
+// $.each(result.OTA_AirLowFareSearchRS.PricedItineraries.PricedItinerary, function(index, value) {
+// 	$('#div_apend').append(
+// 		"<div>1去程第1段DepartureDateTime="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].DepartureDateTime+"</div>"		
+// 		+"<div>2去程第1段ArrivalDateTime="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].ArrivalDateTime+"</div>"
+// 		+"<div>3去程第1段ElapsedTime="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].ElapsedTime+"</div>"
+// 		+"<div>4去程第1段ResBookDesigCode="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].ResBookDesigCode+"</div>"
+// 		+"<div>5去程第1段DLocationCode="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].DepartureAirport.LocationCode+"</div>"
+// 		+"<div>6去程第1段ALocationCode="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].ArrivalAirport.LocationCode+"</div>"
+// 		+"<div>7去程第1段Code="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].OperatingAirline.Code+"</div>"
+// 		+"<div>8去程第1段FlightNumber="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].OperatingAirline.FlightNumber+"</div>"
+// 		+"<div>9去程第1段Equipment="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].Equipment[0].AirEquipType+"</div>"
+// 		+"<div>10去程第1段Amount="+value.AirItineraryPricingInfo[0].ItinTotalFare.BaseFare.Amount+"</div>"
+// 		+"<div>11去程第1段TAXAmount="+value.AirItineraryPricingInfo[0].ItinTotalFare.Taxes.Tax[0].Amount+"</div>"
+// 		+"<div>12去程第1段TotalAmount="+value.AirItineraryPricingInfo[0].ItinTotalFare.TotalFare.Amount+"</div>"
+// 		+ "===========================================================================================<br/>")
+	
+// 	var s = value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment
+// 	console.log(s.length)
+// 	if (s.length==2){
+// // 	var len = s.length()
+// 	$('#div_apend').append(
+// 	 		"<div>1去程第2段DepartureDateTime="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[1].DepartureDateTime+"</div>"		
+// 	 		+"<div>2去程第2段ArrivalDateTime="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[1].ArrivalDateTime+"</div>"
+// 	 		+"<div>3去程第2段ResBookDesigCode="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[1].ResBookDesigCode+"</div>"
+// 	 		+"<div>4去程第2段DLocationCode="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[1].DepartureAirport.LocationCode+"</div>"
+// 	 		+"<div>5去程第2段ALocationCode="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[1].ArrivalAirport.LocationCode+"</div>"
+// 	 		+"<div>6去程第2段Code="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[1].OperatingAirline.Code+"</div>"
+// 	 		+"<div>7去程第2段FlightNumber="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[1].OperatingAirline.FlightNumber+"</div>"
+// 	 		+"<div>8去程第2段Equipment="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[1].Equipment[0].AirEquipType+"</div>"
+// 	 		+"===========================================================================================<br/>"
+// 	)}
+// 		if (s.length==3){
+// 	//	 	var len = s.length()
+// 			$('#div_apend').append(
+// 			 		"<div>1去程第3part段DepartureDateTime="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[2].DepartureDateTime+"</div>"		
+// 			 		+"<div>2去程第3part段ArrivalDateTime="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[2].ArrivalDateTime+"</div>"
+// 			 		+"<div>3去程第3part段ResBookDesigCode="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[2].ResBookDesigCode+"</div>"
+// 			 		+"<div>4去程第3part段DLocationCode="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[2].DepartureAirport.LocationCode+"</div>"
+// 			 		+"<div>5去程第3part段ALocationCode="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[2].ArrivalAirport.LocationCode+"</div>"
+// 			 		+"<div>6去程第3part段Code="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[2].OperatingAirline.Code+"</div>"
+// 			 		+"<div>7去程第3part段FlightNumber="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[2].OperatingAirline.FlightNumber+"</div>"
+// 			 		+"<div>8去程第3part段Equipment="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[2].Equipment[0].AirEquipType+"</div>"
+// 			 		+"===========================================================================================<br/>"
+// 			)}
 			
-			$('#div_apend').append(
-					"<div>1回程第1段DepartureDateTime="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[0].DepartureDateTime+"</div>"		
-					+"<div>2回程第1段ArrivalDateTime="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[0].ArrivalDateTime+"</div>"
-					+"<div>3回程第1段ElapsedTime="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].ElapsedTime+"</div>"
-					+"<div>4回程第1段ResBookDesigCode="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[0].ResBookDesigCode+"</div>"
-					+"<div>5回程第1段DLocationCode="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[0].DepartureAirport.LocationCode+"</div>"
-					+"<div>6回程第1段ALocationCode="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[0].ArrivalAirport.LocationCode+"</div>"
-					+"<div>7回程第1段Code="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[0].OperatingAirline.Code+"</div>"
-					+"<div>8回程第1段FlightNumber="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[0].OperatingAirline.FlightNumber+"</div>"
-					+"<div>9回程第1段Equipment="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[0].Equipment[0].AirEquipType+"</div>"
-					+"===========================================================================================<br/>"	
-				)
-		var back2 = value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment
-		if (back2.length==2){
-//		 	var len = s.length()
-			$('#div_apend').append(
+// 			$('#div_apend').append(
+// 					"<div>1回程第1段DepartureDateTime="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[0].DepartureDateTime+"</div>"		
+// 					+"<div>2回程第1段ArrivalDateTime="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[0].ArrivalDateTime+"</div>"
+// 					+"<div>3回程第1段ElapsedTime="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].ElapsedTime+"</div>"
+// 					+"<div>4回程第1段ResBookDesigCode="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[0].ResBookDesigCode+"</div>"
+// 					+"<div>5回程第1段DLocationCode="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[0].DepartureAirport.LocationCode+"</div>"
+// 					+"<div>6回程第1段ALocationCode="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[0].ArrivalAirport.LocationCode+"</div>"
+// 					+"<div>7回程第1段Code="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[0].OperatingAirline.Code+"</div>"
+// 					+"<div>8回程第1段FlightNumber="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[0].OperatingAirline.FlightNumber+"</div>"
+// 					+"<div>9回程第1段Equipment="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[0].Equipment[0].AirEquipType+"</div>"
+// 					+"===========================================================================================<br/>"	
+// 				)
+// 		var back2 = value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment
+// 		if (back2.length==2){
+// //		 	var len = s.length()
+// 			$('#div_apend').append(
 					
-			 		"<div>1回程第2段DepartureDateTime="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[1].DepartureDateTime+"</div>"		
-			 		+"<div>2回程第2段ArrivalDateTime="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[1].ArrivalDateTime+"</div>"
-			 		+"<div>3回程第2段ResBookDesigCode="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[1].ResBookDesigCode+"</div>"
-			 		+"<div>4回程第2段DLocationCode="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[1].DepartureAirport.LocationCode+"</div>"
-			 		+"<div>5回程第2段ALocationCode="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[1].ArrivalAirport.LocationCode+"</div>"
-			 		+"<div>6回程第2段Code="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[1].OperatingAirline.Code+"</div>"
-			 		+"<div>7回程第2段FlightNumber="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[1].OperatingAirline.FlightNumber+"</div>"
-			 		+"<div>8回程第2段Equipment="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[1].Equipment[0].AirEquipType+"</div>"
-			 		+"===========================================================================================<br/>"
-			)}
-			if (back2.length==3){
-				//	 	var len = s.length()
-						$('#div_apend').append(
-						 		"<div>1回程第3part段DepartureDateTime="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[2].DepartureDateTime+"</div>"		
-						 		+"<div>2回程第3part段ArrivalDateTime="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[2].ArrivalDateTime+"</div>"
-						 		+"<div>3回程第3part段ResBookDesigCode="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[2].ResBookDesigCode+"</div>"
-						 		+"<div>4回程第3part段DLocationCode="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[2].DepartureAirport.LocationCode+"</div>"
-						 		+"<div>5回程第3part段ALocationCode="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[2].ArrivalAirport.LocationCode+"</div>"
-						 		+"<div>6回程第3part段Code="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[2].OperatingAirline.Code+"</div>"
-						 		+"<div>7回程第3part段FlightNumber="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[2].OperatingAirline.FlightNumber+"</div>"
-						 		+"<div>8回程第3part段Equipment="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[2].Equipment[0].AirEquipType+"</div>"
-						 		+"===========================================================================================<br/>"
-						)}
+// 			 		"<div>1回程第2段DepartureDateTime="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[1].DepartureDateTime+"</div>"		
+// 			 		+"<div>2回程第2段ArrivalDateTime="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[1].ArrivalDateTime+"</div>"
+// 			 		+"<div>3回程第2段ResBookDesigCode="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[1].ResBookDesigCode+"</div>"
+// 			 		+"<div>4回程第2段DLocationCode="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[1].DepartureAirport.LocationCode+"</div>"
+// 			 		+"<div>5回程第2段ALocationCode="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[1].ArrivalAirport.LocationCode+"</div>"
+// 			 		+"<div>6回程第2段Code="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[1].OperatingAirline.Code+"</div>"
+// 			 		+"<div>7回程第2段FlightNumber="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[1].OperatingAirline.FlightNumber+"</div>"
+// 			 		+"<div>8回程第2段Equipment="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[1].Equipment[0].AirEquipType+"</div>"
+// 			 		+"===========================================================================================<br/>"
+// 			)}
+// 			if (back2.length==3){
+// 				//	 	var len = s.length()
+// 						$('#div_apend').append(
+// 						 		"<div>1回程第3part段DepartureDateTime="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[2].DepartureDateTime+"</div>"		
+// 						 		+"<div>2回程第3part段ArrivalDateTime="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[2].ArrivalDateTime+"</div>"
+// 						 		+"<div>3回程第3part段ResBookDesigCode="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[2].ResBookDesigCode+"</div>"
+// 						 		+"<div>4回程第3part段DLocationCode="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[2].DepartureAirport.LocationCode+"</div>"
+// 						 		+"<div>5回程第3part段ALocationCode="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[2].ArrivalAirport.LocationCode+"</div>"
+// 						 		+"<div>6回程第3part段Code="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[2].OperatingAirline.Code+"</div>"
+// 						 		+"<div>7回程第3part段FlightNumber="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[2].OperatingAirline.FlightNumber+"</div>"
+// 						 		+"<div>8回程第3part段Equipment="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[2].Equipment[0].AirEquipType+"</div>"
+// 						 		+"===========================================================================================<br/>"
+// 						)}
 	
-});
-});
--->
+// });
+// });
+
  </script>
 
 	<!--  <h1>Hello</h1> -->
-	<div id='div_apend'></div>
+<!-- 	<div id='div_apend'></div> -->
 <!--內容-->
 
 <div class="container"> 
@@ -170,7 +352,32 @@ $.each(result.OTA_AirLowFareSearchRS.PricedItineraries.PricedItinerary, function
               <h4 class="modal-title" id="pop_protickLabel">航班篩選</h4>
             </div>
             <ul class="filters">
-              
+               <li>
+                <h4  >轉機次數 </h4>
+                <ul class="are_nav airpn">
+                  <li>
+                    <div class="cdst">
+                      <input type="checkbox" id="zj-checkbox-s1">
+                      <label for="zj-checkbox-s1"></label>
+                    </div>
+                    <p > <span>直飛 </span><span class="price">$<b>31,256</b></span></p>
+                  </li>
+                  <li>
+                    <div class="cdst">
+                      <input type="checkbox" id="zj-checkbox-s2">
+                      <label for="zj-checkbox-s2"></label>
+                    </div>
+                    <p><span>轉機1次</span><span class="price">$<b>34,825</b></span></p>
+                  </li>
+                  <li>
+                    <div class="cdst">
+                      <input type="checkbox" id="zj-checkbox-s3">
+                      <label for="zj-checkbox-s3"></label>
+                    </div>
+                    <p><span>轉機兩次 </span><span class="price">$<b>35,054</b></span></p>
+                  </li>
+                </ul>
+              </li>
               <!--航空公司-->
               
               <li>
@@ -242,863 +449,863 @@ $.each(result.OTA_AirLowFareSearchRS.PricedItineraries.PricedItinerary, function
       
       <div class="main_right">
 <!--         <h3 class="title">可選航班共<span>10</span>組 </h3> -->
-        <div class=" flylist"> 
+        <div class=" flylist"id="gofirst"> 
           
-          <!--航班n,第一個最便宜多一個act 標籤名稱，其它的沒有-->
-          <div class="romde_box act">
-            <div class="border"> 
-              <!--第1段-->
-              <div class="num-tag">1</div>
-              <div class="flybox row" id="gofirst">
-                <div class="col-xs-10 text-center fly-leftbox">
-                  <div class="col-xs-3 fl-namebox text-center">
-                    <div class="fl-name">${flightCompany.CX}</div>
-                    <div class="fl-num">OS100</div>
-                  </div>
-                  <div class="col-xs-3 fl-timebox text-right">
-                    <div class="fl-time">2019/10/10(四)</div>
-                    <div class="fl-place">22:05<span>TPE</span></div>
-                  </div>
-                  <div class=" col-xs-3 fl-durationbox text-center">
-                    <div class="fl-dutime"> <span>0 </span>小時 <span>55 </span>分 </div>
-                    <div class="t-line" ></div>
-                    <div class="fl-flyname">實際飛行荷蘭航空</div>
-                  </div>
-                  <div class=" col-xs-3 fl-timebox text-left">
-                    <div class="fl-time">2019/10/10(四)</div>
-                    <div class="fl-place">22:00<span>BKK</span></div>
-                  </div>
-                </div>
-                <div class="col-xs-2 fly-info">
-                  <div class="fltool">
-                    <li class="icon_fl1">空中巴士330</li>
-                    <li class="icon_fl2">經濟艙 V</li>
-                    <li class="icon_fl3">30kg/人</li>
-                  </div>
-                </div>
-              </div>
-              <div class="flybox row">
-                <div class="col-xs-10 text-center fly-leftbox">
-                  <div class="col-xs-3 fl-namebox text-center">
-                    <div class="fl-name">奧地利航空</div>
-                    <div class="fl-num">OS100</div>
-                  </div>
-                  <div class="col-xs-3 fl-timebox text-right">
-                    <div class="fl-time">2019/10/10(四)</div>
-                    <div class="fl-place">22:05<span>BKK</span></div>
-                  </div>
-                  <div class=" col-xs-3 fl-durationbox text-center">
-                    <div class="fl-dutime"> <span>1 </span>小時 <span>55 </span>分 </div>
-                    <div class="t-line" ></div>
-                    <div class="fl-flyname"></div>
-                  </div>
-                  <div class=" col-xs-3 fl-timebox text-left">
-                    <div class="fl-time">2019/10/11(五)</div>
-                    <div class="fl-place">00:35<span>VIE</span></div>
-                  </div>
-                </div>
-                <div class="col-xs-2 fly-info">
-                  <div class="fltool">
-                    <li class="icon_fl1">空中巴士330</li>
-                    <li class="icon_fl2">經濟艙 V</li>
-                    <li class="icon_fl3">30kg/人</li>
-                  </div>
-                </div>
-              </div>
+<!--           航班n,第一個最便宜多一個act 標籤名稱，其它的沒有 -->
+<!--           <div class="romde_box act"> -->
+<!--             <div class="border">  -->
+<!--               第1段 -->
+<!--               <div class="num-tag">1</div> -->
+<!--               <div class="flybox row" > -->
+<!--                 <div class="col-xs-10 text-center fly-leftbox"> -->
+<!--                   <div class="col-xs-3 fl-namebox text-center"> -->
+<%--                     <div class="fl-name">${flightCompany.CX}</div> --%>
+<!--                     <div class="fl-num">OS100</div> -->
+<!--                   </div> -->
+<!--                   <div class="col-xs-3 fl-timebox text-right"> -->
+<!--                     <div class="fl-time">2019/10/10(四)</div> -->
+<!--                     <div class="fl-place">22:05<span>TPE</span></div> -->
+<!--                   </div> -->
+<!--                   <div class=" col-xs-3 fl-durationbox text-center"> -->
+<!--                     <div class="fl-dutime"> <span>0 </span>小時 <span>55 </span>分 </div> -->
+<!--                     <div class="t-line" ></div> -->
+<!--                     <div class="fl-flyname">實際飛行荷蘭航空</div> -->
+<!--                   </div> -->
+<!--                   <div class=" col-xs-3 fl-timebox text-left"> -->
+<!--                     <div class="fl-time">2019/10/10(四)</div> -->
+<!--                     <div class="fl-place">22:00<span>BKK</span></div> -->
+<!--                   </div> -->
+<!--                 </div> -->
+<!--                 <div class="col-xs-2 fly-info"> -->
+<!--                   <div class="fltool"> -->
+<!--                     <li class="icon_fl1">空中巴士330</li> -->
+<!--                     <li class="icon_fl2">經濟艙 V</li> -->
+<!--                     <li class="icon_fl3">30kg/人</li> -->
+<!--                   </div> -->
+<!--                 </div> -->
+<!--               </div> -->
+<!--               <div class="flybox row"> -->
+<!--                 <div class="col-xs-10 text-center fly-leftbox"> -->
+<!--                   <div class="col-xs-3 fl-namebox text-center"> -->
+<!--                     <div class="fl-name">奧地利航空</div> -->
+<!--                     <div class="fl-num">OS100</div> -->
+<!--                   </div> -->
+<!--                   <div class="col-xs-3 fl-timebox text-right"> -->
+<!--                     <div class="fl-time">2019/10/10(四)</div> -->
+<!--                     <div class="fl-place">22:05<span>BKK</span></div> -->
+<!--                   </div> -->
+<!--                   <div class=" col-xs-3 fl-durationbox text-center"> -->
+<!--                     <div class="fl-dutime"> <span>1 </span>小時 <span>55 </span>分 </div> -->
+<!--                     <div class="t-line" ></div> -->
+<!--                     <div class="fl-flyname"></div> -->
+<!--                   </div> -->
+<!--                   <div class=" col-xs-3 fl-timebox text-left"> -->
+<!--                     <div class="fl-time">2019/10/11(五)</div> -->
+<!--                     <div class="fl-place">00:35<span>VIE</span></div> -->
+<!--                   </div> -->
+<!--                 </div> -->
+<!--                 <div class="col-xs-2 fly-info"> -->
+<!--                   <div class="fltool"> -->
+<!--                     <li class="icon_fl1">空中巴士330</li> -->
+<!--                     <li class="icon_fl2">經濟艙 V</li> -->
+<!--                     <li class="icon_fl3">30kg/人</li> -->
+<!--                   </div> -->
+<!--                 </div> -->
+<!--               </div> -->
               
-              <!--第1段_結束--> 
+<!--               第1段_結束  -->
               
-              <!--第2段-->
+<!--               第2段 -->
               
-              <div class="flybox row border-top">
-                <div class="col-xs-10 text-center fly-leftbox">
-                  <div class="col-xs-3 fl-namebox text-center">
-                    <div class="fl-name">奧地利航空</div>
-                    <div class="fl-num">OS100</div>
-                  </div>
-                  <div class="col-xs-3 fl-timebox text-right">
-                    <div class="fl-time">2019/10/23(三)</div>
-                    <div class="fl-place">22:05<span>VIE</span></div>
-                  </div>
-                  <div class=" col-xs-3 fl-durationbox text-center">
-                    <div class="fl-dutime"> <span>13 </span>小時 <span>15 </span>分 </div>
-                    <div class="t-line" ></div>
-                    <div class="fl-flyname"></div>
-                  </div>
-                  <div class=" col-xs-3 fl-timebox text-left">
-                    <div class="fl-time">2019/10/24(四)</div>
-                    <div class="fl-place">22:05<span>VIE</span></div>
-                  </div>
-                </div>
-                <div class="col-xs-2 fly-info">
-                  <div class="fltool">
-                    <li class="icon_fl1">777-200</li>
-                    <li class="icon_fl2">豪華經濟艙 T</li>
-                    <li class="icon_fl3">1件</li>
-                  </div>
-                </div>
-              </div>
+<!--               <div class="flybox row border-top"> -->
+<!--                 <div class="col-xs-10 text-center fly-leftbox"> -->
+<!--                   <div class="col-xs-3 fl-namebox text-center"> -->
+<!--                     <div class="fl-name">奧地利航空</div> -->
+<!--                     <div class="fl-num">OS100</div> -->
+<!--                   </div> -->
+<!--                   <div class="col-xs-3 fl-timebox text-right"> -->
+<!--                     <div class="fl-time">2019/10/23(三)</div> -->
+<!--                     <div class="fl-place">22:05<span>VIE</span></div> -->
+<!--                   </div> -->
+<!--                   <div class=" col-xs-3 fl-durationbox text-center"> -->
+<!--                     <div class="fl-dutime"> <span>13 </span>小時 <span>15 </span>分 </div> -->
+<!--                     <div class="t-line" ></div> -->
+<!--                     <div class="fl-flyname"></div> -->
+<!--                   </div> -->
+<!--                   <div class=" col-xs-3 fl-timebox text-left"> -->
+<!--                     <div class="fl-time">2019/10/24(四)</div> -->
+<!--                     <div class="fl-place">22:05<span>VIE</span></div> -->
+<!--                   </div> -->
+<!--                 </div> -->
+<!--                 <div class="col-xs-2 fly-info"> -->
+<!--                   <div class="fltool"> -->
+<!--                     <li class="icon_fl1">777-200</li> -->
+<!--                     <li class="icon_fl2">豪華經濟艙 T</li> -->
+<!--                     <li class="icon_fl3">1件</li> -->
+<!--                   </div> -->
+<!--                 </div> -->
+<!--               </div> -->
               
-              <!--第2段_結束--> 
+<!--               第2段_結束  -->
               
-              <!--票價-->
-              <div class="row">
-                <div class="tickbox ">
-                  <div class="col-xs-6  btn-tickbox">
-                    <div class="btn-tick-pr btn" data-toggle="modal" data-target="#pop_fdetail"> 票價規則 </div>
-                    <div class="btn-tick-ba btn" data-toggle="modal" data-target="#pop_fdetail"> 行李說明 </div>
-                  </div>
-                  <div class="col-xs-6 fpric text-right"> <span class="list_pricet">
-                    <div class="price">$<span class="fontb">311,256</span></div>
-                    <div class="price_de">每成人含稅</div>
-                    </span> <span class="check">
-                    <button type="button" class="btn btn_check" onClick="javascript:location.href='step2.html'">訂 位</button>
-                    </span> </div>
-                </div>
-              </div>
+<!--               票價 -->
+<!--               <div class="row"> -->
+<!--                 <div class="tickbox "> -->
+<!--                   <div class="col-xs-6  btn-tickbox"> -->
+<!--                     <div class="btn-tick-pr btn" data-toggle="modal" data-target="#pop_fdetail"> 票價規則 </div> -->
+<!--                     <div class="btn-tick-ba btn" data-toggle="modal" data-target="#pop_fdetail"> 行李說明 </div> -->
+<!--                   </div> -->
+<!--                   <div class="col-xs-6 fpric text-right"> <span class="list_pricet"> -->
+<!--                     <div class="price">$<span class="fontb">311,256</span></div> -->
+<!--                     <div class="price_de">每成人含稅</div> -->
+<!--                     </span> <span class="check"> -->
+<!--                     <button type="button" class="btn btn_check" onClick="javascript:location.href='step2.html'">訂 位</button> -->
+<!--                     </span> </div> -->
+<!--                 </div> -->
+<!--               </div> -->
               
-              <!--票價_結束--> 
+<!--               票價_結束  -->
               
-            </div>
-          </div>
+<!--             </div> -->
+<!--           </div> -->
           
-          <!--航班n_結束--> 
+<!--           航班n_結束  -->
           
-          <!--航班n-->
-          <div class="romde_box ">
-            <div class="border"> 
-              <!--第1段-->
-              <div class="num-tag">2</div>
-              <div class="flybox row">
-                <div class="col-xs-10 text-center fly-leftbox">
-                  <div class="col-xs-3 fl-namebox text-center">
-                    <div class="fl-name">奧地利航空</div>
-                    <div class="fl-num">OS100</div>
-                  </div>
-                  <div class="col-xs-3 fl-timebox text-right">
-                    <div class="fl-time">2019/10/10(四)</div>
-                    <div class="fl-place">22:05<span>TPE</span></div>
-                  </div>
-                  <div class=" col-xs-3 fl-durationbox text-center">
-                    <div class="fl-dutime"> <span>0 </span>小時 <span>55 </span>分 </div>
-                    <div class="t-line" ></div>
-                    <div class="fl-flyname"></div>
-                  </div>
-                  <div class=" col-xs-3 fl-timebox text-left">
-                    <div class="fl-time">2019/10/10(四)</div>
-                    <div class="fl-place">22:00<span>VIE</span></div>
-                  </div>
-                </div>
-                <div class="col-xs-2 fly-info">
-                  <div class="fltool">
-                    <li class="icon_fl1">空中巴士330</li>
-                    <li class="icon_fl2">經濟艙 V</li>
-                    <li class="icon_fl3">30kg/人</li>
-                  </div>
-                </div>
-              </div>
+<!--           航班n -->
+<!--           <div class="romde_box "> -->
+<!--             <div class="border">  -->
+<!--               第1段 -->
+<!--               <div class="num-tag">2</div> -->
+<!--               <div class="flybox row"> -->
+<!--                 <div class="col-xs-10 text-center fly-leftbox"> -->
+<!--                   <div class="col-xs-3 fl-namebox text-center"> -->
+<!--                     <div class="fl-name">奧地利航空</div> -->
+<!--                     <div class="fl-num">OS100</div> -->
+<!--                   </div> -->
+<!--                   <div class="col-xs-3 fl-timebox text-right"> -->
+<!--                     <div class="fl-time">2019/10/10(四)</div> -->
+<!--                     <div class="fl-place">22:05<span>TPE</span></div> -->
+<!--                   </div> -->
+<!--                   <div class=" col-xs-3 fl-durationbox text-center"> -->
+<!--                     <div class="fl-dutime"> <span>0 </span>小時 <span>55 </span>分 </div> -->
+<!--                     <div class="t-line" ></div> -->
+<!--                     <div class="fl-flyname"></div> -->
+<!--                   </div> -->
+<!--                   <div class=" col-xs-3 fl-timebox text-left"> -->
+<!--                     <div class="fl-time">2019/10/10(四)</div> -->
+<!--                     <div class="fl-place">22:00<span>VIE</span></div> -->
+<!--                   </div> -->
+<!--                 </div> -->
+<!--                 <div class="col-xs-2 fly-info"> -->
+<!--                   <div class="fltool"> -->
+<!--                     <li class="icon_fl1">空中巴士330</li> -->
+<!--                     <li class="icon_fl2">經濟艙 V</li> -->
+<!--                     <li class="icon_fl3">30kg/人</li> -->
+<!--                   </div> -->
+<!--                 </div> -->
+<!--               </div> -->
               
-              <!--第1段_結束--> 
+<!--               第1段_結束  -->
               
-              <!--第2段-->
+<!--               第2段 -->
               
-              <div class="flybox row border-top">
-                <div class="col-xs-10 text-center fly-leftbox">
-                  <div class="col-xs-3 fl-namebox text-center">
-                    <div class="fl-name">奧地利航空</div>
-                    <div class="fl-num">OS100</div>
-                  </div>
-                  <div class="col-xs-3 fl-timebox text-right">
-                    <div class="fl-time">2019/10/23(三)</div>
-                    <div class="fl-place">22:05<span>VIE</span></div>
-                  </div>
-                  <div class=" col-xs-3 fl-durationbox text-center">
-                    <div class="fl-dutime"> <span>13 </span>小時 <span>15 </span>分 </div>
-                    <div class="t-line" ></div>
-                    <div class="fl-flyname"></div>
-                  </div>
-                  <div class=" col-xs-3 fl-timebox text-left">
-                    <div class="fl-time">2019/10/24(四)</div>
-                    <div class="fl-place">22:05<span>VIE</span></div>
-                  </div>
-                </div>
-                <div class="col-xs-2 fly-info">
-                  <div class="fltool">
-                    <li class="icon_fl1">777-200</li>
-                    <li class="icon_fl2">豪華經濟艙 T</li>
-                    <li class="icon_fl3">1件</li>
-                  </div>
-                </div>
-              </div>
+<!--               <div class="flybox row border-top"> -->
+<!--                 <div class="col-xs-10 text-center fly-leftbox"> -->
+<!--                   <div class="col-xs-3 fl-namebox text-center"> -->
+<!--                     <div class="fl-name">奧地利航空</div> -->
+<!--                     <div class="fl-num">OS100</div> -->
+<!--                   </div> -->
+<!--                   <div class="col-xs-3 fl-timebox text-right"> -->
+<!--                     <div class="fl-time">2019/10/23(三)</div> -->
+<!--                     <div class="fl-place">22:05<span>VIE</span></div> -->
+<!--                   </div> -->
+<!--                   <div class=" col-xs-3 fl-durationbox text-center"> -->
+<!--                     <div class="fl-dutime"> <span>13 </span>小時 <span>15 </span>分 </div> -->
+<!--                     <div class="t-line" ></div> -->
+<!--                     <div class="fl-flyname"></div> -->
+<!--                   </div> -->
+<!--                   <div class=" col-xs-3 fl-timebox text-left"> -->
+<!--                     <div class="fl-time">2019/10/24(四)</div> -->
+<!--                     <div class="fl-place">22:05<span>VIE</span></div> -->
+<!--                   </div> -->
+<!--                 </div> -->
+<!--                 <div class="col-xs-2 fly-info"> -->
+<!--                   <div class="fltool"> -->
+<!--                     <li class="icon_fl1">777-200</li> -->
+<!--                     <li class="icon_fl2">豪華經濟艙 T</li> -->
+<!--                     <li class="icon_fl3">1件</li> -->
+<!--                   </div> -->
+<!--                 </div> -->
+<!--               </div> -->
               
-              <!--第2段_結束--> 
+<!--               第2段_結束  -->
               
-              <!--票價-->
-              <div class="row">
-                <div class="tickbox ">
-                  <div class="col-xs-6  btn-tickbox">
-                    <div class="btn-tick-pr btn" data-toggle="modal" data-target="#pop_fdetail"> 票價規則 </div>
-                    <div class="btn-tick-ba btn" data-toggle="modal" data-target="#pop_fdetail"> 行李說明 </div>
-                  </div>
-                  <div class="col-xs-6 fpric text-right"> <span class="list_pricet">
-                    <div class="price">$<span class="fontb">310,000</span></div>
-                    <div class="price_de">每成人含稅</div>
-                    </span> <span class="check">
-                    <button type="button" class="btn btn_check" onClick="javascript:location.href='step2.html'">訂 位</button>
-                    </span> </div>
-                </div>
-              </div>
+<!--               票價 -->
+<!--               <div class="row"> -->
+<!--                 <div class="tickbox "> -->
+<!--                   <div class="col-xs-6  btn-tickbox"> -->
+<!--                     <div class="btn-tick-pr btn" data-toggle="modal" data-target="#pop_fdetail"> 票價規則 </div> -->
+<!--                     <div class="btn-tick-ba btn" data-toggle="modal" data-target="#pop_fdetail"> 行李說明 </div> -->
+<!--                   </div> -->
+<!--                   <div class="col-xs-6 fpric text-right"> <span class="list_pricet"> -->
+<!--                     <div class="price">$<span class="fontb">310,000</span></div> -->
+<!--                     <div class="price_de">每成人含稅</div> -->
+<!--                     </span> <span class="check"> -->
+<!--                     <button type="button" class="btn btn_check" onClick="javascript:location.href='step2.html'">訂 位</button> -->
+<!--                     </span> </div> -->
+<!--                 </div> -->
+<!--               </div> -->
               
-              <!--票價_結束--> 
+<!--               票價_結束  -->
               
-            </div>
-          </div>
-          <!--航班n_結束--> 
+<!--             </div> -->
+<!--           </div> -->
+<!--           航班n_結束  -->
           
-          <!--航班n-->
-          <div class="romde_box ">
-            <div class="border"> 
-              <!--第1段-->
-              <div class="num-tag">3</div>
-              <div class="flybox row">
-                <div class="col-xs-10 text-center fly-leftbox">
-                  <div class="col-xs-3 fl-namebox text-center">
-                    <div class="fl-name">奧地利航空</div>
-                    <div class="fl-num">OS100</div>
-                  </div>
-                  <div class="col-xs-3 fl-timebox text-right">
-                    <div class="fl-time">2019/10/10(四)</div>
-                    <div class="fl-place">22:05<span>TPE</span></div>
-                  </div>
-                  <div class=" col-xs-3 fl-durationbox text-center">
-                    <div class="fl-dutime"> <span>0 </span>小時 <span>55 </span>分 </div>
-                    <div class="t-line" ></div>
-                    <div class="fl-flyname"></div>
-                  </div>
-                  <div class=" col-xs-3 fl-timebox text-left">
-                    <div class="fl-time">2019/10/10(四)</div>
-                    <div class="fl-place">22:00<span>VIE</span></div>
-                  </div>
-                </div>
-                <div class="col-xs-2 fly-info">
-                  <div class="fltool">
-                    <li class="icon_fl1">空中巴士330</li>
-                    <li class="icon_fl2">經濟艙 V</li>
-                    <li class="icon_fl3">30kg/人</li>
-                  </div>
-                </div>
-              </div>
+<!--           航班n -->
+<!--           <div class="romde_box "> -->
+<!--             <div class="border">  -->
+<!--               第1段 -->
+<!--               <div class="num-tag">3</div> -->
+<!--               <div class="flybox row"> -->
+<!--                 <div class="col-xs-10 text-center fly-leftbox"> -->
+<!--                   <div class="col-xs-3 fl-namebox text-center"> -->
+<!--                     <div class="fl-name">奧地利航空</div> -->
+<!--                     <div class="fl-num">OS100</div> -->
+<!--                   </div> -->
+<!--                   <div class="col-xs-3 fl-timebox text-right"> -->
+<!--                     <div class="fl-time">2019/10/10(四)</div> -->
+<!--                     <div class="fl-place">22:05<span>TPE</span></div> -->
+<!--                   </div> -->
+<!--                   <div class=" col-xs-3 fl-durationbox text-center"> -->
+<!--                     <div class="fl-dutime"> <span>0 </span>小時 <span>55 </span>分 </div> -->
+<!--                     <div class="t-line" ></div> -->
+<!--                     <div class="fl-flyname"></div> -->
+<!--                   </div> -->
+<!--                   <div class=" col-xs-3 fl-timebox text-left"> -->
+<!--                     <div class="fl-time">2019/10/10(四)</div> -->
+<!--                     <div class="fl-place">22:00<span>VIE</span></div> -->
+<!--                   </div> -->
+<!--                 </div> -->
+<!--                 <div class="col-xs-2 fly-info"> -->
+<!--                   <div class="fltool"> -->
+<!--                     <li class="icon_fl1">空中巴士330</li> -->
+<!--                     <li class="icon_fl2">經濟艙 V</li> -->
+<!--                     <li class="icon_fl3">30kg/人</li> -->
+<!--                   </div> -->
+<!--                 </div> -->
+<!--               </div> -->
               
-              <!--第1段_結束--> 
+<!--               第1段_結束  -->
               
-              <!--第2段-->
+<!--               第2段 -->
               
-              <div class="flybox row border-top">
-                <div class="col-xs-10 text-center fly-leftbox">
-                  <div class="col-xs-3 fl-namebox text-center">
-                    <div class="fl-name">奧地利航空</div>
-                    <div class="fl-num">OS100</div>
-                  </div>
-                  <div class="col-xs-3 fl-timebox text-right">
-                    <div class="fl-time">2019/10/23(三)</div>
-                    <div class="fl-place">22:05<span>VIE</span></div>
-                  </div>
-                  <div class=" col-xs-3 fl-durationbox text-center">
-                    <div class="fl-dutime"> <span>13 </span>小時 <span>15 </span>分 </div>
-                    <div class="t-line" ></div>
-                    <div class="fl-flyname"></div>
-                  </div>
-                  <div class=" col-xs-3 fl-timebox text-left">
-                    <div class="fl-time">2019/10/24(四)</div>
-                    <div class="fl-place">22:05<span>VIE</span></div>
-                  </div>
-                </div>
-                <div class="col-xs-2 fly-info">
-                  <div class="fltool">
-                    <li class="icon_fl1">777-200</li>
-                    <li class="icon_fl2">豪華經濟艙 T</li>
-                    <li class="icon_fl3">1件</li>
-                  </div>
-                </div>
-              </div>
+<!--               <div class="flybox row border-top"> -->
+<!--                 <div class="col-xs-10 text-center fly-leftbox"> -->
+<!--                   <div class="col-xs-3 fl-namebox text-center"> -->
+<!--                     <div class="fl-name">奧地利航空</div> -->
+<!--                     <div class="fl-num">OS100</div> -->
+<!--                   </div> -->
+<!--                   <div class="col-xs-3 fl-timebox text-right"> -->
+<!--                     <div class="fl-time">2019/10/23(三)</div> -->
+<!--                     <div class="fl-place">22:05<span>VIE</span></div> -->
+<!--                   </div> -->
+<!--                   <div class=" col-xs-3 fl-durationbox text-center"> -->
+<!--                     <div class="fl-dutime"> <span>13 </span>小時 <span>15 </span>分 </div> -->
+<!--                     <div class="t-line" ></div> -->
+<!--                     <div class="fl-flyname"></div> -->
+<!--                   </div> -->
+<!--                   <div class=" col-xs-3 fl-timebox text-left"> -->
+<!--                     <div class="fl-time">2019/10/24(四)</div> -->
+<!--                     <div class="fl-place">22:05<span>VIE</span></div> -->
+<!--                   </div> -->
+<!--                 </div> -->
+<!--                 <div class="col-xs-2 fly-info"> -->
+<!--                   <div class="fltool"> -->
+<!--                     <li class="icon_fl1">777-200</li> -->
+<!--                     <li class="icon_fl2">豪華經濟艙 T</li> -->
+<!--                     <li class="icon_fl3">1件</li> -->
+<!--                   </div> -->
+<!--                 </div> -->
+<!--               </div> -->
               
-              <!--第2段_結束--> 
+<!--               第2段_結束  -->
               
-              <!--票價-->
-              <div class="row">
-                <div class="tickbox ">
-                  <div class="col-xs-6  btn-tickbox">
-                    <div class="btn-tick-pr btn" data-toggle="modal" data-target="#pop_fdetail"> 票價規則 </div>
-                    <div class="btn-tick-ba btn" data-toggle="modal" data-target="#pop_fdetail"> 行李說明 </div>
-                  </div>
-                  <div class="col-xs-6 fpric text-right"> <span class="list_pricet">
-                    <div class="price">$<span class="fontb">320,000</span></div>
-                    <div class="price_de">每成人含稅</div>
-                    </span> <span class="check">
-                    <button type="button" class="btn btn_check" onClick="javascript:location.href='step2.html'">訂 位</button>
-                    </span> </div>
-                </div>
-              </div>
+<!--               票價 -->
+<!--               <div class="row"> -->
+<!--                 <div class="tickbox "> -->
+<!--                   <div class="col-xs-6  btn-tickbox"> -->
+<!--                     <div class="btn-tick-pr btn" data-toggle="modal" data-target="#pop_fdetail"> 票價規則 </div> -->
+<!--                     <div class="btn-tick-ba btn" data-toggle="modal" data-target="#pop_fdetail"> 行李說明 </div> -->
+<!--                   </div> -->
+<!--                   <div class="col-xs-6 fpric text-right"> <span class="list_pricet"> -->
+<!--                     <div class="price">$<span class="fontb">320,000</span></div> -->
+<!--                     <div class="price_de">每成人含稅</div> -->
+<!--                     </span> <span class="check"> -->
+<!--                     <button type="button" class="btn btn_check" onClick="javascript:location.href='step2.html'">立即訂購</button> -->
+<!--                     </span> </div> -->
+<!--                 </div> -->
+<!--               </div> -->
               
-              <!--票價_結束--> 
+<!--               票價_結束  -->
               
-            </div>
-          </div>
-          <!--航班n_結束--> 
+<!--             </div> -->
+<!--           </div> -->
+<!--           航班n_結束  -->
           
-          <!--航班n-->
-          <div class="romde_box ">
-            <div class="border"> 
-              <!--第1段-->
-              <div class="num-tag">5</div>
-              <div class="flybox row">
-                <div class="col-xs-10 text-center fly-leftbox">
-                  <div class="col-xs-3 fl-namebox text-center">
-                    <div class="fl-name">奧地利航空</div>
-                    <div class="fl-num">OS100</div>
-                  </div>
-                  <div class="col-xs-3 fl-timebox text-right">
-                    <div class="fl-time">2019/10/10(四)</div>
-                    <div class="fl-place">22:05<span>TPE</span></div>
-                  </div>
-                  <div class=" col-xs-3 fl-durationbox text-center">
-                    <div class="fl-dutime"> <span>0 </span>小時 <span>55 </span>分 </div>
-                    <div class="t-line" ></div>
-                    <div class="fl-flyname"></div>
-                  </div>
-                  <div class=" col-xs-3 fl-timebox text-left">
-                    <div class="fl-time">2019/10/10(四)</div>
-                    <div class="fl-place">22:00<span>VIE</span></div>
-                  </div>
-                </div>
-                <div class="col-xs-2 fly-info">
-                  <div class="fltool">
-                    <li class="icon_fl1">空中巴士330</li>
-                    <li class="icon_fl2">經濟艙 V</li>
-                    <li class="icon_fl3">30kg/人</li>
-                  </div>
-                </div>
-              </div>
+<!--           航班n -->
+<!--           <div class="romde_box "> -->
+<!--             <div class="border">  -->
+<!--               第1段 -->
+<!--               <div class="num-tag">5</div> -->
+<!--               <div class="flybox row"> -->
+<!--                 <div class="col-xs-10 text-center fly-leftbox"> -->
+<!--                   <div class="col-xs-3 fl-namebox text-center"> -->
+<!--                     <div class="fl-name">奧地利航空</div> -->
+<!--                     <div class="fl-num">OS100</div> -->
+<!--                   </div> -->
+<!--                   <div class="col-xs-3 fl-timebox text-right"> -->
+<!--                     <div class="fl-time">2019/10/10(四)</div> -->
+<!--                     <div class="fl-place">22:05<span>TPE</span></div> -->
+<!--                   </div> -->
+<!--                   <div class=" col-xs-3 fl-durationbox text-center"> -->
+<!--                     <div class="fl-dutime"> <span>0 </span>小時 <span>55 </span>分 </div> -->
+<!--                     <div class="t-line" ></div> -->
+<!--                     <div class="fl-flyname"></div> -->
+<!--                   </div> -->
+<!--                   <div class=" col-xs-3 fl-timebox text-left"> -->
+<!--                     <div class="fl-time">2019/10/10(四)</div> -->
+<!--                     <div class="fl-place">22:00<span>VIE</span></div> -->
+<!--                   </div> -->
+<!--                 </div> -->
+<!--                 <div class="col-xs-2 fly-info"> -->
+<!--                   <div class="fltool"> -->
+<!--                     <li class="icon_fl1">空中巴士330</li> -->
+<!--                     <li class="icon_fl2">經濟艙 V</li> -->
+<!--                     <li class="icon_fl3">30kg/人</li> -->
+<!--                   </div> -->
+<!--                 </div> -->
+<!--               </div> -->
               
-              <!--第1段_結束--> 
+<!--               第1段_結束  -->
               
-              <!--第2段-->
+<!--               第2段 -->
               
-              <div class="flybox row border-top">
-                <div class="col-xs-10 text-center fly-leftbox">
-                  <div class="col-xs-3 fl-namebox text-center">
-                    <div class="fl-name">奧地利航空</div>
-                    <div class="fl-num">OS100</div>
-                  </div>
-                  <div class="col-xs-3 fl-timebox text-right">
-                    <div class="fl-time">2019/10/23(三)</div>
-                    <div class="fl-place">22:05<span>VIE</span></div>
-                  </div>
-                  <div class=" col-xs-3 fl-durationbox text-center">
-                    <div class="fl-dutime"> <span>13 </span>小時 <span>15 </span>分 </div>
-                    <div class="t-line" ></div>
-                    <div class="fl-flyname"></div>
-                  </div>
-                  <div class=" col-xs-3 fl-timebox text-left">
-                    <div class="fl-time">2019/10/24(四)</div>
-                    <div class="fl-place">22:05<span>VIE</span></div>
-                  </div>
-                </div>
-                <div class="col-xs-2 fly-info">
-                  <div class="fltool">
-                    <li class="icon_fl1">777-200</li>
-                    <li class="icon_fl2">豪華經濟艙 T</li>
-                    <li class="icon_fl3">1件</li>
-                  </div>
-                </div>
-              </div>
+<!--               <div class="flybox row border-top"> -->
+<!--                 <div class="col-xs-10 text-center fly-leftbox"> -->
+<!--                   <div class="col-xs-3 fl-namebox text-center"> -->
+<!--                     <div class="fl-name">奧地利航空</div> -->
+<!--                     <div class="fl-num">OS100</div> -->
+<!--                   </div> -->
+<!--                   <div class="col-xs-3 fl-timebox text-right"> -->
+<!--                     <div class="fl-time">2019/10/23(三)</div> -->
+<!--                     <div class="fl-place">22:05<span>VIE</span></div> -->
+<!--                   </div> -->
+<!--                   <div class=" col-xs-3 fl-durationbox text-center"> -->
+<!--                     <div class="fl-dutime"> <span>13 </span>小時 <span>15 </span>分 </div> -->
+<!--                     <div class="t-line" ></div> -->
+<!--                     <div class="fl-flyname"></div> -->
+<!--                   </div> -->
+<!--                   <div class=" col-xs-3 fl-timebox text-left"> -->
+<!--                     <div class="fl-time">2019/10/24(四)</div> -->
+<!--                     <div class="fl-place">22:05<span>VIE</span></div> -->
+<!--                   </div> -->
+<!--                 </div> -->
+<!--                 <div class="col-xs-2 fly-info"> -->
+<!--                   <div class="fltool"> -->
+<!--                     <li class="icon_fl1">777-200</li> -->
+<!--                     <li class="icon_fl2">豪華經濟艙 T</li> -->
+<!--                     <li class="icon_fl3">1件</li> -->
+<!--                   </div> -->
+<!--                 </div> -->
+<!--               </div> -->
               
-              <!--第2段_結束--> 
+<!--               第2段_結束  -->
               
-              <!--票價-->
-              <div class="row">
-                <div class="tickbox ">
-                  <div class="col-xs-6  btn-tickbox">
-                    <div class="btn-tick-pr btn" data-toggle="modal" data-target="#pop_fdetail"> 票價規則 </div>
-                    <div class="btn-tick-ba btn" data-toggle="modal" data-target="#pop_fdetail"> 行李說明 </div>
-                  </div>
-                  <div class="col-xs-6 fpric text-right"> <span class="list_pricet">
-                    <div class="price">$<span class="fontb">350,000</span></div>
-                    <div class="price_de">每成人含稅</div>
-                    </span> <span class="check">
-                    <button type="button" class="btn btn_check" onClick="javascript:location.href='step2.html'">訂 位</button>
-                    </span> </div>
-                </div>
-              </div>
+<!--               票價 -->
+<!--               <div class="row"> -->
+<!--                 <div class="tickbox "> -->
+<!--                   <div class="col-xs-6  btn-tickbox"> -->
+<!--                     <div class="btn-tick-pr btn" data-toggle="modal" data-target="#pop_fdetail"> 票價規則 </div> -->
+<!--                     <div class="btn-tick-ba btn" data-toggle="modal" data-target="#pop_fdetail"> 行李說明 </div> -->
+<!--                   </div> -->
+<!--                   <div class="col-xs-6 fpric text-right"> <span class="list_pricet"> -->
+<!--                     <div class="price">$<span class="fontb">350,000</span></div> -->
+<!--                     <div class="price_de">每成人含稅</div> -->
+<!--                     </span> <span class="check"> -->
+<!--                     <button type="button" class="btn btn_check" onClick="javascript:location.href='step2.html'">訂 位</button> -->
+<!--                     </span> </div> -->
+<!--                 </div> -->
+<!--               </div> -->
               
-              <!--票價_結束--> 
+<!--               票價_結束  -->
               
-            </div>
-          </div>
+<!--             </div> -->
+<!--           </div> -->
           
-          <!--航班n_結束--> 
+<!--           航班n_結束  -->
           
-          <!--航班n-->
-          <div class="romde_box ">
-            <div class="border"> 
-              <!--第1段-->
-              <div class="num-tag">6</div>
-              <div class="flybox row">
-                <div class="col-xs-10 text-center fly-leftbox">
-                  <div class="col-xs-3 fl-namebox text-center">
-                    <div class="fl-name">奧地利航空</div>
-                    <div class="fl-num">OS100</div>
-                  </div>
-                  <div class="col-xs-3 fl-timebox text-right">
-                    <div class="fl-time">2019/10/10(四)</div>
-                    <div class="fl-place">22:05<span>TPE</span></div>
-                  </div>
-                  <div class=" col-xs-3 fl-durationbox text-center">
-                    <div class="fl-dutime"> <span>0 </span>小時 <span>55 </span>分 </div>
-                    <div class="t-line" ></div>
-                    <div class="fl-flyname"></div>
-                  </div>
-                  <div class=" col-xs-3 fl-timebox text-left">
-                    <div class="fl-time">2019/10/10(四)</div>
-                    <div class="fl-place">22:00<span>VIE</span></div>
-                  </div>
-                </div>
-                <div class="col-xs-2 fly-info">
-                  <div class="fltool">
-                    <li class="icon_fl1">空中巴士330</li>
-                    <li class="icon_fl2">經濟艙 V</li>
-                    <li class="icon_fl3">30kg/人</li>
-                  </div>
-                </div>
-              </div>
+<!--           航班n -->
+<!--           <div class="romde_box "> -->
+<!--             <div class="border">  -->
+<!--               第1段 -->
+<!--               <div class="num-tag">6</div> -->
+<!--               <div class="flybox row"> -->
+<!--                 <div class="col-xs-10 text-center fly-leftbox"> -->
+<!--                   <div class="col-xs-3 fl-namebox text-center"> -->
+<!--                     <div class="fl-name">奧地利航空</div> -->
+<!--                     <div class="fl-num">OS100</div> -->
+<!--                   </div> -->
+<!--                   <div class="col-xs-3 fl-timebox text-right"> -->
+<!--                     <div class="fl-time">2019/10/10(四)</div> -->
+<!--                     <div class="fl-place">22:05<span>TPE</span></div> -->
+<!--                   </div> -->
+<!--                   <div class=" col-xs-3 fl-durationbox text-center"> -->
+<!--                     <div class="fl-dutime"> <span>0 </span>小時 <span>55 </span>分 </div> -->
+<!--                     <div class="t-line" ></div> -->
+<!--                     <div class="fl-flyname"></div> -->
+<!--                   </div> -->
+<!--                   <div class=" col-xs-3 fl-timebox text-left"> -->
+<!--                     <div class="fl-time">2019/10/10(四)</div> -->
+<!--                     <div class="fl-place">22:00<span>VIE</span></div> -->
+<!--                   </div> -->
+<!--                 </div> -->
+<!--                 <div class="col-xs-2 fly-info"> -->
+<!--                   <div class="fltool"> -->
+<!--                     <li class="icon_fl1">空中巴士330</li> -->
+<!--                     <li class="icon_fl2">經濟艙 V</li> -->
+<!--                     <li class="icon_fl3">30kg/人</li> -->
+<!--                   </div> -->
+<!--                 </div> -->
+<!--               </div> -->
               
-              <!--第1段_結束--> 
+<!--               第1段_結束  -->
               
-              <!--第2段-->
+<!--               第2段 -->
               
-              <div class="flybox row border-top">
-                <div class="col-xs-10 text-center fly-leftbox">
-                  <div class="col-xs-3 fl-namebox text-center">
-                    <div class="fl-name">奧地利航空</div>
-                    <div class="fl-num">OS100</div>
-                  </div>
-                  <div class="col-xs-3 fl-timebox text-right">
-                    <div class="fl-time">2019/10/23(三)</div>
-                    <div class="fl-place">22:05<span>VIE</span></div>
-                  </div>
-                  <div class=" col-xs-3 fl-durationbox text-center">
-                    <div class="fl-dutime"> <span>13 </span>小時 <span>15 </span>分 </div>
-                    <div class="t-line" ></div>
-                    <div class="fl-flyname"></div>
-                  </div>
-                  <div class=" col-xs-3 fl-timebox text-left">
-                    <div class="fl-time">2019/10/24(四)</div>
-                    <div class="fl-place">22:05<span>VIE</span></div>
-                  </div>
-                </div>
-                <div class="col-xs-2 fly-info">
-                  <div class="fltool">
-                    <li class="icon_fl1">777-200</li>
-                    <li class="icon_fl2">豪華經濟艙 T</li>
-                    <li class="icon_fl3">1件</li>
-                  </div>
-                </div>
-              </div>
+<!--               <div class="flybox row border-top"> -->
+<!--                 <div class="col-xs-10 text-center fly-leftbox"> -->
+<!--                   <div class="col-xs-3 fl-namebox text-center"> -->
+<!--                     <div class="fl-name">奧地利航空</div> -->
+<!--                     <div class="fl-num">OS100</div> -->
+<!--                   </div> -->
+<!--                   <div class="col-xs-3 fl-timebox text-right"> -->
+<!--                     <div class="fl-time">2019/10/23(三)</div> -->
+<!--                     <div class="fl-place">22:05<span>VIE</span></div> -->
+<!--                   </div> -->
+<!--                   <div class=" col-xs-3 fl-durationbox text-center"> -->
+<!--                     <div class="fl-dutime"> <span>13 </span>小時 <span>15 </span>分 </div> -->
+<!--                     <div class="t-line" ></div> -->
+<!--                     <div class="fl-flyname"></div> -->
+<!--                   </div> -->
+<!--                   <div class=" col-xs-3 fl-timebox text-left"> -->
+<!--                     <div class="fl-time">2019/10/24(四)</div> -->
+<!--                     <div class="fl-place">22:05<span>VIE</span></div> -->
+<!--                   </div> -->
+<!--                 </div> -->
+<!--                 <div class="col-xs-2 fly-info"> -->
+<!--                   <div class="fltool"> -->
+<!--                     <li class="icon_fl1">777-200</li> -->
+<!--                     <li class="icon_fl2">豪華經濟艙 T</li> -->
+<!--                     <li class="icon_fl3">1件</li> -->
+<!--                   </div> -->
+<!--                 </div> -->
+<!--               </div> -->
               
-              <!--第2段_結束--> 
+<!--               第2段_結束  -->
               
-              <!--票價-->
-              <div class="row">
-                <div class="tickbox ">
-                  <div class="col-xs-6  btn-tickbox">
-                    <div class="btn-tick-pr btn" data-toggle="modal" data-target="#pop_fdetail"> 票價規則 </div>
-                    <div class="btn-tick-ba btn" data-toggle="modal" data-target="#pop_fdetail"> 行李說明 </div>
-                  </div>
-                  <div class="col-xs-6 fpric text-right"> <span class="list_pricet">
-                    <div class="price">$<span class="fontb">360,000</span></div>
-                    <div class="price_de">每成人含稅</div>
-                    </span> <span class="check">
-                    <button type="button" class="btn btn_check" onClick="javascript:location.href='step2.html'">訂 位</button>
-                    </span> </div>
-                </div>
-              </div>
+<!--               票價 -->
+<!--               <div class="row"> -->
+<!--                 <div class="tickbox "> -->
+<!--                   <div class="col-xs-6  btn-tickbox"> -->
+<!--                     <div class="btn-tick-pr btn" data-toggle="modal" data-target="#pop_fdetail"> 票價規則 </div> -->
+<!--                     <div class="btn-tick-ba btn" data-toggle="modal" data-target="#pop_fdetail"> 行李說明 </div> -->
+<!--                   </div> -->
+<!--                   <div class="col-xs-6 fpric text-right"> <span class="list_pricet"> -->
+<!--                     <div class="price">$<span class="fontb">360,000</span></div> -->
+<!--                     <div class="price_de">每成人含稅</div> -->
+<!--                     </span> <span class="check"> -->
+<!--                     <button type="button" class="btn btn_check" onClick="javascript:location.href='step2.html'">訂 位</button> -->
+<!--                     </span> </div> -->
+<!--                 </div> -->
+<!--               </div> -->
               
-              <!--票價_結束--> 
+<!--               票價_結束  -->
               
-            </div>
-          </div>
+<!--             </div> -->
+<!--           </div> -->
           
-          <!--航班n_結束--> 
+<!--           航班n_結束  -->
           
-          <!--航班n-->
-          <div class="romde_box ">
-            <div class="border"> 
-              <!--第1段-->
-              <div class="num-tag">7</div>
-              <div class="flybox row">
-                <div class="col-xs-10 text-center fly-leftbox">
-                  <div class="col-xs-3 fl-namebox text-center">
-                    <div class="fl-name">奧地利航空</div>
-                    <div class="fl-num">OS100</div>
-                  </div>
-                  <div class="col-xs-3 fl-timebox text-right">
-                    <div class="fl-time">2019/10/10(四)</div>
-                    <div class="fl-place">22:05<span>TPE</span></div>
-                  </div>
-                  <div class=" col-xs-3 fl-durationbox text-center">
-                    <div class="fl-dutime"> <span>0 </span>小時 <span>55 </span>分 </div>
-                    <div class="t-line" ></div>
-                    <div class="fl-flyname">實際飛行荷蘭航空</div>
-                  </div>
-                  <div class=" col-xs-3 fl-timebox text-left">
-                    <div class="fl-time">2019/10/10(四)</div>
-                    <div class="fl-place">22:00<span>VIE</span></div>
-                  </div>
-                </div>
-                <div class="col-xs-2 fly-info">
-                  <div class="fltool">
-                    <li class="icon_fl1">空中巴士330</li>
-                    <li class="icon_fl2">經濟艙 V</li>
-                    <li class="icon_fl3">30kg/人</li>
-                  </div>
-                </div>
-              </div>
+<!--           航班n -->
+<!--           <div class="romde_box "> -->
+<!--             <div class="border">  -->
+<!--               第1段 -->
+<!--               <div class="num-tag">7</div> -->
+<!--               <div class="flybox row"> -->
+<!--                 <div class="col-xs-10 text-center fly-leftbox"> -->
+<!--                   <div class="col-xs-3 fl-namebox text-center"> -->
+<!--                     <div class="fl-name">奧地利航空</div> -->
+<!--                     <div class="fl-num">OS100</div> -->
+<!--                   </div> -->
+<!--                   <div class="col-xs-3 fl-timebox text-right"> -->
+<!--                     <div class="fl-time">2019/10/10(四)</div> -->
+<!--                     <div class="fl-place">22:05<span>TPE</span></div> -->
+<!--                   </div> -->
+<!--                   <div class=" col-xs-3 fl-durationbox text-center"> -->
+<!--                     <div class="fl-dutime"> <span>0 </span>小時 <span>55 </span>分 </div> -->
+<!--                     <div class="t-line" ></div> -->
+<!--                     <div class="fl-flyname">實際飛行荷蘭航空</div> -->
+<!--                   </div> -->
+<!--                   <div class=" col-xs-3 fl-timebox text-left"> -->
+<!--                     <div class="fl-time">2019/10/10(四)</div> -->
+<!--                     <div class="fl-place">22:00<span>VIE</span></div> -->
+<!--                   </div> -->
+<!--                 </div> -->
+<!--                 <div class="col-xs-2 fly-info"> -->
+<!--                   <div class="fltool"> -->
+<!--                     <li class="icon_fl1">空中巴士330</li> -->
+<!--                     <li class="icon_fl2">經濟艙 V</li> -->
+<!--                     <li class="icon_fl3">30kg/人</li> -->
+<!--                   </div> -->
+<!--                 </div> -->
+<!--               </div> -->
               
-              <!--第1段_結束--> 
+<!--               第1段_結束  -->
               
-              <!--第2段-->
+<!--               第2段 -->
               
-              <div class="flybox row border-top">
-                <div class="col-xs-10 text-center fly-leftbox">
-                  <div class="col-xs-3 fl-namebox text-center">
-                    <div class="fl-name">奧地利航空</div>
-                    <div class="fl-num">OS100</div>
-                  </div>
-                  <div class="col-xs-3 fl-timebox text-right">
-                    <div class="fl-time">2019/10/23(三)</div>
-                    <div class="fl-place">22:05<span>VIE</span></div>
-                  </div>
-                  <div class=" col-xs-3 fl-durationbox text-center">
-                    <div class="fl-dutime"> <span>13 </span>小時 <span>15 </span>分 </div>
-                    <div class="t-line" ></div>
-                    <div class="fl-flyname"></div>
-                  </div>
-                  <div class=" col-xs-3 fl-timebox text-left">
-                    <div class="fl-time">2019/10/24(四)</div>
-                    <div class="fl-place">22:05<span>VIE</span></div>
-                  </div>
-                </div>
-                <div class="col-xs-2 fly-info">
-                  <div class="fltool">
-                    <li class="icon_fl1">777-200</li>
-                    <li class="icon_fl2">豪華經濟艙 T</li>
-                    <li class="icon_fl3">1件</li>
-                  </div>
-                </div>
-              </div>
+<!--               <div class="flybox row border-top"> -->
+<!--                 <div class="col-xs-10 text-center fly-leftbox"> -->
+<!--                   <div class="col-xs-3 fl-namebox text-center"> -->
+<!--                     <div class="fl-name">奧地利航空</div> -->
+<!--                     <div class="fl-num">OS100</div> -->
+<!--                   </div> -->
+<!--                   <div class="col-xs-3 fl-timebox text-right"> -->
+<!--                     <div class="fl-time">2019/10/23(三)</div> -->
+<!--                     <div class="fl-place">22:05<span>VIE</span></div> -->
+<!--                   </div> -->
+<!--                   <div class=" col-xs-3 fl-durationbox text-center"> -->
+<!--                     <div class="fl-dutime"> <span>13 </span>小時 <span>15 </span>分 </div> -->
+<!--                     <div class="t-line" ></div> -->
+<!--                     <div class="fl-flyname"></div> -->
+<!--                   </div> -->
+<!--                   <div class=" col-xs-3 fl-timebox text-left"> -->
+<!--                     <div class="fl-time">2019/10/24(四)</div> -->
+<!--                     <div class="fl-place">22:05<span>VIE</span></div> -->
+<!--                   </div> -->
+<!--                 </div> -->
+<!--                 <div class="col-xs-2 fly-info"> -->
+<!--                   <div class="fltool"> -->
+<!--                     <li class="icon_fl1">777-200</li> -->
+<!--                     <li class="icon_fl2">豪華經濟艙 T</li> -->
+<!--                     <li class="icon_fl3">1件</li> -->
+<!--                   </div> -->
+<!--                 </div> -->
+<!--               </div> -->
               
-              <!--第2段_結束--> 
+<!--               第2段_結束  -->
               
-              <!--票價-->
-              <div class="row">
-                <div class="tickbox ">
-                  <div class="col-xs-6  btn-tickbox">
-                    <div class="btn-tick-pr btn" data-toggle="modal" data-target="#pop_fdetail"> 票價規則 </div>
-                    <div class="btn-tick-ba btn" data-toggle="modal" data-target="#pop_fdetail"> 行李說明 </div>
-                  </div>
-                  <div class="col-xs-6 fpric text-right"> <span class="list_pricet">
-                    <div class="price">$<span class="fontb">370,000</span></div>
-                    <div class="price_de">每成人含稅</div>
-                    </span> <span class="check">
-                    <button type="button" class="btn btn_check" onClick="javascript:location.href='step2.html'">訂 位</button>
-                    </span> </div>
-                </div>
-              </div>
+<!--               票價 -->
+<!--               <div class="row"> -->
+<!--                 <div class="tickbox "> -->
+<!--                   <div class="col-xs-6  btn-tickbox"> -->
+<!--                     <div class="btn-tick-pr btn" data-toggle="modal" data-target="#pop_fdetail"> 票價規則 </div> -->
+<!--                     <div class="btn-tick-ba btn" data-toggle="modal" data-target="#pop_fdetail"> 行李說明 </div> -->
+<!--                   </div> -->
+<!--                   <div class="col-xs-6 fpric text-right"> <span class="list_pricet"> -->
+<!--                     <div class="price">$<span class="fontb">370,000</span></div> -->
+<!--                     <div class="price_de">每成人含稅</div> -->
+<!--                     </span> <span class="check"> -->
+<!--                     <button type="button" class="btn btn_check" onClick="javascript:location.href='step2.html'">訂 位</button> -->
+<!--                     </span> </div> -->
+<!--                 </div> -->
+<!--               </div> -->
               
-              <!--票價_結束--> 
+<!--               票價_結束  -->
               
-            </div>
-          </div>
+<!--             </div> -->
+<!--           </div> -->
           
-          <!--航班n_結束--> 
+<!--           航班n_結束  -->
           
-          <!--航班n-->
+<!--           航班n -->
           
-          <div class="romde_box ">
-            <div class="border"> 
-              <!--第1段-->
-              <div class="num-tag">8</div>
-              <div class="flybox row">
-                <div class="col-xs-10 text-center fly-leftbox">
-                  <div class="col-xs-3 fl-namebox text-center">
-                    <div class="fl-name">奧地利航空</div>
-                    <div class="fl-num">OS100</div>
-                  </div>
-                  <div class="col-xs-3 fl-timebox text-right">
-                    <div class="fl-time">2019/10/10(四)</div>
-                    <div class="fl-place">22:05<span>TPE</span></div>
-                  </div>
-                  <div class=" col-xs-3 fl-durationbox text-center">
-                    <div class="fl-dutime"> <span>0 </span>小時 <span>55 </span>分 </div>
-                    <div class="t-line" ></div>
-                    <div class="fl-flyname">實際飛行荷蘭航空</div>
-                  </div>
-                  <div class=" col-xs-3 fl-timebox text-left">
-                    <div class="fl-time">2019/10/10(四)</div>
-                    <div class="fl-place">22:00<span>VIE</span></div>
-                  </div>
-                </div>
-                <div class="col-xs-2 fly-info">
-                  <div class="fltool">
-                    <li class="icon_fl1">空中巴士330</li>
-                    <li class="icon_fl2">經濟艙 V</li>
-                    <li class="icon_fl3">30kg/人</li>
-                  </div>
-                </div>
-              </div>
+<!--           <div class="romde_box "> -->
+<!--             <div class="border">  -->
+<!--               第1段 -->
+<!--               <div class="num-tag">8</div> -->
+<!--               <div class="flybox row"> -->
+<!--                 <div class="col-xs-10 text-center fly-leftbox"> -->
+<!--                   <div class="col-xs-3 fl-namebox text-center"> -->
+<!--                     <div class="fl-name">奧地利航空</div> -->
+<!--                     <div class="fl-num">OS100</div> -->
+<!--                   </div> -->
+<!--                   <div class="col-xs-3 fl-timebox text-right"> -->
+<!--                     <div class="fl-time">2019/10/10(四)</div> -->
+<!--                     <div class="fl-place">22:05<span>TPE</span></div> -->
+<!--                   </div> -->
+<!--                   <div class=" col-xs-3 fl-durationbox text-center"> -->
+<!--                     <div class="fl-dutime"> <span>0 </span>小時 <span>55 </span>分 </div> -->
+<!--                     <div class="t-line" ></div> -->
+<!--                     <div class="fl-flyname">實際飛行荷蘭航空</div> -->
+<!--                   </div> -->
+<!--                   <div class=" col-xs-3 fl-timebox text-left"> -->
+<!--                     <div class="fl-time">2019/10/10(四)</div> -->
+<!--                     <div class="fl-place">22:00<span>VIE</span></div> -->
+<!--                   </div> -->
+<!--                 </div> -->
+<!--                 <div class="col-xs-2 fly-info"> -->
+<!--                   <div class="fltool"> -->
+<!--                     <li class="icon_fl1">空中巴士330</li> -->
+<!--                     <li class="icon_fl2">經濟艙 V</li> -->
+<!--                     <li class="icon_fl3">30kg/人</li> -->
+<!--                   </div> -->
+<!--                 </div> -->
+<!--               </div> -->
               
-              <!--第1段_結束--> 
+<!--               第1段_結束  -->
               
-              <!--第2段-->
+<!--               第2段 -->
               
-              <div class="flybox row border-top">
-                <div class="col-xs-10 text-center fly-leftbox">
-                  <div class="col-xs-3 fl-namebox text-center">
-                    <div class="fl-name">奧地利航空</div>
-                    <div class="fl-num">OS100</div>
-                  </div>
-                  <div class="col-xs-3 fl-timebox text-right">
-                    <div class="fl-time">2019/10/23(三)</div>
-                    <div class="fl-place">22:05<span>VIE</span></div>
-                  </div>
-                  <div class=" col-xs-3 fl-durationbox text-center">
-                    <div class="fl-dutime"> <span>13 </span>小時 <span>15 </span>分 </div>
-                    <div class="t-line" ></div>
-                    <div class="fl-flyname"></div>
-                  </div>
-                  <div class=" col-xs-3 fl-timebox text-left">
-                    <div class="fl-time">2019/10/24(四)</div>
-                    <div class="fl-place">22:05<span>VIE</span></div>
-                  </div>
-                </div>
-                <div class="col-xs-2 fly-info">
-                  <div class="fltool">
-                    <li class="icon_fl1">777-200</li>
-                    <li class="icon_fl2">豪華經濟艙 T</li>
-                    <li class="icon_fl3">1件</li>
-                  </div>
-                </div>
-              </div>
+<!--               <div class="flybox row border-top"> -->
+<!--                 <div class="col-xs-10 text-center fly-leftbox"> -->
+<!--                   <div class="col-xs-3 fl-namebox text-center"> -->
+<!--                     <div class="fl-name">奧地利航空</div> -->
+<!--                     <div class="fl-num">OS100</div> -->
+<!--                   </div> -->
+<!--                   <div class="col-xs-3 fl-timebox text-right"> -->
+<!--                     <div class="fl-time">2019/10/23(三)</div> -->
+<!--                     <div class="fl-place">22:05<span>VIE</span></div> -->
+<!--                   </div> -->
+<!--                   <div class=" col-xs-3 fl-durationbox text-center"> -->
+<!--                     <div class="fl-dutime"> <span>13 </span>小時 <span>15 </span>分 </div> -->
+<!--                     <div class="t-line" ></div> -->
+<!--                     <div class="fl-flyname"></div> -->
+<!--                   </div> -->
+<!--                   <div class=" col-xs-3 fl-timebox text-left"> -->
+<!--                     <div class="fl-time">2019/10/24(四)</div> -->
+<!--                     <div class="fl-place">22:05<span>VIE</span></div> -->
+<!--                   </div> -->
+<!--                 </div> -->
+<!--                 <div class="col-xs-2 fly-info"> -->
+<!--                   <div class="fltool"> -->
+<!--                     <li class="icon_fl1">777-200</li> -->
+<!--                     <li class="icon_fl2">豪華經濟艙 T</li> -->
+<!--                     <li class="icon_fl3">1件</li> -->
+<!--                   </div> -->
+<!--                 </div> -->
+<!--               </div> -->
               
-              <!--第2段_結束--> 
+<!--               第2段_結束  -->
               
-              <!--票價-->
-              <div class="row">
-                <div class="tickbox ">
-                  <div class="col-xs-6  btn-tickbox">
-                    <div class="btn-tick-pr btn" data-toggle="modal" data-target="#pop_fdetail"> 票價規則 </div>
-                    <div class="btn-tick-ba btn" data-toggle="modal" data-target="#pop_fdetail"> 行李說明 </div>
-                  </div>
-                  <div class="col-xs-6 fpric text-right"> <span class="list_pricet">
-                    <div class="price">$<span class="fontb">380,000</span></div>
-                    <div class="price_de">每成人含稅</div>
-                    </span> <span class="check">
-                    <button type="button" class="btn btn_check" onClick="javascript:location.href='step2.html'">訂 位</button>
-                    </span> </div>
-                </div>
-              </div>
+<!--               票價 -->
+<!--               <div class="row"> -->
+<!--                 <div class="tickbox "> -->
+<!--                   <div class="col-xs-6  btn-tickbox"> -->
+<!--                     <div class="btn-tick-pr btn" data-toggle="modal" data-target="#pop_fdetail"> 票價規則 </div> -->
+<!--                     <div class="btn-tick-ba btn" data-toggle="modal" data-target="#pop_fdetail"> 行李說明 </div> -->
+<!--                   </div> -->
+<!--                   <div class="col-xs-6 fpric text-right"> <span class="list_pricet"> -->
+<!--                     <div class="price">$<span class="fontb">380,000</span></div> -->
+<!--                     <div class="price_de">每成人含稅</div> -->
+<!--                     </span> <span class="check"> -->
+<!--                     <button type="button" class="btn btn_check" onClick="javascript:location.href='step2.html'">訂 位</button> -->
+<!--                     </span> </div> -->
+<!--                 </div> -->
+<!--               </div> -->
               
-              <!--票價_結束--> 
+<!--               票價_結束  -->
               
-            </div>
-          </div>
+<!--             </div> -->
+<!--           </div> -->
           
-          <!--航班n_結束--> 
+<!--           航班n_結束  -->
           
-          <!--航班n-->
-          <div class="romde_box ">
-            <div class="border"> 
-              <!--第1段-->
-              <div class="num-tag">9</div>
-              <div class="flybox row">
-                <div class="col-xs-10 text-center fly-leftbox">
-                  <div class="col-xs-3 fl-namebox text-center">
-                    <div class="fl-name">奧地利航空</div>
-                    <div class="fl-num">OS100</div>
-                  </div>
-                  <div class="col-xs-3 fl-timebox text-right">
-                    <div class="fl-time">2019/10/10(四)</div>
-                    <div class="fl-place">22:05<span>TPE</span></div>
-                  </div>
-                  <div class=" col-xs-3 fl-durationbox text-center">
-                    <div class="fl-dutime"> <span>0 </span>小時 <span>55 </span>分 </div>
-                    <div class="t-line" ></div>
-                    <div class="fl-flyname">實際飛行荷蘭航空</div>
-                  </div>
-                  <div class=" col-xs-3 fl-timebox text-left">
-                    <div class="fl-time">2019/10/10(四)</div>
-                    <div class="fl-place">22:00<span>VIE</span></div>
-                  </div>
-                </div>
-                <div class="col-xs-2 fly-info">
-                  <div class="fltool">
-                    <li class="icon_fl1">空中巴士330</li>
-                    <li class="icon_fl2">經濟艙 V</li>
-                    <li class="icon_fl3">30kg/人</li>
-                  </div>
-                </div>
-              </div>
+<!--           航班n -->
+<!--           <div class="romde_box "> -->
+<!--             <div class="border">  -->
+<!--               第1段 -->
+<!--               <div class="num-tag">9</div> -->
+<!--               <div class="flybox row"> -->
+<!--                 <div class="col-xs-10 text-center fly-leftbox"> -->
+<!--                   <div class="col-xs-3 fl-namebox text-center"> -->
+<!--                     <div class="fl-name">奧地利航空</div> -->
+<!--                     <div class="fl-num">OS100</div> -->
+<!--                   </div> -->
+<!--                   <div class="col-xs-3 fl-timebox text-right"> -->
+<!--                     <div class="fl-time">2019/10/10(四)</div> -->
+<!--                     <div class="fl-place">22:05<span>TPE</span></div> -->
+<!--                   </div> -->
+<!--                   <div class=" col-xs-3 fl-durationbox text-center"> -->
+<!--                     <div class="fl-dutime"> <span>0 </span>小時 <span>55 </span>分 </div> -->
+<!--                     <div class="t-line" ></div> -->
+<!--                     <div class="fl-flyname">實際飛行荷蘭航空</div> -->
+<!--                   </div> -->
+<!--                   <div class=" col-xs-3 fl-timebox text-left"> -->
+<!--                     <div class="fl-time">2019/10/10(四)</div> -->
+<!--                     <div class="fl-place">22:00<span>VIE</span></div> -->
+<!--                   </div> -->
+<!--                 </div> -->
+<!--                 <div class="col-xs-2 fly-info"> -->
+<!--                   <div class="fltool"> -->
+<!--                     <li class="icon_fl1">空中巴士330</li> -->
+<!--                     <li class="icon_fl2">經濟艙 V</li> -->
+<!--                     <li class="icon_fl3">30kg/人</li> -->
+<!--                   </div> -->
+<!--                 </div> -->
+<!--               </div> -->
               
-              <!--第1段_結束--> 
+<!--               第1段_結束  -->
               
-              <!--第2段-->
+<!--               第2段 -->
               
-              <div class="flybox row border-top">
-                <div class="col-xs-10 text-center fly-leftbox">
-                  <div class="col-xs-3 fl-namebox text-center">
-                    <div class="fl-name">奧地利航空</div>
-                    <div class="fl-num">OS100</div>
-                  </div>
-                  <div class="col-xs-3 fl-timebox text-right">
-                    <div class="fl-time">2019/10/23(三)</div>
-                    <div class="fl-place">22:05<span>VIE</span></div>
-                  </div>
-                  <div class=" col-xs-3 fl-durationbox text-center">
-                    <div class="fl-dutime"> <span>13 </span>小時 <span>15 </span>分 </div>
-                    <div class="t-line" ></div>
-                    <div class="fl-flyname"></div>
-                  </div>
-                  <div class=" col-xs-3 fl-timebox text-left">
-                    <div class="fl-time">2019/10/24(四)</div>
-                    <div class="fl-place">22:05<span>VIE</span></div>
-                  </div>
-                </div>
-                <div class="col-xs-2 fly-info">
-                  <div class="fltool">
-                    <li class="icon_fl1">777-200</li>
-                    <li class="icon_fl2">豪華經濟艙 T</li>
-                    <li class="icon_fl3">1件</li>
-                  </div>
-                </div>
-              </div>
+<!--               <div class="flybox row border-top"> -->
+<!--                 <div class="col-xs-10 text-center fly-leftbox"> -->
+<!--                   <div class="col-xs-3 fl-namebox text-center"> -->
+<!--                     <div class="fl-name">奧地利航空</div> -->
+<!--                     <div class="fl-num">OS100</div> -->
+<!--                   </div> -->
+<!--                   <div class="col-xs-3 fl-timebox text-right"> -->
+<!--                     <div class="fl-time">2019/10/23(三)</div> -->
+<!--                     <div class="fl-place">22:05<span>VIE</span></div> -->
+<!--                   </div> -->
+<!--                   <div class=" col-xs-3 fl-durationbox text-center"> -->
+<!--                     <div class="fl-dutime"> <span>13 </span>小時 <span>15 </span>分 </div> -->
+<!--                     <div class="t-line" ></div> -->
+<!--                     <div class="fl-flyname"></div> -->
+<!--                   </div> -->
+<!--                   <div class=" col-xs-3 fl-timebox text-left"> -->
+<!--                     <div class="fl-time">2019/10/24(四)</div> -->
+<!--                     <div class="fl-place">22:05<span>VIE</span></div> -->
+<!--                   </div> -->
+<!--                 </div> -->
+<!--                 <div class="col-xs-2 fly-info"> -->
+<!--                   <div class="fltool"> -->
+<!--                     <li class="icon_fl1">777-200</li> -->
+<!--                     <li class="icon_fl2">豪華經濟艙 T</li> -->
+<!--                     <li class="icon_fl3">1件</li> -->
+<!--                   </div> -->
+<!--                 </div> -->
+<!--               </div> -->
               
-              <!--第2段_結束--> 
+<!--               第2段_結束  -->
               
-              <!--票價-->
-              <div class="row">
-                <div class="tickbox ">
-                  <div class="col-xs-6  btn-tickbox">
-                    <div class="btn-tick-pr btn" data-toggle="modal" data-target="#pop_fdetail"> 票價規則 </div>
-                    <div class="btn-tick-ba btn" data-toggle="modal" data-target="#pop_fdetail"> 行李說明 </div>
-                  </div>
-                  <div class="col-xs-6 fpric text-right"> <span class="list_pricet">
-                    <div class="price">$<span class="fontb">390,000</span></div>
-                    <div class="price_de">每成人含稅</div>
-                    </span> <span class="check">
-                    <button type="button" class="btn btn_check" onClick="javascript:location.href='step2.html'">訂 位</button>
-                    </span> </div>
-                </div>
-              </div>
+<!--               票價 -->
+<!--               <div class="row"> -->
+<!--                 <div class="tickbox "> -->
+<!--                   <div class="col-xs-6  btn-tickbox"> -->
+<!--                     <div class="btn-tick-pr btn" data-toggle="modal" data-target="#pop_fdetail"> 票價規則 </div> -->
+<!--                     <div class="btn-tick-ba btn" data-toggle="modal" data-target="#pop_fdetail"> 行李說明 </div> -->
+<!--                   </div> -->
+<!--                   <div class="col-xs-6 fpric text-right"> <span class="list_pricet"> -->
+<!--                     <div class="price">$<span class="fontb">390,000</span></div> -->
+<!--                     <div class="price_de">每成人含稅</div> -->
+<!--                     </span> <span class="check"> -->
+<!--                     <button type="button" class="btn btn_check" onClick="javascript:location.href='step2.html'">訂 位</button> -->
+<!--                     </span> </div> -->
+<!--                 </div> -->
+<!--               </div> -->
               
-              <!--票價_結束--> 
+<!--               票價_結束  -->
               
-            </div>
-          </div>
+<!--             </div> -->
+<!--           </div> -->
           
-          <!--航班n_結束--> 
-          <!--航班n-->
-          <div class="romde_box ">
-            <div class="border"> 
-              <!--第1段-->
-              <div class="num-tag">10</div>
-              <div class="flybox row">
-                <div class="col-xs-10 text-center fly-leftbox">
-                  <div class="col-xs-3 fl-namebox text-center">
-                    <div class="fl-name">奧地利航空</div>
-                    <div class="fl-num">OS100</div>
-                  </div>
-                  <div class="col-xs-3 fl-timebox text-right">
-                    <div class="fl-time">2019/10/10(四)</div>
-                    <div class="fl-place">22:05<span>TPE</span></div>
-                  </div>
-                  <div class=" col-xs-3 fl-durationbox text-center">
-                    <div class="fl-dutime"> <span>0 </span>小時 <span>55 </span>分 </div>
-                    <div class="t-line" ></div>
-                    <div class="fl-flyname">實際飛行荷蘭航空</div>
-                  </div>
-                  <div class=" col-xs-3 fl-timebox text-left">
-                    <div class="fl-time">2019/10/10(四)</div>
-                    <div class="fl-place">22:00<span>VIE</span></div>
-                  </div>
-                </div>
-                <div class="col-xs-2 fly-info">
-                  <div class="fltool">
-                    <li class="icon_fl1">空中巴士330</li>
-                    <li class="icon_fl2">經濟艙 V</li>
-                    <li class="icon_fl3">30kg/人</li>
-                  </div>
-                </div>
-              </div>
+<!--           航班n_結束  -->
+<!--           航班n -->
+<!--           <div class="romde_box "> -->
+<!--             <div class="border">  -->
+<!--               第1段 -->
+<!--               <div class="num-tag">10</div> -->
+<!--               <div class="flybox row"> -->
+<!--                 <div class="col-xs-10 text-center fly-leftbox"> -->
+<!--                   <div class="col-xs-3 fl-namebox text-center"> -->
+<!--                     <div class="fl-name">奧地利航空</div> -->
+<!--                     <div class="fl-num">OS100</div> -->
+<!--                   </div> -->
+<!--                   <div class="col-xs-3 fl-timebox text-right"> -->
+<!--                     <div class="fl-time">2019/10/10(四)</div> -->
+<!--                     <div class="fl-place">22:05<span>TPE</span></div> -->
+<!--                   </div> -->
+<!--                   <div class=" col-xs-3 fl-durationbox text-center"> -->
+<!--                     <div class="fl-dutime"> <span>0 </span>小時 <span>55 </span>分 </div> -->
+<!--                     <div class="t-line" ></div> -->
+<!--                     <div class="fl-flyname">實際飛行荷蘭航空</div> -->
+<!--                   </div> -->
+<!--                   <div class=" col-xs-3 fl-timebox text-left"> -->
+<!--                     <div class="fl-time">2019/10/10(四)</div> -->
+<!--                     <div class="fl-place">22:00<span>VIE</span></div> -->
+<!--                   </div> -->
+<!--                 </div> -->
+<!--                 <div class="col-xs-2 fly-info"> -->
+<!--                   <div class="fltool"> -->
+<!--                     <li class="icon_fl1">空中巴士330</li> -->
+<!--                     <li class="icon_fl2">經濟艙 V</li> -->
+<!--                     <li class="icon_fl3">30kg/人</li> -->
+<!--                   </div> -->
+<!--                 </div> -->
+<!--               </div> -->
               
-              <!--第1段_結束--> 
+<!--               第1段_結束  -->
               
-              <!--第2段-->
+<!--               第2段 -->
               
-              <div class="flybox row border-top">
-                <div class="col-xs-10 text-center fly-leftbox">
-                  <div class="col-xs-3 fl-namebox text-center">
-                    <div class="fl-name">奧地利航空</div>
-                    <div class="fl-num">OS100</div>
-                  </div>
-                  <div class="col-xs-3 fl-timebox text-right">
-                    <div class="fl-time">2019/10/23(三)</div>
-                    <div class="fl-place">22:05<span>VIE</span></div>
-                  </div>
-                  <div class=" col-xs-3 fl-durationbox text-center">
-                    <div class="fl-dutime"> <span>13 </span>小時 <span>15 </span>分 </div>
-                    <div class="t-line" ></div>
-                    <div class="fl-flyname"></div>
-                  </div>
-                  <div class=" col-xs-3 fl-timebox text-left">
-                    <div class="fl-time">2019/10/24(四)</div>
-                    <div class="fl-place">22:05<span>VIE</span></div>
-                  </div>
-                </div>
-                <div class="col-xs-2 fly-info">
-                  <div class="fltool">
-                    <li class="icon_fl1">777-200</li>
-                    <li class="icon_fl2">豪華經濟艙 T</li>
-                    <li class="icon_fl3">1件</li>
-                  </div>
-                </div>
-              </div>
+<!--               <div class="flybox row border-top"> -->
+<!--                 <div class="col-xs-10 text-center fly-leftbox"> -->
+<!--                   <div class="col-xs-3 fl-namebox text-center"> -->
+<!--                     <div class="fl-name">奧地利航空</div> -->
+<!--                     <div class="fl-num">OS100</div> -->
+<!--                   </div> -->
+<!--                   <div class="col-xs-3 fl-timebox text-right"> -->
+<!--                     <div class="fl-time">2019/10/23(三)</div> -->
+<!--                     <div class="fl-place">22:05<span>VIE</span></div> -->
+<!--                   </div> -->
+<!--                   <div class=" col-xs-3 fl-durationbox text-center"> -->
+<!--                     <div class="fl-dutime"> <span>13 </span>小時 <span>15 </span>分 </div> -->
+<!--                     <div class="t-line" ></div> -->
+<!--                     <div class="fl-flyname"></div> -->
+<!--                   </div> -->
+<!--                   <div class=" col-xs-3 fl-timebox text-left"> -->
+<!--                     <div class="fl-time">2019/10/24(四)</div> -->
+<!--                     <div class="fl-place">22:05<span>VIE</span></div> -->
+<!--                   </div> -->
+<!--                 </div> -->
+<!--                 <div class="col-xs-2 fly-info"> -->
+<!--                   <div class="fltool"> -->
+<!--                     <li class="icon_fl1">777-200</li> -->
+<!--                     <li class="icon_fl2">豪華經濟艙 T</li> -->
+<!--                     <li class="icon_fl3">1件</li> -->
+<!--                   </div> -->
+<!--                 </div> -->
+<!--               </div> -->
               
-              <!--第2段_結束--> 
+<!--               第2段_結束  -->
               
-              <!--票價-->
-              <div class="row">
-                <div class="tickbox ">
-                  <div class="col-xs-6  btn-tickbox">
-                    <div class="btn-tick-pr btn" data-toggle="modal" data-target="#pop_fdetail"> 票價規則 </div>
-                    <div class="btn-tick-ba btn" data-toggle="modal" data-target="#pop_fdetail"> 行李說明 </div>
-                  </div>
-                  <div class="col-xs-6 fpric text-right"> <span class="list_pricet">
-                    <div class="price">$<span class="fontb">400,000</span></div>
-                    <div class="price_de">每成人含稅</div>
-                    </span> <span class="check">
-                    <button type="button" class="btn btn_check" onClick="javascript:location.href='step2.html'">訂 位</button>
-                    </span> </div>
-                </div>
-              </div>
+<!--               票價 -->
+<!--               <div class="row"> -->
+<!--                 <div class="tickbox "> -->
+<!--                   <div class="col-xs-6  btn-tickbox"> -->
+<!--                     <div class="btn-tick-pr btn" data-toggle="modal" data-target="#pop_fdetail"> 票價規則 </div> -->
+<!--                     <div class="btn-tick-ba btn" data-toggle="modal" data-target="#pop_fdetail"> 行李說明 </div> -->
+<!--                   </div> -->
+<!--                   <div class="col-xs-6 fpric text-right"> <span class="list_pricet"> -->
+<!--                     <div class="price">$<span class="fontb">400,000</span></div> -->
+<!--                     <div class="price_de">每成人含稅</div> -->
+<!--                     </span> <span class="check"> -->
+<!--                     <button type="button" class="btn btn_check" onClick="javascript:location.href='step2.html'">訂 位</button> -->
+<!--                     </span> </div> -->
+<!--                 </div> -->
+<!--               </div> -->
               
-              <!--票價_結束--> 
+<!--               票價_結束  -->
               
             </div>
           </div>
           
           <!--航班n_結束-->
           
-          <div class="load_cont"> <i></i> 載入更多航班 </div>
+<!--           <div class="load_cont"> <i></i> 載入更多航班 </div> -->
         </div>
         <!--彈跳航班資訊-->
         <div class="modal fade" id="pop_fdetail" tabindex="-1" role="dialog" aria-labelledby="pop_protickLabel">

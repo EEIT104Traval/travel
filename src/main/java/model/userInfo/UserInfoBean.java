@@ -3,11 +3,10 @@ package model.userInfo;
 import java.util.Arrays;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import model.hotel.HotelOrderDetailsBean;
 import model.ticket.TicketOrderInfoBean;
@@ -21,7 +20,7 @@ public class UserInfoBean {
 	private byte[] password;	
 	private String firstname;
 	private String lastname;
-	private String identityNo;
+	private String identityNo; //身分證字號
 	private String email;
 	private java.util.Date birth;
 	private String sex;
@@ -30,36 +29,41 @@ public class UserInfoBean {
 	private String authority;
 	private String gorfb;
 	private String loginId;
+	private java.sql.Timestamp registerDate;	// 會員登錄日期
 	
-	@OneToMany(
-			cascade=CascadeType.REMOVE,
-			mappedBy="accountName"
-	)
+//	@OneToMany(
+//			cascade=CascadeType.REMOVE,
+//			mappedBy="accountName"
+//	)
+	@Transient
 	private List<TourOrderInfoBean> tourOrderInfoBean;
 	
-	@OneToMany(
-			cascade=CascadeType.REMOVE,
-			mappedBy="accountName"
-	)
+//	@OneToMany(
+//			cascade=CascadeType.REMOVE,
+//			mappedBy="accountName"
+//	)
+	@Transient
 	private List<TicketOrderInfoBean> ticketOrderInfoBean;
 	
-	@OneToMany(
-			cascade=CascadeType.REMOVE,
-			mappedBy="accountName"
-	)
+//	@OneToMany(
+//			cascade=CascadeType.REMOVE,
+//			mappedBy="accountName"
+//	)
+	@Transient
 	private List<HotelOrderDetailsBean> hotelOrderDetailsBean;
 
+
+	
 	@Override
 	public String toString() {
 		return "UserInfoBean [accountName=" + accountName + ", password=" + Arrays.toString(password) + ", firstname="
 				+ firstname + ", lastname=" + lastname + ", identityNo=" + identityNo + ", email=" + email + ", birth="
 				+ birth + ", sex=" + sex + ", phone=" + phone + ", address=" + address + ", authority=" + authority
-				+ ", gorfb=" + gorfb + ", loginId=" + loginId + ", tourOrderInfoBean=" + tourOrderInfoBean
-				+ ", ticketOrderInfoBean=" + ticketOrderInfoBean + ", hotelOrderDetailsBean=" + hotelOrderDetailsBean
-				+ "]";
+				+ ", gorfb=" + gorfb + ", loginId=" + loginId + ", registerDate=" + registerDate
+				+ ", tourOrderInfoBean=" + tourOrderInfoBean + ", ticketOrderInfoBean=" + ticketOrderInfoBean
+				+ ", hotelOrderDetailsBean=" + hotelOrderDetailsBean + "]";
 	}
-		
-	
+
 	public String getAccountName() {
 		return accountName;
 	}
@@ -186,6 +190,14 @@ public class UserInfoBean {
 
 	public void setHotelOrderDetailsBean(List<HotelOrderDetailsBean> hotelOrderDetailsBean) {
 		this.hotelOrderDetailsBean = hotelOrderDetailsBean;
+	}
+
+	public java.sql.Timestamp getRegisterDate() {
+		return registerDate;
+	}
+
+	public void setRegisterDate(java.sql.Timestamp registerDate) {
+		this.registerDate = registerDate;
 	}
 
 

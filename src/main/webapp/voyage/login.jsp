@@ -149,10 +149,10 @@ div#users-contain table td, div#users-contain table th {
       }
     });
  
-//     form = dialog.find( "form" ).on( "submit", function( event ) {
+    form = dialog.find( "form" ).on( "submit", function( event ) {
 //       event.preventDefault();
 //       addUser();
-//     });
+    });
  
     $( "#create-user" ).button().on( "click", function() {
       dialog.dialog( "open" );
@@ -169,7 +169,7 @@ div#users-contain table td, div#users-contain table th {
 			<label for="name">帳號:</label> <input type="text" name="name"
 				class="text ui-widget-content ui-corner-all"><br>
 			<label for="password">密碼:</label> <input type="password"
-				name=" " value=""
+				name="password" value=""
 				class="text ui-widget-content ui-corner-all">
 
 			<!--     </fieldset> -->
@@ -181,7 +181,7 @@ div#users-contain table td, div#users-contain table th {
 		<div>
 			<!--         Google登入：<input type="button"  value="Google登入" onclick="GoogleLogin();" /><br> -->
 			<button style="background-color: blue; color: white; margin-top: 5px">登入</button>
-<input type="submit" value="Login">
+			<input type="submit" value="Login">
 		</form>
 			<p>快速登入</p>
 			<img src="<c:url value='/voyage/images/facebook.png' />" onclick="FBLogin();" width="32%"

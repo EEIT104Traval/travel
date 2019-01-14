@@ -10,7 +10,6 @@ This stylesheet and the associated (x)html may be modified in any way to fit you
     margin:auto;
     padding: 0;
 }
-
 html {
 	background-color: #000000;
 /*     background:url(../images/tour-5.jpg); */
@@ -45,7 +44,20 @@ html {
 .title {
 	color: white
 }
- 
+ table {	
+ /*             width: 10px; */	
+            border: 3px solid green;	
+            border-collapse: collapse;	
+            color: white	
+        }	
+
+         td,	
+        th {	
+            border: 1px solid red;	
+            padding: 4px;	
+            text-align: center;	
+/*             vertical-align: bottom; */	
+        }
 /* general styles */
 .menu, .menu ul {
     list-style: none;

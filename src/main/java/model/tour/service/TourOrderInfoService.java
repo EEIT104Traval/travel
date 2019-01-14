@@ -12,13 +12,20 @@ import model.tour.dao.TourOrderInfoDAO;
 public class TourOrderInfoService {
 
 	@Autowired
-	private TourOrderInfoDAO tourOrderInfoDAO = null;
+	private TourOrderInfoDAO toDAO = null;
 	
 	public List<TourOrderInfoBean> foundOrderaccountName(String accountName) {
 
 		List<TourOrderInfoBean> result = null;
-		result = tourOrderInfoDAO.findOrderaccountName(accountName);
+		result = toDAO.findOrderaccountName(accountName);
 
+		return result;
+	}
+	
+	public List<TourOrderInfoBean> findBuyMonth (Integer month) {
+		
+		List<TourOrderInfoBean> result = toDAO.findBuyMonth(month);
+		
 		return result;
 	}
 }

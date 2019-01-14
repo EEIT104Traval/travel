@@ -20,7 +20,7 @@ var params = {}
 	$(document).ready(function() {
 		$('#select1').change(function() {
 			params.number = $('#select1').val()
-			alert(params.number)
+// 			alert(params.number)
 		})
 	});
   			function fundmember(){
@@ -28,26 +28,31 @@ var params = {}
 			$("#searchuser").html("")
 
  			$.ajax({
- 					url : '/Travel//bindex01_01/User.controller',
+ 					url : '/Travel/bindex01_01/User.controller',
  					contentType : 'application/json; charset=UTF-8',
  					type : 'get',
  					dataType : 'json',
  					data:params,
  				   }).done(function(JData) {
+ 					   console.log(JData)
 							$.each(JData, function(index, value) {
-								console.log(value)
+// 								console.log(value)
+								console.log(value.accountName)
+								
  						$("#searchuser").append(
- 							'<table class="table"><tr><th>accountName</th><th>firstname</th><th>lastname</th><th>identityNo</th><th>email</th></tr><tr>'
+ 							'<table><th style="width:150px">帳號</th><th style="width:150px">姓</th>'+
+ 							'<th style="width:150px">名</th><th style="width:150px">identityNo</th><th style="width:150px">email</th><tr>'
  							+'<th>'+value.accountName +'</th>'
  							+'<th>'+value.firstname +'</th>'
  							+'<th>'+value.lastname +'</th>'
  							+'<th>'+value.identityNo +'</th>'
  							+'<th>'+value.email +'</th>'
- 							+'</tr><tr><th>sex</th><th>phone</th><th>birth</th><th colspan="2">address</th></tr><tr>'
+ 							+'</tr><th>性別</th><th>電話號碼</th><th>出生年月日</th><th colspan="2">地址</th><tr>'
  							+'<th>'+value.sex +'</th>'
  							+'<th>'+value.phone +'</th>'
  							+'<th>'+value.birth +'</th>'
- 							+'<th colspan="2">'+value.address +'</th></tr></table>'
+ 							+'<th colspan="2">'+value.address +'</th></tr></table><br>'
+ 							
 							)}
 				)}
  	)};		
@@ -80,5 +85,4 @@ var params = {}
 		
 	</div>
 </body>
-<script src="<c:url value='/voyage/js/bootstrap-datepicker.js' />"></script>
 </html>

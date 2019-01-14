@@ -3,21 +3,18 @@ package model.userInfo.dao;
 import java.util.Date;
 import java.util.List;
 
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Root;
-
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import model.ticket.TicketInfoBean;
 import model.userInfo.UserInfoBean;
 import model.userInfo.UserInfoDAO;
 
 @Repository
 public class UserInfoDAOHibernate implements UserInfoDAO {
+	
 	@Autowired
 	private SessionFactory sessionFactory;
 
@@ -79,28 +76,17 @@ public class UserInfoDAOHibernate implements UserInfoDAO {
 		}
 		return false;
 	}
-
 	// --------------↓↓↓↓↓↓後台使用專區↓↓↓↓↓↓-------------
 
-	@Override
-	public List<UserInfoBean> findByaccountName(String accountName) {
-		CriteriaBuilder criteriaBuilder = getSession().getCriteriaBuilder();
-		CriteriaQuery<UserInfoBean> criteria = criteriaBuilder.createQuery(UserInfoBean.class);
-		Root<UserInfoBean> from = criteria.from(UserInfoBean.class);
-		criteria.select(from).where(from.get("accountName").in(accountName));
-		List<UserInfoBean> list = getSession().createQuery(criteria).getResultList();
-		return list;
 
-	}
-	
 	@Override
-	public List<UserInfoBean> findByphone(String phone) {
-		CriteriaBuilder criteriaBuilder = getSession().getCriteriaBuilder();
-		CriteriaQuery<UserInfoBean> criteria = criteriaBuilder.createQuery(UserInfoBean.class);
-		Root<UserInfoBean> from = criteria.from(UserInfoBean.class);
-		criteria.select(from).where(from.get("phone").in(phone));
-		List<UserInfoBean> list = getSession().createQuery(criteria).getResultList();
-		return list;
-
+	public UserInfoBean findByphone(String phone) {
+		
+		String hql = "from UserInfoBean where phone = '"+phone+"'" ;
+		return  this.getSession().createQuery(hql,UserInfoBean.class).uniqueResult();
+//		Query<UserInfoBean> query = this.getSession().createQuery(hql,UserInfoBean.class);
+//		UserInfoBean finduser = query.uniqueResult();
+//		
+//		return finduser;
 	}
 }

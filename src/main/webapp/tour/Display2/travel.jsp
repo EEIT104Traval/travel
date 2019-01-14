@@ -10,53 +10,108 @@
 		<meta name="description" content="Free Bootstrap 4 Theme by ProBootstrap.com">
 		<meta name="keywords" content="free website templates, free bootstrap themes, free template, free bootstrap, free website template">
     
-    <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,700" rel="stylesheet">
-
-		<link rel="stylesheet" href="assets/css/bootstrap/bootstrap.css">
+	<link rel="stylesheet" href="assets/css/bootstrap/bootstrap.css">
     <link rel="stylesheet" href="assets/css/animate.css">
     <link rel="stylesheet" href="assets/fonts/ionicons/css/ionicons.min.css">
-    
     <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
-    
     <link rel="stylesheet" href="assets/fonts/flaticon/font/flaticon.css">
-
     <link rel="stylesheet" href="assets/fonts/fontawesome/css/font-awesome.min.css">
-
     <link rel="stylesheet" href="assets/css/select2.css">
-    
-
     <link rel="stylesheet" href="assets/css/helpers.css">
     <link rel="stylesheet" href="assets/css/style.css">
-
+    
 	</head>
 	<script
   	src="https://code.jquery.com/jquery-3.3.1.js"
   	integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
   	crossorigin="anonymous"></script>
+  	
+<script>
+		var url = location.href;
+		var ary = {}
+		var params ={}
+		if(url.indexOf('?')!=-1)
+		{
+		    //在此直接將各自的參數資料切割放進ary中
+		        ary = {}
+		    	ary = url.split('tourNo=');
+		    	params.tourNo = ary[1]
+		    //此時ary的內容為：
+// 			console.log(ary)
+// 			alert(ary[1])
+		}
+		
+		$(document).ready(function() {
+			$.ajax({
+					url : '/Travel/tour/display',
+					contentType : 'application/json; charset=UTF-8',
+					type : 'get',
+					dataType : 'json',
+					data:params,
+			}).done(function(JData) {
+					console.log(JData);
+					$("#img").html("<img src=images/"+JData.TourPictureBean[0].pic+" alt=/ height='500px'>");
+					$("#section-contact>div>div>div>p").html("<h2>"+JData.tourName+"</h2>");
+					$("#section-two>div>p").html("<p>"+JData.TourPictureBean[0].picDetail+"</p>");
+					$.each(JData.TourPictureBean, function(index, value) {
+						if(index!=0){
+							if(index % 2 != 0){
+								$("#travel").append(	
+										"<section class='probootstrap-section-half d-md-flex' id='section-about'>"
+									      +"<div class='probootstrap-image probootstrap-animate fadeIn probootstrap-animated' data-animate-effect='fadeIn' style='background-image: url(images/"+value.pic+");height:548px'></div>"
+									      +"<div class='probootstrap-text'>"
+									        +"<div class='probootstrap-inner probootstrap-animate fadeInRight probootstrap-animated' data-animate-effect='fadeInRight'>"
+											  +"<h3>第"+index+"天</h3><br/>"
+									          +"<h4>"+value.pictitle+"</h4>"
+									          +"<p>"+value.picDetail+"</p>"
+									        +"</div></div></section>"
+										);
+							}else{
+								$("#travel").append(
+										"<section class='probootstrap-section-half d-md-flex'>"
+									      +"<div class='probootstrap-image order-2 probootstrap-animate fadeIn probootstrap-animated' data-animate-effect='fadeIn' style='background-image: url(images/"+value.pic+");height:548px'></div>"
+									      +"<div class='probootstrap-text order-1'>"
+									        +"<div class='probootstrap-inner probootstrap-animate fadeInLeft probootstrap-animated' data-animate-effect='fadeInLeft'>"
+											  +"<h3>第"+index+"天</h3><br/>"
+									          +"<h4>"+value.pictitle+"</h4>"
+									          +"<p>"+value.picDetail+"</p>"
+									        +"</div></div></section>"
+										);
+							}
+						}
+					});
+			})
+
+		});
+</script>	
+  	
 	<body>
   
-	<jsp:include page="../../voyage/nav.jsp"></jsp:include>
-<!--     <nav class="navbar navbar-expand-lg navbar-dark probootstrap_navbar" id="probootstrap-navbar"> -->
-<!--       <div class="container"> -->
-<!--         <a class="navbar-brand" href="/">Places</a> -->
-<!--         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#probootstrap-menu" aria-controls="probootstrap-menu" aria-expanded="false" aria-label="Toggle navigation"> -->
-<!--           <span><i class="ion-navicon"></i></span> -->
-<!--         </button> -->
-<!--         <div class="collapse navbar-collapse" id="probootstrap-menu"> -->
-<!--           <ul class="navbar-nav ml-auto"> -->
-<!--             <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li> -->
-<!--             <li class="nav-item"><a class="nav-link" href="city-guides.html">City Guides</a></li> -->
-<!--             <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li> -->
-<!--             <li class="nav-item"><a class="nav-link active" href="travel.html">Travel With Us</a></li> -->
-<!--             <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li> -->
-<!--           </ul> -->
-<!--         </div> -->
-<!--       </div> -->
-<!--     </nav> -->
-    <!-- END nav -->
+    <nav class="navbar navbar-expand-lg navbar-dark probootstrap_navbar" id="probootstrap-navbar">
+      <div class="container">
+        <img alt="" src="<c:url value='/voyage/images/TTT.png' />" width="250px" height: auto;>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#probootstrap-menu" aria-controls="probootstrap-menu" aria-expanded="false" aria-label="Toggle navigation">
+          <span><i class="ion-navicon"></i></span>
+        </button>
+        <div class="collapse navbar-collapse" id="probootstrap-menu">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item"><a href="<c:url value='/voyage/index.jsp'/>" class="nav-link">首頁</a></li>
+            <li class="nav-item"><a href="<c:url value='/tour/tours.jsp'/>" class="nav-link">團體旅遊</a></li>
+            <li class="nav-item"><a href="<c:url value='/voyage/hotel/hotels.jsp'/>" class="nav-link">飯店</a></li>
+            <li class="nav-item"><a href="<c:url value='/flight/FlightNew.jsp'/>" class="nav-link">機票</a></li>
+            <li class="nav-item"><a href="<c:url value='/voyage/ticket.jsp'/>" class="nav-link">門票</a></li>
+            <li class="nav-item"><a href="<c:url value='/rate/rateindex2.jsp'/>" class="nav-link">查詢匯率</a></li>
+            <li class="nav-item"><a href="<c:url value='/voyage/contact.html'/>" class="nav-link">聯絡我們</a></li>
+<!--             <li class="nav-item"><a href="#" class="nav-link"> -->
+<%--             	<jsp:include page="../../voyage/login.jsp"></jsp:include> --%>
+            </a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
     
 
-    <section class="probootstrap-cover overflow-hidden relative"  style="background-image: url('assets/images/bg_1.jpg');" data-stellar-background-ratio="0.5" id="section-home">
+    <section class="probootstrap-cover overflow-hidden relative"  style="background-image: url('<c:url value='/voyage/images/bg_2.jpg'/>');" data-stellar-background-ratio="0.5" id="section-home">
       <div class="overlay"></div>
       <div class="container">
         <div class="row align-items-center text-center">
@@ -75,31 +130,41 @@
     </section>
     <!-- END section -->
     
-    <section class="probootstrap-section-half d-md-flex" id="section-about">
-      <div class="probootstrap-image probootstrap-animate" data-animate-effect="fadeIn" style="background-image: url(assets/images/img_2.jpg)"></div>
-      <div class="probootstrap-text">
-        <div class="probootstrap-inner probootstrap-animate" data-animate-effect="fadeInRight">
-          <h2 class="heading mb-4">Customer Service</h2>
-          <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-          <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p>
-          <p><a href="#" class="btn btn-primary">Read More</a></p>
+    <section class="probootstrap_section bg-light" id="section-contact">
+      <div class="container" style="max-width:1400px">
+        <div class="row">
+          <div class="col-md-6 probootstrap-animate fadeInUp probootstrap-animated">
+            <p class="mb-5">tour Detail 0</p>
+            <div class="row">
+              <div class="col-md-6">
+				放日曆
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 probootstrap-animate fadeInUp probootstrap-animated" id="img">
+				照片丟這裡           		
+          </div>
         </div>
       </div>
     </section>
-
-
-    <section class="probootstrap-section-half d-md-flex">
-      <div class="probootstrap-image order-2 probootstrap-animate" data-animate-effect="fadeIn" style="background-image: url(assets/images/img_3.jpg)"></div>
-      <div class="probootstrap-text order-1">
-        <div class="probootstrap-inner probootstrap-animate" data-animate-effect="fadeInLeft">
-          <h2 class="heading mb-4">Payment Options</h2>
-          <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-          <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p>
-          <p><a href="#" class="btn btn-primary">Learn More</a></p>
-        </div>
+    
+    <section class="probootstrap_section bg-light" id="section-two">
+      <div class="container" style="max-width:1400px">
+        <p></p>
       </div>
     </section>
-    <!-- END section -->
+
+    <section id="travel"></section>
+<!--     END section -->
+    
+<!--     <section> -->
+<!--     	<table id="tavel"> -->
+<!--     		<tr> -->
+<!--     			<td>1</td> -->
+<!--     			<td>2</td> -->
+<!--     		</tr> -->
+<!--     	</table> -->
+<!--     </section> -->
 
 
     <section class="probootstrap_section">
@@ -181,28 +246,7 @@
     </section>
     <!-- END section -->
 
-    <section class="probootstrap_section" id="section-feature-testimonial">
-      <div class="container">
-        <div class="row justify-content-center mb-5">
-          <div class="col-md-12 text-center mb-5 probootstrap-animate">
-            <h2 class="display-4 border-bottom probootstrap-section-heading">Why we Love Places</h2>
-            <blockquote class="">
-              <p class="lead mb-4"><em>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</em></p>
-              <p class="probootstrap-author">
-                <a href="https://probootstrap.com/" target="_blank">
-                  <img src="assets/images/person_1.jpg" alt="Free Template by ProBootstrap.com" class="rounded-circle">
-                  <span class="probootstrap-name">James Smith</span>
-                  <span class="probootstrap-title">Chief Executive Officer</span>
-                </a>
-              </p>
-            </blockquote>
 
-          </div>
-        </div>
-        
-      </div>
-    </section>
-    <!-- END section -->
 
     <footer class="probootstrap_section probootstrap-border-top">
       <div class="container">
@@ -254,19 +298,24 @@
     </footer>
 
     
-    <script src="assets/js/jquery.min.js"></script>
-    
+    <script src="assets/js/jquery.min.js"></script>  
     <script src="assets/js/popper.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
     <script src="assets/js/owl.carousel.min.js"></script>
-    
     <script src="assets/js/jquery.waypoints.min.js"></script>
     <script src="assets/js/jquery.easing.1.3.js"></script>
-
     <script src="assets/js/select2.min.js"></script>
-
     <script src="assets/js/main.js"></script>
     
+	<script src="<c:url value='/voyage/js/jquery-migrate-3.0.1.min.js' />"></script>
+	<script src="<c:url value='/voyage/js/jquery.stellar.min.js' />"></script>
+	<script src="<c:url value='/voyage/js/jquery.magnific-popup.min.js' />"></script>
+	<script src="<c:url value='/voyage/js/aos.js' />"></script>
+	<script src="<c:url value='/voyage/js/jquery.animateNumber.min.js' />"></script>
+	<script src="<c:url value='/voyage/js/bootstrap-datepicker.js' />"></script>
+	<script src="<c:url value='/voyage/js/jquery.timepicker.min.js' />"></script>
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <%--     <jsp:include page="../../voyage/foo.jsp"></jsp:include> --%>
 	</body>
 </html>

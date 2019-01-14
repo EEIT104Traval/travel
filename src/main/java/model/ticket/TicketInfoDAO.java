@@ -1,5 +1,6 @@
 package model.ticket;
 
+import java.io.IOException;
 import java.util.List;
 
 public interface TicketInfoDAO {
@@ -22,6 +23,8 @@ public interface TicketInfoDAO {
 	
 	public abstract List<TicketInfoBean> searchByCountry(String country);
 	
-
+	public abstract List<TicketInfoBean>searchByTicketName(Integer ticketNo);
+	
+	public abstract void DLticketInfo() throws IOException;
 
 }

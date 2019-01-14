@@ -52,7 +52,7 @@ public class TicketInfoTest {
 
 	@RequestMapping("/ticketfindpk")
 	public TicketInfoBean method() {
-		TicketInfoBean bean = dao.findByPrimaryKey(1);
+		TicketInfoBean bean = dao.findByPrimaryKey(2);
 		return bean;
 	}
 
@@ -98,7 +98,7 @@ public class TicketInfoTest {
 	public void DLticketform() throws IOException {
 		String s1 = servletContext.getRealPath("");
 
-		File ticketincsv = new File(s1 + "resource/Ticket/ticket.csv"); // 讀取的CSV文檔
+		File ticketincsv = new File(s1 + "resource/Ticket/Ticket.csv"); // 讀取的CSV文檔
 		File ticketoutcsv = new File("C:\\Users\\Emma\\Desktop\\Ticketfrom1.csv");// 寫出的CSV文檔
 		if (!ticketoutcsv.exists()) {
 			ticketoutcsv.createNewFile();

@@ -51,4 +51,12 @@ public class TourOrderInfoTest {
 		return result;
 	}
 	
+	@RequestMapping("/findBuyMonth")
+public List<TourOrderInfoBean> findBuyMonth(Integer month) {
+		
+		List<TourOrderInfoBean> OrderMonth  = dao.findBuyMonth(1);
+		
+		return OrderMonth;
+		
+	}
 }

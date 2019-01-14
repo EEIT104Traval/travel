@@ -2,8 +2,10 @@ package controller.flight;
 
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletResponse;
@@ -13,13 +15,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
-
 import model.flight.AirlineCompareDAO;
 import model.flight.service.FlightInfoGetService;
 
-@Controller
+//@Controller
 public class FlightInfoController {
 	@Autowired
 	AirlineCompareDAO dao;
@@ -88,24 +87,40 @@ public class FlightInfoController {
 		try {
 			String result = flightInfoGetService.getInfo(bfmsearch.toString());
 			System.out.println("result=" + result);
+			StringBuilder sb = new StringBuilder();
+			sb.append(result);
+			
 			int index = 0;
-			model.addAttribute("result", result);
 			Map<String, String> codeMap = new HashMap<>();
-			for (int i = 0; i < result.length() - 1; i=i+index-1) {
-				index = result.indexOf("OperatingAirline\":{\"Code\":\"");
-				String code = result.substring(index + 27, index + 29);
+//			List<Test> list = new ArrayList<>();
+//			model.addAttribute("result", result);
+			String s = result;
+			for (int i = 0; i < sb.length() - 1; i=i+index) {
+				
+				index = s.indexOf("OperatingAirline\":{\"Code\":\""); 
+				String code = sb.substring(index + 27, index + 29);
 //				System.out.println("{code1="+code);
 				String value = dao.findByPrimaryKey(code).getAirlineCompany();
+				sb.insert(index + 30, "AirCompany:"+value);
+				s=sb.substring(index+29);
 //				String value = dao.findByPrimaryKey("CA").getAirlineCompany();
-				if (!codeMap.containsValue(code)) {
+				if (!codeMap.containsKey(code)) {
 					codeMap.put(code, value);
-					System.out.println("不包含code="+code+"  value="+value);
+					
+//					Test t = new Test();
+//					t.setCode(code);
+//					t.setAirline(value);
+					
+//					list.add(t);
+//					System.out.println("不包含code="+code+"  value="+value);
 				}
 //				System.out.println("code=" + code);
 //				System.out.println("value=" + value);
-				result = result.substring(index+29);
+//				result = result.substring(index+29);
 			}
-			model.addAttribute("flightCompany",codeMap);
+			System.out.println("sb:");
+			System.out.println(sb);
+			model.addAttribute("flightCompany",sb);
 
 //			JsonObject returnData = new JsonParser().parse(result).getAsJsonObject();
 
@@ -119,6 +134,6 @@ public class FlightInfoController {
 			e.printStackTrace();
 		}
 
-		return "/flight/xianqi/step1.jsp";
+		return "/flight/xianqi/test.jsp";
 	}
 }
