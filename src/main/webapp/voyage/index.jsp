@@ -24,9 +24,8 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
-<html lang="tw-zh">
+<html lang="zh-tw">
   <head>
-     <jsp:include page="/voyage/nav.jsp" />
   	<title>Time To Travel</title>
 	<link rel="icon" href="favicon.ico" type="image/x-icon" />
 	

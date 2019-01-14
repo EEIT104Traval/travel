@@ -6,7 +6,7 @@
 		crossorigin="anonymous">
 </script>
 <!DOCTYPE html>
-<html lang="tw-zh">
+<html lang="zh-tw">
 
 <link rel="stylesheet" href="<c:url value='/voyage/css/open-iconic-bootstrap.min.css' />">
 <link rel="stylesheet" href="<c:url value='/voyage/css/animate.css' />">
