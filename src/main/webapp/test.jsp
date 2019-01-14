@@ -28,6 +28,7 @@
     <a href="<c:url value='TourTagsTestUpdate' />">TourTagsTestUpdate</a>
     <a href="<c:url value='TourTagsTestDelete' />">TourTagsTestDelete</a>
     <a href="<c:url value='TourTagsTestfindTag' />">TourTagsTestfindTag</a>
+    <a href="<c:url value='TourTagsTestfindByT' />">TourTagsTestfindByT</a>
     <br />
     <a href="<c:url value='findBuyMonth' />">findBuyMonth</a>
 	<hr />

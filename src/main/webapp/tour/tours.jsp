@@ -53,7 +53,8 @@
 			<p id= "idd"></p>
 				<div class="col-lg-8">				
 					<div id="box" class="row">
-					<p>1231346513164313</p>					
+					<c:forEach items="${tags}"  var="tag">	
+					<p>1231346513164313</p>	
 <!-- 						<div class="col-md-6 col-lg-6 mb-4 ftco-animate"> -->
 <!-- 							<a href="#" class="block-5" -->
 <!-- 								style="background-image: url('images/tour-1.jpg');"> -->
@@ -71,6 +72,7 @@
 <!-- 								</div> -->
 <!-- 							</a> -->
 <!-- 						</div> -->
+					</c:forEach>			
 					</div>
 					<div class="row mt-5">
 						<div class="col text-center">
@@ -180,9 +182,13 @@
 		 
 		 $.getJSON( "/Travel/groupTour", function( data ) {
 			 var contents ="";
-			 var contentss ="";
-			 console.log(data);
+			 var tagcontents ="";
+// 			 console.log(data.result);
+//              console.log(data.result[0].TourTagsBean);
+// 			 console.log(data.result[0].TourTagsBean[0].tag);
 			 $.each(data.result, function(idx,val){
+// 				 console.log(data.result[idx].TourTagsBean[0].tag);
+				 //所有行程
 				contents +="<div id=\"tourpage\" class=\"col-md-6 col-lg-6 mb-4\">"
 					+"<a href=\"<c:url value='/tour/Display/NewFile.jsp?tourNo="+val.tourNo+"'/>\" class=\"block-5\" style=\"background-image: url('/Travel/tour/Display/images/"+val.TourPictureBean[0].pic +"');\">"						
 					+	"<div class=\"text\">"  
@@ -197,11 +203,16 @@
 					+	"</div>"
 					+"</a>"
 				+"</div>"
+				//形成標籤
+				tagcontents +='<a href="" id="'+data.result[idx].TourTagsBean[0].tag
+				            +'" class="tag-cloud-link">'+data.result[idx].TourTagsBean[0].tag
+				            +'</a>';
 					 
 			 })
 			 $("#box").html(contents);
+			 $("#tagcloud").html(tagcontents);
 			 
-			 
+/* -----------------------分頁-------------------------------------------------------   */	 			 
 			 var rowsShown=6;                             //每頁顯示的行
 		     var rowsTotal=data.count;         //獲取總共的行
 		     var numPages=Math.ceil(rowsTotal/rowsShown); //計算出有多少頁
@@ -227,22 +238,40 @@
 		         //顯示從開始到結束的行
 		         $('#box > #tourpage').slice(startItem,endItem).show();//.css('display','table-row')
 		     });
-		     
-		     
+/*----------------------分頁------------------------------------------------------------   */
 		 });
+		     
+		 $('#tagcloud').on("click", "a", function(){
+			 var tag = $(this).attr("id");
+// 			 alert(tag);
+			 $.ajax({	
+			    	method:"POST",
+			     	url:"/Travel/tourTags",
+			     	dataType: "json", 
+			     	data:{"tag":tag}
+			        
+			     }).done(function(data){
+			    	 $.each(data,function(idx,val){
+			    		 alert(data);
+			    	 })
+			    	 
+// 			    	 console.log("data="+data);
+			     });
+	     });
 	
+		    
 			
-		 $.getJSON( "/Travel/tourTags", function( data ) {
-			 var contents ="";
-			 var contentss ="";
-			 console.log(data);
-			 $.each(data, function(idx,val){
-				 console.log(val);
-				contents +='<a href="" class="tag-cloud-link">'+val+'</a>'; 
+// 		 $.getJSON( "/Travel/tourTags", function( data ) {
+// 			 var contents ="";
+// 			 var contentss ="";
+// // 			 console.log(data);
+// 			 $.each(data, function(idx,val){
+// // 				 console.log(val);
+// 				contents +='<a href="" class="tag-cloud-link">'+val+'</a>'; 
 					 
-			 })
-			 $("#tagcloud").html(contents);
-		 });
+// 			 })
+// 			 $("#tagcloud").html(contents);
+// 		 });
 		 
 		}) 
 
