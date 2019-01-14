@@ -45,12 +45,11 @@ public class RoomAvailableDAOHibernate implements RoomAvailableDAO{
 	}
 
 	@Override
-	public RoomAvailableBean update(Integer serialNo, Integer hotelNo, String roomType, java.util.Date date, Integer totalRooms, Integer sale, Integer available, Integer notForSale) {
+	public RoomAvailableBean update(Integer serialNo, Integer roomTypeNo, java.util.Date date, Integer totalRooms, Integer sale, Integer available, Integer notForSale) {
 		RoomAvailableBean result = this.getSession().get(RoomAvailableBean.class, serialNo);
 		if(result!=null) {
 			result.setSerialNo(serialNo);
-			result.setHotelNo(hotelNo);
-			result.setRoomType(roomType);
+			result.setRoomTypeNo(roomTypeNo);
 			result.setDate(date);
 			result.setTotalRooms(totalRooms);
 			result.setSale(sale);

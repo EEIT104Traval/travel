@@ -33,7 +33,6 @@
       }
      
       
-    
 </style>
 <head>
 <meta charset="UTF-8">
@@ -41,19 +40,89 @@
 	<jsp:include page="/voyage/nav.jsp"></jsp:include>
 
 <script>
-			var params = {};
-			$(document).ready(function() {
-		
-			});
+var params = {};
+// var country
+// var city
 
+// 	$(document).ready(function() { });
+				
 				function hotelSearch(){
+					params.country = $('#country').val()
+// 						alert(params.country)
+					
+					params.city = $('#city').val()
+// 						alert(params.city)	
+					
+// 					if(params.city = ""){
+// 						countrySearch()
+// 					} else {
+// 						citySearch()
+// 					}
+					
+// 					找全部
+					if(params.city != "" && params.country == ""){
+						citySearch()
+					}else if(params.city == "" && params.country != ""){
+						countrySearch()
+					}else{
+						allSearch()
+					}
+					
+				}
+
+				function countrySearch(){
 					$("#hotel_pic").html("")
 					$('#hotel_title').html("")
 						params.country = $('#country').val();
+					alert(params.country)
+					
+					$.ajax({
+						url : '/Travel/voyage/country.controller',
+ 						contentType : 'application/json; charset=UTF-8',
+						type : 'get',
+						dataType : 'json',
+						data :{"country":$('#country').val()}
+					}).done(
+				function(JData) {
+		
+// 		        console.log(c);
+
+								$.each(JData, function(index, value) {
+									console.log(value);
+									$("#hotel_pic").append(
+//動態生成票券選項
+// ------------------------------------------------------------------------------------------------------------------------------------------------------
+										'<div class="col-md-6 col-lg-3">'+
+											'<div class="blog-entry">'+
+												'<a href="<c:url value="/voyage/hotel/room/hotelRoom.jsp" />" class="block-20" style="background-image: url('+value.pic+');"></a>'+
+												'<div class="text p-4">'+
+													'<div class="meta"></div>'+
+													'<h6><a href="<c:url value="/voyage/hotel/room/hotelRoom.jsp" />">'+value.hotelName+'</a></h6>'+
+						                   			'<p style="margin-bottom:0">'+value.starRate+'</p>'+
+													'<p class="float-left" style="margin">'+value.price+'</p>'+
+												'</div>'+
+											'</div>'+
+										'</div>'
+												);
+									});
+								$("#hotel_title").append(
+									'<div class="col-md-7 text-center heading-section" style="padding-top:40px">'+
+// 										'<h2>'+JData[0].country+'飯店</h2>'+
+										'<h2>您搜尋的飯店</h2>'+
+									'</div>'
+									       );
+							})
+					}
+
+
+				function citySearch(){
+					$("#hotel_pic").html("")
+					$('#hotel_title').html("")
+						params.city = $('#city').val();
 // 					alert(params.country)
 					
 					$.ajax({
-						url : '/Travel/voyage/hotels.controller',
+						url : '/Travel/voyage/city.controller',
  						contentType : 'application/json; charset=UTF-8',
 						type : 'get',
 						dataType : 'json',
@@ -83,13 +152,60 @@
 									});
 								$("#hotel_title").append(
 									'<div class="col-md-7 text-center heading-section" style="padding-top:40px">'+
-										'<h2>'+JData[0].country+'飯店</h2>'+
+// 										'<h2>'+JData[0].country+'飯店</h2>'+
+										'<h2>您搜尋的飯店</h2>'+
+									'</div>'
+									       );
+							})
+					}
+
+				function allSearch(){
+					$("#hotel_pic").html("")
+					$('#hotel_title').html("")
+						params.city = $('#city').val();
+// 					alert(params.country)
+					
+					$.ajax({
+						url : '/Travel/voyage/all.controller',
+ 						contentType : 'application/json; charset=UTF-8',
+						type : 'get',
+						dataType : 'json',
+						data :params,
+					}).done(
+				function(JData) {
+		
+// 		        console.log(c);
+
+								$.each(JData, function(index, value) {
+									console.log(value);
+									$("#hotel_pic").append(
+//動態生成票券選項
+// ------------------------------------------------------------------------------------------------------------------------------------------------------
+										'<div class="col-md-6 col-lg-3">'+
+											'<div class="blog-entry">'+
+												'<a href="<c:url value="/voyage/hotel/room/hotelRoom.jsp" />" class="block-20" style="background-image: url('+value.pic+');"></a>'+
+												'<div class="text p-4">'+
+													'<div class="meta"></div>'+
+													'<h6><a href="<c:url value="/voyage/hotel/room/hotelRoom.jsp" />">'+value.hotelName+'</a></h6>'+
+						                   			'<p style="margin-bottom:0">'+value.starRate+'</p>'+
+													'<p class="float-left" style="margin">'+value.price+'</p>'+
+												'</div>'+
+											'</div>'+
+										'</div>'
+												);
+									});
+								$("#hotel_title").append(
+									'<div class="col-md-7 text-center heading-section" style="padding-top:40px">'+
+// 										'<h2>'+JData[0].country+'飯店</h2>'+
+										'<h2>您搜尋的飯店</h2>'+
 									'</div>'
 									       );
 							})
 					}
 
 	</script>
+	
+	
 </head>
 
 <body>

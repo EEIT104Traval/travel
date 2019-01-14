@@ -34,8 +34,7 @@ import model.hotel.dao.RoomAvailableDAOHibernate;
 	 public RoomAvailableBean create() {
 		 RoomAvailableBean insert = new RoomAvailableBean();
 		 insert.setSerialNo(2);
-		 insert.setHotelNo(1);
-		 insert.setRoomType("雙人房");
+		 insert.setRoomTypeNo(1);
 		 java.util.Date date = Date.valueOf("2019-01-01");
 		 insert.setDate(date);
 		 insert.setTotalRooms(300);
@@ -48,7 +47,7 @@ import model.hotel.dao.RoomAvailableDAOHibernate;
 	  
 	 @RequestMapping("/RoomAvailableupdate")
 	 public RoomAvailableBean update() {
-		 RoomAvailableBean update = dao.update(2, 1, "雙人房", Date.valueOf("2019-01-02"), 300, 100, 200, 0);		  
+		 RoomAvailableBean update = dao.update(2, 1, Date.valueOf("2019-01-02"), 300, 100, 200, 0);		  
 		 return update;
 	 }
 	 

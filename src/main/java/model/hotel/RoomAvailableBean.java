@@ -11,8 +11,7 @@ import javax.persistence.Table;
 public class RoomAvailableBean {
 	@Id
 	private Integer serialNo;
-	private Integer hotelNo;
-	private String roomType;
+	private Integer roomTypeNo;
 	private java.util.Date date;
 	private Integer totalRooms;
 	private Integer sale;
@@ -21,8 +20,8 @@ public class RoomAvailableBean {
 	
 	@Override
 	public String toString() {
-		return "RoomAvailableBean [serialNo=" + serialNo + ", hotelNo=" + hotelNo + ", roomType=" + roomType + ", date="
-				+ date + ", totalRooms=" + totalRooms + ", sale=" + sale + ", available=" + available + ", notForSale="
+		return "RoomAvailableBean [serialNo=" + serialNo + ", roomTypeNo=" + roomTypeNo + ", date=" + date
+				+ ", totalRooms=" + totalRooms + ", sale=" + sale + ", available=" + available + ", notForSale="
 				+ notForSale + "]";
 	}
 	public Integer getSerialNo() {
@@ -31,17 +30,11 @@ public class RoomAvailableBean {
 	public void setSerialNo(Integer serialNo) {
 		this.serialNo = serialNo;
 	}
-	public Integer getHotelNo() {
-		return hotelNo;
+	public Integer getRoomTypeNo() {
+		return roomTypeNo;
 	}
-	public void setHotelNo(Integer hotelNo) {
-		this.hotelNo = hotelNo;
-	}
-	public String getRoomType() {
-		return roomType;
-	}
-	public void setRoomType(String roomType) {
-		this.roomType = roomType;
+	public void setRoomTypeNo(Integer roomTypeNo) {
+		this.roomTypeNo = roomTypeNo;
 	}
 	public java.util.Date getDate() {
 		return date;
@@ -73,5 +66,7 @@ public class RoomAvailableBean {
 	public void setNotForSale(Integer notForSale) {
 		this.notForSale = notForSale;
 	}
+	
+	
 	
 }

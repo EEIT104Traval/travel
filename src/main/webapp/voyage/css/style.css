@@ -6261,7 +6261,7 @@ button.bg-dark:focus {
   padding-left: 1rem !important; }
 
 .p-4 {
-  padding: 1.5rem !important; }
+  padding: 1.5rem 1.5rem 2.5rem 1.5rem !important; }
 
 .pt-4,
 .py-4 {

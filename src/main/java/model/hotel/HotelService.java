@@ -65,6 +65,25 @@ public class HotelService {
 		return result;
 	}
 	
+	public List<HotelBean> searchCity(String city) {
+		List<HotelBean> result = null;
+		if (!StringUtils.isEmpty(city)) {
+			List<HotelBean> tib = hotelDAO.searchByCity(city);
+			if (tib != null) {
+				result = new ArrayList<HotelBean>();
+				result.addAll(tib);
+			}
+		} else {
+			result = hotelDAO.findAll();
+		}
+		return result;
+	}
+	
+	public List<HotelBean> searchAll() {
+//		List<HotelBean> result = hotelDAO.findAll();
+//		return result;
+		return hotelDAO.findAll();
+	}
 	
 	
 //	public List<HotelBean> searchByCountry(HotelBean bean) {

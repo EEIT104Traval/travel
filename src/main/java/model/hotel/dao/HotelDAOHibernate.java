@@ -87,6 +87,16 @@ public class HotelDAOHibernate implements HotelDAO {
 		return list;
 	}
 	
+	@Override
+	public List<HotelBean> searchByCity(String city) {
+		CriteriaBuilder criteriaBuilder = getSession().getCriteriaBuilder();
+		CriteriaQuery<HotelBean> criteria = criteriaBuilder.createQuery(HotelBean.class);
+		Root<HotelBean> from = criteria.from(HotelBean.class);
+		criteria.select(from).where(from.get("city").in(city));
+		List<HotelBean> list = getSession().createQuery(criteria).getResultList();
+		return list;
+	}
+	
 
 	
 	

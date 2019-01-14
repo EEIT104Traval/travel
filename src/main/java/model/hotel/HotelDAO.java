@@ -17,6 +17,7 @@ public interface HotelDAO {
 
 	public abstract List<HotelBean> searchByCountry(String country);
 
+	public abstract List<HotelBean> searchByCity(String city);
 	
 }
 

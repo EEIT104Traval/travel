@@ -332,7 +332,7 @@
 
 						<div class="tm-recommended-place-wrap">
 							<div class="tm-recommended-place">
-								<img src="https://secure3.hilton.com/resources/media/hi/NYCNHHH/en_US/img/hotel/roomtypeimages/main/HH_prssuiterm_386x310_FitToBoxSmallDimension_Center.jpg" alt="Image" class="tm-recommended-img" width="270px" height="200px">
+								<img src="https://secure3.hilton.com/resources/media/hi/NYCNHHH/en_US/img/hotel/roomtypeimages/main/HH_kingbedtvchair01_386x310_FitToBoxSmallDimension_Center.jpg" alt="Image" class="tm-recommended-img" width="270px" height="200px">
 								<div class="tm-recommended-description-box">
 									<h3 class="tm-recommended-title">行政套房（單床）</h3>
 									<p class="tm-text-highlight" style="margin-bottom:5px">從客房內可飽覽迷人的曼克頓中城天際線景色。一張大床。最多可入住 4 人</p>
@@ -345,7 +345,7 @@
 							</div>
 
 							<div class="tm-recommended-place">
-								<img src="https://secure3.hilton.com/resources/media/hi/NYCNHHH/en_US/img/hotel/roomtypeimages/main/HH_prescnr01_386x310_FitToBoxSmallDimension_Center.jpg" alt="Image" class="tm-recommended-img" width="270px" height="200px">
+								<img src="https://secure3.hilton.com/resources/media/hi/NYCNHHH/en_US/img/hotel/roomtypeimages/main/HH_execsuite2beds_386x310_FitToBoxSmallDimension_Center.jpg" alt="Image" class="tm-recommended-img" width="270px" height="200px">
 								<div class="tm-recommended-description-box">
 									<h3 class="tm-recommended-title">行政套房（雙床）</h3>
 									<p class="tm-text-highlight" style="margin-bottom:5px">從客房內可飽覽迷人的曼克頓中城天際線景色。兩張雙人床。最多可入住 6 人</p>
