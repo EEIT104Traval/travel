@@ -22,6 +22,37 @@
 <script src="https://code.jquery.com/jquery-3.3.1.js"
 	integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
 	crossorigin="anonymous"></script>
+<link rel="stylesheet" type="text/css"
+	href="<c:url value='/voyage/styles/main_styles.css'/>">
+
+<link rel="stylesheet"
+	href="<c:url value='/voyage/css/open-iconic-bootstrap.min.css' />">
+<link rel="stylesheet" href="<c:url value='/voyage/css/animate.css' />">
+<link rel="stylesheet"
+	href="<c:url value='/voyage/css/owl.carousel.min.css' />">
+<link rel="stylesheet"
+	href="<c:url value='/voyage/css/owl.theme.default.min.css' />">
+<link rel="stylesheet"
+	href="<c:url value='/voyage/css/magnific-popup.css' />">
+<link rel="stylesheet" href="<c:url value='/voyage/css/aos.css' />">
+<link rel="stylesheet"
+	href="<c:url value='/voyage/css/ionicons.min.css' />">
+<link rel="stylesheet"
+	href="<c:url value='/voyage/css/bootstrap-datepicker.css' />">
+<link rel="stylesheet"
+	href="<c:url value='/voyage/css/jquery.timepicker.css' />">
+<link rel="stylesheet" href="<c:url value='/voyage/css/flaticon.css' />">
+<link rel="stylesheet" href="<c:url value='/voyage/css/icomoon.css' />">
+<link rel="stylesheet" href="<c:url value='/voyage/css/style.css' />">
+<link href="<c:url value='/voyage/css/jquery-ui.css' />"
+	rel="stylesheet" type="text/css">
+<link type="text/css" rel="stylesheet"
+	href="<c:url value='/flight/彈窗/custom-popup/custom.popup-v1.3.1.css'/>">
+
+
+
+
+
 
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!--[if lt IE 9]>
@@ -336,8 +367,42 @@ $.each(result.OTA_AirLowFareSearchRS.PricedItineraries.PricedItinerary, function
 
 <div class="container"> 
   
-  <!--重新search--> 
-  
+ 	 <!--重新search--> 
+ 			 <div class="home_search_contentsecound">
+
+				<div class="d-flex flex-lg-row flex-column align-items-start justify-content-lg-between justify-content-start">
+					<div>
+						<span class="form-label">出發地</span> <input id="demo2" name="takeOffPlace" type="text" class="search_input_1secound" style="width: 450px" placeholder="請輸入機場/城市中英文或代碼">
+						<!-- 											required="required" -->
+					</div>
+					<img alt="" src="/Travel/voyage/images/changeTwoPlace.png" width="25px" style="padding-top: 42px">
+					<div>
+						<span class="form-label">目的地</span> <input id="demo1" name="landingPlace" type="text" class="search_input_1secound" style="width: 450px" placeholder="請輸入機場/城市中英文或代碼">
+					</div>
+				</div>
+
+				<div style="display: inline-block; padding-right: 30px;">
+					<span class="form-label">出發日期</span> <input type="text"  class="search_input_1secound" id="checkin_date" placeholder="yyyy/MM/dd" name="takeoff_date">
+				</div>
+				<div style="display: inline-block; padding-right: 30px;">
+					<span class="form-label">回程日期</span> <input type="text"  class="search_input_1secound" placeholder="yyyy/MM/dd" name="flyback_date" id="checkout_date">
+				</div>
+				<div style="display: inline-block; padding-right: 30px;width:200px;">
+					<span class="form-label">旅客類型</span> <input type="button" id="peopleType" autocomplete="off" class="search_input_1secound" value="1位成人" name="peopleType" onclick="showPopup(33)" style="width:200px;text-align: left;">
+				</div>
+				
+				<div style="display: inline-block; padding-right: 30px;padding-left: 30px;">
+					<span class="form-label">艙等</span> <select class="search_input_1secound" id="search-controls-cabin-class-dropdown" name="search-controls-cabin-class-dropdown" style="width: 150px; display: block;">
+						<option value="Economy" selected="selected">經濟艙</option>
+						<option value="PremiumEconomy">高端經濟艙</option>
+						<option value="First">頭等艙</option>
+						<option value="Business">商務艙</option>
+					</select>
+				</div>
+
+
+				<button class="home_search_button" id="home_search_button" type="submit">搜尋</button>
+			</div>
   <!--重新search_結束-->
   
   <div class="list_flight">
@@ -1438,7 +1503,36 @@ $.each(result.OTA_AirLowFareSearchRS.PricedItineraries.PricedItinerary, function
 <script>
 $(".closepop").on("click",function(){$("#pop_protick").modal("hide")});$(".pop_res .dropdown-menu  .close").on("click",function(){$(".pop_res .dropdown-menu").modal("hide")});
 </script> 
-
+<script src="<c:url value='/voyage/js/jquery.min.js' />"></script>
+	<script src="<c:url value='/voyage/js/jquery-migrate-3.0.1.min.js' />"></script>
+	<script src="<c:url value='/voyage/js/popper.min.js' />"></script>
+	<script src="<c:url value='/voyage/js/bootstrap.min.js' />"></script>
+	<script src="<c:url value='/voyage/js/jquery.easing.1.3.js' />"></script>
+	<script src="<c:url value='/voyage/js/jquery.waypoints.min.js' />"></script>
+	<script src="<c:url value='/voyage/js/jquery.stellar.min.js' />"></script>
+	<script src="<c:url value='/voyage/js/owl.carousel.min.js' />"></script>
+	<script src="<c:url value='/voyage/js/jquery.magnific-popup.min.js' />"></script>
+	<script src="<c:url value='/voyage/js/aos.js' />"></script>
+	<script src="<c:url value='/voyage/js/jquery.animateNumber.min.js' />"></script>
+	<script src="<c:url value='/voyage/js/bootstrap-datepicker.js' />"></script>
+	<script src="<c:url value='/voyage/js/jquery.timepicker.min.js' />"></script>
+	<script src="<c:url value='/voyage/js/main.js' />"></script>
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script src=" <c:url value='/flight/mohu/demo/js/demo.js'/>"
+		type="text/javascript"></script>
+	<%-- 	<link href=" <c:url value='/flight/mohu/demo/css/prettify.css'/>" rel="stylesheet" /> --%>
+	<!--     <link href="css/bootstrap.css" rel="stylesheet"> -->
+	<%--     <link href=" <c:url value='/flight/mohu/demo/css/demo.css'/>" rel="stylesheet"> --%>
+	<script src=" <c:url value='/flight/mohu/demo/js/prettify.js'/>"
+		type="text/javascript"></script>
+	<script src=" <c:url value='/flight/mohu/demo/js/mockjax.js'/>"
+		type="text/javascript"></script>
+	<script src=" <c:url value='/flight/mohu/js/bootstrap-typeahead.js'/>"
+		type="text/javascript"></script>
+	<script
+		src="<c:url value='/flight/彈窗/custom-popup/jquery.custom.popup-v1.3.1.js'/>"></script>
+	<jsp:include page="/voyage/foo.jsp" />
 <!--票規與行李開關--> 
 <script>
 $(document).ready(function(){$(".btn-tick-pr").click(function(){$(".tick-ba,#bagnote").removeClass("active");$(".tick-pr,#pricebox").addClass("active")});$(".btn-tick-ba").click(function(){$(".tick-pr,#pricebox").removeClass("active");$(".tick-ba,#bagnote").addClass("active")})});$(".popint,.popint img").popover({placement:"top"});
