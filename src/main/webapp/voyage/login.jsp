@@ -149,10 +149,10 @@ div#users-contain table td, div#users-contain table th {
       }
     });
  
-//     form = dialog.find( "form" ).on( "submit", function( event ) {
+    form = dialog.find( "form" ).on( "submit", function( event ) {
 //       event.preventDefault();
 //       addUser();
-//     });
+    });
  
     $( "#create-user" ).button().on( "click", function() {
       dialog.dialog( "open" );
@@ -169,7 +169,7 @@ div#users-contain table td, div#users-contain table th {
 			<label for="name">帳號:</label> <input type="text" name="name"
 				class="text ui-widget-content ui-corner-all"><br>
 			<label for="password">密碼:</label> <input type="password"
-				name=" " value=""
+				name="password" value=""
 				class="text ui-widget-content ui-corner-all">
 
 			<!--     </fieldset> -->
