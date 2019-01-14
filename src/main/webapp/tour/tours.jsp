@@ -250,11 +250,11 @@
 			     	dataType: "json", 
 			     	data:{"tag":tag}
 			        
-			     }).done(function(data){
-			    	 $.each(data,function(idx,val){
-			    		 alert(data);
-			    	 })
-			    	 
+			     }).done(function(data){	
+			    	 alert(data[0]);
+// 			    	 $.each(data,function(idx,val){
+// 			    		 alert(data);
+// 			    	 })
 // 			    	 console.log("data="+data);
 			     });
 	     });

@@ -24,8 +24,8 @@ public class TourTagsDAO {
 		return this.getSession().get(TourTagsBean.class, serialNo);
 	}
 	
-	public List<TourTagsBean> findByTag (String tag){
-		return this.getSession().createQuery("from TourTagsBean where tag = '"+tag+"'", TourTagsBean.class).list();
+	public List<String> findByTag (String tag){
+		return this.getSession().createQuery("select tourNo from TourTagsBean where tag = '"+tag+"'", String.class).list();
 				
 	}
 	

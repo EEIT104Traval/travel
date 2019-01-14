@@ -22,7 +22,7 @@
 <link rel="stylesheet" href="<c:url value='/voyage/css/style.css' />">
   
 <link rel="stylesheet" href="<c:url value='/voyage/css/jquery-ui.css' />">
-<link rel="stylesheet" href="<c:url value='/voyage/css/main_styles.css' />">
+<link rel="stylesheet" href="<c:url value='/voyage/css/main_styles_sherry.css' />">
 <link rel="stylesheet" href="<c:url value='/voyage/css/about.css' />">
 
 <style>
