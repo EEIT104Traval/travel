@@ -20,6 +20,8 @@ public class TicketInfoService {
 
 	public SimpleDateFormat sdFormat = new SimpleDateFormat("yyyy/MM/dd");
 
+	
+	
 	public List<TicketInfoBean> select(TicketInfoBean bean) {
 		List<TicketInfoBean> result = null;
 		if (bean != null && bean.getTicketNo() != 0) {
@@ -106,4 +108,20 @@ public class TicketInfoService {
 		}
 		return result;
 	}
+	
+	public List<TicketInfoBean> searchByTicketName(Integer ticketNo) {
+		List<TicketInfoBean> result = null;
+		if (!StringUtils.isEmpty(ticketNo)) {
+//		if (country != null || country.length() != 0) {
+			List<TicketInfoBean> tib = ticketInfoDAO.searchByTicketName(ticketNo);
+			if (tib != null) {
+				result = new ArrayList<TicketInfoBean>();
+				result.addAll(tib);
+			}
+		} else {
+			result = ticketInfoDAO.findAll();
+		}
+		return result;	
+	}
+	
 }

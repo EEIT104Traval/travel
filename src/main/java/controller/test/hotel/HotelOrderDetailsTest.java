@@ -73,5 +73,13 @@ import model.hotel.dao.HotelOrderDetailsDAOHibernate;
 		 return false; 
 	 } 
 
+	 @RequestMapping("/findOrderaccountName")
+	 public  List<HotelOrderDetailsBean> findOrderaccountName(String accountName) {
+		 List<HotelOrderDetailsBean> result = dao.findOrderaccountName("snoopy");
+		
+		return result;
+		
+	 } 
+	 
 }
 	

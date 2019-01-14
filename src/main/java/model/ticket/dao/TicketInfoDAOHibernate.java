@@ -118,6 +118,15 @@ public class TicketInfoDAOHibernate implements TicketInfoDAO {
 	}
 
 	@Override
+	public List<TicketInfoBean> searchByTicketName(Integer ticketNo) {
+		CriteriaBuilder criteriaBuilder = getSession().getCriteriaBuilder();
+		CriteriaQuery<TicketInfoBean> criteria = criteriaBuilder.createQuery(TicketInfoBean.class);
+		Root<TicketInfoBean> from = criteria.from(TicketInfoBean.class);
+		criteria.select(from).where(from.get("ticketNo").in(ticketNo));
+		List<TicketInfoBean> list = getSession().createQuery(criteria).getResultList();
+		return list;
+	}
+	@Override
 	public void DLticketInfo() throws IOException {
 		
 		String s1 = servletContext.getRealPath("");
@@ -142,6 +151,7 @@ public class TicketInfoDAOHibernate implements TicketInfoDAO {
 		pw.close();
 		reader.close();		
 	}
+
 }
 
 //	@Override

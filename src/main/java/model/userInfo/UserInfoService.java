@@ -1,13 +1,21 @@
 package model.userInfo;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
-import org.hibernate.mapping.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import model.tour.dao.TourOrderInfoDAO;
+import model.hotel.HotelOrderDetailsBean;
+import model.hotel.HotelOrderDetailsService;
+import model.ticket.TicketOrderInfoBean;
+import model.ticket.TicketOrderInfoService;
+import model.tour.GroupTourBean;
+import model.tour.TourOrderInfoBean;
+import model.tour.dao.GroupTourDAO;
+import model.tour.service.TourOrderInfoService;
 
 @Service
 public class UserInfoService {
@@ -15,8 +23,13 @@ public class UserInfoService {
 	@Autowired
     private UserInfoDAO userInfoDAO = null;
 	@Autowired
-	private TourOrderInfoDAO tdao = null;
-	
+	private TourOrderInfoService tourOrderInfoService;
+	@Autowired
+	private TicketOrderInfoService ticketOrderInfoService;
+	@Autowired
+	private HotelOrderDetailsService hotelOrderDetailsService;
+
+
 	
 	public UserInfoBean login(String accountName, String password) {
 		UserInfoBean bean = userInfoDAO.findByPrimaryKey(accountName);
@@ -43,18 +56,20 @@ public class UserInfoService {
 		return bean;
 	}
 //--------------↓↓↓↓↓↓後台管理員使用專區↓↓↓↓↓↓-------------
-	public List<UserInfoBean> findByAccountName (String user) {
 	
-		List<UserInfoBean> uba = userInfoDAO.findByaccountName(user);
+	
+	public UserInfoBean findByAccountName (String user) {
+	
+		UserInfoBean result = userInfoDAO.findByPrimaryKey(user);
 
-				return uba;
+		return result;
 	}
-
-	public List<UserInfoBean> findByPhone (String user) {
+	
+	public UserInfoBean findByPhone (String user) {
 		
-		List<UserInfoBean> ubp = userInfoDAO.findByphone(user);
+		UserInfoBean ubp = userInfoDAO.findByphone(user);
 		
-				return ubp;
+		return ubp;
 	}
 	
 	public List<UserInfoBean> findAll() {
@@ -62,9 +77,36 @@ public class UserInfoService {
 		List<UserInfoBean> result = userInfoDAO.findAll();
 		
 		return result;
-		}	
+	}	
 	//--------------↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ 01_01 Controller↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑-------------	
-
-	
+	@Autowired
+	private GroupTourDAO GroupTourDAO;
+	public Map<String, List<?>> findByPrimaryKey(String user) {
+		
+		Map<String, List<?>> map = new HashMap<String, List<?>>();
+		
+		UserInfoBean result = userInfoDAO.findByPrimaryKey(user);
+															
+		List<TourOrderInfoBean> TourInfo = tourOrderInfoService.foundOrderaccountName(user);
+		
+		List<TicketOrderInfoBean> TicketOrderInfo = ticketOrderInfoService.foundOrderaccountName(user);
+		
+		List<HotelOrderDetailsBean> HotelInfo = hotelOrderDetailsService.foundOrderaccountName(user);
+		
+		List<GroupTourBean> tourList = GroupTourDAO.findByTourOrderList(TourInfo);
+		
+		if (TourInfo.size()>0) {
+			map.put("TourOrderInfoBean", TourInfo);
+		}
+		if (TicketOrderInfo.size()>0) {
+			map.put("TicketOrderInfoBean", TicketOrderInfo);
+		}
+		if (HotelInfo.size()>0) {
+			map.put("HotelOrderDetailsBean", HotelInfo);
+		}
+		System.out.println(result);
+		
+		return map;
+	}
 	//--------------↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ 01_02 Controller↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑-------------	
 }

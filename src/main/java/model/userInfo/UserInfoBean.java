@@ -3,11 +3,10 @@ package model.userInfo;
 import java.util.Arrays;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import model.hotel.HotelOrderDetailsBean;
 import model.ticket.TicketOrderInfoBean;
@@ -31,22 +30,25 @@ public class UserInfoBean {
 	private String gorfb;
 	private String loginId;
 	
-	@OneToMany(
-			cascade=CascadeType.REMOVE,
-			mappedBy="accountName"
-	)
+//	@OneToMany(
+//			cascade=CascadeType.REMOVE,
+//			mappedBy="accountName"
+//	)
+	@Transient
 	private List<TourOrderInfoBean> tourOrderInfoBean;
 	
-	@OneToMany(
-			cascade=CascadeType.REMOVE,
-			mappedBy="accountName"
-	)
+//	@OneToMany(
+//			cascade=CascadeType.REMOVE,
+//			mappedBy="accountName"
+//	)
+	@Transient
 	private List<TicketOrderInfoBean> ticketOrderInfoBean;
 	
-	@OneToMany(
-			cascade=CascadeType.REMOVE,
-			mappedBy="accountName"
-	)
+//	@OneToMany(
+//			cascade=CascadeType.REMOVE,
+//			mappedBy="accountName"
+//	)
+	@Transient
 	private List<HotelOrderDetailsBean> hotelOrderDetailsBean;
 
 	@Override
