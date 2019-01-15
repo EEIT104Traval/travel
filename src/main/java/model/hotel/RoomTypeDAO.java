@@ -13,5 +13,7 @@ public interface RoomTypeDAO {
 	public abstract RoomTypeBean update(Integer roomTypeNo, Integer hotelNo, String roomType, Integer totalRooms, Integer price);
 
 	public abstract boolean remove(Integer roomTypeNo);
+
+	public abstract List<RoomTypeBean> findRoomType(Integer roomTypeNo);
 	
 }

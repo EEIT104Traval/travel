@@ -39,7 +39,19 @@
 <link rel="stylesheet" type="text/css" href="slick/slick.css" />
 <link rel="stylesheet" type="text/css" href="slick/slick-theme.css" />
 <link rel="stylesheet" href="css/templatemo-style.css">
-	
+
+<script>
+  $( function() {
+    $( "#datepicker1" ).datepicker();
+  } );
+ </script>
+ 
+<script>
+  $( function() {
+    $( "#datepicker2" ).datepicker();
+  } );
+ </script>
+
 </head>
 
 <body>
@@ -98,7 +110,7 @@
 						<div class="slick-list draggable">
 							<div style="padding-top: 30px; padding-left: 30px">
 								<img
-									src="/Travel/voyage/hotel/hotelPic/熱門飯店/紐約千禧希爾頓酒店(The Millennium Hilton New York).jpg"
+									src="https://dimg04.c-ctrip.com/images/fd/hotel/g2/M05/31/12/Cghzf1VNFfCAID8bAAqxINPZe2w423_R_800_525_R5_D.jpg"
 									alt="Image" style="width: 632px;">
 							</div>
 						</div>
@@ -112,6 +124,7 @@
 					</div>
 				</section>
 			</div>
+			
 			<!-- -------------------------------------------------------------------------------------------             -->
 
 			<div class="tm-container-outer" id="tm-section-3"
@@ -125,9 +138,10 @@
 					<li class="tm-tab-link-li"><a href="#6a" data-toggle="tab" class="tm-tab-link">總統套房</a></li>
 				</ul>
 				<div class="tab-content clearfix">
-
+	
 					<!-- Tab 1 -->
 					<div class="tab-pane fade show active" id="1a">
+					
 						<div class="tm-recommended-place-wrap">
 
 							<div class="tm-recommended-place">
@@ -139,10 +153,9 @@
 								</div>
 								<a href="#" class="tm-recommended-price-box">
 									<p class="tm-recommended-price">$NT 6,836</p>
-									<p class="tm-recommended-price-link">訂購</p>
+									<button type="button" class="btn btn-light" id="1">訂購</button>
 								</a>
 							</div>
-						</div>
 
 							<div class="tm-recommended-place">
 								<img src="https://secure3.hilton.com/resources/media/hi/NYCNHHH/en_US/img/hotel/roomtypeimages/main/HH_deluxequeenroom_386x310_FitToBoxSmallDimension_Center.jpg" alt="Image" class="tm-recommended-img" width="270px" height="200px">
@@ -154,7 +167,7 @@
 								<div id="preload-hover-img"></div>
 								<a href="#" class="tm-recommended-price-box">
 									<p class="tm-recommended-price">$NT 5,727</p>
-									<p class="tm-recommended-price-link">訂購</p>
+									<button type="button" class="btn btn-light" id="2">訂購</button>
 								</a>
 							</div>
 
@@ -167,7 +180,7 @@
 								</div>
 								<a href="#" class="tm-recommended-price-box">
 									<p class="tm-recommended-price">$NT 5,727</p>
-									<p class="tm-recommended-price-link">訂購</p>
+									<button type="button" class="btn btn-light" id="3">訂購</button>
 								</a>
 							</div>
 
@@ -180,9 +193,10 @@
 								</div>
 								<a href="#" class="tm-recommended-price-box">
 									<p class="tm-recommended-price">$NT 6,528</p>
-									<p class="tm-recommended-price-link">訂購</p>
+									<button type="button" class="btn btn-light" id="4">訂購</button>
 								</a>
 							</div>
+						</div>
 
 						<a href="#" class="text-uppercase btn-primary tm-btn mx-auto tm-d-table">Show More Places</a>
 					</div>
@@ -340,7 +354,7 @@
 								</div>
 								<a href="#" class="tm-recommended-price-box">
 									<p class="tm-recommended-price">$NT 15,335</p>
-									<p class="tm-recommended-price-link">訂購</p>
+									<button type="button" class="btn btn-light" id="5">訂購</button>
 								</a>
 							</div>
 
@@ -353,7 +367,7 @@
 								</div>
 								<a href="#" class="tm-recommended-price-box">
 									<p class="tm-recommended-price">$NT 15,920</p>
-									<p class="tm-recommended-price-link">訂購</p>
+									<button type="button" class="btn btn-light" id="6">訂購</button>
 								</a>
 							</div>
 
@@ -445,7 +459,7 @@
 								</div>
 								<a href="#" class="tm-recommended-price-box">
 									<p class="tm-recommended-price">$NT 53,888</p>
-									<p class="tm-recommended-price-link">訂購</p>
+									<button type="button" class="btn btn-light" id="7">訂購</button>
 								</a>
 							</div>
 
@@ -458,7 +472,7 @@
 								</div>
 								<a href="#" class="tm-recommended-price-box">
 									<p class="tm-recommended-price">$NT 64,666</p>
-									<p class="tm-recommended-price-link">訂購</p>
+									<button type="button" class="btn btn-light" id="8">訂購</button>
 								</a>
 							</div>
 

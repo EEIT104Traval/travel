@@ -131,6 +131,8 @@
 	<a href="<c:url value='/RoomTypecreate' />">RoomTypecreate</a>
 	<a href="<c:url value='/RoomTypeupdate' />">RoomTypeupdate</a>
 	<a href="<c:url value='/RoomTyperemove' />">RoomTyperemove</a>
+	<a href="<c:url value='/Room' />">Room</a>
+	
 	<hr />
 
 	<a href="<c:url value='/RoomTypePicfindByPK' />">RoomTypePicfindByPK</a>
