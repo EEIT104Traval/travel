@@ -3,8 +3,13 @@ package model.hotel.dao;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -12,6 +17,7 @@ import model.hotel.RoomTypeBean;
 import model.hotel.RoomTypeDAO;
 import model.hotel.RoomAvailableBean;
 import model.ticket.TicketInfoBean;
+import model.tour.TourOrderInfoBean;
 
 @Repository
 public class RoomTypeDAOHibernate implements RoomTypeDAO{
@@ -66,6 +72,17 @@ public class RoomTypeDAOHibernate implements RoomTypeDAO{
 			return true;
 		}	
 		return false;
+	}
+	
+	public List<RoomTypeBean> findRoomType(Integer roomTypeNo) {
+		
+		String hql = "from RoomTypeBean where roomTypeNo = "+roomTypeNo+"" ;
+		
+		Query<RoomTypeBean> roomType = this.getSession().createQuery( hql ,RoomTypeBean.class);
+		
+		List<RoomTypeBean> OdMonth = roomType.list();
+		
+		return OdMonth;
 	}
 
 }

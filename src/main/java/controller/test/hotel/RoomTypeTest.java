@@ -2,12 +2,14 @@
 package controller.test.hotel;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import model.hotel.RoomTypeBean;
+import model.hotel.RoomTypeService;
 import model.hotel.dao.RoomTypeDAOHibernate;
 
 @RestController //可替代Controller(寫在類別上對全部方法作用)
@@ -15,6 +17,8 @@ import model.hotel.dao.RoomTypeDAOHibernate;
 	public class RoomTypeTest{
 	 @Autowired
 	 private RoomTypeDAOHibernate dao ;
+	 @Autowired
+	 private RoomTypeService rd ;
 	 
 //	 @ResponseBody(每一個@RequestMapping上面都要寫)
 	 @RequestMapping("/RoomTypefindByPK")
@@ -53,5 +57,11 @@ import model.hotel.dao.RoomTypeDAOHibernate;
 		 return false; 
 	 } 
 
+	 @RequestMapping("/Room")
+	 public Map<String,List<?>> room() {
+		 Map<String,List<?>> result = rd.findRoomType(8);
+		return result;
+		 
+	 } 
 }
 	
