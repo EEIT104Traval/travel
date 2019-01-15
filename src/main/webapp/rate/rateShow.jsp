@@ -186,8 +186,7 @@ function update(){
 	
 	<%
 	   Date dNow = new Date( );
-	   SimpleDateFormat ft = 
-	   new SimpleDateFormat ("yyyy-MM-dd HH:mm:ss");
+	   SimpleDateFormat ft = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
        out.print( "<h3 align=\"left\">更新時間： " +ft.format(dNow)+"</h3>");
     %>
   

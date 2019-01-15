@@ -15,10 +15,13 @@ public class RateNoticeBean {
 	private String accountName;
 	private String currency;
 	private Double targetRate;
+	private java.util.Date deadline;
+	private java.sql.Timestamp registerDate;
+	
 	@Override
 	public String toString() {
 		return "RateNoticeBean [serial=" + serial + ", accountName=" + accountName + ", currency=" + currency
-				+ ", targetRate=" + targetRate + "]";
+				+ ", targetRate=" + targetRate + ", deadline=" + deadline + ", registerDate=" + registerDate + "]";
 	}
 	public Integer getSerial() {
 		return serial;
@@ -44,5 +47,18 @@ public class RateNoticeBean {
 	public void setTargetRate(Double targetRate) {
 		this.targetRate = targetRate;
 	}
+	public java.util.Date getDeadline() {
+		return deadline;
+	}
+	public void setDeadline(java.util.Date deadline) {
+		this.deadline = deadline;
+	}
+	public java.sql.Timestamp getRegisterDate() {
+		return registerDate;
+	}
+	public void setRegisterDate(java.sql.Timestamp registerDate) {
+		this.registerDate = registerDate;
+	}
+	
 
 }

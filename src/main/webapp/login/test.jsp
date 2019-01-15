@@ -8,7 +8,7 @@
 
 <link rel="stylesheet" type="text/css" href="../css/main.css" />
 
-<title>Product</title>
+<title>會員</title>
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script type="text/javascript">
@@ -29,7 +29,7 @@ function clearForm() {
 
 <!-- <h3>Product Table</h3> -->
 
-<form action="<c:url value="/secure/login.controller" />" method="post">
+<form action="<c:url value="/secure/insert.controller" />" method="post">
 <table>
 	<tr>
 		<td>帳號: </td>
@@ -38,7 +38,7 @@ function clearForm() {
 	</tr>
 	<tr>
 		<td>密碼: </td>
-		<td><input type="text" name="password" value="${param.password}"></td>
+		<td><input type="password" name="password" value="${param.password}"></td>
 		<td></td>
 	</tr>
 	<tr>
@@ -63,9 +63,17 @@ function clearForm() {
 	</tr>
 	<tr>
 		<td>性別 : </td>
-		<td><input type="text" name="sex" value="${param.sex}"></td>
+		<td><input type="radio" name="sex" value="male">男</td>
+		<td><input type="radio" name="sex" value="female" style="margin-left: -120px">女</td>
 		<td><span class="error">${errors.sex}</span></td>
 	</tr>
+<!-- 	<td>性別 : </td> -->
+<!-- 	<select name="gender"> -->
+		
+<%-- 		<td><option value="" type="radio" name="sex" value="${param.sex}">男</td> --%>
+<%-- 		<td><input type="radio" name="sex" value="${param.sex}" style="margin-left: -120px">女</td> --%>
+<%-- 		<td><span class="error">${errors.sex}</span></td> --%>
+<!-- 	</tr> -->
 	<tr>
 		<td>行動電話 : </td>
 		<td><input type="text" name="phone" value="${param.phone}"></td>
