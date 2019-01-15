@@ -105,36 +105,43 @@ $.each(result.OTA_AirLowFareSearchRS.PricedItineraries.PricedItinerary, function
 // 		$('#gofirst').append(
 // 		'<div class="romde_box">')
 // 	}
-	
 	$('#gofirst').append(
-			
-			'<div class="romde_box act">'
+			'<form action="<c:url value='/FlightInfoSecound' />" method="post">'
+			+'<div class="romde_box act">'
 	         +'<div class="border" id="redborder'+value.SequenceNumber+'">' 
-	              <!--第1段-->
+// 	              <!--第1段-->
 	              +'<div class="num-tag">'+serialNum+'</div>'
 					+'<div class="flybox row" >'
 				  	  +"<div class='col-xs-10 text-center fly-leftbox'>"
                         +"<div class='col-xs-3 fl-namebox text-center'>"
-              			  +"<div class='fl-name'>"+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].OperatingAirline.Company+"</div>"
-                          +"<div class='+fl-num'>"+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].OperatingAirline.Code+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].OperatingAirline.FlightNumber+"</div>"
+                        	+"<input type='text' class='fl-name' style='border:none;text-align: center;width:100px' readonly='value' name='goCompany' value="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].OperatingAirline.Company+">"
+//               			  +"<div class='fl-name' name='goCompany'>"+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].OperatingAirline.Company+"</div>"
+                          +"<input  class='fl-num' name='goCode'  style='border:none;text-align: center;width:100px' readonly='value' value="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].OperatingAirline.Code+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].OperatingAirline.FlightNumber+">"
+//                           +"<div class='fl-num'>"+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].OperatingAirline.Code+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].OperatingAirline.FlightNumber+"</div>"
             +"</div>"
             + "<div class='col-xs-3 fl-timebox text-right'>"
-            +'<div class="fl-time">'+Ddate+"("+Ddateweek+")"+'</div>'
-            +'<div class="fl-place">'+Dtime+'<span>'+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].DepartureAirport.LocationCode+'</span></div>'
+            +"<input name='goDay' class='fl-time' style='border:none;text-align: center;width:80px' readonly='value' value="+Ddate+'('+Ddateweek+')'+">"
+//             +'<div class="fl-time">'+Ddate+"("+Ddateweek+")"+'</div>'
+            +"<input class='fl-place' name='goPlace' style='border:none;text-align: center;width:80px' readonly='value' value="+Dtime+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].DepartureAirport.LocationCode+">"
+//             +'<div class="fl-place">'+Dtime+'<span>'+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].DepartureAirport.LocationCode+'</span></div>'
           +'</div>'
          +'<div class=" col-xs-3 fl-durationbox text-center">'
-         +'<div class="fl-dutime"> <span>'+gotimehour+'</span>小時<span>'+gotimemin+'</span>分 </div>'
+         +"<input class='fl-dutime' name='homi' style='border:none;text-align: center;width:80px' readonly='value' value="+gotimehour+"小時"+gotimemin+"分>"
+//          +'<div class="fl-dutime"> <span>'+gotimehour+'</span>小時<span>'+gotimemin+'</span>分 </div>'
          +'<div class="t-line" ></div>'
          +'<div class="fl-flyname" style="color:green" id="fl-flyname'+value.SequenceNumber+'">直飛</div>'
          +' </div>'
          +'<div class="col-xs-3 fl-timebox text-left">'
-         +'<div class="fl-time" id="fl-time'+value.SequenceNumber+'">'+Adate+'('+Adateweek+')</div>'
-         +'<div class="fl-place" id="fl-place'+value.SequenceNumber+'">'+Atime+'<span>'+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].ArrivalAirport.LocationCode+'</span></div>'
+         +"<input class='fl-time' style='border:none;text-align: center;width:80px' readonly='value' name='homi2' id="+'fl-time'+value.SequenceNumber+" value="+Adate+'('+Adateweek+')'+">"
+//          +'<div class="fl-time" id="fl-time'+value.SequenceNumber+'">'+Adate+'('+Adateweek+')</div>'
+         +"<input class='fl-place' style='border:none;text-align: center;width:80px' readonly='value' id="+'fl-place'+value.SequenceNumber+"value="+Atime+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].ArrivalAirport.LocationCode+">"
+//          +'<div class="fl-place" id="fl-place'+value.SequenceNumber+'">'+Atime+'<span>'+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].ArrivalAirport.LocationCode+'</span></div>'
          +' </div>'
          +' </div>'
          +' <div class="col-xs-2 fly-info">'
          +' <div class="fltool">'
-         +' <li class="icon_fl1">'+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].Equipment[0].AirEquipType+'</li>'
+         +"<input class='icon_fl1' name='goAirEquipType' style='border:none;text-align: center;width=68px' value="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].Equipment[0].AirEquipType+">"
+//          +' <li class="icon_fl1" name="goAirEquipType">'+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].Equipment[0].AirEquipType+'</li>'
          +' <li class="icon_fl2">'+'經濟艙 V'+'</li>'
          +' <li class="icon_fl3">'+'30kg/人'+'</li>'
 //          +'</div>'
@@ -181,8 +188,9 @@ $.each(result.OTA_AirLowFareSearchRS.PricedItineraries.PricedItinerary, function
 			+" <div class='col-xs-10 text-center fly-leftbox'>"
 		    +" <div class='col-xs-3 fl-namebox text-center'>"
 // 		    +'<img alt="" width="20px" src="<c:url value='/resource/flight/airlines_logo 56_50/0B.gif'/>"'
-		      +'<div class="fl-name">'+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[0].OperatingAirline.Company+'</div>'
-		      +" <div class='+fl-num'>"+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[0].OperatingAirline.Code+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[0].OperatingAirline.FlightNumber+"</div>"
+			+"<input type='text' class='fl-name' style='border:none;text-align: center;width:100px' readonly='value' name='backCompany' value="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[0].OperatingAirline.Company+">"
+// 		      +'<div class="fl-name">'+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[0].OperatingAirline.Company+'</div>'
+		      +" <div class='fl-num'>"+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[0].OperatingAirline.Code+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[0].OperatingAirline.FlightNumber+"</div>"
 		    +"</div>"
 		    + "<div class='col-xs-3 fl-timebox text-right'>"
 		    +'<div class="fl-time">'+Ddate2+"("+Ddateweek2+")"+'</div>'
@@ -247,7 +255,7 @@ $.each(result.OTA_AirLowFareSearchRS.PricedItineraries.PricedItinerary, function
      +'<div class="price">NT$<span class="fontb">'+value.AirItineraryPricingInfo[0].ItinTotalFare.TotalFare.Amount+'</span></div>'
      +'<div class="price_de">每成人含稅</div>'
      +'</span> <span class="check">'
-     +'<button type="button" class="btn btn_check" onClick="javascript:location.href="step2.html"">訂 位</button>'
+     +'<button type="submit" class="btn btn_check" >訂 位</button>'
      +'</span> </div>'
      +'</div>'
      +'</div>'
@@ -257,6 +265,7 @@ $.each(result.OTA_AirLowFareSearchRS.PricedItineraries.PricedItinerary, function
 		'</div>'
 		+'</div>'
 		+'</div>'
+		+'</form>'
 	
 	)
 	
@@ -365,30 +374,32 @@ $.each(result.OTA_AirLowFareSearchRS.PricedItineraries.PricedItinerary, function
 <!-- 	<div id='div_apend'></div> -->
 <!--內容-->
 
-<div class="container"> 
+
   
  	 <!--重新search--> 
- 			 <div class="home_search_contentsecound">
-
+ 	 <div class="search-head">
+ 			 <div class="container">
+<!-- class="home_search_contentsecound" -->
 				<div class="d-flex flex-lg-row flex-column align-items-start justify-content-lg-between justify-content-start">
-					<div>
-						<span class="form-label">出發地</span> <input id="demo2" name="takeOffPlace" type="text" class="search_input_1secound" style="width: 450px" placeholder="請輸入機場/城市中英文或代碼">
+					<div  style="width: 250px">
+						<span class="form-label" style="display:block;">出發地</span> <input id="demo2" name="takeOffPlace" type="text" class="search_input_1secound" style="width: 250px" placeholder="請輸入機場/城市中英文或代碼" value="${indexValue.takeOffPlace}">
 						<!-- 											required="required" -->
 					</div>
-					<img alt="" src="/Travel/voyage/images/changeTwoPlace.png" width="25px" style="padding-top: 42px">
-					<div>
-						<span class="form-label">目的地</span> <input id="demo1" name="landingPlace" type="text" class="search_input_1secound" style="width: 450px" placeholder="請輸入機場/城市中英文或代碼">
+					<div style="width: 30px;">
+					<img alt="" src="/Travel/voyage/images/changeTwoPlace.png" width="25px" style="padding-top: 42px;float: left;">
 					</div>
+					<div  style="width: 250px;">
+						<span class="form-label"style="display:block;">目的地</span> <input id="demo1" name="landingPlace" type="text" class="search_input_1secound" style="width: 250px" placeholder="請輸入機場/城市中英文或代碼" value="${indexValue.landingPlace}"> 
+					</div>
+					<div style="display: inline-block; padding-right: 30px;float: left">
+					<span class="form-label"style="display:block;">出發日期</span> <input type="text"  class="search_input_1secound" id="checkin_date" placeholder="yyyy/MM/dd" name="takeoff_date" value="${indexValue.takeoff_date}">
 				</div>
-
 				<div style="display: inline-block; padding-right: 30px;">
-					<span class="form-label">出發日期</span> <input type="text"  class="search_input_1secound" id="checkin_date" placeholder="yyyy/MM/dd" name="takeoff_date">
+					<span class="form-label" style="display:block;">回程日期</span> <input type="text"  class="search_input_1secound" placeholder="yyyy/MM/dd" name="flyback_date" id="checkout_date"value="${indexValue.flyback_date}">
 				</div>
-				<div style="display: inline-block; padding-right: 30px;">
-					<span class="form-label">回程日期</span> <input type="text"  class="search_input_1secound" placeholder="yyyy/MM/dd" name="flyback_date" id="checkout_date">
 				</div>
 				<div style="display: inline-block; padding-right: 30px;width:200px;">
-					<span class="form-label">旅客類型</span> <input type="button" id="peopleType" autocomplete="off" class="search_input_1secound" value="1位成人" name="peopleType" onclick="showPopup(33)" style="width:200px;text-align: left;">
+					<span class="form-label" style="display:block;">旅客類型</span> <input type="button" id="peopleType" autocomplete="off" class="search_input_1secound" value="${indexValue.peopleType}" name="peopleType" onclick="showPopup(33)" style="width:200px;text-align: left;">
 				</div>
 				
 				<div style="display: inline-block; padding-right: 30px;padding-left: 30px;">
@@ -403,8 +414,9 @@ $.each(result.OTA_AirLowFareSearchRS.PricedItineraries.PricedItinerary, function
 
 				<button class="home_search_button" id="home_search_button" type="submit">搜尋</button>
 			</div>
+	</div>
   <!--重新search_結束-->
-  
+  <div class="container"> 
   <div class="list_flight">
     <div class="flirow"> 
       
