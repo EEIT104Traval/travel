@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 
 @Entity
@@ -28,6 +29,17 @@ public class TourBatchBean {
 	private String distination_back;
 	private String content;
 	
+	@Transient
+	private String tourName;
+	
+	
+	
+	public String getTourName() {
+		return tourName;
+	}
+	public void setTourName(String tourName) {
+		this.tourName = tourName;
+	}
 	public Integer getSerialNo() {
 		return serialNo;
 	}

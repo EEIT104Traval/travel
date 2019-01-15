@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name="TicketOrderInfo")
@@ -52,6 +53,15 @@ public class TicketOrderInfoBean {
 	private String recevingPhone;
 	private Integer totalPrice;
 	
+	@Transient
+	private String ticketName;
+	
+	public String getTicketName() {
+		return ticketName;
+	}
+	public void setTicketName(String ticketName) {
+		this.ticketName = ticketName;
+	}
 	public Integer getTicketOrderNO() {
 		return ticketOrderNO;
 	}
