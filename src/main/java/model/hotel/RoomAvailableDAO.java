@@ -14,4 +14,8 @@ public interface RoomAvailableDAO {
 
 	public abstract boolean remove(Integer serialNo);
 	
+	public abstract List<RoomAvailableBean> searchByDate(java.util.Date date);
+	
+	public abstract List<RoomAvailableBean> findRoomByDate(List<RoomTypeBean> list);
+	
 }

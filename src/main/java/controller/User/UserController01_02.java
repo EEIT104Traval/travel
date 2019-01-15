@@ -26,8 +26,7 @@ public class UserController01_02 {
 		
 		Map<String, List<?>> result = null;
 		result = userInfoService.findByPrimaryKey(user);
-		System.out.println("--------------------------");
-		
+		System.out.println("--------------------------");	
 		System.out.println(result);
 		
 		return result;

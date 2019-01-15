@@ -1,6 +1,3 @@
-/**
- * 
- */
 package controller.tour;
 
 import java.util.List;
@@ -15,10 +12,6 @@ import model.tour.GroupTourBean;
 import model.tour.TourTagsBean;
 import model.tour.service.TourTagsService;
 
-/**
- * @author User
- *
- */
 @Controller
 public class TourTagsController {
 	@Autowired
@@ -27,7 +20,7 @@ public class TourTagsController {
 	@RequestMapping("/tourTags")	
 	public 	List<GroupTourBean> method(String tag, Model model) {
 		List<GroupTourBean> result = tourTagsService.findByTags(tag); 	
-		System.out.println("AAAAAAAAAAAAAAAAAAAAAAAA"+result);
+//		System.out.println("AAAAAAAAAAAAAAAAAAAAAAAA=="+result);
 		return result;
 	}
 }
