@@ -53,7 +53,7 @@
 			<p id= "idd"></p>
 				<div class="col-lg-8">				
 					<div id="box" class="row">
-					<c:forEach items="${tags}"  var="tag">	
+<%-- 					<c:forEach items="${tags}"  var="tag">	 --%>
 					<p>1231346513164313</p>	
 <!-- 						<div class="col-md-6 col-lg-6 mb-4 ftco-animate"> -->
 <!-- 							<a href="#" class="block-5" -->
@@ -72,7 +72,7 @@
 <!-- 								</div> -->
 <!-- 							</a> -->
 <!-- 						</div> -->
-					</c:forEach>			
+<%-- 					</c:forEach>			 --%>
 					</div>
 					<div class="row mt-5">
 						<div class="col text-center">
@@ -139,7 +139,7 @@
 					<div class="sidebar-box ftco-animate">
 						<div class="categories">
 							<h3 style="font-weight:bold;">旅遊資訊</h3>
-							<li><a href="#">各國旅遊資訊</a></li>
+							<li><a href="<c:url value='toursDetail.jsp'/>">各國旅遊資訊</a></li>
 							<li><a href="#">Hotels <span>(22)</span></a></li>
 							<li><a href="#">Cruises <span>(37)</span></a></li>
 							<li><a href="#">Restaurant <span>(42)</span></a></li>
