@@ -33,54 +33,54 @@ function clearForm() {
 <table>
 	<tr>
 		<td>帳號: </td>
-		<td><input type="text" name="id" value="${param.accountName}"></td>
-		<td><span class="error">${errors.id}</span></td>
+		<td><input type="text" name="accountName" value="${param.accountName}"></td> 
+		<td><span class="error">${errors.xxx1}</span></td>
 	</tr>
 	<tr>
 		<td>密碼: </td>
-		<td><input type="text" name="name" value="${param.password}"></td>
+		<td><input type="text" name="password" value="${param.password}"></td>
 		<td></td>
 	</tr>
 	<tr>
 		<td>英文姓 : </td>
-		<td><input type="text" name="price" value="${param.firstname}"></td>
-		<td><span class="error">${errors.price}</span></td>
+		<td><input type="text" name="firstname" value="${param.firstname}"></td>
+		<td><span class="error">${errors.firstname}</span></td>
 	</tr>
 	<tr>
 		<td>英文名 : </td>
-		<td><input type="text" name="make" value="${param.lastname}"></td>
-		<td><span class="error">${errors.make}</span></td>
+		<td><input type="text" name="lastname" value="${param.lastname}"></td>
+		<td><span class="error">${errors.lastname}</span></td>
 	</tr>
 		<tr>
 		<td>身分證字號 : </td>
-		<td><input type="text" name="expire" value="${param.identityNo}"></td>
-		<td><span class="error">${errors.expire}</span></td>
+		<td><input type="text" name="identityNo" value="${param.identityNo}"></td>
+		<td><span class="error">${errors.identityNo}</span></td>
 	</tr>
 		<tr>
 		<td>出生年月日 : </td>
-		<td><input type="text" name="expire" value="${param.birth}"></td>
-		<td><span class="error">${errors.expire}</span></td>
+		<td><input type="text" name="birth" value="${param.birth}"></td>
+		<td><span class="error">${errors.birth}</span></td>
 	</tr>
 	<tr>
 		<td>性別 : </td>
-		<td><input type="text" name="expire" value="${param.sex}"></td>
-		<td><span class="error">${errors.expire}</span></td>
+		<td><input type="text" name="sex" value="${param.sex}"></td>
+		<td><span class="error">${errors.sex}</span></td>
 	</tr>
 	<tr>
 		<td>行動電話 : </td>
-		<td><input type="text" name="expire" value="${param.phone}"></td>
-		<td><span class="error">${errors.expire}</span></td>
+		<td><input type="text" name="phone" value="${param.phone}"></td>
+		<td><span class="error">${errors.phone}</span></td>
 	</tr>
 	<tr>
 		<td>E-mail : </td>
-		<td><input type="text" name="expire" value="${param.email}"></td>
-		<td><span class="error">${errors.expire}</span></td>
+		<td><input type="text" name="email" value="${param.email}"></td>
+		<td><span class="error">${errors.email}</span></td>
 	</tr>
 	
 	<tr>
 		<td>地址 : </td>
-		<td><input type="text" name="expire" value="${param.address}"></td>
-		<td><span class="error">${errors.expire}</span></td>
+		<td><input type="text" name="address" value="${param.address}"></td>
+		<td><span class="error">${errors.address}</span></td>
 	</tr>
 	
 	<tr>

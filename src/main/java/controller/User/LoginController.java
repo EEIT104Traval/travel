@@ -22,6 +22,10 @@ public class LoginController {
 	private ApplicationContext context;
 	@Autowired
 	UserInfoService userInfoService;
+	@RequestMapping(path= {"/secure/insert.controller"})
+	public void insertMb () {
+		
+	}
 	@RequestMapping(path = { "/secure/login.controller" })
 	public String method(String name, String password, Model model) {
 //接收資料
@@ -39,6 +43,7 @@ public class LoginController {
 		}
 // 呼叫model
 		UserInfoBean bean = userInfoService.login(name, password);
+		System.out.println(bean);
 
 // 呼叫view
 		if (bean == null) {

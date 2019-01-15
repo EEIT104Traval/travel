@@ -39,22 +39,25 @@
 <style>
 .tb1 {
 	width: 1000px;
+	height:200px;
 	border: 3px solid #0080ff;
 	border-collapse: collapse;
 }
 
 th {
 	border: 1px solid gray;
+	height:30px;
 }
 
 td {
 	border: 1px solid gray;
 	vertical-align:middle;
+	height:30px;
 }
 
 img{
 /* 	display:block; */
-	margin-bottom:-5px;
+	margin-bottom:1px;
 	margin-right:4px;
 }
 
@@ -167,7 +170,7 @@ function update(){
 						<div class="home_search_content">
 							<form action="#" class="home_search_form" id="home_search_form"
 								method="get">
-								<div >
+								<div>
 <!--   	   							<button type="button" style="float:right;margin-bottom: 10px"><a href="toggling3.jsp" />最近半年走勢圖</a></button> -->
 								<button type="button" style="float:right;margin-right: -30px;margin-bottom: 20px"><a href="../voyage/index.jsp" />回首頁</a></button>
   	   							<button type="button" style="float:right;margin-right: 10px"><a href="toggling1.jsp" />最近半年走勢圖</a></button>

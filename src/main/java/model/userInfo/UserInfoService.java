@@ -57,6 +57,15 @@ public class UserInfoService {
 		}
 		return bean;
 	}
+	
+	public UserInfoBean create(UserInfoBean bean) {
+		UserInfoBean result = null;
+		if(bean != null) {
+			result = userInfoDAO.create(bean);
+		}	
+		return result;
+		
+	}
 //--------------↓↓↓↓↓↓後台管理員使用專區↓↓↓↓↓↓-------------
 	
 	
