@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%-- <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> --%>
 <!doctype html>
 <html lang="en">
 <head>
@@ -61,7 +61,8 @@ div#users-contain table td, div#users-contain table th {
 <script>
 var params={}
 $(document).ready(function() {
-	console.log('${user}');
+	var login = '${login}';
+	console.log(login);
 });
 function login(){
 	params.name=$('#name').val()
