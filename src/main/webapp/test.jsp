@@ -49,7 +49,7 @@
 	<a href="<c:url value='userinfoorder' />">userinfoorder</a>
 	<a href="<c:url value='foundNumber' />">foundNumber</a>
 	<br>
-	<a href="<c:url value='/ticketDLtest' />">ticketDLtest </a>
+	<a href="<c:url value='ticketDLtest' />">ticketDLtest </a>
 	<br>
 	<a href="<c:url value='tourDLtest' />">tourDLtest </a>
 	<hr>
