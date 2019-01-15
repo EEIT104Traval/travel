@@ -34,22 +34,23 @@ var params = {}
  								'<table ><th style="width:50px">國家</th><th style="width:350px">名稱</th>'+
  								'<th style="width:50px">數量</th><th style="width:200px">購買日期</th><th style="width:100px">價格</th></table>'+
  								'<br>'		 );
-// 					  console.log(JData)
-// 					  console.log(JData.length);
-						if(JData.length != 0 || JData.length == null){
-							$.each(JData, function(index, value) {
-							
-  							for(var i = 0;i<JData.length;i++){
+ 					 	console.log("-------------------------------------");
+						console.log(JData);
+
+						if(JData.TourOrderInfoBean != null){
+  							for(var i = 0;i<JData.TourOrderInfoBean.length;i++){
 	 							$("#searchuser").append(		
-	 		 							'<table ><th style="width:50px">'+ value.serialNo +'</th>'+
-	 		 									'<th style="width:350px">'+ value.serialNo +'</th>'+
-	 		 							        '<th style="width:50px">'+ value.quantity +'</th>'+
-	 		 							        '<th style="width:200px">'+ value.orderTime +'</th>'+
-	 		 							        '<th style="width:100px">'+ value.total +'</th></table>'								
+	 		 							'<table ><th style="width:50px">'+ JData.TourOrderInfoBean[i].country +'</th>'+
+	 		 									'<th style="width:350px">'+ JData.TourOrderInfoBean[i].tourName +'</th>'+
+	 		 							        '<th style="width:50px">'+ JData.TourOrderInfoBean[i].quantity +'</th>'+
+	 		 							        '<th style="width:200px">'+ JData.TourOrderInfoBean[i].orderTime +'</th>'+
+	 		 							        '<th style="width:100px">'+ JData.TourOrderInfoBean[i].total +'</th></table>'								
 	 													)
-	 														 }
-								                       })}
-						 $("#searchuser").append('<table><th style="width:50px">合計</th><th style="width:727px">value.total</th></table>')
+	 								 } $("#searchuser").append('<table><th style="width:50px">合計</th><th style="width:727px">value.total</th></table>')
+								                       }else{
+						$("#searchuser").append('<H1>業績差尚無訂單</H1>')
+								                       }
+						
 											})
 								})
 					});
