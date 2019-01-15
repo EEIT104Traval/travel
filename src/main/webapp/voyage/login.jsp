@@ -61,7 +61,8 @@ div#users-contain table td, div#users-contain table th {
 <script>
 var params={}
 $(document).ready(function() {
-	console.log('${user}');
+	var login = '${login}';
+	console.log(login);
 });
 function login(){
 	params.name=$('#name').val()
@@ -206,13 +207,10 @@ function login(){
 			<input type="button" value="Login" onclick="login()">
 		</form>
 			<p>快速登入</p>
-			<img src="<c:url value='/voyage/images/facebook.png' />" onclick="FBLogin();" width="32%"
-				height="32%"> <img src="<c:url value='/voyage/images/google01.png' />"
-				onclick="GoogleLogin();" width="32%" height="32%"> <img
-				src="<c:url value='/voyage/images/line.png' />" onclick="GoogleLogin();" width="32%"
-				height="32%">
-			<button
-				style="background-color: blue; color: white; margin-left: 100px; margin-top: 20px">新會員註冊</button>
+			<img src="<c:url value='/voyage/images/facebook.png' />" onclick="FBLogin();" width="32%" height="32%"> 
+			<img src="<c:url value='/voyage/images/google01.png' />" onclick="GoogleLogin();" width="32%" height="32%"> 
+			<img src="<c:url value='/voyage/images/line.png' />" onclick="GoogleLogin();" width="32%" height="32%">
+			<button	style="background-color: blue; color: white; margin-left: 100px; margin-top: 20px">新會員註冊</button>
 		</div>
 
 		<script>

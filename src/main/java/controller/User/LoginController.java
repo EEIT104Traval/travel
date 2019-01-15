@@ -14,7 +14,7 @@ import model.userInfo.UserInfoBean;
 import model.userInfo.UserInfoService;
 
 @Controller
-@SessionAttributes(value="user")
+@SessionAttributes(value= {"user","login"})
 public class LoginController {
 
 	@Autowired
@@ -45,6 +45,7 @@ public class LoginController {
 			return message;
 		} else {
 			message.put("xxx1", bean);
+			model.addAttribute("login", "LoginOk");			
 			model.addAttribute("user", bean);
 			System.out.println("登入成功");
 			return message;

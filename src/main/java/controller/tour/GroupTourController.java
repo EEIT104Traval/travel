@@ -21,7 +21,7 @@ public class GroupTourController {
 	@ResponseBody
 	@RequestMapping("/groupTour")
 	public Map<String,Object> method(GroupTourBean bean, Model model) {
-		System.out.println("bean="+bean);		
+//		System.out.println("bean="+bean);		
 				
 	
 				

@@ -14,6 +14,7 @@ import model.tour.dao.TourTagsDAO;
 public class TourTagsService {
 	@Autowired
 	private TourTagsDAO tourTagsDAO  ;
+	@Autowired
 	private GroupTourDAO groupTour ;
 	public List<GroupTourBean> findByTags(String tag){
 		List<String> ft = tourTagsDAO.findByTag(tag);
@@ -21,7 +22,7 @@ public class TourTagsService {
 		
 		List<GroupTourBean> tour = new ArrayList<GroupTourBean>();
 		for(int j=0 ; j<i;j++ ) {
-			GroupTourBean t = groupTour.findByPrimaryKey(ft.get(j));			
+			GroupTourBean t = groupTour.findByPrimaryKey(ft.get(j));	
 			tour.add(t);
 		}
 		

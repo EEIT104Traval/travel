@@ -27,6 +27,12 @@
             <li class="nav-item"><a href="<c:url value='/voyage/ticket.jsp'/>" class="nav-link">門票</a></li>
             <li class="nav-item"><a href="<c:url value='/rate/rateindex2.jsp'/>" class="nav-link">查詢匯率</a></li>
             <li class="nav-item"><a href="<c:url value='/voyage/contact.html'/>" class="nav-link">聯絡我們</a></li>
+            <c:if test="${not empty user}">
+            	<c:out value="<li class='nav-item'><a href='##' class='nav-link'>Hello!</a></li>" escapeXml="false"/>
+			</c:if>
+			<c:if test="${empty user}">
+				<c:out value="<li class='nav-item'><a href='##' class='nav-link'>login</a></li>" escapeXml="false"/>
+			</c:if>
             <li class="nav-item"><a href="##" class="nav-link">
             	<jsp:include page="login.jsp"></jsp:include>
             </a></li>
