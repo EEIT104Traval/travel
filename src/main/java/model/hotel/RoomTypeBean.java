@@ -3,6 +3,7 @@ package model.hotel;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name="RoomType")
@@ -14,10 +15,19 @@ public class RoomTypeBean {
 	private Integer totalRooms;
 	private Integer price;
 	
+	@Transient
+	private java.util.Date date;
+	
 	@Override
 	public String toString() {
 		return "RoomTypeBean [roomTypeNo=" + roomTypeNo + ", hotelNo=" + hotelNo + ", roomType=" + roomType
-				+ ", totalRooms=" + totalRooms + ", price=" + price + "]";
+				+ ", totalRooms=" + totalRooms + ", price=" + price + ", date=" + date + "]";
+	}
+	public java.util.Date getDate() {
+		return date;
+	}
+	public void setDate(java.util.Date date) {
+		this.date = date;
 	}
 	public Integer getRoomTypeNo() {
 		return roomTypeNo;

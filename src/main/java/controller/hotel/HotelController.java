@@ -35,25 +35,18 @@ public class HotelController {
 	@ResponseBody
 	@RequestMapping("/voyage/city.controller")
 	public List<HotelBean> searchByCity(@RequestParam(value="city",required=false)String city) {
-	//	Locale locale = LocaleContextHolder.getLocale(); //多國語系
 		System.out.println("country="+city);
-//接收資料
-//呼叫model
 		List<HotelBean> result = hotelService.searchCity(city);
 		for(HotelBean TI : result)
 		System.out.println(TI);
-//呼叫view		
 			return result;
 		}
 	
 	@ResponseBody
 	@RequestMapping("/voyage/all.controller")
 	public List<HotelBean> searchAll() {
-//接收資料
-//呼叫model
 		List<HotelBean> result = hotelService.searchAll();
 		System.out.println(result);
-//呼叫view		
 			return result;
 		}
 	

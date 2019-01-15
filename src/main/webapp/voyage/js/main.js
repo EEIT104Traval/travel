@@ -383,16 +383,16 @@
 
    
    $('#checkin_date, #checkout_date, #start_date, #return_date,#takeoff_date,#flyback_date').datepicker({
-	  'format': 'm/d/yyyy',
-	  'autoclose': true
+	  'format': 'yyyy/m/d',
+	  'autoclose': true,
+	  'weekStart': 1, 
+	  'startDate':new Date()
 	});
 	// $('#checkout_date').datepicker({
 	//   'format': 'm/d/yyyy',
 	//   'autoclose': true
 	// });
 	// $('#appointment_time').timepicker();
-
-
 
 })(jQuery);
 

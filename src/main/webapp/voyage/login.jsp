@@ -61,8 +61,8 @@ div#users-contain table td, div#users-contain table th {
 <script>
 var params={}
 $(document).ready(function() {
-	var login = '${login}';
-	console.log(login);
+// 	var login = '${login}';
+// 	console.log(login);
 });
 function login(){
 	params.name=$('#name').val()
@@ -379,7 +379,7 @@ function Del_FB_App() {
 
 
 
-	<span id="create-user">會員註冊/登入</span>
+	<span id="create-user" style="color:#fff">會員註冊/登入</span>
 
 
 

@@ -34,6 +34,7 @@ var params = {}
  								'<table ><th style="width:50px">國家</th><th style="width:350px">名稱</th>'+
  								'<th style="width:50px">數量</th><th style="width:200px">購買日期</th><th style="width:100px">價格</th></table>'+
  								'<br>'		 );
+ 					 
  					 	console.log("-------------------------------------");
 						console.log(JData);
 
@@ -50,7 +51,6 @@ var params = {}
 								                       }else{
 						$("#searchuser").append('<H1>業績差尚無訂單</H1>')
 								                       }
-						
 											})
 								})
 					});
@@ -80,8 +80,7 @@ var params = {}
 			<option value="11">NOV</option>
 			<option value="12">DEC</option>　　　
           </select>
-<!--  -->	 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<a href="a.pdf"><img src="images/pdf_icon.gif">PDF下載</a>　　　　  
-	</div>
+<!--  -->
 	<div class="boxmsg" id="searchuser">
 <!-- 	----------------------加東西--------------------- -->
 	 <label class="title">查詢結果</label>

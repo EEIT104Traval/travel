@@ -89,9 +89,9 @@ public class TicketOrderInfoTest {
 	@RequestMapping("tourDLtest")
 	public void DLticketform() throws IOException {
 		String s1 = servletContext.getRealPath("");
-
+	
 		File ticketincsv = new File(s1 + "resource/Tour/Tour.csv"); // 讀取的CSV文檔
-		File ticketoutcsv = new File("C:\\Users\\Emma\\Desktop\\Tour1.csv");// 寫出的CSV文檔
+		File ticketoutcsv = new File("C:\\Users\\User\\Desktop\\Tour1.csv");// 寫出的CSV文檔
 		if (!ticketoutcsv.exists()) {
 			ticketoutcsv.createNewFile();
 		}
