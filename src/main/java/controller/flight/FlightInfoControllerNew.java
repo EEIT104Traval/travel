@@ -22,28 +22,31 @@ public class FlightInfoControllerNew {
 	private FlightInfoGetService flightInfoGetService;
 //	@ResponseBodyssss
 	@RequestMapping("/FlightInfoNew")
-	public String method(Model model) throws Exception {
+	public String method(Model model,String takeOffPlace,String landingPlace,Date takeoff_date,Date flyback_date,String peopleType,String adultcount
+			
+			) throws Exception {
+		System.out.println("takeOffPlace="+takeOffPlace.substring(takeOffPlace.length()-4, takeOffPlace.length()-1)+"landingPlace"+landingPlace.substring(landingPlace.length()-4, landingPlace.length()-1)+"takeoff_date"+takeoff_date+"flyback_date"+flyback_date+"peopleType"+peopleType+"adultcount"+adultcount);
 		SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
-		Date go = java.sql.Date.valueOf("2019-02-04");
-		Date back = java.sql.Date.valueOf("2019-02-20");
-		String date1 = format1.format(go.getTime());
-		String date2 = format1.format(back.getTime());
+//		Date go = java.sql.Date.valueOf(takeoff_date);
+//		Date back = java.sql.Date.valueOf(flyback_date);
+		String date1 = format1.format(takeoff_date.getTime());
+		String date2 = format1.format(flyback_date.getTime());
 		StringBuffer bfmsearch = new StringBuffer();
 		bfmsearch.append(
 				"{\"OTA_AirLowFareSearchRQ\":{\"ResponseType\":\"OTA\",\"ResponseVersion\":\"3.4.0\",\"Target\":\"Production\",\"Version\":\"3.4.0\",\"POS\":{\"Source\":[{\"PseudoCityCode\":\"A2U8\",\"RequestorID\":{\"Type\":\"1\",\"ID\":\"1\",\"CompanyName\":{\"Code\":\"TN\"}}}]},\"OriginDestinationInformation\":[{\"RPH\":\"1\",\"DepartureDateTime\":\""
-						+ date1 + "\",\"OriginLocation\":{\"LocationCode\":\"" + "TPE"
-						+ "\"},\"DestinationLocation\":{\"LocationCode\":\"" + "PVG"
+						+ date1 + "\",\"OriginLocation\":{\"LocationCode\":\"" + takeOffPlace.substring(takeOffPlace.length()-4, takeOffPlace.length()-1)
+						+ "\"},\"DestinationLocation\":{\"LocationCode\":\"" + landingPlace.substring(landingPlace.length()-4, landingPlace.length()-1)
 						+ "\"},\"TPA_Extensions\":{\"SegmentType\":{\"Code\":\"O\"}}},{\"RPH\":\"2\",\"DepartureDateTime\":\""
-						+ date2 + "\",\"OriginLocation\":{\"LocationCode\":\"" + "PVG"
-						+ "\"},\"DestinationLocation\":{\"LocationCode\":\"" + "TPE"
+						+ date2 + "\",\"OriginLocation\":{\"LocationCode\":\"" + landingPlace.substring(landingPlace.length()-4, landingPlace.length()-1)
+						+ "\"},\"DestinationLocation\":{\"LocationCode\":\"" + takeOffPlace.substring(takeOffPlace.length()-4, takeOffPlace.length()-1)
 						+ "\"},\"TPA_Extensions\":{\"SegmentType\":{\"Code\":\"O\"}}}],\"TravelPreferences\":{\"ValidInterlineTicket\":true,"
 						+ "\"FlightTypePref\":{\"MaxConnections\":\"0\"},"
 						+ "\"CabinPref\":[{\"Cabin\":\"Y\",\"PreferLevel\":\"Preferred\"}],\"TPA_Extensions\":{\"TripType\":{\"Value\":\"Return\"},\"LongConnectTime\":{\"Min\":780,\"Max\":1200,\"Enable\":true},\"ExcludeCallDirectCarriers\":{\"Enabled\":true}}},\"TravelerInfoSummary\":{\"SeatsRequested\":[1],\"AirTravelerAvail\":[{\"PassengerTypeQuantity\":[{\"Code\":\"ADT\",\"Quantity\":"
-						+ "1"
+						+ "2"
 						+ "}]}]},\"TPA_Extensions\":{\"IntelliSellTransaction\":{\"RequestType\":{\"Name\":\"50ITINS\"}}}}}");
 		String result = flightInfoGetService.getInfo(bfmsearch.toString());
-		System.out.println("result=" + result);
-		System.out.println("為什麼執行不到這裡");
+//		System.out.println("result=" + result);
+//		System.out.println("為什麼執行不到這裡");
 		String result1 = result;
 		int index = 0;
 		Map<String, String> codeMap = new HashMap<>();
@@ -64,7 +67,7 @@ public class FlightInfoControllerNew {
 			result = result.substring(index+29);				
 		}
 		
-		System.out.println("codeMap"+codeMap);
+//		System.out.println("codeMap"+codeMap);
 		
 		 
 		for (Map.Entry<String, String> entry : codeMap.entrySet()) {

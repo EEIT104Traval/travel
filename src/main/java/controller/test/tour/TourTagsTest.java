@@ -32,8 +32,8 @@ public class TourTagsTest {
 	  
 	 } 
 	@RequestMapping("/TourTagsTestfindByT")
-	 public List<TourTagsBean> findByT() {
-		List<TourTagsBean> t = dao.findByTag("沙漠"); 
+	 public List<String> findByT() {
+		List<String> t = dao.findByTag("沙漠"); 
 	    return t;	  
 	  
 	 } 

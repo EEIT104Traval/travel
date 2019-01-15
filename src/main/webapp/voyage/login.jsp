@@ -59,6 +59,22 @@ div#users-contain table td, div#users-contain table th {
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script>
+var params={}
+// $(document).ready(function() {
+// });
+function login(){
+	params.name=$('#name').val()
+	params.password=$('#password').val()
+	$.ajax({
+			url : '/Travel/secure/login.controller',
+			contentType : 'application/json; charset=UTF-8',
+			type : 'get',
+			dataType : 'json',
+			data:params,
+	}).done(function(JData) {
+		console.log(JData)
+	});
+}
   $( function() {
     var dialog, form,
        // From http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#e-mail-state-%28type=email%29
@@ -163,12 +179,12 @@ div#users-contain table td, div#users-contain table th {
 <body>
 
 	<div id="dialog-form" title="會員登入" style="margin-top: 20px">
-		<form action="<c:url value="/secure/login.controller" />" method="get">
-
+<%-- 		<form action="<c:url value="/secure/login.controller" />" method="get"> --%>
+		<form action="">
 			<!--     <fieldset> -->
-			<label for="name">帳號:</label> <input type="text" name="name"
+			<label for="name">帳號:</label> <input type="text" name="name" id="name"
 				class="text ui-widget-content ui-corner-all"><br>
-			<label for="password">密碼:</label> <input type="password"
+			<label for="password">密碼:</label> <input type="password" id="password"
 				name="password" value=""
 				class="text ui-widget-content ui-corner-all">
 
@@ -181,7 +197,7 @@ div#users-contain table td, div#users-contain table th {
 		<div>
 			<!--         Google登入：<input type="button"  value="Google登入" onclick="GoogleLogin();" /><br> -->
 			<button style="background-color: blue; color: white; margin-top: 5px">登入</button>
-			<input type="submit" value="Login">
+			<input type="button" value="Login" onclick="login()">
 		</form>
 			<p>快速登入</p>
 			<img src="<c:url value='/voyage/images/facebook.png' />" onclick="FBLogin();" width="32%"

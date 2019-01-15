@@ -168,40 +168,40 @@
 								<div
 									class="d-flex flex-lg-row flex-column align-items-start justify-content-lg-between justify-content-start">
 									<div>
-										<span class="form-label">出發地</span> <input id='demo2'
-											type="text" autocomplete="off" class="search_input_1"
-											style="width: 450px" placeholder="請輸入機場/城市中英文或代碼"1 >
+										<span class="form-label">出發地</span> <input id='demo2' name="takeOffPlace"
+											type="text"  class="search_input_1"
+											style="width: 450px" placeholder="請輸入機場/城市中英文或代碼">
 										<!-- 											required="required" -->
 									</div>
 									<img alt=""
 										src="<c:url value='/voyage/images/changeTwoPlace.png'/>"
 										width="25px" style="padding-top: 42px">
 									<div>
-										<span class="form-label">目的地</span> <input id='demo1'
-											type="text" autocomplete="off" class="search_input_1"
+										<span class="form-label">目的地</span> <input id='demo1' name="landingPlace"
+											type="text"  class="search_input_1"
 											style="width: 450px" placeholder="請輸入機場/城市中英文或代碼">
 									</div>
 								</div>
 
 								<div style="display: inline-block; padding-right: 30px;">
 									<span class="form-label">出發日期</span> <input type="text"
-										autocomplete="off" class="search_input_1" id="checkin_date"
-										placeholder="yyyy/MM/dd" name="">
+										 class="search_input_1" id="checkin_date" 
+										placeholder="yyyy/MM/dd" name="takeoff_date">
 								</div>
 								<div style="display: inline-block; padding-right: 30px;">
 									<span class="form-label">回程日期</span> <input type="text"
-										autocomplete="off" class="search_input_1"
-										placeholder="yyyy/MM/dd" name="" id="checkout_date">
+										 class="search_input_1"
+										placeholder="yyyy/MM/dd" name="flyback_date" id="checkout_date">
 								</div>
 								<div style="display: inline-block; padding-right: 30px;width:200px;">
 									<span class="form-label">旅客類型</span> <input type="button" id='peopleType' autocomplete="off"
-										 class="search_input_1" value="1位成人" name="" onclick="showPopup(33)" style="width:200px;text-align: left;">
+										 class="search_input_1" value="1位成人" name="peopleType" onclick="showPopup(33)" style="width:200px;text-align: left;">
 								</div>
 								<div id="content" class="test">
 									<div style="display: inline-block">
 										<span>成人數量</span> <input type="image" style="display: inline-block"
 											src="../voyage/images/MIN.png" class="min" width="8%">
-										<input type="text" value="1" placeholder="0" id="adultcount" 
+										<input type="text" value="1" placeholder="0" id="adultcount" name="adultcount" 
 											class="text_box" readonly="readonly"
 											style="text-align: center; height: 30px; width: 40px; margin: 0; border: 0px;display: inline-block;">
 										<input type="image" src="../voyage/images/PL.png" style="display: inline-block"
@@ -230,7 +230,7 @@
 
 									<div class="description">年齡限制與攜兒童旅行的政策可能不同，請先向航空公司確認，然後再進行預訂。</div>
 								</div>
-								<div style="display: inline-block; padding-right: 65px;">
+								<div style="display: inline-block; padding-right: 30px;padding-left: 30px;">
 									<span class="form-label">艙等</span> <select
 										class="search_input_1"
 										id="search-controls-cabin-class-dropdown"

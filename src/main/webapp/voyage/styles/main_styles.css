@@ -253,7 +253,16 @@ section
 /*********************************
 3. Header
 *********************************/
-
+.home-slidersecound{
+	position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    content: '';
+    background: #000;
+    opacity: .2;
+}
 .header
 {
 	position: fixed;
@@ -692,6 +701,15 @@ section
 	padding-left: 67px;
 	padding-right: 83px;
 }
+.home_search_contentsecound
+{
+	width: 100%;
+	background: #FAEBD7;
+	padding-top: 18px;
+/* 	padding-bottom: 18px; */
+	padding-left: 67px;
+	padding-right: 83px;
+}
 .search_input
 {
 	height: 50px;
@@ -705,6 +723,20 @@ section
 	color: #72728c !important;
 }
 .search_input_1
+{
+/* 	display:inline-block; */
+	height: 50px;
+	background: #eae6e6;
+	border: none;
+	outline: none;
+	padding-left: 17px;
+	font-family: 'Oswald', sans-serif;
+	font-size: 14px !important;
+	font-weight: 500 !important;
+	color: #72728c !important;
+/* 	Transition:all 2s; */
+}
+.search_input_1secound
 {
 /* 	display:inline-block; */
 	height: 50px;
