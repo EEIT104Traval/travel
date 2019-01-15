@@ -152,7 +152,7 @@
 									class="d-flex flex-lg-row flex-column align-items-start justify-content-lg-between justify-content-start">
 									<input type="text" class="search_input search_input_1" id="country"
 										style="width: 24%" placeholder="請輸入國家" >
-									<input type="text" class="search_input search_input_2" id="country"
+									<input type="text" class="search_input search_input_2" id=""
 										style="width: 24%" placeholder="類型 - (門票、交通、餐券)">
 									<input type="text" class="search_input search_input_3"
 										style="width: 24%" placeholder="關鍵字" id="country">
