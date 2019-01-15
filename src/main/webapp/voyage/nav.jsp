@@ -7,7 +7,39 @@
     <title>Time To Travel</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script>
+$(document).ready(function() {
+	var user = '${user}';
+	var len = user.length;
+	console.log(len);
+	if(len){
+		$("#login").html('<button id="signout" type="button" onclick="signout()" class="btn btn-link">登出</button>')
+// 		$("#login").html(
+// 			"<div class='dropdown'>"
+// 				+"<button class='btn btn-secondary dropdown-toggle' type='button' id='dropdownMenuButton' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>"
+// 					+"Hello!　${user}</button>"
+// 		  		+"<div class='dropdown-menu' aria-labelledby='dropdownMenuButton'>"
+// 		    		+"<a class='dropdown-item' href='#'>會員資料修改</a>"
+// 		    		+"<a class='dropdown-item' href='#'>交易明細查詢</a>"
+// 		    		+"<a class='dropdown-item' href='#'>登出</a>"
+// 		  		+"</div>"
+// 			+"</div>)"
+// 			)
+	}
+});
+	
+// 	$('#signout').click(signout());
+	function signout(){
+		$.ajax({
+			url : '/Travel/secure/log_out.controller',
+			type : 'get',
+			dataType : 'text',
+		}).done(function(e) {
+	      window.location.reload();
+		})
+	}
+</script>
   </head>
   <body>
 
@@ -27,11 +59,16 @@
             <li class="nav-item"><a href="<c:url value='/voyage/ticket.jsp'/>" class="nav-link">門票</a></li>
             <li class="nav-item"><a href="<c:url value='/rate/rateindex2.jsp'/>" class="nav-link">查詢匯率</a></li>
             <li class="nav-item"><a href="<c:url value='/voyage/contact.html'/>" class="nav-link">聯絡我們</a></li>
-            <li class="nav-item"><a href="##" class="nav-link">
-            	<jsp:include page="login.jsp"></jsp:include>
-            </a></li>
           </ul>
         </div>
+      </div ="login">
+      <div style="color:#fff">
+      	<div id="login">
+      		<jsp:include page="login.jsp"/>
+    	</div>
+        <c:if test="${not empty user}">
+        	<c:out value="<h4 style='color:#fff'>Hello!　${user}</h4>" escapeXml="false"/>
+		</c:if>
       </div>
     </nav>
     <!-- END nav -->

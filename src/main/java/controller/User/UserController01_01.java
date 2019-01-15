@@ -31,17 +31,14 @@ public class UserController01_01 {
 			result = new ArrayList<>();
 			result.add(userInfoService.findByAccountName(user));
 			System.out.println(result);
-//			return result;
 		} else if (number.equals("two")) {
 			result = new ArrayList<>();
 			result.add(userInfoService.findByPhone(user));
 			System.out.println(result);
-//			return result;
 		} else if (number.equals("three")) {
 			result = userInfoService.findAll();
 			for (UserInfoBean TI : result)
 				System.out.println(TI);
-//			return result;
 		}
 		return result;
 	}

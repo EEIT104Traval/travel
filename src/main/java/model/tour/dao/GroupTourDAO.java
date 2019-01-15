@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import model.tour.GroupTourBean;
+import model.tour.TourBatchBean;
 import model.tour.TourOrderInfoBean;
 
 @Repository
@@ -83,19 +84,16 @@ public class GroupTourDAO {
 	}
 //--------------------------------------後台----------------------------------------
 						
-	public List<GroupTourBean> findByTourOrderList(List<TourOrderInfoBean> list){
-		EntityManager em = sessionFactory.createEntityManager();
+	public List<GroupTourBean> findByTourBatchList(List<TourBatchBean> list){
+		  EntityManager em = sessionFactory.createEntityManager();
 		  CriteriaBuilder criteriaBuilder = this.getSession().getCriteriaBuilder();
 	      CriteriaQuery<GroupTourBean> criteriaQuery = criteriaBuilder.createQuery(GroupTourBean.class);
 	      Root<GroupTourBean> root = criteriaQuery.from(GroupTourBean.class);
 	      CriteriaQuery<GroupTourBean> query = criteriaQuery.select(root);
 	      List<Predicate> predicate =  new ArrayList<>();
-	      for (TourOrderInfoBean tourOrder:list) {
-	    	  predicate.add(criteriaBuilder.equal(root.get("tourNo"), tourOrder.getSerialNo()));
+	      for (TourBatchBean tourBatch:list) {
+	    	  predicate.add(criteriaBuilder.equal(root.get("tourNo"), tourBatch.getTourNo()));
 	      }
-//	      if (!StringUtils.isEmpty(tourNo)) {
-//	    	  predicate.add(criteriaBuilder.between(root.get("tourNo"), tourOrder.getSerialNo()));
-//	      }
 	      Predicate[] p = new Predicate[predicate.size()];
 	      query.where(criteriaBuilder.or(predicate.toArray(p)));
 	      return em.createQuery(query).getResultList();

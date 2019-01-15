@@ -9,7 +9,7 @@ import org.springframework.util.StringUtils;
 
 
 @Service
-//@TransactionalO
+//@Transactional
 public class HotelService {
 	@Autowired
 	private HotelDAO hotelDAO = null;

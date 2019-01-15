@@ -142,9 +142,6 @@ public class TicketInfoDAOHibernate implements TicketInfoDAO {
 	      for (TicketOrderInfoBean TicketOrder:list) {
 	    	  predicate.add(criteriaBuilder.equal(root.get("ticketNo"), TicketOrder.getTicketNo()));
 	      }
-//	      if (!StringUtils.isEmpty(tourNo)) {
-//	    	  predicate.add(criteriaBuilder.between(root.get("tourNo"), tourOrder.getSerialNo()));
-//	      }
 	      Predicate[] p = new Predicate[predicate.size()];
 	      query.where(criteriaBuilder.or(predicate.toArray(p)));
 	      return em.createQuery(query).getResultList();

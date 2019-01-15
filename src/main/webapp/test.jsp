@@ -49,7 +49,7 @@
 	<a href="<c:url value='userinfoorder' />">userinfoorder</a>
 	<a href="<c:url value='foundNumber' />">foundNumber</a>
 	<br>
-	<a href="<c:url value='/ticketDLtest' />">ticketDLtest </a>
+	<a href="<c:url value='ticketDLtest' />">ticketDLtest </a>
 	<br>
 	<a href="<c:url value='tourDLtest' />">tourDLtest </a>
 	<hr>
@@ -131,6 +131,8 @@
 	<a href="<c:url value='/RoomTypecreate' />">RoomTypecreate</a>
 	<a href="<c:url value='/RoomTypeupdate' />">RoomTypeupdate</a>
 	<a href="<c:url value='/RoomTyperemove' />">RoomTyperemove</a>
+	<a href="<c:url value='/Room' />">Room</a>
+	
 	<hr />
 
 	<a href="<c:url value='/RoomTypePicfindByPK' />">RoomTypePicfindByPK</a>

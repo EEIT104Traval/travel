@@ -9,12 +9,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
 
 import model.userInfo.UserInfoBean;
 import model.userInfo.UserInfoService;
 
 @Controller
-@SessionAttributes(value="user")
+@SessionAttributes(value= {"user","login","accountName"})
 public class LoginController {
 
 	@Autowired
@@ -22,7 +23,7 @@ public class LoginController {
 	
 	@ResponseBody
 	@RequestMapping(path = { "/secure/login.controller" })
-	public Map<String, Object> method(String name, String password,Model model) {
+	public Map<String, Object> LogIn(String name, String password,Model model) {
 		System.out.println("name="+name);
 		System.out.println("password="+password);
 	
@@ -45,9 +46,19 @@ public class LoginController {
 			return message;
 		} else {
 			message.put("xxx1", bean);
-			model.addAttribute("user", bean);
+			model.addAttribute("login", bean);			
+			model.addAttribute("accountName", bean.getAccountName());			
+			model.addAttribute("user", bean.getLastname()+" "+bean.getFirstname());
 			System.out.println("登入成功");
 			return message;
 		}
+	}
+	
+	@ResponseBody
+	@RequestMapping(path = { "/secure/log_out.controller" })
+	public String Log_Out (SessionStatus sessionStatus) {
+		sessionStatus.setComplete();
+		System.out.println("logout");
+		return "logout";
 	}
 }
