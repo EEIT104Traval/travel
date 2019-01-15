@@ -60,8 +60,9 @@ div#users-contain table td, div#users-contain table th {
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script>
 var params={}
-// $(document).ready(function() {
-// });
+$(document).ready(function() {
+	console.log('${user}');
+});
 function login(){
 	params.name=$('#name').val()
 	params.password=$('#password').val()
@@ -71,8 +72,13 @@ function login(){
 			type : 'get',
 			dataType : 'json',
 			data:params,
-	}).done(function(JData) {
-		console.log(JData)
+	}).success(function(JData) {
+		console.log(JData);
+		if(JData.xxx1==='Login failed'){
+			$('#loginerror').html('Login failed');
+		}else{
+  	      location.reload();
+		}
 	});
 }
   $( function() {
@@ -196,7 +202,7 @@ function login(){
 		</div>
 		<div>
 			<!--         Google登入：<input type="button"  value="Google登入" onclick="GoogleLogin();" /><br> -->
-			<button style="background-color: blue; color: white; margin-top: 5px">登入</button>
+			<span class="error" id="loginerror">　</span>
 			<input type="button" value="Login" onclick="login()">
 		</form>
 			<p>快速登入</p>
