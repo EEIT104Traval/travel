@@ -67,8 +67,10 @@ public class TourOrderInfoService {
 
 						tourBatchBean.setTourName(groupTourBean.getTourName());
 						tourOrder.setTourName(tourBatchBean.getTourName());
+						
 						tourBatchBean.setCountry(groupTourBean.getCountry());
 						tourOrder.setCountry(tourBatchBean.getCountry());
+						
 						System.out.println(tourOrder);
 					}
 					continue;
