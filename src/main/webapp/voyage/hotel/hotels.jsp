@@ -16,11 +16,11 @@
 <link rel="stylesheet" href="<c:url value='/voyage/css/aos.css' />">
 <link rel="stylesheet" href="<c:url value='/voyage/css/ionicons.min.css' />">
 <link rel="stylesheet" href="<c:url value='/voyage/css/bootstrap-datepicker.css' />">
-<link rel="stylesheet" href="<c:url value='/voyage/css/jquery.timepicker.css' />">
+<%-- <link rel="stylesheet" href="<c:url value='/voyage/css/jquery.timepicker.css' />"> --%>
 <link rel="stylesheet" href="<c:url value='/voyage/css/flaticon.css' />">
 <link rel="stylesheet" href="<c:url value='/voyage/css/icomoon.css' />">
 <link rel="stylesheet" href="<c:url value='/voyage/css/style.css' />">
-  
+
 <link rel="stylesheet" href="<c:url value='/voyage/css/jquery-ui.css' />">
 <link rel="stylesheet" href="<c:url value='/voyage/css/main_styles_sherry.css' />">
 <link rel="stylesheet" href="<c:url value='/voyage/css/about.css' />">
@@ -31,9 +31,8 @@
  body {
         font-family: 'Noto Sans TC', sans-serif;
       }
-     
-      
 </style>
+
 <head>
 <meta charset="UTF-8">
 <title>飯店搜尋</title>
@@ -52,7 +51,6 @@ var params = {};
 					
 					params.city = $('#city').val()
 // 						alert(params.city)	
-					
 // 					if(params.city = ""){
 // 						countrySearch()
 // 					} else {
@@ -74,7 +72,7 @@ var params = {};
 					$("#hotel_pic").html("")
 					$('#hotel_title').html("")
 						params.country = $('#country').val();
-					alert(params.country)
+// 					alert(params.country)
 					
 					$.ajax({
 						url : '/Travel/voyage/country.controller',
@@ -94,7 +92,7 @@ var params = {};
 // ------------------------------------------------------------------------------------------------------------------------------------------------------
 										'<div class="col-md-6 col-lg-3">'+
 											'<div class="blog-entry">'+
-												'<a href="<c:url value="/voyage/hotel/room/hotelRoom.jsp" />" class="block-20" style="background-image: url('+value.pic+');"></a>'+
+												'<a href="<c:url value="/voyage/hotel/room/hotelRoom2.jsp" />" class="block-20" style="background-image: url('+value.pic+');"></a>'+
 												'<div class="text p-4">'+
 													'<div class="meta"></div>'+
 													'<h6><a href="<c:url value="/voyage/hotel/room/hotelRoom.jsp" />">'+value.hotelName+'</a></h6>'+
@@ -139,7 +137,7 @@ var params = {};
 // ------------------------------------------------------------------------------------------------------------------------------------------------------
 										'<div class="col-md-6 col-lg-3">'+
 											'<div class="blog-entry">'+
-												'<a href="<c:url value="/voyage/hotel/room/hotelRoom.jsp" />" class="block-20" style="background-image: url('+value.pic+');"></a>'+
+												'<a href="<c:url value="/voyage/hotel/room/hotelRoom2.jsp" />" class="block-20" style="background-image: url('+value.pic+');"></a>'+
 												'<div class="text p-4">'+
 													'<div class="meta"></div>'+
 													'<h6><a href="<c:url value="/voyage/hotel/room/hotelRoom.jsp" />">'+value.hotelName+'</a></h6>'+
@@ -183,7 +181,7 @@ var params = {};
 // ------------------------------------------------------------------------------------------------------------------------------------------------------
 										'<div class="col-md-6 col-lg-3">'+
 											'<div class="blog-entry">'+
-												'<a href="<c:url value="/voyage/hotel/room/hotelRoom.jsp" />" class="block-20" style="background-image: url('+value.pic+');"></a>'+
+												'<a href="<c:url value="/voyage/hotel/room/hotelRoom2.jsp" />" class="block-20" style="background-image: url('+value.pic+');"></a>'+
 												'<div class="text p-4">'+
 													'<div class="meta"></div>'+
 													'<h6><a href="<c:url value="/voyage/hotel/room/hotelRoom.jsp" />">'+value.hotelName+'</a></h6>'+
@@ -202,7 +200,17 @@ var params = {};
 									       );
 							})
 					}
-
+			$(document).ready(function(){
+				$("#hilton").click(function(){
+// 					alert("11111");
+					window.location.href="/Travel/voyage/type.controller";
+// 					alert("11111");
+				}) 
+			})
+				 
+					
+				
+				
 	</script>
 	
 	
@@ -234,16 +242,16 @@ var params = {};
 						<div class="home_search_content">
 							<form action="#"
 								class="home_search_form" id="home_search_form" method="post">
-								<div
+								<div 
 									class="d-flex flex-lg-row flex-column align-items-start justify-content-lg-between justify-content-start">
 									<input type="text" class="search_input" style="font-family: Noto Sans TC"
 										style="width: 20%" placeholder="請輸入國家" id="country">
 									<input type="text" class="search_input" style="font-family: Noto Sans TC"
 										style="width: 20%" placeholder="請輸入城市" id="city">
 									<input type="text" class="search_input" style="font-family: Noto Sans TC"
-										style="width: 20%" id="checkin_date" placeholder="入住日期" id="checkIndate">
+										style="width: 20%" id="checkin_date" placeholder="入住日期" >
 									<input type="text" class="search_input" style="font-family: Noto Sans TC"
-										style="width: 20%" id="checkout_date" placeholder="退房日期" id="checkOutdate">
+										style="width: 20%" id="checkout_date" placeholder="退房日期">
 									<!-- <input type="text" class="search_input search_input_5" placeholder="人數" name=""> -->
 									<input type="button" class="home_search_button" style="font-family: Noto Sans TC" value="搜尋" onclick="hotelSearch()"/>
 								</div>
@@ -515,13 +523,13 @@ var params = {};
 			<div class="row">
 				<div class="col-md-6 col-lg-3 ftco-animate">
 					<div class="blog-entry">
-						<a href="<c:url value='/voyage/hotel/room/hotelRoom.jsp' />" class="block-20"
+						<a href="#" class="block-20" id="hilton"
 							style="background-image: url('<c:url value='/voyage/hotel/hotelPic/熱門飯店/紐約市中心希爾頓酒店(New York Hilton Midtown).jpg'/>');">
 						</a>
 						<div class="text p-4">
 							<div class="meta"></div>
 							<h6>
-								<a href="<c:url value='/voyage/hotel/room/hotelRoom.jsp' />">紐約市中心希爾頓酒店(New York Hilton Midtown)</a>
+								<a href="#">紐約市中心希爾頓酒店(New York Hilton Midtown)</a>
 							</h6>
                    			<p style="margin-bottom:0"><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star-half-full"></span></p>
 							<p class="float-left" style="margin">NT$ 5,158</p>
@@ -987,7 +995,7 @@ var params = {};
 	<script src="<c:url value='/voyage/js/aos.js' />"></script>
 	<script src="<c:url value='/voyage/js/jquery.animateNumber.min.js' />"></script>
 	<script src="<c:url value='/voyage/js/bootstrap-datepicker.js' />"></script>
-	<script src="<c:url value='/voyage/js/jquery.timepicker.min.js' />"></script>
+<%-- 	<script src="<c:url value='/voyage/js/jquery.timepicker.min.js' />"></script> --%>
 	<script src="<c:url value='/voyage/js/main.js' />"></script>
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>

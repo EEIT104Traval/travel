@@ -9,6 +9,7 @@
 <title>會員登入/註冊</title>
 <!-- <link rel="stylesheet" href="/resources/demos/style.css"> -->
 <style>
+
 label, input {
 	display: block;
 }
@@ -223,7 +224,7 @@ function login(){
 					</div>
 					<div class="panel-body">
 						<div class="row">
-							<div class="col-lg-12">
+							<div class="col-lg-12" >
 								<form id="login-form" action="<c:url value="/voyage/login.controller" />" method="post" role="form" style="display: block;">
 									<div class="form-group">
 										<input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="帳號" value="">

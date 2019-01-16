@@ -28,7 +28,6 @@ $(document).ready(function() {
 	}
 });
 	
-// 	$('#signout').click(signout());
 	function signout(){
 		$.ajax({
 			url : '/Travel/secure/log_out.controller',

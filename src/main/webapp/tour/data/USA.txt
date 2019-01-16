@@ -1,0 +1,182 @@
+[
+  {
+   "subCategoryId": "H01",
+   "subCategoryName": "紐約州"
+  },
+  {
+   "subCategoryId": "H02",
+   "subCategoryName": "阿拉斯加州"
+  },
+  {
+   "subCategoryId": "H03",
+   "subCategoryName": "阿肯色州"
+  },
+  {
+   "subCategoryId": "H04",
+   "subCategoryName": "加利佛尼亞州"
+  },
+  {
+   "subCategoryId": "H05",
+   "subCategoryName": "科羅拉多州"
+  },
+  {
+   "subCategoryId": "H06",
+   "subCategoryName": "康乃狄克州"
+  },
+  {
+   "subCategoryId": "H07",
+   "subCategoryName": "德拉瓦州"
+  },
+  {
+   "subCategoryId": "H08",
+   "subCategoryName": "佛羅里達州"
+  },
+  {
+   "subCategoryId": "H09",
+   "subCategoryName": "喬治亞州"
+  },
+  {
+   "subCategoryId": "H10",
+   "subCategoryName": "夏威夷州"
+  },
+  {
+   "subCategoryId": "H11",
+   "subCategoryName": "愛達荷州"
+  },
+  {
+   "subCategoryId": "H12",
+   "subCategoryName": "伊利諾州"
+  },
+  {
+   "subCategoryId": "H13",
+   "subCategoryName": "印地安那州"
+  },
+  {
+   "subCategoryId": "H14",
+   "subCategoryName": "愛荷華州"
+  },
+  {
+   "subCategoryId": "H15",
+   "subCategoryName": "堪薩斯州"
+  },
+  {
+   "subCategoryId": "H16",
+   "subCategoryName": "肯塔基州"
+  },
+  {
+   "subCategoryId": "H17",
+   "subCategoryName": "路易斯安那州"
+  },
+  {
+   "subCategoryId": "H18",
+   "subCategoryName": "緬因州"
+  },
+  {
+   "subCategoryId": "H19",
+   "subCategoryName": "麻薩諸塞州"
+  },
+  {
+   "subCategoryId": "H20",
+   "subCategoryName": "密西根州"
+  },
+  {
+   "subCategoryId": "H21",
+   "subCategoryName": "明尼蘇達州"
+  },
+  {
+   "subCategoryId": "H22",
+   "subCategoryName": "密西西比州"
+  },
+  {
+   "subCategoryId": "H23",
+   "subCategoryName": "密蘇里州"
+  },
+  {
+   "subCategoryId": "H24",
+   "subCategoryName": "蒙大拿州"
+  },
+  {
+   "subCategoryId": "H25",
+   "subCategoryName": "內布拉斯加州"
+  },
+  {
+   "subCategoryId": "H21",
+   "subCategoryName": "瑞士"
+  },
+  {
+   "subCategoryId": "H22",
+   "subCategoryName": "塞爾維亞"
+  },
+  {
+   "subCategoryId": "H23",
+   "subCategoryName": "斯洛伐克"
+  },
+  {
+   "subCategoryId": "H24",
+   "subCategoryName": "梵蒂岡"
+  },
+  {
+   "subCategoryId": "H25",
+   "subCategoryName": "烏克蘭"
+  },
+  {
+   "subCategoryId": "H21",
+   "subCategoryName": "瑞士"
+  },
+  {
+   "subCategoryId": "H22",
+   "subCategoryName": "塞爾維亞"
+  },
+  {
+   "subCategoryId": "H23",
+   "subCategoryName": "斯洛伐克"
+  },
+  {
+   "subCategoryId": "H24",
+   "subCategoryName": "梵蒂岡"
+  },
+  {
+   "subCategoryId": "H25",
+   "subCategoryName": "烏克蘭"
+  },
+  {
+   "subCategoryId": "H24",
+   "subCategoryName": "梵蒂岡"
+  },
+  {
+   "subCategoryId": "H25",
+   "subCategoryName": "烏克蘭"
+  },
+  {
+   "subCategoryId": "H24",
+   "subCategoryName": "梵蒂岡"
+  },
+  {
+   "subCategoryId": "H25",
+   "subCategoryName": "烏克蘭"
+  },
+  {
+   "subCategoryId": "H24",
+   "subCategoryName": "梵蒂岡"
+  },
+  {
+   "subCategoryId": "H25",
+   "subCategoryName": "烏克蘭"
+  },
+  {
+   "subCategoryId": "H24",
+   "subCategoryName": "梵蒂岡"
+  },
+  {
+   "subCategoryId": "H25",
+   "subCategoryName": "烏克蘭"
+  },
+  {
+   "subCategoryId": "H24",
+   "subCategoryName": "梵蒂岡"
+  },
+  {
+   "subCategoryId": "H25",
+   "subCategoryName": "烏克蘭"
+  }
+]

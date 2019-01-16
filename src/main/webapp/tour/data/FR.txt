@@ -1,0 +1,142 @@
+[
+  {
+   "subCategoryId": "H01",
+   "subCategoryName": "巴黎"
+  },
+  {
+   "subCategoryId": "H02",
+   "subCategoryName": "馬賽"
+  },
+  {
+   "subCategoryId": "H03",
+   "subCategoryName": "里昂"
+  },
+  {
+   "subCategoryId": "H04",
+   "subCategoryName": "土魯斯"
+  },
+  {
+   "subCategoryId": "H05",
+   "subCategoryName": "尼斯"
+  },
+  {
+   "subCategoryId": "H06",
+   "subCategoryName": "南特"
+  },
+  {
+   "subCategoryId": "H07",
+   "subCategoryName": "斯特拉斯堡"
+  },
+  {
+   "subCategoryId": "H08",
+   "subCategoryName": "蒙彼利埃"
+  },
+  {
+   "subCategoryId": "H09",
+   "subCategoryName": "波爾多"
+  },
+  {
+   "subCategoryId": "H10",
+   "subCategoryName": "里爾"
+  },
+  {
+   "subCategoryId": "H11",
+   "subCategoryName": "雷恩"
+  },
+  {
+   "subCategoryId": "H12",
+   "subCategoryName": "蘭斯"
+  },
+  {
+   "subCategoryId": "H13",
+   "subCategoryName": "貝桑松"
+  },
+  {
+   "subCategoryId": "H14",
+   "subCategoryName": "南錫"
+  },
+  {
+   "subCategoryId": "H15",
+   "subCategoryName": "佩皮尼昂"
+  },
+  {
+   "subCategoryId": "H16",
+   "subCategoryName": "米盧斯"
+  },
+  {
+   "subCategoryId": "H17",
+   "subCategoryName": "奧爾良"
+  },
+  {
+   "subCategoryId": "H18",
+   "subCategoryName": "聖但尼"
+  },
+  {
+   "subCategoryId": "H19",
+   "subCategoryName": "布雷斯特"
+  },
+  {
+   "subCategoryId": "H20",
+   "subCategoryName": "第戎"
+  },
+  {
+   "subCategoryId": "H21",
+   "subCategoryName": "瑞士"
+  },
+  {
+   "subCategoryId": "H22",
+   "subCategoryName": "塞爾維亞"
+  },
+  {
+   "subCategoryId": "H23",
+   "subCategoryName": "斯洛伐克"
+  },
+  {
+   "subCategoryId": "H24",
+   "subCategoryName": "梵蒂岡"
+  },
+  {
+   "subCategoryId": "H25",
+   "subCategoryName": "烏克蘭"
+  },
+  {
+   "subCategoryId": "H21",
+   "subCategoryName": "瑞士"
+  },
+  {
+   "subCategoryId": "H22",
+   "subCategoryName": "塞爾維亞"
+  },
+  {
+   "subCategoryId": "H23",
+   "subCategoryName": "斯洛伐克"
+  },
+  {
+   "subCategoryId": "H24",
+   "subCategoryName": "梵蒂岡"
+  },
+  {
+   "subCategoryId": "H25",
+   "subCategoryName": "烏克蘭"
+  },
+  {
+   "subCategoryId": "H21",
+   "subCategoryName": "瑞士"
+  },
+  {
+   "subCategoryId": "H22",
+   "subCategoryName": "塞爾維亞"
+  },
+  {
+   "subCategoryId": "H23",
+   "subCategoryName": "斯洛伐克"
+  },
+  {
+   "subCategoryId": "H24",
+   "subCategoryName": "梵蒂岡"
+  },
+  {
+   "subCategoryId": "H25",
+   "subCategoryName": "烏克蘭"
+  }
+]

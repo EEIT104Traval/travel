@@ -111,7 +111,12 @@ function login(){
         return true;
       }
     }
- 
+    
+    function logout(){
+    	alert('登出成功!!!!');
+		document.getElementById("create-user").innerHTML = '<span id="loginin">會員註冊/登入</span>';
+    }
+ 	
     function showLogin(){
         console.log("showLoing start");
         dialog = $( "#dialog-form" ).dialog({
@@ -177,7 +182,7 @@ function login(){
 //       addUser();
     });
  
-    $( "#create-user" ).button().on( "click", function() {
+    $( "#loginin" ).button().on( "click", function() {
       dialog.dialog( "open" );
     });
   } );
@@ -197,28 +202,24 @@ function login(){
 
 			<!--     </fieldset> -->
 
-
-		<div>
-			<!--         Facebook登入：<input type="button"  value="Facebook登入" onclick="FBLogin();" /> -->
-		</div>
 		<div>
 			<!--         Google登入：<input type="button"  value="Google登入" onclick="GoogleLogin();" /><br> -->
 			<span class="error" id="loginerror">　</span>
 			<input type="button" value="Login" onclick="login()">
-		</form>
+		
 			<p>快速登入</p>
 			<img src="<c:url value='/voyage/images/facebook.png' />" onclick="FBLogin();" width="32%" height="32%"> 
 			<img src="<c:url value='/voyage/images/google01.png' />" onclick="GoogleLogin();" width="32%" height="32%"> 
 			<img src="<c:url value='/voyage/images/line.png' />" onclick="GoogleLogin();" width="32%" height="32%">
 			<button	style="background-color: blue; color: white; margin-left: 100px; margin-top: 20px">新會員註冊</button>
 		</div>
-
+</form>
 		<script>
         //應用程式編號，進入 https://developers.facebook.com/apps/ 即可看到
         let FB_appID = "967663670095757";
 
         //FB Login 官方文件：https://developers.facebook.com/docs/facebook-login/web
-
+		
         // Load the Facebook Javascript SDK asynchronously
         ( function (d, s, id) {
             var js, fjs = d.getElementsByTagName(s)[0];
@@ -310,7 +311,8 @@ function login(){
                     // Login API call is successful 
                     console.log(success);
                     let Google_ID = success["El"];
-                	alert("登入成功!! Welcome ChuChu");
+                	
+                	document.getElementById("create-user").innerHTML='<span onclick="this.innerHTML=\'會員註冊/登入\'; alert(\'登出成功\')" >登出</span>';
                 	$.ajax({
                 		method: "GET",
                 		url:"/Travel/secure/gorfbLogin?loginId="+Google_ID,
@@ -318,10 +320,12 @@ function login(){
 //                			url:"/Travel/tour/display?tourNo=1",
                 		dataType: "json",
                 		success: function(json) {
-                			console.log(json)
+                			alert("Google登入成功!! Welcome: "+json.lastname);
+                			console.log(json);
                 		}
                 		
                 	});
+//                 	 window.location="http://localhost:8080/Travel/voyage/index.jsp";
                 },
                 function (error) {
                  // Error occurred
@@ -380,7 +384,7 @@ function Del_FB_App() {
 
 
 
-	<span id="create-user" style="color:#fff">會員註冊/登入</span>
+	<span id="create-user" style="color:#fff"><span id="loginin">會員註冊/登入</span></span>
 
 
 

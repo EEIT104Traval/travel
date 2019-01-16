@@ -1,20 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"
-	integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-	crossorigin="anonymous">
-	
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" 
+		integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+		crossorigin="anonymous">
 </script>
-
 <!DOCTYPE html>
 <html lang="zh-tw">
-<head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<title>國外訂房</title>
 
 <link rel="stylesheet" href="<c:url value='/voyage/css/open-iconic-bootstrap.min.css' />">
 <link rel="stylesheet" href="<c:url value='/voyage/css/animate.css' />">
@@ -24,23 +16,40 @@
 <link rel="stylesheet" href="<c:url value='/voyage/css/aos.css' />">
 <link rel="stylesheet" href="<c:url value='/voyage/css/ionicons.min.css' />">
 <link rel="stylesheet" href="<c:url value='/voyage/css/bootstrap-datepicker.css' />">
-<link rel="stylesheet" href="<c:url value='/voyage/css/jquery.timepicker.css' />">
+<%-- <link rel="stylesheet" href="<c:url value='/voyage/css/jquery.timepicker.css' />"> --%>
 <link rel="stylesheet" href="<c:url value='/voyage/css/flaticon.css' />">
 <link rel="stylesheet" href="<c:url value='/voyage/css/icomoon.css' />">
 <link rel="stylesheet" href="<c:url value='/voyage/css/style.css' />">
-  
+
 <link rel="stylesheet" href="<c:url value='/voyage/css/jquery-ui.css' />">
-<link rel="stylesheet" href="<c:url value='/voyage/css/main_styles.css' />">
+<link rel="stylesheet" href="<c:url value='/voyage/css/main_styles_sherry.css' />">
+<link rel="stylesheet" href="<c:url value='/voyage/css/about.css' />">
 
 <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="slick/slick.css" />
 <link rel="stylesheet" type="text/css" href="slick/slick-theme.css" />
 <link rel="stylesheet" href="css/templatemo-style.css">
 
+<style>
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+TC&subset=chinese-traditional');
+
+ body {
+        font-family: 'Noto Sans TC', sans-serif;
+      }
+</style>
+
+<head>
+<meta charset="UTF-8">
+<title>飯店搜尋</title>
+	<jsp:include page="/voyage/nav.jsp"></jsp:include>
+
+
+	
+	
+</head>
+
 <body>
 
-	<jsp:include page="/voyage/nav.jsp"></jsp:include>
-	
 	<!-- slider -->
 
 	<section class="home-slider owl-carousel">
@@ -54,24 +63,31 @@
 
 	<!-- END slider -->
 
-	<!-- Hotel Info -->
+	<!-- Search -->
 
-	<div class="home_search" style="margin-top: -250px">
+	<div class="home_search" style="margin-top: -150px">
 		<div class="container">
 			<div class="row">
 				<div class="col">
 					<div class="home_search_container">
-						<!-- <div class="home_search_content"> -->
-						<div class="col-xs-12 mx-auto tm-about-text-wrap text-center">
-							<h2 style="color: white">紐約市中心希爾頓酒店</h2>
-							<h2 style="color: white">New York Hilton Midtown</h2>
-							<p style="color: white">地址 : 美國 紐約 曼哈頓 1335 Avenue of the
-								Americas 10019</p>
-							<p style="color: white">
-								參考星等 ： <span class="icon-star"></span><span class="icon-star"><span
-									class="icon-star"></span></span><span class="icon-star"></span>
-							</p>
-							<!--                         </div> -->
+						<div class="home_search_title" style="font-family: Noto Sans TC">想住哪就選哪</div>
+						<div class="home_search_content">
+							<form action="#"
+								class="home_search_form" id="home_search_form" method="post">
+								<div 
+									class="d-flex flex-lg-row flex-column align-items-start justify-content-lg-between justify-content-start">
+									<input type="text" class="search_input" style="font-family: Noto Sans TC"
+										style="width: 20%" placeholder="請輸入國家" id="country">
+									<input type="text" class="search_input" style="font-family: Noto Sans TC"
+										style="width: 20%" placeholder="請輸入城市" id="city">
+									<input type="text" class="search_input" style="font-family: Noto Sans TC"
+										style="width: 20%" id="checkin_date" placeholder="入住日期" >
+									<input type="text" class="search_input" style="font-family: Noto Sans TC"
+										style="width: 20%" id="checkout_date" placeholder="退房日期">
+									<!-- <input type="text" class="search_input search_input_5" placeholder="人數" name=""> -->
+									<input type="button" class="home_search_button" style="font-family: Noto Sans TC" value="搜尋" onclick="hotelSearch()"/>
+								</div>
+							</form>
 						</div>
 					</div>
 				</div>
@@ -79,9 +95,11 @@
 		</div>
 	</div>
 
-	<div class="tm-main-content" id="top">
+	<!-- END Search -->
 
-		<!-- .tm-top-bar -->
+<!-- Hotel Info -->
+
+
 
 		<div class="tm-page-wrap mx-auto">
 
@@ -126,20 +144,20 @@
 					<div class="tab-pane fade show active" id="1a">
 					
 						<div class="tm-recommended-place-wrap">
-
-							<div class="tm-recommended-place">
-								<img src="https://secure3.hilton.com/resources/media/hi/NYCNHHH/en_US/img/hotel/roomtypeimages/main/HH_highfloor1bed01_2_386x310_FitToBoxSmallDimension_Center.jpg" alt="Image" class="tm-recommended-img" width="270px" height="200px">
-								<div class="tm-recommended-description-box">
-									<h3 class="tm-recommended-title">天際線客房（1 張睡床）</h3>
-									<p class="tm-text-highlight" style="margin-bottom:5px">從高樓層客房盡情飽覽著名鬧市美景。一張大床。 2 人入住。</p>
-									<p class="tm-text-gray"> 紐約市的迷人景致盡收眼底，同時在客房內收看 55 吋高清電視，讓自己徹底放鬆；在大型辦公桌前趕上工作進度；並且使用 WiFi 無線上網與外界保持連線。</p>
-								</div>
-								<a href="#" class="tm-recommended-price-box">
-									<p class="tm-recommended-price">$NT 6,836</p>
-									<button type="button" class="btn btn-light" id="1">訂購</button>
-								</a>
-							</div>
-
+<%-- 							<c:forEach items="${roomtypeNo}" var="room"> --%>
+<!-- 							<div class="tm-recommended-place"> -->
+<!-- 								<img src="https://secure3.hilton.com/resources/media/hi/NYCNHHH/en_US/img/hotel/roomtypeimages/main/HH_highfloor1bed01_2_386x310_FitToBoxSmallDimension_Center.jpg" alt="Image" class="tm-recommended-img" width="270px" height="200px"> -->
+<!-- 								<div class="tm-recommended-description-box"> -->
+<!-- 									<h3 class="tm-recommended-title">天際線客房（1 張睡床）</h3> -->
+<!-- 									<p class="tm-text-highlight" style="margin-bottom:5px">從高樓層客房盡情飽覽著名鬧市美景。一張大床。 2 人入住。</p> -->
+<!-- 									<p class="tm-text-gray"> 紐約市的迷人景致盡收眼底，同時在客房內收看 55 吋高清電視，讓自己徹底放鬆；在大型辦公桌前趕上工作進度；並且使用 WiFi 無線上網與外界保持連線。</p> -->
+<!-- 								</div> -->
+<!-- 								<a href="#" class="tm-recommended-price-box"> -->
+<!-- 									<p class="tm-recommended-price"></p> -->
+<!-- 									<button type="button" class="btn btn-light" id="1">訂購</button> -->
+<!-- 								</a> -->
+<!-- 							</div> -->
+<%-- 							</c:forEach> --%>
 							<div class="tm-recommended-place">
 								<img src="https://secure3.hilton.com/resources/media/hi/NYCNHHH/en_US/img/hotel/roomtypeimages/main/HH_deluxequeenroom_386x310_FitToBoxSmallDimension_Center.jpg" alt="Image" class="tm-recommended-img" width="270px" height="200px">
 								<div class="tm-recommended-description-box">
@@ -501,8 +519,6 @@
 	<script src="<c:url value='/voyage/js/main.js' />"></script>
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
-	<jsp:include page="/voyage/foo.jsp"></jsp:include>
 
 </body>
 </html>
