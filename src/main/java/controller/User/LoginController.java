@@ -31,7 +31,7 @@ public class LoginController {
 		webDataBinder.registerCustomEditor(java.util.Date.class, "birth",
 				new CustomDateEditor(new SimpleDateFormat("yyyy-MM-dd"), true));
 	}
-	@RequestMapping(path= {"/secure/insert.controller"})
+	@RequestMapping(path= {"/voyage/insert.controller"})
 	public String insertMb (Model model,UserInfoBean bean,BindingResult bindingresult) {
 		Map<String, String> errors = new HashMap<>();
 		System.out.println("bean="+bean);
@@ -44,7 +44,7 @@ public class LoginController {
 	}	
 	
 	@ResponseBody
-	@RequestMapping(path = { "/secure/login.controller" })
+	@RequestMapping(path = { "/voyage/login.controller" })
 	public UserInfoBean method(String name, String password,Model model) {
 		Map<String, String> errors = new HashMap<>();
 		model.addAttribute("errors", errors);
