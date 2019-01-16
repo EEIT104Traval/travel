@@ -18,6 +18,8 @@ public class RoomTypeBean {
 	@Transient
 	private java.util.Date date;
 	
+	
+	
 	@Override
 	public String toString() {
 		return "RoomTypeBean [roomTypeNo=" + roomTypeNo + ", hotelNo=" + hotelNo + ", roomType=" + roomType

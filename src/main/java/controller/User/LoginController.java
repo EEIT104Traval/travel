@@ -42,29 +42,9 @@ public class LoginController {
 //		model.addAttribute("insert", result);
 		return "login.test";
 	}	
-	
+
 	@ResponseBody
 	@RequestMapping(path = { "/voyage/login.controller" })
-	public UserInfoBean method(String name, String password,Model model) {
-		Map<String, String> errors = new HashMap<>();
-		model.addAttribute("errors", errors);
-//		if (name == null || name.length() == 0) {
-//			errors.put("xxx1", context.getMessage("name",null, locale));
-//		}
-//		if (password == null || password.length() == 0) {
-//			errors.put("xxx2", context.getMessage("password",null, locale));
-//		}
-//		if (errors != null && !errors.isEmpty()) {
-//			return "login.error";
-//		}
-// 呼叫model
-		UserInfoBean bean = userInfoService.login(name, password);
-		System.out.println(bean);
-		
-		return bean;
-	}
-
-
 	public Map<String, Object> LogIn(String name, String password,Model model) {
 		System.out.println("name="+name);
 		System.out.println("password="+password);
