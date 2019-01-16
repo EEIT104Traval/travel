@@ -266,7 +266,8 @@ $.each(result.OTA_AirLowFareSearchRS.PricedItineraries.PricedItinerary, function
 //      +'<div class="price">NT$<span class="fontb">'+value.AirItineraryPricingInfo[0].ItinTotalFare.TotalFare.Amount+'</span></div>'
 	 +"<input name='taxAmount' style='display:none;' value="+value.AirItineraryPricingInfo[0].ItinTotalFare.Taxes.Tax[0].Amount+">"
 	 +"<input name='ticketAmount' style='display:none;' value="+value.AirItineraryPricingInfo[0].ItinTotalFare.BaseFare.Amount+">"
-	 
+	 +"<input name='peopleCount' style='display:none;' value="+value.AirItineraryPricingInfo[0].PTC_FareBreakdowns.PTC_FareBreakdown[0].PassengerTypeQuantity.Quantity+">"
+
      +"<input class='price' name='totalAmount' style='border:none;font-weight: 600;font-size: 1.8rem;text-align: right;width=68px;' value="+'NT$'+value.AirItineraryPricingInfo[0].ItinTotalFare.TotalFare.Amount+">"
      +'<div class="price_de">每成人含稅</div>'
      +'</span> <span class="check">'
