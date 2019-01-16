@@ -35,9 +35,7 @@
 				ticketSearch2();
 			});
 
-		
-
-				function ticketSearch1(){
+			function ticketSearch1(){
 						params.country = $('#country').val();
 					$.ajax({
 						url : '/Travel/voyage/ticket.controller',

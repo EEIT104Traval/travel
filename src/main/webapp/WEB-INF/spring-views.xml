@@ -28,7 +28,7 @@
 
 	
 	<bean id="login.test" class="org.springframework.web.servlet.view.InternalResourceView">
-		<property name="url" value="/login/test.jsp"></property>
+		<property name="url" value="/voyage/index.jsp"></property>
 	</bean>
 
 	<bean id="flightthird" class="org.springframework.web.servlet.view.InternalResourceView">

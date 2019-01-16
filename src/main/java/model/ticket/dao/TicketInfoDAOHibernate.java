@@ -26,7 +26,6 @@ import model.ticket.TicketInfoBean;
 import model.ticket.TicketInfoDAO;
 import model.ticket.TicketOrderInfoBean;
 
-
 @Repository
 public class TicketInfoDAOHibernate implements TicketInfoDAO {
 	
@@ -92,15 +91,15 @@ public class TicketInfoDAOHibernate implements TicketInfoDAO {
 	@Override
 	public TicketInfoBean qupdate(TicketInfoBean bean) {
 		TicketInfoBean result = this.getSession().get(TicketInfoBean.class, bean.getTicketNo());
-		
-		if(result != null) {
+
+		if (result != null) {
 			result.setAdultTicketSellQ(bean.getAdultTicketSellQ());
 			result.setAdultTicketSelledQ(bean.getAdultTicketSelledQ());
 			return result;
 		}
 		return null;
 	}
-	
+
 	@Override
 	public boolean remove(Integer ticketNo) {
 		TicketInfoBean result = this.getSession().get(TicketInfoBean.class, ticketNo);
@@ -110,9 +109,9 @@ public class TicketInfoDAOHibernate implements TicketInfoDAO {
 		}
 		return false;
 	}
-	
+
 	@Override
-	public List<TicketInfoBean> searchByCountry(String  country) {
+	public List<TicketInfoBean> searchByCountry(String country) {
 		CriteriaBuilder criteriaBuilder = getSession().getCriteriaBuilder();
 		CriteriaQuery<TicketInfoBean> criteria = criteriaBuilder.createQuery(TicketInfoBean.class);
 		Root<TicketInfoBean> from = criteria.from(TicketInfoBean.class);
@@ -130,32 +129,30 @@ public class TicketInfoDAOHibernate implements TicketInfoDAO {
 		List<TicketInfoBean> list = getSession().createQuery(criteria).getResultList();
 		return list;
 	}
-	
+
 //------------------------------------------------------------------------------------------------------------
-	public List<TicketInfoBean> findByTicketOrderList(List<TicketOrderInfoBean> list){
-		  EntityManager em = sessionFactory.createEntityManager();
-		  CriteriaBuilder criteriaBuilder = this.getSession().getCriteriaBuilder();
-	      CriteriaQuery<TicketInfoBean> criteriaQuery = criteriaBuilder.createQuery(TicketInfoBean.class);
-	      Root<TicketInfoBean> root = criteriaQuery.from(TicketInfoBean.class);
-	      CriteriaQuery<TicketInfoBean> query = criteriaQuery.select(root);
-	      List<Predicate> predicate =  new ArrayList<>();
-	      for (TicketOrderInfoBean TicketOrder:list) {
-	    	  predicate.add(criteriaBuilder.equal(root.get("ticketNo"), TicketOrder.getTicketNo()));
-	      }
-	      Predicate[] p = new Predicate[predicate.size()];
-	      query.where(criteriaBuilder.or(predicate.toArray(p)));
-	      return em.createQuery(query).getResultList();
-	}	
-	
-	
-	
+	public List<TicketInfoBean> findByTicketOrderList(List<TicketOrderInfoBean> list) {
+		EntityManager em = sessionFactory.createEntityManager();
+		CriteriaBuilder criteriaBuilder = this.getSession().getCriteriaBuilder();
+		CriteriaQuery<TicketInfoBean> criteriaQuery = criteriaBuilder.createQuery(TicketInfoBean.class);
+		Root<TicketInfoBean> root = criteriaQuery.from(TicketInfoBean.class);
+		CriteriaQuery<TicketInfoBean> query = criteriaQuery.select(root);
+		List<Predicate> predicate = new ArrayList<>();
+		for (TicketOrderInfoBean TicketOrder : list) {
+			predicate.add(criteriaBuilder.equal(root.get("ticketNo"), TicketOrder.getTicketNo()));
+		}
+		Predicate[] p = new Predicate[predicate.size()];
+		query.where(criteriaBuilder.or(predicate.toArray(p)));
+		return em.createQuery(query).getResultList();
+	}
+
 	@Override
-	public void DLticketInfo() throws IOException {
-		
+	public String DLticketInfo(String path) throws IOException {
+
 		String s1 = servletContext.getRealPath("");
 
 		File ticketincsv = new File(s1 + "resource/Ticket/ticket.csv"); // 讀取的CSV文檔
-		File ticketoutcsv = new File("C:/Users/Emma/Desktop/Ticketfrom1.csv");// 寫出的CSV文檔
+		File ticketoutcsv = new File(path);// 寫出的CSV文檔
 		if (!ticketoutcsv.exists()) {
 			ticketoutcsv.createNewFile();
 		}
@@ -172,9 +169,45 @@ public class TicketInfoDAOHibernate implements TicketInfoDAO {
 			System.out.println("寫出成功");
 		}
 		pw.close();
-		reader.close();		
+		reader.close();
+		return "下載成功";
 	}
 
+	@Override
+	public String UPticketInfo(String path) throws IOException {
+		
+		File f = new File(path);
+		BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(f), "UTF-8"));
+		
+		br.readLine(); 
+
+		String xx = null;
+		while ((xx = br.readLine()) != null) {
+			TicketInfoBean bean = new TicketInfoBean(); 
+			String[] x = xx.split((","));
+			
+			bean.setTicketName(x[1]);
+			bean.setValidity(Integer.parseInt(x[2]));
+			bean.setAdultTicketPrice(Integer.parseInt(x[3]));
+			bean.setChildTicketPrice(Integer.parseInt(x[4]));
+			bean.setAdultTicketSellQ(Integer.parseInt(x[5]));
+			bean.setChildTicketSellQ(Integer.parseInt(x[6]));
+			bean.setAdultTicketSelledQ(Integer.parseInt(x[7]));
+			bean.setAdultTicketSelledQ(Integer.parseInt(x[8]));
+			bean.setCountry(x[9]);
+			bean.setCategory(x[10]);
+			bean.setProductFeatures(x[11]);
+			bean.setTicketPicture(x[12]);
+			bean.setTicketDescription(x[13]);
+			bean.setTraffic_information(x[14]);
+			bean.setSpecial_restrictions(x[15]);
+			
+			TicketInfoBean bean2 = create(bean);
+			System.out.println("bean2"+bean2);
+		}
+		br.close();
+		return "上傳成功";
+	}
 }
 
 //	@Override
