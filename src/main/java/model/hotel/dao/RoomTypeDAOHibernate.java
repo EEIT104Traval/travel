@@ -1,11 +1,6 @@
 package model.hotel.dao;
 
-import java.util.Date;
 import java.util.List;
-
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Root;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -15,9 +10,6 @@ import org.springframework.stereotype.Repository;
 
 import model.hotel.RoomTypeBean;
 import model.hotel.RoomTypeDAO;
-import model.hotel.RoomAvailableBean;
-import model.ticket.TicketInfoBean;
-import model.tour.TourOrderInfoBean;
 
 @Repository
 public class RoomTypeDAOHibernate implements RoomTypeDAO{
@@ -27,6 +19,7 @@ public class RoomTypeDAOHibernate implements RoomTypeDAO{
 	public Session getSession() {
 		return this.sessionFactory.getCurrentSession();
 	}
+	
 	@Override
 	public RoomTypeBean findByPrimaryKey(Integer roomTypeNo) {
 		return this.getSession().get(RoomTypeBean.class, roomTypeNo);

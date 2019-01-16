@@ -1,10 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>RateNotice</title>
 </head>
 <body>
 
@@ -51,12 +52,27 @@ function notice(){
 <!-- <p id="prompt"> -->
 <!-- <input type="button" onclick="show_confirm()" value="確認送出"> -->
 <h4>請輸入欲通知的匯率金額</h4>
-帳號:<input type="text" id="demo"><br>
-幣別:<input type="text" id=""><br>
-匯率:<input type="text" id=""><br>
-時間:
+<form action="<c:url value="/secure/rate.controller" />" method="post">
+<table>
+<tr>
+<td>帳號:</td>
+<td><input type="text" id="" name="accountName"><br></td>
+</tr>
+<tr>
+<td>幣別:</td>
+<td><input type="text" id="" name="currency"><br></td>
+</tr>
+<tr>
+<td>匯率:</td>
+<td><input type="text" id="demo" name="targetRate"><br></td>
+</tr>
+<tr>
+<td>最後通知日:</td>
+<td><input type="text" id="" name="deadline"></td>
+</tr>
 <button onclick="notice()">送出</button><br/>
-
+</table>
+</form>
 
 </body>
 </html>

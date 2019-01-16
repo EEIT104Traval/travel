@@ -32,27 +32,10 @@
 <link rel="stylesheet" href="<c:url value='/voyage/css/jquery-ui.css' />">
 <link rel="stylesheet" href="<c:url value='/voyage/css/main_styles.css' />">
 
-<%-- <link rel="stylesheet" href="<c:url value='/voyage/css/main_styles.css' />"> --%>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
 <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
-<!-- <link rel="stylesheet" href="css/bootstrap.min.css"> -->
 <link rel="stylesheet" type="text/css" href="slick/slick.css" />
 <link rel="stylesheet" type="text/css" href="slick/slick-theme.css" />
 <link rel="stylesheet" href="css/templatemo-style.css">
-
-<script>
-  $( function() {
-    $( "#datepicker1" ).datepicker();
-  } );
- </script>
- 
-<script>
-  $( function() {
-    $( "#datepicker2" ).datepicker();
-  } );
- </script>
-
-</head>
 
 <body>
 
@@ -78,7 +61,7 @@
 			<div class="row">
 				<div class="col">
 					<div class="home_search_container">
-						<!-- 						<div class="home_search_content"> -->
+						<!-- <div class="home_search_content"> -->
 						<div class="col-xs-12 mx-auto tm-about-text-wrap text-center">
 							<h2 style="color: white">紐約市中心希爾頓酒店</h2>
 							<h2 style="color: white">New York Hilton Midtown</h2>
@@ -470,9 +453,9 @@
 									<p class="tm-text-highlight" style="margin-bottom:5px">從客房內可飽覽迷人的曼克頓中城天際線景色。一張大床。最多可入住 6人。</p>
 									<p class="tm-text-gray">在紐約盡情遊玩探索，並將您的住宿升級至此時尚行政套房。 位於酒店高樓層，此寬敞的行政套房讓您對豪華住宿另有一番見解。</p>
 								</div>
-								<a href="#" class="tm-recommended-price-box">
+								<a href="/Travel/voyage/hotel/Calendar/calender.jsp" class="tm-recommended-price-box">
 									<p class="tm-recommended-price">$NT 64,666</p>
-									<button type="button" class="btn btn-light" id="8">訂購</button>
+									<button type="button" class="btn btn-light" id="8">查詢空房</button>
 								</a>
 							</div>
 

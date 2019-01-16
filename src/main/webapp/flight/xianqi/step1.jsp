@@ -77,6 +77,7 @@ serialNum = 0;
 console.log(result.OTA_AirLowFareSearchRS.PricedItineraries.PricedItinerary[0].SequenceNumber)
 $(document).ready(function() {
 $.each(result.OTA_AirLowFareSearchRS.PricedItineraries.PricedItinerary, function(index, value) {
+	//去程迴圈
 	serialNum = serialNum+1;
 	console.log(value.SequenceNumber)
 	var DepartureDateTime = value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].DepartureDateTime
@@ -120,21 +121,21 @@ $.each(result.OTA_AirLowFareSearchRS.PricedItineraries.PricedItinerary, function
 //                           +"<div class='fl-num'>"+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].OperatingAirline.Code+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].OperatingAirline.FlightNumber+"</div>"
             +"</div>"
             + "<div class='col-xs-3 fl-timebox text-right'>"
-            +"<input name='goDay' class='fl-time' style='border:none;text-align: center;width:80px' readonly='value' value="+Ddate+'('+Ddateweek+')'+">"
+            +"<input name='goDay' class='fl-time' style='border:none;text-align: center;width:82px' readonly='value' value="+Ddate+'('+Ddateweek+')'+">"
 //             +'<div class="fl-time">'+Ddate+"("+Ddateweek+")"+'</div>'
-            +"<input class='fl-place' name='goPlace' style='border:none;text-align: center;width:80px' readonly='value' value="+Dtime+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].DepartureAirport.LocationCode+">"
+            +"<input class='fl-place' name='goDePlace' style='border:none;text-align: center;width:82px' readonly='value' value="+Dtime+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].DepartureAirport.LocationCode+">"
 //             +'<div class="fl-place">'+Dtime+'<span>'+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].DepartureAirport.LocationCode+'</span></div>'
           +'</div>'
          +'<div class=" col-xs-3 fl-durationbox text-center">'
-         +"<input class='fl-dutime' name='homi' style='border:none;text-align: center;width:80px' readonly='value' value="+gotimehour+"小時"+gotimemin+"分>"
+         +"<input class='fl-dutime' name='homi' style='border:none;text-align: center;width:82px' readonly='value' value="+gotimehour+"小時"+gotimemin+"分>"
 //          +'<div class="fl-dutime"> <span>'+gotimehour+'</span>小時<span>'+gotimemin+'</span>分 </div>'
          +'<div class="t-line" ></div>'
          +'<div class="fl-flyname" style="color:green" id="fl-flyname'+value.SequenceNumber+'">直飛</div>'
          +' </div>'
          +'<div class="col-xs-3 fl-timebox text-left">'
-         +"<input class='fl-time' style='border:none;text-align: center;width:80px' readonly='value' name='homi2' id="+'fl-time'+value.SequenceNumber+" value="+Adate+'('+Adateweek+')'+">"
+         +"<input class='fl-time' style='border:none;text-align: center;width:82px;margin-left:0px;' readonly='value' name='goDay2' id="+'fl-time'+value.SequenceNumber+" value="+Adate+'('+Adateweek+')'+">"
 //          +'<div class="fl-time" id="fl-time'+value.SequenceNumber+'">'+Adate+'('+Adateweek+')</div>'
-         +"<input class='fl-place' style='border:none;text-align: center;width:80px' readonly='value' id="+'fl-place'+value.SequenceNumber+"value="+Atime+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].ArrivalAirport.LocationCode+">"
+         +"<input class='fl-place' style='border:none;text-align: center;width:82px' readonly='value' name='goArPlace' id="+'fl-place'+value.SequenceNumber+" value="+Atime+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].ArrivalAirport.LocationCode+">"
 //          +'<div class="fl-place" id="fl-place'+value.SequenceNumber+'">'+Atime+'<span>'+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].ArrivalAirport.LocationCode+'</span></div>'
          +' </div>'
          +' </div>'
@@ -173,6 +174,9 @@ $.each(result.OTA_AirLowFareSearchRS.PricedItineraries.PricedItinerary, function
 		$('#fl-flyname'+value.SequenceNumber).html(
 		'<div class="fl-flyname" id="fl-flyname'+value.SequenceNumber+'">轉機兩次</div>'
 	)}
+	
+	
+	//回程迴圈
 	var DepartureDateTime2 = value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[0].DepartureDateTime
 	var ArrivalDateTime2 = value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[0].ArrivalDateTime
 	var Ddate2 = DepartureDateTime2.substr(0,10)
@@ -187,28 +191,35 @@ $.each(result.OTA_AirLowFareSearchRS.PricedItineraries.PricedItinerary, function
 			'<div class="flybox row border-top">'
 			+" <div class='col-xs-10 text-center fly-leftbox'>"
 		    +" <div class='col-xs-3 fl-namebox text-center'>"
-// 		    +'<img alt="" width="20px" src="<c:url value='/resource/flight/airlines_logo 56_50/0B.gif'/>"'
-			+"<input type='text' class='fl-name' style='border:none;text-align: center;width:100px' readonly='value' name='backCompany' value="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[0].OperatingAirline.Company+">"
+// 		    +'<img alt="" width="16px" style="vertical-align:middle" src="<c:url value='/resource/flight/airlines_logo 56_50/0B.gif'/>"'
+			+"<input type='text' class='fl-name' style='border:none;text-align: center;width:100px ' readonly='value' name='backCompany' value="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[0].OperatingAirline.Company+">"
 // 		      +'<div class="fl-name">'+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[0].OperatingAirline.Company+'</div>'
-		      +" <div class='fl-num'>"+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[0].OperatingAirline.Code+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[0].OperatingAirline.FlightNumber+"</div>"
+		      +"<input  class='fl-num' name='backCode'  style='border:none;text-align: center;width:100px' readonly='value' value="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[0].OperatingAirline.Code+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[0].OperatingAirline.FlightNumber+">"
+// 		      +" <div class='fl-num'>"+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[0].OperatingAirline.Code+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[0].OperatingAirline.FlightNumber+"</div>"
 		    +"</div>"
 		    + "<div class='col-xs-3 fl-timebox text-right'>"
-		    +'<div class="fl-time">'+Ddate2+"("+Ddateweek2+")"+'</div>'
-		    +'<div class="fl-place">'+Dtime2+'<span>'+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[0].DepartureAirport.LocationCode+'</span></div>'
+		    +"<input name='backDay' class='fl-time' style='border:none;text-align: center;width:82px' readonly='value' value="+Ddate2+'('+Ddateweek2+')'+">"
+// 		    +'<div class="fl-time">'+Ddate2+"("+Ddateweek2+")"+'</div>'
+			+"<input class='fl-place' name='backDePlace' style='border:none;text-align: center;width:82px' readonly='value' value="+Dtime2+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[0].DepartureAirport.LocationCode+">"
+// 		    +'<div class="fl-place">'+Dtime2+'<span>'+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[0].DepartureAirport.LocationCode+'</span></div>'
 		  +'</div>'
 		 +'<div class=" col-xs-3 fl-durationbox text-center">'
-		 +'<div class="fl-dutime"> <span>'+backtimehour+'</span>小時<span>'+backtimemin+'</span>分 </div>'
+		 +"<input class='fl-dutime' name='homi2' style='border:none;text-align: center;width:82px' readonly='value' value="+backtimehour+"小時"+backtimemin+"分>"
+// 		 +'<div class="fl-dutime"> <span>'+backtimehour+'</span>小時<span>'+backtimemin+'</span>分 </div>'
 		 +'<div class="t-line" ></div>'
 		 +'<div class="fl-flyname" style="color:green" id="fl-flyname1'+value.SequenceNumber+'">直飛</div>'
 		 +' </div>'
 		 +'<div class=" col-xs-3 fl-timebox text-left">'
-		 +'<div class="fl-time" id="fl-timeoo'+value.SequenceNumber+'">'+Adate2+"("+Adateweek2+")"+'</div>'
-		 +'<div class="fl-place" id="fl-placeoo'+value.SequenceNumber+'">'+Atime2+'<span>'+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[0].ArrivalAirport.LocationCode+'</span></div>'
+		 +"<input class='fl-time' style='border:none;text-align: center;width:82px;margin-left:0px;' readonly='value' name='backDay2' id="+'fl-timeoo'+value.SequenceNumber+" value="+Adate2+'('+Adateweek2+')'+">"
+// 		 +'<div class="fl-time" id="fl-timeoo'+value.SequenceNumber+'">'+Adate2+"("+Adateweek2+")"+'</div>'
+		 +"<input class='fl-place' name='backArPlace' style='border:none;text-align: center;width:82px' readonly='value' id="+'fl-placeoo'+value.SequenceNumber+" value="+Atime2+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[0].ArrivalAirport.LocationCode+">"
+// 		 +'<div class="fl-place" id="fl-placeoo'+value.SequenceNumber+'">'+Atime2+'<span>'+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[0].ArrivalAirport.LocationCode+'</span></div>'
 		 +' </div>'
 		 +' </div>'
 		 +' <div class="col-xs-2 fly-info">'
 		 +' <div class="fltool">'
-		 +' <li class="icon_fl1">'+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].Equipment[0].AirEquipType+'</li>'
+		 +"<input class='icon_fl1' name='backAirEquipType' style='border:none;text-align: center;width=68px' value="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[0].Equipment[0].AirEquipType+">"
+// 		 +' <li class="icon_fl1">'+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].Equipment[0].AirEquipType+'</li>'
 		 +' <li class="icon_fl2">'+'經濟艙 V'+'</li>'
 		 +' <li class="icon_fl3">'+'30kg/人'+'</li>'
 		 +'</div>'
@@ -252,7 +263,11 @@ $.each(result.OTA_AirLowFareSearchRS.PricedItineraries.PricedItinerary, function
      +'<div class="btn-tick-ba btn" data-toggle="modal" data-target="#pop_fdetail"> 行李說明 </div>'
      +'</div>'
      +'<div class="col-xs-6 fpric text-right"> <span class="list_pricet">'
-     +'<div class="price">NT$<span class="fontb">'+value.AirItineraryPricingInfo[0].ItinTotalFare.TotalFare.Amount+'</span></div>'
+//      +'<div class="price">NT$<span class="fontb">'+value.AirItineraryPricingInfo[0].ItinTotalFare.TotalFare.Amount+'</span></div>'
+	 +"<input name='taxAmount' style='display:none;' value="+value.AirItineraryPricingInfo[0].ItinTotalFare.Taxes.Tax[0].Amount+">"
+	 +"<input name='ticketAmount' style='display:none;' value="+value.AirItineraryPricingInfo[0].ItinTotalFare.BaseFare.Amount+">"
+	 
+     +"<input class='price' name='totalAmount' style='border:none;font-weight: 600;font-size: 1.8rem;text-align: right;width=68px;' value="+'NT$'+value.AirItineraryPricingInfo[0].ItinTotalFare.TotalFare.Amount+">"
      +'<div class="price_de">每成人含稅</div>'
      +'</span> <span class="check">'
      +'<button type="submit" class="btn btn_check" >訂 位</button>'

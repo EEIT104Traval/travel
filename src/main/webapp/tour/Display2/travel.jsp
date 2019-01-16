@@ -9,8 +9,11 @@
 		<title>Places &mdash; Free HTML5 Bootstrap 4 Theme by ProBootstrap.com</title>
 		<meta name="description" content="Free Bootstrap 4 Theme by ProBootstrap.com">
 		<meta name="keywords" content="free website templates, free bootstrap themes, free template, free bootstrap, free website template">
-    
-	<link rel="stylesheet" href="assets/css/bootstrap/bootstrap.css">
+    <link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+	integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+	crossorigin="anonymous">
+<!-- 	<link rel="stylesheet" href="assets/css/bootstrap/bootstrap.css"> -->
     <link rel="stylesheet" href="assets/css/animate.css">
     <link rel="stylesheet" href="assets/fonts/ionicons/css/ionicons.min.css">
     <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
@@ -19,7 +22,11 @@
     <link rel="stylesheet" href="assets/css/select2.css">
     <link rel="stylesheet" href="assets/css/helpers.css">
     <link rel="stylesheet" href="assets/css/style.css">
-    
+<style>
+.navbar-dark .navbar-nav .nav-link {
+   color: rgba(255,255,255);
+}
+</style>
 	</head>
 	<script
   	src="https://code.jquery.com/jquery-3.3.1.js"
@@ -30,17 +37,14 @@
 		var url = location.href;
 		var ary = {}
 		var params ={}
-		if(url.indexOf('?')!=-1)
-		{
-		    //在此直接將各自的參數資料切割放進ary中
+		if(url.indexOf('?')!=-1){
 		        ary = {}
 		    	ary = url.split('tourNo=');
 		    	params.tourNo = ary[1]
-		    //此時ary的內容為：
-// 			console.log(ary)
-// 			alert(ary[1])
 		}
-		
+		function buy(serialNo){
+			//執行購買程序
+		}
 		$(document).ready(function() {
 			$.ajax({
 					url : '/Travel/tour/display',
@@ -50,6 +54,33 @@
 					data:params,
 			}).done(function(JData) {
 					console.log(JData);
+					$("#tbodyinfo").html("");
+					$.each(JData.tourBatchBean, function(index, value) {						
+						var count = '已滿團'
+						if(JData.fullPeopleCount>value.peopleCount){
+							count = '快來購買'
+						}
+						var d = new Date(value.departureDate);
+						var n = d.toISOString();
+						var date = n.split("T")[0];
+						$("#tbodyinfo").append(
+							"<tr id='buy"+index+"'>"
+								+"<td style='padding-top:24px'>"+date+"</td>"
+								+"<td style='padding-top:24px'>"+count+"</td>"
+								+"<td style='padding-top:24px'>"+value.content+"/<a href='##'>航班</a></td>"
+								+"<td style='padding-top:24px;text-align:right'>"+value.price_adult+"</td>"
+							+"</tr>"
+						)
+						if(count==='快來購買'){
+							$("#buy"+index+"").append(
+								"<td style='padding-top:5px;text-align:right'><button type='button' class='btn btn-danger' onclick='buy("+value.serialNo+")'>立即購買</button></td>"
+							)
+						}else{
+							$("#buy"+index+"").append(
+								"<td style='padding-top:5px;text-align:right'><button type='button' class='btn btn-success'onclick='buy("+value.serialNo+")'>　候補　</button></td>"
+							)
+						}
+					})
 					$("#img").html("<img src=images/"+JData.TourPictureBean[0].pic+" alt=/ height='500px'>");
 					$("#section-contact>div>div>div>p").html("<h2>"+JData.tourName+"</h2>");
 					$("#section-two>div>p").html("<p>"+JData.TourPictureBean[0].picDetail+"</p>");
@@ -118,11 +149,6 @@
           <div class="col-md">
             <h2 class="heading mb-2 display-4 font-light probootstrap-animate">Travel With Us</h2>
             <p class="lead mb-5 probootstrap-animate">
-  
-
-            </p>
-              <a href="https://themewagon.com/theme_tag/free/" target="_blank" role="button" class="btn btn-primary p-3 mr-3 pl-5 pr-5 text-uppercase d-lg-inline d-md-inline d-sm-block d-block mb-3">More Templates Here</a> 
-            </p>
           </div> 
         </div>
       </div>
@@ -145,6 +171,46 @@
 				照片丟這裡           		
           </div>
         </div>
+      </div>
+    </section>
+
+	<section class="probootstrap_section bg-light" id="section-contact">
+      <div class="container" style="max-width:1400px">
+        <div class="panel-group why-choose-group" id="accordion">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title">
+					<a data-toggle="collapse" data-parent="#accordion"
+						href="#collapseOne" class="title"> 所有出發清單 <span class="fa fa-minus-square"></span>
+					</a>
+				</h4>
+			</div>
+			<div id="collapseOne" class="panel-collapse collapse in">
+				<div class="panel-body">
+					<table class="table">
+						<thead>
+							<tr>
+								<th>出發日期</th>
+								<th>報名資訊</th>
+								<th>當團資訊</th>
+								<th style="text-align:right">成人單價</th>
+								<th></th>
+							</tr>
+						</thead>
+						<tbody id="tbodyinfo">
+							<tr>
+								<td style="padding-top:24px">二月 12, 2019</td>
+								<td style="padding-top:24px">快來購買or已滿團</td>
+								<td style="padding-top:24px">PA1LL190212A 搭長榮航空/<a href="##">航班</a></td>
+								<td style="padding-top:24px;text-align:right">41900</td>
+								<td style="padding-top:5px;text-align:right"><button type="button" class="btn btn-danger">立即購買</button></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
       </div>
     </section>
     

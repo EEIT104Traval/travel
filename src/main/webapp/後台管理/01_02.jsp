@@ -21,14 +21,6 @@ var tourOrderInfoBean ;
 var ticketOrderInfoBean ;
 var hotelOrderDetailsBean ;
 
-// var y =
-// var z = 
-
-
-
-
-
-
 	$(document).ready(function() {
 
 	});

@@ -50,6 +50,7 @@
 	<a href="<c:url value='foundNumber' />">foundNumber</a>
 	<br>
 	<a href="<c:url value='ticketDLtest' />">ticketDLtest </a>
+	<a href="<c:url value='ticketUPtest' />">ticketUPtest </a>
 	<br>
 	<a href="<c:url value='tourDLtest' />">tourDLtest </a>
 	<hr>
@@ -68,6 +69,7 @@
 	<a href="<c:url value='/ratePK' />">RatePK</a>
 	<a href="<c:url value='/ratefindALL' />">RatefindAll</a>
 	<a href="<c:url value='/ratefindALL01' />">RatefindAll01</a>
+	<a href="<c:url value='/ratenoticecreate' />">ratenoticecreate</a>
 	
 	<%-- 	<a href="<c:url value='/ratecreate' />">Ratecreat</a> --%>
 	<%-- 	<a href="<c:url value='/rateupdate' />">Rateupdate</a> --%>

@@ -1,4 +1,4 @@
-package model.rate.dao;
+package model.rate.gb;
 
 import java.util.Date;
 import java.util.List;
@@ -8,8 +8,6 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import model.rate.Rate_JPYBean;
-import model.rate.Rate_JPYDAO;
 import model.userInfo.UserInfoBean;
 @Repository
 public class Rate_JPYDAOHibernate implements Rate_JPYDAO{

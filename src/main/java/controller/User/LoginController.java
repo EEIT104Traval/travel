@@ -1,11 +1,16 @@
 package controller.User;
 
+import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
@@ -21,8 +26,25 @@ public class LoginController {
 	@Autowired
 	UserInfoService userInfoService;
 	
+	@InitBinder
+	public void registerPropertyEditor(WebDataBinder webDataBinder) {
+		webDataBinder.registerCustomEditor(java.util.Date.class, "birth",
+				new CustomDateEditor(new SimpleDateFormat("yyyy-MM-dd"), true));
+	}
+	@RequestMapping(path= {"/voyage/insert.controller"})
+	public String insertMb (Model model,UserInfoBean bean,BindingResult bindingresult) {
+		Map<String, String> errors = new HashMap<>();
+		System.out.println("bean="+bean);
+		System.out.println("bindingresult="+bindingresult);
+		model.addAttribute("errors", errors);
+		UserInfoBean result = userInfoService.create(bean);
+
+//		model.addAttribute("insert", result);
+		return "login.test";
+	}	
+
 	@ResponseBody
-	@RequestMapping(path = { "/secure/login.controller" })
+	@RequestMapping(path = { "/voyage/login.controller" })
 	public Map<String, Object> LogIn(String name, String password,Model model) {
 		System.out.println("name="+name);
 		System.out.println("password="+password);
@@ -61,4 +83,13 @@ public class LoginController {
 		System.out.println("logout");
 		return "logout";
 	}
+	
+	 @ResponseBody
+	// @RequestMapping("/userInfoupdate")
+	 @RequestMapping("/secure/gorfbLogin")
+	 public UserInfoBean update(String loginId) {
+		 
+		 UserInfoBean update = userInfoService.gorfbLoginUpdateTime(loginId);		  
+		 return update;	  		  
+	 }
 }

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="zh-tw">
 
@@ -33,11 +34,11 @@
 
 <body>
     <div class="div">
-        <form action="" method="get">
+<%--       <form action="<c:url value="/secure/login.controller"/>" method="get"> --%>
       <table class="table" align="center">
         <tr>
           <td colspan="2" align="center">
-            <h3>會員註冊/h3>
+            <h3>會員註冊</h3>
           </td>
         </tr>
         <tr>

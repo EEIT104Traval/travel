@@ -7,8 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import model.rate.Rate_USDBean;
-import model.rate.Rate_USDDAO;
+import model.rate.gb.Rate_USDBean;
+import model.rate.gb.Rate_USDDAO;
 
 @Controller
 public class Rate_usdTest {

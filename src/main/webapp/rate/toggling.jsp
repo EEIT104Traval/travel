@@ -4,6 +4,11 @@
 <!DOCTYPE html>
 <html>
 <head>
+<style type="text/css">
+	body{
+		background: url("images/pic01.jpg");
+	}
+</style>
 <link rel="stylesheet" href="./css/rate.css">
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -120,9 +125,9 @@
 <body>
 
 	<div id="header">
-		<h2>最近三個月走勢圖</h2>
+		<h2 style="color:white">最近三個月走勢圖</h2>
 	</div>
-	   <button type="button" style="float:right;margin-right: 150px"><a href="rate.jsp" />回上一頁</a></button>
+	   <button type="button" style="float:right;margin-right: 150px"><a href="rateShow.jsp" />回上一頁</a></button>
 	   <button type="button" style="float:right;margin-right: 10px"><a href="toggling1.jsp" />最近半年走勢圖</a></button>
 <!-- 	   <button type="button" style="float:right;margin-right: 10px"><a href="toggling.jsp" />最近三個月走勢圖</a></button> -->
 

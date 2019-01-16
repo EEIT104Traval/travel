@@ -1,9 +1,7 @@
 package model.userInfo;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.sql.Timestamp;
+import java.util.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -37,7 +35,7 @@ public class UserInfoService {
 	@Autowired
 	private TicketInfoDAO ticketInfoDAO;
 	@Autowired
-	private TourBatchDAO tourBatchDAO;
+	private TourBatchDAO tourBatchDAO;	
 
 	public UserInfoBean login(String accountName, String password) {
 		UserInfoBean bean = userInfoDAO.findByPrimaryKey(accountName);
@@ -53,17 +51,48 @@ public class UserInfoService {
 		return null;
 	}
 
-	public UserInfoBean changePassword(String username, String oldPassword, String newPassword) {
-		UserInfoBean bean = this.login(username, oldPassword);
-		if (bean != null) {
-			if (newPassword != null && newPassword.length() != 0) {
-				byte[] temp = newPassword.getBytes();
-				return userInfoDAO.update(temp, bean.getFirstname(), bean.getLastname(), bean.getIdentityNo(),
-						bean.getEmail(), bean.getBirth(), bean.getSex(), bean.getPhone(), bean.getAddress(),
-						bean.getAuthority(), bean.getGorfb(), bean.getLoginId(), username);
-			}
+	
+	public UserInfoBean normalLoginUpdateTime(String accountName) {
+		UserInfoBean bean = userInfoDAO.findByPrimaryKey(accountName);
+		Timestamp updateTime = new Timestamp(System.currentTimeMillis()); // TODO: set update time = now
+		userInfoDAO.update(bean.getAccountName(),bean.getPassword(), bean.getFirstname(), bean.getLastname(), bean.getIdentityNo(),bean.getEmail(),
+				bean.getBirth(),bean.getSex(),bean.getPhone(),bean.getAddress(),bean.getAuthority(),bean.getGorfb(),bean.getLoginId(),updateTime);
+	return bean;
+	}
+	
+	public UserInfoBean gorfbLoginUpdateTime(String loginId) {
+		UserInfoBean bean = userInfoDAO.findByLoginId(loginId);
+		System.out.println("bean="+bean);
+		if(bean!=null) {
+			System.out.println(" in loginId="+loginId);
+		Timestamp updateTime = new Timestamp(System.currentTimeMillis()); // TODO: set update time = now
+		userInfoDAO.update(bean.getAccountName(),bean.getPassword(), bean.getFirstname(), bean.getLastname(), bean.getIdentityNo(),bean.getEmail(),
+				bean.getBirth(),bean.getSex(),bean.getPhone(),bean.getAddress(),bean.getAuthority(),bean.getGorfb(),bean.getLoginId(),updateTime);
 		}
 		return bean;
+	}
+
+	
+//	public UserInfoBean changePassword(String username, String oldPassword, String newPassword) {
+//		UserInfoBean bean = this.login(username, oldPassword);
+//		if(bean!=null) {
+//			if (newPassword!=null && newPassword.length()!=0) {
+//				byte[] temp = newPassword.getBytes();
+//				return userInfoDAO.update(temp, bean.getFirstname(), bean.getLastname(), bean.getIdentityNo(),bean.getEmail(),
+//						bean.getBirth(),bean.getSex(),bean.getPhone(),bean.getAddress(),bean.getAuthority(),bean.getGorfb(),bean.getLoginId(),username);
+//			}
+//		}
+//		return bean;
+//	}
+	
+	public UserInfoBean create(UserInfoBean bean) {
+		UserInfoBean result = null;
+		if(bean != null) {
+			result = userInfoDAO.create(bean);
+//			System.out.println("result");
+		}	
+		return result;
+		
 	}
 //--------------↓↓↓↓↓↓後台管理員使用專區↓↓↓↓↓↓-------------
 

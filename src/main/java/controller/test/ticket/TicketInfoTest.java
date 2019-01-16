@@ -126,6 +126,16 @@ public class TicketInfoTest {
 		return all;
 	}
 
+	
+	@RequestMapping("ticketUPtest")
+	public String UPticketform() throws IOException {
+		
+		String x = dao.UPticketInfo("C:\\Users\\User\\Desktop\\Ticket.csv");
+		
+		return x;	
+	}
+	
+	
 	@RequestMapping("/ticketbuyandsave")
 	public boolean qupdate() throws ParseException, java.text.ParseException {
 		TicketOrderInfoBean bean = new TicketOrderInfoBean();
