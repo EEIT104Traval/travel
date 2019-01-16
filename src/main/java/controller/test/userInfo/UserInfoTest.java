@@ -1,5 +1,6 @@
 package controller.test.userInfo;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,18 +51,19 @@ public class UserInfoTest {
 	 bean1.setAuthority("Z001");
 	 bean1.setGorfb("G");
 	 bean1.setLoginId("Z02");
+	 bean1.setRegisterDate(new Timestamp(System.currentTimeMillis()));
 	 UserInfoBean bean2 = dao.create(bean1);
 	 return bean2;
  }
  
- @ResponseBody
-// @RequestMapping("/userInfoupdate")
- @RequestMapping("/Travel/login")
- public UserInfoBean update() {
-	 UserInfoBean update = dao.update(null,"moon","star","A112233445","reese@lab.com",new java.util.Date(),"F","0912456456","台北市南港"
-			                           ,"Y001","Y01","Y02","Kitty2");		  
-	 return update;	  		  
- } 
+// @ResponseBody
+//// @RequestMapping("/userInfoupdate")
+// @RequestMapping("/Travel/login")
+// public UserInfoBean update() {
+//	 UserInfoBean update = dao.update(null,"moon","star","A112233445","reese@lab.com",new java.util.Date(),"F","0912456456","台北市南港"
+//			                           ,"Y001","Y01","Y02","Kitty2");		  
+//	 return update;	  		  
+// } 
  
  @ResponseBody
  @RequestMapping("/userInforemove")

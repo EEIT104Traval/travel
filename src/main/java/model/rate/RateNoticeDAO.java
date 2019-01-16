@@ -9,7 +9,7 @@ public interface RateNoticeDAO {
 
 	public abstract RateNoticeBean create(RateNoticeBean bean);
 
-	public abstract RateNoticeBean update(Integer serial,String accountName,String currency,Double targetRate);
+	public abstract RateNoticeBean update(String accountName, String currency, Double targetRate,java.util.Date deadline,java.sql.Timestamp registerDate);
 
 	public abstract boolean remove(Integer serial);
 

@@ -14,7 +14,10 @@
 <title>後台管理者介面</title>
 <script>
 var month
+var tprice
 var params = {}
+var sum = 0;
+
 	$(document).ready(function() {
 			$('#select1').change(function() {
 
@@ -37,17 +40,18 @@ var params = {}
  					 
  					 	console.log("-------------------------------------");
 						console.log(JData);
-
 						if(JData.TourOrderInfoBean != null){
   							for(var i = 0;i<JData.TourOrderInfoBean.length;i++){
+  								var x = JData.TourOrderInfoBean[i].total
 	 							$("#searchuser").append(		
 	 		 							'<table ><th style="width:50px">'+ JData.TourOrderInfoBean[i].country +'</th>'+
 	 		 									'<th style="width:350px">'+ JData.TourOrderInfoBean[i].tourName +'</th>'+
 	 		 							        '<th style="width:50px">'+ JData.TourOrderInfoBean[i].quantity +'</th>'+
 	 		 							        '<th style="width:200px">'+ JData.TourOrderInfoBean[i].orderTime +'</th>'+
-	 		 							        '<th style="width:100px">'+ JData.TourOrderInfoBean[i].total +'</th></table>'								
+	 		 							        '<th style="width:100px">'+ JData.TourOrderInfoBean[i].total +'</th></table>'	
 	 													)
-	 								 } $("#searchuser").append('<table><th style="width:50px">合計</th><th style="width:727px">value.total</th></table>')
+	 													sum = sum + x
+	 								 } $("#searchuser").append('<table><th style="width:50px">合計</th><th style="width:727px">'+ sum +'</th></table>')
 								                       }else{
 						$("#searchuser").append('<H1>業績差尚無訂單</H1>')
 								                       }
@@ -81,6 +85,7 @@ var params = {}
 			<option value="12">DEC</option>　　　
           </select>
 <!--  -->
+	</div>
 	<div class="boxmsg" id="searchuser">
 <!-- 	----------------------加東西--------------------- -->
 	 <label class="title">查詢結果</label>

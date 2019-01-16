@@ -1,4 +1,4 @@
-package model.rate.dao;
+package model.rate.gb;
 
 import java.util.Date;
 import java.util.List;
@@ -7,9 +7,6 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-
-import model.rate.Rate_USDBean;
-import model.rate.Rate_USDDAO;
 
 @Repository
 public class Rate_USDDAOHibernate implements Rate_USDDAO{

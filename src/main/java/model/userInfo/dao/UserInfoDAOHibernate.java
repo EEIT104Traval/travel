@@ -1,5 +1,6 @@
 package model.userInfo.dao;
 
+import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
 
@@ -37,19 +38,21 @@ public class UserInfoDAOHibernate implements UserInfoDAO {
 		if (bean != null) {
 			UserInfoBean result = this.getSession().get(UserInfoBean.class, bean.getAccountName());
 			if (result == null) {
+//				UserInfoBean result1 = this.getSession().get(UserInfoBean.class, bean.getRegisterDate());
 				this.getSession().save(bean);
 				return bean;
 			}
 		}
 		return null;
 	}
-
+	
 	@Override
-	public UserInfoBean update(byte[] password, String firstname, String lastname, String identityNo, String email,
-			Date birth, String sex, String phone, String address, String authority, String gorfb, String loginId,
-			String accountName) {
+	public UserInfoBean update(String accountName, byte[] password, String firstname, String lastname,
+			String identityNo, String email, Date birth, String sex, String phone, String address, String authority,
+			String gorfb, String loginId, Timestamp registerDate) {
 		UserInfoBean result = this.getSession().get(UserInfoBean.class, accountName);
 		if (result != null) {
+			result.setAccountName(accountName);
 			result.setPassword(password);
 			result.setFirstname(firstname);
 			result.setLastname(lastname);
@@ -89,4 +92,14 @@ public class UserInfoDAOHibernate implements UserInfoDAO {
 //		
 //		return finduser;
 	}
+
+	@Override
+	public UserInfoBean findByLoginId(String loginId) {
+		String hql = "from UserInfoBean where loginId = '"+loginId+"'" ;
+		return  this.getSession().createQuery(hql,UserInfoBean.class).uniqueResult();
+		
+
+	}
+
+
 }

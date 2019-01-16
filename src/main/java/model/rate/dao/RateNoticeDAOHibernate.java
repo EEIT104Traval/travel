@@ -10,8 +10,7 @@ import org.springframework.stereotype.Repository;
 import model.rate.RateBean;
 import model.rate.RateNoticeBean;
 import model.rate.RateNoticeDAO;
-
-
+import model.userInfo.UserInfoBean;
 
 	@Repository
 	public class RateNoticeDAOHibernate implements RateNoticeDAO{
@@ -29,21 +28,42 @@ import model.rate.RateNoticeDAO;
 
 	@Override
 	public List<RateNoticeBean> findAll() {
-		return null;
+		return this.getSession().createQuery("from RateNoticeBean", RateNoticeBean.class).setMaxResults(50).list();
 	}
 
 	@Override
 	public RateNoticeBean create(RateNoticeBean bean) {
+		if (bean != null) {
+//			RateNoticeBean result = this.getSession().get(RateNoticeBean.class, bean.getSerial());
+//			if (result == null) {
+				this.getSession().save(bean);
+				return bean;
+//			}
+		}
 		return null;
 	}
 
 	@Override
-	public RateNoticeBean update(Integer serial, String accountName, String currency, Double targetRate) {
+	public RateNoticeBean update(String accountName, String currency, Double targetRate,java.util.Date deadline,java.sql.Timestamp registerDate) {
+		RateNoticeBean result = this.getSession().get(RateNoticeBean.class, accountName);
+		if (result != null) {
+			result.setCurrency(currency);
+			result.setTargetRate(targetRate);
+			result.setDeadline(deadline);
+
+			return result;
+		}
 		return null;
 	}
 
 	@Override
 	public boolean remove(Integer serial) {
+		RateNoticeBean result = this.getSession().get(RateNoticeBean.class, serial);
+		if (result != null) {
+			this.getSession().delete(result);
+			return true;
+		}
+		
 		return false;
 	}
 
