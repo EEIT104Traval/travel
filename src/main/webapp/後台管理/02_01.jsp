@@ -85,6 +85,7 @@ var sum = 0;
 			<option value="12">DEC</option>　　　
           </select>
 <!--  -->
+	</div>
 	<div class="boxmsg" id="searchuser">
 <!-- 	----------------------加東西--------------------- -->
 	 <label class="title">查詢結果</label>
