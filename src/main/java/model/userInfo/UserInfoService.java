@@ -35,25 +35,7 @@ public class UserInfoService {
 	@Autowired
 	private TicketInfoDAO ticketInfoDAO;
 	@Autowired
-	private TourBatchDAO tourBatchDAO;
-
-
-
-	
-//	public UserInfoBean login(String accountName, String password) {
-//		UserInfoBean bean = userInfoDAO.findByPrimaryKey(accountName);
-//		if(bean!=null) {
-//			if(password!=null && password.length()!=0) {
-//				byte[] temp = password.getBytes();	//使用者輸入
-//				byte[] pass = bean.getPassword();	//資料庫抓出
-//				if(Arrays.equals(temp, pass)) {
-//					return bean;
-//				}
-//			}
-//		}
-//		return null;
-//	}
-	
+	private TourBatchDAO tourBatchDAO;	
 
 	public UserInfoBean login(String accountName, String password) {
 		UserInfoBean bean = userInfoDAO.findByPrimaryKey(accountName);
