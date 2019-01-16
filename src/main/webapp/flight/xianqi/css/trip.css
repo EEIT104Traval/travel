@@ -3296,12 +3296,14 @@ input:checked+i {
     float: left;
 }
 .ctriplogo a {
-    display: block;
+/*     display: block; */
     width: 126px;
-    height: 43px;
-    line-height: 99em;
+/*     height: 43px; */
+    line-height: 4.5em;
     overflow: hidden;
-    background: url("//pic.c-ctrip.com/common/c_logo2013.png") 0 0 no-repeat;
+/*     background: url("../../../voyage/images/TTT-black.png") 0 0 no-repeat; */
+/*     background: url("//pic.c-ctrip.com/common/c_logo2013.png") 0 0 no-repeat; */
+    
 }
 /* loginbar */
 .loginbar {
@@ -9976,7 +9978,8 @@ span.num {
 /* high-resolution devices */
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
     .ctriplogo a {
-        background-image: url("//pic.c-ctrip.com/common/c_logo2013_2x.png");
+        background-image: url("../../../voyage/images/TTT-black.png");
+/*         background-image: url("//pic.c-ctrip.com/common/c_logo2013_2x.png"); */
         background-size: 100% 100%;
     }
 }
