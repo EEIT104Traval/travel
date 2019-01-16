@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import model.rate.RateBean;
 import model.rate.RateDAO;
-import model.rate.Rate_USDBean;
+import model.rate.gb.Rate_USDBean;
 @Repository
 public class RateDAOHibernate implements RateDAO{
 		@Autowired

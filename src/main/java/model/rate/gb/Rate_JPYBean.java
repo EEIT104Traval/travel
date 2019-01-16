@@ -1,4 +1,4 @@
-package model.rate;
+package model.rate.gb;
 
 public class Rate_JPYBean {
 	private java.util.Date updateTime;

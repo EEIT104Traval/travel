@@ -313,7 +313,8 @@ function login(){
                 	alert("登入成功!! Welcome ChuChu");
                 	$.ajax({
                 		method: "GET",
-                		url:"/Travel/login?loginId="+Google_ID,
+                		url:"/Travel/secure/gorfbLogin?loginId="+Google_ID,
+                		
 //                			url:"/Travel/tour/display?tourNo=1",
                 		dataType: "json",
                 		success: function(json) {

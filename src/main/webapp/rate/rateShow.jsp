@@ -116,7 +116,7 @@ function update(){
 	});
 }
 </script>
-	<div id='123'></div>
+	
 	<div style="margin-top:20px">
 	   <button type="button" style="float:right;margin-right: 350px"><a href="../voyage/index.jsp" />回首頁</a></button>
   	   <button type="button" style="float:right;margin-right: 10px"><a href="toggling1.jsp" />最近半年走勢圖</a></button>
@@ -186,8 +186,7 @@ function update(){
 	
 	<%
 	   Date dNow = new Date( );
-	   SimpleDateFormat ft = 
-	   new SimpleDateFormat ("yyyy-MM-dd HH:mm:ss");
+	   SimpleDateFormat ft = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
        out.print( "<h3 align=\"left\">更新時間： " +ft.format(dNow)+"</h3>");
     %>
   

@@ -1,4 +1,4 @@
-package model.rate;
+package model.rate.gb;
 
 import java.util.List;
 
