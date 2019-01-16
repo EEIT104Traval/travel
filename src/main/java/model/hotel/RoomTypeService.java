@@ -39,4 +39,14 @@ public class RoomTypeService {
 
 		return map;
 	}
+	
+	public RoomTypeBean findroom(Integer roomTypeNo){
+		RoomTypeBean result = roomTypeDAO.findByPrimaryKey(roomTypeNo);
+		return result;
+	}
+	
+	public List<RoomTypeBean> selectAll(){
+		 List<RoomTypeBean> bean =roomTypeDAO.findAll();
+		 return bean;
+	}
 }
