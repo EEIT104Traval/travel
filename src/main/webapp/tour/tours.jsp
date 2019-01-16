@@ -53,7 +53,7 @@
 			<p id= "idd"></p>
 				<div class="col-lg-8">				
 					<div id="box" class="row">
-					<c:forEach items="${tags}"  var="tag">	
+<%-- 					<c:forEach items="${tags}"  var="tag">	 --%>
 					<p>1231346513164313</p>	
 <!-- 						<div class="col-md-6 col-lg-6 mb-4 ftco-animate"> -->
 <!-- 							<a href="#" class="block-5" -->
@@ -72,7 +72,7 @@
 <!-- 								</div> -->
 <!-- 							</a> -->
 <!-- 						</div> -->
-					</c:forEach>			
+<%-- 					</c:forEach>			 --%>
 					</div>
 					<div class="row mt-5">
 						<div class="col text-center">
@@ -138,8 +138,8 @@
 
 					<div class="sidebar-box ftco-animate">
 						<div class="categories">
-							<h3>Categories</h3>
-							<li><a href="#">Tours <span>(12)</span></a></li>
+							<h3 style="font-weight:bold;">旅遊資訊</h3>
+							<li><a href="<c:url value='toursDetail.jsp'/>">各國旅遊資訊</a></li>
 							<li><a href="#">Hotels <span>(22)</span></a></li>
 							<li><a href="#">Cruises <span>(37)</span></a></li>
 							<li><a href="#">Restaurant <span>(42)</span></a></li>
@@ -148,7 +148,7 @@
 					</div>
 
 					<div class="sidebar-box ftco-animate">
-						<h3>Tag Cloud</h3>
+						<h3 style="font-weight:bold;">主題控</h3>
 						<div id="tagcloud" class="tagcloud">
 						
 							<a href="#" class="tag-cloud-link">Life</a> 
@@ -171,7 +171,13 @@
 	
 	    <script>
    	$(document).ready(function() {
-//    		$('.tag-cloud-link').mouseover(over).mouseout(out);		
+   		$('#tagcloud').on("mouseover","a",function(){
+   			$(this).css('color','purple').css('background','yellow');
+   		})
+   		$('#tagcloud').on("mouseout","a",function(){
+   			$(this).css('color','gray').css('background','#00FFFF');
+   		})
+//    		mouseover(over).mouseout(out);		
 		
 // 		function over(evt){
 // 			 $(this).css('color','purple').css('background','yellow');
@@ -204,9 +210,9 @@
 					+"</a>"
 				+"</div>"
 				//形成標籤
-				tagcontents +='<a href="" id="'+data.result[idx].TourTagsBean[0].tag
+				tagcontents +='<a href="#idd" id="'+data.result[idx].TourTagsBean[0].tag
 				            +'" class="tag-cloud-link">'+data.result[idx].TourTagsBean[0].tag
-				            +'</a>';
+				            +'</button>';
 					 
 			 })
 			 $("#box").html(contents);
@@ -240,9 +246,10 @@
 		     });
 /*----------------------分頁------------------------------------------------------------   */
 		 });
-		     
+/*行程標籤分類葉面-------------------------------------------------------------------------------*/		     
 		 $('#tagcloud').on("click", "a", function(){
 			 var tag = $(this).attr("id");
+			 var len = 0;
 // 			 alert(tag);
 			 $.ajax({	
 			    	method:"POST",
@@ -251,12 +258,63 @@
 			     	data:{"tag":tag}
 			        
 			     }).done(function(data){	
-			    	 alert(data[0]);
-// 			    	 $.each(data,function(idx,val){
-// 			    		 alert(data);
-// 			    	 })
-// 			    	 console.log("data="+data);
+			    	 len = data.length;
+			    	 console.log("len = "+len);
+// 			    	 alert(data[0].TourTagsBean[0].tag)
+					 var contents =""; 
+			    	 $.each(data,function(idx,val){
+// 			    		 alert(val.tourName);
+			    		 
+			    		 contents +="<div id=\"tourpage\" class=\"col-md-6 col-lg-6 mb-4\">"
+								+"<a href=\"<c:url value='/tour/Display2/travel.jsp?tourNo="+val.tourNo+"'/>\" class=\"block-5\" style=\"background-image: url('/Travel/tour/Display/images/"+val.TourPictureBean[0].pic +"');\">"						
+								+	"<div class=\"text\">"  
+								+		"<span class=\"price\" style=\"color:red ; font-weight:bold\"><b><u>$"+val.tourBatchBean[0].price_adult+"</u></b></span>"
+								+		"<h3 class=\"heading\">"+val.tourName+"</h3>"
+								+		"<div class=\"post-meta\">"
+								+			"<span>"+val.content+"</span>"
+								+		"</div>"
+								+		"<p class=\"star-rate\">"
+								+			"<span class=\"icon-star\"></span><span class=\"icon-star\"></span><span class=\"icon-star\"></span><span class=\"icon-star\"></span><span class=\"icon-star-half-full\"></span> <span>500 reviews</span>"							
+								+		"</p>"
+								+	"</div>"
+								+"</a>"
+							+"</div>"			    		 
+			    	 })
+			    	 $("#box").html(contents);
+			    	 
+/* -----------------------分頁-------------------------------------------------------   */	 			 
+					 var rowsShown=6;                             //每頁顯示的行
+				     var rowsTotal=len;  
+					 console.log("==>"+rowsTotal)//獲取總共的行
+				     var numPages=Math.ceil(rowsTotal/rowsShown); //計算出有多少頁
+				     var page = "";
+//		 		     alert(data.count);
+				     //顯示頁碼
+				      for(var i=0;i<numPages;i++){
+				          var pageNum=i+1;
+				          page+='<li><a href="#idd" rel="'+i+'" ><span>'+pageNum+'</span></a></li>'	          
+// 				         $('#nav').append( '<li><a href="#idd" rel="'+i+'" ><span>'+pageNum+'</span></a></li>');
+				     }                     //'<a href="#" rel="'+i+'">'+pageNum+'</a>&nbsp;'
+				     $('#nav').html(page);
+				     
+				     $('#box > #tourpage').hide(); // 先將全部行隱藏
+				     $('#box > #tourpage').slice(0,rowsShown).show();// 再顯示第一頁應該顯示的行數(
+				     $('#nav li:first').addClass('active');//為第一個頁碼加一個值為active的class屬性，方便加樣式
+				     
+				     //頁碼點擊事件
+				     $('#nav').on("click", "a", function(){
+				         $('#nav li ').removeClass('active');    //移除所有頁碼的active類
+				         $(this).parent("li").addClass('active');//為當前頁碼加入active類
+				         var currPage=$(this).attr('rel');     //取出頁碼上的值
+				         var startItem=currPage*rowsShown;     //行數的開始=頁碼*每頁顯示的行
+				         var endItem=startItem+rowsShown;      //行數的結束=開始+每頁顯示的行
+				         $('#box > #tourpage').hide();                 //全部行都隱藏
+				         //顯示從開始到結束的行
+				         $('#box > #tourpage').slice(startItem,endItem).show();//.css('display','table-row')
+				     });
+/*----------------------分頁------------------------------------------------------------   */
 			     });
+/*行程標籤分類葉面-------------------------------------------------------------------------------*/	
 	     });
 	
 		    

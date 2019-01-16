@@ -748,6 +748,7 @@ section
 	font-size: 14px !important;
 	font-weight: 500 !important;
 	color: #72728c !important;
+	border-radius: 20px;
 /* 	Transition:all 2s; */
 }
 .search_input_1:hover

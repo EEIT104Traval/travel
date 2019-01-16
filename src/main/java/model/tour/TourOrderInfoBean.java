@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name="TourOrderInfo")
@@ -22,6 +23,44 @@ public class TourOrderInfoBean {
 	private String orderStatus;
 	private Date orderTime;
 	
+	@Transient
+	private String tourName;
+	@Transient
+	private String country;
+
+	@Override
+	public String toString() {
+		return "TourOrderInfoBean [orderNo=" + orderNo + ", accountName=" + accountName + ", serialNo=" + serialNo
+				+ ", quantity=" + quantity + ", total=" + total + ", orderStatus=" + orderStatus + ", orderTime="
+				+ orderTime + ", tourName=" + tourName + ", country=" + country + "]";
+	}
+
+
+	public String getTourName() {
+		return tourName;
+	}
+
+
+	public void setTourName(String tourName) {
+		this.tourName = tourName;
+	}
+
+
+	public String getCountry() {
+		return country;
+	}
+
+
+	public void setCountry(String country) {
+		this.country = country;
+	}
+
+
+	public void tourList(String tourName) {
+		this.tourName = tourName;
+	}
+
+
 	public Integer getOrderNo() {
 		return orderNo;
 	}
@@ -77,13 +116,4 @@ public class TourOrderInfoBean {
 	public void setOrderTime(Date orderTime) {
 		this.orderTime = orderTime;
 	}
-
-	@Override
-	public String toString() {
-		return "TourOrderInfoBean [orderNo=" + orderNo + ", accountName=" + accountName + ", serialNo=" + serialNo
-				+ ", quantity=" + quantity + ", total=" + total + ", orderStatus=" + orderStatus + ", orderTime="
-				+ orderTime + "]";
-	}
-	
-
 }

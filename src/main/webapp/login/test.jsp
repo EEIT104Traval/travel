@@ -21,6 +21,15 @@ function clearForm() {
 	}
 }
 </script>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+  $( function() {
+    $( "#datepicker" ).datepicker({dateFormat:'yy-MM-dd',changeYear: true});
+  } );
+  </script>
 
 </head>
 <body>
@@ -55,11 +64,15 @@ function clearForm() {
 		<td>身分證字號 : </td>
 		<td><input type="text" name="identityNo" value="${param.identityNo}"></td>
 		<td><span class="error">${errors.identityNo}</span></td>
-	</tr>
-		<tr>
-		<td>出生年月日 : </td>
-		<td><input type="text" name="birth" value="${param.birth}"></td>
-		<td><span class="error">${errors.birth}</span></td>
+<!-- 	</tr> -->
+<!-- 		<tr> -->
+<!-- 		<td>出生年月日 : </td> -->
+<%-- 		<td><input type="text" name="birth" value="${param.birth}"></td> --%>
+<%-- 		<td><span class="error">${errors.birth}</span></td> --%>
+<!-- 	</tr> -->
+	<tr>
+	<td>生日:</td>
+	 <td><input type="text" id="datepicker"></td>
 	</tr>
 	<tr>
 		<td>性別 : </td>
@@ -98,6 +111,7 @@ function clearForm() {
 		</td>
 	</tr>
 </table>
+
 
 </form>
 

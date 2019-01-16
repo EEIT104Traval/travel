@@ -1,21 +1,23 @@
 package model.tour.dao;
 
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.EntityManager;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import org.springframework.web.bind.annotation.RequestMapping;
 
-import model.tour.GroupTourBean;
+import model.ticket.TicketOrderInfoBean;
 import model.tour.TourBatchBean;
-import model.tour.TourMemberInfoBean;
+import model.tour.TourOrderInfoBean;
 
 @Repository
 public class TourBatchDAO {
@@ -83,4 +85,21 @@ public class TourBatchDAO {
 		return list;
 	}
 
+	//-----------------------------------------------------------------------------
+	public List<TourBatchBean> findByTourOrderList(List<TourOrderInfoBean> list){
+		  EntityManager em = sessionFactory.createEntityManager();
+		  CriteriaBuilder criteriaBuilder = this.getSession().getCriteriaBuilder();
+	      CriteriaQuery<TourBatchBean> criteriaQuery = criteriaBuilder.createQuery(TourBatchBean.class);
+	      Root<TourBatchBean> root = criteriaQuery.from(TourBatchBean.class);
+	      CriteriaQuery<TourBatchBean> query = criteriaQuery.select(root);
+	      List<Predicate> predicate =  new ArrayList<>();
+	      for (TourOrderInfoBean TourtOrder:list) {
+	    	  predicate.add(criteriaBuilder.equal(root.get("serialNo"), TourtOrder.getSerialNo()));
+	      }
+	      Predicate[] p = new Predicate[predicate.size()];
+	      query.where(criteriaBuilder.or(predicate.toArray(p)));
+	      return em.createQuery(query).getResultList();
+	}
+	
+	
 }

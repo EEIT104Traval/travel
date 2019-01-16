@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,7 +20,7 @@ import model.userInfo.UserInfoBean;
 import model.userInfo.UserInfoService;
 
 @Controller
-@SessionAttributes(value="user")
+@SessionAttributes(value= {"user","login","accountName"})
 public class LoginController {
 
 	@Autowired
@@ -59,9 +60,45 @@ public class LoginController {
 // 呼叫model
 		UserInfoBean bean = userInfoService.login(name, password);
 
+=======
+	public Map<String, Object> LogIn(String name, String password,Model model) {
+		System.out.println("name="+name);
+		System.out.println("password="+password);
+	
+		Map<String, Object> message = new HashMap<>();
+//		model.addAttribute("errors", message);
+		
+		UserInfoBean bean = null ;
+		bean = userInfoService.login(name, password);
+		
+		if (name == null || name.length() == 0 ||password == null || password.length() == 0) {
+			message.put("xxx1","帳號或密碼錯誤");
+			return message;
+		}
+				
+>>>>>>> branch 'master' of https://github.com/EEIT104Traval/travel.git
 		System.out.println(bean);
 		
-		return bean;
+		if (bean == null) {
+			message.put("xxx1", "Login failed");
+			System.out.println("登入失敗");
+			return message;
+		} else {
+			message.put("xxx1", bean);
+			model.addAttribute("login", bean);			
+			model.addAttribute("accountName", bean.getAccountName());			
+			model.addAttribute("user", bean.getLastname()+" "+bean.getFirstname());
+			System.out.println("登入成功");
+			return message;
+		}
+	}
+	
+	@ResponseBody
+	@RequestMapping(path = { "/secure/log_out.controller" })
+	public String Log_Out (SessionStatus sessionStatus) {
+		sessionStatus.setComplete();
+		System.out.println("logout");
+		return "logout";
 	}
 	
 	 @ResponseBody

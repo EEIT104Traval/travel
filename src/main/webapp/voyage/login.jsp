@@ -60,8 +60,10 @@ div#users-contain table td, div#users-contain table th {
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script>
 var params={}
-// $(document).ready(function() {
-// });
+$(document).ready(function() {
+// 	var login = '${login}';
+// 	console.log(login);
+});
 function login(){
 	params.name=$('#name').val()
 	params.password=$('#password').val()
@@ -71,8 +73,13 @@ function login(){
 			type : 'get',
 			dataType : 'json',
 			data:params,
-	}).done(function(JData) {
-		console.log(JData)
+	}).success(function(JData) {
+		console.log(JData);
+		if(JData.xxx1==='Login failed'){
+			$('#loginerror').html('Login failed');
+		}else{
+  	      location.reload();
+		}
 	});
 }
   $( function() {
@@ -196,17 +203,14 @@ function login(){
 		</div>
 		<div>
 			<!--         Google登入：<input type="button"  value="Google登入" onclick="GoogleLogin();" /><br> -->
-			<button style="background-color: blue; color: white; margin-top: 5px">登入</button>
+			<span class="error" id="loginerror">　</span>
 			<input type="button" value="Login" onclick="login()">
 		</form>
 			<p>快速登入</p>
-			<img src="<c:url value='/voyage/images/facebook.png' />" onclick="FBLogin();" width="32%"
-				height="32%"> <img src="<c:url value='/voyage/images/google01.png' />"
-				onclick="GoogleLogin();" width="32%" height="32%"> <img
-				src="<c:url value='/voyage/images/line.png' />" onclick="GoogleLogin();" width="32%"
-				height="32%">
-			<button
-				style="background-color: blue; color: white; margin-left: 100px; margin-top: 20px">新會員註冊</button>
+			<img src="<c:url value='/voyage/images/facebook.png' />" onclick="FBLogin();" width="32%" height="32%"> 
+			<img src="<c:url value='/voyage/images/google01.png' />" onclick="GoogleLogin();" width="32%" height="32%"> 
+			<img src="<c:url value='/voyage/images/line.png' />" onclick="GoogleLogin();" width="32%" height="32%">
+			<button	style="background-color: blue; color: white; margin-left: 100px; margin-top: 20px">新會員註冊</button>
 		</div>
 
 		<script>
@@ -376,7 +380,7 @@ function Del_FB_App() {
 
 
 
-	<span id="create-user">會員註冊/登入</span>
+	<span id="create-user" style="color:#fff">會員註冊/登入</span>
 
 
 
