@@ -12,7 +12,6 @@
 $(document).ready(function() {
 	var user = '${user}';
 	var len = user.length;
-	console.log(len);
 	if(len){
 		$("#login").html('<button id="signout" type="button" onclick="signout()" class="btn btn-link">登出</button>')
 // 		$("#login").html(
