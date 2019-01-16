@@ -1,5 +1,6 @@
 package model.ticket;
 
+import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -20,7 +21,6 @@ public class TicketInfoService {
 
 	public SimpleDateFormat sdFormat = new SimpleDateFormat("yyyy/MM/dd");
 
-	
 	
 	public List<TicketInfoBean> select(TicketInfoBean bean) {
 		List<TicketInfoBean> result = null;
@@ -86,6 +86,22 @@ public class TicketInfoService {
 		}
 	}
 
+	public  String DLticketInfo(String path) throws IOException{
+		String x = ticketInfoDAO.DLticketInfo(path);
+		
+		return x;
+	}
+	
+	
+	public  String UPticketInfo(String path) throws IOException{
+		String x = ticketInfoDAO.UPticketInfo(path);
+		
+		return x;
+	}
+	
+	
+	
+	
 	public boolean delete(TicketInfoBean bean) {
 		boolean result = false;
 		if (bean != null) {
@@ -97,7 +113,6 @@ public class TicketInfoService {
 	public List<TicketInfoBean> searchCountry(String country) {
 		List<TicketInfoBean> result = null;
 		if (!StringUtils.isEmpty(country)) {
-//		if (country != null || country.length() != 0) {
 			List<TicketInfoBean> tib = ticketInfoDAO.searchByCountry(country);
 			if (tib != null) {
 				result = new ArrayList<TicketInfoBean>();
@@ -112,7 +127,6 @@ public class TicketInfoService {
 	public List<TicketInfoBean> searchByTicketName(Integer ticketNo) {
 		List<TicketInfoBean> result = null;
 		if (!StringUtils.isEmpty(ticketNo)) {
-//		if (country != null || country.length() != 0) {
 			List<TicketInfoBean> tib = ticketInfoDAO.searchByTicketName(ticketNo);
 			if (tib != null) {
 				result = new ArrayList<TicketInfoBean>();
