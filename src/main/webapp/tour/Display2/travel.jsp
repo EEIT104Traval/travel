@@ -22,7 +22,11 @@
     <link rel="stylesheet" href="assets/css/select2.css">
     <link rel="stylesheet" href="assets/css/helpers.css">
     <link rel="stylesheet" href="assets/css/style.css">
-    
+<style>
+.navbar-dark .navbar-nav .nav-link {
+   color: rgba(255,255,255);
+}
+</style>
 	</head>
 	<script
   	src="https://code.jquery.com/jquery-3.3.1.js"
@@ -33,17 +37,14 @@
 		var url = location.href;
 		var ary = {}
 		var params ={}
-		if(url.indexOf('?')!=-1)
-		{
-		    //在此直接將各自的參數資料切割放進ary中
+		if(url.indexOf('?')!=-1){
 		        ary = {}
 		    	ary = url.split('tourNo=');
 		    	params.tourNo = ary[1]
-		    //此時ary的內容為：
-// 			console.log(ary)
-// 			alert(ary[1])
 		}
-		
+		function buy(serialNo){
+			//執行購買程序
+		}
 		$(document).ready(function() {
 			$.ajax({
 					url : '/Travel/tour/display',
@@ -58,24 +59,25 @@
 						var count = '已滿團'
 						if(JData.fullPeopleCount>value.peopleCount){
 							count = '快來購買'
-							console.log(count);
 						}
+						var d = new Date(value.departureDate);
+						var n = d.toISOString();
+						var date = n.split("T")[0];
 						$("#tbodyinfo").append(
 							"<tr id='buy"+index+"'>"
-								+"<td style='padding-top:24px'>"+value.departureDate+"</td>"
+								+"<td style='padding-top:24px'>"+date+"</td>"
 								+"<td style='padding-top:24px'>"+count+"</td>"
 								+"<td style='padding-top:24px'>"+value.content+"/<a href='##'>航班</a></td>"
 								+"<td style='padding-top:24px;text-align:right'>"+value.price_adult+"</td>"
-// 								+"<td style='padding-top:5px;text-align:right'><button type='button' class='btn btn-danger'>立即購買</button></td>"
 							+"</tr>"
 						)
 						if(count==='快來購買'){
 							$("#buy"+index+"").append(
-								"<td style='padding-top:5px;text-align:right'><button type='button' class='btn btn-danger'>立即購買</button></td>"
+								"<td style='padding-top:5px;text-align:right'><button type='button' class='btn btn-danger' onclick='buy("+value.serialNo+")'>立即購買</button></td>"
 							)
 						}else{
 							$("#buy"+index+"").append(
-									"<td style='padding-top:5px;text-align:right'><button type='button' class='btn btn-success'>　候補　</button></td>"
+								"<td style='padding-top:5px;text-align:right'><button type='button' class='btn btn-success'onclick='buy("+value.serialNo+")'>　候補　</button></td>"
 							)
 						}
 					})
@@ -147,11 +149,6 @@
           <div class="col-md">
             <h2 class="heading mb-2 display-4 font-light probootstrap-animate">Travel With Us</h2>
             <p class="lead mb-5 probootstrap-animate">
-  
-
-            </p>
-              <a href="https://themewagon.com/theme_tag/free/" target="_blank" role="button" class="btn btn-primary p-3 mr-3 pl-5 pr-5 text-uppercase d-lg-inline d-md-inline d-sm-block d-block mb-3">More Templates Here</a> 
-            </p>
           </div> 
         </div>
       </div>
