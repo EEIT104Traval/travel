@@ -19,12 +19,12 @@ public class HotelController {
 
 	@ResponseBody
 	@RequestMapping("/voyage/country.controller")
-	public List<HotelBean> searchByCountry(@RequestParam(value = "country", required = false) String country) {
+	public List<HotelBean> searchByCountry(@RequestParam(value = "country", required = false) String countryCH) {
 		// Locale locale = LocaleContextHolder.getLocale(); //多國語系
-		System.out.println("country=" + country);
+		System.out.println("country=" + countryCH);
 //接收資料
 //呼叫model
-		List<HotelBean> result = hotelService.searchCountry(country);
+		List<HotelBean> result = hotelService.searchCountry(countryCH);
 		for (HotelBean TI : result)
 			System.out.println(TI);
 //呼叫view		
@@ -33,9 +33,9 @@ public class HotelController {
 
 	@ResponseBody
 	@RequestMapping("/voyage/city.controller")
-	public List<HotelBean> searchByCity(@RequestParam(value = "city", required = false) String city) {
-		System.out.println("country=" + city);
-		List<HotelBean> result = hotelService.searchCity(city);
+	public List<HotelBean> searchByCity(@RequestParam(value = "city", required = false) String cityCH) {
+		System.out.println("country=" + cityCH);
+		List<HotelBean> result = hotelService.searchCity(cityCH);
 		for (HotelBean TI : result)
 			System.out.println(TI);
 		return result;

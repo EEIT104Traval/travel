@@ -46,10 +46,10 @@ var params = {};
 // 	$(document).ready(function() { });
 				
 				function hotelSearch(){
-					params.country = $('#country').val()
+					params.countryCH = $('#country').val()
 // 						alert(params.country)
 					
-					params.city = $('#city').val()
+					params.cityCH = $('#city').val()
 // 						alert(params.city)	
 // 					if(params.city = ""){
 // 						countrySearch()
@@ -58,9 +58,9 @@ var params = {};
 // 					}
 					
 // 					找全部
-					if(params.city != "" && params.country == ""){
+					if(params.cityCH != "" && params.countryCH == ""){
 						citySearch()
-					}else if(params.city == "" && params.country != ""){
+					}else if(params.cityCH == "" && params.countryCH != ""){
 						countrySearch()
 					}else{
 						allSearch()
@@ -71,7 +71,7 @@ var params = {};
 				function countrySearch(){
 					$("#hotel_pic").html("")
 					$('#hotel_title').html("")
-						params.country = $('#country').val();
+						params.countryCH = $('#country').val();
 // 					alert(params.country)
 					
 					$.ajax({
@@ -244,15 +244,16 @@ var params = {};
 								class="home_search_form" id="home_search_form" method="post">
 								<div 
 									class="d-flex flex-lg-row flex-column align-items-start justify-content-lg-between justify-content-start">
-									<input type="text" class="search_input" style="font-family: Noto Sans TC"
-										style="width: 20%" placeholder="請輸入國家" id="country">
-									<input type="text" class="search_input" style="font-family: Noto Sans TC"
-										style="width: 20%" placeholder="請輸入城市" id="city">
-									<input type="text" class="search_input" style="font-family: Noto Sans TC"
-										style="width: 20%" id="checkin_date" placeholder="入住日期" >
-									<input type="text" class="search_input" style="font-family: Noto Sans TC"
-										style="width: 20%" id="checkout_date" placeholder="退房日期">
-									<!-- <input type="text" class="search_input search_input_5" placeholder="人數" name=""> -->
+									<input type="text" class="search_input" style="font-family: Noto Sans TC; width: 15%"
+										placeholder="請輸入國家" id="country">
+									<input type="text" class="search_input" style="font-family: Noto Sans TC; width: 15%"
+										placeholder="請輸入城市" id="city">
+									<input type="text" class="search_input" style="font-family: Noto Sans TC; width: 15%"
+										id="checkin_date" placeholder="入住日期" >
+									<input type="text" class="search_input" style="font-family: Noto Sans TC; width: 15%"
+										id="checkout_date" placeholder="退房日期">
+									<input type="text" class="search_input" style="font-family: Noto Sans TC; width: 15%"
+										id="accommodate" placeholder="人數">
 									<input type="button" class="home_search_button" style="font-family: Noto Sans TC" value="搜尋" onclick="hotelSearch()"/>
 								</div>
 							</form>
@@ -1000,7 +1001,7 @@ var params = {};
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	  
-	<jsp:include page="/voyage/foo.jsp"></jsp:include>
+<%-- 	<jsp:include page="/voyage/foo.jsp"></jsp:include> --%>
 
 </body>
 </html>

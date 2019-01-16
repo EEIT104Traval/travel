@@ -502,7 +502,7 @@
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
-	<jsp:include page="/voyage/foo.jsp"></jsp:include>
+<%-- 	<jsp:include page="/voyage/foo.jsp"></jsp:include> --%>
 
 </body>
 </html>
