@@ -18,7 +18,7 @@ public class FlightSecondController {
 	@RequestMapping("/FlightInfoSecound")
 	public String method(Model model,String goCompany,String backCompany,String goCode,
 			String goDay,String goDePlace,String goArPlace,String backDePlace,String backArPlace,String homi,String homi2,String goAirEquipType,String backAirEquipType,
-			String backCode,String backDay,String totalAmount,String taxAmount,String ticketAmount
+			String backCode,String backDay,String totalAmount,String taxAmount,String ticketAmount,String peopleCount
 //			,String landingPlace,Date takeoff_date,Date flyback_date,String peopleType
 			) {
 		
@@ -69,6 +69,7 @@ public class FlightSecondController {
 		map.put("totalAmount", totalAmount);
 		map.put("taxAmount", taxAmount);
 		map.put("ticketAmount", ticketAmount);
+		map.put("peopleCount", peopleCount);
 		model.addAttribute("map",map);
 		
 		return "flightthird";
