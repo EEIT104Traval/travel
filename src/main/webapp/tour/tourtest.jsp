@@ -12,24 +12,23 @@
   src="https://code.jquery.com/jquery-3.3.1.js"
   integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
   crossorigin="anonymous"></script>
-  <script>  
-  [![](https://data.jsdelivr.com/v1/package/npm/jslinq/badge)](https://www.jsdelivr.com/package/npm/jslinq)
-  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/linq.js/2.2.0.2/jquery.linq.min.js">  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/linq.js/2.2.0.2/linq.min.js">  </script>
     <body>
-        <h1>臺北旅遊網-景點資料 及 台北市旅館資料庫</h1>
+        <h1>各國旅遊資訊</h1>
  
         <div id="DropDownList">
-            分類：<select id="SelectCategory"></select> 
-            次分類：<select id="SelectSubCategory"></select> 
-            <label id="LabelViewpoint"></label>：<select id="SelectViewpoint"></select> 
+            請選擇：<select id="SelectCategory"></select> 
+            <select id="SelectSubCategory"></select> 
+            <select id="SelectViewpoint"></select> 
         </div>
  
  
         <div id="map" style="width:800px; height:600px"></div>
     
-        <script type="text/javascript" src="scripts/jquery-1.7.2.min.js"></script>
-        <script type="text/javascript" src="scripts/jquery.xml2json.js"></script>
-        <script type="text/javascript" src="scripts/JSLINQ.js"></script>
+<!--         <script type="text/javascript" src="scripts/jquery-1.7.2.min.js"></script> -->
+<!--         <script type="text/javascript" src="scripts/jquery.xml2json.js"></script> -->
+<!--         <script type="text/javascript" src="scripts/JSLINQ.js"></script> -->
         <script type="text/javascript">
         
             var jsonScenery = [];
@@ -43,28 +42,31 @@
  
             function Page_Init()
             {
-                var jsonData =
-                [
-                    {
-                        "categoryId": "2",
-                        "categoryName": "住宿"
-                    },
-                    {
-                        "categoryId": "1",
-                        "categoryName": "景點"
-                    }
-                ];
- 
-                $('#SelectCategory').empty().append($('<option></option>').val('').text('------'));
- 
-                $.each(jsonData, function (i, item)
-                {
-                    $('#SelectCategory').append($('<option></option>').val(item.categoryId).text(item.categoryName));
-                });    
+//                 var jsonData =
+//                 [
+//                     {
+//                         "categoryId": "2",
+//                         "categoryName": "歐洲"
+//                     },
+//                     {
+//                         "categoryId": "1",
+//                         "categoryName": "美洲"
+//                     }
+//                 ];
+				$.getJSON('data/State.txt',function(data){
+					console.log("data = "+data);
+	                $('#SelectCategory').empty().append($('<option></option>').val('').text('------'));
+	 
+	                $.each(data, function (i, item)
+	                {
+	                    $('#SelectCategory').append($('<option></option>').val(item.categoryId).text(item.categoryName));
+	                });  
+				});
+   
  
                 $('#SelectSubCategory').empty().append($('<option></option>').val('').text('------'));
                 $('#SelectViewpoint').empty().append($('<option></option>').val('').text('------'));    
-                $('#LabelViewpoint').text('景點');
+//                 $('#LabelViewpoint').text('景點'); //
  
                 $('#SelectCategory').change(function(){
                     ChangeCategory();
@@ -80,19 +82,41 @@
  
             function GetSceneryJsonData()
             {
-                $.get('data/scenery.xml', function(xml) 
-                {
-                    jsonScenery = $.xml2json(xml);
-                });
+//                 $.get('data/scenery.xml', function(xml) 
+//                 {
+//                     jsonScenery = $.xml2json(xml);
+//                 });
+            jsonScenery =
+                [
+                    {
+                        "SERIAL_NO": "A02515150",
+                        "stitle": "安安你好"
+                    },
+                    {
+                        "SERIAL_NO": "B025813025",
+                        "stitle": "早睡早起精神好"
+                    }
+                ];
                 return jsonScenery;
             }    
  
             function GetHotelJsonData()
             {
-                $.get('data/hotel.xml', function(xml) 
-                {
-                    jsonHotel = $.xml2json(xml);
-                });
+//                 $.get('data/hotel.xml', function(xml) 
+//                 {
+//                     jsonHotel = $.xml2json(xml);
+//                 });
+            jsonHotel =
+                [
+                    {
+                        "SERIAL_NO": "V02515150",
+                        "stitle": "0001安安你好"
+                    },
+                    {
+                        "SERIAL_NO": "N025813025",
+                        "stitle": "0002早睡早起精神好"
+                    }
+                ];
                 return jsonHotel;
             }
  
@@ -113,59 +137,15 @@
                     [
                         {
                             "subCategoryId": "S01",
-                            "subCategoryName": "博物館"
+                            "subCategoryName": "美國"
                         },
                         {
                             "subCategoryId": "S02",
-                            "subCategoryName": "歷史建築"
-                        },
+                            "subCategoryName": "加拿大"
+                        },                       
                         {
                             "subCategoryId": "S03",
-                            "subCategoryName": "廟宇"
-                        },
-                        {
-                            "subCategoryId": "S04",
-                            "subCategoryName": "單車遊蹤"
-                        },
-                        {
-                            "subCategoryId": "S05",
-                            "subCategoryName": "城市公園"
-                        },
-                        {
-                            "subCategoryId": "S06",
-                            "subCategoryName": "親山健行"
-                        },
-                        {
-                            "subCategoryId": "S07",
-                            "subCategoryName": "藍色公路"
-                        },
-                        {
-                            "subCategoryId": "S08",
-                            "subCategoryName": "公共藝術"
-                        },
-                        {
-                            "subCategoryId": "S09",
-                            "subCategoryName": "展演會館"
-                        },
-                        {
-                            "subCategoryId": "S10",
-                            "subCategoryName": "教堂"
-                        },
-                        {
-                            "subCategoryId": "S11",
-                            "subCategoryName": "圖書館"
-                        },
-                        {
-                            "subCategoryId": "S12",
-                            "subCategoryName": "親子共遊"
-                        },
-                        {
-                            "subCategoryId": "S13",
-                            "subCategoryName": "養生溫泉"
-                        },
-                        {
-                            "subCategoryId": "S14",
-                            "subCategoryName": "其它"
+                            "subCategoryName": "巴西"
                         }
                     ];
                 }
@@ -175,15 +155,15 @@
                     [
                         {
                             "subCategoryId": "H01",
-                            "subCategoryName": "國際觀光旅館"
+                            "subCategoryName": "英國"
                         },
                         {
                             "subCategoryId": "H02",
-                            "subCategoryName": "一般觀光旅館"
+                            "subCategoryName": "法國"
                         },
                         {
                             "subCategoryId": "H03",
-                            "subCategoryName": "一般旅館"
+                            "subCategoryName": "荷蘭"
                         }
                     ];                
                 }
@@ -196,14 +176,14 @@
                     });
  
  
-                    if(categoryId == '1')
-                    {
-                        $('#LabelViewpoint').text("景點");
-                    }
-                    else
-                    {
-                        $('#LabelViewpoint').text("旅館");
-                    }                    
+//                     if(categoryId == '1') //
+//                     {
+//                         $('#LabelViewpoint').text("景點");
+//                     }
+//                     else
+//                     {
+//                         $('#LabelViewpoint').text("旅館");
+//                     }                    
                 }
             }
  
@@ -220,9 +200,9 @@
                 if(categoryId == '1')
                 {
                     //景點
-                    var result = new JSLINQ(this.jsonScenery.Section)
-                        .Where(function (item) { return item.CAT1 == categoryName && item.CAT2 == subCategoryName; })
-                        .Select(function (item) { return item; }).ToArray();
+//                     var result = new JSLINQ(this.jsonScenery.Section)
+//                         .Where(function (item) { return item.CAT1 == categoryName && item.CAT2 == subCategoryName; })
+//                         .Select(function (item) { return item; }).ToArray();
  
                     $.each(result, function(i, item)
                     {

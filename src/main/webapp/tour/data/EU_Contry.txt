@@ -1,0 +1,102 @@
+[
+  {
+   "subCategoryId": "H01",
+   "subCategoryName": "英國"
+  },
+  {
+   "subCategoryId": "H02",
+   "subCategoryName": "法國"
+  },
+  {
+   "subCategoryId": "H03",
+   "subCategoryName": "荷蘭"
+  },
+  {
+   "subCategoryId": "H04",
+   "subCategoryName": "芬蘭"
+  },
+  {
+   "subCategoryId": "H05",
+   "subCategoryName": "德國"
+  },
+  {
+   "subCategoryId": "H06",
+   "subCategoryName": "希臘"
+  },
+  {
+   "subCategoryId": "H07",
+   "subCategoryName": "冰島"
+  },
+  {
+   "subCategoryId": "H08",
+   "subCategoryName": "匈牙利"
+  },
+  {
+   "subCategoryId": "H09",
+   "subCategoryName": "愛爾蘭"
+  },
+  {
+   "subCategoryId": "H10",
+   "subCategoryName": "義大利"
+  },
+  {
+   "subCategoryId": "H11",
+   "subCategoryName": "拉脫維亞"
+  },
+  {
+   "subCategoryId": "H12",
+   "subCategoryName": "立陶宛"
+  },
+  {
+   "subCategoryId": "H13",
+   "subCategoryName": "盧森堡"
+  },
+  {
+   "subCategoryId": "H14",
+   "subCategoryName": "摩納哥"
+  },
+  {
+   "subCategoryId": "H15",
+   "subCategoryName": "葡萄牙"
+  },
+  {
+   "subCategoryId": "H16",
+   "subCategoryName": "挪威"
+  },
+  {
+   "subCategoryId": "H17",
+   "subCategoryName": "西班牙"
+  },
+  {
+   "subCategoryId": "H18",
+   "subCategoryName": "瑞典"
+  },
+  {
+   "subCategoryId": "H19",
+   "subCategoryName": "瑞士"
+  },
+  {
+   "subCategoryId": "H20",
+   "subCategoryName": "土耳其"
+  },
+  {
+   "subCategoryId": "H21",
+   "subCategoryName": "瑞士"
+  },
+  {
+   "subCategoryId": "H22",
+   "subCategoryName": "塞爾維亞"
+  },
+  {
+   "subCategoryId": "H23",
+   "subCategoryName": "斯洛伐克"
+  },
+  {
+   "subCategoryId": "H24",
+   "subCategoryName": "梵蒂岡"
+  },
+  {
+   "subCategoryId": "H25",
+   "subCategoryName": "烏克蘭"
+  }
+]
