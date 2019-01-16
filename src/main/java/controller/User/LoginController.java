@@ -5,7 +5,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,6 +14,7 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
 
 import model.userInfo.UserInfoBean;
 import model.userInfo.UserInfoService;
@@ -59,8 +59,12 @@ public class LoginController {
 //		}
 // 呼叫model
 		UserInfoBean bean = userInfoService.login(name, password);
+		System.out.println(bean);
+		
+		return bean;
+	}
 
-=======
+
 	public Map<String, Object> LogIn(String name, String password,Model model) {
 		System.out.println("name="+name);
 		System.out.println("password="+password);
@@ -76,7 +80,6 @@ public class LoginController {
 			return message;
 		}
 				
->>>>>>> branch 'master' of https://github.com/EEIT104Traval/travel.git
 		System.out.println(bean);
 		
 		if (bean == null) {

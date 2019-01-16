@@ -37,7 +37,7 @@ public class UserInfoService {
 	@Autowired
 	private TourBatchDAO tourBatchDAO;
 
-<<<<<<< HEAD
+
 
 	
 //	public UserInfoBean login(String accountName, String password) {
@@ -54,8 +54,7 @@ public class UserInfoService {
 //		return null;
 //	}
 	
-=======
->>>>>>> branch 'master' of https://github.com/EEIT104Traval/travel.git
+
 	public UserInfoBean login(String accountName, String password) {
 		UserInfoBean bean = userInfoDAO.findByPrimaryKey(accountName);
 		if (bean != null) {
@@ -69,7 +68,7 @@ public class UserInfoService {
 		}
 		return null;
 	}
-<<<<<<< HEAD
+
 	
 	public UserInfoBean normalLoginUpdateTime(String accountName) {
 		UserInfoBean bean = userInfoDAO.findByPrimaryKey(accountName);
@@ -85,22 +84,12 @@ public class UserInfoService {
 		
 		Timestamp updateTime = new Timestamp(System.currentTimeMillis()); // TODO: set update time = now
 		userInfoDAO.update(bean.getAccountName(),bean.getPassword(), bean.getFirstname(), bean.getLastname(), bean.getIdentityNo(),bean.getEmail(),
-				bean.getBirth(),bean.getSex(),bean.getPhone(),bean.getAddress(),bean.getAuthority(),bean.getGorfb(),bean.getLoginId(),updateTime);	
-=======
-
-	public UserInfoBean changePassword(String username, String oldPassword, String newPassword) {
-		UserInfoBean bean = this.login(username, oldPassword);
-		if (bean != null) {
-			if (newPassword != null && newPassword.length() != 0) {
-				byte[] temp = newPassword.getBytes();
-				return userInfoDAO.update(temp, bean.getFirstname(), bean.getLastname(), bean.getIdentityNo(),
-						bean.getEmail(), bean.getBirth(), bean.getSex(), bean.getPhone(), bean.getAddress(),
-						bean.getAuthority(), bean.getGorfb(), bean.getLoginId(), username);
-			}
->>>>>>> branch 'master' of https://github.com/EEIT104Traval/travel.git
+				bean.getBirth(),bean.getSex(),bean.getPhone(),bean.getAddress(),bean.getAuthority(),bean.getGorfb(),bean.getLoginId(),updateTime);
 		}
 		return bean;
-	}	
+	}
+
+	
 //	public UserInfoBean changePassword(String username, String oldPassword, String newPassword) {
 //		UserInfoBean bean = this.login(username, oldPassword);
 //		if(bean!=null) {
