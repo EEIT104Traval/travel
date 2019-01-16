@@ -65,6 +65,7 @@ public class UserInfoDAOHibernate implements UserInfoDAO {
 			result.setAuthority(authority);
 			result.setGorfb(gorfb);
 			result.setLoginId(loginId);
+			result.setRegisterDate(registerDate);
 			return result;
 		}
 		return null;
