@@ -10,7 +10,7 @@
 <body>
 	<jsp:include page="bindex.jsp" />
 <div style="color:#ffffff">
-　　　　　　　　　　　　　　　　　　　　　　修改行程　　　　　　　　　　　　　　　　　　　　　　　　
+　　　　　　　　　　　　　　　　　　　　　　即時修改　　　　　　　　　　　　　　　　　　　　　　　　
 </div>
 <div class="boxmsg">
 <table>
@@ -83,10 +83,8 @@
 		</th>		
 	</tr>
 </table>
-　　　　<input type="image" img src="images/ALL.png" onClick="document.form1.submit()" width="3%" height="3%">
-　<input type="image" img src="images/SEE.png" onClick="document.form1.submit()" width="3%" height="3%">
-　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<input type="image" img src="images/PEN.png" onClick="document.form1.submit()"  width="3%" height="3%">
-</div>
+<input type="image"  src="images/ALL.png" onClick="document.form1.submit()" width="3%" height="3%">
+<input type="image"  src="images/PEN.png" onClick="document.form1.submit()"  width="3%" height="3%">
 </div>
 	<div class="boxmsg2">
 	 <label class="title">修改結果</label>
