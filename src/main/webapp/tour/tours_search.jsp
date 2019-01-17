@@ -9,11 +9,7 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	
-<link data-react-helmet="true" rel="author"	href="https://plus.google.com/103719721831316369301">
-<link data-react-helmet="true" rel="publisher"	href="https://plus.google.com/103719721831316369301">
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"	rel="stylesheet">
-<link id="spStyleCss" rel="stylesheet"	href="//settour.api.useinsider.com/css/sp-style.css?v=0.1"	type="text/css" media="screen">
-<link rel="stylesheet"	href="https://scss.settour.com.tw/tour.css?1547708750755">
+
 
 <link rel="stylesheet"
 	href="<c:url value='/voyage/css/open-iconic-bootstrap.min.css' />">
@@ -45,7 +41,11 @@
 	rel="stylesheet" type="text/css">
 	
 		
-
+<link data-react-helmet="true" rel="author"	href="https://plus.google.com/103719721831316369301">
+<link data-react-helmet="true" rel="publisher"	href="https://plus.google.com/103719721831316369301">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"	rel="stylesheet">
+<link id="spStyleCss" rel="stylesheet"	href="//settour.api.useinsider.com/css/sp-style.css?v=0.1"	type="text/css" media="screen">
+<link rel="stylesheet"	href="https://scss.settour.com.tw/tour.css?1547708750755">
 
 
 
@@ -111,6 +111,15 @@ iframe#_hjRemoteVarsFrame {
 	opacity: 0 !important;
 	pointer-events: none !important;
 }
+
+.product-item .area-price {
+    position: absolute;
+    bottom: 0;
+    right: 15px;
+}
+
+
+
 </style>
 <script type="text/javascript" async=""
 	src="//api.useinsider.com/js/squery.min.js"></script>
@@ -323,6 +332,8 @@ iframe#_hjRemoteVarsFrame {
 					</aside>
 					<div></div>
 				</div>
+				
+				
 				<div class="search-right col-md-9">
 					<div class="product">
 						<section class="search-area-title tour">
@@ -364,7 +375,7 @@ iframe#_hjRemoteVarsFrame {
 									style="height: auto; overflow: initial;">
 									<article class="product-item tour">
 										<div class="container-fluid">
-											<div class="row">
+											<div class="row" style=" margin-right: -15px;  margin-left: -1px;">
 												<div class="serach-img col-md-4 col-sm-5">
 													<a href="/product/GFG0000012035/AUKA9B90204A"
 														target="_blank"><img
@@ -435,7 +446,7 @@ iframe#_hjRemoteVarsFrame {
 									</article>
 									<article class="product-item tour">
 										<div class="container-fluid">
-											<div class="row">
+											<div class="row" style=" margin-right: -15px;  margin-left: -1px;">
 												<div class="serach-img col-md-4 col-sm-5">
 													<a href="/product/GFG0000001333/AUSPA990219A"
 														target="_blank"><img

@@ -1553,50 +1553,43 @@ $(document).ready(function() {
                         <h4 class="modal-title" id="myModalLabel">航班條款與細則</h4>
                     </div>
                     <div class="modal-body">
-<!--                         <ul> -->
-<!--                             <li>出發前可更改皆須改票，每次收取『航空公司罰金』+『價差』+『稅差』+本公司服務費，所有更改須符合原購票之相關規定及限制（機票若有NO SHOW *記錄須另查）；出發後欲更改，須另洽詢，亦有可能不可更改。</li> -->
-<!--                             <li>退票須於機票效期內申請；全程未用者，收取航空公司罰金+本公司退票手續費；機票一經使用或NO SHOW者可能無退票價值。</li> -->
-
-<!--                             <li> -->
-<!--                                 如更改必須於原搭乘日前２個工作日完成(國定假日無法提供更改服務)。 -->
-<!--                             </li> -->
-<!--                             <li> -->
-<!--                                 務必於原班機出發前２天更改行程並完成改票或取消紀錄，如造成NO SHOW (未照原訂航班搭乘) 將不接受任何更改或退票。 -->
-<!--                             </li> -->
-<!--                             <li> -->
-<!--                                 上述航班時間如有變動，以航空公司確認的時間為準。 -->
-<!--                             </li> -->
-<!--                             <li> -->
-<!--                                 機票開立後，不可轉讓其他公司航空、不可轉讓他人使用。 -->
-<!--                             </li> -->
-<!--                             <li> -->
-<!--                                 機票開出後,取消預訂，相關退票規定請見<a href="/images/flight/%e9%80%80%e7%a5%a8%e9%a0%88%e7%9f%a5.pdf" target="_blank">退票須知</a>。 -->
-<!--                             </li> -->
-<!--                             <li> -->
-<!--                                 可能有額外支付費用。 -->
-<!--                             </li> -->
-<!--                         </ul> -->
                     </div>
                 </div>
             </div>
         </div>
-<!--         <label class="agreeTearms"> -->
-<!--             <input type="checkbox" name="agreeTearms" data-val="true" title="請選擇！" required="required"> -->
-<!--             <i></i> -->
-<!--             我已完整閱讀訂航班條款與細則，並同意所有規定事項。<br> -->
-<!--             <span class="errortext field-validation-error" data-valmsg-replace="true" data-valmsg-for="agreeTearms"> </span> -->
-<!--         </label>class="piaochecked on_check" -->
-<!-- 				<div class="piaochecked on_check"> -->
-<!--                 <input name="need_inv" type="checkbox" style="height:20px;width:20px;" class="radioclass input" value="1"> -->
-<!--               </div> -->
 			<div style="margin-top: 20px"><input name="need_inv" id="checkboxRead" type="checkbox" style="height:15px;width:15px;"><label for="checkboxRead">我已完整閱讀訂航班條款與細則，並同意所有規定事項。</label></div>
 
     </section>
-    <input id="dealDate" name="dealDate" style="display: none;">
-    <input id="orderStatus" name="orderStatus" style="display: none;" value="未付款">
+   
     
     <form action="">
     
+    
+     <input id="dealDate" name="dealDate" style="display: none;">
+     <input id="orderStatus" name="orderStatus" style="display: none;" value="未付款">
+     <input id="" name="" style="display: none;" value="${map.ticketAmount}">
+     <input id="" name="" style="display: none;" value="${map.goDay}">
+     <input id="" name="" style="display: none;" value="${map.goDeplace}">
+     <input id="" name="" style="display: none;" value="${map.goArplace}">
+     <input id="" name="" style="display: none;" value="${map.goCompany}">
+     <input id="" name="" style="display: none;" value="${map.goCode}">
+     <input id="" name="" style="display: none;" value="${map.goCodeOnly}">
+     <input id="" name="" style="display: none;" value="${map.goAirEquipType}">
+     <input id="" name="" style="display: none;" value="${map.goDeTime}">
+     <input id="" name="" style="display: none;" value="${map.homi}">
+     <input id="" name="" style="display: none;" value="${map.goArTime}">
+     <input id="" name="" style="display: none;" value="${map.backDay}">
+     <input id="" name="" style="display: none;" value="${map.backDeplace}">
+     <input id="" name="" style="display: none;" value="${map.backArplace}">
+     <input id="" name="" style="display: none;" value="${map.backCodeOnly}">
+     <input id="" name="" style="display: none;" value="${map.backCompany} ">
+     <input id="" name="" style="display: none;" value="${map.backCode} ">
+     <input id="" name="" style="display: none;" value="${map.backDeTime}">
+     <input id="" name="" style="display: none;" value="${map.backAirEquipType}">
+     <input id="" name="" style="display: none;" value="${map.homi2}">
+     <input id="" name="" style="display: none;" value="${map.backArTime}">
+     <input id="" name="" style="display: none;" value="">
+     
     
 	<section class="opreatBtn">
         <button class="research" onclick="history.back()" type="button"><i class="glyphicon glyphicon-menu-left"></i>重選航班</button>

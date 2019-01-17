@@ -51,31 +51,31 @@
 									$("#div_ticket_search").append(
 //動態生成票券選項
 // ------------------------------------------------------------------------------------------------------------------------------------------------------
-'<div class="col-md-6 col-lg-3">'+
-'<div class="blog-entry">'+
-	'<a class="block-20" style="background-image: url('+value.ticketPicture+');"> </a>'+
-	'<div class="text p-4">'+
-		'<div class="meta" style="margin-left: 45px;">'+
-			'<div>'+ value.ticketName +'</div>'+
-			'<div>$.'+ value.adultTicketPrice +'</div>'+
-		'</div>'+
-		'<br>'+
-		'<div class="d-flex flex-lg-row flex-column align-items-start justify-content-start" style="margin-left: 58px;">'+
-			'<input type="image" src="images/MIN.png" class="min" width="15%"> '+
-			'<input type="text" value="" placeholder="0" class="text_box" readonly="readonly" style="text-align: center; height: 20px; width: 30px; margin:0; border: 0px;">'+
-			'<input type="image" src="images/PL.png" class="add"  width="15%">'+
-		'</div>'+
-		'<br>'+
-		'<p class="clearfix">'+
-			'<a	href="'+ value.traffic_information +'" class="float-left">Read more</a> <input type="image"	src="images/CK.png" onClick="submit('+value.ticketNo+')" width="13%" style="float: right;">'+
-		'</p>'+
-	'</div>'+
-'</div>'+
-'</div>'					 
-												);
-									});
-							});
-			}
+					'<div class="col-md-6 col-lg-3">'+
+					'<div class="blog-entry">'+
+						'<a class="block-20" style="background-image: url('+value.ticketPicture+');"> </a>'+
+						'<div class="text p-4">'+
+							'<div class="meta" style="margin-left: 45px;">'+
+								'<div>'+ value.ticketName +'</div>'+
+								'<div>$.'+ value.adultTicketPrice +'</div>'+
+							'</div>'+
+							'<br>'+
+							'<div class="d-flex flex-lg-row flex-column align-items-start justify-content-start" style="margin-left: 58px;">'+
+								'<input type="image" src="images/MIN.png" class="min" width="15%"> '+
+								'<input type="text"  id="tt'+value.ticketNo+'" placeholder="0" class="text_box" readonly="readonly" style="text-align: center; height: 20px; width: 30px; margin:0; border: 0px;">'+
+								'<input type="image" src="images/PL.png" class="add"  width="15%">'+
+							'</div>'+
+							'<br>'+
+							'<p class="clearfix">'+
+								'<a	href="'+ value.traffic_information +'" class="float-left">Read more</a> <input type="image"	src="images/CK.png" onClick="submit('+value.ticketNo+')" width="13%" style="float: right;">'+
+							'</p>'+
+						'</div>'+
+					'</div>'+
+					'</div>'					 
+																	);
+														});
+												});
+								}
 //動態生成+-功能
 // ------------------------------------------------------------------------------------------------------------------------------------------------------				
 				function ticketSearch2(){				
@@ -84,8 +84,11 @@
 		                    if(t.val()==""||undefined||null){  
 		                        t.val(0);  
 		                    }  
-		                    t.val(parseInt(t.val()) + 1)  
-		                    setTotal();  
+		                    t.val(parseInt(t.val()) + 1)
+		                     if(parseInt(t.val()) > 10) {  
+		                        t.val(10);  
+		                    }  
+// 		                    setTotal();  
 		                })  
 		                $("#div_ticket_search").on("click",".min",function(){ 
 		                    var t = $(this).parent().find('input[class*=text_box]');  
@@ -96,24 +99,27 @@
 		                    if(parseInt(t.val()) < 0) {  
 		                        t.val(0);  
 		                    }  
-		                    setTotal();  
+// 		                    setTotal();  
 		                })  
 		                $("#div_ticket_search").on("click",".text_box",function(){
 		                    var t = $(this).parent().find('input[class*=text_box]');  
 		                    if(parseInt(t.val())==""||undefined||null || isNaN(t.val())) {  
 		                        t.val(0);  
 		                    }  
-		                    setTotal();  
+// 		                    setTotal();
 		                })  
 		               
 		            }
 //動態生成購買功能
 // ------------------------------------------------------------------------------------------------------------------------------------------------------
 //***
-function submit(ticketNo){ 
-	    		alert(ticketNo);		
-}
-
+var ttop =document.getElementById("ttop");
+				function submit(ticketNo){ 
+					    		alert(ticketNo);	
+					    		var total=$("#tt"+ticketNo+"").val()
+					    		alert(total)
+								ttop.onclick();
+										}
 
 
 	</script>
@@ -122,6 +128,7 @@ function submit(ticketNo){
 <body>
 
 	<!-- END nav -->
+	
 	<section class="home-slider owl-carousel">
 		<div class="slider-item"
 			style="background-image: url('images/bg_1.jpg');"
@@ -169,7 +176,25 @@ function submit(ticketNo){
 
 	<!-- END slider -->
 	<section class="ftco-section bg-light">
-
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" id="ttop"class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 		<div class="container">
 			<div class="row" id="div_ticket_search">

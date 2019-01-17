@@ -66,7 +66,10 @@ public class FlightTest implements XmlDocument {
 	public FlightOrderInfoBean create() {
 		FlightOrderInfoBean bean = new FlightOrderInfoBean();
 
-		bean.setUsername("micky");
+		bean.setAccountName("micky");
+		bean.setContactGender("先生");
+		bean.setContactLastNameCN("李");
+		bean.setContactFirstNameCN("米奇");
 		bean.setDealDate(new java.util.Date());
 		bean.setOrderStatus("成功");
 		bean.setEmail("isj@co.com");
@@ -83,8 +86,24 @@ public class FlightTest implements XmlDocument {
 	@ResponseBody // @RestController可替代
 	@RequestMapping("/flight4")
 	public FlightOrderInfoBean update() {
-		FlightOrderInfoBean bean = dao.update(5, "micky", "AAAJFR", 84657547, "nklhj@co.com", 7, 2,
-				new java.util.Date(), "成功l");
+		
+		FlightOrderInfoBean bean = new FlightOrderInfoBean();
+		bean.setFlightOrderNO(5);
+		bean.setAccountName("micky");
+		bean.setContactGender("先生");
+		bean.setContactLastNameCN("宋");
+		bean.setContactFirstNameCN("米奇");
+		bean.setDealDate(new java.util.Date());
+		bean.setOrderStatus("成功");
+		bean.setEmail("isj@co.com");
+		bean.setChildCount(3);
+		bean.setAdultCount(2);
+		bean.setBookingCode("SDIJFR");
+		bean.setPhone(8454);
+		
+		
+		FlightOrderInfoBean bean1 = dao.update(bean);
+		System.out.println(bean1);
 
 		return bean;
 	}

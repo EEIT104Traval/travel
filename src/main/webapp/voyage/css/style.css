@@ -7282,12 +7282,12 @@ h1, h2, h3, h4, h5,
   color: #ff5f5f !important; }
 
 .ftco-navbar-light {
-/*   background: transparent !important; */
+  background: transparent !important;
   position: absolute;
   left: 0;
   right: 0;
   z-index: 3;
-  top: 0px; }
+  top: 10px; }
   @media (max-width: 991.98px) {
     .ftco-navbar-light {
       background: #000 !important;
