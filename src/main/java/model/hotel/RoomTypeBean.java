@@ -14,20 +14,20 @@ public class RoomTypeBean {
 	private String roomType;
 	private Integer accommodate;
 	private Integer totalRooms;
-	private Integer price;
+	private String price;
 	private String description;
 	private String content;
+	private String pic;
 	
 	@Transient
 	private java.util.Date date;
-	
+
 	@Override
 	public String toString() {
 		return "RoomTypeBean [roomTypeNo=" + roomTypeNo + ", hotelNo=" + hotelNo + ", roomType=" + roomType
 				+ ", accommodate=" + accommodate + ", totalRooms=" + totalRooms + ", price=" + price + ", description="
-				+ description + ", content=" + content + ", date=" + date + "]";
+				+ description + ", content=" + content + ", pic=" + pic + ", date=" + date + "]";
 	}
-
 	public Integer getRoomTypeNo() {
 		return roomTypeNo;
 	}
@@ -68,11 +68,11 @@ public class RoomTypeBean {
 		this.totalRooms = totalRooms;
 	}
 
-	public Integer getPrice() {
+	public String getPrice() {
 		return price;
 	}
 
-	public void setPrice(Integer price) {
+	public void setPrice(String price) {
 		this.price = price;
 	}
 
@@ -90,6 +90,14 @@ public class RoomTypeBean {
 
 	public void setContent(String content) {
 		this.content = content;
+	}
+
+	public String getPic() {
+		return pic;
+	}
+
+	public void setPic(String pic) {
+		this.pic = pic;
 	}
 
 	public java.util.Date getDate() {

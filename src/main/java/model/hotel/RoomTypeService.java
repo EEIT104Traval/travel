@@ -49,4 +49,8 @@ public class RoomTypeService {
 		 List<RoomTypeBean> bean =roomTypeDAO.findAll();
 		 return bean;
 	}
+	
+	public List<RoomTypeBean> findByHotelNo(Integer hotelNo){
+		return roomTypeDAO.findByHotelNo(hotelNo);
+	}
 }

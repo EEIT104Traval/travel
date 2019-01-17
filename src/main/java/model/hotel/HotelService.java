@@ -27,6 +27,12 @@ public class HotelService {
 		}
 		return result;
 	}
+	
+	public HotelBean getOne(Integer id) {
+		return  hotelDAO.findByPrimaryKey(id);
+	}
+	
+	
 	public HotelBean insert(HotelBean bean) {
 		HotelBean result = null;
 		if(bean!=null) {

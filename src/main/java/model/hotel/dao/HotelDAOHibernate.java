@@ -87,7 +87,7 @@ public class HotelDAOHibernate implements HotelDAO {
 		CriteriaBuilder criteriaBuilder = getSession().getCriteriaBuilder();
 		CriteriaQuery<HotelBean> criteria = criteriaBuilder.createQuery(HotelBean.class);
 		Root<HotelBean> from = criteria.from(HotelBean.class);
-		criteria.select(from).where(from.get("country").in(countryCH));
+		criteria.select(from).where(from.get("countryCH").in(countryCH));
 		List<HotelBean> list = getSession().createQuery(criteria).getResultList();
 		return list;
 	}
@@ -97,7 +97,7 @@ public class HotelDAOHibernate implements HotelDAO {
 		CriteriaBuilder criteriaBuilder = getSession().getCriteriaBuilder();
 		CriteriaQuery<HotelBean> criteria = criteriaBuilder.createQuery(HotelBean.class);
 		Root<HotelBean> from = criteria.from(HotelBean.class);
-		criteria.select(from).where(from.get("city").in(cityCH));
+		criteria.select(from).where(from.get("cityCH").in(cityCH));
 		List<HotelBean> list = getSession().createQuery(criteria).getResultList();
 		return list;
 	}

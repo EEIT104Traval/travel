@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -34,7 +35,7 @@ public class HotelController {
 	@ResponseBody
 	@RequestMapping("/voyage/city.controller")
 	public List<HotelBean> searchByCity(@RequestParam(value = "city", required = false) String cityCH) {
-		System.out.println("country=" + cityCH);
+		System.out.println("city=" + cityCH);
 		List<HotelBean> result = hotelService.searchCity(cityCH);
 		for (HotelBean TI : result)
 			System.out.println(TI);
@@ -47,6 +48,14 @@ public class HotelController {
 		List<HotelBean> result = hotelService.searchAll();
 		System.out.println(result);
 		return result;
+	}
+	
+	@RequestMapping("/voyage/listOneHotelPage")
+	public String listOneHotelPage(@RequestParam Integer hotelNo,Model model) {
+		System.out.println("listOneHotel");
+		HotelBean hotelBean = hotelService.getOne(hotelNo);
+		model.addAttribute("hotelBean", hotelBean);
+		return "hotelRoom.search";
 	}
 
 }
