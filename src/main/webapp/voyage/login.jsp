@@ -8,85 +8,24 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>會員登入/註冊</title>
 <!-- <link rel="stylesheet" href="/resources/demos/style.css"> -->
-<style>
-
-label, input {
-	display: block;
-}
-
-input.text {
-	margin-bottom: 1px;
-	width: 95%;
-	padding: .1em;
-}
-
-fieldset {
-	padding: 0;
-	border: 0;
-	margin-top: 5px;
-}
-
-h1 {
-	font-size: 1.2em;
-	margin: .6em 0;
-}
-
-div#users-contain {
-	width: 350px;
-	margin: 10px 0;
-}
-
-div#users-contain table {
-	margin: 1em 0;
-	border-collapse: collapse;
-	width: 100%;
-}
-
-div#users-contain table td, div#users-contain table th {
-	border: 1px solid #eee;
-	padding: .6em 10px;
-	text-align: left;
-}
-
-.ui-dialog .ui-state-error {
-	padding: .3em;
-}
-
-.validateTips {
-	border: 1px solid transparent;
-	padding: 0.3em;
-}
-.body > div.ui-dialog.ui-corner-all.ui-widget.ui-widget-content.ui-front.ui-draggable.ui-resizable{
-    position: absolute !important;
-    height: auto !important;
-    width: 550px !important;
-    top: 900px !important;
-    left: 586px !important;
-    display: block !important;
-    z-index: 101 !important;
-}
-</style>
+<link rel="stylesheet" href="./css/loginin.css">
+<link href="./css/login.css" rel="stylesheet">
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-
-<link href="./css/login.css" rel="stylesheet">
 <script src="./js/login.js"></script>
-
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
 <script>
 var params={}
 $(document).ready(function() {
 // 	var login = '${login}';
 // 	console.log(login);
 
-
-
-
 });
 function login(){
-	params.name=$('#name').val()
+	params.name=$('#username').val()
 	params.password=$('#password').val()
 	$.ajax({
 			url : '/Travel/voyage/login.controller',
@@ -103,6 +42,35 @@ function login(){
 		}
 	});
 }
+
+
+
+function registered(){
+	params.accountName=$('#accountName').val()
+	params.password=$('#password').val()
+	params.firstname=$('#firstname').val()
+	params.lastname=$('#lastname').val()
+	params.identityNo=$('#identityNo').val()
+	params.email=$('#email').val()
+	params.birth=$('#birth').val()
+	params.phone=$('#phone').val()
+	params.address=$('#address').val()
+	$.ajax({
+			url : '/Travel/voyage/registered.controller',
+			contentType : 'application/json; charset=UTF-8',
+			type : 'get',
+			dataType : 'json',
+			data:params,
+	}).success(function(JData) {
+		if(JData.failed==='註冊失敗'){
+			alert('註冊失敗');
+		}else{
+			alert("註冊成功，點擊轉跳頁面");
+	  	    location.reload();
+		}
+	});
+}
+
   $( function() {
     var dialog, form,
        // From http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#e-mail-state-%28type=email%29
@@ -131,6 +99,11 @@ function login(){
       } else {
         return true;
       }
+    }
+    
+    function logout(){
+    	alert('登出成功!!!!');
+		document.getElementById("create-user").innerHTML = '<span id="loginin">會員註冊/登入</span>';
     }
  
     function showLogin(){
@@ -198,7 +171,7 @@ function login(){
 //       addUser();
     });
  
-    $( "#create-user" ).button().on( "click", function() {
+    $( "#loginin" ).button().on( "click", function() {
       dialog.dialog( "open" );
     });
   } );
@@ -239,16 +212,16 @@ function login(){
 									<div class="form-group">
 										<div class="row">
 											<div class="col-sm-6 col-sm-offset-3">
-												<input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login" value="登入">
+												<input type="button" value="登入" onclick="login()" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login">
 											</div>
 										</div>
 									</div>
 									<div class="form-group">
 										<div class="row">
 											<div class="col-lg-12">
-												<div class="text-center">
-													<a href="https://phpoll.com/recover" tabindex="5" class="forgot-password">忘記密碼</a>
-												</div>
+<!-- 												<div class="text-center"> -->
+<!-- 													<a href="https://phpoll.com/recover" tabindex="5" class="forgot-password">忘記密碼</a> -->
+<!-- 												</div> -->
 												<div>
 												<p>快速登入</p>
 													<img src="<c:url value='./images/facebook.png' />" onclick="FBLogin();" width="25%" height="25%"> 
@@ -259,7 +232,8 @@ function login(){
 										</div>
 									</div>
 								</form>
-								<form id="register-form" action="<c:url value="/voyage/insert.controller" />" method="post" role="form" style="display: none;">
+<%-- 								<c:url value="/voyage/insert.controller" /> --%>
+								<form id="register-form" action="##" method="post" role="form" style="display: none;">
 									<div class="form-group">
 										<input type="text" name="accountName" id="accountName" tabindex="1" class="form-control" placeholder="帳號" value="">
 									</div>
@@ -273,10 +247,10 @@ function login(){
 										<input type="password" name="confirm-password" id="confirm-password" tabindex="2" class="form-control" placeholder="確認密碼">
 									</div>
 									<div class="form-group">
-										<input type="text" name="firstname" id="firstname" tabindex="2" class="form-control" placeholder="英文姓">
+										<input type="text" name="firstname" id="firstname" tabindex="2" class="form-control" placeholder="姓名">
 									</div>
 									<div class="form-group">
-										<input type="text" name="lastname" id="lastname" tabindex="2" class="form-control" placeholder="英文名">
+										<input type="text" name="lastname" id="lastname" tabindex="2" class="form-control" placeholder="暱稱">
 									</div>
 									<div class="form-group">
 										<input type="text" name="identityNo" id="identityNo" tabindex="2" class="form-control" placeholder="身分證字號">
@@ -294,7 +268,7 @@ function login(){
 									<div class="form-group">
 										<div class="row">
 											<div class="col-sm-6 col-sm-offset-3">
-												<input type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-register" value="立即註冊">
+												<input type="button" value="立即註冊" onclick="registered()" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-register" >
 												<input type="button" value="清除" onclick="clearForm()" tabindex="4" class="form-control btn btn-register">
 											</div>
 										</div>
@@ -309,8 +283,8 @@ function login(){
 	</div>
 
 		
-			<span class="error" id="loginerror">　</span>
-			<input type="button" value="Login" onclick="login()">
+<!-- 			<span class="error" id="loginerror">　</span> -->
+<!-- 			<input type="button" value="Login" onclick="login()"> -->
 <!-- 		</form> -->
 
 
@@ -411,14 +385,13 @@ function login(){
                     // Login API call is successful 
                     console.log(success);
                     let Google_ID = success["El"];
-                	alert("登入成功!! Welcome ChuChu");
+                    document.getElementById("create-user").innerHTML='<span onclick="this.innerHTML=\'會員註冊/登入\'; alert(\'登出成功!!!\')" >登出</span>';
                 	$.ajax({
                 		method: "GET",
                 		url:"/Travel/secure/gorfbLogin?loginId="+Google_ID,
-                		
-//                			url:"/Travel/tour/display?tourNo=1",
                 		dataType: "json",
                 		success: function(json) {
+                			alert("Google登入成功!! Welcome: "+json.lastname);
                 			console.log(json)
                 		}
                 		
@@ -459,7 +432,6 @@ function Del_FB_App() {
         }
     });
     
-    
 }
      </script>
 
@@ -481,7 +453,7 @@ function Del_FB_App() {
 
 
 
-	<span id="create-user" style="color:#fff">會員註冊/登入</span>
+	<span id="create-user" style="color:#fff"><span id="loginin">會員註冊/登入</span></span>
 
 
 
