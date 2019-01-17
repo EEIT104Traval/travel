@@ -88,7 +88,7 @@ public class LoginController {
 	// @RequestMapping("/userInfoupdate")
 	 @RequestMapping("/secure/gorfbLogin")
 	 public UserInfoBean update(String loginId) {
-		 System.out.println("loginId="+loginId);
+		 
 		 UserInfoBean update = userInfoService.gorfbLoginUpdateTime(loginId);		  
 		 return update;	  		  
 	 }

@@ -83,7 +83,7 @@
         <div class="team-meet hidden-xs">
             <h4 class="passage-info-title">旅客資料<span>(英文姓名輸入方式有誤,會產生無效訂位及開票,將造成您的損失,如有疑問,請洽客服人員)</span></h4>
         </div>
-
+		
         <div class="form-horizontal passage-info-form" novalidate="novalidate" role="form">
             <div class="totalperiod">
                 <span>旅客 1(成人)</span>
@@ -745,6 +745,353 @@
             <div class="clearfix" style="height:20px;"></div>
 
                     </div>
+       		<c:set var="peopleCount" scope="session" value='${map.peopleCount}'/>
+       		<c:if test="${peopleCount==2}">
+      		    <div class="secondaryMember">
+	        <div class="totalperiod">
+	            <span>旅客2 (成人)</span>
+	        <input hidden="hidden" name="AgeType1" value="0">
+	   	    </div>
+	        <div class="form-group">
+	            <label for="Gender1" class="passage-info-label col-md-1 col-xs-3">
+	                稱謂
+	            </label>
+	            <div class="col-md-3 col-xs-9">
+	                <select data-val="true" data-val-required="請輸入性別" id="Gender1" name="Gender1" class="form-control font15 order_if_select " onchange="setConnector();">
+	                    <option value="">
+	                        請選擇 
+	                    </option>
+	                            <option value="MR">
+	                                先生 
+	                            </option>
+	                            <option value="MS">
+	                                小姐 
+	                            </option>
+	
+	
+	                </select>
+	                <div class="errortext field-validation-error" data-valmsg-replace="true" data-valmsg-for="Gender1">
+	                </div>
+	            </div>
+	        </div>
+	        <div class="form-group">
+	            <label for="name" class="passage-info-label col-md-1 col-xs-3">
+	                姓氏<span class="visible-xs">(英)</span>
+	            </label>
+	            <div class="col-md-4 col-xs-9">
+	                <input data-val="true" data-val-required="請輸入姓氏" data-val-regex="姓氏必需為英文" data-val-regex-pattern="^[a-zA-Z ]*$" type="text" id="LastName1" name="LastName1" autocomplete="off" value="" class="form-control font15 uppercase" placeholder="英文，例如Lee" onchange="setConnector();">
+	                <div class="errortext field-validation-error" data-valmsg-replace="true" data-valmsg-for="LastName1">
+	                </div>
+	            </div>
+	            <div class="col-xs-12 visible-xs"></div>
+	            <label for="name" class="passage-info-label col-md-1 col-xs-3 margin-top-15">
+	                名字<span class="visible-xs">(英)</span>
+	            </label>
+	            <div class="col-md-4 col-xs-9 margin-top-15">
+	                <input data-val="true" data-val-required="請輸入名字" data-val-regex="名字必需為英文" data-val-regex-pattern="^[a-zA-Z ]*$" type="text" id="FirstName1" name="FirstName1" autocomplete="off" value="" class="form-control font15 uppercase" placeholder="英文，例如TaiWei" onchange="setConnector();">
+	                <span class="errortext field-validation-error" data-valmsg-replace="true" data-valmsg-for="FirstName1">
+	                </span>
+	            </div>
+	        </div>
+	            <div class="form-group">
+	                <label for="DateOfBirth1" class="passage-info-label col-md-1 col-xs-3">
+	                    生日
+	                    
+	                </label>
+	
+	
+	                            <div id="credit_date" class="col-md-6 col-xs-9">
+	                                <div class="input-group date certificates_effective">
+	                                    
+	
+	                                    <input id="DateOfBirth1" name="DateOfBirth1" err-required="請輸入日期" err-invalid="錯誤日期格式" err-range="錯誤日期範圍" class="form-control new-date" datef="1869/02/05" datet="2007/02/05" value="" placeholder="" type="text" autocomplete="off" style="display: none;"><div class="new-date-panel"><div class="input"><select class="form-control year"><option value="">年</option><option value="2007">2007年</option><option value="2006">2006年</option><option value="2005">2005年</option><option value="2004">2004年</option><option value="2003">2003年</option><option value="2002">2002年</option><option value="2001">2001年</option><option value="2000">2000年</option><option value="1999">1999年</option><option value="1998">1998年</option><option value="1997">1997年</option><option value="1996">1996年</option><option value="1995">1995年</option><option value="1994">1994年</option><option value="1993">1993年</option><option value="1992">1992年</option><option value="1991">1991年</option><option value="1990">1990年</option><option value="1989">1989年</option><option value="1988">1988年</option><option value="1987">1987年</option><option value="1986">1986年</option><option value="1985">1985年</option><option value="1984">1984年</option><option value="1983">1983年</option><option value="1982">1982年</option><option value="1981">1981年</option><option value="1980">1980年</option><option value="1979">1979年</option><option value="1978">1978年</option><option value="1977">1977年</option><option value="1976">1976年</option><option value="1975">1975年</option><option value="1974">1974年</option><option value="1973">1973年</option><option value="1972">1972年</option><option value="1971">1971年</option><option value="1970">1970年</option><option value="1969">1969年</option><option value="1968">1968年</option><option value="1967">1967年</option><option value="1966">1966年</option><option value="1965">1965年</option><option value="1964">1964年</option><option value="1963">1963年</option><option value="1962">1962年</option><option value="1961">1961年</option><option value="1960">1960年</option><option value="1959">1959年</option><option value="1958">1958年</option><option value="1957">1957年</option><option value="1956">1956年</option><option value="1955">1955年</option><option value="1954">1954年</option><option value="1953">1953年</option><option value="1952">1952年</option><option value="1951">1951年</option><option value="1950">1950年</option><option value="1949">1949年</option><option value="1948">1948年</option><option value="1947">1947年</option><option value="1946">1946年</option><option value="1945">1945年</option><option value="1944">1944年</option><option value="1943">1943年</option><option value="1942">1942年</option><option value="1941">1941年</option><option value="1940">1940年</option><option value="1939">1939年</option><option value="1938">1938年</option><option value="1937">1937年</option><option value="1936">1936年</option><option value="1935">1935年</option><option value="1934">1934年</option><option value="1933">1933年</option><option value="1932">1932年</option><option value="1931">1931年</option><option value="1930">1930年</option><option value="1929">1929年</option><option value="1928">1928年</option><option value="1927">1927年</option><option value="1926">1926年</option><option value="1925">1925年</option><option value="1924">1924年</option><option value="1923">1923年</option><option value="1922">1922年</option><option value="1921">1921年</option><option value="1920">1920年</option><option value="1919">1919年</option><option value="1918">1918年</option><option value="1917">1917年</option><option value="1916">1916年</option><option value="1915">1915年</option><option value="1914">1914年</option><option value="1913">1913年</option><option value="1912">1912年</option><option value="1911">1911年</option><option value="1910">1910年</option><option value="1909">1909年</option><option value="1908">1908年</option><option value="1907">1907年</option><option value="1906">1906年</option><option value="1905">1905年</option><option value="1904">1904年</option><option value="1903">1903年</option><option value="1902">1902年</option><option value="1901">1901年</option><option value="1900">1900年</option><option value="1899">1899年</option><option value="1898">1898年</option><option value="1897">1897年</option><option value="1896">1896年</option><option value="1895">1895年</option><option value="1894">1894年</option><option value="1893">1893年</option><option value="1892">1892年</option><option value="1891">1891年</option><option value="1890">1890年</option><option value="1889">1889年</option><option value="1888">1888年</option><option value="1887">1887年</option><option value="1886">1886年</option><option value="1885">1885年</option><option value="1884">1884年</option><option value="1883">1883年</option><option value="1882">1882年</option><option value="1881">1881年</option><option value="1880">1880年</option><option value="1879">1879年</option><option value="1878">1878年</option><option value="1877">1877年</option><option value="1876">1876年</option><option value="1875">1875年</option><option value="1874">1874年</option><option value="1873">1873年</option><option value="1872">1872年</option><option value="1871">1871年</option><option value="1870">1870年</option><option value="1869">1869年</option></select><select class="form-control month"><option value="">月</option><option value="1">1月</option><option value="2">2月</option><option value="3">3月</option><option value="4">4月</option><option value="5">5月</option><option value="6">6月</option><option value="7">7月</option><option value="8">8月</option><option value="9">9月</option><option value="10">10月</option><option value="11">11月</option><option value="12">12月</option></select><select class="form-control day"><option value="">日</option><option value="1">1日</option><option value="2">2日</option><option value="3">3日</option><option value="4">4日</option><option value="5">5日</option><option value="6">6日</option><option value="7">7日</option><option value="8">8日</option><option value="9">9日</option><option value="10">10日</option><option value="11">11日</option><option value="12">12日</option><option value="13">13日</option><option value="14">14日</option><option value="15">15日</option><option value="16">16日</option><option value="17">17日</option><option value="18">18日</option><option value="19">19日</option><option value="20">20日</option><option value="21">21日</option><option value="22">22日</option><option value="23">23日</option><option value="24">24日</option><option value="25">25日</option><option value="26">26日</option><option value="27">27日</option><option value="28">28日</option><option value="29">29日</option><option value="30">30日</option><option value="31">31日</option></select></div><div class="errortext" style="display: none;"></div></div>
+	                                   </div>
+	                                   <div class="errortext field-validation-valid" data-valmsg-replace="true" data-valmsg-for="DateOfBirth0"></div>
+	                               </div>
+	
+	               </div>
+	               <div class="form-group">
+	                   <label for="tel3" class="passage-info-label col-md-1 col-xs-3">
+	                       國籍
+	                   </label>
+	                   <div class="col-md-4 col-xs-9">
+	                       <select id="Nationality1" name="Nationality1" class="form-control font15 order_if_select" onchange="ifNeedMoreInfor(this)" data-val="true" data-val-required="請輸選擇國籍">
+	                               <option value="">請選擇</option>
+	                                       <option value="AD"> Andorra </option>
+	                                       <option value="TF"> French Southern Territories </option>
+	                                       <option value="IM"> Isle Of Man </option>
+	                                       <option value="XK"> Kosovo </option>
+	                                       <option value="OM"> Oman Sultanate Of </option>
+	                                       <option value="BL"> St Barthelemy </option>
+	                                       <option value="MF"> St Martin </option>
+	                                       <option value="PS"> State of Palestine </option>
+	                                       <option value="TK"> Tokelau </option>
+	                                       <option value="VI"> Us Virgin Isalnds </option>
+	                                       <option value="TT"> 千里達及托巴哥 </option>
+	                                       <option value="TR"> 土耳其 </option>
+	                                       <option value="TC"> 土克斯及開科斯群島 </option>
+	                                       <option value="TM"> 土庫曼 </option>
+	                                       <option value="BT"> 不丹 </option>
+	                                       <option value="CF"> 中非共和國 </option>
+	                                       <option value="CN"> 中國大陸 </option>
+	                                       <option value="DK"> 丹麥 </option>
+	                                       <option value="EC"> 厄瓜多 </option>
+	                                       <option value="ER"> 厄利垂亞 </option>
+	                                       <option value="PG"> 巴布亞新幾內亞 </option>
+	                                       <option value="BR"> 巴西 </option>
+	                                       <option value="BB"> 巴貝多 </option>
+	                                       <option value="PY"> 巴拉圭 </option>
+	                                       <option value="BH"> 巴林 </option>
+	                                       <option value="BS"> 巴哈馬 </option>
+	                                       <option value="PA"> 巴拿馬 </option>
+	                                       <option value="PK"> 巴基斯坦 </option>
+	                                       <option value="JP"> 日本 </option>
+	                                       <option value="BE"> 比利時 </option>
+	                                       <option value="JM"> 牙買加 </option>
+	                                       <option value="IL"> 以色列 </option>
+	                                       <option value="CA"> 加拿大 </option>
+	                                       <option value="GA"> 加彭 </option>
+	                                       <option value="QA"> 卡達 </option>
+	                                       <option value="CU"> 古巴 </option>
+	                                       <option value="CC"> 可可斯群島 </option>
+	                                   <option value="TW" selected="selected"> 台灣 </option>
+	                                       <option value="SZ"> 史瓦濟蘭 </option>
+	                                       <option value="NE"> 尼日 </option>
+	                                       <option value="NI"> 尼加拉瓜 </option>
+	                                       <option value="NP"> 尼泊爾 </option>
+	                                       <option value="BF"> 布吉納法索 </option>
+	                                       <option value="BV"> 布威島 </option>
+	                                       <option value="GT"> 瓜地馬拉 </option>
+	                                       <option value="WF"> 瓦利斯及福杜納群島 </option>
+	                                       <option value="GM"> 甘比亞 </option>
+	                                       <option value="BY"> 白俄羅斯 </option>
+	                                       <option value="PN"> 皮特康 </option>
+	                                       <option value="LT"> 立陶宛 </option>
+	                                       <option value="IQ"> 伊拉克 </option>
+	                                       <option value="IR"> 伊朗 </option>
+	                                       <option value="IS"> 冰島 </option>
+	                                       <option value="LI"> 列支敦斯登 </option>
+	                                       <option value="HU"> 匈牙利 </option>
+	                                       <option value="ID"> 印尼 </option>
+	                                       <option value="IN"> 印度 </option>
+	                                       <option value="DJ"> 吉布地 </option>
+	                                       <option value="KI"> 吉里巴斯 </option>
+	                                       <option value="KG"> 吉爾吉斯 </option>
+	                                       <option value="TV"> 吐瓦魯 </option>
+	                                       <option value="DM"> 多米尼克 </option>
+	                                       <option value="DO"> 多明尼加共和國 </option>
+	                                       <option value="TG"> 多哥 </option>
+	                                       <option value="AI"> 安圭拉 </option>
+	                                       <option value="AG"> 安地卡及巴布達 </option>
+	                                       <option value="AO"> 安哥拉 </option>
+	                                       <option value="BM"> 百慕達 </option>
+	                                       <option value="ET"> 衣索比亞 </option>
+	                                       <option value="ES"> 西班牙 </option>
+	                                       <option value="EH"> 西撒哈拉 </option>
+	                                       <option value="HR"> 克羅埃西亞 </option>
+	                                       <option value="SJ"> 冷岸及央棉群島 </option>
+	                                       <option value="LY"> 利比亞 </option>
+	                                       <option value="HN"> 宏都拉斯 </option>
+	                                       <option value="GR"> 希臘 </option>
+	                                       <option value="BN"> 汶萊 </option>
+	                                       <option value="SA"> 沙烏地阿拉伯 </option>
+	                                       <option value="BZ"> 貝里斯 </option>
+	                                       <option value="BJ"> 貝南 </option>
+	                                       <option value="GQ"> 赤道幾內亞 </option>
+	                                       <option value="ZW"> 辛巴威 </option>
+	                                       <option value="AM"> 亞美尼亞 </option>
+	                                       <option value="SH"> 亞森欣島/聖 赫勒拿島 </option>
+	                                       <option value="AZ"> 亞塞拜然 </option>
+	                                       <option value="TZ"> 坦尚尼亞 </option>
+	                                       <option value="NG"> 奈及利亞 </option>
+	                                       <option value="VE"> 委內瑞拉 </option>
+	                                       <option value="BD"> 孟加拉 </option>
+	                                       <option value="ZM"> 尚比亞 </option>
+	                                       <option value="PW"> 帛琉 </option>
+	                                       <option value="LV"> 拉脫維亞 </option>
+	                                       <option value="TO"> 東加 </option>
+	                                       <option value="TL"> 東帝汶 </option>
+	                                       <option value="FR"> 法國 </option>
+	                                       <option value="FO"> 法羅群島 </option>
+	                                       <option value="GF"> 法屬圭亞那 </option>
+	                                       <option value="PF"> 法屬玻里尼西亞 </option>
+	                                       <option value="BA"> 波士尼亞赫塞哥維那 </option>
+	                                       <option value="BW"> 波札那 </option>
+	                                       <option value="PR"> 波多黎各 </option>
+	                                       <option value="PL"> 波蘭 </option>
+	                                       <option value="GI"> 直布羅陀 </option>
+	                                       <option value="KE"> 肯亞 </option>
+	                                       <option value="FI"> 芬蘭 </option>
+	                                       <option value="AE"> 阿拉伯聯合大公國 </option>
+	                                       <option value="AR"> 阿根廷 </option>
+	                                       <option value="AF"> 阿富汗 </option>
+	                                       <option value="AW"> 阿路巴 </option>
+	                                       <option value="DZ"> 阿爾及利亞 </option>
+	                                       <option value="AL"> 阿爾巴尼亞 </option>
+	                                       <option value="RU"> 俄羅斯聯邦 </option>
+	                                       <option value="BG"> 保加利亞 </option>
+	                                       <option value="ZA"> 南非 </option>
+	                                       <option value="GS"> 南喬治亞及南三明治群島 </option>
+	                                       <option value="AQ"> 南極洲 </option>
+	                                       <option value="SS"> 南蘇丹 </option>
+	                                       <option value="KZ"> 哈薩克 </option>
+	                                       <option value="TD"> 查德 </option>
+	                                       <option value="KH"> 柬埔寨 </option>
+	                                       <option value="CK"> 柯克群島 </option>
+	                                       <option value="BO"> 玻利維亞 </option>
+	                                       <option value="KW"> 科威特 </option>
+	                                       <option value="TN"> 突尼西亞 </option>
+	                                       <option value="JO"> 約旦 </option>
+	                                       <option value="US"> 美國 </option>
+	                                       <option value="UM"> 美國外島 </option>
+	                                       <option value="AS"> 美屬薩摩亞 </option>
+	                                       <option value="GB"> 英國 </option>
+	                                       <option value="IO"> 英屬印度洋領土 </option>
+	                                       <option value="VG"> 英屬維爾京群島 </option>
+	                                       <option value="MR"> 茅利塔尼亞 </option>
+	                                       <option value="GH"> 迦納 </option>
+	                                       <option value="HK"> 香港 </option>
+	                                       <option value="CG"> 剛果 </option>
+	                                       <option value="CD"> 剛果民主共和國 </option>
+	                                       <option value="CO"> 哥倫比亞 </option>
+	                                       <option value="CR"> 哥斯大黎加 </option>
+	                                       <option value="GP"> 哥德普洛 </option>
+	                                       <option value="EG"> 埃及 </option>
+	                                       <option value="CW"> 庫拉索島 </option>
+	                                       <option value="NO"> 挪威 </option>
+	                                       <option value="GG"> 根息 </option>
+	                                       <option value="GL"> 格陵蘭 </option>
+	                                       <option value="GD"> 格瑞那達 </option>
+	                                       <option value="TH"> 泰國 </option>
+	                                       <option value="HT"> 海地 </option>
+	                                       <option value="UG"> 烏干達 </option>
+	                                       <option value="UA"> 烏克蘭 </option>
+	                                       <option value="UY"> 烏拉圭 </option>
+	                                       <option value="UZ"> 烏茲別克 </option>
+	                                       <option value="RE"> 留尼旺 </option>
+	                                       <option value="PE"> 秘魯 </option>
+	                                       <option value="NA"> 納米比亞 </option>
+	                                       <option value="NZ"> 紐西蘭 </option>
+	                                       <option value="NU"> 紐威島 </option>
+	                                       <option value="SO"> 索馬利亞 </option>
+	                                       <option value="SB"> 索羅門群島 </option>
+	                                       <option value="MQ"> 馬丁尼克 </option>
+	                                       <option value="ML"> 馬利 </option>
+	                                       <option value="MP"> 馬里安納群島 </option>
+	                                       <option value="MY"> 馬來西亞 </option>
+	                                       <option value="MK"> 馬其頓 </option>
+	                                       <option value="MW"> 馬拉威 </option>
+	                                       <option value="YT"> 馬約特島 </option>
+	                                       <option value="MH"> 馬紹爾群島 </option>
+	                                       <option value="MG"> 馬達加斯加 </option>
+	                                       <option value="MT"> 馬爾他 </option>
+	                                       <option value="MV"> 馬爾地夫 </option>
+	                                       <option value="FM"> 密克羅尼西亞 </option>
+	                                       <option value="CZ"> 捷克共和國 </option>
+	                                       <option value="SY"> 敘利亞阿拉伯共和國 </option>
+	                                       <option value="VA"> 教廷 </option>
+	                                       <option value="AN"> 荷屬安替列斯 </option>
+	                                       <option value="NL"> 荷蘭 </option>
+	                                       <option value="MZ"> 莫三比克 </option>
+	                                       <option value="BQ"> 博奈爾 </option>
+	                                       <option value="CM"> 喀麥隆共和國 </option>
+	                                       <option value="GE"> 喬治亞 </option>
+	                                       <option value="GN"> 幾內亞 </option>
+	                                       <option value="GW"> 幾內亞比索 </option>
+	                                       <option value="FJ"> 斐濟群島 </option>
+	                                       <option value="LK"> 斯里蘭卡 </option>
+	                                       <option value="SK"> 斯洛伐克 </option>
+	                                       <option value="SI"> 斯洛維尼亞 </option>
+	                                       <option value="CL"> 智利 </option>
+	                                       <option value="KP"> 朝鮮 </option>
+	                                       <option value="PH"> 菲律賓 </option>
+	                                       <option value="CI"> 象牙海岸 </option>
+	                                       <option value="VN"> 越南 </option>
+	                                       <option value="KY"> 開曼群島 </option>
+	                                       <option value="TJ"> 塔吉克 </option>
+	                                       <option value="SN"> 塞內加爾 </option>
+	                                       <option value="SC"> 塞席爾群島 </option>
+	                                       <option value="RS"> 塞爾維亞 </option>
+	                                       <option value="AT"> 奧地利 </option>
+	                                       <option value="AX"> 奧蘭群島 </option>
+	                                       <option value="EE"> 愛沙尼亞 </option>
+	                                       <option value="IE"> 愛爾蘭 </option>
+	                                       <option value="SG"> 新加坡 </option>
+	                                       <option value="NC"> 新喀里多尼亞群島 </option>
+	                                       <option value="SL"> 獅子山 </option>
+	                                       <option value="CH"> 瑞士 </option>
+	                                       <option value="SE"> 瑞典 </option>
+	                                       <option value="IT"> 義大利 </option>
+	                                       <option value="PM"> 聖 皮埃爾島和密克隆島 </option>
+	                                       <option value="KN"> 聖 克里斯多福及尼維斯 </option>
+	                                       <option value="VC"> 聖文森及格瑞那丁 </option>
+	                                       <option value="ST"> 聖多美普林西比 </option>
+	                                       <option value="SM"> 聖馬利諾 </option>
+	                                       <option value="SX"> 聖馬爾丁 </option>
+	                                       <option value="CX"> 聖誕島 </option>
+	                                       <option value="LC"> 聖露西亞 </option>
+	                                       <option value="VU"> 萬那杜 </option>
+	                                       <option value="YE"> 葉門共和國 </option>
+	                                       <option value="KM"> 葛摩 </option>
+	                                       <option value="PT"> 葡萄牙 </option>
+	                                       <option value="FK"> 福克蘭群島 </option>
+	                                       <option value="CV"> 維德角共和國 </option>
+	                                       <option value="MN"> 蒙古 </option>
+	                                       <option value="ME"> 蒙特內哥羅 </option>
+	                                       <option value="MS"> 蒙特色拉特島 </option>
+	                                       <option value="BI"> 蒲隆地 </option>
+	                                       <option value="GY"> 蓋亞納 </option>
+	                                       <option value="HM"> 赫德島和麥當勞群島 </option>
+	                                       <option value="MX"> 墨西哥 </option>
+	                                       <option value="LA"> 寮人民民主 共和國 </option>
+	                                       <option value="DE"> 德國 </option>
+	                                       <option value="MA"> 摩洛哥 </option>
+	                                       <option value="MC"> 摩納哥 </option>
+	                                       <option value="MD"> 摩爾多瓦 </option>
+	                                       <option value="MU"> 模里西斯 </option>
+	                                       <option value="MM"> 緬甸 </option>
+	                                       <option value="LB"> 黎巴嫩 </option>
+	                                       <option value="JE"> 澤西島 </option>
+	                                       <option value="AU"> 澳大利亞 </option>
+	                                       <option value="MO"> 澳門 </option>
+	                                       <option value="RW"> 盧安達 </option>
+	                                       <option value="LU"> 盧森堡 </option>
+	                                       <option value="NF"> 諾福克島 </option>
+	                                       <option value="NR"> 諾魯 </option>
+	                                       <option value="LR"> 賴比瑞亞 </option>
+	                                       <option value="LS"> 賴索托 </option>
+	                                       <option value="CY"> 賽普勒斯 </option>
+	                                       <option value="KR"> 韓國 </option>
+	                                       <option value="SV"> 薩爾瓦多 </option>
+	                                       <option value="WS"> 薩摩亞獨立國 </option>
+	                                       <option value="RO"> 羅馬尼亞 </option>
+	                                       <option value="GU"> 關島 </option>
+	                                       <option value="SD"> 蘇丹 </option>
+	                                       <option value="SR"> 蘇利南 </option>
+	
+	                       </select>
+	                       <div class="errortext field-validation-error" data-valmsg-replace="true" data-valmsg-for="Nationality1">
+	                       </div>
+	                   </div>
+	               </div>
+	               
+	
+	            
+	           </div>
+				<div class="form-group">
+	                                   <label for="" class="col-md-2 hidden-xs">航空公司會員</label>
+	                                   <label for="" class="col-xs-3 visible-xs">航空會員</label>
+	                                   <div class="col-md-5 col-xs-9 flightMember">
+	                                       <input maxlength="30" type="text" id="flyNumber1" name="flyNumber1" class="form-control" onkeyup="showMemberNumErrorMsg(this)" placeholder="航空公司會員卡號" autocomplete="off">
+	                                    <div class="errortext field-validation-error memberNumErrorMsg" style="display:none;">無效會員卡號</div>
+	                                      </div>
+	                        </div>
+				<div class="clearfix" style="height:20px;"></div>
+			</c:if>
+	
+
+       
+       
         <input type="hidden" name="sid" value="bc35dea4b39c1e30268c">
         <input type="hidden" name="source" value="skyscanner">'
    

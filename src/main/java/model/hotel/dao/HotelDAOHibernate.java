@@ -48,16 +48,21 @@ public class HotelDAOHibernate implements HotelDAO {
 	}
 	
 	@Override
-	public HotelBean update(Integer hotelNo,  String hotelName, String country, String city, String address, Integer hotelTotalRooms, String starRate, String price, String pic) {
+	public HotelBean update(Integer hotelNo, String hotelNameCH, String hotelNameEN, String countryCH, String countryEN, String cityCH, 
+			String cityEN, String address, Integer hotelTotalRooms, Integer star, String starRate, String price, String pic) {
 		HotelBean result = this.getSession().get(HotelBean.class, hotelNo);
 		
 		if(result!=null) {
 			result.setHotelNo(hotelNo);
-			result.setHotelName(hotelName);
-			result.setCountry(country);
-			result.setCity(city);
+			result.setHotelNameCH(hotelNameCH);
+			result.setHotelNameEN(hotelNameEN);
+			result.setCountryCH(countryCH);
+			result.setCountryEN(countryEN);
+			result.setCityCH(cityCH);
+			result.setCityEN(cityEN);
 			result.setAddress(address);
 			result.setHotelTotalRooms(hotelTotalRooms);
+			result.setStar(star);
 			result.setStarRate(starRate);
 			result.setPrice(price);
 			result.setPic(pic);
@@ -78,21 +83,21 @@ public class HotelDAOHibernate implements HotelDAO {
 	}
 	
 	@Override
-	public List<HotelBean> searchByCountry(String country) {
+	public List<HotelBean> searchByCountry(String countryCH) {
 		CriteriaBuilder criteriaBuilder = getSession().getCriteriaBuilder();
 		CriteriaQuery<HotelBean> criteria = criteriaBuilder.createQuery(HotelBean.class);
 		Root<HotelBean> from = criteria.from(HotelBean.class);
-		criteria.select(from).where(from.get("country").in(country));
+		criteria.select(from).where(from.get("country").in(countryCH));
 		List<HotelBean> list = getSession().createQuery(criteria).getResultList();
 		return list;
 	}
 	
 	@Override
-	public List<HotelBean> searchByCity(String city) {
+	public List<HotelBean> searchByCity(String cityCH) {
 		CriteriaBuilder criteriaBuilder = getSession().getCriteriaBuilder();
 		CriteriaQuery<HotelBean> criteria = criteriaBuilder.createQuery(HotelBean.class);
 		Root<HotelBean> from = criteria.from(HotelBean.class);
-		criteria.select(from).where(from.get("city").in(city));
+		criteria.select(from).where(from.get("city").in(cityCH));
 		List<HotelBean> list = getSession().createQuery(criteria).getResultList();
 		return list;
 	}

@@ -62,8 +62,9 @@ public class UserInfoService {
 	
 	public UserInfoBean gorfbLoginUpdateTime(String loginId) {
 		UserInfoBean bean = userInfoDAO.findByLoginId(loginId);
+		System.out.println("bean="+bean);
 		if(bean!=null) {
-		
+			System.out.println(" in loginId="+loginId);
 		Timestamp updateTime = new Timestamp(System.currentTimeMillis()); // TODO: set update time = now
 		userInfoDAO.update(bean.getAccountName(),bean.getPassword(), bean.getFirstname(), bean.getLastname(), bean.getIdentityNo(),bean.getEmail(),
 				bean.getBirth(),bean.getSex(),bean.getPhone(),bean.getAddress(),bean.getAuthority(),bean.getGorfb(),bean.getLoginId(),updateTime);
