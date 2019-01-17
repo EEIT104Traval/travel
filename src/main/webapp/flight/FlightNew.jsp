@@ -402,6 +402,5 @@
 		type="text/javascript"></script>
 	<script
 		src="<c:url value='/flight/彈窗/custom-popup/jquery.custom.popup-v1.3.1.js'/>"></script>
-	<jsp:include page="/voyage/foo.jsp" />
 </body>
 </html>
