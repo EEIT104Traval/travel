@@ -27,63 +27,85 @@
 </head>
 <body>
 
-	<div style="border: 1px solid black; margin-top: 10px"
-		id="roomTypecontainer">
-		<div class="container-fluid">
-			<div class="row">
-				<div class="col-md-12">
-					<div class="row">
-						<div class="col-md-6">
-							<img style="width: 350px" alt="Bootstrap Image Preview"
-								src="https://dimg04.c-ctrip.com/images/fd/hotel/g2/M05/31/12/Cghzf1VNFfCAID8bAAqxINPZe2w423_R_800_525_R5_D.jpg" />
-						</div>
-						<div class="col-md-6">
-							<h4>天際線客房（1 張睡床）</h4>
-							<p>從高樓層客房盡情飽覽著名鬧市美景。一張大床。 2 人入住。</p>
-							<p>紐約市的迷人景致盡收眼底，同時在客房內收看 55 吋高清電視，讓自己徹底放鬆；在大型辦公桌前趕上工作進度；並且使用
-								WiFi 無線上網與外界保持連線。</p>
-							<a href="#" class="tm-recommended-price-box">
-								<p class="tm-recommended-price">$NT 6,836</p>
-								<div class="panel-group why-choose-group" id="accordion">
-									<div class="panel panel-default">
-										<div class="panel-heading">
-											<h4 class="panel-title">
-												<div data-toggle="collapse" data-parent="#accordion"
-													href="#collapseOne" class="title" id="1">查看空房</div>
-												<span class="fa fa-minus-square"></span>
-							</a>
-						</div>
+	<div class="hotelInfoBox">
 
-					</div>
-				</div>
+		<div
+			class="item imgLiquidFill roomSceneBox imgLiquid_bgSize imgLiquid_ready"
+			relcontrol="0" type="room" room_code="DBT.BS" comment_id=""
+			style="background-image: url(&quot;https://dszfbyatv8d2t.cloudfront.net/hotel/hotelDetail_error_room.svg&quot;); background-size: cover; background-position: center center; background-repeat: no-repeat;">
+			<img
+				src="https://dszfbyatv8d2t.cloudfront.net/hotel/hotelDetail_error_room.svg"
+				alt="" title="" style="display: none;">
+		</div>
+
+		<!-- 房型簡易說明 -->
+		<div class="item roomSceneBox" rel="roomInfo" relcontrol="0"
+			type="room" room_code="DBT.BS" comment_id="">
+			<p class="itemTitle">Double or Twin BUSINESS 單床或雙床雙人房 商務</p>
+			<div class="roomInfoList">
+				<!-- 房間設施 -->
+
 			</div>
-			<div id="collapseOne" class="panel-collapse collapse in">
-				<div class="panel-body">
-					<p id="sds">Anim pariatur cliche reprehenderit, enim eiusmod
-						high life accusamus terry richardson ad squid. 3 wolf moon officia
-						aute, non cupidatat skateboard dolor brunch. Food truck quinoa
-						nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua
-						put a bird on it squid single-origin coffee nulla assumenda
-						shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore
-						wes anderson cred nesciunt sapiente ea proident. Ad vegan
-						excepteur butcher vice lomo. Leggings occaecat craft beer
-						farm-to-table, raw denim aesthetic synth nesciunt you probably
-						haven't heard of them accusamus labore sustainable VHS.Anim
-						pariatur cliche reprehenderit, enim eiusmod high life accusamus
-						terry richardson ad squid. 3 wolf moon officia aute, non cupidatat
-						skateboard dolor brunch. Food truck quinoa nesciunt laborum
-						eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it
-						squid single-origin coffee nulla assumenda shoreditch et. Nihil
-						anim keffiyeh helvetica, craft beer labore wes anderson cred
-						nesciunt sapiente ea proident. Ad vegan excepteur butcher vice
-						lomo. Leggings occaecat craft beer farm-to-table, raw denim
-						aesthetic synth nesciunt you probably haven't heard of them
-						accusamus labore sustainable VHS. ${param.pet}</p>
-				</div>
+			<div class="roomDesc">客房詳細資訊</div>
+		</div>
+		<!-- 房型完整說明 -->
+		<!-- 可免費取消時加入 hasFreeCancel -->
+		<div class="item hasFreeCancel" rel="roomRemarks">
+
+
+
+			<p class="itemTitle">不含餐</p>
+
+
+
+			<div class="cancelBox">
+
+				<!--
+                                <div class="freeBox">
+                                    <i class="material-icons">&#xE5CA;</i>皆可免費取消
+                                </div>
+                                -->
+
 			</div>
 		</div>
-	</div>
-	</div>
+		<!-- 房型售價 -->
+		<!-- 可減價時時加入 hasPriceDown，有特惠價時加入 hasSpecialPrice -->
+
+		<div class="item" rel="roomPrice">
+
+			<!-- 現在拿不到相關數據 -->
+			<!-- <div class="saleBox">
+                        <div class="priceDown text-left">減價<span>40</span>%</div>
+                        <div class="oldPrice text-right">NT$<span>4,800</span></div>
+                        </div> -->
+			<p>
+				<span>NT$</span><span>1,857</span>每晚
+			</p>
+			<div class="specialPrice">
+				<i class="material-icons"></i>特惠價不可退訂
+			</div>
+			<div class="buyIt">
+				<a
+					href="https://www.tripresso.com/hotel/order/buy?hid=408603&amp;query=MjAxOTAxMjQlN0MyMDE5MDEyNSU3Q1clN0M0MzklN0M0MDg2MDMlN0NEQlQuQlMlN0NJRF9CMkJfMzAlN0NSTyU3Q0RJU0cyMyU3QzElN0UyJTdFMCU3QyU3Q04lNDBFMDE3NEVBNDFBNjQ0MTExNTQ3NzUwODMzMTY3QVdUVzAwMDAwMDEwMDAxMDAwMTA1MjQ3MzU="
+					title="Double or Twin BUSINESS 單床或雙床雙人房 商務"
+					class="btn btn-secondary">立即預訂</a>
+			</div>
+			<!-- 房間剩下20間以下顯示 -->
+
+			<p class="roomNum">房況緊張，只剩1間房</p>
+
+		</div>
+		<!-- 立即購買 -->
+		<div class="item" rel="buy">
+			<div class="buyIt">
+				<a
+					href="https://www.tripresso.com/hotel/order/buy?hid=408603&amp;query=MjAxOTAxMjQlN0MyMDE5MDEyNSU3Q1clN0M0MzklN0M0MDg2MDMlN0NEQlQuQlMlN0NJRF9CMkJfMzAlN0NSTyU3Q0RJU0cyMyU3QzElN0UyJTdFMCU3QyU3Q04lNDBFMDE3NEVBNDFBNjQ0MTExNTQ3NzUwODMzMTY3QVdUVzAwMDAwMDEwMDAxMDAwMTA1MjQ3MzU="
+					title="Double or Twin BUSINESS 單床或雙床雙人房 商務"
+					class="btn btn-secondary">立即預訂</a>
+			</div>
+			<!-- 房間剩下20間以下顯示 -->
+			<p class="roomNum">房況緊張，只剩1間房</p>
+		</div>
 	</div>
 
 	<script src="js/jquery.min.js"></script>
