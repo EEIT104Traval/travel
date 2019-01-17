@@ -16,62 +16,62 @@ public class TourMemberInfoBean implements Serializable{
 	@Id
 	private Integer purchaseOrder;
 	
-	private String fName;
-	private String lName;
+	private String fullName;
+	private String passport;
+	private String sex;
 	private Integer price;
 	private String passenger;
-
+	
 	@Override
 	public String toString() {
-		return "TourMemberInfoBean [serialNo=" + orderNo + ", purchaseOrder=" + purchaseOrder + ", fName=" + fName
-				+ ", lname=" + lName + ", price=" + price + ", passenger=" + passenger + "]";
+		return "TourMemberInfoBean [orderNo=" + orderNo + ", purchaseOrder=" + purchaseOrder + ", fullName=" + fullName
+				+ ", passport=" + passport + ", sex=" + sex + ", price=" + price + ", passenger=" + passenger + "]";
 	}
-
+	
 	public Integer getOrderNo() {
 		return orderNo;
 	}
-
 	public void setOrderNo(Integer orderNo) {
 		this.orderNo = orderNo;
 	}
-
 	public Integer getPurchaseOrder() {
 		return purchaseOrder;
 	}
-
 	public void setPurchaseOrder(Integer purchaseOrder) {
 		this.purchaseOrder = purchaseOrder;
 	}
-
-	public String getfName() {
-		return fName;
+	public String getFullName() {
+		return fullName;
 	}
-
-	public void setfName(String fName) {
-		this.fName = fName;
+	public void setFullName(String fullName) {
+		this.fullName = fullName;
 	}
-
-	public String getlName() {
-		return lName;
+	public String getPassport() {
+		return passport;
 	}
-
-	public void setlName(String lName) {
-		this.lName = lName;
+	public void setPassport(String passport) {
+		this.passport = passport;
 	}
-
+	public String getSex() {
+		return sex;
+	}
+	public void setSex(String sex) {
+		this.sex = sex;
+	}
 	public Integer getPrice() {
 		return price;
 	}
-
 	public void setPrice(Integer price) {
 		this.price = price;
 	}
-
 	public String getPassenger() {
 		return passenger;
 	}
-
 	public void setPassenger(String passenger) {
 		this.passenger = passenger;
 	}
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
 }

@@ -6,6 +6,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
 <link rel="stylesheet" type="text/css"
 	href="<c:url value='/flight/xianqi/css/trip.css'/>" />
 <link rel="stylesheet" type="text/css"
@@ -32,6 +36,16 @@
 /*     overflow: hidden; */
 /* } */
 </style>
+<script type="text/javascript">
+$(document).ready(function() {
+	var Today=new Date();
+	
+	$('#dealDate').val(Today);
+// 	alert(Today);
+})
+
+
+</script>
 	
 </head>
 
@@ -84,7 +98,7 @@
             <h4 class="passage-info-title">旅客資料<span>(英文姓名輸入方式有誤,會產生無效訂位及開票,將造成您的損失,如有疑問,請洽客服人員)</span></h4>
         </div>
 		
-        <div class="form-horizontal passage-info-form" novalidate="novalidate" role="form">
+        <div class="form-horizontal passage-info-form" novalidate="novalidate" role="form" >
             <div class="totalperiod">
                 <span>旅客 1(成人)</span>
             </div>
@@ -1155,7 +1169,7 @@
             電話
         </label>
         <div class="col-md-3 col-xs-4 phoneAreaList">
-            <select id="tel0" name="contactmobileCountry" class="form-control PhoneList">
+            <select id="phone" name="contactmobileCountry" class="form-control PhoneList">
                             <option value="852">香港 (852)</option>
                             <option value="86">中國 (86)</option>
                             <option value="1">美國 (1)</option>
@@ -1415,7 +1429,7 @@
                         手機
                     </label>
                     <div class="col-md-5 col-xs-9">
-                        <input id="contactmobileNumber" name="contactmobileNumber" data-val="true" data-val-required="請輸入手機號碼" data-val-regex="請輸入有效手機號碼" data-val-regex-pattern="^[0-9()+ -]*$" type="tel" value="" placeholder="" class="form-control" autocomplete="off">
+                        <input id="phone" name="phone" data-val="true" data-val-required="請輸入手機號碼" data-val-regex="請輸入有效手機號碼" data-val-regex-pattern="^[0-9()+ -]*$" type="tel" value="" placeholder="" class="form-control" autocomplete="off">
                         <div class="errortext field-validation-error" data-valmsg-replace="true" data-valmsg-for="contactmobileNumber">
                         </div>
                     </div>
@@ -1425,7 +1439,7 @@
                         電郵
                     </label>
                     <div class="col-md-6 col-xs-9">
-                        <input data-val="true" data-val-email="無效電郵地址" data-val-required="請輸入電郵" type="email" id="contactEmail" name="contactEmail" value="" class="form-control" placeholder="" autocomplete="off">
+                        <input data-val="true" data-val-email="無效電郵地址" data-val-required="請輸入電郵" type="email" id="email" name="email" value="" class="form-control" placeholder="" autocomplete="off">
                         <div class="errortext field-validation-error" data-valmsg-replace="true" data-valmsg-for="contactEmail">
                         </div>
                     </div>
@@ -1578,13 +1592,20 @@
 			<div style="margin-top: 20px"><input name="need_inv" id="checkboxRead" type="checkbox" style="height:15px;width:15px;"><label for="checkboxRead">我已完整閱讀訂航班條款與細則，並同意所有規定事項。</label></div>
 
     </section>
+    <input id="dealDate" name="dealDate" style="display: none;">
+    <input id="orderStatus" name="orderStatus" style="display: none;" value="未付款">
+    
+    <form action="">
+    
+    
 	<section class="opreatBtn">
         <button class="research" onclick="history.back()" type="button"><i class="glyphicon glyphicon-menu-left"></i>重選航班</button>
         <button class="nextPage" id="btn_post_test">下一步 <i class="glyphicon glyphicon-menu-right"></i></button>
     </section>
-
+	</form>
 	
 	</div>
+	
 
 
 
