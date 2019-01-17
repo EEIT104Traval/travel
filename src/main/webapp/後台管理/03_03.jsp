@@ -92,13 +92,13 @@ $(document).ready(function() {
 		 				console.log(data);
 		            }
 	       		 });
-				$("#tr"+ticketName+">th:nth-child(1)").prop("outerHTML","<th>"+hospitalName+"</th>");
-				$("#tr"+country+">th:nth-child(2)").prop("outerHTML","<th>"+hospitalAddress+"</th>");
-				$("#tr"+ticketDescription+">th:nth-child(3)").prop("outerHTML","<th>"+hospitalphone+"</th>");
-				$("#tr"+adultTicketPrice+">th:nth-child(4)").prop("outerHTML","<th>"+hospitalowner+"</th>");
-				$("#tr"+adultTicketSellQ+">th:nth-child(5)").prop("outerHTML","<th>"+longitude+"</th>");
-				$("#tr"+adultTicketSelledQ+">th:nth-child(6)").prop("outerHTML","<th>"+latitude+"</th>");		
-}							 
+				$("#tr"+ticketNo+">th:nth-child(1)").prop("outerHTML","<th style='width:150px'>"+ticketName+"</th>");
+				$("#tr"+ticketNo+">th:nth-child(2)").prop("outerHTML","<th style='width:150px'>"+country+"</th>");
+				$("#tr"+ticketNo+">th:nth-child(3)").prop("outerHTML","<th style='width:150px'>"+ticketDescription+"</th>");
+				$("#tr"+ticketNo+">th:nth-child(4)").prop("outerHTML","<th style='width:150px'>"+adultTicketPrice+"</th>");
+				$("#tr"+ticketNo+">th:nth-child(5)").prop("outerHTML","<th style='width:150px'>"+adultTicketSellQ+"</th>");
+				$("#tr"+ticketNo+">th:nth-child(6)").prop("outerHTML","<th style='width:150px'>"+adultTicketSelledQ+"</th>");		
+					}							 
 //------------------------------------------------------------------------------------------------------------------------------------------------------
 									
 // -----------------------------------------------------------------------------------------------------------------------------------------------------

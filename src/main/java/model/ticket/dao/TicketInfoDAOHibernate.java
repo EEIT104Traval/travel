@@ -28,7 +28,7 @@ import model.ticket.TicketOrderInfoBean;
 
 @Repository
 public class TicketInfoDAOHibernate implements TicketInfoDAO {
-	
+
 	@Autowired
 	ServletContext servletContext;
 	@Autowired
@@ -58,35 +58,61 @@ public class TicketInfoDAOHibernate implements TicketInfoDAO {
 	}
 
 	@Override
-	public TicketInfoBean update(Integer ticketNo, String ticketName, Integer validity, Integer adultTicketPrice,
-			Integer childTicketPrice, Integer adultTicketSellQ, Integer childTicketSellQ, Integer adultTicketSelledQ,
-			Integer childTicketSelledQ, String country, String category, String productFeatures, String ticketPicture,
-			String ticketDescription, String traffic_information, String special_restrictions,
-			String googleAddressOrName) {
-		TicketInfoBean result = this.getSession().get(TicketInfoBean.class, ticketNo);
+	public TicketInfoBean update(TicketInfoBean bean) {
+		TicketInfoBean result = this.getSession().get(TicketInfoBean.class, bean.getTicketNo());
 		if (result != null) {
-			result.setTicketNo(ticketNo);
-			result.setTicketName(ticketName);
-			result.setValidity(validity);
-			result.setAdultTicketPrice(adultTicketPrice);
-			result.setChildTicketPrice(childTicketPrice);
-			result.setAdultTicketSellQ(adultTicketSellQ);
-			result.setChildTicketSellQ(childTicketSellQ);
-			result.setAdultTicketSelledQ(adultTicketSelledQ);
-			result.setChildTicketSelledQ(childTicketSelledQ);
-			result.setCountry(country);
-			result.setCategory(category);
-			result.setProductFeatures(productFeatures);
-			result.setTicketPicture(ticketPicture);
-			result.setTicketDescription(ticketDescription);
-			result.setTraffic_information(traffic_information);
-			result.setSpecial_restrictions(special_restrictions);
-			result.setGoogleAddressOrName(googleAddressOrName);
+			result.setTicketNo(bean.getTicketNo());
+			result.setTicketName(bean.getTicketName());
+			result.setValidity(bean.getValidity());
+			result.setAdultTicketPrice(bean.getAdultTicketPrice());
+			result.setChildTicketPrice(bean.getChildTicketPrice());
+			result.setAdultTicketSellQ(bean.getAdultTicketSellQ());
+			result.setChildTicketSellQ(bean.getChildTicketSellQ());
+			result.setAdultTicketSelledQ(bean.getAdultTicketSelledQ());
+			result.setChildTicketSelledQ(bean.getChildTicketSelledQ());
+			result.setCountry(bean.getCountry());
+			result.setCategory(bean.getCategory());
+			result.setProductFeatures(bean.getProductFeatures());
+			result.setTicketPicture(bean.getTicketPicture());
+			result.setTicketDescription(bean.getTicketDescription());
+			result.setTraffic_information(bean.getTraffic_information());
+			result.setSpecial_restrictions(bean.getSpecial_restrictions());
+			result.setGoogleAddressOrName(bean.getGoogleAddressOrName());
 
 			return result;
 		}
 		return null;
 	}
+//	@Override
+//	public TicketInfoBean update(Integer ticketNo, String ticketName, Integer validity, Integer adultTicketPrice,
+//			Integer childTicketPrice, Integer adultTicketSellQ, Integer childTicketSellQ, Integer adultTicketSelledQ,
+//			Integer childTicketSelledQ, String country, String category, String productFeatures, String ticketPicture,
+//			String ticketDescription, String traffic_information, String special_restrictions,
+//			String googleAddressOrName) {
+//		TicketInfoBean result = this.getSession().get(TicketInfoBean.class, ticketNo);
+//		if (result != null) {
+//			result.setTicketNo(ticketNo);
+//			result.setTicketName(ticketName);
+//			result.setValidity(validity);
+//			result.setAdultTicketPrice(adultTicketPrice);
+//			result.setChildTicketPrice(childTicketPrice);
+//			result.setAdultTicketSellQ(adultTicketSellQ);
+//			result.setChildTicketSellQ(childTicketSellQ);
+//			result.setAdultTicketSelledQ(adultTicketSelledQ);
+//			result.setChildTicketSelledQ(childTicketSelledQ);
+//			result.setCountry(country);
+//			result.setCategory(category);
+//			result.setProductFeatures(productFeatures);
+//			result.setTicketPicture(ticketPicture);
+//			result.setTicketDescription(ticketDescription);
+//			result.setTraffic_information(traffic_information);
+//			result.setSpecial_restrictions(special_restrictions);
+//			result.setGoogleAddressOrName(googleAddressOrName);
+//
+//			return result;
+//		}
+//		return null;
+//	}
 
 	@Override
 	public TicketInfoBean qupdate(TicketInfoBean bean) {
@@ -175,17 +201,17 @@ public class TicketInfoDAOHibernate implements TicketInfoDAO {
 
 	@Override
 	public String UPticketInfo(String path) throws IOException {
-		
+
 		File f = new File(path);
 		BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(f), "UTF-8"));
-		
-		br.readLine(); 
+
+		br.readLine();
 
 		String xx = null;
 		while ((xx = br.readLine()) != null) {
-			TicketInfoBean bean = new TicketInfoBean(); 
+			TicketInfoBean bean = new TicketInfoBean();
 			String[] x = xx.split((","));
-			
+
 			bean.setTicketName(x[1]);
 			bean.setValidity(Integer.parseInt(x[2]));
 			bean.setAdultTicketPrice(Integer.parseInt(x[3]));
@@ -201,13 +227,14 @@ public class TicketInfoDAOHibernate implements TicketInfoDAO {
 			bean.setTicketDescription(x[13]);
 			bean.setTraffic_information(x[14]);
 			bean.setSpecial_restrictions(x[15]);
-			
+
 			TicketInfoBean bean2 = create(bean);
-			System.out.println("bean2"+bean2);
+			System.out.println("bean2" + bean2);
 		}
 		br.close();
 		return "上傳成功";
 	}
+
 }
 
 //	@Override

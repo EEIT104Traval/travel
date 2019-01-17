@@ -53,15 +53,22 @@ public class TicketInfoService {
 	public TicketInfoBean update(TicketInfoBean bean) {
 		TicketInfoBean result = null;
 		if (bean != null) {
-			result = ticketInfoDAO.update(bean.getTicketNo(), bean.getTicketName(), bean.getValidity(),
-					bean.getAdultTicketPrice(), bean.getChildTicketPrice(), bean.getAdultTicketSellQ(),
-					bean.getChildTicketSellQ(), bean.getAdultTicketSelledQ(), bean.getChildTicketSelledQ(),
-					bean.getCountry(), bean.getCategory(), bean.getProductFeatures(), bean.getTicketPicture(),
-					bean.getTicketDescription(), bean.getTraffic_information(), bean.getSpecial_restrictions(),
-					bean.getGoogleAddressOrName());
+			result = ticketInfoDAO.update(bean);
 		}
 		return result;
 	}
+//	public TicketInfoBean update(TicketInfoBean bean) {
+//		TicketInfoBean result = null;
+//		if (bean != null) {
+//			result = ticketInfoDAO.update(bean.getTicketNo(), bean.getTicketName(), bean.getValidity(),
+//					bean.getAdultTicketPrice(), bean.getChildTicketPrice(), bean.getAdultTicketSellQ(),
+//					bean.getChildTicketSellQ(), bean.getAdultTicketSelledQ(), bean.getChildTicketSelledQ(),
+//					bean.getCountry(), bean.getCategory(), bean.getProductFeatures(), bean.getTicketPicture(),
+//					bean.getTicketDescription(), bean.getTraffic_information(), bean.getSpecial_restrictions(),
+//					bean.getGoogleAddressOrName());
+//		}
+//		return result;
+//	}
 
 	
 	public boolean delete(TicketInfoBean bean) {
