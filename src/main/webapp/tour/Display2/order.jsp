@@ -129,40 +129,24 @@ $(document).ready(function() {
 function add(e){
 	var i = parseInt($('#'+e).val())+1
 	$('#'+e).val(i)
-	var adultcount = $("#adult").val();
-	var babycount = $("#baby").val();
-	if(adultcount<babycount){
-		alert('嬰兒數量不能大於成人數量')
-		$('#'+e).val(i-1)
-	}
 	money();
 }
 function minus(e){
 	var i = $('#'+e).val()-1
 	if(i>=0){
 		$('#'+e).val(i)
-		var adultcount = $("#adult").val();
-		var babycount = $("#baby").val();
-		if(adultcount<babycount){
-			alert('成人數量不能小於嬰兒數量')
-			$('#'+e).val(i+1)
-		}
 		money();
 	}
 }
 function money(){
 	var adultcount = $("#adult").val();
 	var childcount = $("#child").val();
-	var babycount = $("#baby").val();
 	var peopleCount = "";
 	if (adultcount != 0) {
 		peopleCount += adultcount + "位成人　";
 	}
 	if (childcount != 0) {
 		peopleCount += childcount + "位小孩　";
-	}
-	if (babycount != 0) {
-		peopleCount += babycount + "位嬰兒　";
 	}
 	$('#peoplecount').html(peopleCount);
 	if(peopleCount.length == 0){
