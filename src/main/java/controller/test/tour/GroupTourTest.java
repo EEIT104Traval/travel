@@ -66,7 +66,11 @@ public class GroupTourTest {
 		 boolean remove = dao.remove("8787");		  
 		 return remove;	  		  
 	 } 
-	 
+	 @RequestMapping("/FindByClick")
+	 public List<GroupTourBean> FindByClick() {
+		 List<GroupTourBean> all = dao.findByClick();		  
+		 return all;	  		  
+	 }
 	 
 	 
 }

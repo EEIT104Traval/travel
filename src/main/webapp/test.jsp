@@ -15,6 +15,7 @@
 	<a href="<c:url value='Tourtestcreate' />">Tourtestcreate</a>
 	<a href="<c:url value='Tourtestupdate' />">Tourtestupdate</a>
 	<a href="<c:url value='Tourtestremove' />">Tourtestremove</a>
+	<a href="<c:url value='FindByClick' />">FindByClick</a>
 	<br />
 	<a href="<c:url value='TourBatchtestfindPK' />">TourBatchtestfindPK</a>
 	<a href="<c:url value='TourBatchtestfindALL' />">TourBatchtestfindALL</a>
