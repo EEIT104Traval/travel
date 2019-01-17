@@ -99,9 +99,37 @@ h2{
 <script src="https://code.jquery.com/jquery-3.3.1.js"
 	integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
 	crossorigin="anonymous"></script>
-
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script>
+week = new Array("日","一","二","三","四","五","六")
+var AsetTime = new Date('${result.tour.departureDate}');
+var Adateweek = week[AsetTime.getDay()]
+$(document).ready(function() {
+	$('#title').html('${tourName}');
+	date = '${result.tour.departureDate}'.substring(0, 10);
+	da = '${tourDays}';
+	console.log(AsetTime)
+	console.log(da)
+	date2 = (AsetTime.setDate(AsetTime.getDate() + da));
+	var d = new Date(date2)
+	var n = d.toISOString();
+	console.log(n)
+	console.log(Adateweek);
+	$('#tourDays').html(date+"星期("+Adateweek+")～");
 	
+	
+});
+
+function add(e){
+	var i = parseInt($('#'+e).val())+1
+	$('#'+e).val(i)
+}
+function minus(e){
+	var i = $('#'+e).val()-1
+	if(i>=0){
+	$('#'+e).val(i)
+	}
+}
 </script>
 
 <body>
@@ -170,8 +198,8 @@ h2{
 					</div>
 					<div
 						class="col-md-8 probootstrap-animate fadeInUp probootstrap-animated">
-						<h4 style="padding-top: 20px;">魅力歐洲～『Hello UK』英倫時尚7天(超值版)</h4>
-						<label style="padding: 20px 0px;">2019-01-26(星期六) ~
+						<h4 id="title" style="padding-top: 20px;">魅力歐洲～『Hello UK』英倫時尚7天(超值版)</h4>
+						<label id="tourDays" style="padding: 20px 0px;">2019-01-26(星期六) ~
 							2019-02-04(星期一)</label> <label style="background: antiquewhite;">※
 							已含每人500萬旅行業責任保險及20萬意外醫療險(依規定未滿15歲或70歲以上者,限投保旅遊責任險2佰萬元)。</label>
 					</div>
@@ -193,8 +221,7 @@ h2{
 					<div
 						class="col-md-8 probootstrap-animate fadeInUp probootstrap-animated">
 						<h5 style="padding-top: 20px;float: left;margin-right:20px">請填寫訂單聯絡人資訊</h5>
-						<input type="checkbox" id='same'> <label
-							style="padding-top: 20px;">同聯絡人資訊</label>
+						<input type="checkbox" id='same'> <label for="same" style="padding-top: 20px;">同聯絡人資訊</label>
 						<form role="form">
 							<div class="row">
 								<div class="col-md-5 col-xs-12">
@@ -212,8 +239,8 @@ h2{
 								</div>
 								<div class="col-md-5 col-xs-12">
 									<label for="exampleInputPassword1" class="sex"> 性別 </label> 
-									<input type="radio" name="sex" style="margin:0px 10px;"/>男
-									<input type="radio" name="sex" style="margin:0px 10px;"/>女
+									<input type="radio" id="man" name="sex" style="margin:0px 10px;"/><label for="man">男</label>
+									<input type="radio" id="woman" name="sex" style="margin:0px 10px;"/><label for="woman">女</label>
 								</div>
 							</div>
 						</form>
@@ -241,20 +268,14 @@ h2{
 							<div class="row">
 								<div class="col-md-4 col-xs-12">
 									<div style="display: inline-block;">
-										<div
-											style="float: left; font-size: 20px; padding-right: 10px; font-weight: 600;">成人</div>
-										<div
-											style="float: left; font-size: 20px; color: red; padding-right: 3px;">$41,900</div>
+										<div style="float: left; font-size: 20px; padding-right: 10px; font-weight: 600;">成人</div>
+										<div style="float: left; font-size: 20px; color: red; padding-right: 3px;">$41,900</div>
 										<div style="padding: 5px">/人</div>
 										<div>
-											<div
-												class="d-flex flex-lg-row flex-column align-items-start justify-content-start">
-												<input type="image" src="images/MIN.png" class="min"
-													width="11%"> <input type="text" value="0"
-													disabled='disabled' readonly
-													style="text-align: center; height: 30px; width: 60px; margin: 0; border: 0px; background: white; font-size: 20px">
-												<input type="image" src="images/PL.png" class="add"
-													width="11%">
+											<div class="d-flex flex-lg-row flex-column align-items-start justify-content-start">
+												<input type="image" src="images/MIN.png" width="11%" onclick="minus('adult')"> 
+												<input type="text" value="0" id="adult" disabled='disabled' readonly style="text-align: center; height: 30px; width: 60px; margin: 0; border: 0px; background: white; font-size: 20px">
+												<input type="image" src="images/PL.png" width="11%" onclick="add('adult')">
 											</div>
 										</div>
 									</div>
@@ -267,14 +288,10 @@ h2{
 											style="float: left; font-size: 20px; color: red; padding-right: 3px;">$41,900</div>
 										<div style="padding: 5px">/人</div>
 										<div>
-											<div
-												class="d-flex flex-lg-row flex-column align-items-start justify-content-start">
-												<input type="image" src="images/MIN.png" class="min"
-													width="11%"> <input type="text" value="0"
-													disabled='disabled' readonly
-													style="text-align: center; height: 30px; width: 60px; margin: 0; border: 0px; background: white; font-size: 20px">
-												<input type="image" src="images/PL.png" class="add"
-													width="11%">
+											<div class="d-flex flex-lg-row flex-column align-items-start justify-content-start">
+												<input type="image" src="images/MIN.png" width="11%" onclick="minus('child')"> 
+												<input type="text" value="0" id="child" disabled='disabled' readonly style="text-align: center; height: 30px; width: 60px; margin: 0; border: 0px; background: white; font-size: 20px">
+												<input type="image" src="images/PL.png" width="11%" onclick="add('child')">
 											</div>
 										</div>
 									</div>
@@ -287,14 +304,10 @@ h2{
 											style="float: left; font-size: 20px; color: red; padding-right: 3px;">$2,900</div>
 										<div style="padding: 5px">/人</div>
 										<div>
-											<div
-												class="d-flex flex-lg-row flex-column align-items-start justify-content-start">
-												<input type="image" src="images/MIN.png" class="min"
-													width="11%"> <input type="text" value="0"
-													disabled='disabled' readonly
-													style="text-align: center; height: 30px; width: 60px; margin: 0; border: 0px; background: white; font-size: 20px">
-												<input type="image" src="images/PL.png" class="add"
-													width="11%">
+											<div class="d-flex flex-lg-row flex-column align-items-start justify-content-start">
+												<input type="image" src="images/MIN.png" width="11%" onclick="minus('baby')"> 
+												<input type="text" value="0" id="baby" disabled='disabled' readonly style="text-align: center; height: 30px; width: 60px; margin: 0; border: 0px; background: white; font-size: 20px">
+												<input type="image" src="images/PL.png" width="11%" onclick="add('baby')">
 											</div>
 										</div>
 									</div>

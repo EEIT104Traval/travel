@@ -47,21 +47,15 @@ var params = {};
 				
 				function hotelSearch(){
 					params.countryCH = $('#country').val()
-// 						alert(params.country)
 					
 					params.cityCH = $('#city').val()
-// 						alert(params.city)	
-// 					if(params.city = ""){
-// 						countrySearch()
-// 					} else {
-// 						citySearch()
-// 					}
-					
-// 					找全部
+
 					if(params.cityCH != "" && params.countryCH == ""){
 						citySearch()
+// 						alert(params.cityCH)	
 					}else if(params.cityCH == "" && params.countryCH != ""){
 						countrySearch()
+// 							alert(params.countryCH)
 					}else{
 						allSearch()
 					}
@@ -82,9 +76,6 @@ var params = {};
 						data :{"country":$('#country').val()}
 					}).done(
 				function(JData) {
-		
-// 		        console.log(c);
-
 								$.each(JData, function(index, value) {
 									console.log(value);
 									$("#hotel_pic").append(
@@ -92,10 +83,10 @@ var params = {};
 // ------------------------------------------------------------------------------------------------------------------------------------------------------
 										'<div class="col-md-6 col-lg-3">'+
 											'<div class="blog-entry">'+
-												'<a href="<c:url value="/voyage/hotel/room/hotelRoom2.jsp" />" class="block-20" style="background-image: url('+value.pic+');"></a>'+
+												'<a href="<c:url value="/voyage/listOneHotelPage?hotelNo='+value.hotelNo+'" />" class="block-20" style="background-image: url('+value.pic+');"></a>'+
 												'<div class="text p-4">'+
 													'<div class="meta"></div>'+
-													'<h6><a href="<c:url value="/voyage/hotel/room/hotelRoom.jsp" />">'+value.hotelName+'</a></h6>'+
+													'<h6><a href="<c:url value="/voyage/hotel/hotelRoom2.jsp" />">'+value.hotelNameCH+'</a></h6>'+
 						                   			'<p style="margin-bottom:0">'+value.starRate+'</p>'+
 													'<p class="float-left" style="margin">'+value.price+'</p>'+
 												'</div>'+
@@ -116,7 +107,7 @@ var params = {};
 				function citySearch(){
 					$("#hotel_pic").html("")
 					$('#hotel_title').html("")
-						params.city = $('#city').val();
+						params.cityCH = $('#city').val();
 // 					alert(params.country)
 					
 					$.ajax({
@@ -124,12 +115,9 @@ var params = {};
  						contentType : 'application/json; charset=UTF-8',
 						type : 'get',
 						dataType : 'json',
-						data :params,
+						data :{"city":$('#city').val()},
 					}).done(
 				function(JData) {
-		
-// 		        console.log(c);
-
 								$.each(JData, function(index, value) {
 									console.log(value);
 									$("#hotel_pic").append(
@@ -137,10 +125,10 @@ var params = {};
 // ------------------------------------------------------------------------------------------------------------------------------------------------------
 										'<div class="col-md-6 col-lg-3">'+
 											'<div class="blog-entry">'+
-												'<a href="<c:url value="/voyage/hotel/room/hotelRoom2.jsp" />" class="block-20" style="background-image: url('+value.pic+');"></a>'+
+												'<a href="<c:url value="/voyage/listOneHotelPage?hotelNo=value.hotelNo" />" class="block-20" style="background-image: url('+value.pic+');"></a>'+
 												'<div class="text p-4">'+
 													'<div class="meta"></div>'+
-													'<h6><a href="<c:url value="/voyage/hotel/room/hotelRoom.jsp" />">'+value.hotelName+'</a></h6>'+
+													'<h6><a href="<c:url value="/voyage/hotel/hotelRoom2.jsp" />">'+value.hotelNameCH+'</a></h6>'+
 						                   			'<p style="margin-bottom:0">'+value.starRate+'</p>'+
 													'<p class="float-left" style="margin">'+value.price+'</p>'+
 												'</div>'+
@@ -160,7 +148,7 @@ var params = {};
 				function allSearch(){
 					$("#hotel_pic").html("")
 					$('#hotel_title').html("")
-						params.city = $('#city').val();
+						params.cityCH = $('#city').val();
 // 					alert(params.country)
 					
 					$.ajax({
@@ -181,10 +169,10 @@ var params = {};
 // ------------------------------------------------------------------------------------------------------------------------------------------------------
 										'<div class="col-md-6 col-lg-3">'+
 											'<div class="blog-entry">'+
-												'<a href="<c:url value="/voyage/hotel/room/hotelRoom2.jsp" />" class="block-20" style="background-image: url('+value.pic+');"></a>'+
+												'<a href="<c:url value="/voyage/listOneHotelPage?hotelNo=value.hotelNo" />" class="block-20" style="background-image: url('+value.pic+');"></a>'+
 												'<div class="text p-4">'+
 													'<div class="meta"></div>'+
-													'<h6><a href="<c:url value="/voyage/hotel/room/hotelRoom.jsp" />">'+value.hotelName+'</a></h6>'+
+													'<h6><a href="<c:url value="/voyage/hotel/hotelRoom2.jsp" />">'+value.hotelNameCH+'</a></h6>'+
 						                   			'<p style="margin-bottom:0">'+value.starRate+'</p>'+
 													'<p class="float-left" style="margin">'+value.price+'</p>'+
 												'</div>'+
@@ -249,11 +237,11 @@ var params = {};
 									<input type="text" class="search_input" style="font-family: Noto Sans TC; width: 15%"
 										placeholder="請輸入城市" id="city">
 									<input type="text" class="search_input" style="font-family: Noto Sans TC; width: 15%"
-										id="checkin_date" placeholder="入住日期" >
+										placeholder="入住日期" id="checkin_date">
 									<input type="text" class="search_input" style="font-family: Noto Sans TC; width: 15%"
-										id="checkout_date" placeholder="退房日期">
+										placeholder="退房日期" id="checkout_date">
 									<input type="text" class="search_input" style="font-family: Noto Sans TC; width: 15%"
-										id="accommodate" placeholder="人數">
+										placeholder="人數" id="accommodate" >
 									<input type="button" class="home_search_button" style="font-family: Noto Sans TC" value="搜尋" onclick="hotelSearch()"/>
 								</div>
 							</form>

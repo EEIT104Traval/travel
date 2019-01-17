@@ -41,16 +41,17 @@ import model.hotel.dao.RoomTypeDAOHibernate;
 		 insert.setRoomType("雙人房");
 		 insert.setAccommodate(2);
 		 insert.setTotalRooms(100);
-		 insert.setPrice(2500);
+		 insert.setPrice("2,500");
 		 insert.setDescription("NULL");
 		 insert.setContent("NULL");
+		 insert.setPic("NULL");;
 		 RoomTypeBean bean = dao.create(insert); 
 		 return insert;
 	 }
 	  
 	 @RequestMapping("/RoomTypeupdate")
 	 public RoomTypeBean update() {
-		 RoomTypeBean update = dao.update(3, 1, "雙人房", 2, 100, 2600, "NULL", "NULL");		  
+		 RoomTypeBean update = dao.update(3, 1, "雙人房", 2, 100, "2,600", "NULL", "NULL", "NULL");		  
 		 return update;
 	 }
 	 

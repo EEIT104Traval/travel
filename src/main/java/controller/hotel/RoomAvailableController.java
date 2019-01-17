@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import model.hotel.RoomTypeBean;
 import model.hotel.RoomTypeService;
 
 @Controller
@@ -31,5 +32,11 @@ public class RoomAvailableController {
 		System.out.println(result);
 		
 		return result;
+	}
+	
+	@ResponseBody
+	@RequestMapping("/voyage/hotel/roomTypes/all")
+	public List<RoomTypeBean> findHotelRoomTypes(@RequestParam Integer hotelNo){
+		return roomTypeService.findByHotelNo(hotelNo);
 	}
 }

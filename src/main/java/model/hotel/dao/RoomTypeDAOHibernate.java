@@ -45,7 +45,7 @@ public class RoomTypeDAOHibernate implements RoomTypeDAO{
 
 	@Override
 	public RoomTypeBean update(Integer roomTypeNo, Integer hotelNo, String roomType, Integer accommodate, 
-			Integer totalRooms, Integer price, String description, String content) {
+			Integer totalRooms, String price, String description, String content, String pic) {
 		RoomTypeBean result = this.getSession().get(RoomTypeBean.class, roomTypeNo);
 		if(result!=null) {
 			result.setRoomTypeNo(roomTypeNo);
@@ -56,6 +56,7 @@ public class RoomTypeDAOHibernate implements RoomTypeDAO{
 			result.setPrice(price);
 			result.setDescription(description);
 			result.setContent(content);
+			result.setPic(pic);
 			return result;
 		}
 		return null;
@@ -80,6 +81,16 @@ public class RoomTypeDAOHibernate implements RoomTypeDAO{
 		List<RoomTypeBean> OdMonth = roomType.list();
 		
 		return OdMonth;
+	}
+
+	@Override
+	public List<RoomTypeBean> findByHotelNo(Integer hotelNo) {
+		String hql = "from RoomTypeBean where hotelNo = "+hotelNo+"" ;
+		
+		Query<RoomTypeBean> query = this.getSession().createQuery( hql ,RoomTypeBean.class);
+		
+		List<RoomTypeBean> roomTypeBeanList = query.list();
+		return roomTypeBeanList;
 	}
 
 }

@@ -739,8 +739,9 @@ section
 .search_input_1secound
 {
 /* 	display:inline-block; */
+	background-color:#e5ffff;	
 	height: 50px;
-	background: #eae6e6;
+/* 	background: #eae6e6; */
 	border: none;
 	outline: none;
 	padding-left: 17px;
