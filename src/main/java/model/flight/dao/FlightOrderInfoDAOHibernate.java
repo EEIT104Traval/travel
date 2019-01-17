@@ -43,20 +43,20 @@ public class FlightOrderInfoDAOHibernate implements FlightOrderInfoDAO {
 	}
 
 	@Override
-	public FlightOrderInfoBean update(Integer flightOrderNO, String accountName, 
-			String bookingCode, Integer phone,
-			String email, Integer adultCount, Integer childCount,
-			java.util.Date dealDate, String orderStatus) {
-		FlightOrderInfoBean result = this.getSession().get(FlightOrderInfoBean.class, flightOrderNO);
+	public FlightOrderInfoBean update(FlightOrderInfoBean bean) {
+		FlightOrderInfoBean result = this.getSession().get(FlightOrderInfoBean.class, bean.getFlightOrderNO());
 		if(result!=null) {
-			result.setUsername(accountName);
-			result.setBookingCode(bookingCode);
-			result.setPhone(phone);
-			result.setEmail(email);
-			result.setAdultCount(adultCount);
-			result.setChildCount(childCount);
-			result.setDealDate(dealDate);
-			result.setOrderStatus(orderStatus);
+			result.setAccountName(bean.getAccountName());
+			result.setContactGender(bean.getContactGender());
+			result.setContactLastNameCN(bean.getContactLastNameCN());
+			result.setContactFirstNameCN(bean.getContactFirstNameCN());
+			result.setBookingCode(bean.getBookingCode());
+			result.setPhone(bean.getPhone());
+			result.setEmail(bean.getEmail());
+			result.setAdultCount(bean.getAdultCount());
+			result.setChildCount(bean.getChildCount());
+			result.setDealDate(bean.getDealDate());
+			result.setOrderStatus(bean.getOrderStatus());
 			
 			return result;
 		}

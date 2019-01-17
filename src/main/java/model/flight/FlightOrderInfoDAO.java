@@ -10,9 +10,7 @@ public interface FlightOrderInfoDAO {
 
 	public abstract FlightOrderInfoBean create(FlightOrderInfoBean bean);
 
-	public abstract FlightOrderInfoBean update(Integer flightOrderNO,
-			String accountName,String bookingCode,Integer phone,String email,
-			Integer adultCount,Integer childCount,java.util.Date dealDate,String orderStatus);
+	public abstract FlightOrderInfoBean update(FlightOrderInfoBean bean);
 
 	public abstract boolean remove(Integer flightOrderNO);
 
