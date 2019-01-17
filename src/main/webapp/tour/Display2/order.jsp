@@ -101,33 +101,72 @@ h2{
 	crossorigin="anonymous"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script>
-week = new Array("日","一","二","三","四","五","六")
-var AsetTime = new Date('${result.tour.departureDate}');
-var Adateweek = week[AsetTime.getDay()]
+var week = new Array("日","一","二","三","四","五","六")
+var date = new Date('${result.tour.departureDate}');
+var week1 = week[date.getDay()]
+var date2 = date.setDate(date.getDate()+parseInt('${tourDays}'));
+var week2 = new Date(date2);
+week2 = week2.setDate(week2.getDate()-1);
+week2 = new Date(week2)
+week2 = week[week2.getDay()]
 $(document).ready(function() {
-	$('#title').html('${tourName}');
-	date = '${result.tour.departureDate}'.substring(0, 10);
-	da = '${tourDays}';
-	console.log(AsetTime)
-	console.log(da)
-	date2 = (AsetTime.setDate(AsetTime.getDate() + da));
-	var d = new Date(date2)
-	var n = d.toISOString();
-	console.log(n)
-	console.log(Adateweek);
-	$('#tourDays').html(date+"星期("+Adateweek+")～");
-	
-	
+	date2 = new Date(date2)
+	date = '${result.tour.departureDate}';
+	if('${result}'){
+		$('#title').html('${tourName}');
+		$('#tourDays').html(date.substring(0, 10)+"星期("+week1+")～"+date2.toISOString().substring(0, 10)+"星期("+week2+")");
+		$('#gotour').html('您選擇的出發日為'+date.substring(0, 10))
+		$('#price_adult').html('${result.tour.price_adult}')
+		$('#price_child').html('${result.tour.price_child}')
+		if('${result.tour.price_baby}'){
+			$('#price_baby').html('${result.tour.price_baby}')
+		}else{
+			$('#price_baby_null').html("")
+		}
+	}
 });
 
 function add(e){
 	var i = parseInt($('#'+e).val())+1
 	$('#'+e).val(i)
+	var adultcount = $("#adult").val();
+	var babycount = $("#baby").val();
+	if(adultcount<babycount){
+		alert('嬰兒數量不能大於成人數量')
+		$('#'+e).val(i-1)
+	}
+	money();
 }
 function minus(e){
 	var i = $('#'+e).val()-1
 	if(i>=0){
-	$('#'+e).val(i)
+		$('#'+e).val(i)
+		var adultcount = $("#adult").val();
+		var babycount = $("#baby").val();
+		if(adultcount<babycount){
+			alert('成人數量不能小於嬰兒數量')
+			$('#'+e).val(i+1)
+		}
+		money();
+	}
+}
+function money(){
+	var adultcount = $("#adult").val();
+	var childcount = $("#child").val();
+	var babycount = $("#baby").val();
+	var peopleCount = "";
+	if (adultcount != 0) {
+		peopleCount += adultcount + "位成人　";
+	}
+	if (childcount != 0) {
+		peopleCount += childcount + "位小孩　";
+	}
+	if (babycount != 0) {
+		peopleCount += babycount + "位嬰兒　";
+	}
+	$('#peoplecount').html(peopleCount);
+	if(peopleCount.length == 0){
+		$('#peoplecount').html('請選擇您要預訂的人數')
 	}
 }
 </script>
@@ -225,7 +264,7 @@ function minus(e){
 						<form role="form">
 							<div class="row">
 								<div class="col-md-5 col-xs-12">
-									<label>姓名</label> <input type="text" class="form-control" />
+									<label id="fullName">姓名</label> <input type="text" class="form-control" />
 								</div>
 								<div class="col-md-5 col-xs-12">
 									<label for="exampleInputPassword1"> 電話 </label> <input
@@ -262,14 +301,14 @@ function minus(e){
 					</div>
 					<div
 						class="col-md-8 probootstrap-animate fadeInUp probootstrap-animated">
-						<h5 style="padding-top: 20px">您選擇的出發日 2019-02-01</h5>
+						<h5 id="gotour" style="padding-top: 20px">您選擇的出發日為 2019-02-01</h5>
 						<br />
 						<div class="cart-select-number-area">
 							<div class="row">
 								<div class="col-md-4 col-xs-12">
 									<div style="display: inline-block;">
 										<div style="float: left; font-size: 20px; padding-right: 10px; font-weight: 600;">成人</div>
-										<div style="float: left; font-size: 20px; color: red; padding-right: 3px;">$41,900</div>
+										<div id="price_adult" style="float: left; font-size: 20px; color: red; padding-right: 3px;">$41,900</div>
 										<div style="padding: 5px">/人</div>
 										<div>
 											<div class="d-flex flex-lg-row flex-column align-items-start justify-content-start">
@@ -284,7 +323,7 @@ function minus(e){
 									<div>
 										<div
 											style="float: left; font-size: 20px; padding-right: 10px; font-weight: 600;">小孩</div>
-										<div
+										<div id="price_child"
 											style="float: left; font-size: 20px; color: red; padding-right: 3px;">$41,900</div>
 										<div style="padding: 5px">/人</div>
 										<div>
@@ -296,9 +335,9 @@ function minus(e){
 										</div>
 									</div>
 								</div>
-								<div class="col-md-4 col-xs-12">
+								<div id="price_baby_null" class="col-md-4 col-xs-12">
 									<div style="display: inline-block;">
-										<div
+										<div id="price_baby"
 											style="float: left; font-size: 20px; padding-right: 10px; font-weight: 600;">嬰兒</div>
 										<div
 											style="float: left; font-size: 20px; color: red; padding-right: 3px;">$2,900</div>
@@ -312,7 +351,7 @@ function minus(e){
 										</div>
 									</div>
 								</div>
-								<div class="col-md-12 col-xs-12 count">請選擇您要預訂的人數</div>
+								<div id="peoplecount" class="col-md-12 col-xs-12 count">請選擇您要預訂的人數</div>
 								<div class="editor-area scroll" style="margin-bottom: 20px;">
 									<ol style="padding: 10px 10px 10px 40px">
 										<li>小孩係指２歲至未滿１２歲之孩童（以團體回程當日為準），小孩須有成人同行。</li>
