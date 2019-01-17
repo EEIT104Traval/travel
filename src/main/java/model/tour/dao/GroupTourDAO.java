@@ -39,6 +39,12 @@ public class GroupTourDAO {
 				.list();
 	}
 	
+	public List<GroupTourBean> findByClick() {
+		return this.getSession().createQuery("from GroupTourBean where clickcount > 500  order by Clickcount DESC", GroupTourBean.class)
+				.setMaxResults(100)
+				.list();
+	}
+	
 	
     public Long countAll() {
     	return (Long)this.getSession().createQuery("select count(*) from GroupTourBean").uniqueResult();
