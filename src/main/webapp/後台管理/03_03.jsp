@@ -1,93 +1,70 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"
+integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+crossorigin="anonymous"></script>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- --- -->
+<script type="text/javascript">
+
+var params = {};
+
+$(document).ready(function() {
+		ticketSearch1()
+})
+	function ticketSearch1(){
+		
+	$.ajax({
+		url : '/Travel/bindex03_031/User.controller',
+			contentType : 'application/json; charset=UTF-8',
+		type : 'get',
+		dataType : 'json',
+		data :params,
+		}).done(
+			function(JData) {
+					console.log(JData);
+					$("#searchuser").html("")
+					$("#searchuser").append(
+					'<div style="margin:0px auto; text-align:center;"><h3>最新資料</h3></div>'+
+					'<table><th style="width:170px">票券名稱</th><th style="width:170px">票券國家</th>'+
+					'<th style="width:170px">票券類型</th><th style="width:170px">票券價格</th>'+
+					'<th style="width:170px">庫存張數</th><th style="width:50px"></tr></table>'
+					)
+					for(var i = 0;i<JData.length;i++){
+
+					$("#searchuser").append(
+					'<table><tr id=""><th style="width:170px">'+JData[i].ticketName+'</th>'+
+							'<th style="width:170px">'+JData[i].country+'</th>'+
+							'<th style="width:170px">'+JData[i].ticketDescription+'</th>'+
+						    '<th style="width:170px">'+JData[i].adultTicketPrice+'</th>'+
+						    '<th style="width:170px">'+(JData[i].adultTicketSellQ-JData[i].adultTicketSelledQ)+'</th>'+
+						    '<th style="width:50px"><input type="submit" name="prodaction" value="Update" onclick="'+ticketchange(JData[i].ticketName)+'"></tr></table>'
+
+											)}})}
+											
+	
+//連結票券資訊
+	    	function ticketchange(ticketName){
+
+//------------------------------------------------------------------------------------------------------------------------------------------------------
+
+									}
+// -----------------------------------------------------------------------------------------------------------------------------------------------------
+
+</script>
 <title>後台管理者介面</title>
 </head>
 <body>
 	<jsp:include page="bindex.jsp" />
-<div style="color:#ffffff">
-　　　　　　　　　　　　　　　　　　　　　　即時修改　　　　　　　　　　　　　　　　　　　　　　　　
-</div>
-<div class="boxmsg">
-<table>
-	<tr>
-		<th>
-			行程代號
-		</th>
-		<th>
-			國家
-		</th>
-		<th>
-			團名
-		</th>
-		<th>
-			旅遊地點
-		</th>
-		<th>
-			旅遊天數
-		</th>
-	</tr>
-	<tr>
-		<th>
-			<input type="text">
-		</th>
-		<th>
-			<input type="text">
-		</th>
-		<th>
-			<input type="text">
-		</th>
-		<th>
-			<input type="text">
-		</th>
-		<th>
-			<input type="text">
-		</th>
-	</tr>
-	<tr>
-		<th>
-			行程簡介
-		</th>
-		<th>
-			出發日期
-		</th>
-		<th>
-			價格(大人)
-		</th>
-		<th>
-			價格(小孩)
-		</th>
-		<th>
-			價格(嬰兒)
-		</th>		
-	</tr>
-	<tr>
-		<th>
-			<input type="text">
-		</th>
-		<th>
-			<input type="text">
-		</th>
-		<th>
-			<input type="text">
-		</th>
-		<th>
-			<input type="text">
-		</th>
-		<th>
-			<input type="text">
-		</th>		
-	</tr>
-</table>
-<input type="image"  src="images/ALL.png" onClick="document.form1.submit()" width="3%" height="3%">
-<input type="image"  src="images/PEN.png" onClick="document.form1.submit()"  width="3%" height="3%">
-</div>
-	<div class="boxmsg2">
-	 <label class="title">修改結果</label>
+
+	<div class="boxmsg" id="searchuser">
+<!-- 	----------------------加東西--------------------- -->	
 	</div>
 </body>
 </html>
