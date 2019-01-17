@@ -59,9 +59,20 @@ public class TourBatchTest {
 	}
 	@RequestMapping("/TourBatchtestUpdate")
 	 public TourBatchBean update() {
-		TourBatchBean update = dao.update("8787",java.sql.Date.valueOf("2018-12-28"),
-				 2,8877887,8877887,87,787,"87航空-風之島到維多利亞港","維多利亞港","87航空-維多利亞港到風之島",
-				 "風之島","超綠-1自組25UP", 3);		  
+		TourBatchBean bean = new TourBatchBean();
+		bean.setTourNo("8787");
+		bean.setDepartureDate(java.sql.Date.valueOf("2018-12-28"));
+		bean.setPeopleCount(2);
+		bean.setPrice_adult(8877887);
+		bean.setPrice_child(8877887);
+		bean.setPrice_baby(787);
+		bean.setDiscount(87);
+		bean.setAirline_go("航空-風之島到維多利亞港");
+		bean.setDistination_go("維多利亞港");
+		bean.setAirline_back("87航空-維多利亞港到風之島");
+		bean.setDistination_back("風之島");
+		bean.setContent("超綠-1自組25UP");
+		TourBatchBean update = dao.update(bean);		  
 		 return update;	  		  
 	 } 
 	@RequestMapping("/TourBatchtestremove")

@@ -45,23 +45,21 @@ public class TourBatchDAO {
 //		return null;
 	}
 
-	public TourBatchBean update(String tourNo, Date departureDate, Integer peopleCount, Integer price_adult,
-			Integer price_child, Integer price_baby, Integer discount, String airline_go, String distination_go,
-			String airline_back, String distination_back, String content, Integer serialNo) {
-		TourBatchBean result = this.getSession().get(TourBatchBean.class, serialNo);
+	public TourBatchBean update(TourBatchBean bean) {
+		TourBatchBean result = this.getSession().get(TourBatchBean.class, bean.getSerialNo());
 		if (result != null) {
-			result.setTourNo(tourNo);
-			result.setDepartureDate(departureDate);
-			result.setPeopleCount(peopleCount);
-			result.setPrice_adult(price_adult);
-			result.setPrice_child(price_child);
-			result.setPrice_baby(price_baby);
-			result.setDiscount(discount);
-			result.setAirline_go(airline_go);
-			result.setDistination_go(distination_go);
-			result.setAirline_back(airline_back);
-			result.setDistination_back(distination_back);
-			result.setContent(content);
+			result.setTourNo(bean.getTourNo());
+			result.setDepartureDate(bean.getDepartureDate());
+			result.setPeopleCount(bean.getPeopleCount());
+			result.setPrice_adult(bean.getPrice_adult());
+			result.setPrice_child(bean.getPrice_child());
+			result.setPrice_baby(bean.getPrice_baby());
+			result.setDiscount(bean.getDiscount());
+			result.setAirline_go(bean.getAirline_go());
+			result.setDistination_go(bean.getDistination_go());
+			result.setAirline_back(bean.getAirline_back());
+			result.setDistination_back(bean.getDistination_back());
+			result.setContent(bean.getContent());
 			return result;
 		}
 		return null;

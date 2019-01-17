@@ -84,8 +84,9 @@ public class TourMemberInfoDAO {
 			TourMemberInfoBean result = users.get(0);
 			result.setOrderNo(bean.getOrderNo());
 			result.setPurchaseOrder(bean.getPurchaseOrder());
-			result.setfName(bean.getfName());
-			result.setlName(bean.getlName());
+			result.setFullName(bean.getFullName());
+			result.setPassport(bean.getPassport());
+			result.setSex(bean.getSex());
 			result.setPrice(bean.getPrice());
 			result.setPassenger(bean.getPassenger());
 			return result;
