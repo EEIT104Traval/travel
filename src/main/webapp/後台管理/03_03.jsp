@@ -22,39 +22,85 @@ $(document).ready(function() {
 		
 	$.ajax({
 		url : '/Travel/bindex03_031/User.controller',
-			contentType : 'application/json; charset=UTF-8',
+		contentType : 'application/json; charset=UTF-8',
 		type : 'get',
 		dataType : 'json',
 		data :params,
 		}).done(
 			function(JData) {
 					console.log(JData);
-					$("#searchuser").html("")
 					$("#searchuser").append(
 					'<div style="margin:0px auto; text-align:center;"><h3>最新資料</h3></div>'+
-					'<table><th style="width:170px">票券名稱</th><th style="width:170px">票券國家</th>'+
-					'<th style="width:170px">票券類型</th><th style="width:170px">票券價格</th>'+
-					'<th style="width:170px">庫存張數</th><th style="width:50px"></tr></table>'
+					
+					'<table><th style="width:148px">票券名稱</th>'+
+						   '<th style="width:148px">票券國家</th>'+
+		   				   '<th style="width:148px">票券類型</th>'+
+						   '<th style="width:148px">票券價格</th>'+
+						   '<th style="width:148px">進貨數量</th>'+
+						   '<th style="width:148px">銷售數量</th>'+
+						   '<th style="width:50px"><th style="width:50px"></tr></table><br>'
 					)
-					for(var i = 0;i<JData.length;i++){
-
+// 					for(var i = 0;i<JData.length;i++){
+				$.each(JData, function(index, value) {
+// 					$("#searchuser").html("")
 					$("#searchuser").append(
-					'<table><tr id=""><th style="width:170px">'+JData[i].ticketName+'</th>'+
-							'<th style="width:170px">'+JData[i].country+'</th>'+
-							'<th style="width:170px">'+JData[i].ticketDescription+'</th>'+
-						    '<th style="width:170px">'+JData[i].adultTicketPrice+'</th>'+
-						    '<th style="width:170px">'+(JData[i].adultTicketSellQ-JData[i].adultTicketSelledQ)+'</th>'+
-						    '<th style="width:50px"><input type="submit" name="prodaction" value="Update" onclick="'+ticketchange(JData[i].ticketName)+'"></tr></table>'
+					'<table><tr id="tr'+value.ticketNo+'"><th style="width:150px">'+value.ticketName+'</th>'+
+							'<th style="width:150px">'+value.country+'</th>'+
+							'<th style="width:150px">'+value.ticketDescription+'</th>'+
+						    '<th style="width:150px">'+value.adultTicketPrice+'</th>'+
+						    '<th style="width:150px">'+value.adultTicketSellQ+'</th>'+
+						    '<th style="width:150px">'+value.adultTicketSelledQ+'</th>'+
+						    '<th style="width:50px"><input type="submit" name="prodaction" value="Update" onclick=ticketchange('+value.ticketNo+')>'+
+						    '<th style="width:50px"><input type="submit" name="prodaction" value="Check" onclick=check('+value.ticketNo+')></tr></table>'
 
-											)}})}
-											
-	
+											)
+							})
+				})}	
 //連結票券資訊
-	    	function ticketchange(ticketName){
-
+	    	function ticketchange(ticketNo){ 
+				
+	    		var ticketName=$("#tr"+ticketNo+">th:nth-child(1)").text()
+				var country=$("#tr"+ticketNo+">th:nth-child(2)").text()
+				var ticketDescription=$("#tr"+ticketNo+">th:nth-child(3)").text()
+				var adultTicketPrice=$("#tr"+ticketNo+">th:nth-child(4)").text()
+				var adultTicketSellQ=$("#tr"+ticketNo+">th:nth-child(5)").text()
+				var adultTicketSelledQ=$("#tr"+ticketNo+">th:nth-child(6)").text()
+				
+				$("#tr"+ticketNo+">th:nth-child(1)").prop("outerHTML","<th>"+"<input type='text' style='width:100%' id='ticketName' value='"+ticketName+"' />"+"</th>");
+				$("#tr"+ticketNo+">th:nth-child(2)").prop("outerHTML","<th>"+"<input type='text' style='width:101%' id='country' value='"+country+"' />"+"</th>");
+				$("#tr"+ticketNo+">th:nth-child(3)").prop("outerHTML","<th>"+"<input type='text' style='width:101%' id='ticketDescription' value='"+ticketDescription+"' />"+"</th>");
+				$("#tr"+ticketNo+">th:nth-child(4)").prop("outerHTML","<th>"+"<input type='text' style='width:101%' id='adultTicketPrice' value='"+adultTicketPrice+"' />"+"</th>");
+				$("#tr"+ticketNo+">th:nth-child(5)").prop("outerHTML","<th>"+"<input type='text' style='width:101%' id='adultTicketSellQ' value='"+adultTicketSellQ+"' />"+"</th>");
+				$("#tr"+ticketNo+">th:nth-child(6)").prop("outerHTML","<th>"+"<input type='text' style='width:101%' id='adultTicketSelledQ' value='"+adultTicketSelledQ+"' />"+"</th>");	
+					
+}
+	    	function check(ticketNo){ 
+	    		var ticketName=$("#ticketName").val()
+				var country=$("#country").val()
+				var ticketDescription=$("#ticketDescription").val()
+				var adultTicketPrice=$("#adultTicketPrice").val()
+				var adultTicketSellQ=$("#adultTicketSellQ").val()
+				var adultTicketSelledQ=$("#adultTicketSelledQ").val()
+				console.log('ticketName'+ticketName)
+				$.ajax({
+		            type: "GET", //傳送方式
+		            url: "/Travel/bindex03_032/User.controller", 
+		            dataType: "json", 
+		            data: {'ticketNo':ticketNo,'ticketName':ticketName,'country':country,'ticketDescription':ticketDescription,'adultTicketPrice':adultTicketPrice,'adultTicketSellQ':adultTicketSellQ,'adultTicketSelledQ':adultTicketSelledQ
+		            },
+		            done: function(data) {
+		 				console.log(data);
+		            }
+	       		 });
+				$("#tr"+ticketName+">th:nth-child(1)").prop("outerHTML","<th>"+hospitalName+"</th>");
+				$("#tr"+country+">th:nth-child(2)").prop("outerHTML","<th>"+hospitalAddress+"</th>");
+				$("#tr"+ticketDescription+">th:nth-child(3)").prop("outerHTML","<th>"+hospitalphone+"</th>");
+				$("#tr"+adultTicketPrice+">th:nth-child(4)").prop("outerHTML","<th>"+hospitalowner+"</th>");
+				$("#tr"+adultTicketSellQ+">th:nth-child(5)").prop("outerHTML","<th>"+longitude+"</th>");
+				$("#tr"+adultTicketSelledQ+">th:nth-child(6)").prop("outerHTML","<th>"+latitude+"</th>");		
+}							 
 //------------------------------------------------------------------------------------------------------------------------------------------------------
-
-									}
+									
 // -----------------------------------------------------------------------------------------------------------------------------------------------------
 
 </script>

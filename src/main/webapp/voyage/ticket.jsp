@@ -67,7 +67,7 @@
 		'</div>'+
 		'<br>'+
 		'<p class="clearfix">'+
-			'<a	href="'+ value.traffic_information +'" class="float-left">Read more</a> <input type="image"	src="images/CK.png" onClick="document.form1.submit()" width="13%" style="float: right;">'+
+			'<a	href="'+ value.traffic_information +'" class="float-left">Read more</a> <input type="image"	src="images/CK.png" onClick="submit('+value.ticketNo+')" width="13%" style="float: right;">'+
 		'</p>'+
 	'</div>'+
 '</div>'+
@@ -110,6 +110,9 @@
 //動態生成購買功能
 // ------------------------------------------------------------------------------------------------------------------------------------------------------
 //***
+function submit(ticketNo){ 
+	    		alert(ticketNo);		
+}
 
 
 
