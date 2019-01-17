@@ -42,6 +42,36 @@ public class LoginController {
 //		model.addAttribute("insert", result);
 		return "login.test";
 	}	
+	
+	@ResponseBody
+	@RequestMapping(path= {"/voyage/registered.controller"})
+	public Map<String, Object> insertMb1 (Model model,UserInfoBean bean,BindingResult bindingresult) {
+		System.out.println(bean.getAccountName());
+		System.out.println("test");
+		UserInfoBean result = userInfoService.create(bean);
+		System.out.println(result);
+		Map<String, Object> message = new HashMap<>();
+//		System.out.println("bean="+bean);
+//		System.out.println("bindingresult="+bindingresult);
+//		model.addAttribute("errors", errors);
+//		UserInfoBean result = userInfoService.create(bean);
+//		model.addAttribute("insert", result);
+//		message.put("xxx1", bean);
+//		model.addAttribute("login", bean);			
+//		model.addAttribute("accountName", bean.getAccountName());			
+//		model.addAttribute("user", bean.getLastname()+" "+bean.getFirstname());
+//		System.out.println("登入成功");
+		if (result == null) {
+			message.put("failed", "註冊失敗");
+			System.out.println("註冊失敗");
+			return message;
+		} else {
+			message.put("success", "註冊成功");
+			System.out.println("註冊成功");
+			return message;
+		}
+		
+	}	
 
 	@ResponseBody
 	@RequestMapping(path = { "/voyage/login.controller" })

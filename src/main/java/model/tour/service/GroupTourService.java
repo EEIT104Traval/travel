@@ -28,6 +28,11 @@ public class GroupTourService {
 //		}
 		return result;
 	}
+	
+	public List<GroupTourBean> findbyclick(){
+		List<GroupTourBean> result = groupTourDAO.findByClick();
+		return result;
+	}
 	public Long countAll() {
 		Long count = groupTourDAO.countAll();
 		return count;

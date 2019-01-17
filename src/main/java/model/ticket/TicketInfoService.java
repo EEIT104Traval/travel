@@ -24,6 +24,7 @@ public class TicketInfoService {
 	
 	public List<TicketInfoBean> select(TicketInfoBean bean) {
 		List<TicketInfoBean> result = null;
+		
 		if (bean != null && bean.getTicketNo() != 0) {
 			TicketInfoBean tib = ticketInfoDAO.findByPrimaryKey(bean.getTicketNo());
 			if (tib != null) {
@@ -36,6 +37,11 @@ public class TicketInfoService {
 		return result;
 	}
 
+	public List<TicketInfoBean> findAll(){
+		List<TicketInfoBean> result = ticketInfoDAO.findAll();
+		return result;
+	}
+	
 	public TicketInfoBean insert(TicketInfoBean bean) {
 		TicketInfoBean result = null;
 		if (bean != null) {
@@ -53,6 +59,15 @@ public class TicketInfoService {
 					bean.getCountry(), bean.getCategory(), bean.getProductFeatures(), bean.getTicketPicture(),
 					bean.getTicketDescription(), bean.getTraffic_information(), bean.getSpecial_restrictions(),
 					bean.getGoogleAddressOrName());
+		}
+		return result;
+	}
+
+	
+	public boolean delete(TicketInfoBean bean) {
+		boolean result = false;
+		if (bean != null) {
+			result = ticketInfoDAO.remove(bean.getTicketNo());
 		}
 		return result;
 	}
@@ -97,19 +112,8 @@ public class TicketInfoService {
 		String x = ticketInfoDAO.UPticketInfo(path);
 		
 		return x;
-	}
+	}	
 	
-	
-	
-	
-	public boolean delete(TicketInfoBean bean) {
-		boolean result = false;
-		if (bean != null) {
-			result = ticketInfoDAO.remove(bean.getTicketNo());
-		}
-		return result;
-	}
-
 	public List<TicketInfoBean> searchCountry(String country) {
 		List<TicketInfoBean> result = null;
 		if (!StringUtils.isEmpty(country)) {

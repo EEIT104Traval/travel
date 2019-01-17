@@ -51,6 +51,16 @@ public class GroupTourController {
 		
 	}
 	
+	@ResponseBody
+	@RequestMapping("/groupTourClick")
+	public List<GroupTourBean> Findbyclick(GroupTourBean bean, Model model) {
+//		System.out.println("bean="+bean);	
+				List<GroupTourBean> result = groupTourService.findbyclick(); 				
+
+System.out.println(result);
+				return result;
+	}
+	
 	@RequestMapping("/groupTour2")
 	public String method2(GroupTourBean bean, Model model) {
 		System.out.println("bean="+bean);		

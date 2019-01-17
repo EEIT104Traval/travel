@@ -55,12 +55,11 @@
 		mypops[index].showPopup(content);
 	}
 
-	$('#peopleType').click(function(){
-			var adult = $('#adultcount').val();
-			console.log('adult');
-			
-			
-		})
+	$('#peopleType').click(function() {
+		var adult = $('#adultcount').val();
+		console.log('adult');
+
+	})
 	// 		$('input').hover(over,out);
 	// 		function over(){
 	// 			//$(this).removeClass('s1',1000).addClass('s2',1000)
@@ -168,69 +167,78 @@
 								<div
 									class="d-flex flex-lg-row flex-column align-items-start justify-content-lg-between justify-content-start">
 									<div>
-										<span class="form-label">出發地</span> <input id='demo2' name="takeOffPlace"
-											type="text"  class="search_input_1"
-											style="width: 450px" placeholder="請輸入機場/城市中英文或代碼" required="required" >
+										<span class="form-label">出發地</span> <input id='demo2'
+											name="takeOffPlace" type="text" class="search_input_1"
+											style="width: 450px" placeholder="請輸入機場/城市中英文或代碼"
+											required="required">
 										<!-- 											required="required" -->
 									</div>
 									<img alt=""
 										src="<c:url value='/voyage/images/changeTwoPlace.png'/>"
 										width="25px" style="padding-top: 42px">
 									<div>
-										<span class="form-label">目的地</span> <input id='demo1' name="landingPlace"
-											type="text"  class="search_input_1"
-											style="width: 450px" placeholder="請輸入機場/城市中英文或代碼" required="required">
+										<span class="form-label">目的地</span> <input id='demo1'
+											name="landingPlace" type="text" class="search_input_1"
+											style="width: 450px" placeholder="請輸入機場/城市中英文或代碼"
+											required="required">
 									</div>
 								</div>
 
 								<div style="display: inline-block; padding-right: 30px;">
 									<span class="form-label">出發日期</span> <input type="text"
-										 class="search_input_1" id="checkin_date" 
-										placeholder="yyyy/MM/dd" name="takeoff_date" autocomplete="off">
+										class="search_input_1" id="checkin_date"
+										placeholder="yyyy/MM/dd" name="takeoff_date"
+										autocomplete="off">
 								</div>
 								<div style="display: inline-block; padding-right: 30px;">
 									<span class="form-label">回程日期</span> <input type="text"
-										 class="search_input_1"
-										placeholder="yyyy/MM/dd" name="flyback_date" id="checkout_date" autocomplete="off">
+										class="search_input_1" placeholder="yyyy/MM/dd"
+										name="flyback_date" id="checkout_date" autocomplete="off">
 								</div>
-								<div style="display: inline-block; padding-right: 30px;width:200px;">
-									<span class="form-label">旅客類型</span> <input type="text" id='peopleType' autocomplete="off"
-										 class="search_input_1" value="1位成人" name="peopleType" onclick="showPopup(33)" style="width:200px;text-align: left;">
+								<div
+									style="display: inline-block; padding-right: 30px; width: 200px;">
+									<span class="form-label">旅客類型</span> <input type="text"
+										id='peopleType' autocomplete="off" class="search_input_1"
+										value="1位成人" name="peopleType" onclick="showPopup(33)"
+										style="width: 200px; text-align: left;">
 								</div>
 								<div id="content" class="test">
 									<div style="display: inline-block">
-										<span>成人數量</span> <input type="image" style="display: inline-block"
-											src="../voyage/images/MIN.png" class="min" width="8%">
-										<input type="text" value="1" placeholder="0" id="adultcount" name="adultcount" 
-											class="text_box" readonly="readonly"
-											style="text-align: center; height: 30px; width: 40px; margin: 0; border: 0px;display: inline-block;">
-										<input type="image" src="../voyage/images/PL.png" style="display: inline-block"
-											class="add" width="8%"> <span>(年滿 16 歲)</span>
+										<span>成人數量</span> 
+										<input type="image" style="display: inline-block" src="../voyage/images/MIN.png" class="min" width="8%"> 
+										<input type="text" value="1" placeholder="0" id="adultcount" name="adultcount" class="text_box" readonly="readonly" style="text-align: center; height: 30px; width: 40px; margin: 0; border: 0px; display: inline-block;">
+										<input type="image" src="../voyage/images/PL.png" style="display: inline-block" class="add" width="8%">
+										<span>(年滿 16 歲)</span>
 									</div>
 									<div style="display: inline-block">
-										<span>兒童數量</span> <input type="image" style="display: inline-block"
-											src="../voyage/images/MIN.png" class="min" width="8%">
-										<input type="text" value="" placeholder="0" id="childcount"
-											class="text_box" readonly="readonly"
-											style="text-align: center; height: 30px; width: 40px; margin: 0; border: 0px;display: inline-block;">
-										<input type="image" src="../voyage/images/PL.png" style="display: inline-block"
-											class="add" width="8%"> <span>(2~15 歲)</span>
+										<span>兒童數量</span> <input type="image"
+											style="display: inline-block" src="../voyage/images/MIN.png"
+											class="min" width="8%"> <input type="text" value=""
+											placeholder="0" id="childcount" class="text_box"
+											readonly="readonly"
+											style="text-align: center; height: 30px; width: 40px; margin: 0; border: 0px; display: inline-block;">
+										<input type="image" src="../voyage/images/PL.png"
+											style="display: inline-block" class="add" width="8%">
+										<span>(2~15 歲)</span>
 									</div>
 									<div style="display: inline-block">
-										<span>嬰兒數量</span> <input type="image" style="display: inline-block"
-											src="../voyage/images/MIN.png" class="min" width="8%">
-										<input type="text" value="" placeholder="0" id="babycount" 
-											class="text_box" readonly="readonly"
-											style="text-align: center; height: 30px; width: 40px; margin: 0; border: 0px;display:inline-block">
-										<input type="image" src="../voyage/images/PL.png" style="display: inline-block"
-											class="add" width="8%"> <span>(0~2 歲)</span>
+										<span>嬰兒數量</span> <input type="image"
+											style="display: inline-block" src="../voyage/images/MIN.png"
+											class="min" width="8%"> <input type="text" value=""
+											placeholder="0" id="babycount" class="text_box"
+											readonly="readonly"
+											style="text-align: center; height: 30px; width: 40px; margin: 0; border: 0px; display: inline-block">
+										<input type="image" src="../voyage/images/PL.png"
+											style="display: inline-block" class="add" width="8%">
+										<span>(0~2 歲)</span>
 									</div>
 									<div class="description">旅行時，您須符合預訂規定的年齡層。航空公司對於未滿 18
 										歲單獨旅行的乘客有限制規定。</div>
 
 									<div class="description">年齡限制與攜兒童旅行的政策可能不同，請先向航空公司確認，然後再進行預訂。</div>
 								</div>
-								<div style="display: inline-block; padding-right: 30px;padding-left: 30px;">
+								<div
+									style="display: inline-block; padding-right: 30px; padding-left: 30px;">
 									<span class="form-label">艙等</span> <select
 										class="search_input_1"
 										id="search-controls-cabin-class-dropdown"
@@ -242,12 +250,13 @@
 										<option value="Business">商務艙</option>
 									</select>
 								</div>
-								
+
 								<button class="home_search_button" id="home_search_button"
-									type="submit" >搜尋</button>
-								<div style="padding-top: 10px">	
-								<input type="checkbox" value="僅直飛" style="display: inline-block;margin:auto;" id="checkbox">
-								<label for="checkbox" style="display: inline-block;"><span>僅直飛</span></label>
+									type="submit">搜尋</button>
+								<div style="padding-top: 10px">
+									<input type="checkbox" value="僅直飛"
+										style="display: inline-block; margin: auto;" id="checkbox">
+									<label for="checkbox" style="display: inline-block;"><span>僅直飛</span></label>
 								</div>
 							</div>
 						</div>
@@ -257,12 +266,11 @@
 		</form>
 
 	</div>
-<script>
-	function formDate()
-{console.log($("form").serialize());
+	<script>
+		function formDate() {
+			console.log($("form").serialize());
 		}
-
-</script>
+	</script>
 
 
 
@@ -335,19 +343,19 @@
 		$(document).ready(function() {
 			peoplechoose();
 		});
-		
-		function calPeopleCount(){
-			var adultcount =$("#adultcount").val();
-			var childcount =$("#childcount").val();
-			var peopleCount ="";
-			if (adultcount!= 0){
-				peopleCount += adultcount+"位成人";
+
+		function calPeopleCount() {
+			var adultcount = $("#adultcount").val();
+			var childcount = $("#childcount").val();
+			var peopleCount = "";
+			if (adultcount != 0) {
+				peopleCount += adultcount + "位成人";
 			}
-			if (childcount!= 0){
-				peopleCount += childcount+"位child";
+			if (childcount != 0) {
+				peopleCount += childcount + "位child";
 			}
 			$('#peopleType').val(peopleCount);
-			
+
 		}
 		function peoplechoose() {
 			$("#content").on("click", ".add", function() {
@@ -357,7 +365,7 @@
 				}
 				t.val(parseInt(t.val()) + 1)
 				calPeopleCount()
-				
+
 			})
 			$("#content").on("click", ".min", function() {
 				var t = $(this).parent().find('input[class*=text_box]');
@@ -388,7 +396,8 @@
 	<script src="<c:url value='/voyage/js/main.js' />"></script>
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-	<script src="http://www.bootcss.com/p/bootstrap-datetimepicker/index.htm"></script>
+	<script
+		src="http://www.bootcss.com/p/bootstrap-datetimepicker/index.htm"></script>
 	<script src=" <c:url value='/flight/mohu/demo/js/demo.js'/>"
 		type="text/javascript"></script>
 	<%-- 	<link href=" <c:url value='/flight/mohu/demo/css/prettify.css'/>" rel="stylesheet" /> --%>

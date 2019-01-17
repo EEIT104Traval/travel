@@ -37,13 +37,19 @@
 		var url = location.href;
 		var ary = {}
 		var params ={}
+		var tour = {}
+		var Data
 		if(url.indexOf('?')!=-1){
 		        ary = {}
 		    	ary = url.split('tourNo=');
 		    	params.tourNo = ary[1]
 		}
 		function buy(serialNo){
-			//執行購買程序
+			if('${accountName}'){
+			window.location.href="/Travel/tour/Display2/buy?serialNo="+serialNo+"&tourNo="+params.tourNo+"&tourName="+Data.tourName+"&tourDays="+Data.tourDays+"&accountName="+'${accountName}'+""
+			}else{
+				alert('請先登入會員')
+			}
 		}
 		$(document).ready(function() {
 			$.ajax({
@@ -54,6 +60,7 @@
 					data:params,
 			}).done(function(JData) {
 					console.log(JData);
+					Data=JData
 					$("#tbodyinfo").html("");
 					$.each(JData.tourBatchBean, function(index, value) {						
 						var count = '已滿團'
@@ -65,10 +72,10 @@
 						var date = n.split("T")[0];
 						$("#tbodyinfo").append(
 							"<tr id='buy"+index+"'>"
-								+"<td style='padding-top:24px'>"+date+"</td>"
-								+"<td style='padding-top:24px'>"+count+"</td>"
+								+"<td style='padding-top:24px;color:#007bff'>"+date+"</td>"
+								+"<td style='padding-top:24px;color:fuchsia;'>"+count+"</td>"
 								+"<td style='padding-top:24px'>"+value.content+"/<a href='##'>航班</a></td>"
-								+"<td style='padding-top:24px;text-align:right'>"+value.price_adult+"</td>"
+								+"<td style='padding-top:24px;text-align:right;color:red;'>"+value.price_adult+"</td>"
 							+"</tr>"
 						)
 						if(count==='快來購買'){

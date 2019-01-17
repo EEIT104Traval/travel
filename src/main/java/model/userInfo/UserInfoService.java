@@ -54,7 +54,7 @@ public class UserInfoService {
 	
 	public UserInfoBean normalLoginUpdateTime(String accountName) {
 		UserInfoBean bean = userInfoDAO.findByPrimaryKey(accountName);
-		Timestamp updateTime = new Timestamp(System.currentTimeMillis()); // TODO: set update time = now
+		Timestamp updateTime = new Timestamp(System.currentTimeMillis()); 
 		userInfoDAO.update(bean.getAccountName(),bean.getPassword(), bean.getFirstname(), bean.getLastname(), bean.getIdentityNo(),bean.getEmail(),
 				bean.getBirth(),bean.getSex(),bean.getPhone(),bean.getAddress(),bean.getAuthority(),bean.getGorfb(),bean.getLoginId(),updateTime);
 	return bean;
@@ -65,7 +65,7 @@ public class UserInfoService {
 		System.out.println("bean="+bean);
 		if(bean!=null) {
 			System.out.println(" in loginId="+loginId);
-		Timestamp updateTime = new Timestamp(System.currentTimeMillis()); // TODO: set update time = now
+		Timestamp updateTime = new Timestamp(System.currentTimeMillis());
 		userInfoDAO.update(bean.getAccountName(),bean.getPassword(), bean.getFirstname(), bean.getLastname(), bean.getIdentityNo(),bean.getEmail(),
 				bean.getBirth(),bean.getSex(),bean.getPhone(),bean.getAddress(),bean.getAuthority(),bean.getGorfb(),bean.getLoginId(),updateTime);
 		}

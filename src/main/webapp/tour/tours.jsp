@@ -21,6 +21,18 @@
     <link rel="stylesheet" href="<c:url value='/voyage/css/icomoon.css' />">
     <link rel="stylesheet" href="<c:url value='/voyage/css/style.css' />">
     <link href="<c:url value='/voyage/css/jquery-ui.css' />" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="<c:url value='/voyage/css/main_styles_sherry.css' />">
+	<link rel="stylesheet" href="<c:url value='/voyage/css/about.css' />">
+    
+    
+ <style>
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+TC&subset=chinese-traditional');
+
+ body {
+        font-family: 'Noto Sans TC', sans-serif;
+      }
+</style>
+    
 </head>
 <script
   src="https://code.jquery.com/jquery-3.3.1.js"
@@ -33,22 +45,58 @@
 			style="background-image: url('<c:url value='/voyage/images/bg_2.jpg'/>');"
 			data-stellar-background-ratio="0.5">
 			<div class="overlay"></div>
-			<div class="container">
-				<div class="row slider-text align-items-center">
-					<div class="col-md-7 col-sm-12 ftco-animate">
-						<p class="breadcrumbs">
-							<span class="mr-2"><a href="index.jsp">Home</a></span> <span>Tour</span>
-						</p>
-						<h1 class="mb-3">Tours </h1>
-					</div>
-				</div>
-			</div>
+			<div class="container"></div>
+		</div>
+
 		</div>
 	</section>
 	<!-- END slider -->
 
-	<section class="ftco-section">
+
+	<div class="home_search" style="margin-top: -150px">
 		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="home_search_container">
+						<div class="home_search_title" style="font-family: Noto Sans TC">想住哪就選哪</div>
+						<div class="home_search_content">
+							<form action="#"
+								class="home_search_form" id="home_search_form" method="post">
+								<div 
+									class="d-flex flex-lg-row flex-column align-items-start justify-content-lg-between justify-content-start">
+									<input type="text" class="search_input" style="font-family: Noto Sans TC; width: 15%"
+										placeholder="請輸入國家" id="country">
+									<input type="text" class="search_input" style="font-family: Noto Sans TC; width: 15%"
+										placeholder="請輸入城市" id="city">
+									<input type="text" class="search_input" style="font-family: Noto Sans TC; width: 15%"
+										id="checkin_date" placeholder="入住日期" >
+									<input type="text" class="search_input" style="font-family: Noto Sans TC; width: 15%"
+										id="checkout_date" placeholder="退房日期">
+									<input type="text" class="search_input" style="font-family: Noto Sans TC; width: 15%"
+										id="accommodate" placeholder="人數">
+									<input type="button" class="home_search_button" style="font-family: Noto Sans TC" value="搜尋" onclick="hotelSearch()"/>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<section class="bg-light">
+	
+	</section>
+	<section class="ftco-section" style="margin-top:100px">
+	
+		<div class="container">
+		
+		 <div id="hot" class="row justify-content-center mb-5" style="width:770px;background-color:#ff5f5f;">
+		 	<div class="col-md-7 text-center heading-section ftco-animate fadeInUp ftco-animated" style="font-family: Noto Sans TC; ">
+		 		<h2 >熱搜行程</h2>
+		 	</div>
+		 </div>
+		
 			<div class="row">
 			<p id= "idd"></p>
 				<div class="col-lg-8">				
@@ -115,20 +163,13 @@
 												placeholder="Check-out date">
 										</div>
 										<div class="select-wrap col-sm-12 group mb-3">
-											<div class="icon">
-												<span class="ion-ios-arrow-down"></span>
-											</div>
-											<select name="" id="" class="form-control">
-												<option value="">Guest</option>
-												<option value="">1</option>
-												<option value="">2</option>
-												<option value="">3</option>
-												<option value="">4+</option>
-											</select>
+<!-- 											<div class="icon"> -->
+<!-- 												<span class="ion-ios-arrow-down"></span> -->
+<!-- 											</div> -->
 										</div>
 										<div class="col-sm-12 group mb-3">
 											<input type="submit" class="search-submit btn btn-primary"
-												value="Find Flights">
+												value="Find Tours">
 										</div>
 									</div>
 								</div>
@@ -170,7 +211,25 @@
 	
 	
 	    <script>
+	    
+   		
+	   	  var colorFlag = 0;
+	   	  function changeColor(){ 
+	   	         if (!colorFlag)
+	   	         {
+	   	        	 $("#hot").css("background-color","#ff5f5f");
+	   	        	 $("#hot > div h2").css("color","white");
+	   	        	 colorFlag = 1;
+	   	         }else{
+	   	        	 $("#hot").css("background-color","white");
+	   	        	 $("#hot > div h2").css("color","black");
+	   	        	 colorFlag = 0;
+	   	         }
+	   	     }
+	   	  setInterval('changeColor()',150);
    	$(document).ready(function() {
+
+
    		$('#tagcloud').on("mouseover","a",function(){
    			$(this).css('color','purple').css('background','yellow');
    		})
@@ -186,13 +245,15 @@
 // 			 $(this).css('color','orange').css('background','white');
 // 		 }
 		 
-		 $.getJSON( "/Travel/groupTour", function( data ) {
+		 $.getJSON( "/Travel/groupTourClick", function( data ) {
 			 var contents ="";
-			 var tagcontents ="";
+			
+			 var lens = data.length;
+			 console.log(data);
 // 			 console.log(data.result);
 //              console.log(data.result[0].TourTagsBean);
 // 			 console.log(data.result[0].TourTagsBean[0].tag);
-			 $.each(data.result, function(idx,val){
+			 $.each(data, function(idx,val){
 // 				 console.log(data.result[idx].TourTagsBean[0].tag);
 				 //所有行程
 				contents +="<div id=\"tourpage\" class=\"col-md-6 col-lg-6 mb-4\">"
@@ -210,17 +271,17 @@
 					+"</a>"
 				+"</div>"
 				//形成標籤
-				tagcontents +='<a href="#idd" id="'+data.result[idx].TourTagsBean[0].tag
-				            +'" class="tag-cloud-link">'+data.result[idx].TourTagsBean[0].tag
-				            +'</button>';
+// 				tagcontents +='<a href="#idd" id="'+data.TourTagsBean[0].tag
+// 				            +'" class="tag-cloud-link">'+data.TourTagsBean[0].tag
+// 				            +'</button>';
 					 
 			 })
 			 $("#box").html(contents);
-			 $("#tagcloud").html(tagcontents);
+	
 			 
 /* -----------------------分頁-------------------------------------------------------   */	 			 
 			 var rowsShown=6;                             //每頁顯示的行
-		     var rowsTotal=data.count;         //獲取總共的行
+		     var rowsTotal=lens;         //獲取總共的行
 		     var numPages=Math.ceil(rowsTotal/rowsShown); //計算出有多少頁
 // 		     alert(data.count);
 		     //顯示頁碼
@@ -246,6 +307,18 @@
 		     });
 /*----------------------分頁------------------------------------------------------------   */
 		 });
+		     
+		 $.getJSON( "/Travel/groupTour", function( data ) {
+			 var tagcontents ="";
+			 $.each(data.result, function(idx,val){
+	 				tagcontents +='<a href="#idd" id="'+val.TourTagsBean[0].tag
+		            +'" class="tag-cloud-link">'+val.TourTagsBean[0].tag
+		            +'</button>';
+			 })
+			 $("#tagcloud").html(tagcontents);			 
+			 
+		 });
+		     
 /*行程標籤分類葉面-------------------------------------------------------------------------------*/		     
 		 $('#tagcloud').on("click", "a", function(){
 			 var tag = $(this).attr("id");
@@ -285,7 +358,7 @@
 /* -----------------------分頁-------------------------------------------------------   */	 			 
 					 var rowsShown=6;                             //每頁顯示的行
 				     var rowsTotal=len;  
-					 console.log("==>"+rowsTotal)//獲取總共的行
+// 					 console.log("==>"+rowsTotal)//獲取總共的行
 				     var numPages=Math.ceil(rowsTotal/rowsShown); //計算出有多少頁
 				     var page = "";
 //		 		     alert(data.count);

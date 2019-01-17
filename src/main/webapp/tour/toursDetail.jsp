@@ -96,7 +96,7 @@ href="http://gregfranko.com/jquery.selectBoxIt.js/css/jquery.selectBoxIt.css" />
 <!-- -------------------------------下拉式--------------------------------------------------------------------  -->
                       
                     </div>
-                    <input type="submit" class="search-submit btn btn-primary"  style="border-radius:12px;" value="Find    !!">  
+                    <input id="find" type="button" class="search-submit btn btn-primary"  style="border-radius:12px;" value="Find    !!">  
                   </form>
                 </div>
               </div>
@@ -123,7 +123,7 @@ href="http://gregfranko.com/jquery.selectBoxIt.js/css/jquery.selectBoxIt.css" />
 				<div class="col-lg-8">				
 					<div id="box" class="row">
 
-<table class="table table-hover">
+<table id="NY1" class="table table-hover" >
   <thead style="background-color:#ff5f5f">
     <tr>
       <th scope="col" style="color:white">#</th>
@@ -134,10 +134,9 @@ href="http://gregfranko.com/jquery.selectBoxIt.js/css/jquery.selectBoxIt.css" />
   </thead>
   <tbody>
     <tr>
-      <th scope="row"></th>
-      <td>美國</td>
-      <td></td>
-      <td></td>
+      <th scope="row" style="background-color:#FFCCCC"></th>
+      <td style="background-color:#FFCCCC" colspan="3">美國(American)</td>
+
     </tr>   
   </tbody>
    <thead style="background-color:#ff5f5f">
@@ -157,10 +156,10 @@ href="http://gregfranko.com/jquery.selectBoxIt.js/css/jquery.selectBoxIt.css" />
     </tr>   
   </tbody>
   <tbody>
-    <tr>      <th scope="row"></th>    
-      <td>120V</td>
-      <td>60</td>
-      <td>	<img src="https://www.liontravel.com/Info/socketImg/socket_A.gif">   </td>
+    <tr>      <th scope="row" style="background-color:#FFCCCC"></th>    
+      <td style="background-color:#FFCCCC">120V</td>
+      <td style="background-color:#FFCCCC">60</td>
+      <td style="background-color:#FFCCCC">	<img src="<c:url value='https://www.liontravel.com/Info/socketImg/socket_A.gif' />">   </td>
     </tr>   
   </tbody>
   <thead style="background-color:#ff5f5f">
@@ -173,8 +172,8 @@ href="http://gregfranko.com/jquery.selectBoxIt.js/css/jquery.selectBoxIt.css" />
   </thead>
   <tbody>
     <tr>
-      <th scope="row"></th>
-      <td colspan="3">美國幣別：USD美金 即時匯率</td>
+      <th scope="row" style="background-color:#FFCCCC"></th>
+      <td colspan="3" style="background-color:#FFCCCC">美國幣別：USD美金 即時匯率</td>
   
     </tr>   
   </tbody>
@@ -188,8 +187,8 @@ href="http://gregfranko.com/jquery.selectBoxIt.js/css/jquery.selectBoxIt.css" />
   </thead>
     <tbody>
     <tr>
-      <th scope="row"></th>  
-      <td colspan="3">時差(美國 ALBANY-紐約州 距台灣)查詢</td>
+      <th scope="row" style="background-color:#FFCCCC"></th>  
+      <td colspan="3" style="background-color:#FFCCCC">時差(美國 ALBANY-紐約州 距台灣)查詢</td>
   
     </tr>   
   </tbody>
@@ -202,9 +201,10 @@ href="http://gregfranko.com/jquery.selectBoxIt.js/css/jquery.selectBoxIt.css" />
   </tbody>
     <tbody>
     <tr>
-      <th scope="row"></th>  
-      <td>-12小時</td>
-      <td>-4小時</td>
+      <th scope="row" style="background-color:#FFCCCC"></th>  
+      <td style="background-color:#FFCCCC">-12小時</td>
+      <td style="background-color:#FFCCCC">-4小時</td>
+      <td style="background-color:#FFCCCC"></td>
     </tr>   
   </tbody>
   <thead style="background-color:#ff5f5f">
@@ -217,53 +217,55 @@ href="http://gregfranko.com/jquery.selectBoxIt.js/css/jquery.selectBoxIt.css" />
   </thead>
     <tbody>
     <tr>
-      <th scope="row"></th>  
-      <td colspan="3">ALBANY-紐約州月平均溫度(攝氏)</td>  
+      <th scope="row" style="background-color:#FFCCCC"></th>  
+      <td colspan="3" style="background-color:#FFCCCC">ALBANY-紐約州月平均溫度(攝氏)</td>  
     </tr>   
   </tbody>
 
 </table>
-<table class="table table-hover">
+<table id="NY2" class="table table-hover" >
 <thead></thead>
 	<tbody>
     <tr style="background-color:#dee2e6">
-      <th scope="row"></th>  
-      <td>1月</td>
-      <td>2月</td>
-      <td>3月</td>
-      <td>4月</td>
-      <td>5月</td>
-      <td>6月</td>
-      <td>7月</td>
-      <td>8月</td>
-      <td>9月</td>
-      <td>10月</td>
-      <td>11月</td>
-      <td>12月</td>      
+      <th scope="row" style="background-color:#FFCCCC"></th>  
+      <td style="background-color:#FFCCCC">1月</td>
+      <td style="background-color:#FFCCCC">2月</td>
+      <td style="background-color:#FFCCCC">3月</td>
+      <td style="background-color:#FFCCCC">4月</td>
+      <td style="background-color:#FFCCCC">5月</td>
+      <td style="background-color:#FFCCCC">6月</td>
+      <td style="background-color:#FFCCCC">7月</td>
+      <td style="background-color:#FFCCCC">8月</td>
+      <td style="background-color:#FFCCCC">9月</td>
+      <td style="background-color:#FFCCCC">10月</td>
+      <td style="background-color:#FFCCCC">11月</td>
+      <td style="background-color:#FFCCCC">12月</td>
+      <td style="background-color:#FFCCCC"></td>      
     </tr>   
   </tbody>
   <tbody>
     <tr>
-      <th scope="row"></th>  
-      <td>-6.3</td>
-      <td>-4.7</td>
-      <td>1.2</td>
-      <td>7.9</td>
-      <td>14.1</td>
-      <td>19.3</td>
-      <td>22.1</td>
-      <td>20.8</td>
-      <td>16.3</td>
-      <td>10.1</td>
-      <td>4.3</td>
-      <td>-3.1</td>      
+      <th scope="row" style="background-color:#FFCCCC"></th>  
+      <td style="background-color:#FFCCCC">-6.3</td>
+      <td style="background-color:#FFCCCC">-4.7</td>
+      <td style="background-color:#FFCCCC">1.2</td>
+      <td style="background-color:#FFCCCC">7.9</td>
+      <td style="background-color:#FFCCCC">14.1</td>
+      <td style="background-color:#FFCCCC">19.3</td>
+      <td style="background-color:#FFCCCC">22.1</td>
+      <td style="background-color:#FFCCCC">20.8</td>
+      <td style="background-color:#FFCCCC">16.3</td>
+      <td style="background-color:#FFCCCC">10.1</td>
+      <td style="background-color:#FFCCCC">4.3</td>
+      <td style="background-color:#FFCCCC">-3.1</td>
+      <td style="background-color:#FFCCCC"></td>      
     </tr>   
   </tbody>
 
     <thead style="background-color:#ff5f5f">
     <tr>
       <th scope="col" style="color:white">#</th>
-      <th scope="col" style="color:white">國碼</th>
+      <th scope="col" style="color:white">&nbsp;&nbsp;&nbsp;&nbsp;國碼</th>
       <th scope="col"></th>
       <th scope="col"></th>
       <th scope="col"></th>
@@ -280,18 +282,190 @@ href="http://gregfranko.com/jquery.selectBoxIt.js/css/jquery.selectBoxIt.css" />
   </thead>
   <tbody>
   	<tr>
-      <th scope="row"></th>  
-      <td colspan="13">
+      <th scope="row" style="background-color:#FFCCCC"></th>  
+      <td colspan="13" style="background-color:#FFCCCC">
      	<p>各國家、地區國碼/國際冠碼表</p><br />
 		<p>◎從 ALBANY-紐約州 撥回台灣   該國國際冠碼+台灣國碼(886)+區域號碼(去零)+用戶電話號碼</p>
   	    <p>例如從 ALBANY-紐約州 撥回台北市： 011 + 886 + 2 + 2737-XXXX</p>
-  	    <p> 行動電話時，去掉第一個零即可： 011 + 886 + 921-999-XXX</p>
+  	    <p>行動電話時，去掉第一個零即可： 011 + 886 + 921-999-XXX</p>
       </td>
             
     </tr>   
   </tbody>
 </table>
-						 
+<table id="BA1" class="table table-hover" >
+  <thead style="background-color:#ff5f5f">
+    <tr>
+      <th scope="col" style="color:white">#</th>
+      <th scope="col" style="color:white">地點</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row" style="background-color:#FFCCCC"></th>
+      <td style="background-color:#FFCCCC" colspan="3">法國(FRANCE)</td>
+
+    </tr>   
+  </tbody>
+   <thead style="background-color:#ff5f5f">
+    <tr>
+      <th scope="col" style="color:white">#</th>
+      <th scope="col" style="color:white">電壓</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+    <tbody>
+    <tr style="background-color:#dee2e6">
+      <th scope="row"></th>  
+      <td>電壓</td>
+      <td>周波數</td>
+      <td>插座別</td>
+    </tr>   
+  </tbody>
+  <tbody>
+    <tr>      <th scope="row" style="background-color:#FFCCCC"></th>    
+      <td style="background-color:#FFCCCC">127V/220V</td>
+      <td style="background-color:#FFCCCC">50</td>
+      <td style="background-color:#FFCCCC">	
+      	<img src="<c:url value='https://www.liontravel.com/Info/socketImg/socket_D.gif' />">   
+      	<img src="<c:url value='https://www.liontravel.com/Info/socketImg/socket_C.gif' />">      
+      </td>
+    </tr>   
+  </tbody>
+  <thead style="background-color:#ff5f5f">
+    <tr>
+      <th scope="col" style="color:white">#</th>
+      <th scope="col" style="color:white">匯率</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row" style="background-color:#FFCCCC"></th>
+      <td colspan="3" style="background-color:#FFCCCC">法國幣別：EUR歐元 即時匯率</td>
+  
+    </tr>   
+  </tbody>
+  <thead style="background-color:#ff5f5f">
+    <tr>
+      <th scope="col" style="color:white">#</th>
+      <th scope="col" style="color:white">時差</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+    <tbody>
+    <tr>
+      <th scope="row" style="background-color:#FFCCCC"></th>  
+      <td colspan="3" style="background-color:#FFCCCC">時差(法國 巴黎 距台灣)查詢</td>
+  
+    </tr>   
+  </tbody>
+<tbody>
+    <tr style="background-color:#dee2e6">
+      <th scope="row"></th>  
+      <td>與台灣時差</td>
+      <td colspan="2">與GMT時差(台灣與GMT時差為+8)</td>
+    </tr>   
+  </tbody>
+    <tbody>
+    <tr>
+      <th scope="row" style="background-color:#FFCCCC"></th>  
+      <td style="background-color:#FFCCCC">-6小時</td>
+      <td style="background-color:#FFCCCC">+2小時</td>
+      <td style="background-color:#FFCCCC"></td>
+    </tr>   
+  </tbody>
+  <thead style="background-color:#ff5f5f">
+    <tr>
+      <th scope="col" style="color:white">#</th>
+      <th scope="col" style="color:white">氣象</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+    <tbody>
+    <tr>
+      <th scope="row" style="background-color:#FFCCCC"></th>  
+      <td colspan="3" style="background-color:#FFCCCC">巴黎月平均溫度(攝氏)</td>  
+    </tr>   
+  </tbody>
+
+</table>
+<table id="BA2" class="table table-hover" >
+<thead></thead>
+	<tbody>
+    <tr style="background-color:#dee2e6">
+      <th scope="row" style="background-color:#FFCCCC"></th>  
+      <td style="background-color:#FFCCCC">1月</td>
+      <td style="background-color:#FFCCCC">2月</td>
+      <td style="background-color:#FFCCCC">3月</td>
+      <td style="background-color:#FFCCCC">4月</td>
+      <td style="background-color:#FFCCCC">5月</td>
+      <td style="background-color:#FFCCCC">6月</td>
+      <td style="background-color:#FFCCCC">7月</td>
+      <td style="background-color:#FFCCCC">8月</td>
+      <td style="background-color:#FFCCCC">9月</td>
+      <td style="background-color:#FFCCCC">10月</td>
+      <td style="background-color:#FFCCCC">11月</td>
+      <td style="background-color:#FFCCCC">12月</td>
+      <td style="background-color:#FFCCCC"></td>      
+    </tr>   
+  </tbody>
+  <tbody>
+    <tr>
+      <th scope="row" style="background-color:#FFCCCC"></th>  
+      <td style="background-color:#FFCCCC">3.3</td>
+      <td style="background-color:#FFCCCC">4</td>
+      <td style="background-color:#FFCCCC">6.6</td>
+      <td style="background-color:#FFCCCC">9.6</td>
+      <td style="background-color:#FFCCCC">13.3</td>
+      <td style="background-color:#FFCCCC">16.4</td>
+      <td style="background-color:#FFCCCC">18.2</td>
+      <td style="background-color:#FFCCCC">18.2</td>
+      <td style="background-color:#FFCCCC">15.3</td>
+      <td style="background-color:#FFCCCC">11.2</td>
+      <td style="background-color:#FFCCCC">6.6</td>
+      <td style="background-color:#FFCCCC">4.3</td>
+      <td style="background-color:#FFCCCC"></td>      
+    </tr>   
+  </tbody>
+
+    <thead style="background-color:#ff5f5f">
+    <tr>
+      <th scope="col" style="color:white">#</th>
+      <th scope="col" style="color:white">&nbsp;&nbsp;&nbsp;&nbsp;國碼</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+  	<tr>
+      <th scope="row" style="background-color:#FFCCCC"></th>  
+      <td colspan="13" style="background-color:#FFCCCC">
+     	<p>各國家、地區國碼/國際冠碼表</p><br />
+		<p>◎從 巴黎 撥回台灣   該國國際冠碼+台灣國碼(886)+區域號碼(去零)+用戶電話號碼</p>
+  	    <p>例如從 巴黎 撥回台北市： 00 + 886 + 2 + 2737-XXXX</p>
+  	    <p>行動電話時，去掉第一個零即可： 00 + 886 + 921-999-XXX</p>
+      </td>
+            
+    </tr>   
+  </tbody>
+</table>						 
 						        <div id="DropDownList">
 <!-- 						            請選擇：<select id="SelectCategory"></select>  -->
 <!-- 						            <select id="SelectSubCategory"></select>  -->
@@ -320,7 +494,11 @@ href="http://gregfranko.com/jquery.selectBoxIt.js/css/jquery.selectBoxIt.css" />
 
 
         $(document).ready(function()        		
-        {
+        {	
+        	$('#NY1').hide();
+            $('#NY2').hide();
+            $('#BA1').hide();
+            $('#BA2').hide();
             Page_Init();    
 //             $("select").selectBoxIt({});
             
@@ -432,6 +610,27 @@ href="http://gregfranko.com/jquery.selectBoxIt.js/css/jquery.selectBoxIt.css" />
                 }
             }
         };
+        
+        var tableFR ="";
+        var tableNY = "";
+        
+        tableFR += 
+        $('#find').click(function(){
+        	if($('#SelectViewpoint option:selected').text() == '紐約州'){
+        		$('#BA1').hide();
+                $('#BA2').hide();
+        		$('#NY1').show();
+                $('#NY2').show();        		
+            }
+        	else if($('#SelectViewpoint option:selected').text() == '巴黎'){
+        		$('#NY1').hide();
+                $('#NY2').hide();
+        		$('#BA1').show();
+                $('#BA2').show();
+        	}
+        	
+        	
+        })
     
 		 
         
