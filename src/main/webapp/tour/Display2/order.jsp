@@ -33,6 +33,9 @@
 	integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
 	crossorigin="anonymous">
 <style>
+h2{
+	color:#2d7cd1;
+}
 .scroll {
 	display: block;
 	background-color: #ECECEC;
@@ -189,7 +192,7 @@
 					</div>
 					<div
 						class="col-md-8 probootstrap-animate fadeInUp probootstrap-animated">
-						<h5 style="padding-top: 20px; float: left;">請填寫訂單聯絡人資訊</h5>
+						<h5 style="padding-top: 20px;float: left;margin-right:20px">請填寫訂單聯絡人資訊</h5>
 						<input type="checkbox" id='same'> <label
 							style="padding-top: 20px;">同聯絡人資訊</label>
 						<form role="form">
@@ -208,8 +211,9 @@
 										type="text" class="form-control" />
 								</div>
 								<div class="col-md-5 col-xs-12">
-									<label for="exampleInputPassword1" class="sex"> 性別 </label> <input
-										type="radio" name="sex" />男 <input type="radio" name="sex" />女
+									<label for="exampleInputPassword1" class="sex"> 性別 </label> 
+									<input type="radio" name="sex" style="margin:0px 10px;"/>男
+									<input type="radio" name="sex" style="margin:0px 10px;"/>女
 								</div>
 							</div>
 						</form>
@@ -354,15 +358,18 @@
 															class="form-control" />
 													</div>
 													<div class="col-md-6 col-xs-12">
-														<label for="exampleInputPassword1" class="sex"> 性別
-														</label> <input type="radio" name="sex" />男 <input type="radio"
-															name="sex" />女
+														<label class="sex" style="color:#2d7cd1">旅客1(成人)</label>
 													</div>
 												</div>
 												<div class="row">
 													<div class="col-md-6 col-xs-12">
 														<label for="exampleInputPassword1"> 護照姓名 </label> <input
 															type="text" class="form-control" />
+													</div>
+																										<div class="col-md-6 col-xs-12">
+														<label for="exampleInputPassword1" class="sex"> 性別</label>
+														<input type="radio" name="sex1" style="margin:0px 10px;"/>男 
+														<input type="radio"	name="sex1" style="margin:0px 10px;"/>女
 													</div>
 												</div>
 											</div>
@@ -375,15 +382,19 @@
 															class="form-control" />
 													</div>
 													<div class="col-md-6 col-xs-12">
-														<label for="exampleInputPassword1" class="sex"> 性別
-														</label> <input type="radio" name="sex" />男 <input type="radio"
-															name="sex" />女
+														<label class="sex" style="color:#2d7cd1">旅客2(嬰兒)</label> 
 													</div>
+
 												</div>
 												<div class="row">
 													<div class="col-md-6 col-xs-12">
 														<label for="exampleInputPassword1"> 護照姓名 </label> <input
 															type="text" class="form-control" />
+													</div>
+													<div class="col-md-6 col-xs-12">
+														<label for="exampleInputPassword1" class="sex"> 性別</label> 
+														<input type="radio" name="sex2" style="margin:0px 10px;"/>男
+														<input type="radio" name="sex2" style="margin:0px 10px;"/>女
 													</div>
 												</div>
 											</div>
