@@ -33,11 +33,15 @@ public class HotelTest {
 	public HotelBean create() {
 		HotelBean insert = new HotelBean();
 		insert.setHotelNo(2);
-		insert.setHotelName("香港迪士尼樂園酒店");
-		insert.setCountry("中國");
-		insert.setCity("香港");
+		insert.setHotelNameCH("香港迪士尼樂園酒店");
+		insert.setHotelNameEN("Hong Kong DisneyLand");
+		insert.setCountryCH("中國");
+		insert.setCountryEN("China");
+		insert.setCityCH("香港");
+		insert.setCityEN("Hong Kong");
 		insert.setAddress("香港離島大嶼山迪士尼樂園度假區");
 		insert.setHotelTotalRooms(800);
+		insert.setStar(5);
 		insert.setStarRate("starRate");
 		insert.setPrice("NT$1,234");
 		insert.setPic("NULL");
@@ -47,7 +51,7 @@ public class HotelTest {
 
 	@RequestMapping("/Hoteltestupdate")
 	public HotelBean update() {
-		HotelBean update = dao.update(2, "香港迪士尼樂園酒店", "中國", "香港", "香港離島大嶼山迪士尼樂園度假區", 1200, "starRate", "NT $2,266",
+		HotelBean update = dao.update(2, "香港迪士尼樂園酒店", "Hong Kong DisneyLand", "中國", "China", "香港", "Hing Kong", "香港離島大嶼山迪士尼樂園度假區", 1200, 5, "starRate", "NT $2,266",
 				"NULL");
 		return update;
 	}

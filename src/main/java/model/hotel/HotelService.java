@@ -37,8 +37,9 @@ public class HotelService {
 	public HotelBean update(HotelBean bean) {
 		HotelBean result = null;
 		if(bean!=null) {
-			result = hotelDAO.update(bean.getHotelNo(), bean.getHotelName(), bean.getCountry(), bean.getCity(), 
-					bean.getAddress(), bean.getHotelTotalRooms(), bean.getStarRate(), bean.getPrice(), bean.getPic());
+			result = hotelDAO.update(bean.getHotelNo(), bean.getHotelNameCH(), bean.getCountryCH(), bean.getCityCH(), 
+					bean.getHotelNameEN(), bean.getCountryEN(), bean.getCityEN(), bean.getAddress(), bean.getHotelTotalRooms(), 
+					bean.getStar(), bean.getStarRate(), bean.getPrice(), bean.getPic());
 					}
 		return result;
 	}
@@ -51,10 +52,10 @@ public class HotelService {
 	}
 	
 	
-	public List<HotelBean> searchCountry(String country) {
+	public List<HotelBean> searchCountry(String countryCH) {
 		List<HotelBean> result = null;
-		if (!StringUtils.isEmpty(country)) {
-			List<HotelBean> tib = hotelDAO.searchByCountry(country);
+		if (!StringUtils.isEmpty(countryCH)) {
+			List<HotelBean> tib = hotelDAO.searchByCountry(countryCH);
 			if (tib != null) {
 				result = new ArrayList<HotelBean>();
 				result.addAll(tib);
@@ -65,10 +66,10 @@ public class HotelService {
 		return result;
 	}
 	
-	public List<HotelBean> searchCity(String city) {
+	public List<HotelBean> searchCity(String cityCH) {
 		List<HotelBean> result = null;
-		if (!StringUtils.isEmpty(city)) {
-			List<HotelBean> tib = hotelDAO.searchByCity(city);
+		if (!StringUtils.isEmpty(cityCH)) {
+			List<HotelBean> tib = hotelDAO.searchByCity(cityCH);
 			if (tib != null) {
 				result = new ArrayList<HotelBean>();
 				result.addAll(tib);

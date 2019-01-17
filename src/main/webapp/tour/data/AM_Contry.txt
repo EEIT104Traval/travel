@@ -1,0 +1,82 @@
+[
+  {
+   "subCategoryId": "H01",
+   "subCategoryName": "美國"
+  },
+  {
+   "subCategoryId": "H02",
+   "subCategoryName": "古巴"
+  },
+  {
+   "subCategoryId": "H03",
+   "subCategoryName": "加拿大"
+  },
+  {
+   "subCategoryId": "H04",
+   "subCategoryName": "巴哈馬"
+  },
+  {
+   "subCategoryId": "H05",
+   "subCategoryName": "哥斯大黎加"
+  },
+  {
+   "subCategoryId": "H06",
+   "subCategoryName": "薩爾瓦多"
+  },
+  {
+   "subCategoryId": "H07",
+   "subCategoryName": "瓜地馬拉"
+  },
+  {
+   "subCategoryId": "H08",
+   "subCategoryName": "海地"
+  },
+  {
+   "subCategoryId": "H09",
+   "subCategoryName": "宏都拉斯"
+  },
+  {
+   "subCategoryId": "H10",
+   "subCategoryName": "牙買加"
+  },
+  {
+   "subCategoryId": "H11",
+   "subCategoryName": "墨西哥"
+  },
+  {
+   "subCategoryId": "H12",
+   "subCategoryName": "尼加拉瓜"
+  },
+  {
+   "subCategoryId": "H13",
+   "subCategoryName": "格瑞那達"
+  },
+  {
+   "subCategoryId": "H14",
+   "subCategoryName": "巴拉圭"
+  },
+  {
+   "subCategoryId": "H15",
+   "subCategoryName": "直布羅陀"
+  },
+  {
+   "subCategoryId": "H16",
+   "subCategoryName": "祕魯"
+  },
+  {
+   "subCategoryId": "H17",
+   "subCategoryName": "聖文森"
+  },
+  {
+   "subCategoryId": "H18",
+   "subCategoryName": "波多黎各"
+  },
+  {
+   "subCategoryId": "H19",
+   "subCategoryName": "阿根廷"
+  },
+  {
+   "subCategoryId": "H20",
+   "subCategoryName": "玻利維亞"
+  }
+]
