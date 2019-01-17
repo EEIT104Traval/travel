@@ -83,8 +83,10 @@ public class TicketInfoTest {
 
 	@RequestMapping("/ticketUpdate")
 	public TicketInfoBean update() {
-		TicketInfoBean update = dao.update(1, "東京熱", 2, 3000, 2000, 10, 10, 2, 5, "japan", "test", "test", "test",
-				"test", "test", "test", "test");
+		TicketInfoBean bean = new TicketInfoBean ();
+		bean.setAdultTicketPrice(1000);
+		
+		TicketInfoBean update = dao.update(bean);
 		return update;
 	}
 

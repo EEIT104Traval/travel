@@ -132,37 +132,37 @@ public class UserController01_01 {
 		return result;
 	}
 	
-//	@ResponseBody
-//	@RequestMapping("/bindex03_032/User.controller")
-//	public String method03032(Integer ticketNo , String ticketName,String country,
-//				String ticketDescription,Integer adultTicketPrice,Integer adultTicketSellQ,Integer adultTicketSelledQ) {
-//		
-//		System.out.println(ticketName);
-//		System.out.println(country);
-//		System.out.println(ticketDescription);
-//		System.out.println(adultTicketPrice);
-//		
-//	        
-//		TicketInfoBean temp = ticketInfoDAO.findByPrimaryKey(ticketNo);
-//		System.out.println(ticketNo);
+	@ResponseBody
+	@RequestMapping("/bindex03_032/User.controller")
+	public String method03032(Integer ticketNo , String ticketName,String country,
+				String ticketDescription,Integer adultTicketPrice,Integer adultTicketSellQ,Integer adultTicketSelledQ) {
 		
-//		if(!ticketName.isEmpty()) {
-//			temp.setTicketName(ticketName);
-//		}if(!country.isEmpty()) {
-//			temp.setCountry(country);
-//		}if(!ticketDescription.isEmpty()) {
-//			temp.setTicketDescription(ticketDescription);
-//		}if(!adultTicketPrice.isEmpty()) {
-//			temp.setAdultTicketPrice(adultTicketPrice);
-//		}if(adultTicketSellQ!=null) {
-//			temp.setAdultTicketSellQ(adultTicketSellQ);
-//		}if(adultTicketSelledQ!=null) {
-//			temp.setAdultTicketSelledQ(adultTicketSelledQ);
-//		}
-//		TicketInfoBean result = 
-//		
-//		System.out.println("result"+result);
-//		return result+"";
-//	}
+		System.out.println(ticketName);
+		System.out.println(country);
+		System.out.println(ticketDescription);
+		System.out.println(adultTicketPrice);
+		
+	        
+		TicketInfoBean temp = ticketInfoDAO.findByPrimaryKey(ticketNo);
+		System.out.println(ticketNo);	
+		
+		if(!ticketName.isEmpty()) {
+			temp.setTicketName(ticketName);
+		}if(!country.isEmpty()) {
+			temp.setCountry(country);
+		}if(!ticketDescription.isEmpty()) {
+			temp.setTicketDescription(ticketDescription);
+		}if(adultTicketPrice != null) {
+			temp.setAdultTicketPrice(adultTicketPrice);
+		}if(adultTicketSellQ!=null) {
+			temp.setAdultTicketSellQ(adultTicketSellQ);
+		}if(adultTicketSelledQ!=null) {
+			temp.setAdultTicketSelledQ(adultTicketSelledQ);
+		}
+		TicketInfoBean result = ticketInfoDAO.update(temp);
+		
+		System.out.println("result"+result);
+		return result+"";
+	}
 
 }
