@@ -58,22 +58,19 @@
 			<div class="row">
 				<div class="col">
 					<div class="home_search_container">
-						<div class="home_search_title" style="font-family: Noto Sans TC">想住哪就選哪</div>
+						<div class="home_search_title" style="font-family: Noto Sans TC">出團拉~</div>
 						<div class="home_search_content">
 							<form action="#"
 								class="home_search_form" id="home_search_form" method="post">
 								<div 
 									class="d-flex flex-lg-row flex-column align-items-start justify-content-lg-between justify-content-start">
-									<input type="text" class="search_input" style="font-family: Noto Sans TC; width: 15%"
-										placeholder="請輸入國家" id="country">
-									<input type="text" class="search_input" style="font-family: Noto Sans TC; width: 15%"
-										placeholder="請輸入城市" id="city">
-									<input type="text" class="search_input" style="font-family: Noto Sans TC; width: 15%"
-										id="checkin_date" placeholder="入住日期" >
-									<input type="text" class="search_input" style="font-family: Noto Sans TC; width: 15%"
-										id="checkout_date" placeholder="退房日期">
-									<input type="text" class="search_input" style="font-family: Noto Sans TC; width: 15%"
-										id="accommodate" placeholder="人數">
+									<input type="text" class="search_input" style="font-family: Noto Sans TC; width: 25%"
+										placeholder="想去哪裡玩?" id="country">
+									<input type="text" class="search_input" style="font-family: Noto Sans TC; width: 25%"
+										id="checkin_date" placeholder="出團日期" >
+									<input type="text" class="search_input" style="font-family: Noto Sans TC; width: 25%"
+										id="checkin_date" placeholder="回程日期" >
+									
 									<input type="button" class="home_search_button" style="font-family: Noto Sans TC" value="搜尋" onclick="hotelSearch()"/>
 								</div>
 							</form>
@@ -141,41 +138,41 @@
 				<!-- END -->
 
 				<div class="col-lg-4 sidebar">
-					<div class="sidebar-box ftco-animate">
-						<div class="search-tours bg-light p-4">
-							<h3>Find your tour</h3>
-							<form action="" method="post">
-								<div class="fields">
-									<div class="row flex-column">
+<!-- 					<div class="sidebar-box ftco-animate"> -->
+<!-- 						<div class="search-tours bg-light p-4"> -->
+<!-- 							<h3>Find your tour</h3> -->
+<!-- 							<form action="" method="post"> -->
+<!-- 								<div class="fields"> -->
+<!-- 									<div class="row flex-column"> -->
 
-										<div class="textfield-search col-sm-12 group mb-3">
-											<input type="text" class="form-control"
-												placeholder="Search Location">
-										</div>
+<!-- 										<div class="textfield-search col-sm-12 group mb-3"> -->
+<!-- 											<input type="text" class="form-control" -->
+<!-- 												placeholder="Search Location"> -->
+<!-- 										</div> -->
 
-										<div class="check-in col-sm-12 group mb-3">
-											<input type="text" id="checkin_date" class="form-control"
-												placeholder="Check-in date">
-										</div>
+<!-- 										<div class="check-in col-sm-12 group mb-3"> -->
+<!-- 											<input type="text" id="checkin_date" class="form-control" -->
+<!-- 												placeholder="Check-in date"> -->
+<!-- 										</div> -->
 
-										<div class="check-out col-sm-12 group mb-3">
-											<input type="text" id="checkout_date" class="form-control"
-												placeholder="Check-out date">
-										</div>
-										<div class="select-wrap col-sm-12 group mb-3">
-<!-- 											<div class="icon"> -->
-<!-- 												<span class="ion-ios-arrow-down"></span> -->
-<!-- 											</div> -->
-										</div>
-										<div class="col-sm-12 group mb-3">
-											<input type="submit" class="search-submit btn btn-primary"
-												value="Find Tours">
-										</div>
-									</div>
-								</div>
-							</form>
-						</div>
-					</div>
+<!-- 										<div class="check-out col-sm-12 group mb-3"> -->
+<!-- 											<input type="text" id="checkout_date" class="form-control" -->
+<!-- 												placeholder="Check-out date"> -->
+<!-- 										</div> -->
+<!-- 										<div class="select-wrap col-sm-12 group mb-3"> -->
+<!-- <!-- 											<div class="icon"> --> 
+<!-- <!-- 												<span class="ion-ios-arrow-down"></span> --> 
+<!-- <!-- 											</div> --> 
+<!-- 										</div> -->
+<!-- 										<div class="col-sm-12 group mb-3"> -->
+<!-- 											<input type="submit" class="search-submit btn btn-primary" -->
+<!-- 												value="Find Tours"> -->
+<!-- 										</div> -->
+<!-- 									</div> -->
+<!-- 								</div> -->
+<!-- 							</form> -->
+<!-- 						</div> -->
+<!-- 					</div> -->
 
 					<div class="sidebar-box ftco-animate">
 						<div class="categories">
