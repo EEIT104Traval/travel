@@ -6,12 +6,18 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Base64;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.google.gson.Gson;
 
+import model.flight.AirlineCompareBean;
+import model.flight.AirlineCompareDAO;
 import model.flight.FlightInfoGet;
 import model.flight.Token;
 
@@ -78,6 +84,38 @@ public class FlightInfoGetService {
 
 		System.out.println("getInfoService結束");
 		return result;
+	}
+	
+	@Autowired
+	private AirlineCompareDAO dao;
+	
+	public String addCompanyCN(String bfmsearch) throws Exception {
+		String result = this.getInfo(bfmsearch);
+		System.out.println("addcompany開始");
+		String result1 = result;
+		int index = 0;
+		Set<String> hashSet = new HashSet<String>();
+		
+		for (int i = 0; i < result.length() - 1; i++) {
+			
+			index = result.indexOf("OperatingAirline\":{\"Code\":\""); 
+			if(index==-1) {
+				break;
+			}
+			String code = result.substring(index + 27, index + 29);
+			hashSet.add(code);
+			result = result.substring(index+29);				
+		}
+		List<AirlineCompareBean> bean = dao.findByList(hashSet);
+		
+		for(AirlineCompareBean rebean :bean) {
+			
+			result1 = result1.replace("OperatingAirline\":{\"Code\":\""+rebean.getAirlineCode(),"OperatingAirline\":{\"Code\":\""+rebean.getAirlineCode()+"\",\"Company\":\""+rebean.getAirlineCompany());
+			
+		}
+		
+//		System.out.println(result1);
+		return result1;
 	}
 
 }

@@ -2,8 +2,10 @@ package controller.test.flight;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletResponse;
@@ -336,6 +338,23 @@ public class FlightTest implements XmlDocument {
 		}
 	}
 
+	@ResponseBody // @RestController可替代
+	@RequestMapping("/flightsearchCompany")
+	public List<AirlineCompareBean> Airlinecompfind() {
+		
+		Set<String> code = new HashSet<>();
+		code.add("0B");
+		code.add("CA");
+		code.add("BR");
+		List<AirlineCompareBean> beans = adao2.findByList(code);
+		System.out.println("測試結果為"+beans);
+		return beans;
+	}
+
+	
+	
+	
+	
 	@Override
 	public Document getDocumentTree() {
 		// TODO Auto-generated method stub
