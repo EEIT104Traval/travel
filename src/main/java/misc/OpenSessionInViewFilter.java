@@ -20,6 +20,7 @@ public class OpenSessionInViewFilter implements Filter {
 	private SessionFactory sessionFactory;
 	@Override
 	public void init(FilterConfig filterConfig) throws ServletException {
+		System.out.println("filter載入");
 		ApplicationContext context = (ApplicationContext)
 				filterConfig.getServletContext().getAttribute(WebApplicationContext.ROOT_WEB_APPLICATION_CONTEXT_ATTRIBUTE);
 		sessionFactory = (SessionFactory) context.getBean("sessionFactory");
@@ -28,9 +29,11 @@ public class OpenSessionInViewFilter implements Filter {
 	public void doFilter(ServletRequest request,
 			ServletResponse response, FilterChain chain) throws IOException, ServletException {
 		try {
+			System.out.println("dofilter開始");
 			sessionFactory.getCurrentSession().beginTransaction();
 			chain.doFilter(request, response);
 			sessionFactory.getCurrentSession().getTransaction().commit();
+			System.out.println("dofilter結束");
 		} catch (HibernateException e) {
 			e.printStackTrace();
 			sessionFactory.getCurrentSession().getTransaction().rollback();
@@ -39,6 +42,6 @@ public class OpenSessionInViewFilter implements Filter {
 	}
 	@Override
 	public void destroy() {
-
+		System.out.println("filter結束");
 	}
 }
