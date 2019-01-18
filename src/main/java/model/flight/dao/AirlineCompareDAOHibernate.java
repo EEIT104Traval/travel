@@ -17,6 +17,7 @@ public class AirlineCompareDAOHibernate implements AirlineCompareDAO{
 	}
 	@Override
 	public AirlineCompareBean findByPrimaryKey(String airlineCode) {
+		System.out.println("DAO方法開始");
 		return this.getSession().get(AirlineCompareBean.class, airlineCode);
 	}
 
