@@ -42,7 +42,7 @@ function notice(){
 	var r = confirm("確定或取消: rate="+x);
 	if(r==true){
 		alert("確定價格")
-	}else{
+	}else{英鎊
 		alert("取消確認")
 	}
 	}	

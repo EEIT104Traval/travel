@@ -128,7 +128,7 @@
 	<div id="header">
 		<h2 style="color:white">匯率-最近半年走勢圖</h2>
 	</div>
-	   <button type="button" style="float:right;margin-right: 150px"><a href="rateindex2.jsp" />回上一頁</a></button>
+	   <button type="button" style="float:right;margin-right: 150px"><a href="rateindex3.jsp" />回上一頁</a></button>
 <!-- 	   <button type="button" style="float:right;margin-right: 10px"><a href="toggling1.jsp" />最近半年走勢圖</a></button> -->
 	   <button type="button" style="float:right;margin-right: 10px;margin-bottom:-1000px"><a href="toggling.jsp" />最近三個月走勢圖</a></button>
 

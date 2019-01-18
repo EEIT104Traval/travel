@@ -166,17 +166,19 @@ function update(){
 			<div class="row">
 				<div class="col">
 					<div class="home_search_container">
-						<div class="home_search_title"><h2/>匯率</div>
+						<div class="home_search_title"><h2>匯率</h2></div>
 						<div class="home_search_content">
 							<form action="#" class="home_search_form" id="home_search_form"
 								method="get">
 								<div>
+								<div style="float:right;margin-top: 45px;margin-bottom: 10px;margin-right:-40px">
 <!--   	   							<button type="button" style="float:right;margin-bottom: 10px"><a href="toggling3.jsp" />最近半年走勢圖</a></button> -->
-								<button type="button" style="float:right;margin-right: -30px;margin-bottom: 20px"><a href="../voyage/index.jsp" />回首頁</a></button>
-  	   							<button type="button" style="float:right;margin-right: 10px"><a href="toggling1.jsp" />最近半年走勢圖</a></button>
-	   							<button type="button" style="float:right;margin-right: 10px"><a href="toggling.jsp" />最近三個月走勢圖</a></button>
-								<table id="" class="tb1"> 
-	
+			
+ 			<button  style="margin-right: 10px" ><a href="<c:url value='toggling1.jsp'/>"  />最近半年走勢圖</a></button>
+			<button  style="margin-right: 10px"><a href="<c:url value='toggling.jsp'/>"  />最近三個月走勢圖</a></button>
+			<button><a href="<c:url value='../voyage/index.jsp'/>"  />回首頁</a></button>
+			</div>					
+									
 <!-- 		<div style="margin-top:20px"> -->
 <!-- 	   <button type="button" style="float:right;margin-right: 350px"><a href="../voyage/index.jsp" />回首頁</a></button> -->
 <!--   	   <button type="button" style="float:right;margin-right: 10px"><a href="toggling1.jsp" />最近半年走勢圖</a></button> -->
