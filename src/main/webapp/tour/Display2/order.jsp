@@ -205,6 +205,26 @@ h2 {
 			$('#collapseOne').append(customer)
 		}
 	}
+	function put(){
+		if($('#same').prop('checked')==true){
+			console.log(1)
+			$('#fullName').val('${user}');
+			$('#userPhone').val('${result.user.phone}');
+			$('#userMail').val('${result.user.email}');
+			if('${result.user.email}'=='F'){
+				$('#man').prop('checked',true);
+			}else{
+// 				$('#woman').val('');
+			}
+		}else{
+			console.log(2)
+			$('#fullName').val('');
+			$('#userPhone').val('');
+			$('#userMail').val('');
+// 			$('#man').val('');
+// 			$('#woman').val('');
+		}
+	}
 </script>
 
 <body>
@@ -292,32 +312,30 @@ h2 {
 						class="col-md-3 probootstrap-animate fadeInUp probootstrap-animated">
 						<h2 style="padding: 10px;">訂單聯絡人</h2>
 					</div>
-					<div
-						class="col-md-8 probootstrap-animate fadeInUp probootstrap-animated">
+					<div class="col-md-8 probootstrap-animate fadeInUp probootstrap-animated">
 						<h5 style="padding-top: 20px; float: left; margin-right: 20px">請填寫訂單聯絡人資訊</h5>
-						<input type="checkbox" id='same'> <label for="same"
-							style="padding-top: 20px;">同聯絡人資訊</label>
+						<input onclick="put()" id="same" type="checkbox"> 
+						<label for="same" style="padding-top: 20px;">同聯絡人資訊</label>
 						<form role="form">
 							<div class="row">
 								<div class="col-md-5 col-xs-12">
-									<label id="fullName">姓名</label> <input type="text"
-										class="form-control" />
+									<label>姓名</label> 
+									<input id="fullName" type="text" class="form-control" />
 								</div>
 								<div class="col-md-5 col-xs-12">
-									<label for="exampleInputPassword1"> 電話 </label> <input
-										type="text" class="form-control" />
+									<label> 電話 </label> 
+									<input id="userPhone" type="text" class="form-control" />
 								</div>
 							</div>
 							<div class="row">
 								<div class="col-md-5 col-xs-12">
-									<label for="exampleInputPassword1"> 信箱 </label> <input
-										type="text" class="form-control" />
+									<label> 信箱 </label> 
+									<input	id="userMail" type="text" class="form-control" />
 								</div>
 								<div class="col-md-5 col-xs-12">
-									<label for="exampleInputPassword1" class="sex"> 性別 </label> <input
-										type="radio" id="man" name="sex" style="margin: 0px 10px;" /><label
-										for="man">男</label> <input type="radio" id="woman" name="sex"
-										style="margin: 0px 10px;" /><label for="woman">女</label>
+									<label for="exampleInputPassword1" class="sex"> 性別 </label> 
+									<input type="radio" id="man" name="sex" style="margin: 0px 10px;" /><label for="man">男</label> 
+									<input type="radio" id="woman" name="sex" style="margin: 0px 10px;" /><label for="woman">女</label>
 								</div>
 							</div>
 						</form>

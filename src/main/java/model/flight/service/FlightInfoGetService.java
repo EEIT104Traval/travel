@@ -22,6 +22,7 @@ public class FlightInfoGetService {
 	private Token token;
 
 	public String getInfo(String bfmsearch) throws Exception{
+		System.out.println("getInfoService開始");
 
 		/*
 		 * Step 1 取得ClientID
@@ -75,7 +76,7 @@ public class FlightInfoGetService {
 //		getBFM();
 		String result = FlightInfoGet.getBFM(token, bfmsearch);
 
-
+		System.out.println("getInfoService結束");
 		return result;
 	}
 

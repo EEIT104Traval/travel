@@ -1567,6 +1567,19 @@ $(document).ready(function() {
     
      <input id="dealDate" name="dealDate" style="display: none;">
      <input id="orderStatus" name="orderStatus" style="display: none;" value="未付款">
+	    private Integer serial;
+		private Integer flightOrderNo;
+		private String flightNO;
+		private String airlineCode;
+		private String takeOffPlace;
+		private String landingPlace;
+		private Date takeOffTime;
+		private Date landingTime;
+		private int adultPrice;
+		private int childPrice;
+		private Double baggageAllowance;
+		private String goOrBack;
+		private String classLevel;
      <input id="" name="" style="display: none;" value="${map.ticketAmount}">
      <input id="" name="" style="display: none;" value="${map.goDay}">
      <input id="" name="" style="display: none;" value="${map.goDeplace}">

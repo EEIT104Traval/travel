@@ -24,7 +24,7 @@ public class FlightSecondController {
 		
 //		System.out.println("takeOffPlace="+takeOffPlace+"landingPlace="+landingPlace+"takeoff_date="+takeoff_date+"flyback_date="+flyback_date+"peopleType="+peopleType);
 //		System.out.println("goCompany="+goCompany+"backCompany="+backCompany+"goCode="+goCode+"goDay="+goDay+"goPlace="+goPlace+"homi="+homi+"homi2"+homi2+"goAirEquipType"+goAirEquipType);
-		
+		System.out.println("123");
 		Map<String, String> map = new HashMap<>();
 		map.put("goCompany", goCompany);
 		map.put("backCompany", backCompany);
