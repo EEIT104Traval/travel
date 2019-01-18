@@ -177,7 +177,7 @@ function update(){
  			<button  style="margin-right: 10px" ><a href="<c:url value='toggling1.jsp'/>"  />最近半年走勢圖</a></button>
 			<button  style="margin-right: 10px"><a href="<c:url value='toggling.jsp'/>"  />最近三個月走勢圖</a></button>
 			<button><a href="<c:url value='../voyage/index.jsp'/>"  />回首頁</a></button>
-			</div>					
+			</div>		 			
 									
 <!-- 		<div style="margin-top:20px"> -->
 <!-- 	   <button type="button" style="float:right;margin-right: 350px"><a href="../voyage/index.jsp" />回首頁</a></button> -->
