@@ -150,7 +150,7 @@ var params = {}
 																								
 										
 					  function ck(ticketNo){
-					        if(accountName.length == null){
+					        if(accountName.length == 0){
 					            alert('請登入，否則不給你訂購')								        	
 					        }else{
 // 								        	var accountName;
