@@ -68,7 +68,8 @@
 							count = '快來購買'
 						}
 						var d = new Date(value.departureDate);
-						var n = d.toISOString();
+						d = d.setDate(d.getDate()+1)
+						var n = new Date(d).toISOString();
 						var date = n.split("T")[0];
 						$("#tbodyinfo").append(
 							"<tr id='buy"+index+"'>"

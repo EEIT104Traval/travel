@@ -12,13 +12,13 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta http-equiv="keywords" content="">
 <meta name="description" content=""/>
-<meta property="og:site_name" content="" />
-<meta property="og:description" content="" />
+<!-- <meta property="og:site_name" content="" /> -->
+<!-- <meta property="og:description" content="" /> -->
 <meta name="copyright" content="" />
 <link rel="stylesheet" type="text/css"  href="<c:url value='/flight/xianqi/css/bootstrap.min.css?sv=1'/>"/>
 
 <link rel="stylesheet" type="text/css" href="<c:url value='/flight/xianqi/css/style.css?sv=1'/>"/>
-
+<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
 <script src="https://code.jquery.com/jquery-3.3.1.js"
 	integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
 	crossorigin="anonymous"></script>
@@ -691,6 +691,6 @@ $(".closepop").on("click",function(){$("#pop_protick").modal("hide")});$(".pop_r
 <script>
 $(document).ready(function(){$(".btn-tick-pr").click(function(){$(".tick-ba,#bagnote").removeClass("active");$(".tick-pr,#pricebox").addClass("active")});$(".btn-tick-ba").click(function(){$(".tick-pr,#pricebox").removeClass("active");$(".tick-ba,#bagnote").addClass("active")})});$(".popint,.popint img").popover({placement:"top"});
 </script>
-<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+
 </body>
 </html>

@@ -18,6 +18,9 @@ public class FlightOrderInfoBean {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer flightOrderNO;
 	private String accountName;
+	private String contactGender;
+	private String contactLastNameCN;
+	private String contactFirstNameCN;
 	private String bookingCode;
 	private Integer phone;
 	private String email;
@@ -25,86 +28,85 @@ public class FlightOrderInfoBean {
 	private Integer childCount;
 	private java.util.Date dealDate;
 	private String orderStatus;
-
 	public Integer getFlightOrderNO() {
 		return flightOrderNO;
 	}
-
 	public void setFlightOrderNO(Integer flightOrderNO) {
 		this.flightOrderNO = flightOrderNO;
 	}
-
-	public String getUsername() {
+	public String getAccountName() {
 		return accountName;
 	}
-
-	public void setUsername(String accountName) {
+	public void setAccountName(String accountName) {
 		this.accountName = accountName;
 	}
-
+	public String getContactGender() {
+		return contactGender;
+	}
+	public void setContactGender(String contactGender) {
+		this.contactGender = contactGender;
+	}
+	public String getContactLastNameCN() {
+		return contactLastNameCN;
+	}
+	public void setContactLastNameCN(String contactLastNameCN) {
+		this.contactLastNameCN = contactLastNameCN;
+	}
+	public String getContactFirstNameCN() {
+		return contactFirstNameCN;
+	}
+	public void setContactFirstNameCN(String contactFirstNameCN) {
+		this.contactFirstNameCN = contactFirstNameCN;
+	}
 	public String getBookingCode() {
 		return bookingCode;
 	}
-
 	public void setBookingCode(String bookingCode) {
 		this.bookingCode = bookingCode;
 	}
-
 	public Integer getPhone() {
 		return phone;
 	}
-
 	public void setPhone(Integer phone) {
 		this.phone = phone;
 	}
-
 	public String getEmail() {
 		return email;
 	}
-
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
-
 	public Integer getAdultCount() {
 		return adultCount;
 	}
-
 	public void setAdultCount(Integer adultCount) {
 		this.adultCount = adultCount;
 	}
-
 	public Integer getChildCount() {
 		return childCount;
 	}
-
 	public void setChildCount(Integer childCount) {
 		this.childCount = childCount;
 	}
-
-	public Date getDealDate() {
+	public java.util.Date getDealDate() {
 		return dealDate;
 	}
-
 	public void setDealDate(java.util.Date dealDate) {
 		this.dealDate = dealDate;
 	}
-
 	public String getOrderStatus() {
 		return orderStatus;
 	}
-
 	public void setOrderStatus(String orderStatus) {
 		this.orderStatus = orderStatus;
 	}
-
 	@Override
 	public String toString() {
-		return "FlightOrderInfoBean [flightOrderNO=" + flightOrderNO + ", accountName=" + accountName + ", bookingCode="
-				+ bookingCode + ", phone=" + phone + ", email=" + email + ", adultCount=" + adultCount + ", childCount="
-				+ childCount + ", dealDate=" + dealDate + ", orderStatus=" + orderStatus + ", toString()="
-				+ super.toString() + "]";
+		return "FlightOrderInfoBean [flightOrderNO=" + flightOrderNO + ", accountName=" + accountName
+				+ ", contactGender=" + contactGender + ", contactLastNameCN=" + contactLastNameCN
+				+ ", contactFirstNameCN=" + contactFirstNameCN + ", bookingCode=" + bookingCode + ", phone=" + phone
+				+ ", email=" + email + ", adultCount=" + adultCount + ", childCount=" + childCount + ", dealDate="
+				+ dealDate + ", orderStatus=" + orderStatus + "]";
 	}
 
 	

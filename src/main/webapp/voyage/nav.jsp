@@ -59,10 +59,10 @@ $(document).ready(function() {
             <li class="nav-item"><a href="<c:url value='/voyage/contact.html'/>" class="nav-link">聯絡我們</a></li>
             <!-- Split button -->
 <!-- <div class="dropdown"> -->
-<!--   <!--Trigger--> -->
+  <!--Trigger -->
 <!--   <button style="background:#3c3c3c; margin-top:24px;border:2px solid #3c3c3c;font-size:100% " class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" -->
 <!--     aria-haspopup="true" aria-expanded="false">會員功能</button> -->
-<!--   <!--Menu--> -->
+  <!--Menu -->
 <!--   <div class="dropdown-menu dropdown-primary" style="background-color: #3c3c3c;margin-top:-30px"> -->
 <!--     <a class="dropdown-item" style="background-color: #3c3c3c;color:white" href="#">查詢訂單</a> -->
 <!--     <a class="dropdown-item" style="background-color: #3c3c3c;color:white" href="#">資料修改/密碼修改</a> -->
