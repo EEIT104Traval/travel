@@ -1,5 +1,6 @@
 package controller.tour;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import model.tour.GroupTourBean;
+import model.tour.TourBatchBean;
 import model.tour.service.GroupTourService;
 
 @Controller
@@ -73,7 +75,15 @@ System.out.println(result);
 				model.addAttribute("select", result.get(0));
 				
 				return "/tour/tourtest.jsp";
-
+	}
+	@ResponseBody
+	@RequestMapping("/searchTour")
+	public List<TourBatchBean> method(GroupTourBean bean, Model model,String tours,Date checkin_date,Date checkout_date) {
+				System.out.println("T="+tours+"IN="+checkin_date+"OUT="+checkout_date);
+				List<TourBatchBean> no  = groupTourService.findTourByNO(tours, checkin_date, checkout_date);
+				
+				return no;
+		
 	}
 	
 	

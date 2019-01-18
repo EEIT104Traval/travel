@@ -156,37 +156,37 @@
 	<!-- 	ROOM	 -->
 	
 	<div id="roomTypecontainer">
-	<div style="border-top: 5px solid #e3edff; margin: 10px 0px 10px 0px">
-		<div class="container-fluid">
-			<div class="row">
-				<div class="col-md-3" style="border-right:2px solid #e3edff">
-				<img style="width: 280px" alt="Bootstrap Image Preview"
-					src="https://dimg04.c-ctrip.com/images/fd/hotel/g2/M05/31/12/Cghzf1VNFfCAID8bAAqxINPZe2w423_R_800_525_R5_D.jpg" />
-				</div>
-				<div class="col-md-5" style="border-right:2px solid #e3edff">
-					<h4 style="font-size:18px; margin-top:10px">天際線客房（1 張睡床）</h4>
-					<h4 style="font-size:18px">從高樓層客房盡情飽覽著名鬧市美景。一張大床。 2 人入住。</h4>
-					<a style="font-size:16px" href="<c:url value='#'/>">客房詳細資訊</a>
-					
-				</div>
-				<div class="col-md-2" style="border-right:2px solid #e3edff">
-					<h4 style="font-size:18px; text-align:right;  margin-top: 10px">每晚最低</h4>
-					<h4 style="font-size:18px; text-align:right; color: #ff9800">NT$ 4,000</h4>
-				</div>
-				<div class="col-md-2">
-					<div style="text-align:center; margin-top:10px">
-						<button type="button" class="btn btn-light" style="font-size: 20px; background: #ff9800; color:white">查看空房</button>
+		<div style="border-top: 5px solid #e3edff; margin: 10px 0px 10px 0px; background: aliceblue">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-3" style="border-right:2px solid #e3edff">
+					<img style="width: 280px" alt="Bootstrap Image Preview"
+						src="https://dimg04.c-ctrip.com/images/fd/hotel/g2/M05/31/12/Cghzf1VNFfCAID8bAAqxINPZe2w423_R_800_525_R5_D.jpg" />
+					</div>
+					<div class="col-md-5" style="border-right:2px solid #e3edff">
+						<h4 style="font-size:18px; margin-top:10px">天際線客房（1 張睡床）</h4>
+						<h4 style="font-size:18px">從高樓層客房盡情飽覽著名鬧市美景。一張大床。 2 人入住。</h4>
+						<a style="font-size:16px" href="<c:url value='#'/>">客房詳細資訊</a>
+						
+					</div>
+					<div class="col-md-2" style="border-right:2px solid #e3edff">
+						<h4 style="font-size:18px; text-align:right;  margin-top: 10px">每晚最低</h4>
+						<h4 style="font-size:18px; text-align:right; color: #ff9800">NT$ 4,000</h4>
+					</div>
+					<div class="col-md-2">
+						<div style="text-align:center; margin-top:10px">
+							<a href="<c:url value="/voyage/hotel/Calendar/calender.jsp" />" type="button" class="btn btn-light" style="font-size: 20px; background: #ff9800; color:white">查看空房</a>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	
 
 	
 	<!-- 	END ROOM	 -->
 			
-		</div>
+		
 	</div>
 
 
@@ -221,26 +221,33 @@
 			}).done(function(data){
 				console.log(data)
 				$.each(data,function(idx,val){
-					var data = '<div class="container-fluid"><div class="row">';
-					data+='<div class="col-md-12"><div class="row">';
-					data+='<div class="col-md-6"><img alt="Bootstrap Image Preview" src="'+val.pic+'" style="width: 350px;"/></div>';
-					data+= '<div class="col-md-6"><h4>'+val.roomType+'</h4 style="font-size:20px"><p>'+val.description+'</p>';
-					data+='<p>'+val.content+'</p><a href="#" class="tm-recommended-price-box">'
-					data+='<p class="tm-recommended-price">NT$ '+val.price+'</p><button type="button" class="btn btn-light" id="1">查看空房</button>'			
-					data+='</a></div></div></div></div></div>';	
-					
 // 					var data = '<div class="container-fluid"><div class="row">';
-// 					data+='<div class="col-md-3" style="border-right:2px solid #e3edff">';
-// 					data+='<img alt="Bootstrap Image Preview" src="'+val.pic+'" style="width: 280px;"/>';
-// 					data+='<div class="col-md-5" style="border-right:2px solid #e3edff"><h4 style="font-size:18px; margin-top:10px">'+val.roomType+'</h4>'
-// 					data+='<h4 style="font-size:18px">'+val.description+'</h4>';
-// 					data+='<a style="font-size:16px" href="<c:url value='#'/>">客房詳細資訊';
-// 					data+='<div class="col-md-2" style="border-right:2px solid #e3edff">';
-// 					data+='<h4 style="font-size:18px; text-align:right;  margin-top: 10px">每晚最低</h4>';
-// 					data+='<h4 style="font-size:18px; text-align:right; color: #ff9800">NT$ '+val.price+'</h4>';
-// 					data+='<div class="col-md-2"><div style="text-align:center; margin-top:10px">'
-// 					data+='<button type="button" class="btn btn-light" style="font-size: 20px; background: #ff9800; color:white">查看空房</button>'
-// 					data+='</a></div></div></div></div></div></div></div>'
+// 					data+='<div class="col-md-12"><div class="row">';
+// 					data+='<div class="col-md-6"><img alt="Bootstrap Image Preview" src="'+val.pic+'" style="width: 350px;"/></div>';
+// 					data+= '<div class="col-md-6"><h4>'+val.roomType+'</h4 style="font-size:20px"><p>'+val.description+'</p>';
+// 					data+='<p>'+val.content+'</p><a href="#" class="tm-recommended-price-box">'
+// 					data+='<p class="tm-recommended-price">NT$ '+val.price+'</p><button type="button" class="btn btn-light" id="1">查看空房</button>'			
+// 					data+='</a></div></div></div></div></div>';	
+					
+					var data = 	'<div style="border-top: 5px solid #e3edff; margin: 10px 0px 10px 0px; background: aliceblue">'
+					+'<div class="container-fluid">'
+					+'<div class="row">'
+						+'<div class="col-md-3" style="border-right:2px solid #e3edff">'
+						+'<img style="width: 280px" alt="Bootstrap Image Preview" src="'+val.pic+'" />'
+						+'</div>'
+						+'<div class="col-md-5" style="border-right:2px solid #e3edff">'
+							+'<h4 style="font-size:18px; margin-top:10px">'+val.roomType+'</h4>'
+							+'<h4 style="font-size:18px">'+val.description+'</h4>'
+							+'<a style="font-size:16px" href="<c:url value="#"/>">客房詳細資訊</a>'
+							+'</div>'
+						+'<div class="col-md-2" style="border-right:2px solid #e3edff">'
+						+'<h4 style="font-size:18px; text-align:right;  margin-top: 10px">每晚最低</h4>'
+						+'<h4 style="font-size:18px; text-align:right; color: #ff9800">NT$ '+val.price+'</h4>'
+						+'</div>'
+						+'<div class="col-md-2">'
+						+'<div style="text-align:center; margin-top:10px">'
+						+'<a href="<c:url value="/voyage/hotel/Calendar/calender.jsp" />" type="button" class="btn btn-light" style="font-size: 20px; background: #ff9800; color:white">查看空房</a>'
+						+'</div></div></div></div></div>'
 					
 					$("#roomTypecontainer").append(data);
 				})

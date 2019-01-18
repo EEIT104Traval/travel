@@ -36,7 +36,7 @@ public class rateController {
 //		System.out.println("cashSell="+cashSell);
 //		System.out.println("spotBuy="+spotBuy);
 //		System.out.println("spotSell="+spotSell);
-		System.out.println("有連到Controller");
+//		System.out.println("有連到Controller");
 		List<RateBean> result = rateService.select();
 //		for(RateBean RB : result)
 //			model.addAttribute("rateResult",result );

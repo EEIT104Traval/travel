@@ -16,7 +16,7 @@ public class RateService {
 		List<RateBean> result = null;
 		 
 		result = rateDao.findNew(); 
-		System.out.println("有連到service");
+//		System.out.println("有連到service");
 		return result;
 	}
 
