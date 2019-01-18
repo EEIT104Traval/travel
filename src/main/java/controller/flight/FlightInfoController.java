@@ -55,42 +55,12 @@ public class FlightInfoController {
 		
 		model.addAttribute("indexValue",indexValue);
 		
-		String result = flightInfoGetService.getInfo(bfmsearch.toString());
+//		String result = flightInfoGetService.getInfo(bfmsearch.toString());
 //		System.out.println("result=" + result);
 //		System.out.println("為什麼執行不到這裡");
-		String result1 = result;
-		int index = 0;
-		Map<String, String> codeMap = new HashMap<>();
 		
-		for (int i = 0; i < result.length() - 1; i++) {
-			
-			index = result.indexOf("OperatingAirline\":{\"Code\":\""); 
-			if(index==-1) {
-				break;
-			}
-			String code = result.substring(index + 27, index + 29);
-//			System.out.println("{code1="+code);
-			String value = dao.findByPrimaryKey(code).getAirlineCompany();
-//			String value = dao.findByPrimaryKey("CA").getAirlineCompany();
-			if (!codeMap.containsKey(code)) {
-				codeMap.put(code, value);
-			}
-			result = result.substring(index+29);				
-		}
-		
-//		System.out.println("codeMap"+codeMap);
-		
-		 
-		for (Map.Entry<String, String> entry : codeMap.entrySet()) {
-		 
-//		    System.out.println("Key = " + entry.getKey() + ", Value = " + entry.getValue());
-		    if(result1.contains(entry.getKey())) {
-		    	result1 = result1.replace("OperatingAirline\":{\"Code\":\""+entry.getKey(),"OperatingAirline\":{\"Code\":\""+entry.getKey()+"\",\"Company\":\""+entry.getValue());
-		    }
-		 
-		}
 //		System.out.println("result2="+result1);
-		model.addAttribute("result", result1);
+//		model.addAttribute("result", result1);
 		
 		return "flightsecound";
 	}

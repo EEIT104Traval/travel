@@ -78,5 +78,18 @@ public class FlightInfoGetService {
 
 		return result;
 	}
+	
+	public String addCompanyCN(String bfmsearch) throws Exception {
+		this.getInfo(bfmsearch);
+		
+		
+		
+		
+		return "";
+	}
+	
+	
+	
+	
 
 }
