@@ -216,8 +216,8 @@ function Del_FB_App() {
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
-<link href="./css/login.css" rel="stylesheet">
-<script src="./js/login.js"></script>
+<link href="./css/registered.css" rel="stylesheet">
+<script src="./js/registered.js"></script>
 
 <!------ Include the above in your HEAD tag ---------->
 

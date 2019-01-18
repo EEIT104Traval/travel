@@ -29,11 +29,14 @@
 <!--	https://hk.saowen.com/a/3bb2d62596486787bb77995a447207f180a828af15cddf5912c0aceaad24caf0 -->
 		<script>
 			var params = {};
-			
 			$(document).ready(function() {
 				ticketSearch1();
 				ticketSearch2();
+				
 			});
+				function back(){
+					ticketSearch1();
+				}
 
 			function ticketSearch1(){
 						params.country = $('#country').val();
@@ -47,6 +50,7 @@
 							function(JData) {
 									$("#div_ticket_search").html("")
 								$.each(JData, function(index, value) {
+									var totalpiece = $('#tt'+value.ticketNo).val()
 									console.log(value);
 									$("#div_ticket_search").append(
 //動態生成票券選項
@@ -67,15 +71,36 @@
 							'</div>'+
 							'<br>'+
 							'<p class="clearfix">'+
-								'<a	href="'+ value.traffic_information +'" class="float-left">Read more</a> <input type="image"	src="images/CK.png" onClick="submit('+value.ticketNo+')" width="13%" style="float: right;">'+
+								'<a	href="'+ value.traffic_information +'" class="float-left">Read more</a> <input type="image"	src="images/CK.png" data-toggle="modal" data-target="#exampleModal'+value.ticketNo+'" onClick="submit('+value.ticketNo+')" width="13%" style="float: right;">'+
 							'</p>'+
 						'</div>'+
 					'</div>'+
-					'</div>'					 
-																	);
+					'</div>'+
+//動態生成彈跳功能
+// ------------------------------------------------------------------------------------------------------------------------------------------------------		
+					'<div class="modal fade" id="exampleModal'+value.ticketNo+'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">'+
+					  '<div class="modal-dialog" role="document">'+
+					    '<div class="modal-content">'+
+					      '<div class="modal-header">'+
+					        '<h5 class="modal-title" id="exampleModalLabel">注意</h5>'+
+					        '<button type="button" id="ttop"class="close" data-dismiss="modal" aria-label="Close">'+
+					          '<span aria-hidden="true">&times;</span>'+
+					        '</button>'+
+					      '</div>'+
+					     '<div class="modal-body">'+
+					        '你現在購買了'+value.ticketName+'<span id="totalpiece'+value.ticketNo+'"></span>'+
+					      '</div>'+
+					      '<div class="modal-footer">'+
+					        '<button type="button" class="btn btn-primary">確定購入</button>'+
+					        '<button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="back()">取消</button>'+
+					      '</div>'+
+					    '</div>'+
+					  '</div>'+
+					'</div>'													
+																    	);
 														});
-												});
-								}
+										});
+							}
 //動態生成+-功能
 // ------------------------------------------------------------------------------------------------------------------------------------------------------				
 				function ticketSearch2(){				
@@ -108,25 +133,18 @@
 		                    }  
 // 		                    setTotal();
 		                })  
-		               
 		            }
 //動態生成購買功能
-// ------------------------------------------------------------------------------------------------------------------------------------------------------
-//***
-var ttop =document.getElementById("ttop");
-				function submit(ticketNo){ 
-					    		alert(ticketNo);	
-					    		var total=$("#tt"+ticketNo+"").val()
-					    		alert(total)
-								ttop.onclick();
-										}
-
+// ----------------------------------------------------------------------------------------------------------------------------------------------------
+								function submit(ticketNo){ 		
+									    		var total=$("#tt"+ticketNo+"").val()
+									    		$("#totalpiece"+ticketNo+"").text(' '+total+'張');
+									    		
+														}
 
 	</script>
 </head>
-
 <body>
-
 	<!-- END nav -->
 	
 	<section class="home-slider owl-carousel">
@@ -176,26 +194,6 @@ var ttop =document.getElementById("ttop");
 
 	<!-- END slider -->
 	<section class="ftco-section bg-light">
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" id="ttop"class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
-
 		<div class="container">
 			<div class="row" id="div_ticket_search">
 <!--   --------------------------------------------------------------------------------------------------------------------------------------- -->
