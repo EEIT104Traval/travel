@@ -31,6 +31,9 @@
 	<bean id="flightthird" class="org.springframework.web.servlet.view.InternalResourceView">
 		<property name="url" value="/flight/xianqi/step2.jsp"></property>
 	</bean>
+	<bean id="flightforth" class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/flight/xianqi/step3.jsp"></property>
+	</bean>
 	
 	<bean id="hotelRoom.search" class="org.springframework.web.servlet.view.InternalResourceView">
 		<property name="url" value="/voyage/hotel/hotelRoom2.jsp"></property>
