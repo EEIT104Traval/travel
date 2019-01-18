@@ -33,9 +33,10 @@
 	integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
 	crossorigin="anonymous">
 <style>
-h2{
-	color:#2d7cd1;
+h2 {
+	color: #2d7cd1;
 }
+
 .scroll {
 	display: block;
 	background-color: #ECECEC;
@@ -76,7 +77,7 @@ h2{
 
 .buttonbuy {
 	padding: 10px;
-	margin: 20px 0px;
+	margin-bottom:20px;
 	text-align: center;
 	border-radius: 10px;
 	background: red;
@@ -101,58 +102,109 @@ h2{
 	crossorigin="anonymous"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script>
-var week = new Array("日","一","二","三","四","五","六")
-var date = new Date('${result.tour.departureDate}');
-var week1 = week[date.getDay()]
-var date2 = date.setDate(date.getDate()+parseInt('${tourDays}'));
-var week2 = new Date(date2);
-week2 = week2.setDate(week2.getDate()-1);
-week2 = new Date(week2)
-week2 = week[week2.getDay()]
-$(document).ready(function() {
-	date2 = new Date(date2)
-	date = '${result.tour.departureDate}';
-	if('${result}'){
-		$('#title').html('${tourName}');
-		$('#tourDays').html(date.substring(0, 10)+"星期("+week1+")～"+date2.toISOString().substring(0, 10)+"星期("+week2+")");
-		$('#gotour').html('您選擇的出發日為'+date.substring(0, 10))
-		$('#price_adult').html('${result.tour.price_adult}')
-		$('#price_child').html('${result.tour.price_child}')
-		if('${result.tour.price_baby}'){
-			$('#price_baby').html('${result.tour.price_baby}')
-		}else{
-			$('#price_baby_null').html("")
-		}
-	}
-});
+	var week = new Array("日", "一", "二", "三", "四", "五", "六")
+	var date = new Date('${result.tour.departureDate}');
+	var week1 = week[date.getDay()]
+	var date2 = date.setDate(date.getDate() + parseInt('${tourDays}'));
+	var week2 = new Date(date2);
+	week2 = week2.setDate(week2.getDate() - 1);
+	week2 = new Date(week2)
+	week2 = week[week2.getDay()]
+	$(document).ready(
+			function() {
+				date2 = new Date(date2)
+				date = '${result.tour.departureDate}';
+				if ('${result}') {
+					$('#title').html('${tourName}');
+					$('#tourDays').html(
+							date.substring(0, 10) + "星期(" + week1 + ")～"
+									+ date2.toISOString().substring(0, 10)
+									+ "星期(" + week2 + ")");
+					$('#gotour').html('您選擇的出發日為' + date.substring(0, 10))
+					$('#price_adult').html('${result.tour.price_adult}')
+					$('#price_child').html('${result.tour.price_child}')
+					if ('${result.tour.price_baby}') {
+						$('#price_baby').html('${result.tour.price_baby}')
+					} else {
+						$('#price_baby_null').html("")
+					}
+				}
+			});
 
-function add(e){
-	var i = parseInt($('#'+e).val())+1
-	$('#'+e).val(i)
-	money();
-}
-function minus(e){
-	var i = $('#'+e).val()-1
-	if(i>=0){
-		$('#'+e).val(i)
+	function add(e) {
+		var i = parseInt($('#' + e).val()) + 1
+		$('#' + e).val(i)
 		money();
 	}
-}
-function money(){
-	var adultcount = $("#adult").val();
-	var childcount = $("#child").val();
-	var peopleCount = "";
-	if (adultcount != 0) {
-		peopleCount += adultcount + "位成人　";
+	function minus(e) {
+		var i = $('#' + e).val() - 1
+		if (i >= 0) {
+			$('#' + e).val(i)
+			money();
+		}
 	}
-	if (childcount != 0) {
-		peopleCount += childcount + "位小孩　";
+	function money() {
+		$('#collapseOne').html('')
+		var adultcount = $("#adult").val();
+		var childcount = $("#child").val();
+		var babycount = $("#baby").val();
+		var total = 0;
+		if (babycount == null) {
+			babycount = ""
+		}
+		var peopleCount = "";
+		if (adultcount != 0) {
+			peopleCount += adultcount + "位成人　";
+			total += parseInt(adultcount);
+		}
+		if (childcount != 0) {
+			peopleCount += childcount + "位小孩　";
+			total += parseInt(childcount);
+		}
+		if (babycount != 0) {
+			peopleCount += babycount + "位嬰兒　";
+			total += parseInt(babycount);
+		}
+		$('#peoplecount').html(peopleCount);
+		if (peopleCount.length == 0) {
+			$('#peoplecount').html('請選擇您要預訂的人數')
+		}
+		for (i = 1; i <= total; i++) {
+			var customer = '<div class="panel-body">'
+					+ '<form role="form">'
+					+ '<div style="border-top: 1px solid lightgray; margin: 10px 0px;">'
+					+ '<div class="row">'
+					+ '<div class="col-md-6 col-xs-12">'
+					+ '<label>中文姓名</label> <input type="text" class="form-control" />'
+					+ '</div>' + '<div class="col-md-6 col-xs-12">';
+			if (adultcount != 0) {
+				customer += '<label class="sex" style="color:#2d7cd1">旅客' + i
+						+ '(成人)</label>';
+				adultcount = adultcount - 1;
+			} else if (childcount != 0) {
+				customer += '<label class="sex" style="color:#2d7cd1">旅客' + i
+						+ '(小孩)</label>';
+				childcount = childcount - 1;
+			} else {
+				customer += '<label class="sex" style="color:#2d7cd1">旅客' + i
+						+ '(嬰兒)</label>';
+			}
+
+			customer += '</div>'
+					+ '</div>'
+					+ '<div class="row">'
+					+ '<div class="col-md-6 col-xs-12">'
+					+ '<label for="exampleInputPassword1"> 護照姓名 </label>'
+					+ '<input type="text" class="form-control" />'
+					+ '</div>'
+					+ '<div class="col-md-6 col-xs-12">'
+					+ '<label for="exampleInputPassword1" class="sex"> 性別 </label>'
+					+ '<input type="radio" id="man'+i+'" name="sex" style="margin:0px 10px;"/><label for="man'+i+'">男</label>'
+					+ '<input type="radio" id="woman'+i+'" name="sex" style="margin:0px 10px;"/><label for="woman'+i+'">女</label>'
+					+ '</div>' + '</div>' + '</div>' + '</form>' + '</div>'
+			$('#collapseOne').append(customer)
+		}
 	}
-	$('#peoplecount').html(peopleCount);
-	if(peopleCount.length == 0){
-		$('#peoplecount').html('請選擇您要預訂的人數')
-	}
-}
 </script>
 
 <body>
@@ -160,8 +212,7 @@ function money(){
 	<nav class="navbar navbar-expand-lg navbar-dark probootstrap_navbar"
 		id="probootstrap-navbar">
 		<div class="container">
-			<img alt="" src="<c:url value='/voyage/images/TTT.png' />"
-				width="250px"height:auto;>
+			<img alt="" src="<c:url value='/voyage/images/TTT.png' />" width="250px">
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#probootstrap-menu" aria-controls="probootstrap-menu"
 				aria-expanded="false" aria-label="Toggle navigation">
@@ -185,8 +236,7 @@ function money(){
 						href="<c:url value='/voyage/contact.html'/>" class="nav-link">聯絡我們</a></li>
 					<!--             <li class="nav-item"><a href="#" class="nav-link"> -->
 					<%--             	<jsp:include page="../../voyage/login.jsp"></jsp:include> --%>
-					</a>
-					</li>
+<!-- 					</a></li> -->
 				</ul>
 			</div>
 		</div>
@@ -221,9 +271,10 @@ function money(){
 					</div>
 					<div
 						class="col-md-8 probootstrap-animate fadeInUp probootstrap-animated">
-						<h4 id="title" style="padding-top: 20px;">魅力歐洲～『Hello UK』英倫時尚7天(超值版)</h4>
-						<label id="tourDays" style="padding: 20px 0px;">2019-01-26(星期六) ~
-							2019-02-04(星期一)</label> <label style="background: antiquewhite;">※
+						<h4 id="title" style="padding-top: 20px;">魅力歐洲～『Hello
+							UK』英倫時尚7天(超值版)</h4>
+						<label id="tourDays" style="padding: 20px 0px;">2019-01-26(星期六)
+							~ 2019-02-04(星期一)</label> <label style="background: antiquewhite;">※
 							已含每人500萬旅行業責任保險及20萬意外醫療險(依規定未滿15歲或70歲以上者,限投保旅遊責任險2佰萬元)。</label>
 					</div>
 				</div>
@@ -243,12 +294,14 @@ function money(){
 					</div>
 					<div
 						class="col-md-8 probootstrap-animate fadeInUp probootstrap-animated">
-						<h5 style="padding-top: 20px;float: left;margin-right:20px">請填寫訂單聯絡人資訊</h5>
-						<input type="checkbox" id='same'> <label for="same" style="padding-top: 20px;">同聯絡人資訊</label>
+						<h5 style="padding-top: 20px; float: left; margin-right: 20px">請填寫訂單聯絡人資訊</h5>
+						<input type="checkbox" id='same'> <label for="same"
+							style="padding-top: 20px;">同聯絡人資訊</label>
 						<form role="form">
 							<div class="row">
 								<div class="col-md-5 col-xs-12">
-									<label id="fullName">姓名</label> <input type="text" class="form-control" />
+									<label id="fullName">姓名</label> <input type="text"
+										class="form-control" />
 								</div>
 								<div class="col-md-5 col-xs-12">
 									<label for="exampleInputPassword1"> 電話 </label> <input
@@ -261,9 +314,10 @@ function money(){
 										type="text" class="form-control" />
 								</div>
 								<div class="col-md-5 col-xs-12">
-									<label for="exampleInputPassword1" class="sex"> 性別 </label> 
-									<input type="radio" id="man" name="sex" style="margin:0px 10px;"/><label for="man">男</label>
-									<input type="radio" id="woman" name="sex" style="margin:0px 10px;"/><label for="woman">女</label>
+									<label for="exampleInputPassword1" class="sex"> 性別 </label> <input
+										type="radio" id="man" name="sex" style="margin: 0px 10px;" /><label
+										for="man">男</label> <input type="radio" id="woman" name="sex"
+										style="margin: 0px 10px;" /><label for="woman">女</label>
 								</div>
 							</div>
 						</form>
@@ -291,14 +345,20 @@ function money(){
 							<div class="row">
 								<div class="col-md-4 col-xs-12">
 									<div style="display: inline-block;">
-										<div style="float: left; font-size: 20px; padding-right: 10px; font-weight: 600;">成人</div>
-										<div id="price_adult" style="float: left; font-size: 20px; color: red; padding-right: 3px;">$41,900</div>
+										<div
+											style="float: left; font-size: 20px; padding-right: 10px; font-weight: 600;">成人</div>
+										<div id="price_adult"
+											style="float: left; font-size: 20px; color: red; padding-right: 3px;">$41,900</div>
 										<div style="padding: 5px">/人</div>
 										<div>
-											<div class="d-flex flex-lg-row flex-column align-items-start justify-content-start">
-												<input type="image" src="images/MIN.png" width="11%" onclick="minus('adult')"> 
-												<input type="text" value="0" id="adult" disabled='disabled' readonly style="text-align: center; height: 30px; width: 60px; margin: 0; border: 0px; background: white; font-size: 20px">
-												<input type="image" src="images/PL.png" width="11%" onclick="add('adult')">
+											<div
+												class="d-flex flex-lg-row flex-column align-items-start justify-content-start">
+												<input type="image" src="images/MIN.png" width="11%"
+													onclick="minus('adult')"> <input type="text"
+													value="0" id="adult" disabled='disabled' readonly
+													style="text-align: center; height: 30px; width: 60px; margin: 0; border: 0px; background: white; font-size: 20px">
+												<input type="image" src="images/PL.png" width="11%"
+													onclick="add('adult')">
 											</div>
 										</div>
 									</div>
@@ -311,10 +371,14 @@ function money(){
 											style="float: left; font-size: 20px; color: red; padding-right: 3px;">$41,900</div>
 										<div style="padding: 5px">/人</div>
 										<div>
-											<div class="d-flex flex-lg-row flex-column align-items-start justify-content-start">
-												<input type="image" src="images/MIN.png" width="11%" onclick="minus('child')"> 
-												<input type="text" value="0" id="child" disabled='disabled' readonly style="text-align: center; height: 30px; width: 60px; margin: 0; border: 0px; background: white; font-size: 20px">
-												<input type="image" src="images/PL.png" width="11%" onclick="add('child')">
+											<div
+												class="d-flex flex-lg-row flex-column align-items-start justify-content-start">
+												<input type="image" src="images/MIN.png" width="11%"
+													onclick="minus('child')"> <input type="text"
+													value="0" id="child" disabled='disabled' readonly
+													style="text-align: center; height: 30px; width: 60px; margin: 0; border: 0px; background: white; font-size: 20px">
+												<input type="image" src="images/PL.png" width="11%"
+													onclick="add('child')">
 											</div>
 										</div>
 									</div>
@@ -327,10 +391,14 @@ function money(){
 											style="float: left; font-size: 20px; color: red; padding-right: 3px;">$2,900</div>
 										<div style="padding: 5px">/人</div>
 										<div>
-											<div class="d-flex flex-lg-row flex-column align-items-start justify-content-start">
-												<input type="image" src="images/MIN.png" width="11%" onclick="minus('baby')"> 
-												<input type="text" value="0" id="baby" disabled='disabled' readonly style="text-align: center; height: 30px; width: 60px; margin: 0; border: 0px; background: white; font-size: 20px">
-												<input type="image" src="images/PL.png" width="11%" onclick="add('baby')">
+											<div
+												class="d-flex flex-lg-row flex-column align-items-start justify-content-start">
+												<input type="image" src="images/MIN.png" width="11%"
+													onclick="minus('baby')"> <input type="text"
+													value="0" id="baby" disabled='disabled' readonly
+													style="text-align: center; height: 30px; width: 60px; margin: 0; border: 0px; background: white; font-size: 20px">
+												<input type="image" src="images/PL.png" width="11%"
+													onclick="add('baby')">
 											</div>
 										</div>
 									</div>
@@ -378,64 +446,38 @@ function money(){
 								<div class="panel-heading">
 									<span class="panel-title">若您希望儘快完成報名，建議您提前填寫 <a
 										data-toggle="collapse" data-parent="#accordion"
-										href="#collapseOne" class="title">旅客資料 <i
-											class="fas fa-angle-down"></i>
-									</a>
+										href="#collapseOne" class="title"> 旅客資料 <i
+											class="fas fa-angle-down"></i></a>
 									</span>
 								</div>
 								<div id="collapseOne" class="panel-collapse collapse in">
-									<div class="panel-body">
-										<form role="form">
-											<div
-												style="border-top: 1px solid lightgray; margin: 10px 0px;">
-												<div class="row">
-													<div class="col-md-6 col-xs-12">
-														<label>中文姓名</label> <input type="text"
-															class="form-control" />
-													</div>
-													<div class="col-md-6 col-xs-12">
-														<label class="sex" style="color:#2d7cd1">旅客1(成人)</label>
-													</div>
-												</div>
-												<div class="row">
-													<div class="col-md-6 col-xs-12">
-														<label for="exampleInputPassword1"> 護照姓名 </label> <input
-															type="text" class="form-control" />
-													</div>
-																										<div class="col-md-6 col-xs-12">
-														<label for="exampleInputPassword1" class="sex"> 性別</label>
-														<input type="radio" name="sex1" style="margin:0px 10px;"/>男 
-														<input type="radio"	name="sex1" style="margin:0px 10px;"/>女
-													</div>
-												</div>
-											</div>
-
-											<div
-												style="border-top: 1px solid lightgray; margin: 10px 0px;">
-												<div class="row">
-													<div class="col-md-6 col-xs-12">
-														<label>中文姓名</label> <input type="text"
-															class="form-control" />
-													</div>
-													<div class="col-md-6 col-xs-12">
-														<label class="sex" style="color:#2d7cd1">旅客2(嬰兒)</label> 
-													</div>
-
-												</div>
-												<div class="row">
-													<div class="col-md-6 col-xs-12">
-														<label for="exampleInputPassword1"> 護照姓名 </label> <input
-															type="text" class="form-control" />
-													</div>
-													<div class="col-md-6 col-xs-12">
-														<label for="exampleInputPassword1" class="sex"> 性別</label> 
-														<input type="radio" name="sex2" style="margin:0px 10px;"/>男
-														<input type="radio" name="sex2" style="margin:0px 10px;"/>女
-													</div>
-												</div>
-											</div>
-										</form>
-									</div>
+<!-- 									<div class="panel-body"> -->
+<!-- 										<form role="form"> -->
+<!-- 											<div -->
+<!-- 												style="border-top: 1px solid lightgray; margin: 10px 0px;"> -->
+<!-- 												<div class="row"> -->
+<!-- 													<div class="col-md-6 col-xs-12"> -->
+<!-- 														<label>中文姓名</label> <input type="text" -->
+<!-- 															class="form-control" /> -->
+<!-- 													</div> -->
+<!-- 													<div class="col-md-6 col-xs-12"> -->
+<!-- 														<label class="sex" style="color: #2d7cd1">旅客1(成人)</label> -->
+<!-- 													</div> -->
+<!-- 												</div> -->
+<!-- 												<div class="row"> -->
+<!-- 													<div class="col-md-6 col-xs-12"> -->
+<!-- 														<label for="exampleInputPassword1"> 護照姓名 </label> <input -->
+<!-- 															type="text" class="form-control" /> -->
+<!-- 													</div> -->
+<!-- 													<div class="col-md-6 col-xs-12"> -->
+<!-- 														<label for="exampleInputPassword1" class="sex"> 性別</label> -->
+<!-- 														<input type="radio" name="sex1" style="margin: 0px 10px;" />男 -->
+<!-- 														<input type="radio" name="sex1" style="margin: 0px 10px;" />女 -->
+<!-- 													</div> -->
+<!-- 												</div> -->
+<!-- 											</div> -->
+<!-- 										</form> -->
+<!-- 									</div> -->
 								</div>
 							</div>
 						</div>
@@ -447,8 +489,17 @@ function money(){
 
 	<section class="probootstrap_section bg-light" id="section-contact">
 		<div class="container" style="max-width: 1400px">
+			<div>
+			<div style="float:right;">
+				<input type="checkbox" id="agree" style="margin: 0px 10px;" />
+				<label for="agree">我已閱讀並同意訂購須知及旅遊契約書(請點選並詳細閱讀)</label>
+			</div>
+<!-- 			<div><h3>我是空格</h3></div> -->
+			<div>
 			<div href="#modal-container-853884" data-toggle="modal"
 				style="border: 1px solid white; background: red;" class="buttonbuy">立即購買</div>
+			</div>
+			</div>
 		</div>
 	</section>
 

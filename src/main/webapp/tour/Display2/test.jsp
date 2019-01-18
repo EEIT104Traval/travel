@@ -33,8 +33,7 @@
 			</div>
 			<div id="collapseOne" class="panel-collapse collapse in">
 				<div class="panel-body">
-					<img class="why-choose-img" src="assets/images/testi1.jpg"
-						alt="img">
+					<img class="why-choose-img" src="assets/images/testi1.jpg" alt="img">
 					<p id="sds">Anim pariatur cliche reprehenderit, enim eiusmod
 						high life accusamus terry richardson ad squid. 3 wolf moon officia
 						aute, non cupidatat skateboard dolor brunch. Food truck quinoa
