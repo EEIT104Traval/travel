@@ -1,6 +1,7 @@
 package model.tour.dao;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -16,7 +17,6 @@ import org.springframework.stereotype.Repository;
 
 import model.tour.GroupTourBean;
 import model.tour.TourBatchBean;
-import model.tour.TourOrderInfoBean;
 
 @Repository
 public class GroupTourDAO {
@@ -40,10 +40,18 @@ public class GroupTourDAO {
 	}
 	
 	public List<GroupTourBean> findByClick() {
-		return this.getSession().createQuery("from GroupTourBean where clickcount > 500  order by Clickcount DESC", GroupTourBean.class)
+		return this.getSession().createQuery("from GroupTourBean where clickcount > 1  order by Clickcount DESC", GroupTourBean.class)
 				.setMaxResults(100)
 				.list();
 	}
+	
+	public List<String> findByCountry(String country) {
+		return this.getSession().createQuery("select tourNo from GroupTourBean where country = '"+country+"'", String.class)
+				.setMaxResults(100)
+				.list();
+	}
+	
+
 	
 	
     public Long countAll() {

@@ -71,6 +71,11 @@ public class GroupTourTest {
 		 List<GroupTourBean> all = dao.findByClick();		  
 		 return all;	  		  
 	 }
+	 @RequestMapping("/FindByCountry")
+	 public List<String> FindByCountry() {
+		 List<String> all = dao.findByCountry("中國");		  
+		 return all;	  		  
+	 }
 	 
 	 
 }

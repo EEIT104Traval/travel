@@ -1,5 +1,7 @@
 package controller.test.tour;
 
+import java.sql.Date;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Session;
@@ -8,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import model.tour.GroupTourBean;
 import model.tour.TourBatchBean;
 import model.tour.dao.TourBatchDAO;
 
@@ -79,6 +80,14 @@ public class TourBatchTest {
 	 public boolean remove() {
 		 boolean remove = dao.remove(4);		  
 		 return false;	  		  
+	 } 
+	@RequestMapping("/TourBatchtestsearch")
+	 public List<TourBatchBean> search() {
+		List<String> l = new ArrayList<>();
+		l.add("2");
+		l.add("4");
+		List<TourBatchBean> search = dao.findByCountry(l,new java.util.Date("2018/01/01"), new java.util.Date("2019/02/21"));		  
+		 return search;	  		  
 	 } 
 	
 
