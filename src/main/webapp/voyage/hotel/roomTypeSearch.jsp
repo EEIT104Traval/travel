@@ -9,7 +9,7 @@
 <html lang="zh-tw">
 
 <head>
-<title>國外訂房</title>
+<title>紐約市中心希爾頓酒店 (New York Hilton Midtown)</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -49,6 +49,24 @@
       }
 </style>
 
+<script type="text/javascript">
+	$(function () {
+		$('#datetimepicker1').datetimepicker();
+		function today(){
+			var d = new Date();
+			var curr_date = d.getDate();
+			var curr_month = d.getMonth() + 1;
+			var curr_year = d.getFullYear();
+			document.write(curr_date + "-" + curr_month + "-" + curr_year);
+		}
+    });
+</script>
+<script type="text/javascript">
+	$(function () {
+    	$('#datetimepicker2').datetimepicker();
+    });
+</script>
+
 	
 </head>
 
@@ -84,7 +102,15 @@
 									<input type="text" class="search_input" style="font-family: Noto Sans TC; width: 15%" placeholder="請輸入城市" id="city">
 									<input type="text" class="search_input" style="font-family: Noto Sans TC; width: 15%" id="checkin_date" placeholder="入住日期" >
 									<input type="text" class="search_input" style="font-family: Noto Sans TC; width: 15%" id="checkout_date" placeholder="退房日期">
-									<input type="text" class="search_input" style="font-family: Noto Sans TC; width: 15%" id="accommodate" placeholder="人數">
+									<select type="text" class="search_input" style="font-family: Noto Sans TC; width: 15%" id="accommodate" placeholder="人數">
+										<option>1 人</option>
+										<option>2 人</option>
+										<option>3 人</option>
+										<option>4 人</option>
+										<option>5 人</option>
+										<option>6 人</option>
+										<option>7 人</option>
+										<option>8 人</option>
 									<input type="button" class="home_search_button" style="font-family: Noto Sans TC" value="搜尋" onclick="hotelSearch()"/>
 								</div>
 							</form>
@@ -141,9 +167,17 @@
 			<div class="home_search_content" style="background:#e3edff">
 				<form action="#" class="home_search_form" id="" method="post">
 					<div class="d-flex flex-lg-row flex-column align-items-start justify-content-lg-between justify-content-start">
-						<input type="text" class="search_input" style="font-family: Noto Sans TC; background:white; width: 25%" placeholder="入住日期" >
-						<input type="text" class="search_input" style="font-family: Noto Sans TC; background:white; width: 25%" placeholder="退房日期">
-						<input type="text" class="search_input" style="font-family: Noto Sans TC; background:white; width: 25%" placeholder="人數">
+						<input type="text" class="search_input" data-provide="datepicker" id="datetimepicker1" style="font-family: Noto Sans TC; background:white; width: 25%" placeholder="入住日期" >
+						<input type="text" class="search_input" data-provide="datepicker" id="datetimepicker2" style="font-family: Noto Sans TC; background:white; width: 25%" placeholder="退房日期">
+						<select type="text" class="search_input" style="font-family: Noto Sans TC; background:white; width: 25%" placeholder="人數">
+							<option>1 人</option>
+							<option>2 人</option>
+							<option>3 人</option>
+							<option>4 人</option>
+							<option>5 人</option>
+							<option>6 人</option>
+							<option>7 人</option>
+							<option>8 人</option>
 						<input type="button" class="home_search_button" style="font-family: Noto Sans TC" value="搜尋"/>
 					</div>
 				</form>
@@ -156,61 +190,37 @@
 	<!-- 	ROOM	 -->
 	
 	<div id="roomTypecontainer">
-		<div style="border-top: 5px solid #e3edff; margin: 10px 0px 10px 0px; background: aliceblue">
-			<div class="container-fluid">
-				<div class="row">
-					<div class="col-md-3" style="border-right:2px solid #e3edff">
-					<img style="width: 280px" alt="Bootstrap Image Preview"
-						src="https://dimg04.c-ctrip.com/images/fd/hotel/g2/M05/31/12/Cghzf1VNFfCAID8bAAqxINPZe2w423_R_800_525_R5_D.jpg" />
-					</div>
-					<div class="col-md-5" style="border-right:2px solid #e3edff">
-						<h4 style="font-size:18px; margin-top:10px">天際線客房（1 張睡床）</h4>
-						<h4 style="font-size:18px">從高樓層客房盡情飽覽著名鬧市美景。一張大床。 2 人入住。</h4>
-						<a style="font-size:16px" href="<c:url value='#'/>">客房詳細資訊</a>
+<!-- 		<div style="border-top: 5px solid #e3edff; margin: 10px 0px 10px 0px; background: aliceblue"> -->
+<!-- 			<div class="container-fluid"> -->
+<!-- 				<div class="row"> -->
+<!-- 					<div class="col-md-3" style="border-right:2px solid #e3edff"> -->
+<!-- 					<img style="width: 280px" alt="Bootstrap Image Preview" -->
+<!-- 						src="https://dimg04.c-ctrip.com/images/fd/hotel/g2/M05/31/12/Cghzf1VNFfCAID8bAAqxINPZe2w423_R_800_525_R5_D.jpg" /> -->
+<!-- 					</div> -->
+<!-- 					<div class="col-md-5" style="border-right:2px solid #e3edff"> -->
+<!-- 						<h4 style="font-size:18px; margin-top:10px">天際線客房（1 張睡床）</h4> -->
+<!-- 						<h4 style="font-size:18px">從高樓層客房盡情飽覽著名鬧市美景。一張大床。 2 人入住。</h4> -->
+<%-- 						<a style="font-size:16px" href="<c:url value='#'/>">客房詳細資訊</a> --%>
 						
-					</div>
-					<div class="col-md-2" style="border-right:2px solid #e3edff">
-						<h4 style="font-size:18px; text-align:right;  margin-top: 10px">每晚最低</h4>
-						<h4 style="font-size:18px; text-align:right; color: #ff9800">NT$ 4,000</h4>
-					</div>
-					<div class="col-md-2">
-						<div style="text-align:center; margin-top:10px">
-							<a href="<c:url value="/voyage/hotel/Calendar/calender.jsp" />" type="button" class="btn btn-light" style="font-size: 20px; background: #ff9800; color:white">查看空房</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+<!-- 					</div> -->
+<!-- 					<div class="col-md-2" style="border-right:2px solid #e3edff"> -->
+<!-- 						<h4 style="font-size:18px; text-align:right;  margin-top: 10px">每晚最低</h4> -->
+<!-- 						<h4 style="font-size:18px; text-align:right; color: #ff9800">NT$ 4,000</h4> -->
+<!-- 					</div> -->
+<!-- 					<div class="col-md-2"> -->
+<!-- 						<div style="text-align:center; margin-top:10px"> -->
+<%-- 							<a href="<c:url value="/voyage/hotel/Calendar/calender.jsp" />" type="button" class="btn btn-light" style="font-size: 20px; background: #ff9800; color:white">查看空房</a> --%>
+<!-- 						</div> -->
+<!-- 					</div> -->
+<!-- 				</div> -->
+<!-- 			</div> -->
+<!-- 		</div> -->
 	</div>
-
 	
 	<!-- 	END ROOM	 -->
-			
 		
 	</div>
 
-
-
-	<!-- load JS files -->
-
-
-	<script src="<c:url value='/voyage/js/jquery.min.js' />"></script>
-	<script src="<c:url value='/voyage/js/jquery-migrate-3.0.1.min.js' />"></script>
-	<script src="<c:url value='/voyage/js/popper.min.js' />"></script>
-	<script src="<c:url value='/voyage/js/bootstrap.min.js' />"></script>
-	<script src="<c:url value='/voyage/js/jquery.easing.1.3.js' />"></script>
-	<script src="<c:url value='/voyage/js/jquery.waypoints.min.js' />"></script>
-	<script src="<c:url value='/voyage/js/jquery.stellar.min.js' />"></script>
-	<script src="<c:url value='/voyage/js/owl.carousel.min.js' />"></script>
-	<script src="<c:url value='/voyage/js/jquery.magnific-popup.min.js' />"></script>
-	<script src="<c:url value='/voyage/js/aos.js' />"></script>
-<%-- 	<script src="<c:url value='/voyage/js/jquery.animateNumber.min.js' />"></script> --%>
-	<script src="<c:url value='/voyage/js/bootstrap-datepicker.js' />"></script>
-<%-- 	<script src="<c:url value='/voyage/js/jquery.timepicker.min.js' />"></script> --%>
-	<script src="<c:url value='/voyage/js/main.js' />"></script>
-	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-	
 	<script>
 		$(document).ready(function(){
 			console.log("hotelno="+'${hotelBean.hotelNo}')
@@ -221,13 +231,6 @@
 			}).done(function(data){
 				console.log(data)
 				$.each(data,function(idx,val){
-// 					var data = '<div class="container-fluid"><div class="row">';
-// 					data+='<div class="col-md-12"><div class="row">';
-// 					data+='<div class="col-md-6"><img alt="Bootstrap Image Preview" src="'+val.pic+'" style="width: 350px;"/></div>';
-// 					data+= '<div class="col-md-6"><h4>'+val.roomType+'</h4 style="font-size:20px"><p>'+val.description+'</p>';
-// 					data+='<p>'+val.content+'</p><a href="#" class="tm-recommended-price-box">'
-// 					data+='<p class="tm-recommended-price">NT$ '+val.price+'</p><button type="button" class="btn btn-light" id="1">查看空房</button>'			
-// 					data+='</a></div></div></div></div></div>';	
 					
 					var data = 	'<div style="border-top: 5px solid #e3edff; margin: 10px 0px 10px 0px; background: aliceblue">'
 					+'<div class="container-fluid">'
@@ -256,10 +259,24 @@
 		})
 	</script>
 	
-				
-				
+	<!-- load JS files -->
 
+	<script src="<c:url value='/voyage/js/jquery.min.js' />"></script>
+	<script src="<c:url value='/voyage/js/jquery-migrate-3.0.1.min.js' />"></script>
+	<script src="<c:url value='/voyage/js/popper.min.js' />"></script>
+	<script src="<c:url value='/voyage/js/bootstrap.min.js' />"></script>
+	<script src="<c:url value='/voyage/js/jquery.easing.1.3.js' />"></script>
+	<script src="<c:url value='/voyage/js/jquery.waypoints.min.js' />"></script>
+	<script src="<c:url value='/voyage/js/jquery.stellar.min.js' />"></script>
+	<script src="<c:url value='/voyage/js/owl.carousel.min.js' />"></script>
+	<script src="<c:url value='/voyage/js/jquery.magnific-popup.min.js' />"></script>
+	<script src="<c:url value='/voyage/js/aos.js' />"></script>
+<%-- 	<script src="<c:url value='/voyage/js/jquery.animateNumber.min.js' />"></script> --%>
+	<script src="<c:url value='/voyage/js/bootstrap-datepicker.js' />"></script>
+<%-- 	<script src="<c:url value='/voyage/js/jquery.timepicker.min.js' />"></script> --%>
+	<script src="<c:url value='/voyage/js/main.js' />"></script>
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	
-
 </body>
 </html>
