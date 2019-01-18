@@ -128,7 +128,7 @@
   
     <nav class="navbar navbar-expand-lg navbar-dark probootstrap_navbar" id="probootstrap-navbar">
       <div class="container">
-        <img alt="" src="<c:url value='/voyage/images/TTT.png' />" width="250px" height: auto;>
+        <img alt="" src="<c:url value='/voyage/images/TTT.png' />" width="250px">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#probootstrap-menu" aria-controls="probootstrap-menu" aria-expanded="false" aria-label="Toggle navigation">
           <span><i class="ion-navicon"></i></span>
         </button>
@@ -143,7 +143,7 @@
             <li class="nav-item"><a href="<c:url value='/voyage/contact.html'/>" class="nav-link">聯絡我們</a></li>
 <!--             <li class="nav-item"><a href="#" class="nav-link"> -->
 <%--             	<jsp:include page="../../voyage/login.jsp"></jsp:include> --%>
-            </a></li>
+<!--             </a></li> -->
           </ul>
         </div>
       </div>
