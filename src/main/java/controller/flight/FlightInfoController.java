@@ -24,6 +24,7 @@ public class FlightInfoController {
 //	@ResponseBodyssss
 	@RequestMapping("/FlightInfoNew")
 	public String method(Model model,String takeOffPlace,String landingPlace,Date takeoff_date,Date flyback_date,String peopleType) throws Exception {
+		System.out.println("controller方法開始");
 //		System.out.println("takeOffPlace="+takeOffPlace.substring(takeOffPlace.length()-4, takeOffPlace.length()-1)+"landingPlace"+landingPlace.substring(landingPlace.length()-4, landingPlace.length()-1)+"takeoff_date"+takeoff_date+"flyback_date"+flyback_date+"peopleType"+peopleType.substring(0,1));
 		SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
 //		Date go = java.sql.Date.valueOf(takeoff_date);
@@ -60,8 +61,9 @@ public class FlightInfoController {
 //		System.out.println("為什麼執行不到這裡");
 		
 //		System.out.println("result2="+result1);
+
 //		model.addAttribute("result", result1);
-		
+		System.out.println("controller方法結束");
 		return "flightsecound";
 	}
 	

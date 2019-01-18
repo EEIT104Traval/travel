@@ -25,6 +25,8 @@ var params = {}
 		              paths = fileInput.value;
 //-------------------------------抓下載路徑↓↓↓↓↓↓↓↓↓↓↓↓↓---------------------------
 		              console.log(paths);
+		              console.log($("input[type='file']").val());
+		              
 		    					});
 						});
 				});
@@ -82,9 +84,12 @@ var params = {}
 <div class="boxmsg">
 		<!--  -->
 		新增票券 <br>
-  		<form method="post" action="http://localhost/test" enctype="multipart/form-data">
-   				 <p> <input type="file" id="test-file-upload" name="test"></p>
+  		<form method="post" action="/Travel/bindex03_01/User.controller" enctype="multipart/form-data">
+   				 <p> 
+   				 <input type="file" id="test-file-upload" name="test"></p>
+   				 <input type="file" id="test-file-upload" name="test"></p>
     			 <input type="button" id='membersh' onclick="UP()" value="確認">
+<!--     			 <input type="submit"  value="確認1"> -->
     			 <input type="button" id='membersh' onclick="show()" value="顯示資料">
 		</form>
 </div>

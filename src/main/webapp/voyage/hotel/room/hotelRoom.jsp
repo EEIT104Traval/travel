@@ -4,9 +4,7 @@
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"
 	integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
 	crossorigin="anonymous">
-	
 </script>
-
 <!DOCTYPE html>
 <html lang="zh-tw">
 <head>
@@ -112,14 +110,14 @@
 
 			<div class="tm-container-outer" id="tm-section-3"
 				style="margin-top: 50px">
-				<ul class="nav nav-pills tm-tabs-links">
-					<li class="tm-tab-link-li"><a href="#1a" data-toggle="tab" class="tm-tab-link">客房</a></li>
-					<li class="tm-tab-link-li"><a href="#2a" data-toggle="tab" class="tm-tab-link">豪華房</a></li>
-					<li class="tm-tab-link-li"><a href="#3a" data-toggle="tab" class="tm-tab-link">豪華無菸房</a></li>
-					<li class="tm-tab-link-li"><a href="#4a" data-toggle="tab" class="tm-tab-link">行政樓層迷你套房</a></li>
-					<li class="tm-tab-link-li"><a href="#5a" data-toggle="tab" class="tm-tab-link">主人套房</a></li>
-					<li class="tm-tab-link-li"><a href="#6a" data-toggle="tab" class="tm-tab-link">總統套房</a></li>
-				</ul>
+<!-- 				<ul class="nav nav-pills tm-tabs-links"> -->
+<!-- 					<li class="tm-tab-link-li"><a href="#1a" data-toggle="tab" class="tm-tab-link">客房</a></li> -->
+<!-- 					<li class="tm-tab-link-li"><a href="#2a" data-toggle="tab" class="tm-tab-link">豪華房</a></li> -->
+<!-- 					<li class="tm-tab-link-li"><a href="#3a" data-toggle="tab" class="tm-tab-link">豪華無菸房</a></li> -->
+<!-- 					<li class="tm-tab-link-li"><a href="#4a" data-toggle="tab" class="tm-tab-link">行政樓層迷你套房</a></li> -->
+<!-- 					<li class="tm-tab-link-li"><a href="#5a" data-toggle="tab" class="tm-tab-link">主人套房</a></li> -->
+<!-- 					<li class="tm-tab-link-li"><a href="#6a" data-toggle="tab" class="tm-tab-link">總統套房</a></li> -->
+<!-- 				</ul> -->
 				<div class="tab-content clearfix">
 	
 					<!-- Tab 1 -->

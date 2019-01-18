@@ -1,7 +1,8 @@
 package model.tour.dao;
 
-import java.sql.Date;
+
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -15,7 +16,6 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import model.ticket.TicketOrderInfoBean;
 import model.tour.TourBatchBean;
 import model.tour.TourOrderInfoBean;
 
@@ -34,6 +34,28 @@ public class TourBatchDAO {
 
 	public List<TourBatchBean> findAll() {
 		return this.getSession().createQuery("from TourBatchBean", TourBatchBean.class).setMaxResults(100).list();
+	}
+	
+	public List<TourBatchBean> findByCountry(List<String> tourNoList,Date checkin_date,Date checkout_date) {
+		java.sql.Date d1 = new java.sql.Date(checkin_date.getTime());   //轉換成 java.sql.Date 
+		java.sql.Date d2 = new java.sql.Date(checkout_date.getTime());
+//		CriteriaBuilder cb = getSession().getCriteriaBuilder();
+//		CriteriaQuery<TourBatchBean> query = cb.createQuery(TourBatchBean.class);
+//		Root<TourBatchBean> root = query.from(TourBatchBean.class);
+//		List<Predicate> list = new ArrayList<Predicate>();
+		String conditions ="";
+		for (int i = 0 ; i <tourNoList.size(); i++) {
+			if (i ==0) {
+				conditions += " tourNo = " +tourNoList.get(i);
+			} else {
+				conditions += " or tourNo = "+tourNoList.get(i);
+			}
+		}
+//		query.where()
+		return this.getSession().createQuery("from TourBatchBean where "+ conditions
+				+ " and departureDate >= '"+d1+"' and departureDate <= '"+d2+"'", TourBatchBean.class)			
+				.setMaxResults(100)
+				.list();
 	}
 
 	public TourBatchBean create(TourBatchBean bean) {

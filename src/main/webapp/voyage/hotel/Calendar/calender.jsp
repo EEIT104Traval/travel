@@ -19,64 +19,66 @@ background:url(http://www.digiphotohub.com/wp-content/uploads/2015/09/bigstock-A
     var calendarEl = document.getElementById('calendar');
 
     var calendar = new FullCalendar.Calendar(calendarEl, {
-      defaultDate: '2019-01-12',
+      defaultDate: '2019-01-31',
       editable: true,
       eventLimit: true, // allow "more" link when too many events
       events: [
-        {
-          title: 'All Day Event',
-          start: '2019-01-01'
-        },
         {
           title: 'Long Event',
           start: '2019-01-07',
           end: '2019-01-10'
         },
         {
-          groupId: 999,
-          title: 'Repeating Event',
-          start: '2019-01-09T16:00:00'
-        },
-        {
-          groupId: 999,
-          title: 'Repeating Event',
-          start: '2019-01-16T16:00:00'
-        },
-        {
-          title: 'Conference',
-          start: '2019-01-11',
-          end: '2019-01-13'
-        },
-        {
-          title: 'Meeting',
-          start: '2019-01-12T10:30:00',
-          end: '2019-01-12T12:30:00'
-        },
-        {
-          title: 'Lunch',
-          start: '2019-01-12T12:00:00'
-        },
-        {
-          title: 'Meeting',
-          start: '2019-01-12T14:30:00'
-        },
-        {
-          title: 'Happy Hour',
-          start: '2019-01-12T17:30:00'
-        },
-        {
-          title: 'Dinner',
-          start: '2019-01-12T20:00:00'
-        },
-        {
-          title: 'Birthday Party',
-          start: '2019-01-13T07:00:00'
-        },
-        {
-          title: 'Click for Google',
+          title: '沒有空房',
           url: 'http://google.com/',
-          start: '2019-01-28'
-        }
+          start: '2019-02-01'
+        },
+        {
+          title: '沒有空房',
+          url: 'http://google.com/',
+          start: '2019-02-02'
+        },
+        {
+          title: '沒有空房',
+          url: 'http://google.com/',
+          start: '2019-02-03'
+        },
+        {
+          title: '現在預定',
+          url: 'http://google.com/',
+          start: '2019-02-04'
+        },
+        {
+          title: '現在預定',
+          url: 'http://google.com/',
+          start: '2019-02-05'
+        },
+        {
+          title: '現在預定',
+          url: 'http://google.com/',
+          start: '2019-02-06'
+        },
+        {
+          title: '沒有空房',
+          url: 'http://google.com/',
+          start: '2019-02-07'
+        },
+        {
+          title: '沒有空房',
+          url: 'http://google.com/',
+          start: '2019-02-08'
+        },
+        {
+          title: '沒有空房',
+          url: 'http://google.com/',
+          start: '2019-02-09'
+        },
+        {
+          title: '沒有空房',
+          url: 'http://google.com/',
+          start: '2019-02-10'
+        },
+        
       ]
     });
 
@@ -90,7 +92,7 @@ background:url(http://www.digiphotohub.com/wp-content/uploads/2015/09/bigstock-A
     margin: 40px 10px;
     padding: 0;
     font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
-    font-size: 14px;
+    font-size: 20px;
   }
 
   #calendar {

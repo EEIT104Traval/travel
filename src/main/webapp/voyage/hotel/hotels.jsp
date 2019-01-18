@@ -512,13 +512,12 @@ var params = {};
 			<div class="row">
 				<div class="col-md-6 col-lg-3 ftco-animate">
 					<div class="blog-entry">
-						<a href="#" class="block-20" id="hilton"
-							style="background-image: url('<c:url value='/voyage/hotel/hotelPic/熱門飯店/紐約市中心希爾頓酒店(New York Hilton Midtown).jpg'/>');">
-						</a>
+						<a href="<c:url value='/voyage/hotel/hotelRoom2.jsp'/>" class="block-20" id="hilton"
+							style="background-image: url('<c:url value='/voyage/hotel/hotelPic/熱門飯店/紐約市中心希爾頓酒店(New York Hilton Midtown).jpg'/>');"></a>
 						<div class="text p-4">
 							<div class="meta"></div>
 							<h6>
-								<a href="#">紐約市中心希爾頓酒店(New York Hilton Midtown)</a>
+								<a href="<c:url value='/voyage/hotel/hotelRoom2.jsp'/>">紐約市中心希爾頓酒店(New York Hilton Midtown)</a>
 							</h6>
                    			<p style="margin-bottom:0"><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star-half-full"></span></p>
 							<p class="float-left" style="margin">NT$ 5,158</p>

@@ -5,17 +5,22 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.Part;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import model.ticket.TicketInfoBean;
 import model.ticket.TicketInfoDAO;
 import model.ticket.TicketInfoService;
-import model.ticket.dao.TicketInfoDAOHibernate;
 import model.tour.service.TourOrderInfoService;
 import model.userInfo.UserInfoBean;
 import model.userInfo.UserInfoService;
@@ -86,23 +91,46 @@ public class UserController01_01 {
 
 		return result;
 	}
-	@ResponseBody
+//	@ResponseBody
+//	@RequestMapping("/bindex03_01/User.controller")
+//	public String method0301(@RequestParam(value = "path", required = false)String path , String option, HttpServletRequest req) throws IOException {
+//		
+//		try {
+//			Part part = req.getPart("test1");
+//			System.out.println("haha"+part.getName());
+//		} catch (ServletException e) {
+//			e.printStackTrace();
+//		}
+//		String x;
+//		System.out.println("path=" + path);
+//		if(option.equals("up")) {			
+//			 x = ticketInfoService.UPticketInfo(path);
+//			System.out.println("選擇上傳"); 
+//			}else {
+//			 x = ticketInfoService.DLticketInfo(path);
+//			 System.out.println("選擇下載");	
+//			}
+//		System.out.println(x);
+//		
+//		
+//		return x;
+//	}
+	
+
 	@RequestMapping("/bindex03_01/User.controller")
-	public String method0301(@RequestParam(value = "path", required = false)String path , String option) throws IOException {
-		
-		String x;
-		System.out.println("path=" + path);
-		if(option.equals("up")) {			
-			 x = ticketInfoService.UPticketInfo(path);
-			System.out.println("選擇上傳"); 
-			}else {
-			 x = ticketInfoService.DLticketInfo(path);
-			 System.out.println("選擇下載");	
-			}
-		System.out.println(x);
-		
-		
-		return x;
+//	public String method0301(@RequestParam("test") MultipartFile file,
+			public String method0301(HttpServletRequest req,
+            RedirectAttributes redirectAttributes) throws IOException {
+		try {
+			Part part = req.getPart("test1");
+			System.out.println("haha"+part.getName());
+		} catch (ServletException e) {
+			e.printStackTrace();
+		}
+
+		return null;
+	
+	
 	}
 	@ResponseBody
 	@RequestMapping("/bindex03_011/User.controller")

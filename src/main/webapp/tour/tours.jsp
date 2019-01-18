@@ -65,13 +65,13 @@
 								<div 
 									class="d-flex flex-lg-row flex-column align-items-start justify-content-lg-between justify-content-start">
 									<input type="text" class="search_input" style="font-family: Noto Sans TC; width: 25%"
-										placeholder="想去哪裡玩?" id="country">
+										placeholder="想去哪裡玩?" id="tourS">
 									<input type="text" class="search_input" style="font-family: Noto Sans TC; width: 25%"
-										id="checkin_date" placeholder="出團日期" >
+										id="checkin_date" placeholder="出團日期" >~
 									<input type="text" class="search_input" style="font-family: Noto Sans TC; width: 25%"
-										id="checkin_date" placeholder="回程日期" >
+										id="checkout_date" placeholder="回程日期" >
 									
-									<input type="button" class="home_search_button" style="font-family: Noto Sans TC" value="搜尋" onclick="hotelSearch()"/>
+									<input id="search" type="button" class="home_search_button" style="font-family: Noto Sans TC" value="搜尋" />
 								</div>
 							</form>
 						</div>
@@ -246,7 +246,7 @@
 			 var contents ="";
 			
 			 var lens = data.length;
-			 console.log(data);
+// 			 console.log(data);
 // 			 console.log(data.result);
 //              console.log(data.result[0].TourTagsBean);
 // 			 console.log(data.result[0].TourTagsBean[0].tag);
@@ -254,7 +254,7 @@
 // 				 console.log(data.result[idx].TourTagsBean[0].tag);
 				 //所有行程
 				contents +="<div id=\"tourpage\" class=\"col-md-6 col-lg-6 mb-4\">"
-					+"<a href=\"<c:url value='/tour/Display2/travel.jsp?tourNo="+val.tourNo+"'/>\" class=\"block-5\" style=\"background-image: url('/Travel/tour/Display/images/"+val.TourPictureBean[0].pic +"');\">"						
+					+"<a href=\"<c:url value='/tour/Display2/travel.jsp?tourNo="+val.tourNo+"'/>\" class=\"block-5\" style=\"background-image: url('/Travel/tour/Display2/images/"+val.TourPictureBean[0].pic +"');\">"						
 					+	"<div class=\"text\">"  
 					+		"<span class=\"price\" style=\"color:red ; font-weight:bold\"><b><u>$"+val.tourBatchBean[0].price_adult+"</u></b></span>"
 					+		"<h3 class=\"heading\">"+val.tourName+"</h3>"
@@ -303,6 +303,8 @@
 		         $('#box > #tourpage').slice(startItem,endItem).show();//.css('display','table-row')
 		     });
 /*----------------------分頁------------------------------------------------------------   */
+
+/*--抓TAGS------------------------------------*/
 		 });
 		     
 		 $.getJSON( "/Travel/groupTour", function( data ) {
@@ -315,6 +317,7 @@
 			 $("#tagcloud").html(tagcontents);			 
 			 
 		 });
+/*--TAGS------------------------------------*/
 		     
 /*行程標籤分類葉面-------------------------------------------------------------------------------*/		     
 		 $('#tagcloud').on("click", "a", function(){
@@ -384,8 +387,36 @@
 				     });
 /*----------------------分頁------------------------------------------------------------   */
 			     });
-/*行程標籤分類葉面-------------------------------------------------------------------------------*/	
-	     });
+/*行程標籤分類葉面-------------------------------------------------------------------------------*/
+		 });
+			 
+/*--搜尋形成----------------------------------*/			 
+		 $('#search').click(function(){
+			 var tours = $("#tourS").val();
+			 var checkin_date = $('#checkin_date').val();
+			 var checkout_date = $('#checkout_date').val();
+			 alert("tours="+tours+"checkin_date="+checkin_date+"checkin_date="+checkin_date);
+		 		
+			 $.ajax({	
+		    	method:"POST",
+		     	url:"/Travel/searchTour",
+		     	dataType: "json", 
+		     	data:{"tours":tours,
+		     		  "checkin_date":checkin_date,
+		     		  "checkout_date":checkout_date		     		
+		     	     }
+		        
+		     }).done(function(data){
+		    	 console.log(data)
+		     })
+			 
+			 
+		 }) 
+		
+/*--搜尋形成----------------------------------*/
+
+
+	     
 	
 		    
 			

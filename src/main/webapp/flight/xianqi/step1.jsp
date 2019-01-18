@@ -356,10 +356,9 @@ $.each(result.OTA_AirLowFareSearchRS.PricedItineraries.PricedItinerary, function
 				</div>
 				
 				<div>
-				<input type="button" id="peopleType" autocomplete="off" value="${indexValue.peopleType}" name="peopleType" onclick="showPopup(33)" style="width:200px;text-align: left;border:none;background: none">
-				<p class="card_line"> <span></span></p>
-				
-				
+				<input type="button" id="peopleType" autocomplete="off" value="${indexValue.peopleType} | 經濟艙" name="peopleType"  style=" margin-top: 10px;font-size:12px;margin-left:5px;  text-align: left;border:none;background: none;padding-right: 5px;">
+<!-- 				<p class="card_line"> <span></span></p> -->
+<!-- 				<span style="display: inline-block;">經濟艙</span> -->
 				
 <!-- 				<div style="display: inline-block; padding-right: 30px;width:200px;"> -->
 <%-- 					<span class="form-label" style="display:block;">旅客類型</span> <input type="button" id="peopleType" autocomplete="off" class="search_input_1secound" value="${indexValue.peopleType}" name="peopleType" onclick="showPopup(33)" style="width:200px;text-align: left;"> --%>
@@ -375,7 +374,7 @@ $.each(result.OTA_AirLowFareSearchRS.PricedItineraries.PricedItinerary, function
 <!-- 				</div> -->
 
 
-				<button class="home_search_button" id="home_search_button" style="background-color: #c00017" type="submit">重新搜尋</button>
+				<button class="home_search_button" id="home_search_button" style="margin-top: 10px;background-color: #c00017; float: right;height: 30px;width: 100px;margin-right: 30px;padding-bottom: 20px;" type="submit">重新搜尋</button>
 			</div>
 		</div>
 	</div>
