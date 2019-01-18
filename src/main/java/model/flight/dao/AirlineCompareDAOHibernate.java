@@ -1,7 +1,11 @@
 package model.flight.dao;
 
+import java.util.List;
+import java.util.Set;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -20,6 +24,16 @@ public class AirlineCompareDAOHibernate implements AirlineCompareDAO{
 		System.out.println("DAO方法開始");
 		return this.getSession().get(AirlineCompareBean.class, airlineCode);
 	}
+	
+	@Override
+	public List<AirlineCompareBean> findByList(Set<String> code) {
+		System.out.println("DAO方法開始");
+		String hql = "from AirlineCompareBean where airlineCode in (:air)";
+		Query<AirlineCompareBean> query = this.getSession().createQuery(hql, AirlineCompareBean.class);
+		return query.setParameterList("air",code).list();
+		
+	}
+	
 
 	@Override
 	public AirlineCompareBean create(AirlineCompareBean bean) {

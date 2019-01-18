@@ -9,22 +9,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
-import model.flight.AirlineCompareDAO;
 import model.flight.service.FlightInfoGetService;
 
 @Controller
 public class FlightInfoController {
 		
 	@Autowired
-	AirlineCompareDAO dao;
-	@Autowired
 	private FlightInfoGetService flightInfoGetService;
 //	@ResponseBodyssss
 	@RequestMapping("/FlightInfoNew")
 	public String method(Model model,String takeOffPlace,String landingPlace,Date takeoff_date,Date flyback_date,String peopleType) throws Exception {
-		System.out.println("controller方法開始");
 //		System.out.println("takeOffPlace="+takeOffPlace.substring(takeOffPlace.length()-4, takeOffPlace.length()-1)+"landingPlace"+landingPlace.substring(landingPlace.length()-4, landingPlace.length()-1)+"takeoff_date"+takeoff_date+"flyback_date"+flyback_date+"peopleType"+peopleType.substring(0,1));
 		SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
 //		Date go = java.sql.Date.valueOf(takeoff_date);
@@ -56,14 +51,11 @@ public class FlightInfoController {
 		
 		model.addAttribute("indexValue",indexValue);
 		
-//		String result = flightInfoGetService.getInfo(bfmsearch.toString());
-//		System.out.println("result=" + result);
-//		System.out.println("為什麼執行不到這裡");
+		String result = flightInfoGetService.addCompanyCN(bfmsearch.toString());
 		
 //		System.out.println("result2="+result1);
-
-//		model.addAttribute("result", result1);
-		System.out.println("controller方法結束");
+		model.addAttribute("result", result);
+		
 		return "flightsecound";
 	}
 	
