@@ -28,10 +28,18 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <!--	https://hk.saowen.com/a/3bb2d62596486787bb77995a447207f180a828af15cddf5912c0aceaad24caf0 -->
 		<script>
+var contextPath = "${pageContext.request.contextPath}";
+var params = {}
+var x ;
+
 			var params = {};
 			$(document).ready(function() {
 				ticketSearch1();
 				ticketSearch2();
+				
+			   ${sessionScope.accountName}
+				
+				 console.log(x)
 				
 			});
 				function back(){
@@ -139,8 +147,14 @@
 								function submit(ticketNo){ 		
 									    		var total=$("#tt"+ticketNo+"").val()
 									    		$("#totalpiece"+ticketNo+"").text(' '+total+'張');
-									    		
 														}
+// 								function submit(ticketNo){ 		
+// 						    		var total=$("#tt"+ticketNo+"").val()
+// 						    		$("#totalpiece"+ticketNo+"").text(' '+total+'張');		
+// 											}
+														
+														
+														
 
 	</script>
 </head>
