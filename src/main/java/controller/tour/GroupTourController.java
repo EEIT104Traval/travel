@@ -76,13 +76,23 @@ System.out.println(result);
 				
 				return "/tour/tourtest.jsp";
 	}
-	@ResponseBody
+//	@ResponseBody
 	@RequestMapping("/searchTour")                                         //國家
-	public List<TourBatchBean> method(GroupTourBean bean, Model model,String tours,Date checkin_date,Date checkout_date) {
+	public String method(GroupTourBean bean, Model model,String tours,Date checkin_date,Date checkout_date) {
 //				System.out.println("T="+tours+"IN="+checkin_date+"OUT="+checkout_date);
-				List<TourBatchBean> no  = groupTourService.findTourByNO(tours, checkin_date, checkout_date);
-				
-				return no;
+//				List<TourBatchBean> no  = groupTourService.findTourByNO(tours, checkin_date, checkout_date);
+//				model.addAttribute("tour", no);
+//				System.out.println("no="+no);
+		
+	    List<TourBatchBean> no  = groupTourService.findTourByNO(tours, checkin_date, checkout_date);
+	    no.forEach(item->{
+	        GroupTourBean group = item.getGroupTourBean();
+	        group.setTourBatchBean( null );
+	        item.setGroupTourBean(group);
+	    });
+	    model.addAttribute("tour", no);
+		
+				return "tour.search";
 		
 	}
 	
