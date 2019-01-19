@@ -15,7 +15,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import model.ticket.TicketInfoBean;
@@ -151,7 +150,7 @@ public class UserController01_01 {
 		return result;
 	}
 	@ResponseBody
-	@RequestMapping("/bindex03_031/User.controller")
+	@RequestMapping("/bindex03_02/User.controller")
 	public List<TicketInfoBean> method03031(){
 		
 		List<TicketInfoBean> result = null;
@@ -161,7 +160,7 @@ public class UserController01_01 {
 	}
 	
 	@ResponseBody
-	@RequestMapping("/bindex03_032/User.controller")
+	@RequestMapping("/bindex03_021/User.controller")
 	public String method03032(Integer ticketNo , String ticketName,String country,
 				String ticketDescription,Integer adultTicketPrice,Integer adultTicketSellQ,Integer adultTicketSelledQ) {
 		

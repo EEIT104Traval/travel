@@ -127,9 +127,9 @@ public class UserInfoService {
 		List<TourOrderInfoBean> tourInfo = tourOrderInfoService.foundOrderaccountName(user);
 		List<TourBatchBean> tourBatch = tourBatchDAO.findByTourOrderList(tourInfo);
 		List<GroupTourBean> tourList = groupTourDAO.findByTourBatchList(tourBatch);
-		System.out.println(tourInfo);
-		System.out.println(tourBatch);
-		System.out.println(tourList);
+//		System.out.println(tourInfo);
+//		System.out.println(tourBatch);
+//		System.out.println(tourList);
 		System.out.println("==================");
 
 		List<TicketOrderInfoBean> ticketInfo = ticketOrderInfoService.foundOrderaccountName(user);
@@ -147,7 +147,7 @@ public class UserInfoService {
 						tourBatchBean.setTourName(groupTourBean.getTourName());
 						tourOrder.setTourName(tourBatchBean.getTourName());
 
-						System.out.println(tourOrder);
+//						System.out.println(tourOrder);
 					}
 					continue;
 				}
@@ -158,8 +158,9 @@ public class UserInfoService {
 			for (TicketOrderInfoBean ticketOrderInfoBean : ticketInfo) {
 				if (ticketInfoBean.getTicketNo() == ticketOrderInfoBean.getTicketNo()) {
 					ticketOrderInfoBean.setTicketName(ticketInfoBean.getTicketName());
-					break;
+					System.out.println(ticketOrderInfoBean);
 				}
+				continue;
 			}
 		}
 
