@@ -55,6 +55,15 @@ public class TourBatchBean {
 	@Transient
 	private String country;
 	
+
+	
+	
+	
+
+
+
+
+
 	@Override
 	public String toString() {
 		return "TourBatchBean [serialNo=" + serialNo + ", tourNo=" + tourNo + ", departureDate=" + departureDate
@@ -63,13 +72,6 @@ public class TourBatchBean {
 				+ ", distination_go=" + distination_go + ", airline_back=" + airline_back + ", distination_back="
 				+ distination_back + ", content=" + content + ", tourName=" + tourName + ", country=" + country + "]";
 	}
-	
-	
-	
-
-
-
-
 	public String getTourName() {
 		return tourName;
 	}
