@@ -16,12 +16,14 @@
 	<a href="<c:url value='Tourtestupdate' />">Tourtestupdate</a>
 	<a href="<c:url value='Tourtestremove' />">Tourtestremove</a>
 	<a href="<c:url value='FindByClick' />">FindByClick</a>
+	<a href="<c:url value='FindByCountry' />">FindByCountry</a>
 	<br />
 	<a href="<c:url value='TourBatchtestfindPK' />">TourBatchtestfindPK</a>
 	<a href="<c:url value='TourBatchtestfindALL' />">TourBatchtestfindALL</a>
 	<a href="<c:url value='TourBatchtestInsert' />">TourBatchtestInsert</a>
 	<a href="<c:url value='TourBatchtestUpdate' />">TourBatchtestUpdate</a>
 	<a href="<c:url value='TourBatchtestremove' />">TourBatchtestremove</a>
+	<a href="<c:url value='TourBatchtestsearch' />">TourBatchtestsearch</a>
 	<br />
 	<a href="<c:url value='TourTagsTestfindPK' />">TourTagsTestfindPK</a>
 	<a href="<c:url value='TourTagsTestfindALL' />">TourTagsTestfindALL</a>	
@@ -117,6 +119,8 @@
 	<hr />
 	<a href="<c:url value='/flightxml' />">XMLTest</a>
 	<a href="<c:url value='/FlightInfo' />">FlightInfoTest</a>
+	<a href="<c:url value='/flightsearchCompany' />">flightsearchCompany</a>
+	
 	
 	<hr />
 	<br />

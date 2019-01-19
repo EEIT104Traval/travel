@@ -30,12 +30,14 @@
 <link rel="stylesheet" href="<c:url value='/voyage/css/flaticon.css' />">
 <link rel="stylesheet" href="<c:url value='/voyage/css/icomoon.css' />">
 
-	
+<link rel="stylesheet"	href="https://scss.settour.com.tw/vendor.css?1547708750755">
 
 <link rel="stylesheet" href="<c:url value='/voyage/css/style.css' />">
 
 	
-<link rel="stylesheet"	href="https://scss.settour.com.tw/vendor.css?1547708750755">
+
+	
+
 	
 <link href="<c:url value='/voyage/css/jquery-ui.css' />"
 	rel="stylesheet" type="text/css">
@@ -169,7 +171,7 @@ iframe#_hjRemoteVarsFrame {
 							</h4>
 							<div class="filter-criteria-item">
 								<h5 class="filter-criteria-item-title" aria-expanded="true"
-									aria-controls="filter1" data-toggle="collapse">
+									aria-controls="filter1" id="Cfilter1" data-toggle="collapse">
 									預算價格<i class="fa fa-angle-down active" aria-hidden="true"></i>
 								</h5>
 								<div class="filter-criteria-item-option-area collapse in"
@@ -203,10 +205,10 @@ iframe#_hjRemoteVarsFrame {
 							</div>
 							<div class="filter-criteria-item">
 								<h5 class="filter-criteria-item-title" data-toggle="collapse"
-									aria-expanded="true" aria-controls="filter2">
+									aria-expanded="true" aria-controls="filter2" id ="Cfilter2">
 									旅遊天數<i class="fa fa-angle-down active" aria-hidden="true"></i>
 								</h5>
-								<div class="filter-criteria-item-option collapse in" style="">
+								<div class="filter-criteria-item-option collapse in" style="" id ="filter2">
 									<div class="checkbox">
 										<input type="checkbox" id="checkbox-tourday-0"
 											name="checkbox-tourday-0"><label
@@ -236,10 +238,10 @@ iframe#_hjRemoteVarsFrame {
 							</div>
 							<div class="filter-criteria-item">
 								<h5 class="filter-criteria-item-title" data-toggle="collapse"
-									aria-expanded="true" aria-controls="filter3">
+									aria-expanded="true" aria-controls="filter3" id="Cfilter3">
 									優惠活動專案<i class="fa fa-angle-down active" aria-hidden="true"></i>
 								</h5>
-								<div class="filter-criteria-item-option collapse in" style="">
+								<div class="filter-criteria-item-option collapse in" style="" id="filter3">
 									<div class="checkbox">
 										<input type="checkbox" id="checkbox-mkt-0"
 											name="checkbox-mkt-0"><label for="checkbox-mkt-0"
@@ -254,10 +256,10 @@ iframe#_hjRemoteVarsFrame {
 							</div>
 							<div class="filter-criteria-item">
 								<h5 class="filter-criteria-item-title" data-toggle="collapse"
-									aria-expanded="true" aria-controls="filter4">
+									aria-expanded="true" aria-controls="filter4" id="Cfilter4">
 									出團狀態<i class="fa fa-angle-down active" aria-hidden="true"></i>
 								</h5>
-								<div class="filter-criteria-item-option collapse in" style="">
+								<div class="filter-criteria-item-option collapse in" style="" id="filter4">
 									<div class="checkbox">
 										<input type="checkbox" id="checkbox-grupstatus-0"
 											name="checkbox-grupstatus-0"><label
@@ -287,10 +289,10 @@ iframe#_hjRemoteVarsFrame {
 							</div>
 							<div class="filter-criteria-item">
 								<h5 class="filter-criteria-item-title" data-toggle="collapse"
-									aria-expanded="true" aria-controls="filter5">
+									aria-expanded="true" aria-controls="filter5" id="Cfilter5">
 									其它<i class="fa fa-angle-down" aria-hidden="true"></i>
 								</h5>
-								<div class="filter-criteria-item-option collapse">
+								<div class="filter-criteria-item-option collapse" id="filter5">
 									<div class="checkbox">
 										<input type="checkbox" id="checkbox-other-0"
 											name="checkbox-other-0"><label for="checkbox-other-0"
@@ -550,7 +552,37 @@ iframe#_hjRemoteVarsFrame {
 		</div>
 	</div>
 
-
+	<script>	
+		$(document).ready(function() {
+			$('#filter1').show();
+			$('#filter2').show();
+			$('#filter3').show();
+			$('#filter4').show();
+// 			$('#filter5').show();
+			
+			$('#Cfilter1').click(function() {
+				$('#filter1').toggle("slow");
+			});
+			$('#Cfilter2').click(function() {
+				$('#filter2').toggle("slow");
+			});
+			$('#Cfilter3').click(function() {
+				$('#filter3').toggle("slow");
+			});
+			$('#Cfilter4').click(function() {
+				$('#filter4').toggle("slow");
+			});
+			$('#Cfilter5').click(function() {
+				$('#filter5').toggle("slow");
+			});
+			
+			
+			
+			
+			
+		})
+		
+	</script>
 
 	<script src="<c:url value='/voyage/js/jquery.min.js' />"></script>
 	<script src="<c:url value='/voyage/js/jquery-migrate-3.0.1.min.js' />"></script>

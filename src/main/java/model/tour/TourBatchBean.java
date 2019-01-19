@@ -32,11 +32,27 @@ public class TourBatchBean {
 	private String distination_back;
 	private String content;
 	
+//	@ManyToOne
+//	@JoinColumn(
+//			name = "tourNo",
+//			referencedColumnName = "tourNo",
+//			insertable = false,
+//			updatable = false
+//			)
+//	private GroupTourBean groupTourBean ;
+//	public GroupTourBean getGroupTourBean() {
+//		return groupTourBean;
+//	}
+//	public void setGroupTourBean(GroupTourBean groupTourBean) {
+//		this.groupTourBean = groupTourBean;
+//	}
+	
 	@Transient
 	private String tourName;
 	@Transient
 	private String country;
-	
+
+
 	@Override
 	public String toString() {
 		return "TourBatchBean [serialNo=" + serialNo + ", tourNo=" + tourNo + ", departureDate=" + departureDate
@@ -45,7 +61,6 @@ public class TourBatchBean {
 				+ ", distination_go=" + distination_go + ", airline_back=" + airline_back + ", distination_back="
 				+ distination_back + ", content=" + content + ", tourName=" + tourName + ", country=" + country + "]";
 	}
-	
 	public String getTourName() {
 		return tourName;
 	}
@@ -136,8 +151,4 @@ public class TourBatchBean {
 	public void setContent(String content) {
 		this.content = content;
 	}
-
-	
-	
-	
 }

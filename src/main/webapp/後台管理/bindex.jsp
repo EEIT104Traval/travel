@@ -40,18 +40,18 @@ src="https://code.jquery.com/jquery-3.3.1.js"integrity="sha256-2Kok7MbOyxpgUVvAk
 							<li><a href="02_01.jsp">月份報表</a></li>
 							<li><a href="02_02.jsp">歷史紀錄</a></li>
 						</ul></li>
-					<li><a href="bindex.jsp">行程管理</a>
-						<ul class="submenu">
-							<li><a href="03_01.jsp">新增行程</a></li>
-							<li><a href="03_02.jsp">下架行程</a></li>
-							<li><a href="03_03.jsp">修改行程</a></li>
-							<li><a href="03_04.jsp">查詢行程</a></li>
-						</ul></li>
 					<li><a href="bindex.jsp">票券管理</a>
 						<ul class="submenu">
-							<li><a href="04_01.jsp">機票資訊</a></li>
-							<li><a href="04_02.jsp">飯店資訊</a></li>
-							<li><a href="04_03.jsp">門票資訊</a></li>
+							<li><a href="03_01.jsp">票券新增</a></li>
+							<li><a href="03_02.jsp">票券修改</a></li>
+							<li><a href="03_03.jsp">票券下架</a></li>
+						</ul></li>
+					<li><a href="bindex.jsp">行程管理</a>
+						<ul class="submenu">
+							<li><a href="04_01.jsp">新增行程</a></li>
+							<li><a href="04_02.jsp">下架行程</a></li>
+							<li><a href="04_03.jsp">修改行程</a></li>
+							<li><a href="04_04.jsp">查詢行程</a></li>
 						</ul></li>
 					<li><a href="bindex.jsp">版面管理</a>
 						<ul class="submenu">

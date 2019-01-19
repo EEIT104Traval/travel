@@ -1562,7 +1562,7 @@ $(document).ready(function() {
     </section>
    
     
-    <form action="">
+    <form action="<c:url value='/FlightOrder' />">
     
     
      <input id="dealDate" name="dealDate" style="display: none;">
