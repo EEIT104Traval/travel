@@ -45,9 +45,9 @@ public class LoginController {
 
 	@ResponseBody
 	@RequestMapping(path= {"/voyage/userorder.controller"})
-	public UserInfoBean getMemberOrder(@RequestParam(value="accountName",required=false)String user) {
-		
-		UserInfoBean result = userInfoService.findByAccountName(user);
+	public Map<String, List<?>> getMemberOrder(@RequestParam(value="accountName",required=false)String user) {
+		Map<String, List<?>> result = null;
+		result = userInfoService.findByPrimaryKey(user);
 		System.out.println(result);
 	
 	return result;
