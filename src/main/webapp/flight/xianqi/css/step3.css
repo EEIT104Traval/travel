@@ -45,7 +45,7 @@ a:hover { color: #0073FF}
 /* 订单信息 */
 .order_info { border-radius: 4px; box-shadow: 1px 2px 20px rgba(106,158,209,0.34); background-color: #F4F7FE; font-size: 14px; margin-bottom: 20px; *background-color:#FFF; overflow: hidden;}
 .price_area { width: 320px; float: left; padding: 22px 20px 20px;}
-.order_tit { width:580px; float: right; background-color: #F9FDFF; border-radius: 0 4px 0 0; padding: 22px 20px 20px; position: relative; height: auto!important; min-height: 70px; height: 70px;}
+.order_tit {  float: right; background-color: #F9FDFF; border-radius: 0 4px 0 0; padding: 22px 20px 20px; position: relative; height: auto!important; min-height: 70px; height: 70px;}
 .order_list,.tip_area { clear: both;}
 
 .bg_icon01 { background:url(//pic.c-ctrip.com/picaresonline/fncpaymentonline/cnres/img/script_img.41a8ad2e.png) -15px -407px no-repeat; width: 11px; height: 5px; position: absolute; left: -6px; top: 0px; }
@@ -74,7 +74,7 @@ text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 3;-webkit-box-o
 .switch_btn .up_arrow { background-position: -35px -347px;}
 .switch_btn:hover { box-shadow: 0 0 8px 0 #A6CDFF;}
 .switch_btn:hover .down_arrow,.switch_btn:hover .up_arrow {transform: rotate(180deg);-webkit-transform: rotate(180deg);-moz-transform: rotate(360deg);}
-.price_num { position: absolute; left: -340px; font-size: 12px; color: #0E2644; bottom: 20px;}
+.price_num {  left: -340px; font-size: 12px; color: #0E2644; bottom: 20px;}
 .price_num i { display: inline-block; width: 12px; height: 12px; background: url(//pic.c-ctrip.com/picaresonline/fncpaymentonline/cnres/img/script_img.41a8ad2e.png) -31px -30px no-repeat; vertical-align:top; margin-right: 5px; margin-top: 5px; *margin-top: 3px;}
 .price_num span { font-size: 14px; color:#FF8C18; padding: 0 5px;}
 

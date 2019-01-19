@@ -35,7 +35,7 @@
 
 <head>
 <meta charset="UTF-8">
-<title>飯店搜尋</title>
+<title>Time To Travel - 飯店搜尋</title>
 	<jsp:include page="/voyage/nav.jsp"></jsp:include>
 
 <script>
@@ -86,7 +86,7 @@ var params = {};
 												'<a href="<c:url value="/voyage/listOneHotelPage?hotelNo='+value.hotelNo+'" />" class="block-20" style="background-image: url('+value.pic+');"></a>'+
 												'<div class="text p-4">'+
 													'<div class="meta"></div>'+
-													'<h6><a href="<c:url value="/voyage/hotel/hotelRoom2.jsp" />">'+value.hotelNameCH+'</a></h6>'+
+													'<h6><a href="<c:url value="/voyage/hotel/roomTypeSearch.jsp" />">'+value.hotelNameCH+'</a></h6>'+
 						                   			'<p style="margin-bottom:0">'+value.starRate+'</p>'+
 													'<p class="float-left" style="margin">'+value.price+'</p>'+
 												'</div>'+
@@ -128,7 +128,7 @@ var params = {};
 												'<a href="<c:url value="/voyage/listOneHotelPage?hotelNo=value.hotelNo" />" class="block-20" style="background-image: url('+value.pic+');"></a>'+
 												'<div class="text p-4">'+
 													'<div class="meta"></div>'+
-													'<h6><a href="<c:url value="/voyage/hotel/hotelRoom2.jsp" />">'+value.hotelNameCH+'</a></h6>'+
+													'<h6><a href="<c:url value="/voyage/hotel/roomTypeSearch.jsp" />">'+value.hotelNameCH+'</a></h6>'+
 						                   			'<p style="margin-bottom:0">'+value.starRate+'</p>'+
 													'<p class="float-left" style="margin">'+value.price+'</p>'+
 												'</div>'+
@@ -165,14 +165,13 @@ var params = {};
 								$.each(JData, function(index, value) {
 									console.log(value);
 									$("#hotel_pic").append(
-//動態生成票券選項
 // ------------------------------------------------------------------------------------------------------------------------------------------------------
 										'<div class="col-md-6 col-lg-3">'+
 											'<div class="blog-entry">'+
 												'<a href="<c:url value="/voyage/listOneHotelPage?hotelNo=value.hotelNo" />" class="block-20" style="background-image: url('+value.pic+');"></a>'+
 												'<div class="text p-4">'+
 													'<div class="meta"></div>'+
-													'<h6><a href="<c:url value="/voyage/hotel/hotelRoom2.jsp" />">'+value.hotelNameCH+'</a></h6>'+
+													'<h6><a href="<c:url value="/voyage/hotel/roomTypeSearch.jsp" />">'+value.hotelNameCH+'</a></h6>'+
 						                   			'<p style="margin-bottom:0">'+value.starRate+'</p>'+
 													'<p class="float-left" style="margin">'+value.price+'</p>'+
 												'</div>'+
@@ -240,8 +239,16 @@ var params = {};
 										placeholder="入住日期" id="checkin_date">
 									<input type="text" class="search_input" style="font-family: Noto Sans TC; width: 15%"
 										placeholder="退房日期" id="checkout_date">
-									<input type="text" class="search_input" style="font-family: Noto Sans TC; width: 15%"
+									<select type="text" class="search_input" style="font-family: Noto Sans TC; width: 15%"
 										placeholder="人數" id="accommodate" >
+										<option>1 人</option>
+										<option>2 人</option>
+										<option>3 人</option>
+										<option>4 人</option>
+										<option>5 人</option>
+										<option>6 人</option>
+										<option>7 人</option>
+										<option>8 人</option>
 									<input type="button" class="home_search_button" style="font-family: Noto Sans TC" value="搜尋" onclick="hotelSearch()"/>
 								</div>
 							</form>
@@ -512,12 +519,12 @@ var params = {};
 			<div class="row">
 				<div class="col-md-6 col-lg-3 ftco-animate">
 					<div class="blog-entry">
-						<a href="<c:url value='/voyage/hotel/hotelRoom2.jsp'/>" class="block-20" id="hilton"
+						<a href="<c:url value='/voyage/hotel/roomTypeSearch.jsp'/>" class="block-20" id="hilton"
 							style="background-image: url('<c:url value='/voyage/hotel/hotelPic/熱門飯店/紐約市中心希爾頓酒店(New York Hilton Midtown).jpg'/>');"></a>
 						<div class="text p-4">
 							<div class="meta"></div>
 							<h6>
-								<a href="<c:url value='/voyage/hotel/hotelRoom2.jsp'/>">紐約市中心希爾頓酒店(New York Hilton Midtown)</a>
+								<a href="<c:url value='/voyage/hotel/roomTypeSearch.jsp'/>">紐約市中心希爾頓酒店(New York Hilton Midtown)</a>
 							</h6>
                    			<p style="margin-bottom:0"><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star-half-full"></span></p>
 							<p class="float-left" style="margin">NT$ 5,158</p>
@@ -904,72 +911,6 @@ var params = {};
 	</section>
 
 	<!-- END 標籤 -->
-
-	<!-- 住宿類型 -->
-
-	<!-- 	<div class="why"> -->
-	<!-- 		<div class="parallax_background parallax-window" data-parallax="scroll" data-speed="0.8"></div> -->
-	<!-- 		<div class="container"> -->
-	<!-- 			<div class="row"> -->
-	<!-- 				<div class="col text-center"> -->
-	<!-- 					<div class="section_title"><h2>不論您想尋找哪種住宿，我們都有...</h2></div> -->
-	<!-- 				</div> -->
-	<!-- 			</div> -->
-	<!-- 		<div class="row why_row"> -->
-
-	<!-- 				Why item -->
-	<!-- 				<div class="col-lg-4 why_col"> -->
-	<!-- 					<div class="why_item"> -->
-	<!-- 						<div class="why_image"> -->
-	<!-- 							<img src="./hotelPic/住宿類型/公寓.jpg" alt=""> -->
-	<!-- 							<div class="d-flex flex-column align-items-center justify-content-center"></div> -->
-	<!-- 						</div> -->
-	<!-- 						<div class="why_content text-center"> -->
-	<!-- 							<div class="why_title">公寓</div> -->
-	<!-- 							<div class="why_text"> -->
-	<!-- 							</div> -->
-	<!-- 						</div> -->
-	<!-- 					</div> -->
-	<!-- 				</div> -->
-
-	<!-- 				Why item -->
-	<!-- 				<div class="col-lg-4 why_col"> -->
-	<!-- 					<div class="why_item"> -->
-	<!-- 						<div class="why_image"> -->
-	<!-- 							<img src="./hotelPic/住宿類型/公寓.jpg" alt=""> -->
-	<!-- 							<div class="d-flex flex-column align-items-center justify-content-center"> -->
-	<!-- 							</div> -->
-	<!-- 						</div> -->
-	<!-- 						<div class="why_content text-center"> -->
-	<!-- 							<div class="why_title">Great Team</div> -->
-	<!-- 							<div class="why_text"> -->
-	<!-- 							</div> -->
-	<!-- 						</div> -->
-	<!-- 					</div> -->
-	<!-- 				</div> -->
-
-	<!-- 				Why item -->
-	<!-- 				<div class="col-lg-4 why_col"> -->
-	<!-- 					<div class="why_item"> -->
-	<!-- 						<div class="why_image"> -->
-	<!-- 							<img src="./hotelPic/住宿類型/公寓.jpg" alt=""> -->
-	<!-- 							<div class="d-flex flex-column align-items-center justify-content-center"> -->
-	<!-- 							</div> -->
-	<!-- 						</div> -->
-	<!-- 						<div class="why_content text-center"> -->
-	<!-- 							<div class="why_title">Best Deals</div> -->
-	<!-- 							<div class="why_text"> -->
-	<!-- 							</div> -->
-	<!-- 						</div> -->
-	<!-- 					</div> -->
-	<!-- 				</div> -->
-
-	<!-- 			</div> -->
-	<!-- 		</div> -->
-	<!-- 	</div> -->
-
-	<!-- END 住宿類型 -->
-
 
 	<script src="<c:url value='/voyage/js/jquery.min.js' />"></script>
 	<script src="<c:url value='/voyage/js/jquery-migrate-3.0.1.min.js' />"></script>

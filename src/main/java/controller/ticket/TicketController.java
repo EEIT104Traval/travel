@@ -25,7 +25,7 @@ public class TicketController {
 	//	Locale locale = LocaleContextHolder.getLocale(); //多國語系
 		System.out.println("country="+country);
 //接收資料
-//呼叫model
+//呼叫model 
 		List<TicketInfoBean> result = ticketInfoService.searchCountry(country);
 		for(TicketInfoBean TI : result)
 		System.out.println(TI);

@@ -28,10 +28,17 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <!--	https://hk.saowen.com/a/3bb2d62596486787bb77995a447207f180a828af15cddf5912c0aceaad24caf0 -->
 		<script>
+var contextPath = "${pageContext.request.contextPath}";
+var accountName =  "${sessionScope.accountName}";
+var params = {}
+
+
 			var params = {};
 			$(document).ready(function() {
 				ticketSearch1();
 				ticketSearch2();
+			
+				 console.log(accountName)
 				
 			});
 				function back(){
@@ -61,7 +68,7 @@
 						'<div class="text p-4">'+
 							'<div class="meta" style="margin-left: 45px;">'+
 								'<div>'+ value.ticketName +'</div>'+
-								'<div>$.'+ value.adultTicketPrice +'</div>'+
+								'<div id="price'+value.ticketNo+'">'+ value.adultTicketPrice +'</div>'+
 							'</div>'+
 							'<br>'+
 							'<div class="d-flex flex-lg-row flex-column align-items-start justify-content-start" style="margin-left: 58px;">'+
@@ -91,7 +98,7 @@
 					        '你現在購買了'+value.ticketName+'<span id="totalpiece'+value.ticketNo+'"></span>'+
 					      '</div>'+
 					      '<div class="modal-footer">'+
-					        '<button type="button" class="btn btn-primary">確定購入</button>'+
+					        '<button type="button" class="btn btn-primary" id="button1'+value.ticketNo+'" onClick="ck('+value.ticketNo+')">確定購入</button>'+
 					        '<button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="back()">取消</button>'+
 					      '</div>'+
 					    '</div>'+
@@ -139,8 +146,36 @@
 								function submit(ticketNo){ 		
 									    		var total=$("#tt"+ticketNo+"").val()
 									    		$("#totalpiece"+ticketNo+"").text(' '+total+'張');
-									    		
 														}
+																								
+										
+					  function ck(ticketNo){
+					        if(accountName.length == 0){
+					            alert('請登入，否則不給你訂購')								        	
+					        }else{
+// 								        	var accountName;
+// 								        	alert(accountName)
+// 											var ticketNo ;
+// 											alert(ticketNo)
+								var adultTicketSellQ=$("#tt"+ticketNo).val()
+// 											alert(adultTicketSellQ)
+								var adultTicketPrice=$("#price"+ticketNo).text()
+// 											alert(adultTicketPrice)
+								$.ajax({
+						            type: "GET", //傳送方式
+						            url: "/Travel/voyage/ticketbuy.controller", 
+						            dataType: "json", 
+						            data: {'accountName':accountName,'ticketNo':ticketNo,'adultTicketSellQ':adultTicketSellQ,'adultTicketPrice':adultTicketPrice},
+						            done: function(data) {
+						 				console.log(data);
+						            }
+					       		 });
+						            alert('已完成訂單選購')						           
+					        }
+					      }
+								     	
+														
+														
 
 	</script>
 </head>

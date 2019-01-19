@@ -343,7 +343,7 @@
     height: 21px;
 }
 .ico-step {
-    background-position: -136px -56px;
+    background-position: -136px -52px;
     width: 22px;
     height: 22px;
 }
@@ -3386,11 +3386,13 @@ input:checked+i {
     background-color: #fff;
 }
 .order-progress h4 {
+	margin-top: -1px;
     position: relative;
     z-index: 1;
     display: inline-block;
     padding: 0 9px 10px;
-    font-weight: 300;
+    font-weight: 600;
+    font-size: 20px;
     background: #fff;
     *display: inline;
     *zoom: 1;
@@ -10902,3 +10904,55 @@ body>.mkt_nav {
     width: 125px;
   }
 }
+.time-item strong {
+
+	background:#C71C60;
+
+	color:#fff;
+
+	line-height:49px;
+
+	font-size:20px;
+
+	font-family:Arial;
+
+	padding:0 10px;
+
+	margin-right:10px;
+
+	border-radius:5px;
+
+	box-shadow:1px 1px 3px rgba(0,0,0,0.2);
+
+}
+
+#day_show {
+
+	float:left;
+
+	line-height:49px;
+
+	color:#c71c60;
+
+	font-size:32px;
+
+	margin:0 10px;
+
+	font-family:Arial,Helvetica,sans-serif;
+
+}
+
+.item-title .unit {
+
+	background:none;
+
+	line-height:49px;
+
+	font-size:24px;
+
+	padding:0 10px;
+
+	float:left;
+
+}
+
