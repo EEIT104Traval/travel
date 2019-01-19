@@ -339,7 +339,7 @@
 // 			    		 alert(val.tourName);
 			    		 
 			    		 contents +="<div id=\"tourpage\" class=\"col-md-6 col-lg-6 mb-4\">"
-								+"<a href=\"<c:url value='/tour/Display2/travel.jsp?tourNo="+val.tourNo+"'/>\" class=\"block-5\" style=\"background-image: url('/Travel/tour/Display/images/"+val.TourPictureBean[0].pic +"');\">"						
+								+"<a href=\"<c:url value='/tour/Display2/travel.jsp?tourNo="+val.tourNo+"'/>\" class=\"block-5\" style=\"background-image: url('/Travel/tour/Display2/images/"+val.TourPictureBean[0].pic +"');\">"						
 								+	"<div class=\"text\">"  
 								+		"<span class=\"price\" style=\"color:red ; font-weight:bold\"><b><u>$"+val.tourBatchBean[0].price_adult+"</u></b></span>"
 								+		"<h3 class=\"heading\">"+val.tourName+"</h3>"

@@ -43,7 +43,7 @@ public class TourBatchBean {
 			insertable = false,
 			updatable = false
 			)
-	@Expose(serialize = false)
+	
 	private GroupTourBean groupTourBean ;
 	public GroupTourBean getGroupTourBean() {
 		return groupTourBean;
