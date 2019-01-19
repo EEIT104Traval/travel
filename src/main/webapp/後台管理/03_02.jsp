@@ -21,7 +21,7 @@ $(document).ready(function() {
 	function ticketSearch1(){
 		
 	$.ajax({
-		url : '/Travel/bindex03_02/User.controller',
+		url : '/Travel/bindex03_021/User.controller',
 		contentType : 'application/json; charset=UTF-8',
 		type : 'get',
 		dataType : 'json',
@@ -38,9 +38,9 @@ $(document).ready(function() {
 						   '<th style="width:148px">票券價格</th>'+
 						   '<th style="width:148px">進貨數量</th>'+
 						   '<th style="width:148px">銷售數量</th>'+
-						   '<th style="width:50px"><th style="width:50px"></tr></table><br>'
+						   '<th style="width:50px"><th style="width:50px"></th></table><br>'
 					)
-// 					for(var i = 0;i<JData.length;i++){
+
 				$.each(JData, function(index, value) {
 // 					$("#searchuser").html("")
 					$("#searchuser").append(
@@ -50,8 +50,8 @@ $(document).ready(function() {
 						    '<th style="width:150px">'+value.adultTicketPrice+'</th>'+
 						    '<th style="width:150px">'+value.adultTicketSellQ+'</th>'+
 						    '<th style="width:150px">'+value.adultTicketSelledQ+'</th>'+
-						    '<th style="width:50px"><input type="submit" name="prodaction" value="Update" onclick=ticketchange('+value.ticketNo+')>'+
-						    '<th style="width:50px"><input type="submit" name="prodaction" value="Check" onclick=check('+value.ticketNo+')></tr></table>'
+						    '<th style="width:50px"><input type="submit" name="prodaction" value="Update" onclick=ticketchange('+value.ticketNo+')></th>'+
+						    '<th style="width:50px"><input type="submit" name="prodaction" value="Check" onclick=check('+value.ticketNo+')></th></tr></table>'
 
 											)
 							})
@@ -84,7 +84,7 @@ $(document).ready(function() {
 				console.log('ticketName'+ticketName)
 				$.ajax({
 		            type: "GET", //傳送方式
-		            url: "/Travel/bindex03_021/User.controller", 
+		            url: "/Travel/bindex03_022/User.controller", 
 		            dataType: "json", 
 		            data: {'ticketNo':ticketNo,'ticketName':ticketName,'country':country,'ticketDescription':ticketDescription,'adultTicketPrice':adultTicketPrice,'adultTicketSellQ':adultTicketSellQ,'adultTicketSelledQ':adultTicketSelledQ
 		            },

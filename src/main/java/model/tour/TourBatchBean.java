@@ -6,10 +6,14 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
 import org.springframework.format.annotation.DateTimeFormat;
+
+import com.google.gson.annotations.Expose;
 
 
 @Entity
@@ -32,25 +36,27 @@ public class TourBatchBean {
 	private String distination_back;
 	private String content;
 	
-//	@ManyToOne
-//	@JoinColumn(
-//			name = "tourNo",
-//			referencedColumnName = "tourNo",
-//			insertable = false,
-//			updatable = false
-//			)
-//	private GroupTourBean groupTourBean ;
-//	public GroupTourBean getGroupTourBean() {
-//		return groupTourBean;
-//	}
-//	public void setGroupTourBean(GroupTourBean groupTourBean) {
-//		this.groupTourBean = groupTourBean;
-//	}
+	@ManyToOne
+	@JoinColumn(
+			name = "tourNo",
+			referencedColumnName = "tourNo",
+			insertable = false,
+			updatable = false
+			)
+	@Expose(serialize = false)
+	private GroupTourBean groupTourBean ;
+	public GroupTourBean getGroupTourBean() {
+		return groupTourBean;
+	}
+	public void setGroupTourBean(GroupTourBean groupTourBean) {
+		this.groupTourBean = groupTourBean;
+	}
 	
 	@Transient
 	private String tourName;
 	@Transient
 	private String country;
+	
 
 
 	@Override
@@ -151,4 +157,8 @@ public class TourBatchBean {
 	public void setContent(String content) {
 		this.content = content;
 	}
+
+	
+	
+	
 }
