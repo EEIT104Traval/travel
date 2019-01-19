@@ -43,7 +43,7 @@ var hotelOrderDetailsBean ;
  					contentType : 'application/json; charset=UTF-8',
  					type : 'get',
  					dataType : 'json',
- 					data:params,
+ 					data:{'accountName':accountName,}
  				   }).done(
  						function(JData) {
  							if(JData.TourOrderInfoBean != null){
