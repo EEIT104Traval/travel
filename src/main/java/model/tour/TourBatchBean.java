@@ -2,13 +2,10 @@ package model.tour;
 
 import java.util.Date;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
@@ -35,25 +32,26 @@ public class TourBatchBean {
 	private String distination_back;
 	private String content;
 	
-	@ManyToOne
-	@JoinColumn(
-			name = "tourNo",
-			referencedColumnName = "tourNo",
-			insertable = false,
-			updatable = false
-			)
-	private GroupTourBean groupTourBean ;
-	public GroupTourBean getGroupTourBean() {
-		return groupTourBean;
-	}
-	public void setGroupTourBean(GroupTourBean groupTourBean) {
-		this.groupTourBean = groupTourBean;
-	}
+//	@ManyToOne
+//	@JoinColumn(
+//			name = "tourNo",
+//			referencedColumnName = "tourNo",
+//			insertable = false,
+//			updatable = false
+//			)
+//	private GroupTourBean groupTourBean ;
+//	public GroupTourBean getGroupTourBean() {
+//		return groupTourBean;
+//	}
+//	public void setGroupTourBean(GroupTourBean groupTourBean) {
+//		this.groupTourBean = groupTourBean;
+//	}
 	
 	@Transient
 	private String tourName;
 	@Transient
 	private String country;
+
 
 	@Override
 	public String toString() {
@@ -61,16 +59,7 @@ public class TourBatchBean {
 				+ ", peopleCount=" + peopleCount + ", price_adult=" + price_adult + ", price_child=" + price_child
 				+ ", price_baby=" + price_baby + ", discount=" + discount + ", airline_go=" + airline_go
 				+ ", distination_go=" + distination_go + ", airline_back=" + airline_back + ", distination_back="
-				+ distination_back + ", content=" + content + ", groupTourBean=" + groupTourBean + ", tourName="
-				+ tourName + ", country=" + country + ", getGroupTourBean()=" + getGroupTourBean() + ", getTourName()="
-				+ getTourName() + ", getCountry()=" + getCountry() + ", getSerialNo()=" + getSerialNo()
-				+ ", getTourNo()=" + getTourNo() + ", getDepartureDate()=" + getDepartureDate() + ", getPeopleCount()="
-				+ getPeopleCount() + ", getPrice_adult()=" + getPrice_adult() + ", getPrice_child()=" + getPrice_child()
-				+ ", getPrice_baby()=" + getPrice_baby() + ", getDiscount()=" + getDiscount() + ", getAirline_go()="
-				+ getAirline_go() + ", getDistination_go()=" + getDistination_go() + ", getAirline_back()="
-				+ getAirline_back() + ", getDistination_back()=" + getDistination_back() + ", getContent()="
-				+ getContent() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()="
-				+ super.toString() + "]";
+				+ distination_back + ", content=" + content + ", tourName=" + tourName + ", country=" + country + "]";
 	}
 	public String getTourName() {
 		return tourName;
