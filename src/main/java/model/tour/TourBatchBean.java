@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
@@ -33,12 +34,21 @@ public class TourBatchBean {
 	private String airline_back;
 	private String distination_back;
 	private String content;
-//	
-//	@ManyToOne(
-//			name="GroupTourBean",
-//			mappedBy="tourNo"
-//			
-//	)
+	
+//	@ManyToOne
+//	@JoinColumn(
+//			name = "tourNo",
+//			referencedColumnName = "tourNo",
+//			insertable = false,
+//			updatable = false
+//			)
+//	private GroupTourBean groupTourBean ;
+//	public GroupTourBean getGroupTourBean() {
+//		return groupTourBean;
+//	}
+//	public void setGroupTourBean(GroupTourBean groupTourBean) {
+//		this.groupTourBean = groupTourBean;
+//	}
 	
 	@Transient
 	private String tourName;
@@ -54,6 +64,12 @@ public class TourBatchBean {
 				+ distination_back + ", content=" + content + ", tourName=" + tourName + ", country=" + country + "]";
 	}
 	
+	
+	
+
+
+
+
 	public String getTourName() {
 		return tourName;
 	}

@@ -395,7 +395,7 @@
 			 var tours = $("#tourS").val();
 			 var checkin_date = $('#checkin_date').val();
 			 var checkout_date = $('#checkout_date').val();
-			 alert("tours="+tours+"checkin_date="+checkin_date+"checkin_date="+checkin_date);
+			 alert("tours="+tours+"checkin_date="+checkin_date+"checkout_date="+checkout_date);
 		 		
 			 $.ajax({	
 		    	method:"POST",

@@ -79,7 +79,7 @@ System.out.println(result);
 	@ResponseBody
 	@RequestMapping("/searchTour")
 	public List<TourBatchBean> method(GroupTourBean bean, Model model,String tours,Date checkin_date,Date checkout_date) {
-				System.out.println("T="+tours+"IN="+checkin_date+"OUT="+checkout_date);
+//				System.out.println("T="+tours+"IN="+checkin_date+"OUT="+checkout_date);
 				List<TourBatchBean> no  = groupTourService.findTourByNO(tours, checkin_date, checkout_date);
 				
 				return no;
