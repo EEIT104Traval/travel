@@ -58,7 +58,7 @@
 			<div class="row">
 				<div class="col">
 					<div class="home_search_container">
-						<div class="home_search_title" style="font-family: Noto Sans TC">出團拉~</div>
+						<div class="home_search_title" style="font-family: Noto Sans TC">出團拉~~</div>
 						<div class="home_search_content">
 							<form action="<c:url value="/searchTour" />"
 								class="home_search_form" id="home_search_form" method="post">
