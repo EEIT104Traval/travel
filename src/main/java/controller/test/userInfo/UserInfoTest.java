@@ -1,13 +1,23 @@
 package controller.test.userInfo;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.sql.Timestamp;
 import java.util.List;
+
+import javax.servlet.ServletContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import model.ticket.TicketInfoBean;
 import model.userInfo.UserInfoBean;
 import model.userInfo.UserInfoDAO;
 import model.userInfo.UserInfoService;
@@ -15,7 +25,8 @@ import model.userInfo.UserInfoService;
 
 @Controller
 public class UserInfoTest {
-
+	@Autowired
+	ServletContext servletContext;
  @Autowired
  private UserInfoDAO dao ;
  @Autowired
@@ -88,6 +99,36 @@ public class UserInfoTest {
 	 System.out.println(phone);
 		return result;
 	}
+ 
+ 
+ 
+// --------------------------------
+//	@RequestMapping("???????")
+//	public String UPrate() throws IOException {
+//
+//		File f = new File("桌面上檔案路徑");
+//		BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(f), "UTF-8"));
+//
+//		br.readLine();
+//
+//		String xx = null;
+//		while ((xx = br.readLine()) != null) {
+//			你的bean bean = new Bean();
+//			String[] x = xx.split((","));
+//
+//			bean.setTicketName(x[1]);
+//			bean.setValidity(Integer.parseInt(x[2]));
+//			bean.setAdultTicketPrice(Integer.parseInt(x[3]));
+//			bean.setChildTicketPrice(Integer.parseInt(x[4]));
+//			bean.setAdultTicketSellQ(Integer.parseInt(x[5]));
+//			
+//			TicketInfoBean bean2 = create(bean);
+//			System.out.println("bean2" + bean2);
+//		}
+//		br.close();
+//		return "上傳成功";
+//	}
+// 
  
 
  }

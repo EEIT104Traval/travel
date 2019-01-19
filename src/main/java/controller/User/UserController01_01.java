@@ -5,18 +5,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.Part;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import model.ticket.TicketInfoBean;
 import model.ticket.TicketInfoDAO;
@@ -91,86 +85,48 @@ public class UserController01_01 {
 
 		return result;
 	}
-//	@ResponseBody
-//	@RequestMapping("/bindex03_01/User.controller")
-//	public String method0301(@RequestParam(value = "path", required = false)String path , String option, HttpServletRequest req) throws IOException {
-//		
-//		try {
-//			Part part = req.getPart("test1");
-//			System.out.println("haha"+part.getName());
-//		} catch (ServletException e) {
-//			e.printStackTrace();
-//		}
-//		String x;
-//		System.out.println("path=" + path);
-//		if(option.equals("up")) {			
-//			 x = ticketInfoService.UPticketInfo(path);
-//			System.out.println("選擇上傳"); 
-//			}else {
-//			 x = ticketInfoService.DLticketInfo(path);
-//			 System.out.println("選擇下載");	
-//			}
-//		System.out.println(x);
-//		
-//		
-//		return x;
-//	}
-	
 
-	@RequestMapping("/bindex03_01/User.controller")
-//	public String method0301(@RequestParam("test") MultipartFile file,
-			public String method0301(HttpServletRequest req,
-            RedirectAttributes redirectAttributes) throws IOException {
-		try {
-			Part part = req.getPart("test1");
-			System.out.println("haha"+part.getName());
-		} catch (ServletException e) {
-			e.printStackTrace();
-		}
-
-		return null;
-	
-	
-	}
 	@ResponseBody
 	@RequestMapping("/bindex03_011/User.controller")
-	public List<TicketInfoBean> method03011(@RequestParam(value = "path", required = false)String path , String option) throws IOException {
+	public TicketInfoBean method03011(TicketInfoBean bean) {
+		
+		TicketInfoBean result = null;
+		if (bean != null) {
+			result = ticketInfoService.insert(bean);
+		}
+		return result;
+	}
+	
+	
+	@ResponseBody
+	@RequestMapping("/bindex03_012/User.controller")
+	public List<TicketInfoBean> method03012(@RequestParam(value = "path", required = false)String path , String option) throws IOException {
 		
 		List<TicketInfoBean> bean = ticketInfoDAO.findAll();
 
 		return bean;
 	}
 	@ResponseBody
-	@RequestMapping("/bindex03_03/User.controller")
-	public List<TicketInfoBean> method0303(TicketInfoBean bean ,Model model){
-		
-		List<TicketInfoBean> result = null;
-		result = ticketInfoService.select(bean);
-		
-		
-		return result;
-	}
-	@ResponseBody
-	@RequestMapping("/bindex03_031/User.controller")
-	public List<TicketInfoBean> method03031(){
+	@RequestMapping("/bindex03_021/User.controller")
+	public List<TicketInfoBean> method03021(){
 		
 		List<TicketInfoBean> result = null;
 		result = ticketInfoService.findAll();
-
+		
 		return result;
 	}
 	
 	@ResponseBody
-	@RequestMapping("/bindex03_032/User.controller")
-	public String method03032(Integer ticketNo , String ticketName,String country,
-				String ticketDescription,Integer adultTicketPrice,Integer adultTicketSellQ,Integer adultTicketSelledQ) {
+	@RequestMapping("/bindex03_022/User.controller")
+	public String method03022(Integer ticketNo , String ticketName,String country,
+			String ticketDescription,Integer adultTicketPrice,Integer adultTicketSellQ,Integer adultTicketSelledQ) {
 		
 		System.out.println(ticketName);
 		System.out.println(country);
 		System.out.println(ticketDescription);
 		System.out.println(adultTicketPrice);
 		
-	        
+		
 		TicketInfoBean temp = ticketInfoDAO.findByPrimaryKey(ticketNo);
 		System.out.println(ticketNo);	
 		
@@ -192,5 +148,22 @@ public class UserController01_01 {
 		System.out.println("result"+result);
 		return result+"";
 	}
-
+	
+	@ResponseBody
+	@RequestMapping("/bindex03_03/User.controller")
+	public List<TicketInfoBean> method0303(TicketInfoBean bean ,Model model){
+		
+		List<TicketInfoBean> result = null;
+		result = ticketInfoService.select(bean);
+		
+		return result;
+	}
+	@ResponseBody
+	@RequestMapping("/bindex03_031/User.controller")
+	public void method03031(TicketInfoBean bean ,Model model){
+		
+		if (bean != null) {
+			ticketInfoDAO.remove(bean.getTicketNo());
+		}
+	}
 }

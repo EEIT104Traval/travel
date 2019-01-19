@@ -3,10 +3,11 @@ package model.userInfo;
 import java.util.Arrays;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 
 import model.hotel.HotelOrderDetailsBean;
 import model.ticket.TicketOrderInfoBean;
@@ -31,25 +32,25 @@ public class UserInfoBean {
 	private String loginId;
 	private java.sql.Timestamp registerDate;	// 會員登錄日期
 	
-//	@OneToMany(
-//			cascade=CascadeType.REMOVE,
-//			mappedBy="accountName"
-//	)
-	@Transient
+	@OneToMany(
+			cascade=CascadeType.REMOVE,
+			mappedBy="accountName"
+	)
+//	@Transient
 	private List<TourOrderInfoBean> tourOrderInfoBean;
 	
-//	@OneToMany(
-//			cascade=CascadeType.REMOVE,
-//			mappedBy="accountName"
-//	)
-	@Transient
+	@OneToMany(
+			cascade=CascadeType.REMOVE,
+			mappedBy="accountName"
+	)
+//	@Transient
 	private List<TicketOrderInfoBean> ticketOrderInfoBean;
 	
-//	@OneToMany(
-//			cascade=CascadeType.REMOVE,
-//			mappedBy="accountName"
-//	)
-	@Transient
+	@OneToMany(
+			cascade=CascadeType.REMOVE,
+			mappedBy="accountName"
+	)
+//	@Transient
 	private List<HotelOrderDetailsBean> hotelOrderDetailsBean;
 
 

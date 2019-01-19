@@ -13,8 +13,6 @@ import javax.persistence.Transient;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-import com.google.gson.annotations.Expose;
-
 
 @Entity
 @Table(name="TourBatch")
@@ -36,30 +34,29 @@ public class TourBatchBean {
 	private String distination_back;
 	private String content;
 	
-	@ManyToOne
-	@JoinColumn(
-			name = "tourNo",
-			referencedColumnName = "tourNo",
-			insertable = false,
-			updatable = false
-			)
-	@Expose(serialize = false)
-	private GroupTourBean groupTourBean ;
-	public GroupTourBean getGroupTourBean() {
-		return groupTourBean;
-	}
-	public void setGroupTourBean(GroupTourBean groupTourBean) {
-		this.groupTourBean = groupTourBean;
-	}
+//	@ManyToOne
+//	@JoinColumn(
+//			name = "tourNo",
+//			referencedColumnName = "tourNo",
+//			insertable = false,
+//			updatable = false
+//			)
+//	private GroupTourBean groupTourBean ;
+//	public GroupTourBean getGroupTourBean() {
+//		return groupTourBean;
+//	}
+//	public void setGroupTourBean(GroupTourBean groupTourBean) {
+//		this.groupTourBean = groupTourBean;
+//	}
 	
 	@Transient
 	private String tourName;
 	@Transient
 	private String country;
+
 	
-
-
-	@Override
+	
+@Override
 	public String toString() {
 		return "TourBatchBean [serialNo=" + serialNo + ", tourNo=" + tourNo + ", departureDate=" + departureDate
 				+ ", peopleCount=" + peopleCount + ", price_adult=" + price_adult + ", price_child=" + price_child
@@ -67,6 +64,15 @@ public class TourBatchBean {
 				+ ", distination_go=" + distination_go + ", airline_back=" + airline_back + ", distination_back="
 				+ distination_back + ", content=" + content + ", tourName=" + tourName + ", country=" + country + "]";
 	}
+	//	@Override
+//	public String toString() {
+//		return "TourBatchBean [serialNo=" + serialNo + ", tourNo=" + tourNo + ", departureDate=" + departureDate
+//				+ ", peopleCount=" + peopleCount + ", price_adult=" + price_adult + ", price_child=" + price_child
+//				+ ", price_baby=" + price_baby + ", discount=" + discount + ", airline_go=" + airline_go
+//				+ ", distination_go=" + distination_go + ", airline_back=" + airline_back + ", distination_back="
+//				+ distination_back + ", content=" + content + ", groupTourBean=" + groupTourBean + ", tourName="
+//				+ tourName + ", country=" + country + "]";
+//	}
 	public String getTourName() {
 		return tourName;
 	}
@@ -157,8 +163,4 @@ public class TourBatchBean {
 	public void setContent(String content) {
 		this.content = content;
 	}
-
-	
-	
-	
 }
