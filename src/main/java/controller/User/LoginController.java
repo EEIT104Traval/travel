@@ -43,7 +43,7 @@ public class LoginController {
 				new CustomDateEditor(new SimpleDateFormat("yyyy-MM-dd"), true));
 	}
 
-	
+	@ResponseBody
 	@RequestMapping(path= {"/voyage/userorder.controller"})
 	public UserInfoBean getMemberOrder(@RequestParam(value="accountName",required=false)String user) {
 		
