@@ -12,27 +12,19 @@
 <title>後台管理者介面</title>
 <script>
 
-// var ticketName;
-// var category; 
-// var adultTicketPrice;
-// var adultTicketSellQ;
-// var country;
-// var validity;
-// var traffic_information;
-// var productFeatures;
-// var special_restrictions;
 var params = {}
 
 
 	$(document).ready(function() {
 	});
 	
-	function chack(){
 		
+	function chack(){
 		params.ticketName = $('#ticketName').val();
 		params.category = $('#category').val();
 		params.adultTicketPrice = $('#adultTicketPrice').val();
 		params.adultTicketSellQ = $('#adultTicketSellQ').val();
+		params.adultTicketSelledQ = $('#adultTicketSelledQ').val();
 		params.country = $('#country').val();
 		params.validity = $('#validity').val();
 		params.traffic_information = $('#traffic_information').val();
@@ -46,8 +38,10 @@ var params = {}
             data: params,
             done: function(data) {			
  				console.log(data);
+ 				
             } 	
 		})
+ 			window.location.href='/Travel/後台管理/03_01.jsp';
 	}	
 //-------------------------------查詢全部票券↓↓↓↓↓↓↓↓↓↓↓↓↓---------------------------	
 	function show(){
@@ -96,11 +90,12 @@ var params = {}
 			<td><input type="text" id="adultTicketPrice"></td>
 			<td><input type="text" id="adultTicketSellQ"></td>
 			<td><input type="text" id="country"></td></tr>
-		<tr><td>使用期限</td><td>票券資訊</td><td>庫存限制</td><td></td><td></td></tr>
+		<tr><td>使用期限</td><td>票券資訊</td><td>票券限制</td><td>銷售數量</td>
+			<td><input type="button" id='membersh' onclick="chack()" value="確認新增"></td></tr>
 		<tr><td><input type="text" id="validity"></td>
 			<td><input type="text" id="traffic_information"></td>
 			<td><input type="text" id="special_restrictions"></td>
-			<td><input type="button" id='membersh' onclick="chack()" value="確認新增"></td>
+			<td><input type="text" id="adultTicketSelledQ"></td>
 			<td><input type="button" id='membersh' onclick="show()" value="查看資訊"></td></tr>
 		</table>
   	
