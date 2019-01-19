@@ -55,12 +55,6 @@ public class UserInfoService {
 		return null;
 	}
 	
-	public UserInfoBean getMemberOrder(String accountName) {
-		UserInfoBean bean = userInfoDAO.findByPrimaryKey(accountName);
-		return bean;
-	}
-
-	
 	public UserInfoBean normalLoginUpdateTime(String accountName) {
 		UserInfoBean bean = userInfoDAO.findByPrimaryKey(accountName);
 		Timestamp updateTime = new Timestamp(System.currentTimeMillis()); 
