@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
@@ -52,8 +54,9 @@ public class TourBatchBean {
 	@Transient
 	private String country;
 
-
-	@Override
+	
+	
+@Override
 	public String toString() {
 		return "TourBatchBean [serialNo=" + serialNo + ", tourNo=" + tourNo + ", departureDate=" + departureDate
 				+ ", peopleCount=" + peopleCount + ", price_adult=" + price_adult + ", price_child=" + price_child
@@ -61,6 +64,15 @@ public class TourBatchBean {
 				+ ", distination_go=" + distination_go + ", airline_back=" + airline_back + ", distination_back="
 				+ distination_back + ", content=" + content + ", tourName=" + tourName + ", country=" + country + "]";
 	}
+	//	@Override
+//	public String toString() {
+//		return "TourBatchBean [serialNo=" + serialNo + ", tourNo=" + tourNo + ", departureDate=" + departureDate
+//				+ ", peopleCount=" + peopleCount + ", price_adult=" + price_adult + ", price_child=" + price_child
+//				+ ", price_baby=" + price_baby + ", discount=" + discount + ", airline_go=" + airline_go
+//				+ ", distination_go=" + distination_go + ", airline_back=" + airline_back + ", distination_back="
+//				+ distination_back + ", content=" + content + ", groupTourBean=" + groupTourBean + ", tourName="
+//				+ tourName + ", country=" + country + "]";
+//	}
 	public String getTourName() {
 		return tourName;
 	}
