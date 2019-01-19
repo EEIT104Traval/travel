@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 
 import model.hotel.HotelOrderDetailsBean;
 import model.hotel.HotelOrderDetailsService;
+import model.rate.RateNoticeBean;
+import model.rate.RateNoticeDAO;
 import model.ticket.TicketInfoBean;
 import model.ticket.TicketInfoDAO;
 import model.ticket.TicketOrderInfoBean;
@@ -36,6 +38,8 @@ public class UserInfoService {
 	private TicketInfoDAO ticketInfoDAO;
 	@Autowired
 	private TourBatchDAO tourBatchDAO;	
+	@Autowired
+	private RateNoticeDAO rateNoticeDAO;	
 
 	public UserInfoBean login(String accountName, String password) {
 		UserInfoBean bean = userInfoDAO.findByPrimaryKey(accountName);
@@ -49,6 +53,11 @@ public class UserInfoService {
 			}
 		}
 		return null;
+	}
+	
+	public UserInfoBean getMemberOrder(String accountName) {
+		UserInfoBean bean = userInfoDAO.findByPrimaryKey(accountName);
+		return bean;
 	}
 
 	
@@ -72,7 +81,13 @@ public class UserInfoService {
 		return bean;
 	}
 
-	
+	public RateNoticeBean rateNotice(String accountName) {
+		RateNoticeBean bean = rateNoticeDAO.find(accountName);
+		System.out.println("bean="+bean);
+		if(bean!=null) {
+			System.out.println(" in accountName="+accountName);}
+		return bean;
+	}
 //	public UserInfoBean changePassword(String username, String oldPassword, String newPassword) {
 //		UserInfoBean bean = this.login(username, oldPassword);
 //		if(bean!=null) {

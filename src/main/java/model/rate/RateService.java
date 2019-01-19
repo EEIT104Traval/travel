@@ -19,6 +19,14 @@ public class RateService {
 //		System.out.println("有連到service");
 		return result;
 	}
-
+	
+	public RateBean create(RateBean bean) {
+		RateBean result = null;
+		if(bean != null) {
+			result = rateDao.create(bean);
+		}	
+		return result;
+		
+	}
 	
 }
