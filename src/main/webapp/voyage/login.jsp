@@ -185,6 +185,10 @@ function login(){
     $( "#loginin" ).button().on( "click", function() {
       dialog.dialog( "open" );
     });
+    $( "#hotel-login" ).button().on( "click", function() {
+      dialog.dialog( "open" );
+    });
+    
   } );
   </script>
 </head>
