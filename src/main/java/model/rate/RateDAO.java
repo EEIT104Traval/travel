@@ -12,6 +12,8 @@ public interface RateDAO {
 	public abstract List<RateBean> findNew();
 
 	public abstract RateBean create(RateBean bean);
+	
+	
 
 	public abstract RateBean update(Integer serial,String currency,java.util.Date updateTime,Double cashBuy,
 			Double cashSell,Double spotBuy,Double spotSell,String country);

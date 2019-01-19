@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%-- <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> --%>
+<!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js"  -->
+<!-- 		integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" -->
+<!-- 		crossorigin="anonymous"> -->
+<!-- </script> -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -45,7 +50,7 @@ background:url(http://www.digiphotohub.com/wp-content/uploads/2015/09/bigstock-A
         },
         {
           title: '現在預定',
-          url: 'http://google.com/',
+          url: '/Travel/voyage/hotel/hotelOrderForm.jsp',
           start: '2019-02-04'
         },
         {

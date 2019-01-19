@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+        <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,7 +13,7 @@
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
    <script>
   $( function() {
-    $( "#dialog" ).dialog({
+    $( "#dialog" ).dialog({ 
       autoOpen: false,
       show: {
         effect: "blind",
@@ -28,12 +29,35 @@
       $( "#dialog" ).dialog( "open" );
     });
   } );
+  
+  function notice(){
+		var x =document.getElementById("demo").value;
+		try{		
+			if(x=="") throw "請輸入數值";
+			if(isNaN(x)) throw "不是數字"		
+		}
+		catch(err){
+			var y = document.getElementById("mess");
+			alert("輸入錯誤，"+err+"。")
+		}
+		if(x==""||isNaN(x)){
+			
+		}else{
+		var r = confirm("確定或取消: rate="+x);
+		if(r==true){
+			alert("確定價格")
+		}else{
+			alert("取消確認")
+		}
+		}	
+	}
+  
   </script>
 </head>
 <body>
 
 <link href="./css/ratenotice.css" rel="stylesheet">
-<script src="./js/ratenotice.js"></script>
+<!-- <script src="./js/ratenotice.js"></script> -->
 
 
 <!------ Include the above in your HEAD tag ---------->
@@ -43,7 +67,7 @@
 <!-- <script src="//code.jquery.com/jquery-2.1.3.min.js"></script> -->
 <!------ Include the above in your HEAD tag ---------->
 
-
+<form action="<c:url value="/secure/rate.controller" />" method="post">
 <div id="dialog" title="匯率條件單">
 <div class="container">
             <form class="form-horizontal" role="form">
@@ -56,7 +80,7 @@
                 </div>
                 <div class="form-group">
                 <label for="lastName" class="control-label" style="padding-top:0px"></label>
-                	<select name="currency" class="col-sm-9" style="max-width:45%;padding:8px;border-radius:4px">
+                	<select id="select1" name="currency" class="col-sm-9" style="max-width:45%;padding:8px;border-radius:4px">
                 		<option value="USD">請選擇幣別</option>
                 		<option value="USD">美金</option>
                 		<option value="HKD">港幣</option>
@@ -83,18 +107,18 @@
                 <div class="form-group">
                     <label for="email" class="control-label"> </label>
                     <div class="col-sm-9" style="max-width:50%;padding-left:0px;">
-                        <input type="email" id="email" placeholder="請輸入欲買賣匯率金額*" class="form-control" name= "email">
+                        <input type="email" id="demo" placeholder="請輸入欲買賣匯率金額*" class="form-control" name= "email">
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label for="password" class="control-label"></label>
                     <div class="col-sm-9" style="max-width:50%;padding-left: 0px" >
-                        <input type="password" id="password" placeholder="最後通知日*" class="form-control">
+                        <input type="text" id="password" placeholder="最後通知日*" class="form-control">
                     </div>
                 </div>
                 
-                <button type="submit" class="btn btn-primary btn-block" style="width:30%;padding-left: 0px;margin-left:40px">送出</button>
+                <button type="submit" onclick="notice()" class="btn btn-primary btn-block" style="width:30%;padding-left: 0px;margin-left:40px">送出</button>
             </form>
         </div>
 	</div>

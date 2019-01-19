@@ -11,24 +11,43 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>後台管理者介面</title>
 <script>
-var fileInput
-var filePath
-var paths
+
 var params = {}
 
 
 	$(document).ready(function() {
-				$(function () {
-
-						});
-				});
+	});
 	
 		
+	function chack(){
+		params.ticketName = $('#ticketName').val();
+		params.category = $('#category').val();
+		params.adultTicketPrice = $('#adultTicketPrice').val();
+		params.adultTicketSellQ = $('#adultTicketSellQ').val();
+		params.adultTicketSelledQ = $('#adultTicketSelledQ').val();
+		params.country = $('#country').val();
+		params.validity = $('#validity').val();
+		params.traffic_information = $('#traffic_information').val();
+		params.productFeatures = $('#productFeatures').val();
+		params.special_restrictions = $('#special_restrictions').val();
+	
+		$.ajax({
+            type: "GET", //傳送方式
+            url: "/Travel/bindex03_011/User.controller", 
+            dataType: "json", 
+            data: params,
+            done: function(data) {			
+ 				console.log(data);
+ 				
+            } 	
+		})
+ 			window.location.href='/Travel/後台管理/03_01.jsp';
+	}	
 //-------------------------------查詢全部票券↓↓↓↓↓↓↓↓↓↓↓↓↓---------------------------	
 	function show(){
 	$("#searchuser").html("")
 	$.ajax({
-			url : '/Travel/bindex03_011/User.controller',
+			url : '/Travel/bindex03_012/User.controller',
 			contentType : 'application/json; charset=UTF-8',
 			type : 'get',
 			dataType : 'json',
@@ -66,17 +85,20 @@ var params = {}
 		新增票券 <br>
 		<table>
 		<tr><td>票券名稱</td><td>票券類型</td><td>票券價格</td><td>庫存數量</td><td>國家</td></tr>
-		<tr><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td></tr>
-		<tr><td>國家</td><td>使用期限</td><td>票券資訊</td><td>庫存限制</td><td>註解</td></tr>
-		<tr><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td></tr>
-		
-		
+		<tr><td><input type="text" id="ticketName"></td>
+			<td><input type="text" id="category"></td>
+			<td><input type="text" id="adultTicketPrice"></td>
+			<td><input type="text" id="adultTicketSellQ"></td>
+			<td><input type="text" id="country"></td></tr>
+		<tr><td>使用期限</td><td>票券資訊</td><td>票券限制</td><td>銷售數量</td>
+			<td><input type="button" id='membersh' onclick="chack()" value="確認新增"></td></tr>
+		<tr><td><input type="text" id="validity"></td>
+			<td><input type="text" id="traffic_information"></td>
+			<td><input type="text" id="special_restrictions"></td>
+			<td><input type="text" id="adultTicketSelledQ"></td>
+			<td><input type="button" id='membersh' onclick="show()" value="查看資訊"></td></tr>
 		</table>
-  		<form method="post" action="/Travel/bindex03_01/User.controller" enctype="multipart/form-data">
-    			 <input type="button" id='membersh' onclick="UP()" value="確認">
-<!--     			 <input type="submit"  value="確認1"> -->
-    			 <input type="button" id='membersh' onclick="show()" value="顯示資料">
-		</form>
+  	
 </div>
 	<div class="boxmsg">
 		<div  id="searchuser">

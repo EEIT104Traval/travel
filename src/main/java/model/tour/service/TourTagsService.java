@@ -15,6 +15,7 @@ public class TourTagsService {
 	@Autowired
 	private TourTagsDAO tourTagsDAO  ;
 	@Autowired
+	
 	private GroupTourDAO groupTour ;
 	public List<GroupTourBean> findByTags(String tag){
 		List<String> ft = tourTagsDAO.findByTag(tag);
