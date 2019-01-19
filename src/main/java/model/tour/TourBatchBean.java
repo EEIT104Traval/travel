@@ -162,8 +162,4 @@ public class TourBatchBean {
 	public void setContent(String content) {
 		this.content = content;
 	}
-
-	
-	
-	
 }

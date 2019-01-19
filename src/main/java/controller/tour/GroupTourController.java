@@ -77,7 +77,7 @@ System.out.println(result);
 				return "/tour/tourtest.jsp";
 	}
 	@ResponseBody
-	@RequestMapping("/searchTour")
+	@RequestMapping("/searchTour")                                         //國家
 	public List<TourBatchBean> method(GroupTourBean bean, Model model,String tours,Date checkin_date,Date checkout_date) {
 //				System.out.println("T="+tours+"IN="+checkin_date+"OUT="+checkout_date);
 				List<TourBatchBean> no  = groupTourService.findTourByNO(tours, checkin_date, checkout_date);
