@@ -19,7 +19,7 @@ $(document).ready(function() {
 		ticketSearch1()
 })
 	function ticketSearch1(){
-		
+
 	$.ajax({
 		url : '/Travel/bindex03_021/User.controller',
 		contentType : 'application/json; charset=UTF-8',
@@ -29,6 +29,7 @@ $(document).ready(function() {
 		}).done(
 			function(JData) {
 					console.log(JData);
+					$("#searchuser").html("")
 					$("#searchuser").append(
 					'<div style="margin:0px auto; text-align:center;"><h3>最新資料</h3></div>'+
 					
@@ -38,7 +39,7 @@ $(document).ready(function() {
 						   '<th style="width:148px">票券價格</th>'+
 						   '<th style="width:148px">進貨數量</th>'+
 						   '<th style="width:148px">銷售數量</th>'+
-						   '<th style="width:50px">刪除</th></table><br>'
+						   '<th style="width:50px"><input type="submit" name="prodaction" value="刷新" onclick="ticketSearch1()")></th></table><br>'
 					)
 // 					for(var i = 0;i<JData.length;i++){
 				$.each(JData, function(index, value) {
@@ -62,7 +63,8 @@ $(document).ready(function() {
 		            type: "GET", //傳送方式
 		            url: "/Travel/bindex03_031/User.controller", 
 		            dataType: "json", 
-		            data: {'ticketNo':ticketNo}})}				 
+		            data: {'ticketNo':ticketNo}})
+		            }				 
 //------------------------------------------------------------------------------------------------------------------------------------------------------
 									
 // -----------------------------------------------------------------------------------------------------------------------------------------------------
