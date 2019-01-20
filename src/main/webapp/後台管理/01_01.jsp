@@ -53,9 +53,9 @@ var params = {}
  							+'<th>'+value.birth +'</th>'
  							+'<th colspan="2">'+value.address +'</th></tr></table><br>'
  							
-							)}
-				)}
- 	)};		
+							)})
+							document.getElementById("user").value="";
+				})};		
 </script>
 </head>
 <body>
