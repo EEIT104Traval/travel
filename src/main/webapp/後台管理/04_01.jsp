@@ -9,6 +9,17 @@
 </head>
 <body>
 	<jsp:include page="bindex.jsp" />
-		<div> 測試4-1版</div>
+	<div class="boxmsg">
+		<form action="${pageContext.request.contextPath}/test/upload.do" method="post" enctype="multipart/form-data">
+			<input type="file" name="csv">
+			<br /> 
+			<input type="submit" name="提交">
+		</form>
+	</div>
+	<div class="boxmsg" id="searchuser">
+		<!-- 	----------------------加東西--------------------- -->
+		<label class="title">查詢結果</label>
+
+	</div>
 </body>
 </html>
