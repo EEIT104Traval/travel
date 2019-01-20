@@ -10,5 +10,13 @@
 <body>
 	<jsp:include page="bindex.jsp" />
 		<div> 測試4-1版</div>
+		
+		
+<form action="${pageContext.request.contextPath}/test/upload.do" method="post" enctype="multipart/form-data">
+    <input type="file" name="img"><br /> 
+    <input type="submit" name="提交">
+</form>
+
+
 </body>
 </html>
