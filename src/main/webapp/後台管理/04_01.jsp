@@ -14,12 +14,12 @@
 <body>
 	<jsp:include page="bindex.jsp" />
 	<div class="boxmsg">
-		<form action="${pageContext.request.contextPath}/test/upload.do" method="post" enctype="multipart/form-data">
-			<input type="file" name="csv">
-			<br /> 
-			<input type="submit" name="提交">
-		</form>
-		
+
+        <form method="POST" action="uploadFile" enctype="multipart/form-data">
+           File to upload: <input type="file" name="file">
+           <input type="submit" value="Upload"> Press here to upload the file!
+        </form>
+
 	</div>
 	<div class="boxmsg" id="searchuser">
 		<!-- 	----------------------加東西--------------------- -->
