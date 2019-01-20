@@ -22,14 +22,14 @@ public class TourTagsController {
 	public 	List<GroupTourBean> method(String tag, Model model) {
 		List<GroupTourBean> result = tourTagsService.findByTags(tag); 	
 //		System.out.println("AAAAAAAAAAAAAAAAAAAAAAAA=="+result);
-//		result.forEach(item->{
-//			List<TourBatchBean> tourBatchBeans = item.getTourBatchBean();
-//			tourBatchBeans.forEach(t->{
-//				t.setGroupTourBean(null);
-//			});
-//			item.setTourBatchBean(tourBatchBeans);
-//			
-//		});
+		result.forEach(item->{
+			List<TourBatchBean> tourBatchBeans = item.getTourBatchBean();
+			tourBatchBeans.forEach(t->{
+				t.setGroupTourBean(null);
+			});
+			item.setTourBatchBean(tourBatchBeans);
+			
+		});
 		return result;
 	}
 }

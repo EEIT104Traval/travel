@@ -35,22 +35,22 @@ public class TourBatchBean {
 	private String airline_back;
 	private String distination_back;
 	private String content;
-//	
-//	@ManyToOne
-//	@JoinColumn(
-//			name = "tourNo",
-//			referencedColumnName = "tourNo",
-//			insertable = false,
-//			updatable = false
-//			)
-//	
-//	private GroupTourBean groupTourBean ;
-//	public GroupTourBean getGroupTourBean() {
-//		return groupTourBean;
-//	}
-//	public void setGroupTourBean(GroupTourBean groupTourBean) {
-//		this.groupTourBean = groupTourBean;
-//	}
+	
+	@ManyToOne
+	@JoinColumn(
+			name = "tourNo",
+			referencedColumnName = "tourNo",
+			insertable = false,
+			updatable = false
+			)
+	
+	private GroupTourBean groupTourBean ;
+	public GroupTourBean getGroupTourBean() {
+		return groupTourBean;
+	}
+	public void setGroupTourBean(GroupTourBean groupTourBean) {
+		this.groupTourBean = groupTourBean;
+	}
 	
 	@Transient
 	private String tourName;
