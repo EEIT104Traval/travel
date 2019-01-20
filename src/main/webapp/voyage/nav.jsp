@@ -7,6 +7,7 @@
     <title>Time To Travel</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!--     <style>.menu a:link{background-color: black}</style> -->
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script>
 $(document).ready(function() {
@@ -65,12 +66,12 @@ $(document).ready(function() {
 <!--             Split button -->
 <div class="dropdown">
 <!--   Trigger -->
-  <button style="background:#3c3c3c; margin-top:24px;border:2px solid #3c3c3c;font-size:100% " class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown"
+  <button style="color:white;background:opacity:0; margin-top:24px;border:0px none opacity:0;font-size:100% " class=" dropdown-toggle menu" type="button" id="dropdownMenu1" data-toggle="dropdown"
     aria-haspopup="true" aria-expanded="false">會員功能</button>
 <!--   Menu -->
-  <div class="dropdown-menu dropdown-primary" style="background-color: #3c3c3c;margin-top:-30px">
-    <a class="dropdown-item" style="background-color: #3c3c3c;color:white" href="<c:url value='../login/userorder.jsp'/>">查詢訂單</a>
-    <a class="dropdown-item" style="background-color: #3c3c3c;color:white" href="#">資料修改/密碼修改</a>
+  <div class="dropdown-menu " style="background-color:#00BBFF;margin-top:-30px">
+    <a class="dropdown-item" style="background-color: #00BBFF;color:white" href="<c:url value='../login/userorder.jsp'/>">查詢訂單</a>
+    <a class="dropdown-item" style="background-color: #00BBFF;color:white" href="#">資料修改/密碼修改</a>
 
   </div>
 </div>

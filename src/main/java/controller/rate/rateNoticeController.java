@@ -20,7 +20,7 @@ import model.rate.RateNoticeService;
 
 
 @Controller
-@SessionAttributes(value="user")
+@SessionAttributes(value={"user","login","accountName"})
 public class rateNoticeController {
 	@Autowired
 	RateNoticeService rateNoticeService;
@@ -38,6 +38,8 @@ public class rateNoticeController {
 		model.addAttribute("errors", errors);
 		
 		RateNoticeBean result = rateNoticeService.create(bean);
-		return "login.test";
+//		return "login.test";
+//		return "login.ok";
+		return "rate.test";
 	}
 }

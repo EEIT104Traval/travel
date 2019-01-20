@@ -82,14 +82,12 @@ var hotelOrderDetailsBean ;
  														}
  									 	 	  }else{$("#searchuser").append('<table ><th style="width:816px">尚無飯店訂單</th></table>')}						
  									})
- 							};		
- 							
+ 							};								
  									
 </script>
 
 </head>
 <body>
-
 
 <div style="text-align: center;"><h2></h2></div>
 <br>

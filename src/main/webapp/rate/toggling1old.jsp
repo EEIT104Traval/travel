@@ -9,61 +9,14 @@
 	body{
 		background: url("images/pic01.jpg");
 	}
-	
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Flot Examples: Toggling Series</title>
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  <link rel="stylesheet" href="/resources/demos/style.css">
-  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  
 	<link href="./css/examples.css" rel="stylesheet" type="text/css">
-<!-- 	<script language="javascript" type="text/javascript" src="./js/jquery.js"></script> -->
+	<script language="javascript" type="text/javascript" src="./js/jquery.js"></script>
 	<script language="javascript" type="text/javascript" src="./js/jquery.flot.js"></script>
 	<script language="javascript" type="text/javascript" src="./js/jquery.flot.time.js"></script>
 	<script language="javascript" type="text/javascript" src="./js/moment.js"></script>
-	
-	<script>
-function disp_prompt(){
-	var price = prompt("輸入匯率價格")
-	if (price!=null && price!=""){
-		document.getElementById("prompt").innerHTML="您輸入的匯率為"+price;
-	}
-}
-
-function show_confirm(){
-	var r = confirm("確定或取消");
-	if(r==true){
-		alert("確定價格")
-	}else{
-		alert("取消確認")
-	}
-}
-
-function notice(){
-	var x =document.getElementById("demo").value;
-	try{		
-		if(x=="") throw "請輸入數值";
-		if(isNaN(x)) throw "不是數字"		
-	}
-	catch(err){
-		var y = document.getElementById("mess");
-		alert("輸入錯誤，"+err+"。")
-	}
-	if(x==""||isNaN(x)){
-		
-	}else{
-	var r = confirm("確定或取消: rate="+x);
-	if(r==true){
-		alert("確定價格")
-	}else{英鎊
-		alert("取消確認")
-	}
-	}	
-}
-</script>
 	
 	<script type="text/javascript">
 
@@ -170,82 +123,7 @@ function notice(){
 	</script>
 </head>
 <body>
-  <script>
-  $( function() {
-    $( "#dialog" ).dialog({
-      autoOpen: false,
-      show: {
-        effect: "blind",
-        duration: 1000
-      },
-      hide: {
-        effect: "explode",
-        duration: 1000
-      }
-    });
- 
-    $( "#opener" ).on( "click", function() {
-      $( "#dialog" ).dialog( "open" );
-    });
-  } );
-  </script>
 
-<div id="dialog" title="匯率條件單" style="background:	#99BBFF;border: 1px none black">
-<h5>請輸入欲通知的匯率金額</h5>
-<form action="<c:url value="/secure/rate.controller" />" method="post">
-<table>
-<tr>
-<td>帳號:</td>
-</tr>
-<tr>
-<td><input type="text" id="" name="accountName" style="border-radius:4px;margin-bottom:10px;"><br></td>
-</tr>
-<tr>
-<td>幣別:</td>
-</tr>
-<tr>
-<td><select id="select1" name="currency" class="col-sm-9" style="max-width:300%;padding:4px;padding-right:105px;border-radius:4px;margin-bottom:10px;">
-                		<option value="USD">請選擇幣別</option>
-                		<option value="USD">美金</option>
-                		<option value="HKD">港幣</option>
-                		<option value="GBP">英鎊</option>
-                		<option value="AUD">澳幣</option>
-                		<option value="CAD">加拿大幣</option>
-                		<option value="SGD">新加坡幣</option>
-                		<option value="CHF">瑞士法郎</option>
-                		<option value="JPY">日圓</option>
-                		<option value="ZAR">南非幣</option>
-                		<option value="SEK">瑞典幣</option>
-                		<option value="NZD">紐元</option>
-                		<option value="THB">泰幣</option>
-                		<option value="PHP">菲國比索 </option>
-                		<option value="DR">印尼幣</option>
-                		<option value="EUR">歐元 </option>
-                		<option value="KRW">韓元</option>
-                		<option value="VND">越南盾</option>
-                		<option value="MYR">馬來幣</option>
-                		<option value="CNY">人民幣</option>
-					</select></td>
-</tr>
-<tr>
-<td>匯率:</td>
-</tr>
-<tr>
-<td><input type="text" id="demo" name="targetRate" style="border-radius:4px;margin-bottom:10px;"><br></td>
-</tr>
-<tr>
-<td>最後通知日:</td>
-</tr>
-<tr>
-<td><input type="text" id="" name="deadline" style="border-radius:4px;margin-bottom:10px;"></td>
-</tr>
-
-</table>
-<button onclick="notice()" style="margin-left:80px;margin-top:10px;text-align:center">送出</button><br/>
-</form>
-</div>
- 
-<!-- <button id="opener">Open Dialog</button> -->
 
 	<div id="header">
 		<h2 style="color:white">匯率-最近半年走勢圖</h2>
