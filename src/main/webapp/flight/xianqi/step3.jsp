@@ -82,7 +82,7 @@ function GetDateNow() {
 
 // function getRMB(){
 // 	var taibi = ${order.totalAmount};
-// 	var rmb = taibi.substring(3)
+// 	var rmb = taibi/
 // 	console.log('rmb')
 	
 // 	${'#btn_post_test'}.val("立即付款  人民幣"+rmb+"元")
@@ -145,7 +145,7 @@ $(document).ready(function(){
 		<!-- S 订单金额 -->
 		<div class="price_area">
 			<div class="price_h1">
-				订单金额<span style="font-size: 30px;" class="price_s1">${order.totalAmount}</span>
+				订单金额<span style="font-size: 30px;" class="price_s1">NT$${order.totalAmount}</span>
 			</div>
 		</div>
 		<!-- E 订单金额 -->
@@ -212,11 +212,11 @@ $(document).ready(function(){
     
     <input id="WIDout_trade_no" name="WIDout_trade_no" style="display: none"/>
     <input id="WIDsubject" name="WIDsubject"style="display: none" value="機票訂單"/>
-    <input id="WIDtotal_amount" name="WIDtotal_amount"style="display: none" value="${order.totalAmount}"/>
+    <input id="WIDtotal_amount" name="WIDtotal_amount"style="display: none" value="${order.RMBAmount}"/>
     <input id="WIDbody" name="WIDbody"style="display: none" value="往返" />
     <section class="opreatBtn" style="display: inline-block;margin-top: 130px;margin-left: 480px;margin-bottom: 20px">
         <button class="research" onclick="history.back()" type="button" style="padding-right: 20px;width: 150px;text-align: center;margin: auto;"><i class="glyphicon glyphicon-menu-left"></i>回上一頁</button>
-        <button class="nextPage" id="btn_post_test" style="text-align: center;width: auto;padding-left: 10px;">立即付款人民幣￥${order.totalAmount}元<i class="glyphicon glyphicon-menu-right"></i></button>
+        <button class="nextPage" id="btn_post_test" style="text-align: center;width: auto;padding-left: 10px;">立即付款人民幣￥${order.RMBAmount}元<i class="glyphicon glyphicon-menu-right"></i></button>
     </section>
     </form>
 </fieldset>
