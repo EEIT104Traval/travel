@@ -224,7 +224,7 @@
 	   	         }
 	   	     }
 	   	  setInterval('changeColor()',150);
-   	$(document).ready(function() {
+   	$(document).ready(function() {  
 
 
    		$('#tagcloud').on("mouseover","a",function(){

@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%-- <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%> --%>
+<%-- <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %> --%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -161,10 +163,15 @@ iframe#_hjRemoteVarsFrame {
 
 
 	<div class="container">
-	<c:forEach items="${tour}" var="element"> 
+	
+	
+<c:forEach items="${tour}" var="element"> 
   <tr>
     <td>${element.tourNo}</td>  
+     <td>${element.groupTourBean.tourName}</td> 
   </tr>
+  
+  
 </c:forEach>
 		<div class="search">
 			<div class="row">
@@ -352,8 +359,8 @@ iframe#_hjRemoteVarsFrame {
 									<div class="slash">
 										<span></span>
 									</div>
-									<div class="tag-result">
-										查詢結果：<span class="red">6</span>筆(金額單位：新台幣含稅)
+									<div class="tag-result">  
+										查詢結果：<span class="red">${count}</span>筆(金額單位：新台幣含稅)
 									</div>
 								</div>
 								<div class="sort pull-right hidden-sm hidden-xs">
@@ -398,7 +405,7 @@ iframe#_hjRemoteVarsFrame {
 													<h4 class="product-name">
 														<a href="/product/GFG0000012035/AUKA9B90204A"
 															target="_blank"><div
-																style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 3;">【直昇機體驗+無尾熊抱抱】春節東澳全覽九日(含雪梨夜遊及含小費)BM</div></a>
+																style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 3;">${element.tourName}</div></a>
 													</h4>
 													<div class="product-info-tag-area">
 														<div class="tag solid yellow">已成團</div>
@@ -583,7 +590,7 @@ iframe#_hjRemoteVarsFrame {
 				$('#filter5').toggle("slow");
 			});
 // 			 var tour = '${tour}';
-// 			console.log("tour = "+"${tour}")
+			console.log("tour = "+${tour})
 // 			for(var i = 0 , i < ${tour}.size ; i++){
 // 			  alert("F");	
 // 			}

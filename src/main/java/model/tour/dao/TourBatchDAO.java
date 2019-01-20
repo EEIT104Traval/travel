@@ -46,17 +46,18 @@ public class TourBatchDAO {
 		String conditions ="";
 		for (int i = 0 ; i <tourNoList.size(); i++) {
 			if (i ==0) {
-				conditions += " tourNo = " +tourNoList.get(i);
+				conditions += " tourNo = " +tourNoList.get(i)+ 
+						   "and departureDate >= '"+d1+"' and departureDate <= '"+d2+"'";
 			} else {
-				conditions += " or tourNo = "+tourNoList.get(i);
+				conditions += " or tourNo = "+tourNoList.get(i)+
+						   "and departureDate >= '"+d1+"' and departureDate <= '"+d2+"'";
 			}
 		}
-//		query.where()
-		return this.getSession().createQuery("from TourBatchBean where "+ conditions
-				+ " and departureDate >= '"+d1+"' and departureDate <= '"+d2+"'", TourBatchBean.class)			
-				.setMaxResults(100)
+//		query.list().where()
+		return this.getSession().createQuery("from TourBatchBean where "+ conditions, TourBatchBean.class)			
+				.setMaxResults(1000)
 				.list();
-	}
+	} //conditions	+ " and departureDate >= '"+d1+"' and departureDate <= '"+d2+"'"
 
 	public TourBatchBean create(TourBatchBean bean) {
 //		if(bean != null) {
