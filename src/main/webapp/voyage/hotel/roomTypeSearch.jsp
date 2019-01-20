@@ -161,29 +161,30 @@
 	<!-- END PHOTO MAP -->
 
 	<!-- SEARCH BAR -->
-	<div style="margin-top:10px; font-size:25px; color:#424242">房型價格</div>
-	<div style="margin-top:10px">
-		<div>
-			<div class="home_search_content" style="background:#e3edff">
-				<form action="#" class="home_search_form" id="" method="post">
-					<div class="d-flex flex-lg-row flex-column align-items-start justify-content-lg-between justify-content-start">
-						<input type="text" class="search_input" data-provide="datepicker" id="datetimepicker1" style="font-family: Noto Sans TC; background:white; width: 25%" placeholder="入住日期" >
-						<input type="text" class="search_input" data-provide="datepicker" id="datetimepicker2" style="font-family: Noto Sans TC; background:white; width: 25%" placeholder="退房日期">
-						<select type="text" class="search_input" style="font-family: Noto Sans TC; background:white; width: 25%" placeholder="人數">
-							<option>1 人</option>
-							<option>2 人</option>
-							<option>3 人</option>
-							<option>4 人</option>
-							<option>5 人</option>
-							<option>6 人</option>
-							<option>7 人</option>
-							<option>8 人</option>
-						<input type="button" class="home_search_button" style="font-family: Noto Sans TC" value="搜尋"/>
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
+	
+<!-- 	<div style="margin-top:10px; font-size:25px; color:#424242">房型價格</div> -->
+<!-- 	<div style="margin-top:10px"> -->
+<!-- 		<div> -->
+<!-- 			<div class="home_search_content" style="background:#e3edff"> -->
+<!-- 				<form action="#" class="home_search_form" id="" method="post"> -->
+<!-- 					<div class="d-flex flex-lg-row flex-column align-items-start justify-content-lg-between justify-content-start"> -->
+<!-- 						<input type="text" class="search_input" data-provide="datepicker" id="datetimepicker1" style="font-family: Noto Sans TC; background:white; width: 25%" placeholder="入住日期" > -->
+<!-- 						<input type="text" class="search_input" data-provide="datepicker" id="datetimepicker2" style="font-family: Noto Sans TC; background:white; width: 25%" placeholder="退房日期"> -->
+<!-- 						<select type="text" class="search_input" style="font-family: Noto Sans TC; background:white; width: 25%" placeholder="人數"> -->
+<!-- 							<option>1 人</option> -->
+<!-- 							<option>2 人</option> -->
+<!-- 							<option>3 人</option> -->
+<!-- 							<option>4 人</option> -->
+<!-- 							<option>5 人</option> -->
+<!-- 							<option>6 人</option> -->
+<!-- 							<option>7 人</option> -->
+<!-- 							<option>8 人</option> -->
+<!-- 						<input type="button" class="home_search_button" style="font-family: Noto Sans TC" value="搜尋"/> -->
+<!-- 					</div> -->
+<!-- 				</form> -->
+<!-- 			</div> -->
+<!-- 		</div> -->
+<!-- 	</div> -->
 	
 	<!-- END SEARCH BAR -->
 	
@@ -215,12 +216,16 @@
 <!-- 				</div> -->
 <!-- 			</div> -->
 <!-- 		</div> -->
-	</div>
+<!-- 	</div> -->
 	
 	<!-- 	END ROOM	 -->
 		
 	</div>
 
+	<div>
+		<img style="margin:0px; padding:0" width="100%" alt="" src="/Travel/voyage/hotel/detail.png">
+	</div>
+	
 	<script>
 		$(document).ready(function(){
 			console.log("hotelno="+'${hotelBean.hotelNo}')
@@ -249,7 +254,7 @@
 						+'</div>'
 						+'<div class="col-md-2">'
 						+'<div style="text-align:center; margin-top:10px">'
-						+'<a href="<c:url value="/voyage/hotel/Calendar/calender.jsp" />" type="button" class="btn btn-light" style="font-size: 20px; background: #ff9800; color:white">立即訂購</a>'
+						+'<a href="<c:url value="/voyage/hotel/hotelOrderForm.jsp" />" type="button" class="btn btn-light" style="font-size: 20px; background: #ff9800; color:white">立即訂購</a>'
 						+'</div></div></div></div></div>'
 					
 					$("#roomTypecontainer").append(data);
