@@ -209,7 +209,7 @@
 <!-- 					</div> -->
 <!-- 					<div class="col-md-2"> -->
 <!-- 						<div style="text-align:center; margin-top:10px"> -->
-<%-- 							<a href="<c:url value="/voyage/hotel/Calendar/calender.jsp" />" type="button" class="btn btn-light" style="font-size: 20px; background: #ff9800; color:white">查看空房</a> --%>
+<%-- 							<a href="<c:url value="/voyage/hotel/Calendar/calender.jsp" />" type="button" class="btn btn-light" style="font-size: 20px; background: #ff9800; color:white">立即訂購</a> --%>
 <!-- 						</div> -->
 <!-- 					</div> -->
 <!-- 				</div> -->
@@ -249,7 +249,7 @@
 						+'</div>'
 						+'<div class="col-md-2">'
 						+'<div style="text-align:center; margin-top:10px">'
-						+'<a href="<c:url value="/voyage/hotel/Calendar/calender.jsp" />" type="button" class="btn btn-light" style="font-size: 20px; background: #ff9800; color:white">查看空房</a>'
+						+'<a href="<c:url value="/voyage/hotel/Calendar/calender.jsp" />" type="button" class="btn btn-light" style="font-size: 20px; background: #ff9800; color:white">立即訂購</a>'
 						+'</div></div></div></div></div>'
 					
 					$("#roomTypecontainer").append(data);
