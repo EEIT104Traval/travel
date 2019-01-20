@@ -37,7 +37,7 @@ public class TourBuyService {
 		return result;
 	}
 	
-	public Integer order(String serialNo , String accountName , String fullName , String phone , String email , String usersex , Integer quantity , Integer total,
+	public TourOrderInfoBean order(String serialNo , String accountName , String fullName , String phone , String email , String usersex , Integer quantity , Integer total,
 						List<String> sex,String[] cname , String[] pname , Integer[] price , String[] passenger) {
 		TourOrderInfoBean bean = new TourOrderInfoBean();
 		bean.setSerialNo(Integer.valueOf(serialNo));
@@ -50,13 +50,13 @@ public class TourBuyService {
 		bean.setTotal(total);
 		bean.setOrderStatus("未付款");
 		bean.setOrderTime(new Date());
-		Integer orderNo = orderDao.create(bean).getOrderNo();
+		TourOrderInfoBean result = orderDao.create(bean);
 		
 		int i = cname.length;
 		Integer q = ( i==0 ? 1 : i ) ;
 		for(int x = 0 ; x < q ; x++ ) {
 			TourMemberInfoBean test = new TourMemberInfoBean();
-			test.setOrderNo(orderNo);
+			test.setOrderNo(result.getOrderNo());
 			test.setPurchaseOrder(x);
 			test.setFullName(cname[x]);
 			test.setPassport(pname[x]);
@@ -66,18 +66,12 @@ public class TourBuyService {
 			memberDao.create(test);
 		}
 		
-		return orderNo;
+		return result;
 	}
 	
-//	public void member(Integer orderNo , Integer purchaseOrder , String fullName , String passport , String sex , Integer price , String passenger) {
-//		TourMemberInfoBean bean = new TourMemberInfoBean();
-//		bean.setOrderNo(orderNo);
-//		bean.setPurchaseOrder(purchaseOrder);
-//		bean.setFullName("123");
-//		bean.setPassport("456");
-//		bean.setSex("F");
-//		bean.setPrice(456789);
-//		bean.setPassenger("成人");
-//		memberDao.create(bean);
-//	}
+	public TourBatchBean BatchfindPK (Integer serialNo) {
+		TourBatchBean result = tourBatchDao.findByPrimaryKey(serialNo);
+		return result;
+	}
+	
 }
