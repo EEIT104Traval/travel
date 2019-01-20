@@ -13,6 +13,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="<c:url value='/voyage/css/aos.css' />">
 <link rel="stylesheet" href="<c:url value='/voyage/css/bootstrap-datepicker.css' />">
 <link rel="stylesheet" href="<c:url value='/voyage/css/styleForHotel.css' />">
 <link rel="stylesheet" href="<c:url value='/voyage/css/jquery-ui.css' />">
@@ -32,23 +33,32 @@
       }
 </style>
 </head>
+<script>
+	var accountName ="${sessionScope.accountName}"
+	
+	$(document).ready(function(){
+// 		alert(accountName)
+	});
+</script>
+
 
 <body style="background:white">
+	<jsp:include page="/voyage/nav.jsp"></jsp:include>
 	
-	<!-- NAV -->
-	<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
-      <div class="container">
-      	<img alt="" src="<c:url value='/voyage/images/TTT.png' />" width="250px" height: auto;>
-        <div class="collapse navbar-collapse" id="ftco-nav">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item"><a href="<c:url value='/voyage/contact.html'/>" class="nav-link">聯絡我們</a></li>
-		</div>
-          </ul>
-        </div>
-    </nav>
-    <!-- END nav -->
+<!-- 	<!-- NAV --> -->
+<!-- 	<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar"> -->
+<!--       <div class="container"> -->
+<%--       	<img alt="" src="<c:url value='/voyage/images/TTT.png' />" width="250px" height: auto;> --%>
+<!--         <div class="collapse navbar-collapse" id="ftco-nav"> -->
+<!--           <ul class="navbar-nav ml-auto"> -->
+<%--             <li class="nav-item"><a href="<c:url value='/voyage/contact.html'/>" class="nav-link">聯絡我們</a></li> --%>
+<!-- 		</div> -->
+<!--           </ul> -->
+<!--         </div> -->
+<!--     </nav> -->
+<!--     END nav -->
 	
-	<div class="container-fluid" style="padding-top: 100px">
+	<div class="container-fluid" style="padding-top: 80px">
 		<div class="row" style="margin:30px">
 		
 		<!-- 左邊 -->
@@ -60,12 +70,18 @@
 						<div class="col-md-12">
 							<div class="row">
 								<div class="col-md-12" style="padding-left:20px">
-									<h4 style="background:#f2fbf7; color:#00c853"><i class="far fa-credit-card"></i> 房源非常緊張，建議盡快完成預訂</h4>
+									<h4 style="background:#fff5f2; color:#ff3d00; padding:5px 0px 5px 10px"><i class="far fa-credit-card"></i> 房源非常緊張，建議盡快完成預訂</h4>
 								</div>
 							</div>
 							<div class="row">
 								<div class="col-md-12" style="padding-left:20px">
-									<h4 style="background:#fff5f2; color:#ff3d00"><i class="fas fa-utensils"></i> 此訂單包括：2份早餐</h4>
+									<h4 style="background:#f2fbf7; color:#00c853; padding:5px 0px 5px 10px"><i class="fas fa-utensils"></i> 此訂單包括：2份早餐</h4>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12" style="padding-left:20px">
+									<h4 style="background:#fff5f2; color:#ff3d00; padding:5px 0px 5px 10px"><i class="fas fa-user"></i> 欲訂購，請先<span>
+									<a id="hotel-login"style="border-bottom: 1px solid #ff3d00; color:#ff3d00" href="#">登入</a></span></h4>
 								</div>
 							</div>
 							<div class="row">
@@ -112,8 +128,8 @@
 									</div>
 									<div class="row" style="margin-right: 15px">
 										<div class="col-md-12" style="border: 1px solid rgba(0, 0, 0, 0.125); border-radius:4px; background:white; margin:0px 15px 0px 15px">
-											<h4>到達時間</h4>
-											<p>最早入住時間為 15:00。若提早到達有可能需要等候。</p>
+											<h4 style="margin-left: 5px">到達時間</h4>
+											<p style="margin-left: 5px">最早入住時間為 15:00。若提早到達有可能需要等候。</p>
 										</div>
 									</div>
 									<div class="row">
@@ -168,11 +184,10 @@
 							</div>
 								<div class="row" style="background:#fff7f2; margin:0">
 									<div class="col-md-10">
-									<p>入住前付款</p>
-									<p>飯店會在您登記入住時或之前從您的信用卡收取房價 。Trip.com 並不會對您的信用卡扣款</p>
+									<h5 style="margin:10px 10px">飯店會在您登記入住時或之前從您的信用卡收取房價 。TimeToTravel.com 並不會對您的信用卡扣款</h5>
 								</div>
 									<div class="col-md-2">
-									<button type="button" class="btn btn-danger" style="margin: 30px 0px 0px 10px">確定</button>
+									<button type="button" class="btn btn-danger" style="margin: 20px 0px 0px 10px">預訂</button>
 								</div>
 							</div>
 								<div class="row">

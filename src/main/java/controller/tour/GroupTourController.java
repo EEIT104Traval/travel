@@ -26,11 +26,31 @@ public class GroupTourController {
 //		System.out.println("bean="+bean);		
 				
 	
+		
+		
 				
 				Long count = groupTourService.countAll();
 //				model.addAttribute("count",count);
 				List<GroupTourBean> result = groupTourService.selectAll(); 				
 //				model.addAttribute("select", result.get(0));
+//				result.forEach(item->{
+//					List<TourBatchBean> tourBatchBeans = item.getTourBatchBean();
+//					tourBatchBeans.forEach(t->{
+//						t.setGroupTourBean(null);
+//					});
+//					item.setTourBatchBean(tourBatchBeans);
+//					
+//				});
+				for( GroupTourBean item : result) {
+					List<TourBatchBean> tourBatchBeans = item.getTourBatchBean();
+					for( TourBatchBean tourBatchBean : tourBatchBeans ) {
+						tourBatchBean.setGroupTourBean(null);
+					}
+					item.setTourBatchBean(tourBatchBeans);
+				}
+
+				
+				
 				
 				//放count跟bean
 				Map<String,Object> re = new HashMap<>();
@@ -57,7 +77,16 @@ public class GroupTourController {
 	@RequestMapping("/groupTourClick")
 	public List<GroupTourBean> Findbyclick(GroupTourBean bean, Model model) {
 //		System.out.println("bean="+bean);	
-				List<GroupTourBean> result = groupTourService.findbyclick(); 				
+				List<GroupTourBean> result = groupTourService.findbyclick(); 	
+				
+				result.forEach(item->{
+					List<TourBatchBean> tourBatchBeans = item.getTourBatchBean();
+					tourBatchBeans.forEach(t->{
+						t.setGroupTourBean(null);
+					});
+					item.setTourBatchBean(tourBatchBeans);
+					
+				});
 
 System.out.println(result);
 				return result;
@@ -76,13 +105,25 @@ System.out.println(result);
 				
 				return "/tour/tourtest.jsp";
 	}
-	@ResponseBody
+//	@ResponseBody
 	@RequestMapping("/searchTour")                                         //國家
-	public List<TourBatchBean> method(GroupTourBean bean, Model model,String tours,Date checkin_date,Date checkout_date) {
-//				System.out.println("T="+tours+"IN="+checkin_date+"OUT="+checkout_date);
+	public String method(GroupTourBean bean, Model model,String tours,Date checkin_date,Date checkout_date) {
+//		public List<TourBatchBean> method(GroupTourBean bean, Model model,String tours,Date checkin_date,Date checkout_date) {
+				System.out.println("T="+tours+"IN="+checkin_date+"OUT="+checkout_date);
 				List<TourBatchBean> no  = groupTourService.findTourByNO(tours, checkin_date, checkout_date);
-				
-				return no;
+				Integer count = no.size();
+				model.addAttribute("tour", no);
+				model.addAttribute("count", count);
+//	    List<TourBatchBean> no  = groupTourService.findTourByNO(tours, checkin_date, checkout_date);
+//	    no.forEach(item->{
+//	        GroupTourBean group = item.getGroupTourBean();
+//	        group.setTourBatchBean( null );
+//	        item.setGroupTourBean(group);
+//	    });
+//	    System.out.println("FUCK!");
+				System.out.println("no="+no);
+				return "tour.search";
+//	    return no;
 		
 	}
 	

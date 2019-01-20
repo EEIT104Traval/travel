@@ -84,10 +84,11 @@ public class TourBatchTest {
 	@RequestMapping("/TourBatchtestsearch")
 	 public List<TourBatchBean> search() {
 		List<String> l = new ArrayList<>();
-		l.add("2");
-		l.add("4");
+		l.add("1001");
+		l.add("1003");
 		List<TourBatchBean> search = dao.findByCountry(l,new java.util.Date("2018/01/01"), new java.util.Date("2019/02/21"));		  
-		 return search;	  		  
+		System.out.println("test ===> "+search.get(0));
+		return search;	  		  
 	 } 
 	
 

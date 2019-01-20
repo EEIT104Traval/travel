@@ -60,7 +60,28 @@ function notice(){
 </tr>
 <tr>
 <td>幣別:</td>
-<td><input type="text" id="" name="currency"><br></td>
+<td><select id="select1" name="currency" class="col-sm-9" style="max-width:45%;padding:8px;border-radius:4px">
+                		<option value="USD">請選擇幣別</option>
+                		<option value="USD">美金</option>
+                		<option value="HKD">港幣</option>
+                		<option value="GBP">英鎊</option>
+                		<option value="AUD">澳幣</option>
+                		<option value="CAD">加拿大幣</option>
+                		<option value="SGD">新加坡幣</option>
+                		<option value="CHF">瑞士法郎</option>
+                		<option value="JPY">日圓</option>
+                		<option value="ZAR">南非幣</option>
+                		<option value="SEK">瑞典幣</option>
+                		<option value="NZD">紐元</option>
+                		<option value="THB">泰幣</option>
+                		<option value="PHP">菲國比索 </option>
+                		<option value="DR">印尼幣</option>
+                		<option value="EUR">歐元 </option>
+                		<option value="KRW">韓元</option>
+                		<option value="VND">越南盾</option>
+                		<option value="MYR">馬來幣</option>
+                		<option value="CNY">人民幣</option>
+					</select></td>
 </tr>
 <tr>
 <td>匯率:</td>

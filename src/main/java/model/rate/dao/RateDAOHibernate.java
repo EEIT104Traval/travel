@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import model.rate.RateBean;
 import model.rate.RateDAO;
+import model.rate.RateNoticeBean;
 import model.rate.gb.Rate_USDBean;
 @Repository
 public class RateDAOHibernate implements RateDAO{
@@ -71,6 +72,7 @@ public class RateDAOHibernate implements RateDAO{
 		}
 		return false;
 	}
+
 
 	
 }

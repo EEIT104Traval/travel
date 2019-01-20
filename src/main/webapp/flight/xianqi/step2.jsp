@@ -97,7 +97,7 @@ $(document).ready(function() {
         <div class="team-meet hidden-xs">
             <h4 class="passage-info-title">旅客資料<span>(英文姓名輸入方式有誤,會產生無效訂位及開票,將造成您的損失,如有疑問,請洽客服人員)</span></h4>
         </div>
-		
+		<form action="<c:url value='/FlightOrder' />">
         <div class="form-horizontal passage-info-form" novalidate="novalidate" role="form" >
             <div class="totalperiod">
                 <span>旅客 1(成人)</span>
@@ -1562,45 +1562,45 @@ $(document).ready(function() {
     </section>
    
     
-    <form action="<c:url value='/FlightOrder' />">
     
     
      <input id="dealDate" name="dealDate" style="display: none;">
      <input id="orderStatus" name="orderStatus" style="display: none;" value="未付款">
-	    private Integer serial;
-		private Integer flightOrderNo;
-		private String flightNO;
-		private String airlineCode;
-		private String takeOffPlace;
-		private String landingPlace;
-		private Date takeOffTime;
-		private Date landingTime;
-		private int adultPrice;
-		private int childPrice;
-		private Double baggageAllowance;
-		private String goOrBack;
-		private String classLevel;
-     <input id="" name="" style="display: none;" value="${map.ticketAmount}">
-     <input id="" name="" style="display: none;" value="${map.goDay}">
-     <input id="" name="" style="display: none;" value="${map.goDeplace}">
-     <input id="" name="" style="display: none;" value="${map.goArplace}">
-     <input id="" name="" style="display: none;" value="${map.goCompany}">
-     <input id="" name="" style="display: none;" value="${map.goCode}">
-     <input id="" name="" style="display: none;" value="${map.goCodeOnly}">
-     <input id="" name="" style="display: none;" value="${map.goAirEquipType}">
-     <input id="" name="" style="display: none;" value="${map.goDeTime}">
-     <input id="" name="" style="display: none;" value="${map.homi}">
-     <input id="" name="" style="display: none;" value="${map.goArTime}">
-     <input id="" name="" style="display: none;" value="${map.backDay}">
-     <input id="" name="" style="display: none;" value="${map.backDeplace}">
-     <input id="" name="" style="display: none;" value="${map.backArplace}">
-     <input id="" name="" style="display: none;" value="${map.backCodeOnly}">
-     <input id="" name="" style="display: none;" value="${map.backCompany} ">
-     <input id="" name="" style="display: none;" value="${map.backCode} ">
-     <input id="" name="" style="display: none;" value="${map.backDeTime}">
-     <input id="" name="" style="display: none;" value="${map.backAirEquipType}">
-     <input id="" name="" style="display: none;" value="${map.homi2}">
-     <input id="" name="" style="display: none;" value="${map.backArTime}">
+<!-- 	    private Integer serial; -->
+<!-- 		private Integer flightOrderNo; -->
+<!-- 		private String flightNO; -->
+<!-- 		private String airlineCode; -->
+<!-- 		private String takeOffPlace; -->
+<!-- 		private String landingPlace; -->
+<!-- 		private Date takeOffTime; -->
+<!-- 		private Date landingTime; -->
+<!-- 		private int adultPrice; -->
+<!-- 		private int childPrice; -->
+<!-- 		private Double baggageAllowance; -->
+<!-- 		private String goOrBack; -->
+<!-- 		private String classLevel; -->
+     <input id="totalAmount" name="totalAmount" style="display: none;" value="${map.totalAmount}">
+     <input id="goDay" name="goDay" style="display: none;" value="${map.goDay}">
+     <input id="takeOffPlace" name="takeOffPlace" style="display: none;" value="${map.goDeplace}">
+     <input id="landingPlace" name="landingPlace" style="display: none;" value="${map.goArplace}">
+     <input id="goCompany" name="goCompany" style="display: none;" value="${map.goCompany}">
+     <input id="goCode" name="goCode" style="display: none;" value="${map.goCode}">
+     <input id="goCodeOnly" name="goCodeOnly" style="display: none;" value="${map.goCodeOnly}">
+     <input id="goAirEquipType" name="goAirEquipType" style="display: none;" value="${map.goAirEquipType}">
+     <input id="goDeTime" name="goDeTime" style="display: none;" value="${map.goDeTime}">
+     <input id="homi" name="homi" style="display: none;" value="${map.homi}">
+     <input id="goArTime" name="goArTime" style="display: none;" value="${map.goArTime}">
+     <input id="backDay" name="backDay" style="display: none;" value="${map.backDay}">
+     <input id="backDeplace" name="backDeplace" style="display: none;" value="${map.backDeplace}">
+     <input id="backArplace" name="backArplace" style="display: none;" value="${map.backArplace}">
+     <input id="backCodeOnly" name="backCodeOnly" style="display: none;" value="${map.backCodeOnly}">
+     <input id="backCompany" name="backCompany" style="display: none;" value="${map.backCompany} ">
+     <input id="flightNO" name="flightNO" style="display: none;" value="${map.backCode} ">
+     <input id="backCode" name="backCode" style="display: none;" value="${map.backDeTime}">
+     <input id="backAirEquipType" name="backAirEquipType" style="display: none;" value="${map.backAirEquipType}">
+     <input id="homi2" name="homi2" style="display: none;" value="${map.homi2}">
+     <input id="backArTime" name="backArTime" style="display: none;" value="${map.backArTime}">
+     <input id="backDeTime" name="backDeTime" style="display: none;" value="${map.backDeTime}">
      <input id="" name="" style="display: none;" value="">
      
     

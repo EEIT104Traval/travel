@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%-- <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%> --%>
+<%-- <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %> --%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -151,7 +153,7 @@ iframe#_hjRemoteVarsFrame {
 						<p class="breadcrumbs">
 							<span class="mr-2"><a href="index.jsp">Home</a></span> <span>Tour</span>
 						</p>
-						<h1 class="mb-3">Tours</h1>
+						<h1 class="mb-3">Tours </h1>
 					</div>
 				</div>
 			</div>
@@ -161,6 +163,16 @@ iframe#_hjRemoteVarsFrame {
 
 
 	<div class="container">
+	
+	
+<c:forEach items="${tour}" var="element"> 
+  <tr>
+    <td>${element.tourNo}</td>  
+     <td>${element.groupTourBean.tourName}</td> 
+  </tr>
+  
+  
+</c:forEach>
 		<div class="search">
 			<div class="row">
 				<div class="search-left col-md-3">
@@ -347,8 +359,8 @@ iframe#_hjRemoteVarsFrame {
 									<div class="slash">
 										<span></span>
 									</div>
-									<div class="tag-result">
-										查詢結果：<span class="red">6</span>筆(金額單位：新台幣含稅)
+									<div class="tag-result">  
+										查詢結果：<span class="red">${count}</span>筆(金額單位：新台幣含稅)
 									</div>
 								</div>
 								<div class="sort pull-right hidden-sm hidden-xs">
@@ -375,6 +387,7 @@ iframe#_hjRemoteVarsFrame {
 							<div>
 								<div class="infinite-scroll-component"
 									style="height: auto; overflow: initial;">
+				<c:forEach items="${tour}" var="element"> 
 									<article class="product-item tour">
 										<div class="container-fluid">
 											<div class="row" style=" margin-right: -15px;  margin-left: -1px;">
@@ -392,7 +405,7 @@ iframe#_hjRemoteVarsFrame {
 													<h4 class="product-name">
 														<a href="/product/GFG0000012035/AUKA9B90204A"
 															target="_blank"><div
-																style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 3;">【直昇機體驗+無尾熊抱抱】春節東澳全覽九日(含雪梨夜遊及含小費)BM</div></a>
+																style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 3;">${element.tourName}</div></a>
 													</h4>
 													<div class="product-info-tag-area">
 														<div class="tag solid yellow">已成團</div>
@@ -446,78 +459,79 @@ iframe#_hjRemoteVarsFrame {
 											</div>
 										</div>
 									</article>
-									<article class="product-item tour">
-										<div class="container-fluid">
-											<div class="row" style=" margin-right: -15px;  margin-left: -1px;">
-												<div class="serach-img col-md-4 col-sm-5">
-													<a href="/product/GFG0000001333/AUSPA990219A"
-														target="_blank"><img
-														alt="【澳遊客】東澳全覽9日(3城夜遊+小費+4★住宿&amp;黃金升等)"
-														class="img-responsive"
-														src="https://photo.settour.com.tw/600x400/https%3A%2F%2Fs2.settour.com.tw%2Fss_img%2FGFG%2F0000%2F0013%2F33%2Fori_2205181.jpg"></a>
+									</c:forEach>
+<!-- 									<article class="product-item tour"> -->
+<!-- 										<div class="container-fluid"> -->
+<!-- 											<div class="row" style=" margin-right: -15px;  margin-left: -1px;"> -->
+<!-- 												<div class="serach-img col-md-4 col-sm-5"> -->
+<!-- 													<a href="/product/GFG0000001333/AUSPA990219A" -->
+<!-- 														target="_blank"><img -->
+<!-- 														alt="【澳遊客】東澳全覽9日(3城夜遊+小費+4★住宿&amp;黃金升等)" -->
+<!-- 														class="img-responsive" -->
+<!-- 														src="https://photo.settour.com.tw/600x400/https%3A%2F%2Fs2.settour.com.tw%2Fss_img%2FGFG%2F0000%2F0013%2F33%2Fori_2205181.jpg"></a> -->
 													
-												</div>
-												<div class="product-info col-md-6 col-sm-7">
-													<h4 class="product-name">
-														<a href="/product/GFG0000001333/AUSPA990219A"
-															target="_blank"><div
-																style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 3;">【澳遊客】東澳全覽9日(3城夜遊+小費+4★住宿&amp;黃金升等)</div></a>
-													</h4>
-													<div class="product-info-tag-area">
-														<div class="tag blue has-tooltip">
-															聯營 <i class="fa fa-info-circle" aria-hidden="true"></i>
-															<div class="st-tooltip">為提升您順利成行的機率，東南旅行社特別邀集數家結盟旅行社共同出團，領隊由結盟旅行社挑選指派，旅遊品質由聯盟共同承諾，提供您最好的旅遊品質並確保您的權益。</div>
-														</div>
-													</div>
-													<div
-														class="product-info-bottom hidden-md hidden-sm hidden-xs">
-														<div>桃園出發</div>
-														<div>團號：AUSPA990219A</div>
-														<div>機位 洽客服</div>
-														<div class="order-btn">
-															<a role="button" data-toggle="collapse"
-																href="#slider-flightInfo_AUSPA990219A"
-																aria-expanded="true" aria-controls="slider-flightInfo">航班<i
-																class="fa fa-angle-down" aria-hidden="true"></i></a>
-														</div>
-													</div>
-												</div>
-												<div class="product-item-right-text">
-													<strong>02/19，洽客服</strong>
-												</div>
-												<div class="area-price col-md-2 col-sm-12">
-													<div class="row">
-														<div class="col-md-12 col-xs-8">
-															<div class="price">
-																<div class="ori-price">9天</div>
-																<div>
-																	<span class="price-uni">$</span>62,800<em>起</em>
-																</div>
-															</div>
-														</div>
-														<div class="price-btn col-md-12 col-xs-4">
-															<button class="btn-order">看詳細</button>
-														</div>
-													</div>
-												</div>
-											</div>
-											<div id="slider-flightInfo_AUSPA990219A"
-												class="slider-flight-info tour hidden-md hidden-sm hidden-xs collapse">
-												<div class="slider-flight-info-item-area"></div>
-												<div class="cart-notice type2">
-													<div class="editor-area">
-														<p>實際搭乘航班請以行前說明會資料為準</p>
-													</div>
-												</div>
-												<div class="slider-flight-info-close-btn">
-													<div data-toggle="collapse" href="#slider-flightInfo"
-														aria-expanded="true" aria-controls="slider-flightInfo">
-														收合參考航班<i class="fa fa-angle-up" aria-hidden="true"></i>
-													</div>
-												</div>
-											</div>
-										</div>
-									</article>
+<!-- 												</div> -->
+<!-- 												<div class="product-info col-md-6 col-sm-7"> -->
+<!-- 													<h4 class="product-name"> -->
+<!-- 														<a href="/product/GFG0000001333/AUSPA990219A" -->
+<!-- 															target="_blank"><div -->
+<!-- 																style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 3;">【澳遊客】東澳全覽9日(3城夜遊+小費+4★住宿&amp;黃金升等)</div></a> -->
+<!-- 													</h4> -->
+<!-- 													<div class="product-info-tag-area"> -->
+<!-- 														<div class="tag blue has-tooltip"> -->
+<!-- 															聯營 <i class="fa fa-info-circle" aria-hidden="true"></i> -->
+<!-- 															<div class="st-tooltip">為提升您順利成行的機率，東南旅行社特別邀集數家結盟旅行社共同出團，領隊由結盟旅行社挑選指派，旅遊品質由聯盟共同承諾，提供您最好的旅遊品質並確保您的權益。</div> -->
+<!-- 														</div> -->
+<!-- 													</div> -->
+<!-- 													<div -->
+<!-- 														class="product-info-bottom hidden-md hidden-sm hidden-xs"> -->
+<!-- 														<div>桃園出發</div> -->
+<!-- 														<div>團號：AUSPA990219A</div> -->
+<!-- 														<div>機位 洽客服</div> -->
+<!-- 														<div class="order-btn"> -->
+<!-- 															<a role="button" data-toggle="collapse" -->
+<!-- 																href="#slider-flightInfo_AUSPA990219A" -->
+<!-- 																aria-expanded="true" aria-controls="slider-flightInfo">航班<i -->
+<!-- 																class="fa fa-angle-down" aria-hidden="true"></i></a> -->
+<!-- 														</div> -->
+<!-- 													</div> -->
+<!-- 												</div> -->
+<!-- 												<div class="product-item-right-text"> -->
+<!-- 													<strong>02/19，洽客服</strong> -->
+<!-- 												</div> -->
+<!-- 												<div class="area-price col-md-2 col-sm-12"> -->
+<!-- 													<div class="row"> -->
+<!-- 														<div class="col-md-12 col-xs-8"> -->
+<!-- 															<div class="price"> -->
+<!-- 																<div class="ori-price">9天</div> -->
+<!-- 																<div> -->
+<!-- 																	<span class="price-uni">$</span>62,800<em>起</em> -->
+<!-- 																</div> -->
+<!-- 															</div> -->
+<!-- 														</div> -->
+<!-- 														<div class="price-btn col-md-12 col-xs-4"> -->
+<!-- 															<button class="btn-order">看詳細</button> -->
+<!-- 														</div> -->
+<!-- 													</div> -->
+<!-- 												</div> -->
+<!-- 											</div> -->
+<!-- 											<div id="slider-flightInfo_AUSPA990219A" -->
+<!-- 												class="slider-flight-info tour hidden-md hidden-sm hidden-xs collapse"> -->
+<!-- 												<div class="slider-flight-info-item-area"></div> -->
+<!-- 												<div class="cart-notice type2"> -->
+<!-- 													<div class="editor-area"> -->
+<!-- 														<p>實際搭乘航班請以行前說明會資料為準</p> -->
+<!-- 													</div> -->
+<!-- 												</div> -->
+<!-- 												<div class="slider-flight-info-close-btn"> -->
+<!-- 													<div data-toggle="collapse" href="#slider-flightInfo" -->
+<!-- 														aria-expanded="true" aria-controls="slider-flightInfo"> -->
+<!-- 														收合參考航班<i class="fa fa-angle-up" aria-hidden="true"></i> -->
+<!-- 													</div> -->
+<!-- 												</div> -->
+<!-- 											</div> -->
+<!-- 										</div> -->
+<!-- 									</article> -->
 
 
 
@@ -575,8 +589,15 @@ iframe#_hjRemoteVarsFrame {
 			$('#Cfilter5').click(function() {
 				$('#filter5').toggle("slow");
 			});
-			
-			
+// 			 var tour = '${tour}';
+			console.log("tour = "+${tour})
+// 			for(var i = 0 , i < ${tour}.size ; i++){
+// 			  alert("F");	
+// 			}
+// 			$.each("${tour}",function(idx,val){
+// 				alert("fuck");
+// 				alert(val.tourNo);				
+// 			})
 			
 			
 			

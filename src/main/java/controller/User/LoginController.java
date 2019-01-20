@@ -2,6 +2,7 @@ package controller.User;
 
 import java.text.SimpleDateFormat;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,10 +13,14 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
+import model.ticket.TicketInfoDAO;
+import model.ticket.TicketInfoService;
+import model.tour.service.TourOrderInfoService;
 import model.userInfo.UserInfoBean;
 import model.userInfo.UserInfoService;
 
@@ -25,11 +30,27 @@ public class LoginController {
 
 	@Autowired
 	UserInfoService userInfoService;
+	@Autowired
+	private TourOrderInfoService tourOrderInfoService;
+	@Autowired
+	private TicketInfoService ticketInfoService;
+	@Autowired
+	private TicketInfoDAO ticketInfoDAO;
 	
 	@InitBinder
 	public void registerPropertyEditor(WebDataBinder webDataBinder) {
 		webDataBinder.registerCustomEditor(java.util.Date.class, "birth",
 				new CustomDateEditor(new SimpleDateFormat("yyyy-MM-dd"), true));
+	}
+
+	@ResponseBody
+	@RequestMapping(path= {"/voyage/userorder.controller"})
+	public Map<String, List<?>> getMemberOrder(@RequestParam(value="accountName",required=false)String user) {
+		Map<String, List<?>> result = null;
+		result = userInfoService.findByPrimaryKey(user);
+		System.out.println(result);
+	
+	return result;
 	}
 	@RequestMapping(path= {"/voyage/insert.controller"})
 	public String insertMb (Model model,UserInfoBean bean,BindingResult bindingresult) {

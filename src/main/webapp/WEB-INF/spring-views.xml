@@ -34,6 +34,9 @@
 	<bean id="flightforth" class="org.springframework.web.servlet.view.InternalResourceView">
 		<property name="url" value="/flight/xianqi/step3.jsp"></property>
 	</bean>
+	<bean id="flightfifth" class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/flight/xianqi/index.jsp"></property>
+	</bean>
 	
 	<bean id="hotelRoom.search" class="org.springframework.web.servlet.view.InternalResourceView">
 		<property name="url" value="/voyage/hotel/roomTypeSearch.jsp"></property>
@@ -41,6 +44,10 @@
 	
 	<bean id="tour.buy" class="org.springframework.web.servlet.view.InternalResourceView">
 		<property name="url" value="/tour/Display2/order.jsp"></property>
+	</bean>
+	
+	<bean id="tour.search" class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/tour/tours_search.jsp"></property>
 	</bean>
 
 </beans>
