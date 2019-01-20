@@ -659,6 +659,7 @@ iframe#_hjRemoteVarsFrame {
 				    });
 			});
 			
+			
 			$('#nofind').hide();
 			$('#filter1').show();
 			$('#filter2').show();
