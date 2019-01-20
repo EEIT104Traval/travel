@@ -155,10 +155,17 @@ h2 {
 		var adultcount = $("#adult").val();
 		var childcount = $("#child").val();
 		var babycount = $("#baby").val();
-		var total = 0;
 		if (babycount == null) {
 			babycount = ""
 		}
+		var money = 0 ;
+		money = parseInt($("#price_adult").text()) * adultcount + parseInt($("#price_child").text()) * childcount;
+		if (babycount != 0) {
+			money = parseInt($("#price_adult").text())*adultcount + parseInt($("#price_child").text()) * childcount + parseInt($("#price_baby").text())*babycount;
+		}
+// 		console.log(money);
+		$('#money_hidden').val(money);
+		var total = 0;
 		var peopleCount = "";
 		if (adultcount != 0) {
 			peopleCount += adultcount + "位成人　";
@@ -178,7 +185,6 @@ h2 {
 		}
 		for (i = 0; i < total; i++) {
 			var customer = '<div class="panel-body">'
-// 					+ '<form role="form">'
 					+ '<div style="border-top: 1px solid lightgray; margin: 10px 0px;">'
 					+ '<div class="row">'
 					+ '<div class="col-md-6 col-xs-12">'
@@ -186,17 +192,17 @@ h2 {
 					+ '</div>' + '<div class="col-md-6 col-xs-12">';
 			if (adultcount != 0) {
 				customer += '<label class="sex" style="color:#2d7cd1">旅客' + (i+1)
-						+ '(成人)</label><input type="hidden" name="price" value="${result.tour.price_adult}">'
+						+ '(成人)</label><input type="hidden" id='+i+' name="price" value="${result.tour.price_adult}">'
 						+ '<input type="hidden" name="passenger" value="成人">';
 				adultcount = adultcount - 1;
 			} else if (childcount != 0) {
 				customer += '<label class="sex" style="color:#2d7cd1">旅客' + (i+1)
-						+ '(小孩)</label><input type="hidden" name="price" value="${result.tour.price_child}">'
+						+ '(小孩)</label><input type="hidden" id='+i+' name="price" value="${result.tour.price_child}">'
 						+ '<input type="hidden" name="passenger" value="小孩">';
 				childcount = childcount - 1;
 			} else {
 				customer += '<label class="sex" style="color:#2d7cd1">旅客' + (i+1)
-						+ '(嬰兒)</label><input type="hidden" name="price" value="${result.tour.price_baby}">'
+						+ '(嬰兒)</label><input type="hidden" id='+i+' name="price" value="${result.tour.price_baby}">'
 						+ '<input type="hidden" name="passenger" value="嬰兒">';
 			}
 
@@ -212,14 +218,12 @@ h2 {
 					+ '<input type="radio" id="man'+i+'" name="sex'+i+'" value="M" style="margin:0px 10px;"/><label for="man'+i+'">男</label>'
 					+ '<input type="radio" id="woman'+i+'" name="sex'+i+'" value="F" style="margin:0px 10px;"/><label for="woman'+i+'">女</label>'
 					+ '</div>' + '</div>' + '</div>' 
-// 					+ '</form>' 
 					+ '</div>'
 			$('#collapseOne').append(customer)
 		}
 	}
 	function put(){
 		if($('#same').prop('checked')==true){
-			console.log(1)
 			$('#fullName').val('${user}');
 			$('#userPhone').val('${result.user.phone}');
 			$('#userMail').val('${result.user.email}');
@@ -229,7 +233,6 @@ h2 {
 				$('#woman').prop('checked',true);
 			}
 		}else{
-			console.log(2)
 			$('#fullName').val('');
 			$('#userPhone').val('');
 			$('#userMail').val('');
@@ -245,6 +248,20 @@ h2 {
 			$('#buybot').css('background','grey');
 			$('#buybot').attr('href','');
 		}
+	}
+	function buy(){
+		var s = '男';
+		if($('#man').prop('checked')==false){
+			s = '女';
+		}
+		$('#sub').html(
+			'<h5 style="color:#2d7cd1">訂單聯絡人</h5>'
+			+'<div>姓名：'+$('#fullName').val()+'</div>'
+			+'<div>信箱：'+$('#userMail').val()+'</div>'
+			+'<div>電話：'+$('#userPhone').val()+'</div>'
+			+'<div>性別：'+s+'</div>'
+			+'<h5 style="color:red;float:right">金額總計：'+$('#money_hidden').val()+'</h5>'
+		)
 	}
 </script>
 
@@ -464,15 +481,14 @@ h2 {
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title" id="myModalLabel">購買</h5>
+					<h5 class="modal-title" id="myModalLabel">再次確認</h5>
 					<button type="button" class="close" data-dismiss="modal">
 						<span aria-hidden="true">×</span>
 					</button>
 				</div>
-				<div class="modal-body">...</div>
+				<div class="modal-body" id="sub">...</div>
 				<div class="modal-footer">
-					<input type="submit" class="btn btn-primary" value="test"/>
-					<button type="submit" class="btn btn-primary">確定購買</button>
+					<button type="submit" class="btn btn-primary">確認</button>
 					<button type="button" class="btn btn-secondary"
 						data-dismiss="modal">取消</button>
 				</div>
@@ -529,13 +545,13 @@ h2 {
 			<h3 style="color:transparent;">空</h3>
 			<div>
 			<div href="" data-toggle="modal"
-				style="border: 1px solid white; background: gray;" class="buttonbuy" id="buybot">立即購買</div>
+				style="border: 1px solid white; background: gray;" class="buttonbuy" id="buybot" onclick="buy()">立即訂購</div>
 			</div>
 			</div>
 		</div>
 	</section>
 
-
+	<input type="hidden" id="money_hidden" value="">
 
 	<section class="probootstrap_section">
 		<div class="container">

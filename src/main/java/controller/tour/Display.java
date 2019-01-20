@@ -1,7 +1,6 @@
 package controller.tour;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -13,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import model.tour.GroupTourBean;
+import model.tour.TourBatchBean;
+import model.tour.TourOrderInfoBean;
 import model.tour.service.GroupTourService;
 import model.tour.service.TourBuyService;
 
@@ -73,9 +74,8 @@ public class Display {
 //		return "";
 //	}
 	
-	@ResponseBody
 	@RequestMapping("/tour/Display2/order")
-	public String test(@RequestParam Map<String,String> map , String[] cname , String[] pname , Integer[] price , String[] passenger) {
+	public String test(@RequestParam Map<String,String> map , String[] cname , String[] pname , Integer[] price , String[] passenger ,Model model) {
 		System.out.println(map.toString());
 		String serialNo = map.get("serialNo");
 		String accountName = map.get("accountName");
@@ -91,9 +91,11 @@ public class Display {
 			total += price[x];
 			sex.add(map.get("sex"+x));
 		}
-		Integer orderNo = tourBuyService.order
+		TourOrderInfoBean order = tourBuyService.order
 			(serialNo, accountName, fullName, phone, email, userSex, quantity, total,sex, cname , pname ,price ,  passenger);
-
-		return orderNo+"";
+		TourBatchBean batch = tourBuyService.BatchfindPK(order.getSerialNo());
+		model.addAttribute("TourOrderInfoBean",order);
+		model.addAttribute("TourBatchBean",batch);
+		return "tour.order";
 	}
 }
