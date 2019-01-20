@@ -628,6 +628,11 @@ iframe#_hjRemoteVarsFrame {
 	</div>
 	<script>	
 		$(document).ready(function() {
+			
+	   		var dt = new Date();
+	   		$('#checkin_date').val(dt.getFullYear()+"/"+dt.getMonth()+1+"/"+dt.getDate());
+	   		$('#checkout_date').val(dt.getFullYear()+"/"+dt.getMonth()+1+"/"+dt.getDate());			
+			
 			$('#dialog-confirm').hide();
 			
 			$('#Snull').click(function(){
