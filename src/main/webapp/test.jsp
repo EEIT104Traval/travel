@@ -10,7 +10,7 @@
 <body>
 
 	<h1>熊</h1>
-	<a href="<c:url value='TourtestfindPK' />">TourtestfindPK</a>
+	<a href="<c:url value='TourtestfindPK' />">TourtestfindPK </a>
 	<a href="<c:url value='TourtestfindALL' />">TourtestfindALL</a>
 	<a href="<c:url value='Tourtestcreate' />">Tourtestcreate</a>
 	<a href="<c:url value='Tourtestupdate' />">Tourtestupdate</a>
