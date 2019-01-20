@@ -52,10 +52,10 @@ public class GroupTourService {
 		List<String> no = groupTourDAO.findByCountry(country);
 		
 //		int rows =  no.size();	
-		System.out.println("no=>"+no+", C=>"+country+",D=>"+checkin_date+", D2=>"+checkout_date);
+//		System.out.println("no=>"+no+", C=>"+country+",D=>"+checkin_date+", D2=>"+checkout_date);
 		List<TourBatchBean> tb = tourBatchDAO.findByCountry(no, checkin_date, checkout_date);
-		System.out.println("tb==>"+tb);
-		System.out.println(tb.get(0).getGroupTourBean().getTourName());
+//		System.out.println("tb==>"+tb);
+//		System.out.println(tb.get(0).getGroupTourBean().getTourName());
 		return tb;
 	}
 	

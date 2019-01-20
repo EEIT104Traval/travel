@@ -41,13 +41,15 @@ public class GroupTourController {
 //					item.setTourBatchBean(tourBatchBeans);
 //					
 //				});
-				for( GroupTourBean item : result) {
-					List<TourBatchBean> tourBatchBeans = item.getTourBatchBean();
-					for( TourBatchBean tourBatchBean : tourBatchBeans ) {
-						tourBatchBean.setGroupTourBean(null);
-					}
-					item.setTourBatchBean(tourBatchBeans);
-				}
+				
+				
+//				for( GroupTourBean item : result) {
+//					List<TourBatchBean> tourBatchBeans = item.getTourBatchBean();
+//					for( TourBatchBean tourBatchBean : tourBatchBeans ) {
+//						tourBatchBean.setGroupTourBean(null);
+//					}
+//					item.setTourBatchBean(tourBatchBeans);
+//				}
 
 				
 				
@@ -79,14 +81,14 @@ public class GroupTourController {
 //		System.out.println("bean="+bean);	
 				List<GroupTourBean> result = groupTourService.findbyclick(); 	
 				
-				result.forEach(item->{
-					List<TourBatchBean> tourBatchBeans = item.getTourBatchBean();
-					tourBatchBeans.forEach(t->{
-						t.setGroupTourBean(null);
-					});
-					item.setTourBatchBean(tourBatchBeans);
-					
-				});
+//				result.forEach(item->{
+//					List<TourBatchBean> tourBatchBeans = item.getTourBatchBean();
+//					tourBatchBeans.forEach(t->{
+//						t.setGroupTourBean(null);
+//					});
+//					item.setTourBatchBean(tourBatchBeans);
+//					
+//				});
 
 System.out.println(result);
 				return result;

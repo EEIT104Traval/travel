@@ -561,11 +561,11 @@ href="http://gregfranko.com/jquery.selectBoxIt.js/css/jquery.selectBoxIt.css" />
             }
             
             
-            if(categoryId.length != 0)
-            {
-                $.each(jsonData , function(i, item){
-                    $('#SelectSubCategory').append($('<option style="background:#ff5f5f"></option>').val(item.subCategoryId).text(item.subCategoryName));
-                });
+//             if(categoryId.length != 0)
+//             {
+//                 $.each(jsonData , function(i, item){
+//                     $('#SelectSubCategory').append($('<option style="background:#ff5f5f"></option>').val(item.subCategoryId).text(item.subCategoryName));
+//                 });
 
 
 //                 if(categoryId == '1') //
@@ -576,7 +576,7 @@ href="http://gregfranko.com/jquery.selectBoxIt.js/css/jquery.selectBoxIt.css" />
 //                 {
 //                     $('#LabelViewpoint').text("旅館");
 //                 }                    
-            }
+//             }
         }
 
         function ChangeSubCategory()
