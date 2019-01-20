@@ -1,5 +1,6 @@
 package model.tour.service;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -51,6 +52,10 @@ public class GroupTourService {
 	public List<TourBatchBean> findTourByNO(String country, Date checkin_date, Date checkout_date) {
 		List<String> no = groupTourDAO.findByCountry(country);
 		
+		if(no.isEmpty()) {
+			List<TourBatchBean> ll =  new ArrayList<TourBatchBean>();
+			return ll;
+		}		
 //		int rows =  no.size();	
 //		System.out.println("no=>"+no+", C=>"+country+",D=>"+checkin_date+", D2=>"+checkout_date);
 		List<TourBatchBean> tb = tourBatchDAO.findByCountry(no, checkin_date, checkout_date);

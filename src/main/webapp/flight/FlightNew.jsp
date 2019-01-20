@@ -6,6 +6,8 @@
 	crossorigin="anonymous"></script>
 <!DOCTYPE html>
 <html lang="tw-zh">
+<link rel="stylesheet" type="text/css" media="all" href="css/tyle.css">
+<script type="text/javascript" src="js/cityTemplate.js"></script>
 
 <!-- import this css by Alex -->
 <!-- <link rel="stylesheet" href="css/main_styles.css"> -->
