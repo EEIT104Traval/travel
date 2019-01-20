@@ -1941,6 +1941,7 @@ label {
 }
 
 .romde_box.act .num-tag, .romde_box:hover .num-tag {
+	color:white;
 	background-color: #c00017
 }
 
@@ -2006,7 +2007,7 @@ label {
 
 .romde_box {
 /* 	border: 2px solid transparent; */
-	border: 4px dashed #E0FFFF;
+	border: 2px solid #E0FFFF;
 	background-color: #fff;
 	width: 100%;
 	position: relative;

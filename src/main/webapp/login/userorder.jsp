@@ -34,6 +34,7 @@ var hotelOrderDetailsBean ;
 
 	$(document).ready(function() {
 			findorder()
+			console.log(accountName)	
 	});
   			function findorder(){
  			$("#searchuser").html("")
@@ -46,7 +47,6 @@ var hotelOrderDetailsBean ;
  					data:{'accountName':accountName,}
  				   }).done(
  						function(JData) {
- 							console.log(JData)
  							if(JData.TourOrderInfoBean != null){
 //  								if(JData.TourOrderInfoBean != null && JData.TourOrderInfoBean.orderStatus="已付費" ){
  								for(var i = 0 ; i<JData.TourOrderInfoBean.length ; i++){

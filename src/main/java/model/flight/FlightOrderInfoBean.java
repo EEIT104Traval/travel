@@ -26,8 +26,16 @@ public class FlightOrderInfoBean {
 	private String email;
 	private Integer adultCount;
 	private Integer childCount;
+	private String totalAmount;
 	private java.util.Date dealDate;
 	private String orderStatus;
+	
+	public String getTotalAmount() {
+		return totalAmount;
+	}
+	public void setTotalAmount(String totalAmount) {
+		this.totalAmount = totalAmount;
+	}
 	public Integer getFlightOrderNO() {
 		return flightOrderNO;
 	}
@@ -105,8 +113,8 @@ public class FlightOrderInfoBean {
 		return "FlightOrderInfoBean [flightOrderNO=" + flightOrderNO + ", accountName=" + accountName
 				+ ", contactGender=" + contactGender + ", contactLastNameCN=" + contactLastNameCN
 				+ ", contactFirstNameCN=" + contactFirstNameCN + ", bookingCode=" + bookingCode + ", phone=" + phone
-				+ ", email=" + email + ", adultCount=" + adultCount + ", childCount=" + childCount + ", dealDate="
-				+ dealDate + ", orderStatus=" + orderStatus + "]";
+				+ ", email=" + email + ", adultCount=" + adultCount + ", childCount=" + childCount + ", totalAmount="
+				+ totalAmount + ", dealDate=" + dealDate + ", orderStatus=" + orderStatus + "]";
 	}
 
 	

@@ -58,7 +58,7 @@
 			<div class="row">
 				<div class="col">
 					<div class="home_search_container">
-						<div class="home_search_title" style="font-family: Noto Sans TC">出團拉~</div>
+						<div class="home_search_title" style="font-family: Noto Sans TC">出團拉~~</div>
 						<div class="home_search_content">
 							<form action="<c:url value="/searchTour" />"
 								class="home_search_form" id="home_search_form" method="post">
@@ -67,9 +67,9 @@
 									<input name="tours" type="text" class="search_input" style="font-family: Noto Sans TC; width: 25%"
 										placeholder="想去哪裡玩?" id="tourS">
 									<input name="checkin_date" type="text" class="search_input" style="font-family: Noto Sans TC; width: 25%"
-										id="checkin_date" placeholder="出團日期" >~
+										id="checkin_date" >~
 									<input name="checkout_date" type="text" class="search_input" style="font-family: Noto Sans TC; width: 25%"
-										id="checkout_date" placeholder="回程日期" >
+										id="checkout_date" >
 									
 									<input id="search" type="submit" class="home_search_button" style="font-family: Noto Sans TC" value="搜尋" />
 								</div>
@@ -224,9 +224,12 @@
 	   	         }
 	   	     }
 	   	  setInterval('changeColor()',150);
-   	$(document).ready(function() {
-
-
+   	$(document).ready(function() {  
+		
+   		var dt = new Date();
+   		$('#checkin_date').val(dt.getFullYear()+"/"+dt.getMonth()+1+"/"+dt.getDate());
+   		$('#checkout_date').val(dt.getFullYear()+"/"+dt.getMonth()+1+"/"+dt.getDate());
+   			
    		$('#tagcloud').on("mouseover","a",function(){
    			$(this).css('color','purple').css('background','yellow');
    		})
@@ -256,7 +259,7 @@
 				contents +="<div id=\"tourpage\" class=\"col-md-6 col-lg-6 mb-4\">"
 					+"<a href=\"<c:url value='/tour/Display2/travel.jsp?tourNo="+val.tourNo+"'/>\" class=\"block-5\" style=\"background-image: url('/Travel/tour/Display2/images/"+val.TourPictureBean[0].pic +"');\">"						
 					+	"<div class=\"text\">"  
-					+		"<span class=\"price\" style=\"color:red ; font-weight:bold\"><b><u>$"+val.tourBatchBean[0].price_adult+"</u></b></span>"
+					+		"<span class=\"price\" style=\" font-family:fantasy;font-size:2.5em ; font-style:italic;color:red ; font-weight:bloder\"><b><u>$"+val.tourBatchBean[0].price_adult+"</u></b></span>"
 					+		"<h3 class=\"heading\">"+val.tourName+"</h3>"
 					+		"<div class=\"post-meta\">"
 					+			"<span>"+val.content+"</span>"
@@ -339,9 +342,10 @@
 // 			    		 alert(val.tourName);
 			    		 
 			    		 contents +="<div id=\"tourpage\" class=\"col-md-6 col-lg-6 mb-4\">"
-								+"<a href=\"<c:url value='/tour/Display2/travel.jsp?tourNo="+val.tourNo+"'/>\" class=\"block-5\" style=\"background-image: url('/Travel/tour/Display/images/"+val.TourPictureBean[0].pic +"');\">"						
+								+"<a href=\"<c:url value='/tour/Display2/travel.jsp?tourNo="+val.tourNo+"'/>\" class=\"block-5\" style=\"background-image: url('/Travel/tour/Display2/images/"+val.TourPictureBean[0].pic +"');\">"						
 								+	"<div class=\"text\">"  
-								+		"<span class=\"price\" style=\"color:red ; font-weight:bold\"><b><u>$"+val.tourBatchBean[0].price_adult+"</u></b></span>"
+								+		"<span class=\"price\" style= \" font-family:fantasy;font-size:2.5em ; font-style:italic; color:red ; font-weight:bold\"><b><u>$"+val.tourBatchBean[0].price_adult+"</u></b></span>"
+// 								+"<span class=\"price-uni\">$</span>"
 								+		"<h3 class=\"heading\">"+val.tourName+"</h3>"
 								+		"<div class=\"post-meta\">"
 								+			"<span>"+val.content+"</span>"

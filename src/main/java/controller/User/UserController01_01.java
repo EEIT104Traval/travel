@@ -1,16 +1,21 @@
 package controller.User;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import model.ticket.TicketInfoBean;
 import model.ticket.TicketInfoDAO;
@@ -166,4 +171,5 @@ public class UserController01_01 {
 			ticketInfoDAO.remove(bean.getTicketNo());
 		}
 	}
+	//---------------------------------以下勿動 測試中 非常嚴重-----------------------------------
 }
