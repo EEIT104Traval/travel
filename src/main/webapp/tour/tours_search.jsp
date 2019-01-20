@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +10,7 @@
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	
+
 
 
 <link rel="stylesheet"
@@ -32,24 +32,32 @@
 <link rel="stylesheet" href="<c:url value='/voyage/css/flaticon.css' />">
 <link rel="stylesheet" href="<c:url value='/voyage/css/icomoon.css' />">
 
-<link rel="stylesheet"	href="https://scss.settour.com.tw/vendor.css?1547708750755">
+<link rel="stylesheet"
+	href="https://scss.settour.com.tw/vendor.css?1547708750755">
 
 <link rel="stylesheet" href="<c:url value='/voyage/css/style.css' />">
 
-	
 
-	
 
-	
+
+
+
 <link href="<c:url value='/voyage/css/jquery-ui.css' />"
 	rel="stylesheet" type="text/css">
-	
-		
-<link data-react-helmet="true" rel="author"	href="https://plus.google.com/103719721831316369301">
-<link data-react-helmet="true" rel="publisher"	href="https://plus.google.com/103719721831316369301">
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"	rel="stylesheet">
-<link id="spStyleCss" rel="stylesheet"	href="//settour.api.useinsider.com/css/sp-style.css?v=0.1"	type="text/css" media="screen">
-<link rel="stylesheet"	href="https://scss.settour.com.tw/tour.css?1547708750755">
+
+
+<link data-react-helmet="true" rel="author"
+	href="https://plus.google.com/103719721831316369301">
+<link data-react-helmet="true" rel="publisher"
+	href="https://plus.google.com/103719721831316369301">
+<link
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+	rel="stylesheet">
+<link id="spStyleCss" rel="stylesheet"
+	href="//settour.api.useinsider.com/css/sp-style.css?v=0.1"
+	type="text/css" media="screen">
+<link rel="stylesheet"
+	href="https://scss.settour.com.tw/tour.css?1547708750755">
 
 
 
@@ -117,13 +125,10 @@ iframe#_hjRemoteVarsFrame {
 }
 
 .product-item .area-price {
-    position: absolute;
-    bottom: 0;
-    right: 15px;
+	position: absolute;
+	bottom: 0;
+	right: 15px;
 }
-
-
-
 </style>
 <script type="text/javascript" async=""
 	src="//api.useinsider.com/js/squery.min.js"></script>
@@ -144,7 +149,7 @@ iframe#_hjRemoteVarsFrame {
 	<jsp:include page="../voyage/nav.jsp"></jsp:include>
 	<section class="home-slider owl-carousel">
 		<div class="slider-item"
-			style="background-image: url('<c:url value='/voyage/images/bg_2.jpg'/>');"
+			style="background-image: url('<c:url value='/tour/Display2/images/Sbanner.jpg'/>');"
 			data-stellar-background-ratio="0.5">
 			<div class="overlay"></div>
 			<div class="container">
@@ -153,31 +158,99 @@ iframe#_hjRemoteVarsFrame {
 						<p class="breadcrumbs">
 							<span class="mr-2"><a href="index.jsp">Home</a></span> <span>Tour</span>
 						</p>
-						<h1 class="mb-3">Tours </h1>
+						<h1 class="mb-3">Tours</h1>
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
 	<!-- END slider -->
+	<section class="search-condition area-result">
+		<div class="container">
+		
+<%--         <c:forEach items="${tour}" var="element">  --%>
+<!-- 		  <tr> -->
+<%-- 		    <td>${element.tourNo}</td>   --%>
+<%-- 		    <td>${element.groupTourBean.guaranteedCount}</td>  --%>
+<%-- 		    <td>${element.peopleCount}</td>  --%>
+<%-- 		    <td>${element.groupTourBean.guaranteedCount - element.peopleCount }</td> --%>
+<!-- 		  </tr> -->
+<%-- 		</c:forEach> --%>
+		
+			<div class="row">
+				<div class="col-lg-2 col-md-3 col-sm-3 col-xs-9">
+					<div class="row">
+						<div class="col-sm-12">
+							<div class="result">
+								<span class="hidden-xs">目的地:</span><span>${destination}</span>
+							</div>
+						</div>
+						<div class="hidden-lg hidden-md hidden-sm col-xs-12">
+							<div class="result">
+								<span>2019/01/23~2019/04/23</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-8 col-md-7 col-sm-7 col-xs-9 hidden-xs">
+					<div class="flight-result">
+						<div class="slick-initialized slick-slider">
+							<div class="slick-arrow slick-prev slick-disabled slider-arrow"
+								style="display: block; visibility: hidden; z-index: 1; position: absolute; top: 30%; left: -30px;">
+								<div class="slider-arrow-left"
+									style="margin: 0px; top: 0px; left: 0px; visibility: hidden;">
+									<i class="fa fa-chevron-left" aria-hidden="true"></i>
+								</div>
+							</div>
+							<div class="slick-list">
+								<div class="slick-track"
+									style="opacity: 1; transform: translate3d(0px, 0px, 0px); width: 3549.31px;">
 
+									<ul class="slick-slide slick-active result type2"
+										data-index="0" tabindex="-1" style="outline: none;">
+										<li>出發區間：<strong><fmt:formatDate pattern="yyyy-MM-dd" value="${checkin_date}" />
+															~<fmt:formatDate pattern="yyyy-MM-dd" value="${checkout_date}" />
+												   </strong>
+										</li>
+										<li>出發地：<strong>桃園</strong></li>
+									</ul>
+<!-- 									<ul class="slick-slide result type2" data-index="1" -->
+<!-- 										tabindex="-1" style="outline: none;"> -->
+<!-- 										<li>關鍵字：<strong>無</strong></li> -->
+<!-- 										<li>僅查詢可報名：<strong>是</strong></li> -->
+<!-- 									</ul> -->
+
+								</div>
+							</div>
+							<div class="slick-arrow slick-next slider-arrow"
+								style="display: block; visibility: hidden; z-index: 1; position: absolute; top: 30%; right: -30px;">
+								<div class="slider-arrow-right"
+									style="margin: 0px; top: 0px; right: 0px; visibility: visible;">
+									<i class="fa fa-chevron-right" aria-hidden="true"></i>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-2 col-sm-2 col-xs-3">
+					<div class="result-bar">
+						<button id="fix" type="button" class="btn-reload">修改</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 
 	<div class="container">
-	
-	
-<!-- 	FN 取EL變數長度 -->
-<%-- 	<c:set var ="test" value="${tour}" />	 --%>
-<%-- 	 ${fn:length(test)} --%>
-<!-- 	FN 取EL變數長度 -->	 
-	 
-	
-<%-- <c:forEach items="${tour}" var="element">  --%>
-<!--   <tr> -->
-<%--     <td>${element.tourNo}</td>   --%>
-<%--      <td>${element.groupTourBean.tourPictureBean[0].pic}</td>  --%>
-     
-<!--   </tr> -->
-<%-- </c:forEach> --%>
+
+
+		<!-- 	FN 取EL變數長度 -->
+		<%-- 	<c:set var ="test" value="${tour}" />	 --%>
+		<%-- 	 ${fn:length(test)} --%>
+		<!-- 	FN 取EL變數長度 -->
+
+
+
 		<div class="search">
 			<div class="row">
 				<div class="search-left col-md-3">
@@ -222,10 +295,11 @@ iframe#_hjRemoteVarsFrame {
 							</div>
 							<div class="filter-criteria-item">
 								<h5 class="filter-criteria-item-title" data-toggle="collapse"
-									aria-expanded="true" aria-controls="filter2" id ="Cfilter2">
+									aria-expanded="true" aria-controls="filter2" id="Cfilter2">
 									旅遊天數<i class="fa fa-angle-down active" aria-hidden="true"></i>
 								</h5>
-								<div class="filter-criteria-item-option collapse in" style="" id ="filter2">
+								<div class="filter-criteria-item-option collapse in" style=""
+									id="filter2">
 									<div class="checkbox">
 										<input type="checkbox" id="checkbox-tourday-0"
 											name="checkbox-tourday-0"><label
@@ -258,7 +332,8 @@ iframe#_hjRemoteVarsFrame {
 									aria-expanded="true" aria-controls="filter3" id="Cfilter3">
 									優惠活動專案<i class="fa fa-angle-down active" aria-hidden="true"></i>
 								</h5>
-								<div class="filter-criteria-item-option collapse in" style="" id="filter3">
+								<div class="filter-criteria-item-option collapse in" style=""
+									id="filter3">
 									<div class="checkbox">
 										<input type="checkbox" id="checkbox-mkt-0"
 											name="checkbox-mkt-0"><label for="checkbox-mkt-0"
@@ -276,7 +351,8 @@ iframe#_hjRemoteVarsFrame {
 									aria-expanded="true" aria-controls="filter4" id="Cfilter4">
 									出團狀態<i class="fa fa-angle-down active" aria-hidden="true"></i>
 								</h5>
-								<div class="filter-criteria-item-option collapse in" style="" id="filter4">
+								<div class="filter-criteria-item-option collapse in" style=""
+									id="filter4">
 									<div class="checkbox">
 										<input type="checkbox" id="checkbox-grupstatus-0"
 											name="checkbox-grupstatus-0"><label
@@ -351,8 +427,8 @@ iframe#_hjRemoteVarsFrame {
 					</aside>
 					<div></div>
 				</div>
-				
-				
+
+
 				<div class="search-right col-md-9">
 					<div class="product">
 						<section class="search-area-title tour">
@@ -364,7 +440,7 @@ iframe#_hjRemoteVarsFrame {
 									<div class="slash">
 										<span></span>
 									</div>
-									<div class="tag-result">  
+									<div class="tag-result">
 										查詢結果：<span class="red">${count}</span>筆(金額單位：新台幣含稅)
 									</div>
 								</div>
@@ -388,156 +464,100 @@ iframe#_hjRemoteVarsFrame {
 								</div>
 							</div>
 						</section>
+						<div id="nofind"
+							style="border-width: 3px; border-style: dashed; border-color: #FFAC55; padding: 5px;">
+							<i class="fa fa-exclamation-circle"> <span>
+									很抱歉，暫時無法找到符合您要求的商品，建議您~可放寬篩選條件，或改用其他條件 <a id="Snull">重新搜尋</a>
+							</span>
+							</i>
+						</div>
 						<section class="product-list">
 							<div>
 								<div class="infinite-scroll-component"
 									style="height: auto; overflow: initial;">
-				<c:forEach items="${tour}" var="element"> 
-									<article class="product-item tour">
-										<div class="container-fluid">
-											<div class="row" style=" margin-right: -15px;  margin-left: -1px;">
-												<div class="serach-img col-md-4 col-sm-5">
-													<a href="/product/GFG0000012035/AUKA9B90204A"
-														target="_blank"><img style="width:270px;height:180px"
-														alt="【直昇機體驗+無尾熊抱抱】春節東澳全覽九日(含雪梨夜遊及含小費)BM"
-														class="img-responsive"   href="<c:url value='/voyage/index.jsp'/>"
-														<c:set var="a" value="${'/Travel/tour/Display2/images/'}${element.groupTourBean.tourPictureBean[0].pic}"  />
-														src="${a}"></a>
-<!-- 													<div class="favorite hidden-xs"> -->
-<!-- 														<div class="btn-collect-nobox"></div> -->
-<!-- 													</div> -->
-												</div>
-												<div class="product-info col-md-6 col-sm-7">
-													<h4 class="product-name">
+									<c:forEach items="${tour}" var="element">
+										<article class="product-item tour">
+											<div class="container-fluid">
+												<div class="row"
+													style="margin-right: -15px; margin-left: -1px;">
+													<div class="serach-img col-md-4 col-sm-5">
 														<a href="/product/GFG0000012035/AUKA9B90204A"
-															target="_blank"><div
-																style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 3;">${element.groupTourBean.tourName}</div></a>
-													</h4>
-													<div class="product-info-tag-area">
-														<div class="tag solid yellow">已成團</div>
+															target="_blank"><img
+															style="width: 270px; height: 180px"
+															alt="【直昇機體驗+無尾熊抱抱】春節東澳全覽九日(含雪梨夜遊及含小費)BM"
+															class="img-responsive"
+															href="<c:url value='/voyage/index.jsp'/>"
+															<c:set var="a" value="${'/Travel/tour/Display2/images/'}${element.groupTourBean.tourPictureBean[0].pic}"  />
+															src="${a}"></a>
+														<!-- 													<div class="favorite hidden-xs"> -->
+														<!-- 														<div class="btn-collect-nobox"></div> -->
+														<!-- 													</div> -->
 													</div>
-													<div
-														class="product-info-bottom hidden-md hidden-sm hidden-xs">
-														<div>${element.distination_back}出發</div>
-														<div>團號：${element.groupTourBean.tourNo}</div>
-														<div>機位 洽客服</div>
-														<div class="order-btn">
-															<a role="button" data-toggle="collapse"
-																href="#slider-flightInfo_AUKA9B90204A"
-																aria-expanded="true" aria-controls="slider-flightInfo">航班<i
-																class="fa fa-angle-down" aria-hidden="true"></i></a>
+													<div class="product-info col-md-6 col-sm-7">
+														<h4 class="product-name">
+															<a href="/product/GFG0000012035/AUKA9B90204A"
+																target="_blank"><div
+																	style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 3;">${element.groupTourBean.tourName}</div></a>
+														</h4>
+														<div class="product-info-tag-area">
+															<c:if test="${element.groupTourBean.guaranteedCount - element.peopleCount <= 0}">
+															<div class="tag solid yellow">已成團</div>
+															</c:if>
+															<c:if test="${element.groupTourBean.guaranteedCount - element.peopleCount > 0}">
+															<div class="tag solid red">即將成團</div>
+															</c:if>
 														</div>
-													</div>
-												</div>
-												<div class="product-item-right-text">
-													<strong><fmt:formatDate pattern="MM-dd"    value="${element.departureDate}" />，洽客服</strong>
-												</div>
-												<div class="area-price col-md-2 col-sm-12">
-													<div class="row">
-														<div class="col-md-12 col-xs-8">
-															<div class="price">
-																<div class="ori-price">${element.groupTourBean.tourDays}天</div>
-																<div>
-																	<span class="price-uni">$</span>${element.price_adult }<em>起</em>
-																</div>
+														<div
+															class="product-info-bottom hidden-md hidden-sm hidden-xs">
+															<div>${element.distination_back}出發</div>
+															<div>團號：${element.groupTourBean.tourNo}</div>
+															<div>機位 洽客服</div>
+															<div class="order-btn">
+																<a role="button" data-toggle="collapse"
+																	href="#slider-flightInfo_AUKA9B90204A"
+																	aria-expanded="true" aria-controls="slider-flightInfo">航班<i
+																	class="fa fa-angle-down" aria-hidden="true"></i></a>
 															</div>
 														</div>
-														<div class="price-btn col-md-12 col-xs-4">
-															<button class="btn-order">看詳細</button>
+													</div>
+													<div class="product-item-right-text">
+														<strong><fmt:formatDate pattern="MM-dd"
+																value="${element.departureDate}" />，洽客服</strong>
+													</div>
+													<div class="area-price col-md-2 col-sm-12">
+														<div class="row">
+															<div class="col-md-12 col-xs-8">
+																<div class="price">
+																	<div class="ori-price">${element.groupTourBean.tourDays}天</div>
+																	<div>
+																		<span class="price-uni">$</span>${element.price_adult }<em>起</em>
+																	</div>
+																</div>
+															</div>
+															<div class="price-btn col-md-12 col-xs-4">
+																<button class="btn-order">看詳細</button>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div id="slider-flightInfo_AUKA9B90204A"
+													class="slider-flight-info tour hidden-md hidden-sm hidden-xs collapse">
+													<div class="slider-flight-info-item-area"></div>
+													<div class="cart-notice type2">
+														<div class="editor-area">
+															<p>實際搭乘航班請以行前說明會資料為準</p>
+														</div>
+													</div>
+													<div class="slider-flight-info-close-btn">
+														<div data-toggle="collapse" href="#slider-flightInfo"
+															aria-expanded="true" aria-controls="slider-flightInfo">
+															收合參考航班<i class="fa fa-angle-up" aria-hidden="true"></i>
 														</div>
 													</div>
 												</div>
 											</div>
-											<div id="slider-flightInfo_AUKA9B90204A"
-												class="slider-flight-info tour hidden-md hidden-sm hidden-xs collapse">
-												<div class="slider-flight-info-item-area"></div>
-												<div class="cart-notice type2">
-													<div class="editor-area">
-														<p>實際搭乘航班請以行前說明會資料為準</p>
-													</div>
-												</div>
-												<div class="slider-flight-info-close-btn">
-													<div data-toggle="collapse" href="#slider-flightInfo"
-														aria-expanded="true" aria-controls="slider-flightInfo">
-														收合參考航班<i class="fa fa-angle-up" aria-hidden="true"></i>
-													</div>
-												</div>
-											</div>
-										</div>
-									</article>
+										</article>
 									</c:forEach>
-<!-- 									<article class="product-item tour"> -->
-<!-- 										<div class="container-fluid"> -->
-<!-- 											<div class="row" style=" margin-right: -15px;  margin-left: -1px;"> -->
-<!-- 												<div class="serach-img col-md-4 col-sm-5"> -->
-<!-- 													<a href="/product/GFG0000001333/AUSPA990219A" -->
-<!-- 														target="_blank"><img -->
-<!-- 														alt="【澳遊客】東澳全覽9日(3城夜遊+小費+4★住宿&amp;黃金升等)" -->
-<!-- 														class="img-responsive" -->
-<!-- 														src="https://photo.settour.com.tw/600x400/https%3A%2F%2Fs2.settour.com.tw%2Fss_img%2FGFG%2F0000%2F0013%2F33%2Fori_2205181.jpg"></a> -->
-													
-<!-- 												</div> -->
-<!-- 												<div class="product-info col-md-6 col-sm-7"> -->
-<!-- 													<h4 class="product-name"> -->
-<!-- 														<a href="/product/GFG0000001333/AUSPA990219A" -->
-<!-- 															target="_blank"><div -->
-<!-- 																style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 3;">【澳遊客】東澳全覽9日(3城夜遊+小費+4★住宿&amp;黃金升等)</div></a> -->
-<!-- 													</h4> -->
-<!-- 													<div class="product-info-tag-area"> -->
-<!-- 														<div class="tag blue has-tooltip"> -->
-<!-- 															聯營 <i class="fa fa-info-circle" aria-hidden="true"></i> -->
-<!-- 															<div class="st-tooltip">為提升您順利成行的機率，東南旅行社特別邀集數家結盟旅行社共同出團，領隊由結盟旅行社挑選指派，旅遊品質由聯盟共同承諾，提供您最好的旅遊品質並確保您的權益。</div> -->
-<!-- 														</div> -->
-<!-- 													</div> -->
-<!-- 													<div -->
-<!-- 														class="product-info-bottom hidden-md hidden-sm hidden-xs"> -->
-<!-- 														<div>桃園出發</div> -->
-<!-- 														<div>團號：AUSPA990219A</div> -->
-<!-- 														<div>機位 洽客服</div> -->
-<!-- 														<div class="order-btn"> -->
-<!-- 															<a role="button" data-toggle="collapse" -->
-<!-- 																href="#slider-flightInfo_AUSPA990219A" -->
-<!-- 																aria-expanded="true" aria-controls="slider-flightInfo">航班<i -->
-<!-- 																class="fa fa-angle-down" aria-hidden="true"></i></a> -->
-<!-- 														</div> -->
-<!-- 													</div> -->
-<!-- 												</div> -->
-<!-- 												<div class="product-item-right-text"> -->
-<!-- 													<strong>02/19，洽客服</strong> -->
-<!-- 												</div> -->
-<!-- 												<div class="area-price col-md-2 col-sm-12"> -->
-<!-- 													<div class="row"> -->
-<!-- 														<div class="col-md-12 col-xs-8"> -->
-<!-- 															<div class="price"> -->
-<!-- 																<div class="ori-price">9天</div> -->
-<!-- 																<div> -->
-<!-- 																	<span class="price-uni">$</span>62,800<em>起</em> -->
-<!-- 																</div> -->
-<!-- 															</div> -->
-<!-- 														</div> -->
-<!-- 														<div class="price-btn col-md-12 col-xs-4"> -->
-<!-- 															<button class="btn-order">看詳細</button> -->
-<!-- 														</div> -->
-<!-- 													</div> -->
-<!-- 												</div> -->
-<!-- 											</div> -->
-<!-- 											<div id="slider-flightInfo_AUSPA990219A" -->
-<!-- 												class="slider-flight-info tour hidden-md hidden-sm hidden-xs collapse"> -->
-<!-- 												<div class="slider-flight-info-item-area"></div> -->
-<!-- 												<div class="cart-notice type2"> -->
-<!-- 													<div class="editor-area"> -->
-<!-- 														<p>實際搭乘航班請以行前說明會資料為準</p> -->
-<!-- 													</div> -->
-<!-- 												</div> -->
-<!-- 												<div class="slider-flight-info-close-btn"> -->
-<!-- 													<div data-toggle="collapse" href="#slider-flightInfo" -->
-<!-- 														aria-expanded="true" aria-controls="slider-flightInfo"> -->
-<!-- 														收合參考航班<i class="fa fa-angle-up" aria-hidden="true"></i> -->
-<!-- 													</div> -->
-<!-- 												</div> -->
-<!-- 											</div> -->
-<!-- 										</div> -->
-<!-- 									</article> -->
 
 
 
@@ -572,8 +592,74 @@ iframe#_hjRemoteVarsFrame {
 		</div>
 	</div>
 
+	<div id="dialog-confirm" title="Find your tour"
+		style="border-radius: 8px;">
+
+		<form action="<c:url value="/searchTour" />" method="post">
+			<div class="fields">
+				<div class="row flex-column">
+
+					<div class="textfield-search col-sm-12 group mb-3">
+						<input name="tours" type="text" class="form-control"
+							style="border-radius: 8px;" placeholder="去哪玩 ~ ?">
+					</div>
+
+					<div class="check-in col-sm-12 group mb-3">
+						<input name="checkin_date" type="text" id="checkin_date"
+							class="form-control" style="border-radius: 8px;"
+							placeholder="出團區間">
+					</div>
+
+					<div class="check-out col-sm-12 group mb-3">
+						<input name="checkout_date" type="text" id="checkout_date"
+							class="form-control" style="border-radius: 8px;"
+							placeholder="出團區間">
+					</div>
+					<div class="select-wrap col-sm-12 group mb-3"></div>
+					<div class="col-sm-12 group mb-3">
+						<input type="submit" class="search-submit btn btn-primary"
+							style="border-radius: 6px; float: right;"
+							value="Let's  Go ~ !!!!">
+					</div>
+				</div>
+			</div>
+		</form>
+
+	</div>
 	<script>	
 		$(document).ready(function() {
+			$('#dialog-confirm').hide();
+			
+			$('#Snull').click(function(){
+
+// 				$( function() {
+				    $( "#dialog-confirm" ).dialog({
+				      resizable: false,
+				      height: "auto",
+				      width: 400,
+				      modal: true,
+// 				      buttons: {
+// 				        "找行程!!": function() {
+// 				          $( this ).dialog( "close" );
+// 				        },
+// 				        Cancel: function() {
+// 				          $( this ).dialog( "close" );
+// 				        }
+// 				      }
+				    });
+// 				  } );
+				
+			});
+			$('#fix').click(function(){
+				    $( "#dialog-confirm" ).dialog({
+				      resizable: false,
+				      height: "auto",
+				      width: 400,
+				      modal: true,
+				    });
+			});
+			
+			$('#nofind').hide();
 			$('#filter1').show();
 			$('#filter2').show();
 			$('#filter3').show();
@@ -595,6 +681,10 @@ iframe#_hjRemoteVarsFrame {
 			$('#Cfilter5').click(function() {
 				$('#filter5').toggle("slow");
 			});
+			console.log("c=>"+${count});
+			if(${count}==0){
+				$('#nofind').show();
+			}
 // 			 var tour = '${tour}';
 // 			console.log("tour = "+${tour})
 // 			for(var i = 0 , i < ${tour}.size ; i++){

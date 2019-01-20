@@ -67,9 +67,9 @@
 									<input name="tours" type="text" class="search_input" style="font-family: Noto Sans TC; width: 25%"
 										placeholder="想去哪裡玩?" id="tourS">
 									<input name="checkin_date" type="text" class="search_input" style="font-family: Noto Sans TC; width: 25%"
-										id="checkin_date" placeholder="出團日期" >~
+										id="checkin_date" >~
 									<input name="checkout_date" type="text" class="search_input" style="font-family: Noto Sans TC; width: 25%"
-										id="checkout_date" placeholder="回程日期" >
+										id="checkout_date" >
 									
 									<input id="search" type="submit" class="home_search_button" style="font-family: Noto Sans TC" value="搜尋" />
 								</div>
@@ -225,8 +225,11 @@
 	   	     }
 	   	  setInterval('changeColor()',150);
    	$(document).ready(function() {  
-
-
+		
+   		var dt = new Date();
+   		$('#checkin_date').val(dt.getFullYear()+"/"+dt.getMonth()+1+"/"+dt.getDate());
+   		$('#checkout_date').val(dt.getFullYear()+"/"+dt.getMonth()+1+"/"+dt.getDate());
+   			
    		$('#tagcloud').on("mouseover","a",function(){
    			$(this).css('color','purple').css('background','yellow');
    		})
