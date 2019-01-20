@@ -129,6 +129,13 @@ h2 {
 						$('#price_baby_null').html("")
 					}
 				}
+				if($('#agree').prop('checked')==true){
+					$('#buybot').css('background','red');
+					$('#buybot').attr('href','#modal-container-853884');
+				}else{
+					$('#buybot').css('background','grey');
+					$('#buybot').attr('href','');
+				}
 			});
 
 	function add(e) {
@@ -169,25 +176,28 @@ h2 {
 		if (peopleCount.length == 0) {
 			$('#peoplecount').html('請選擇您要預訂的人數')
 		}
-		for (i = 1; i <= total; i++) {
+		for (i = 0; i < total; i++) {
 			var customer = '<div class="panel-body">'
-					+ '<form role="form">'
+// 					+ '<form role="form">'
 					+ '<div style="border-top: 1px solid lightgray; margin: 10px 0px;">'
 					+ '<div class="row">'
 					+ '<div class="col-md-6 col-xs-12">'
-					+ '<label>中文姓名</label> <input type="text" class="form-control" />'
+					+ '<label>中文姓名</label> <input type="text" name="cname" class="form-control" />'
 					+ '</div>' + '<div class="col-md-6 col-xs-12">';
 			if (adultcount != 0) {
-				customer += '<label class="sex" style="color:#2d7cd1">旅客' + i
-						+ '(成人)</label>';
+				customer += '<label class="sex" style="color:#2d7cd1">旅客' + (i+1)
+						+ '(成人)</label><input type="hidden" name="price" value="${result.tour.price_adult}">'
+						+ '<input type="hidden" name="passenger" value="成人">';
 				adultcount = adultcount - 1;
 			} else if (childcount != 0) {
-				customer += '<label class="sex" style="color:#2d7cd1">旅客' + i
-						+ '(小孩)</label>';
+				customer += '<label class="sex" style="color:#2d7cd1">旅客' + (i+1)
+						+ '(小孩)</label><input type="hidden" name="price" value="${result.tour.price_child}">'
+						+ '<input type="hidden" name="passenger" value="小孩">';
 				childcount = childcount - 1;
 			} else {
-				customer += '<label class="sex" style="color:#2d7cd1">旅客' + i
-						+ '(嬰兒)</label>';
+				customer += '<label class="sex" style="color:#2d7cd1">旅客' + (i+1)
+						+ '(嬰兒)</label><input type="hidden" name="price" value="${result.tour.price_baby}">'
+						+ '<input type="hidden" name="passenger" value="嬰兒">';
 			}
 
 			customer += '</div>'
@@ -195,13 +205,15 @@ h2 {
 					+ '<div class="row">'
 					+ '<div class="col-md-6 col-xs-12">'
 					+ '<label for="exampleInputPassword1"> 護照姓名 </label>'
-					+ '<input type="text" class="form-control" />'
+					+ '<input type="text" class="form-control" name="pname" />'
 					+ '</div>'
 					+ '<div class="col-md-6 col-xs-12">'
 					+ '<label for="exampleInputPassword1" class="sex"> 性別 </label>'
-					+ '<input type="radio" id="man'+i+'" name="sex" style="margin:0px 10px;"/><label for="man'+i+'">男</label>'
-					+ '<input type="radio" id="woman'+i+'" name="sex" style="margin:0px 10px;"/><label for="woman'+i+'">女</label>'
-					+ '</div>' + '</div>' + '</div>' + '</form>' + '</div>'
+					+ '<input type="radio" id="man'+i+'" name="sex'+i+'" value="M" style="margin:0px 10px;"/><label for="man'+i+'">男</label>'
+					+ '<input type="radio" id="woman'+i+'" name="sex'+i+'" value="F" style="margin:0px 10px;"/><label for="woman'+i+'">女</label>'
+					+ '</div>' + '</div>' + '</div>' 
+// 					+ '</form>' 
+					+ '</div>'
 			$('#collapseOne').append(customer)
 		}
 	}
@@ -211,18 +223,27 @@ h2 {
 			$('#fullName').val('${user}');
 			$('#userPhone').val('${result.user.phone}');
 			$('#userMail').val('${result.user.email}');
-			if('${result.user.email}'=='F'){
+			if('${result.user.sex}'=='F'){
 				$('#man').prop('checked',true);
 			}else{
-// 				$('#woman').val('');
+				$('#woman').prop('checked',true);
 			}
 		}else{
 			console.log(2)
 			$('#fullName').val('');
 			$('#userPhone').val('');
 			$('#userMail').val('');
-// 			$('#man').val('');
-// 			$('#woman').val('');
+			$('#man').prop('checked',false);
+			$('#woman').prop('checked',false);
+		}
+	}
+	function agree(){
+		if($('#agree').prop('checked')==true){
+			$('#buybot').css('background','red');
+			$('#buybot').attr('href','#modal-container-853884');
+		}else{
+			$('#buybot').css('background','grey');
+			$('#buybot').attr('href','');
 		}
 	}
 </script>
@@ -262,7 +283,7 @@ h2 {
 		</div>
 	</nav>
 
-
+	<!-- 標頭 -->
 	<section class="probootstrap-cover overflow-hidden relative"
 		style="background-image: url('<c:url value='/voyage/images/bg_2.jpg'/>');"
 		data-stellar-background-ratio="0.5" id="section-home">
@@ -279,7 +300,8 @@ h2 {
 
 	</section>
 	<!-- END section -->
-
+	
+	<!--  行程 -->
 	<section class="probootstrap_section bg-light">
 		<div class="container" style="max-width: 1400px">
 			<div
@@ -301,8 +323,8 @@ h2 {
 			</div>
 		</div>
 	</section>
-
-
+<form action="<c:url value='/tour/Display2/order'/>" method="get">
+	<!-- 訂單 -->
 	<section class="probootstrap_section bg-light">
 		<div class="container" style="max-width: 1400px">
 			<div
@@ -311,41 +333,43 @@ h2 {
 					<div
 						class="col-md-3 probootstrap-animate fadeInUp probootstrap-animated">
 						<h2 style="padding: 10px;">訂單聯絡人</h2>
+						<input type="hidden" name="serialNo" value="${result.tour.serialNo}">
+						<input type="hidden" name="accountName" value="${accountName}">
 					</div>
 					<div class="col-md-8 probootstrap-animate fadeInUp probootstrap-animated">
 						<h5 style="padding-top: 20px; float: left; margin-right: 20px">請填寫訂單聯絡人資訊</h5>
 						<input onclick="put()" id="same" type="checkbox"> 
 						<label for="same" style="padding-top: 20px;">同聯絡人資訊</label>
-						<form role="form">
+<!-- 						<form role="form"> -->
 							<div class="row">
 								<div class="col-md-5 col-xs-12">
 									<label>姓名</label> 
-									<input id="fullName" type="text" class="form-control" />
+									<input id="fullName" name="fullName" type="text" class="form-control" />
 								</div>
 								<div class="col-md-5 col-xs-12">
 									<label> 電話 </label> 
-									<input id="userPhone" type="text" class="form-control" />
+									<input id="userPhone" name="userPhone" type="text" class="form-control" />
 								</div>
 							</div>
 							<div class="row">
 								<div class="col-md-5 col-xs-12">
 									<label> 信箱 </label> 
-									<input	id="userMail" type="text" class="form-control" />
+									<input	id="userMail" name="userMail" type="text" class="form-control" />
 								</div>
 								<div class="col-md-5 col-xs-12">
 									<label for="exampleInputPassword1" class="sex"> 性別 </label> 
-									<input type="radio" id="man" name="sex" style="margin: 0px 10px;" /><label for="man">男</label> 
-									<input type="radio" id="woman" name="sex" style="margin: 0px 10px;" /><label for="woman">女</label>
+									<input type="radio" id="man" name="userSex" style="margin: 0px 10px;" value="M"/><label for="man">男</label> 
+									<input type="radio" id="woman" name="userSex" style="margin: 0px 10px;" value="F" /><label for="woman">女</label>
 								</div>
 							</div>
-						</form>
+<!-- 						</form> -->
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
 
-
+	<!-- 報名 -->
 	<section class="probootstrap_section bg-light" id="section-contact">
 		<div class="container" style="max-width: 1400px">
 			<div
@@ -369,14 +393,10 @@ h2 {
 											style="float: left; font-size: 20px; color: red; padding-right: 3px;">$41,900</div>
 										<div style="padding: 5px">/人</div>
 										<div>
-											<div
-												class="d-flex flex-lg-row flex-column align-items-start justify-content-start">
-												<input type="image" src="images/MIN.png" width="11%"
-													onclick="minus('adult')"> <input type="text"
-													value="0" id="adult" disabled='disabled' readonly
-													style="text-align: center; height: 30px; width: 60px; margin: 0; border: 0px; background: white; font-size: 20px">
-												<input type="image" src="images/PL.png" width="11%"
-													onclick="add('adult')">
+											<div class="">
+												<input type="image" src="images/MIN.png" width="11%" onclick="minus('adult');return false;"> 
+												<input type="text" value="0" id="adult" disabled='disabled' readonly style="text-align: center; height: 30px; width: 60px; margin: 0; border: 0px; background: white; font-size: 20px">
+												<input type="image" src="images/PL.png" width="11%" onclick="add('adult');return false;">
 											</div>
 										</div>
 									</div>
@@ -391,12 +411,9 @@ h2 {
 										<div>
 											<div
 												class="d-flex flex-lg-row flex-column align-items-start justify-content-start">
-												<input type="image" src="images/MIN.png" width="11%"
-													onclick="minus('child')"> <input type="text"
-													value="0" id="child" disabled='disabled' readonly
-													style="text-align: center; height: 30px; width: 60px; margin: 0; border: 0px; background: white; font-size: 20px">
-												<input type="image" src="images/PL.png" width="11%"
-													onclick="add('child')">
+												<input type="image" src="images/MIN.png" width="11%" onclick="minus('child');return false;"> 
+												<input type="text" value="0" id="child" disabled='disabled' readonly style="text-align: center; height: 30px; width: 60px; margin: 0; border: 0px; background: white; font-size: 20px">
+												<input type="image" src="images/PL.png" width="11%" onclick="add('child');return false;">
 											</div>
 										</div>
 									</div>
@@ -409,14 +426,10 @@ h2 {
 											style="float: left; font-size: 20px; color: red; padding-right: 3px;">$2,900</div>
 										<div style="padding: 5px">/人</div>
 										<div>
-											<div
-												class="d-flex flex-lg-row flex-column align-items-start justify-content-start">
-												<input type="image" src="images/MIN.png" width="11%"
-													onclick="minus('baby')"> <input type="text"
-													value="0" id="baby" disabled='disabled' readonly
-													style="text-align: center; height: 30px; width: 60px; margin: 0; border: 0px; background: white; font-size: 20px">
-												<input type="image" src="images/PL.png" width="11%"
-													onclick="add('baby')">
+											<div class="d-flex flex-lg-row flex-column align-items-start justify-content-start">
+												<input type="image" src="images/MIN.png" width="11%" onclick="minus('baby');return false;"> 
+												<input type="text" value="0" id="baby" disabled='disabled' readonly style="text-align: center; height: 30px; width: 60px; margin: 0; border: 0px; background: white; font-size: 20px">
+												<input type="image" src="images/PL.png" width="11%" onclick="add('baby');return false;">
 											</div>
 										</div>
 									</div>
@@ -444,7 +457,31 @@ h2 {
 			</div>
 		</div>
 	</section>
+	
+		<!-- 按鈕延伸 -->
+	<div class="modal fade" id="modal-container-853884" role="dialog"
+		aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="myModalLabel">購買</h5>
+					<button type="button" class="close" data-dismiss="modal">
+						<span aria-hidden="true">×</span>
+					</button>
+				</div>
+				<div class="modal-body">...</div>
+				<div class="modal-footer">
+					<input type="submit" class="btn btn-primary" value="test"/>
+					<button type="submit" class="btn btn-primary">確定購買</button>
+					<button type="button" class="btn btn-secondary"
+						data-dismiss="modal">取消</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	
 
+	<!-- 資訊 -->
 	<section class="probootstrap_section bg-light">
 		<div class="container" style="max-width: 1400px">
 			<div
@@ -471,31 +508,6 @@ h2 {
 								<div id="collapseOne" class="panel-collapse collapse in">
 <!-- 									<div class="panel-body"> -->
 <!-- 										<form role="form"> -->
-<!-- 											<div -->
-<!-- 												style="border-top: 1px solid lightgray; margin: 10px 0px;"> -->
-<!-- 												<div class="row"> -->
-<!-- 													<div class="col-md-6 col-xs-12"> -->
-<!-- 														<label>中文姓名</label> <input type="text" -->
-<!-- 															class="form-control" /> -->
-<!-- 													</div> -->
-<!-- 													<div class="col-md-6 col-xs-12"> -->
-<!-- 														<label class="sex" style="color: #2d7cd1">旅客1(成人)</label> -->
-<!-- 													</div> -->
-<!-- 												</div> -->
-<!-- 												<div class="row"> -->
-<!-- 													<div class="col-md-6 col-xs-12"> -->
-<!-- 														<label for="exampleInputPassword1"> 護照姓名 </label> <input -->
-<!-- 															type="text" class="form-control" /> -->
-<!-- 													</div> -->
-<!-- 													<div class="col-md-6 col-xs-12"> -->
-<!-- 														<label for="exampleInputPassword1" class="sex"> 性別</label> -->
-<!-- 														<input type="radio" name="sex1" style="margin: 0px 10px;" />男 -->
-<!-- 														<input type="radio" name="sex1" style="margin: 0px 10px;" />女 -->
-<!-- 													</div> -->
-<!-- 												</div> -->
-<!-- 											</div> -->
-<!-- 										</form> -->
-<!-- 									</div> -->
 								</div>
 							</div>
 						</div>
@@ -504,43 +516,25 @@ h2 {
 			</div>
 		</div>
 	</section>
+</form>
 
+	<!-- 同意按鈕 -->
 	<section class="probootstrap_section bg-light" id="section-contact">
 		<div class="container" style="max-width: 1400px">
 			<div>
 			<div style="float:right;">
-				<input type="checkbox" id="agree" style="margin: 0px 10px;" />
+				<input type="checkbox" onclick="agree()" id="agree" style="margin: 0px 10px;" />
 				<label for="agree">我已閱讀並同意訂購須知及旅遊契約書(請點選並詳細閱讀)</label>
 			</div>
-<!-- 			<div><h3>我是空格</h3></div> -->
+			<h3 style="color:transparent;">空</h3>
 			<div>
-			<div href="#modal-container-853884" data-toggle="modal"
-				style="border: 1px solid white; background: red;" class="buttonbuy">立即購買</div>
+			<div href="" data-toggle="modal"
+				style="border: 1px solid white; background: gray;" class="buttonbuy" id="buybot">立即購買</div>
 			</div>
 			</div>
 		</div>
 	</section>
 
-	<div class="modal fade" id="modal-container-853884" role="dialog"
-		aria-labelledby="myModalLabel" aria-hidden="true">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="myModalLabel">購買</h5>
-					<button type="button" class="close" data-dismiss="modal">
-						<span aria-hidden="true">×</span>
-					</button>
-				</div>
-				<div class="modal-body">...</div>
-				<div class="modal-footer">
-
-					<button type="button" class="btn btn-primary">確定購買</button>
-					<button type="button" class="btn btn-secondary"
-						data-dismiss="modal">取消</button>
-				</div>
-			</div>
-		</div>
-	</div>
 
 
 	<section class="probootstrap_section">

@@ -43,9 +43,12 @@ public class TourOrderInfoDAO {
 		TourOrderInfoBean result = this.getSession().get(TourOrderInfoBean.class, bean.getOrderNo());
 		System.out.println(result);
 		if (result != null) {
-//			result.setOrderNo(bean.getOrderNo());
-			result.setAccountName(bean.getAccountName());
 			result.setSerialNo(bean.getSerialNo());
+			result.setAccountName(bean.getAccountName());
+			result.setFullName(bean.getFullName());
+			result.setPhone(bean.getPhone());
+			result.setEmail(bean.getEmail());
+			result.setSex(bean.getSex());
 			result.setQuantity(bean.getQuantity());
 			result.setTotal(bean.getTotal());
 			result.setOrderStatus(bean.getOrderStatus());
