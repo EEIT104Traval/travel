@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -161,11 +163,21 @@ iframe#_hjRemoteVarsFrame {
 
 
 	<div class="container">
-	<c:forEach items="${tour}" var="element"> 
-  <tr>
-    <td>${element.tourNo}</td>  
-  </tr>
-</c:forEach>
+	
+	
+<!-- 	FN 取EL變數長度 -->
+<%-- 	<c:set var ="test" value="${tour}" />	 --%>
+<%-- 	 ${fn:length(test)} --%>
+<!-- 	FN 取EL變數長度 -->	 
+	 
+	
+<%-- <c:forEach items="${tour}" var="element">  --%>
+<!--   <tr> -->
+<%--     <td>${element.tourNo}</td>   --%>
+<%--      <td>${element.groupTourBean.tourPictureBean[0].pic}</td>  --%>
+     
+<!--   </tr> -->
+<%-- </c:forEach> --%>
 		<div class="search">
 			<div class="row">
 				<div class="search-left col-md-3">
@@ -352,8 +364,8 @@ iframe#_hjRemoteVarsFrame {
 									<div class="slash">
 										<span></span>
 									</div>
-									<div class="tag-result">
-										查詢結果：<span class="red">6</span>筆(金額單位：新台幣含稅)
+									<div class="tag-result">  
+										查詢結果：<span class="red">${count}</span>筆(金額單位：新台幣含稅)
 									</div>
 								</div>
 								<div class="sort pull-right hidden-sm hidden-xs">
@@ -386,10 +398,11 @@ iframe#_hjRemoteVarsFrame {
 											<div class="row" style=" margin-right: -15px;  margin-left: -1px;">
 												<div class="serach-img col-md-4 col-sm-5">
 													<a href="/product/GFG0000012035/AUKA9B90204A"
-														target="_blank"><img
+														target="_blank"><img style="width:270px;height:180px"
 														alt="【直昇機體驗+無尾熊抱抱】春節東澳全覽九日(含雪梨夜遊及含小費)BM"
-														class="img-responsive"
-														src="https://photo.settour.com.tw/600x400/https%3A%2F%2Fs2.settour.com.tw%2Fss_img%2FGFG%2F0000%2F0120%2F35%2Fori_7821708.jpg"></a>
+														class="img-responsive"   href="<c:url value='/voyage/index.jsp'/>"
+														<c:set var="a" value="${'/Travel/tour/Display2/images/'}${element.groupTourBean.tourPictureBean[0].pic}"  />
+														src="${a}"></a>
 <!-- 													<div class="favorite hidden-xs"> -->
 <!-- 														<div class="btn-collect-nobox"></div> -->
 <!-- 													</div> -->
@@ -398,15 +411,15 @@ iframe#_hjRemoteVarsFrame {
 													<h4 class="product-name">
 														<a href="/product/GFG0000012035/AUKA9B90204A"
 															target="_blank"><div
-																style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 3;">【直昇機體驗+無尾熊抱抱】春節東澳全覽九日(含雪梨夜遊及含小費)BM</div></a>
+																style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 3;">${element.groupTourBean.tourName}</div></a>
 													</h4>
 													<div class="product-info-tag-area">
 														<div class="tag solid yellow">已成團</div>
 													</div>
 													<div
 														class="product-info-bottom hidden-md hidden-sm hidden-xs">
-														<div>桃園出發</div>
-														<div>團號：AUKA9B90204A</div>
+														<div>${element.distination_back}出發</div>
+														<div>團號：${element.groupTourBean.tourNo}</div>
 														<div>機位 洽客服</div>
 														<div class="order-btn">
 															<a role="button" data-toggle="collapse"
@@ -417,15 +430,15 @@ iframe#_hjRemoteVarsFrame {
 													</div>
 												</div>
 												<div class="product-item-right-text">
-													<strong>02/04，洽客服</strong>
+													<strong><fmt:formatDate pattern="MM-dd"    value="${element.departureDate}" />，洽客服</strong>
 												</div>
 												<div class="area-price col-md-2 col-sm-12">
 													<div class="row">
 														<div class="col-md-12 col-xs-8">
 															<div class="price">
-																<div class="ori-price">9天</div>
+																<div class="ori-price">${element.groupTourBean.tourDays}天</div>
 																<div>
-																	<span class="price-uni">$</span>92,900<em>起</em>
+																	<span class="price-uni">$</span>${element.price_adult }<em>起</em>
 																</div>
 															</div>
 														</div>
@@ -583,7 +596,7 @@ iframe#_hjRemoteVarsFrame {
 				$('#filter5').toggle("slow");
 			});
 // 			 var tour = '${tour}';
-// 			console.log("tour = "+"${tour}")
+// 			console.log("tour = "+${tour})
 // 			for(var i = 0 , i < ${tour}.size ; i++){
 // 			  alert("F");	
 // 			}

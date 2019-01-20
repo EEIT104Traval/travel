@@ -70,8 +70,6 @@ public class TourMemberInfoBean implements Serializable{
 	public void setPassenger(String passenger) {
 		this.passenger = passenger;
 	}
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
+
 
 }

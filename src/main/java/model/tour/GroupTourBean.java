@@ -118,7 +118,7 @@ public class GroupTourBean {
 		TourTagsBean = tourTagsBean;
 	}
 	@Override
-	public String toString() {
+	public String toString(){
 		return "GroupTourBean [tourNo=" + tourNo + ", country=" + country + ", tourName=" + tourName + ", destination="
 				+ destination + ", tourDays=" + tourDays + ", guaranteedCount=" + guaranteedCount + ", fullPeopleCount="
 				+ fullPeopleCount + ", clickCount=" + clickCount + ", content=" + content + ", tourBatchBean="
