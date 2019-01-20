@@ -48,7 +48,7 @@ var hotelOrderDetailsBean ;
  				   }).done(
  						function(JData) {
  							if(JData.TourOrderInfoBean != null){
-  								if(JData.TourOrderInfoBean != null && JData.TourOrderInfoBean.orderStatus="已付費" ){
+//  								if(JData.TourOrderInfoBean != null && JData.TourOrderInfoBean.orderStatus="已付費" ){
  								for(var i = 0 ; i<JData.TourOrderInfoBean.length ; i++){
  			 							$("#searchuser").append(		
  			 							'<table ><th style="width:80px">旅遊行程</th>'+
