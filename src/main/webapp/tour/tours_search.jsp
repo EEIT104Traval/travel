@@ -58,7 +58,7 @@
 	type="text/css" media="screen">
 <link rel="stylesheet"
 	href="https://scss.settour.com.tw/tour.css?1547708750755">
-
+ <link rel="stylesheet" href="/resources/demos/style.css">
 
 
 
@@ -128,6 +128,11 @@ iframe#_hjRemoteVarsFrame {
 	position: absolute;
 	bottom: 0;
 	right: 15px;
+	
+.ui-slider-horizontal .ui-slider-handle {
+    top: -.3em;
+    margin-left: -.6em;
+}
 }
 </style>
 <script type="text/javascript" async=""
@@ -160,13 +165,17 @@ iframe#_hjRemoteVarsFrame {
 						</p>
 						<h1 class="mb-3">Tours</h1>
 					</div>
+					<div id="here"></div> 
 				</div>
+				
 			</div>
+			
 		</div>
+		
 	</section>
 	<!-- END slider -->
 	<section class="search-condition area-result">
-		<div class="container">
+		<div  class="container">
 		
 <%--         <c:forEach items="${tour}" var="element">  --%>
 <!-- 		  <tr> -->
@@ -267,28 +276,36 @@ iframe#_hjRemoteVarsFrame {
 								<div class="filter-criteria-item-option-area collapse in"
 									id="filter1" style="">
 									<div class="filter-criteria-item-text">
-										$<span>62,800</span> ~ $<span>92,900</span>
+										$<span id="amount1"></span> ~ $<span id="amount2"></span>
+<!-- 									<span>	 -->
+<!--                                   	 <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;"> -->
+<!--  									</span> -->
+
 									</div>
-									<div class="filter-criteria-item-option">
-										<div class="adj-price">
-											<div class="rc-slider">
-												<div class="rc-slider-rail"></div>
-												<div class="rc-slider-track rc-slider-track-1"
-													style="left: 0%; width: 100%;"></div>
-												<div class="rc-slider-step"></div>
-												<div tabindex="0"
-													class="rc-slider-handle rc-slider-handle-1"
-													style="left: 0%;" role="slider" aria-valuemin="62800"
-													aria-valuemax="92900" aria-valuenow="62800"
-													aria-disabled="false"></div>
-												<div tabindex="0"
-													class="rc-slider-handle rc-slider-handle-2"
-													style="left: 100%" role="slider" aria-valuemin="62800"
-													aria-valuemax="92900" aria-valuenow="92900"
-													aria-disabled="false"></div>
-												<div class="rc-slider-mark"></div>
-											</div>
-											<div class="rc-slider-mark"></div>
+								
+									<div id="" class="filter-criteria-item-option">
+         
+									
+										<div id="" class="adj-price">
+										<div id="slider-range"></div>
+<!-- 											<div class="rc-slider"> -->
+<!-- 												<div class="rc-slider-rail"></div> -->
+<!-- 												<div class="rc-slider-track rc-slider-track-1" -->
+<!-- 													style="left: 0%; width: 100%;"></div> -->
+<!-- 												<div class="rc-slider-step"></div> -->
+<!-- 												<div tabindex="0" -->
+<!-- 													class="rc-slider-handle rc-slider-handle-1" -->
+<!-- 													style="left: 0%;" role="slider" aria-valuemin="62800" -->
+<!-- 													aria-valuemax="92900" aria-valuenow="62800" -->
+<!-- 													aria-disabled="false"></div> -->
+<!-- 												<div tabindex="0" -->
+<!-- 													class="rc-slider-handle rc-slider-handle-2" -->
+<!-- 													style="left: 100%" role="slider" aria-valuemin="62800" -->
+<!-- 													aria-valuemax="92900" aria-valuenow="92900" -->
+<!-- 													aria-disabled="false"></div> -->
+<!-- 												<div class="rc-slider-mark"></div> -->
+<!-- 											</div> -->
+<!-- 											<div class="rc-slider-mark"></div> -->
 										</div>
 									</div>
 								</div>
@@ -322,9 +339,10 @@ iframe#_hjRemoteVarsFrame {
 									</div>
 									<div class="checkbox">
 										<input type="checkbox" id="checkbox-tourday-4"
-											name="checkbox-tourday-4"><label
+											name="checkbox-tourday-4"><label data-multifilter="1"
 											for="checkbox-tourday-4" class="checkbox-label"><strong>10天以上</strong></label>
 									</div>
+										  <input type="checkbox" id="CheckAll"> I have a bike<br>
 								</div>
 							</div>
 							<div class="filter-criteria-item">
@@ -472,18 +490,18 @@ iframe#_hjRemoteVarsFrame {
 							</i>
 						</div>
 						<section class="product-list">
-							<div>
-								<div class="infinite-scroll-component"
+							<div id="filtr-item">
+								<div  class="infinite-scroll-component"
 									style="height: auto; overflow: initial;">
 									<c:forEach items="${tour}" var="element">
 										<article class="product-item tour">
-											<div class="container-fluid">
+											<div data-category="2"class="container-fluid" style="border:4px #007bff solid;">
 												<div class="row"
 													style="margin-right: -15px; margin-left: -1px;">
 													<div class="serach-img col-md-4 col-sm-5">
 														<a href="/product/GFG0000012035/AUKA9B90204A"
 															target="_blank"><img
-															style="width: 270px; height: 180px"
+															style="width: 270px; "
 															alt="【直昇機體驗+無尾熊抱抱】春節東澳全覽九日(含雪梨夜遊及含小費)BM"
 															class="img-responsive"
 															href="<c:url value='/voyage/index.jsp'/>"
@@ -521,14 +539,14 @@ iframe#_hjRemoteVarsFrame {
 														</div>
 													</div>
 													<div class="product-item-right-text">
-														<strong><fmt:formatDate pattern="MM-dd"
+														<strong><fmt:formatDate pattern="MM/dd"
 																value="${element.departureDate}" />，洽客服</strong>
 													</div>
 													<div class="area-price col-md-2 col-sm-12">
 														<div class="row">
 															<div class="col-md-12 col-xs-8">
 																<div class="price">
-																	<div class="ori-price">${element.groupTourBean.tourDays}天</div>
+																	<div id="ori-price" class="ori-price">${element.groupTourBean.tourDays}天</div>
 																	<div>
 																		<span class="price-uni">$</span>${element.price_adult }<em>起</em>
 																	</div>
@@ -617,7 +635,7 @@ iframe#_hjRemoteVarsFrame {
 					</div>
 					<div class="select-wrap col-sm-12 group mb-3"></div>
 					<div class="col-sm-12 group mb-3">
-						<input type="submit" class="search-submit btn btn-primary"
+						<input id="refind" type="submit" class="search-submit btn btn-primary"
 							style="border-radius: 6px; float: right;"
 							value="Let's  Go ~ !!!!">
 					</div>
@@ -628,6 +646,39 @@ iframe#_hjRemoteVarsFrame {
 	</div>
 	<script>	
 		$(document).ready(function() {
+			
+			$(".checkbox").click(function(){
+			if($("#checkbox-tourday-4").prop("checked")){
+				alert
+// 				alert("A"+$('article').find('div[id="ori-price"]').html());
+// 				console.log($('article').find('div[id="ori-price"]').html());
+			}
+			})
+		
+// 			if($( ".filtr-item" ).filter( "#ori-price" ).text() > 10){
+				
+// 			}
+// 			$('.filtr-item').filterizr();
+
+			$( "#slider-range" ).slider({
+			      range: true,
+			      min: 0,
+			      max: 99999,
+			      values: [ 9999, 89999 ],
+			      slide: function( event, ui ) {
+// 			        $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+			        $( "#amount1" ).text( ui.values[ 0 ]);
+			        $( "#amount2" ).text( ui.values[ 0 ]);
+			      }
+			    });
+// 			    $( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
+// 			      " - $" + $( "#slider-range" ).slider( "values", 1 ) );
+				$( "#amount1" ).text( $( "#slider-range" ).slider( "values", 0 ));
+				$( "#amount2" ).text( $( "#slider-range" ).slider( "values", 0 ));
+			    console.log( $( "#amount1" ).text());
+// 				alert($("#amount").val().ui.values[ 0 ]);
+			//葉面刷心跳轉指定位置			
+			document.getElementById("here").scrollIntoView();
 			
 	   		var dt = new Date();
 	   		$('#checkin_date').val(dt.getFullYear()+"/"+dt.getMonth()+1+"/"+dt.getDate());
@@ -642,7 +693,7 @@ iframe#_hjRemoteVarsFrame {
 				      resizable: false,
 				      height: "auto",
 				      width: 400,
-				      modal: true,
+				      modal: true
 // 				      buttons: {
 // 				        "找行程!!": function() {
 // 				          $( this ).dialog( "close" );
@@ -660,10 +711,9 @@ iframe#_hjRemoteVarsFrame {
 				      resizable: false,
 				      height: "auto",
 				      width: 400,
-				      modal: true,
+				      modal: true
 				    });
 			});
-			
 			
 			$('#nofind').hide();
 			$('#filter1').show();
@@ -723,6 +773,8 @@ iframe#_hjRemoteVarsFrame {
 	<script src="<c:url value='/voyage/js/main.js' />"></script>
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!-- 	<script src="http://libs.baidu.com/jquery/3.0.0/jquery.min.js"></script> -->
+<%--     <script src="<c:url value='/voyage/js/jquery.filterizr.js' />"></script> --%>
 	<jsp:include page="/voyage/foo.jsp"></jsp:include>
 
 </body>

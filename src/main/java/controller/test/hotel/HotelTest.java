@@ -1,5 +1,6 @@
 package controller.test.hotel;
 
+import java.text.ParseException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,19 +8,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import model.hotel.HotelBean;
+import model.hotel.HotelService;
 import model.hotel.dao.HotelDAOHibernate;
-import model.ticket.TicketInfoBean;
 
 @RestController // 可替代Controller(寫在類別上對全部方法作用)
 //@Controller
 public class HotelTest {
 	@Autowired
 	private HotelDAOHibernate dao;
-
+	@Autowired
+	private HotelService ser;
 //	 @ResponseBody(每一個@RequestMapping上面都要寫)
 	@RequestMapping("/HotelfindByPK")
 	public HotelBean method() {
-		HotelBean pk = dao.findByPrimaryKey(1);
+		HotelBean pk = dao.findByPrimaryKey(4);
 		return pk;
 	}
 
@@ -68,5 +70,17 @@ public class HotelTest {
 
 		return all;
 	}
-
+	@RequestMapping("/Hotelbuy")
+	public boolean qupdate()throws ParseException {
+		String str="2019-02-03";
+		java.sql.Date x= java.sql.Date.valueOf(str);
+		String str1="2019-02-06";
+		java.sql.Date y= java.sql.Date.valueOf(str1);
+		System.out.println("----------------------------------------");
+		System.out.println("x="+x);
+		System.out.println("y="+y);
+		 
+		ser.qupdate("micky", 4, "XX", "987654123", 8,x,y, 3000);
+			return false;
+	}
 }

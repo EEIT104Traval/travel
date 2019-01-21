@@ -1,6 +1,8 @@
 package model.hotel;
 
+import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +15,12 @@ import org.springframework.util.StringUtils;
 public class HotelService {
 	@Autowired
 	private HotelDAO hotelDAO = null;
+	@Autowired
+	private RoomTypeDAO roomTypeDAO = null;
+	@Autowired
+	private RoomAvailableDAO roomAvailableDAO = null;
+	@Autowired
+	private HotelOrderDetailsDAO hotelOrderDetailsDAO = null;
 	
 	public List<HotelBean> select(HotelBean bean) {
 		List<HotelBean> result = null;
@@ -92,9 +100,51 @@ public class HotelService {
 		return hotelDAO.findAll();
 	}
 	
+//-----------------------------------------訂購房間----------------------------------------------------------
 	
-//	public List<HotelBean> searchByCountry(HotelBean bean) {
-//		return hotelDAO.searchByCountry(bean);
-//		
-//	}
+	public boolean qupdate(String accountName, Integer hotelNo, String bookingPerson, String phone, Integer roomTypeNo ,java.sql.Date checkIn,java.sql.Date checkOut ,Integer roomPrice)
+			throws ParseException {
+//		HotelOrderDetailsBean bean = new HotelOrderDetailsBean();
+		if (hotelNo != null) {
+			HotelBean TI = hotelDAO.findByPrimaryKey(hotelNo);
+			RoomTypeBean Q = roomTypeDAO.findByPrimaryKey(roomTypeNo);
+			RoomAvailableBean R = roomAvailableDAO.foundDate(checkIn);			
+//			新增訂單
+			HotelOrderDetailsBean Order = new HotelOrderDetailsBean();
+		
+			Order.setHotelNo(hotelNo);
+			Order.setAccountName(accountName);
+            Date newdate = new Date();
+			Order.setCreateDate(newdate);
+			Order.setBookingPerson(bookingPerson);
+			Order.setHotelName(TI.getHotelNameCH());
+			Order.setPhone(phone);
+			Order.setCheckIn(checkIn);
+			Order.setCheckOut(checkOut);
+			Order.setPhone(Q.getRoomType());
+			Order.setRoomPrice(roomPrice);
+			Integer day;
+	        java.util.Date beginDate = checkIn;
+	        java.util.Date endDate = checkOut;
+            day=(int) ((endDate.getTime()-beginDate.getTime())/(24*60*60*1000));    
+			Order.setStayNights(day);
+			Order.setTotalPrice((roomPrice*day));
+			hotelOrderDetailsDAO.create(Order);
+			System.out.println("===========");
+			System.out.println(Order);
+			System.out.println(day);
+//			庫存減少		
+			for (int i = 0 ; i <= day ; i++) {	
+				Long x = (checkIn.getTime()+i*86400000);
+				java.sql.Date checkIn1 = new java.sql.Date(x);
+				RoomAvailableBean room =roomAvailableDAO.foundDate(checkIn1);
+				room.setSale((room.getSale()-1));
+				room.setAvailable((room.getAvailable()+1));
+				roomAvailableDAO.update(room);			
+			
+			}
+			return true;
+		}
+		return false;
+	}	
 }

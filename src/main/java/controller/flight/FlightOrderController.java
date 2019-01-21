@@ -23,6 +23,16 @@ import model.flight.FlightTicketBean;
 
 @Controller
 public class FlightOrderController {
+	
+//	@Autowired
+//	private FlightOrderInfoBean FOIBean;
+//	
+//	@Autowired
+//	private FlightPassengerInfoBean FPIBean;
+//	
+//	@Autowired
+//	private FlightTicketBean FTBean;
+	
 	@RequestMapping("/FlightOrder")
 	public String method(Model model,FlightOrderInfoBean FOIbean,FlightTicketBean FTbean,
 			String totalAmount,String takeOffPlace,String landingPlace,String goDay,
@@ -35,6 +45,9 @@ public class FlightOrderController {
 		System.out.println("contactGender="+contactGender);
 		System.out.println("backDeTime="+backDeTime);
 		System.out.println("確定是否有執行到這ordercontroller裡");
+//		System.out.println("accountName="+accountName);
+//		System.out.println("accountName="+accountName);
+//		System.out.println("accountName="+accountName);
 		Double RMBAmountZ = Double.parseDouble(totalAmount.substring(3))/4.5;
 		
 		float RMBAmount = (float)(Math.round(RMBAmountZ*100))/100;

@@ -11,6 +11,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,7 +22,7 @@ import model.flight.AirlineCompareBean;
 import model.flight.AirlineCompareDAO;
 import model.flight.FlightInfoGet;
 import model.flight.Token;
-
+@Transactional
 @Service
 public class FlightInfoGetService {
 

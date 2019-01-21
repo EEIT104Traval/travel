@@ -1,6 +1,7 @@
 package model.hotel.dao;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -11,6 +12,7 @@ import javax.persistence.criteria.Root;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -51,17 +53,16 @@ public class RoomAvailableDAOHibernate implements RoomAvailableDAO {
 	}
 
 	@Override
-	public RoomAvailableBean update(Integer serialNo, Integer roomTypeNo, java.util.Date date, Integer totalRooms,
-			Integer sale, Integer available, Integer notForSale) {
-		RoomAvailableBean result = this.getSession().get(RoomAvailableBean.class, serialNo);
+	public RoomAvailableBean update(RoomAvailableBean bean) {
+		RoomAvailableBean result = this.getSession().get(RoomAvailableBean.class, bean.getSerialNo());
 		if (result != null) {
-			result.setSerialNo(serialNo);
-			result.setRoomTypeNo(roomTypeNo);
-			result.setDate(date);
-			result.setTotalRooms(totalRooms);
-			result.setSale(sale);
-			result.setAvailable(available);
-			result.setNotForSale(notForSale);
+			result.setSerialNo(bean.getSerialNo());
+			result.setRoomTypeNo(bean.getRoomTypeNo());
+			result.setDate(bean.getDate());
+			result.setTotalRooms(bean.getTotalRooms());
+			result.setSale(bean.getSale());
+			result.setAvailable(bean.getAvailable());
+			result.setNotForSale(bean.getNotForSale());
 			return result;
 		}
 		return null;
@@ -100,6 +101,17 @@ public class RoomAvailableDAOHibernate implements RoomAvailableDAO {
 	      Predicate[] p = new Predicate[predicate.size()];
 	      query.where(criteriaBuilder.or(predicate.toArray(p)));
 	      return em.createQuery(query).getResultList();
+	}
+
+	@Override
+	public RoomAvailableBean foundDate(java.sql.Date date) {
+		
+		String hql = "from RoomAvailableBean where date = '"+date+"'" ;
+		
+		Query<RoomAvailableBean> OrderMonth = this.getSession().createQuery( hql ,RoomAvailableBean.class);	
+		RoomAvailableBean orderDate = OrderMonth.uniqueResult();
+		
+		return orderDate;
 	}
 
 }

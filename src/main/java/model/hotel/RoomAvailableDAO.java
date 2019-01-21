@@ -10,7 +10,7 @@ public interface RoomAvailableDAO {
 
 	public abstract RoomAvailableBean create(RoomAvailableBean bean);
 
-	public abstract RoomAvailableBean update(Integer serialNo, Integer roomTypeNo, java.util.Date date, Integer totalRooms, Integer sale, Integer available, Integer notForSale);
+	public abstract RoomAvailableBean update(RoomAvailableBean bean);
 
 	public abstract boolean remove(Integer serialNo);
 	
@@ -18,4 +18,5 @@ public interface RoomAvailableDAO {
 	
 	public abstract List<RoomAvailableBean> findRoomByDate(List<RoomTypeBean> list);
 	
+	public abstract RoomAvailableBean foundDate(java.sql.Date date);
 }

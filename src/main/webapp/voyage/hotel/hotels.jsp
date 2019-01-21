@@ -7,7 +7,7 @@
 </script>
 <!DOCTYPE html>
 <html lang="zh-tw">
-
+<link rel="icon" href="<c:url value='/voyage/favicon.ico' />">
 <link rel="stylesheet" href="<c:url value='/voyage/css/open-iconic-bootstrap.min.css' />">
 <link rel="stylesheet" href="<c:url value='/voyage/css/animate.css' />">
 <link rel="stylesheet" href="<c:url value='/voyage/css/owl.carousel.min.css' />">
@@ -15,7 +15,7 @@
 <link rel="stylesheet" href="<c:url value='/voyage/css/magnific-popup.css' />">
 <link rel="stylesheet" href="<c:url value='/voyage/css/aos.css' />">
 <link rel="stylesheet" href="<c:url value='/voyage/css/ionicons.min.css' />">
-<link rel="stylesheet" href="<c:url value='/voyage/css/bootstrap-datepicker.css' />">
+<%-- <link rel="stylesheet" href="<c:url value='/voyage/css/bootstrap-datepicker.css' />"> --%>
 <%-- <link rel="stylesheet" href="<c:url value='/voyage/css/jquery.timepicker.css' />"> --%>
 <link rel="stylesheet" href="<c:url value='/voyage/css/flaticon.css' />">
 <link rel="stylesheet" href="<c:url value='/voyage/css/icomoon.css' />">
@@ -231,16 +231,16 @@ var params = {};
 								class="home_search_form" id="home_search_form" method="post">
 								<div 
 									class="d-flex flex-lg-row flex-column align-items-start justify-content-lg-between justify-content-start">
-									<input type="text" class="search_input" style="font-family: Noto Sans TC; width: 15%"
+									<input type="text" class="search_input" style="font-family: Noto Sans TC; width: 25%"
 										placeholder="請輸入國家" id="country">
-									<input type="text" class="search_input" style="font-family: Noto Sans TC; width: 15%"
+									<input type="text" class="search_input" style="font-family: Noto Sans TC; width: 25%"
 										placeholder="請輸入城市" id="city">
-									<input type="text" class="search_input" style="font-family: Noto Sans TC; width: 15%"
-										placeholder="入住日期" id="checkin_date">
-									<input type="text" class="search_input" style="font-family: Noto Sans TC; width: 15%"
-										placeholder="退房日期" id="checkout_date">
-									<select type="text" class="search_input" style="font-family: Noto Sans TC; width: 15%"
-										placeholder="人數" id="accommodate" >
+<!-- 									<input type="text" class="search_input" style="font-family: Noto Sans TC; width: 15%" -->
+<!-- 										placeholder="入住日期" id="checkin_date"> -->
+<!-- 									<input type="text" class="search_input" style="font-family: Noto Sans TC; width: 15%" -->
+<!-- 										placeholder="退房日期" id="checkout_date"> -->
+									<select class="search_input" style="font-family: Noto Sans TC; width: 25%" id="accommodate" >
+										<option>人數</option>
 										<option>1 人</option>
 										<option>2 人</option>
 										<option>3 人</option>
@@ -249,6 +249,7 @@ var params = {};
 										<option>6 人</option>
 										<option>7 人</option>
 										<option>8 人</option>
+									</select>
 									<input type="button" class="home_search_button" style="font-family: Noto Sans TC" value="搜尋" onclick="hotelSearch()"/>
 								</div>
 							</form>
@@ -543,7 +544,6 @@ var params = {};
 							</h6>
 							<p style="margin-bottom:0"><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star-half-full"></span></p>
 							<p class="float-left">NT$ 5,630</p>
-							</p>
 						</div>
 					</div>
 				</div>
@@ -559,7 +559,6 @@ var params = {};
 							</h6>
 							<p style="margin-bottom:0"><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star-half-full"></span></p>
 							<p class="float-left">NT$ 3,941</p>
-							</p>
 						</div>
 					</div>
 				</div>
@@ -575,7 +574,6 @@ var params = {};
 							<p style="margin-bottom:0"><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star-half-full"></span></p>
 							</h6>
 							<p class="float-left">NT$ 4,732</p>
-							</p>
 						</div>
 					</div>
 				</div>
@@ -591,7 +589,6 @@ var params = {};
 							</h6>
 							<p style="margin-bottom:0"><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star-half-full"></span></p>
 							<p class="float-left">NT$ 5,768</p>
-							</p>
 						</div>
 					</div>
 				</div>
@@ -607,7 +604,6 @@ var params = {};
 							</h6>
 							<p style="margin-bottom:0"><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star-half-full"></span></p>
 							<p class="float-left">NT$ 4,348</p>
-							</p>
 						</div>
 					</div>
 				</div>
@@ -623,7 +619,6 @@ var params = {};
 							</h6>
 							<p style="margin-bottom:0"><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star-half-full"></span></p>
 							<p class="float-left">NT$ 1,221</p>
-							</p>
 						</div>
 					</div>
 				</div>
@@ -639,7 +634,6 @@ var params = {};
 							</h6>
 							<p style="margin-bottom:0"><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star-half-full"></span></p>
 							<p class="float-left">NT$ 3,297</p>
-							</p>
 						</div>
 					</div>
 				</div>
@@ -655,7 +649,6 @@ var params = {};
 							</h6>
 							<p style="margin-bottom:0"><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star-half-full"></span></p>
 							<p class="float-left">NT$ 2,763</p>
-							</p>
 						</div>
 					</div>
 				</div>
@@ -671,7 +664,6 @@ var params = {};
 							</h6>
 							<p style="margin-bottom:0"><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star-half-full"></span></p>
 							<p class="float-left">NT$ 3,217</p>
-							</p>
 						</div>
 					</div>
 
@@ -923,7 +915,7 @@ var params = {};
 	<script src="<c:url value='/voyage/js/jquery.magnific-popup.min.js' />"></script>
 	<script src="<c:url value='/voyage/js/aos.js' />"></script>
 	<script src="<c:url value='/voyage/js/jquery.animateNumber.min.js' />"></script>
-	<script src="<c:url value='/voyage/js/bootstrap-datepicker.js' />"></script>
+<%-- 	<script src="<c:url value='/voyage/js/bootstrap-datepicker.js' />"></script> --%>
 <%-- 	<script src="<c:url value='/voyage/js/jquery.timepicker.min.js' />"></script> --%>
 	<script src="<c:url value='/voyage/js/main.js' />"></script>
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>

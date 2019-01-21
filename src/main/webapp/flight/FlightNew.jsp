@@ -6,8 +6,8 @@
 	crossorigin="anonymous"></script>
 <!DOCTYPE html>
 <html lang="tw-zh">
-<link rel="stylesheet" type="text/css" media="all" href="css/tyle.css">
-<script type="text/javascript" src="js/cityTemplate.js"></script>
+<!-- <link rel="stylesheet" type="text/css" media="all" href="css/tyle.css"> -->
+<!-- <script type="text/javascript" src="js/cityTemplate.js"></script> -->
 
 <!-- import this css by Alex -->
 <!-- <link rel="stylesheet" href="css/main_styles.css"> -->
@@ -178,7 +178,7 @@
 									<img alt=""
 										src="<c:url value='/voyage/images/changeTwoPlace.png'/>"
 										width="25px" style="padding-top: 42px">
-									<div>
+									<div style="padding-left: 20px">
 										<span class="form-label">目的地</span> <input id='demo1'
 											name="landingPlace" type="text" class="search_input_1"
 											style="width: 450px" placeholder="請輸入機場/城市中英文或代碼"
@@ -187,13 +187,13 @@
 								</div>
 
 								<div style="display: inline-block; padding-right: 30px;">
-									<span class="form-label">出發日期</span> <input type="text"
+									<span class="form-label"style="display: block;">出發日期</span> <input type="text"
 										class="search_input_1" id="checkin_date"
 										placeholder="yyyy/MM/dd" name="takeoff_date"
 										autocomplete="off">
 								</div>
 								<div style="display: inline-block; padding-right: 30px;">
-									<span class="form-label">回程日期</span> <input type="text"
+									<span class="form-label" style="display: block;">回程日期</span> <input type="text"
 										class="search_input_1" placeholder="yyyy/MM/dd"
 										name="flyback_date" id="checkout_date" autocomplete="off">
 								</div>

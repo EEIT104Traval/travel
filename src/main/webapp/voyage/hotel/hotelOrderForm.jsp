@@ -40,6 +40,26 @@ body {
 	font-family: 'Noto Sans TC', sans-serif;
 }
 </style>
+
+<script type="text/javascript">
+	$(function () {
+		$('#datetimepicker1').datetimepicker();
+		function today(){
+			var d = new Date();
+			var curr_date = d.getDate();
+			var curr_month = d.getMonth() + 1;
+			var curr_year = d.getFullYear();
+			document.write(curr_date + "-" + curr_month + "-" + curr_year);
+		}
+    });
+</script>
+<script type="text/javascript">
+	$(function () {
+    	$('#datetimepicker2').datetimepicker();
+    });
+</script>
+
+
 </head>
 <script>
 	var accountName = "${sessionScope.accountName}"
@@ -156,7 +176,16 @@ body {
 														<div id="card-element-174917" class="collapse show">
 															<div class="card-body">
 																<div>
-																	<span><input type="text" placeholder="優惠代碼"></span>
+																
+																<div class="row" style="margin: 0">
+																	<div class="col-md-4"  style="padding:0px; margin-top:5px">
+																		<span><input type="text" style="padding:0px" placeholder="優惠代碼"></span>
+																	</div>
+																	<div class="col-md-8"  style="padding:0px">
+																		<button type="button" class="btn btn-danger">登入優惠</button>
+																	</div>
+																</div>
+																
 																</div>
 															</div>
 														</div>
@@ -199,7 +228,7 @@ body {
 									</div>
 									<div class="col-md-2">
 										<button type="button" class="btn btn-danger"
-											style="margin: 20px 0px 0px 10px">預訂</button>
+											style="margin: 20px 0px 0px 10px">訂購</button>
 									</div>
 								</div>
 								<div class="row">
@@ -263,10 +292,14 @@ body {
 											</div>
 											<div class="row">
 												<div class="col-md-5">
-													<p style="margin-left: 20px; padding: 0px; color:red">2019年1月19日</p>
+<!-- 													<p style="margin-left: 20px; padding: 0px; color:red">2019年1月19日</p> -->
+													<input type="text" data-provide="datepicker" id="datetimepicker1" 
+													style="margin-left: 18px; font-family: Noto Sans TC; width: 50%" placeholder="入住日期" >
 												</div>
 												<div class="col-md-5">
-													<p style="padding: 0px; color:red">2019年1月20日</p>
+<!-- 													<p style="padding: 0px; color:red">2019年1月20日</p> -->
+													<input type="text" data-provide="datepicker" id="datetimepicker2" 
+													style="font-family: Noto Sans TC; width: 50%" placeholder="退房日期">
 												</div>
 												<div class="col-md-2">
 													<p style="color:red">1 晚</p>
