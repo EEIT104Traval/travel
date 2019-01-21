@@ -111,7 +111,7 @@ public class HotelService {
 			RoomAvailableBean R = roomAvailableDAO.foundDate(checkIn);			
 //			新增訂單
 			HotelOrderDetailsBean Order = new HotelOrderDetailsBean();
-			Order.setOrderNo(2);
+		
 			Order.setHotelNo(hotelNo);
 			Order.setAccountName(accountName);
             Date newdate = new Date();
