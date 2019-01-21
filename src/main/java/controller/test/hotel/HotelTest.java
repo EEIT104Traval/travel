@@ -1,9 +1,6 @@
 package controller.test.hotel;
 
-import java.text.DateFormat;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -75,17 +72,15 @@ public class HotelTest {
 	}
 	@RequestMapping("/Hotelbuy")
 	public boolean qupdate()throws ParseException {
-		 DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
-	     java.util.Date today = dateFormat.parse("2019-2-5 00:00:00");
-	     java.util.Date today1 = dateFormat.parse("2019-2-6 00:00:00");
-	     java.util.Date utilDate = new java.util.Date(); 
-	  
-	     java.sql.Date sqlDate = new java.sql.Date(today.getTime());
-	     java.sql.Date sqlDate1 = new java.sql.Date(today1.getTime());
-//	     System.out.println(sqlDate);
-
-
-		ser.qupdate("micky", 4, "XX", "987654123", 8,sqlDate,sqlDate1, 3000);
+		String str="2019-02-03";
+		java.sql.Date x= java.sql.Date.valueOf(str);
+		String str1="2019-02-06";
+		java.sql.Date y= java.sql.Date.valueOf(str1);
+		System.out.println("----------------------------------------");
+		System.out.println("x="+x);
+		System.out.println("y="+y);
+		 
+		ser.qupdate("micky", 4, "XX", "987654123", 8,x,y, 3000);
 			return false;
 	}
 }

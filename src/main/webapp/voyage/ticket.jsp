@@ -6,8 +6,7 @@
 	crossorigin="anonymous"></script>
 <!DOCTYPE html>
 <html lang="tw-zh">
-<jsp:include page="nav.jsp" />
-<link rel="stylesheet" href="css/main_styles.css">
+	<link rel="stylesheet" href="css/main_styles.css">
 	<link rel="stylesheet" href="<c:url value='/voyage/css/open-iconic-bootstrap.min.css' />">
     <link rel="stylesheet" href="<c:url value='/voyage/css/animate.css' />">
     <link rel="stylesheet" href="<c:url value='/voyage/css/owl.carousel.min.css' />">
@@ -41,15 +40,6 @@ var params = {}
 		function back(){
 			ticketSearch1();
 		}
-				
-// 		function hotelSearch(){
-// 			params.countryCH = $('#country').val()			
-// 			params.cityCH = $('#city').val()
-// 			if(params.cityCH != "" && params.countryCH == ""){
-// 				citySearch()
-// 			}else if(params.cityCH == "" && params.countryCH != ""){
-// 				countrySearch()
-// 			}
 				
 		function ticketSearch1(){
 		params.country = $('#country').val();
@@ -190,6 +180,7 @@ var params = {}
 <body>
 	<!-- END nav -->
 	
+<jsp:include page="nav.jsp" />
 	<section class="home-slider owl-carousel">
 		<div class="slider-item"
 			style="background-image: url('images/bg_1.jpg');"

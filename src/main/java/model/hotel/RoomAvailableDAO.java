@@ -18,5 +18,5 @@ public interface RoomAvailableDAO {
 	
 	public abstract List<RoomAvailableBean> findRoomByDate(List<RoomTypeBean> list);
 	
-	public abstract RoomAvailableBean foundDate(java.util.Date date);
+	public abstract RoomAvailableBean foundDate(java.sql.Date date);
 }

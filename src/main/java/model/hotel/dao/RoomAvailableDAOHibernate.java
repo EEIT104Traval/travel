@@ -104,7 +104,7 @@ public class RoomAvailableDAOHibernate implements RoomAvailableDAO {
 	}
 
 	@Override
-	public RoomAvailableBean foundDate(Date date) {
+	public RoomAvailableBean foundDate(java.sql.Date date) {
 		
 		String hql = "from RoomAvailableBean where date = '"+date+"'" ;
 		

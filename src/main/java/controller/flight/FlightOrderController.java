@@ -18,6 +18,9 @@ import com.alipay.api.DefaultAlipayClient;
 import com.alipay.api.request.AlipayTradePagePayRequest;
 import com.alipay.config.AlipayConfig;
 
+import model.flight.FlightOrderInfoBean;
+import model.flight.FlightTicketBean;
+
 @Controller
 public class FlightOrderController {
 	
@@ -31,17 +34,20 @@ public class FlightOrderController {
 //	private FlightTicketBean FTBean;
 	
 	@RequestMapping("/FlightOrder")
-	public String method(Model model,
+	public String method(Model model,FlightOrderInfoBean FOIbean,FlightTicketBean FTbean,
 			String totalAmount,String takeOffPlace,String landingPlace,String goDay,
 			String goCompany,String goCode,String goCodeOnly,
 			String goAirEquipType,String goDeTime,
 			String backDay,String backDeplace,String backArplace,String backCodeOnly,
 			String backCompany,String flightNO,String backCode,String backAirEquipType
 			,String homi2,String backArTime,String backDeTime,String LastName0,String FirstName0,String LastName1,
-			String FirstName1,String contactLastNameCN,String contactGender,String accountName) {
+			String FirstName1,String contactLastNameCN,String contactGender,HttpServletRequest req) {
 		System.out.println("contactGender="+contactGender);
 		System.out.println("backDeTime="+backDeTime);
-		System.out.println("accountName="+accountName);
+		System.out.println("確定是否有執行到這ordercontroller裡");
+//		System.out.println("accountName="+accountName);
+//		System.out.println("accountName="+accountName);
+//		System.out.println("accountName="+accountName);
 		Double RMBAmountZ = Double.parseDouble(totalAmount.substring(3))/4.5;
 		
 		float RMBAmount = (float)(Math.round(RMBAmountZ*100))/100;
