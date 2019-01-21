@@ -23,7 +23,7 @@ import model.hotel.dao.RoomTypeDAOHibernate;
 //	 @ResponseBody(每一個@RequestMapping上面都要寫)
 	 @RequestMapping("/RoomTypefindByPK")
 	 public RoomTypeBean method() {
-		 RoomTypeBean pk = dao.findByPrimaryKey(1);  
+		 RoomTypeBean pk = dao.findByPrimaryKey(8);  
 	  return pk;
 	 } 
 	 

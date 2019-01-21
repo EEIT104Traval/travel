@@ -95,7 +95,7 @@ public class TicketInfoService {
 
 	public boolean qupdate(String accountName, Integer ticketNo, Integer adultTicketSellQ, Integer adultTicketPrice)
 			throws ParseException {
-//		TicketInfoBean bean = new TicketInfoBean();
+
 		TicketOrderInfoBean bean = new TicketOrderInfoBean();
 		if (ticketNo != null) {
 			TicketInfoBean TI = ticketInfoDAO.findByPrimaryKey(ticketNo);
@@ -163,10 +163,6 @@ public class TicketInfoService {
 		        {
 		            System.out.println(ex);
 		        }
-			
-			
-			
-			
 			return true;
 		} else {
 			return false;
