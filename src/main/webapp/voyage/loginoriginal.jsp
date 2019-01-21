@@ -78,11 +78,7 @@ function login(){
 		if(JData.xxx1==='Login failed'){
 			$('#loginerror').html('Login failed');
 		}else{
-			if(JData.xxx1.authority=='A001'){
-  	      		location.reload();
-			}else{
-				window.location="http://localhost:8080/Travel/後台管理/bindex.jsp"
-			}
+  	      location.reload();
 		}
 	});
 }
@@ -327,13 +323,7 @@ function login(){
                 		dataType: "json",
                 		success: function(json) {
                 			alert("Google登入成功!! Welcome: "+json.lastname);
-//                 			console.log(json);
-//                 			location.reload();
-                			if(json.authority=='A001'){
-                				location.reload();
-                			}else{
-                				window.location="http://localhost:8080/Travel/後台管理/bindex.jsp"
-                			}
+                			console.log(json);
                 		}
                 		
                 	});
