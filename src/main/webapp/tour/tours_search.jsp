@@ -339,10 +339,9 @@ iframe#_hjRemoteVarsFrame {
 									</div>
 									<div class="checkbox">
 										<input type="checkbox" id="checkbox-tourday-4"
-											name="checkbox-tourday-4"><label data-multifilter="1"
+											name="checkbox-tourday-4"><label 
 											for="checkbox-tourday-4" class="checkbox-label"><strong>10天以上</strong></label>
 									</div>
-										  <input type="checkbox" id="CheckAll"> I have a bike<br>
 								</div>
 							</div>
 							<div class="filter-criteria-item">
@@ -485,7 +484,7 @@ iframe#_hjRemoteVarsFrame {
 						<div id="nofind"
 							style="border-width: 3px; border-style: dashed; border-color: #FFAC55; padding: 5px;">
 							<i class="fa fa-exclamation-circle"> <span>
-									很抱歉，暫時無法找到符合您要求的商品，建議您~可放寬篩選條件，或改用其他條件 <a id="Snull">重新搜尋</a>
+									很抱歉，暫時無法找到符合您要求的商品，建議您~可放寬篩選條件，或改用其他條件 <a id="Snull" style="color:blue">重新搜尋</a>
 							</span>
 							</i>
 						</div>
@@ -494,15 +493,15 @@ iframe#_hjRemoteVarsFrame {
 								<div  class="infinite-scroll-component"
 									style="height: auto; overflow: initial;">
 									<c:forEach items="${tour}" var="element">
-										<article class="product-item tour">
-											<div data-category="2"class="container-fluid" style="border:4px #007bff solid;">
+										<article class="product-item tour" >
+											<div class="container-fluid" style="border:4px #007bff solid;">
 												<div class="row"
 													style="margin-right: -15px; margin-left: -1px;">
 													<div class="serach-img col-md-4 col-sm-5">
 														<a href="/product/GFG0000012035/AUKA9B90204A"
 															target="_blank"><img
 															style="width: 270px; "
-															alt="【直昇機體驗+無尾熊抱抱】春節東澳全覽九日(含雪梨夜遊及含小費)BM"
+															alt="${element.groupTourBean.tourName}"
 															class="img-responsive"
 															href="<c:url value='/voyage/index.jsp'/>"
 															<c:set var="a" value="${'/Travel/tour/Display2/images/'}${element.groupTourBean.tourPictureBean[0].pic}"  />
@@ -648,12 +647,14 @@ iframe#_hjRemoteVarsFrame {
 		$(document).ready(function() {
 			
 			$(".checkbox").click(function(){
+				alert("C");
 			if($("#checkbox-tourday-4").prop("checked")){
-				alert
-// 				alert("A"+$('article').find('div[id="ori-price"]').html());
-// 				console.log($('article').find('div[id="ori-price"]').html());
+				console.log($('.ori-price').text())
 			}
 			})
+			$('.7').click(function(){
+				alert("F");
+			});
 		
 // 			if($( ".filtr-item" ).filter( "#ori-price" ).text() > 10){
 				
@@ -668,13 +669,13 @@ iframe#_hjRemoteVarsFrame {
 			      slide: function( event, ui ) {
 // 			        $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
 			        $( "#amount1" ).text( ui.values[ 0 ]);
-			        $( "#amount2" ).text( ui.values[ 0 ]);
+			        $( "#amount2" ).text( ui.values[ 1 ]);
 			      }
 			    });
 // 			    $( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
 // 			      " - $" + $( "#slider-range" ).slider( "values", 1 ) );
 				$( "#amount1" ).text( $( "#slider-range" ).slider( "values", 0 ));
-				$( "#amount2" ).text( $( "#slider-range" ).slider( "values", 0 ));
+				$( "#amount2" ).text( $( "#slider-range" ).slider( "values", 1 ));
 			    console.log( $( "#amount1" ).text());
 // 				alert($("#amount").val().ui.values[ 0 ]);
 			//葉面刷心跳轉指定位置			
@@ -737,7 +738,6 @@ iframe#_hjRemoteVarsFrame {
 			$('#Cfilter5').click(function() {
 				$('#filter5').toggle("slow");
 			});
-			console.log("c=>"+${count});
 			if(${count}==0){
 				$('#nofind').show();
 			}
