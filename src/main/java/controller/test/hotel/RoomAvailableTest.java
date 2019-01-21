@@ -45,11 +45,11 @@ import model.hotel.dao.RoomAvailableDAOHibernate;
 		 return insert;
 	 }
 	  
-	 @RequestMapping("/RoomAvailableupdate")
-	 public RoomAvailableBean update() {
-		 RoomAvailableBean update = dao.update(2, 1, Date.valueOf("2019-01-02"), 300, 100, 200, 0);		  
-		 return update;
-	 }
+//	 @RequestMapping("/RoomAvailableupdate")
+//	 public RoomAvailableBean update() {
+//		 RoomAvailableBean update = dao.update(2, 1, Date.valueOf("2019-01-02"), 300, 100, 200, 0);		  
+//		 return update;
+//	 }
 	 
 	 @RequestMapping("/RoomAvailableremove")
 	 public boolean remove() {
@@ -57,5 +57,10 @@ import model.hotel.dao.RoomAvailableDAOHibernate;
 		 return false; 
 	 } 
 
+	 @RequestMapping("/RoomAvailableDate")
+	 public RoomAvailableBean foundDate() {
+		 RoomAvailableBean foundDate = dao.foundDate(Date.valueOf("2019-02-01"));
+		return foundDate;
+	 }
 }
 	

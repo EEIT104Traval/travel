@@ -7,7 +7,7 @@
 </script>
 <!DOCTYPE html>
 <html lang="zh-tw">
-
+<link rel="icon" href="<c:url value='/voyage/favicon.ico' />">
 <link rel="stylesheet" href="<c:url value='/voyage/css/open-iconic-bootstrap.min.css' />">
 <link rel="stylesheet" href="<c:url value='/voyage/css/animate.css' />">
 <link rel="stylesheet" href="<c:url value='/voyage/css/owl.carousel.min.css' />">
@@ -15,7 +15,7 @@
 <link rel="stylesheet" href="<c:url value='/voyage/css/magnific-popup.css' />">
 <link rel="stylesheet" href="<c:url value='/voyage/css/aos.css' />">
 <link rel="stylesheet" href="<c:url value='/voyage/css/ionicons.min.css' />">
-<link rel="stylesheet" href="<c:url value='/voyage/css/bootstrap-datepicker.css' />">
+<%-- <link rel="stylesheet" href="<c:url value='/voyage/css/bootstrap-datepicker.css' />"> --%>
 <%-- <link rel="stylesheet" href="<c:url value='/voyage/css/jquery.timepicker.css' />"> --%>
 <link rel="stylesheet" href="<c:url value='/voyage/css/flaticon.css' />">
 <link rel="stylesheet" href="<c:url value='/voyage/css/icomoon.css' />">
@@ -915,7 +915,7 @@ var params = {};
 	<script src="<c:url value='/voyage/js/jquery.magnific-popup.min.js' />"></script>
 	<script src="<c:url value='/voyage/js/aos.js' />"></script>
 	<script src="<c:url value='/voyage/js/jquery.animateNumber.min.js' />"></script>
-	<script src="<c:url value='/voyage/js/bootstrap-datepicker.js' />"></script>
+<%-- 	<script src="<c:url value='/voyage/js/bootstrap-datepicker.js' />"></script> --%>
 <%-- 	<script src="<c:url value='/voyage/js/jquery.timepicker.min.js' />"></script> --%>
 	<script src="<c:url value='/voyage/js/main.js' />"></script>
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>

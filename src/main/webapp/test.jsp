@@ -132,6 +132,7 @@
 	<a href="<c:url value='Hoteltestupdate' />">Hoteltestupdate</a>
 	<a href="<c:url value='Hoteltestremove' />">Hoteltestremove</a>
 	<a href="<c:url value='Hotelsearch' />">Hotelsearch</a>
+	<a href="<c:url value='Hotelbuy' />">Hotelbuy</a>
 	<hr />
 
 	<a href="<c:url value='/RoomTypefindByPK' />">RoomTypefindByPK</a>
@@ -155,6 +156,7 @@
 	<a href="<c:url value='/RoomAvailablecreate' />">RoomAvailablecreate</a>
 	<a href="<c:url value='/RoomAvailableupdate' />">RoomAvailableupdate</a>
 	<a href="<c:url value='/RoomAvailableremove' />">RoomAvailableremove</a>
+	<a href="<c:url value='/RoomAvailableDate' />">RoomAvailableDate</a>
 	<hr />
 
 	<a href="<c:url value='/HotelOrderDetailsfindByPK' />">HotelOrderDetailsfindByPK</a>
