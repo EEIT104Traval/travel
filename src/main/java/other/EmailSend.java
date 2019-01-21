@@ -4,7 +4,7 @@
  * https://www.google.com/settings/security/lesssecureapps
  */
 
-package test;
+package other;
 
 /**
  *
@@ -21,10 +21,10 @@ public class EmailSend {
             String host ="smtp.gmail.com" ;
             String user = "sherrysherry92@gmail.com";
             String pass = "jxrkaepvctpmffcs";
-            String to = "reese32@hotmail.com.tw";
+            String to = "sherrysherry92@gmail.com";
             String from = "sherry";
-            String subject = "收到這封信代表我成功寄出了信";
-            String messageText = "Hello! 你好嗎?";
+            String subject = "Time To Travel - 訂購明細";
+            String messageText = "您的訂單明細";
             boolean sessionDebug = false;
 
             Properties props = System.getProperties();
@@ -44,7 +44,11 @@ public class EmailSend {
             InternetAddress[] address = {new InternetAddress(to)};
             msg.setRecipients(Message.RecipientType.TO, address);
             msg.setSubject(subject); msg.setSentDate(new Date());
-            msg.setText(messageText);
+//            msg.setText(messageText);
+            
+            msg.setContent(
+                    "<h1>訂單明細</h1>",
+                   "text/html");
 
            Transport transport=mailSession.getTransport("smtp");
            transport.connect(host, user, pass);

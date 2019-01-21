@@ -27,19 +27,22 @@ html {
 	width: 980px;
 	height: auto;
 	color: white;
+	text-align:center;
 /*   	border: 1px solid white */
 }
 .boxmsg1 {
 	margin: auto;
 	width: 980px;
 	height: 400px;
-   	border: 1px solid white   
+   	border: 1px solid white;
+   	text-align:center; 
 }
 .boxmsg2 {
 	margin:auto;
 	width: 980px;
 	height: 350px;
-   	border: 1px solid white   
+   	border: 1px solid white;
+   	text-align:center; 
 }
 .title {
 	color: white
@@ -79,7 +82,7 @@ html {
 
     border-bottom: 2px solid #181818;
     border-top: 2px solid #303030;
-    min-width: 140px;
+    min-width: 110px;
 }
 .menu > li {
     display: block;

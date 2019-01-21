@@ -156,7 +156,16 @@ body {
 														<div id="card-element-174917" class="collapse show">
 															<div class="card-body">
 																<div>
-																	<span><input type="text" placeholder="優惠代碼"></span>
+																
+																<div class="row" style="margin: 0">
+																	<div class="col-md-4"  style="padding:0px; margin-top:5px">
+																		<span><input type="text" style="padding:0px" placeholder="優惠代碼"></span>
+																	</div>
+																	<div class="col-md-8"  style="padding:0px">
+																		<button type="button" class="btn btn-danger">登入優惠</button>
+																	</div>
+																</div>
+																
 																</div>
 															</div>
 														</div>
@@ -199,7 +208,7 @@ body {
 									</div>
 									<div class="col-md-2">
 										<button type="button" class="btn btn-danger"
-											style="margin: 20px 0px 0px 10px">預訂</button>
+											style="margin: 20px 0px 0px 10px">訂購</button>
 									</div>
 								</div>
 								<div class="row">

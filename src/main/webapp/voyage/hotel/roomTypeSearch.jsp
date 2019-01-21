@@ -98,11 +98,12 @@
 							<form action="#"
 								class="home_search_form" id="home_search_form" method="post">
 								<div class="d-flex flex-lg-row flex-column align-items-start justify-content-lg-between justify-content-start">
-									<input type="text" class="search_input" style="font-family: Noto Sans TC; width: 15%" placeholder="請輸入國家" id="country">
-									<input type="text" class="search_input" style="font-family: Noto Sans TC; width: 15%" placeholder="請輸入城市" id="city">
-									<input type="text" class="search_input" style="font-family: Noto Sans TC; width: 15%" id="checkin_date" placeholder="入住日期" >
-									<input type="text" class="search_input" style="font-family: Noto Sans TC; width: 15%" id="checkout_date" placeholder="退房日期">
-									<select type="text" class="search_input" style="font-family: Noto Sans TC; width: 15%" id="accommodate" placeholder="人數">
+									<input type="text" class="search_input" style="font-family: Noto Sans TC; width: 25%" placeholder="請輸入國家" id="country">
+									<input type="text" class="search_input" style="font-family: Noto Sans TC; width: 25%" placeholder="請輸入城市" id="city">
+<!-- 									<input type="text" class="search_input" style="font-family: Noto Sans TC; width: 15%" id="checkin_date" placeholder="入住日期" > -->
+<!-- 									<input type="text" class="search_input" style="font-family: Noto Sans TC; width: 15%" id="checkout_date" placeholder="退房日期"> -->
+									<select class="search_input" style="font-family: Noto Sans TC; width: 25%" id="accommodate">
+										<option>人數</option>
 										<option>1 人</option>
 										<option>2 人</option>
 										<option>3 人</option>
