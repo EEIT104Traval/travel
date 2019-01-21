@@ -276,10 +276,10 @@ iframe#_hjRemoteVarsFrame {
 								<div class="filter-criteria-item-option-area collapse in"
 									id="filter1" style="">
 									<div class="filter-criteria-item-text">
-<!-- 										$<span>62,800</span> ~ $<span>92,900</span> -->
-									<span>	
-                                  	 <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
- 									</span>
+										$<span id="amount1"></span> ~ $<span id="amount2"></span>
+<!-- 									<span>	 -->
+<!--                                   	 <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;"> -->
+<!--  									</span> -->
 
 									</div>
 								
@@ -339,9 +339,10 @@ iframe#_hjRemoteVarsFrame {
 									</div>
 									<div class="checkbox">
 										<input type="checkbox" id="checkbox-tourday-4"
-											name="checkbox-tourday-4"><label
+											name="checkbox-tourday-4"><label data-multifilter="1"
 											for="checkbox-tourday-4" class="checkbox-label"><strong>10天以上</strong></label>
 									</div>
+										  <input type="checkbox" id="CheckAll"> I have a bike<br>
 								</div>
 							</div>
 							<div class="filter-criteria-item">
@@ -489,12 +490,12 @@ iframe#_hjRemoteVarsFrame {
 							</i>
 						</div>
 						<section class="product-list">
-							<div>
-								<div class="infinite-scroll-component"
+							<div id="filtr-item">
+								<div  class="infinite-scroll-component"
 									style="height: auto; overflow: initial;">
 									<c:forEach items="${tour}" var="element">
 										<article class="product-item tour">
-											<div class="container-fluid" style="border:4px #007bff solid;">
+											<div data-category="2"class="container-fluid" style="border:4px #007bff solid;">
 												<div class="row"
 													style="margin-right: -15px; margin-left: -1px;">
 													<div class="serach-img col-md-4 col-sm-5">
@@ -545,7 +546,7 @@ iframe#_hjRemoteVarsFrame {
 														<div class="row">
 															<div class="col-md-12 col-xs-8">
 																<div class="price">
-																	<div class="ori-price">${element.groupTourBean.tourDays}天</div>
+																	<div id="ori-price" class="ori-price">${element.groupTourBean.tourDays}天</div>
 																	<div>
 																		<span class="price-uni">$</span>${element.price_adult }<em>起</em>
 																	</div>
@@ -646,20 +647,36 @@ iframe#_hjRemoteVarsFrame {
 	<script>	
 		$(document).ready(function() {
 			
+			$(".checkbox").click(function(){
+			if($("#checkbox-tourday-4").prop("checked")){
+				alert
+// 				alert("A"+$('article').find('div[id="ori-price"]').html());
+// 				console.log($('article').find('div[id="ori-price"]').html());
+			}
+			})
+		
+// 			if($( ".filtr-item" ).filter( "#ori-price" ).text() > 10){
+				
+// 			}
+// 			$('.filtr-item').filterizr();
 
 			$( "#slider-range" ).slider({
 			      range: true,
 			      min: 0,
 			      max: 99999,
-			      values: [ 19999, 89999 ],
+			      values: [ 9999, 89999 ],
 			      slide: function( event, ui ) {
-			        $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+// 			        $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+			        $( "#amount1" ).text( ui.values[ 0 ]);
+			        $( "#amount2" ).text( ui.values[ 0 ]);
 			      }
 			    });
-			    $( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
-			      " - $" + $( "#slider-range" ).slider( "values", 1 ) );
-			    
-			
+// 			    $( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
+// 			      " - $" + $( "#slider-range" ).slider( "values", 1 ) );
+				$( "#amount1" ).text( $( "#slider-range" ).slider( "values", 0 ));
+				$( "#amount2" ).text( $( "#slider-range" ).slider( "values", 0 ));
+			    console.log( $( "#amount1" ).text());
+// 				alert($("#amount").val().ui.values[ 0 ]);
 			//葉面刷心跳轉指定位置			
 			document.getElementById("here").scrollIntoView();
 			
@@ -756,6 +773,8 @@ iframe#_hjRemoteVarsFrame {
 	<script src="<c:url value='/voyage/js/main.js' />"></script>
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!-- 	<script src="http://libs.baidu.com/jquery/3.0.0/jquery.min.js"></script> -->
+<%--     <script src="<c:url value='/voyage/js/jquery.filterizr.js' />"></script> --%>
 	<jsp:include page="/voyage/foo.jsp"></jsp:include>
 
 </body>
