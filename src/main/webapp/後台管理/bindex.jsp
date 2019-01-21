@@ -24,6 +24,7 @@ src="https://code.jquery.com/jquery-3.3.1.js"integrity="sha256-2Kok7MbOyxpgUVvAk
 			type : 'get',
 			dataType : 'text',
 		}).done(function(e) {
+			alert("登出成功")
 			window.location="http://localhost:8080/Travel/voyage/index.jsp";
 		})
 	}
