@@ -42,7 +42,7 @@ public class GroupTourController {
 //					
 //				});
 				
-//				
+				
 //				for( GroupTourBean item : result) {
 //					List<TourBatchBean> tourBatchBeans = item.getTourBatchBean();
 //					for( TourBatchBean tourBatchBean : tourBatchBeans ) {
