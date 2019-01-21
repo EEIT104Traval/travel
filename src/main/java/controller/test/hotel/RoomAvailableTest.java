@@ -60,6 +60,7 @@ import model.hotel.dao.RoomAvailableDAOHibernate;
 	 @RequestMapping("/RoomAvailableDate")
 	 public RoomAvailableBean foundDate() {
 		 RoomAvailableBean foundDate = dao.foundDate(Date.valueOf("2019-02-01"));
+		 System.out.println(foundDate);
 		return foundDate;
 	 }
 }

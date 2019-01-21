@@ -102,14 +102,13 @@ public class HotelService {
 	
 //-----------------------------------------訂購房間----------------------------------------------------------
 	
-	public boolean qupdate(String accountName, Integer hotelNo, String bookingPerson, String phone, Integer roomTypeNo ,java.util.Date checkIn,java.util.Date checkOut ,Integer roomPrice)
+	public boolean qupdate(String accountName, Integer hotelNo, String bookingPerson, String phone, Integer roomTypeNo ,java.sql.Date checkIn,java.sql.Date checkOut ,Integer roomPrice)
 			throws ParseException {
 //		HotelOrderDetailsBean bean = new HotelOrderDetailsBean();
 		if (hotelNo != null) {
 			HotelBean TI = hotelDAO.findByPrimaryKey(hotelNo);
 			RoomTypeBean Q = roomTypeDAO.findByPrimaryKey(roomTypeNo);
-			RoomAvailableBean R = roomAvailableDAO.foundDate(checkIn);
-			
+			RoomAvailableBean R = roomAvailableDAO.foundDate(checkIn);			
 //			新增訂單
 			HotelOrderDetailsBean Order = new HotelOrderDetailsBean();
 			Order.setOrderNo(2);
@@ -124,23 +123,25 @@ public class HotelService {
 			Order.setCheckOut(checkOut);
 			Order.setPhone(Q.getRoomType());
 			Order.setRoomPrice(roomPrice);
-			Integer day=0;
+			Integer day;
 	        java.util.Date beginDate = checkIn;
 	        java.util.Date endDate = checkOut;
             day=(int) ((endDate.getTime()-beginDate.getTime())/(24*60*60*1000));    
 			Order.setStayNights(day);
 			Order.setTotalPrice((roomPrice*day));
 			hotelOrderDetailsDAO.create(Order);
+			System.out.println("===========");
+			System.out.println(Order);
+			System.out.println(day);
 //			庫存減少		
-			for (int i = 1 ; i >= day ; i++) {
-				RoomAvailableBean room = new RoomAvailableBean();
+			for (int i = 0 ; i <= day ; i++) {	
 				Long x = (checkIn.getTime()+i*86400000);
-				java.util.Date checkIn1 = new Date(x);
-				roomAvailableDAO.foundDate(checkIn1);
-				room.setSale(room.getSale()-1);
-				room.setAvailable(room.getAvailable()+1);
-				room.setSerialNo(room.getSerialNo());
+				java.sql.Date checkIn1 = new java.sql.Date(x);
+				RoomAvailableBean room =roomAvailableDAO.foundDate(checkIn1);
+				room.setSale((room.getSale()-1));
+				room.setAvailable((room.getAvailable()+1));
 				roomAvailableDAO.update(room);			
+			
 			}
 			return true;
 		}
