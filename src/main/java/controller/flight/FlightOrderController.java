@@ -34,7 +34,7 @@ public class FlightOrderController {
 			String FirstName1,String contactLastNameCN,String contactGender,HttpServletRequest req) {
 		System.out.println("contactGender="+contactGender);
 		System.out.println("backDeTime="+backDeTime);
-		
+		System.out.println("確定是否有執行到這ordercontroller裡");
 		Double RMBAmountZ = Double.parseDouble(totalAmount.substring(3))/4.5;
 		
 		float RMBAmount = (float)(Math.round(RMBAmountZ*100))/100;
