@@ -138,9 +138,10 @@ public class LoginController {
 	 @ResponseBody
 	// @RequestMapping("/userInfoupdate")
 	 @RequestMapping("/secure/gorfbLogin")
-	 public UserInfoBean update(String loginId) {
+	 public UserInfoBean update(String loginId , Model model) {
 		 
-		 UserInfoBean update = userInfoService.gorfbLoginUpdateTime(loginId);		  
+		 UserInfoBean update = userInfoService.gorfbLoginUpdateTime(loginId);
+		 model.addAttribute("user",update.getLastname()+" "+update.getFirstname());
 		 return update;	  		  
 	 }
 }

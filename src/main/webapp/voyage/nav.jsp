@@ -8,26 +8,33 @@
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<style>
+.navbar-expand-lg .navbar-nav {
+	/* -webkit-box-orient: horizontal; */
+	flex-flow: row;
+	margin: auto;
+}
+</style>
 <!--     <style>.menu a:link{background-color: black}</style> -->
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script>
 	$(document).ready(function() {
-			var user = '${user}';
-			var len = user.length;
-			if (len) {
-					$("#login").html('')
-					// 		$("#login").html(
-					// 			"<div class='dropdown'>"
-					// 				+"<button class='btn btn-secondary dropdown-toggle' type='button' id='dropdownMenuButton' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>"
-					// 					+"Hello!　${user}</button>"
-					// 		  		+"<div class='dropdown-menu' aria-labelledby='dropdownMenuButton'>"
-					// 		    		+"<a class='dropdown-item' href='#'>會員資料修改</a>"
-					// 		    		+"<a class='dropdown-item' href='#'>交易明細查詢</a>"
-					// 		    		+"<a class='dropdown-item' href='#'>登出</a>"
-					// 		  		+"</div>"
-					// 			+"</div>)"
-					// 			)
-			}
+		var user = '${user}';
+		var len = user.length;
+		if (len) {
+			$("#login").html('')
+			// 		$("#login").html(
+			// 			"<div class='dropdown'>"
+			// 				+"<button class='btn btn-secondary dropdown-toggle' type='button' id='dropdownMenuButton' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>"
+			// 					+"Hello!　${user}</button>"
+			// 		  		+"<div class='dropdown-menu' aria-labelledby='dropdownMenuButton'>"
+			// 		    		+"<a class='dropdown-item' href='#'>會員資料修改</a>"
+			// 		    		+"<a class='dropdown-item' href='#'>交易明細查詢</a>"
+			// 		    		+"<a class='dropdown-item' href='#'>登出</a>"
+			// 		  		+"</div>"
+			// 			+"</div>)"
+			// 			)
+		}
 	});
 
 	function signout() {
@@ -53,7 +60,7 @@
 		id="ftco-navbar">
 		<div class="container">
 			<img alt="" src="<c:url value='/voyage/images/TTT.png' />"
-				width="250px" height:auto;>
+				width="250px"height:auto;>
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#ftco-nav" aria-controls="ftco-nav"
 				aria-expanded="false" aria-label="Toggle navigation">
@@ -77,20 +84,20 @@
 				</ul>
 			</div>
 		</div>
-		<div style="color: #fff">
+		<div>
 			<div id="login">
 				<jsp:include page="login.jsp" />
 			</div>
 			<c:if test="${not empty user}">
-<%-- 				<c:out value="<h4 style='color:#fff'>Hello!　${user}</h4>" escapeXml="false" /> --%>
+				<%-- 				<c:out value="<h4 style='color:#fff'>Hello!　${user}</h4>" escapeXml="false" /> --%>
 				<!-- Example single danger button -->
 				<div class="btn-group">
-					<button type="button"  class="btn btn-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size:30px">
-						${user}
-					</button>
+					<button type="button" class="btn btn-link" data-toggle="dropdown"
+						aria-haspopup="true" aria-expanded="false" style="font-size: 30px">
+						${user}</button>
 					<div class="dropdown-menu dropdown-menu-right">
-						<a class="dropdown-item" href="##">查詢訂單</a> 
-						<a class="dropdown-item" href="##">資料/密碼修改</a> 
+						<a class="dropdown-item" href="##">查詢訂單</a> <a
+							class="dropdown-item" href="##">資料/密碼修改</a>
 						<div class="dropdown-divider">這個是什麼</div>
 						<a onclick="signout()" class="dropdown-item" href="##">登出</a>
 					</div>

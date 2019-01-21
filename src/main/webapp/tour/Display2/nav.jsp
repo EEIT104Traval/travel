@@ -9,24 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script>
-$(document).ready(function() {
-	var user = '${user}';
-	var len = user.length;
-	if(len){
-		$("#login").html('<button id="signout" type="button" onclick="signout()" class="btn btn-link">登出</button>')
-	}
-});
-	
-// 	$('#signout').click(signout());
-	function signout(){
-		$.ajax({
-			url : '/Travel/secure/log_out.controller',
-			type : 'get',
-			dataType : 'text',
-		}).done(function(e) {
-	      window.location.reload();
-		})
-	}
+
 </script>
   </head>
   <body>
@@ -45,7 +28,6 @@ $(document).ready(function() {
             <li class="nav-item"><a href="<c:url value='/flight/FlightNew.jsp'/>" class="nav-link">機票</a></li>
             <li class="nav-item"><a href="<c:url value='/voyage/ticket.jsp'/>" class="nav-link">門票</a></li>
             <li class="nav-item"><a href="<c:url value='/rate/rateindex2.jsp'/>" class="nav-link">查詢匯率</a></li>
-<%--             <li class="nav-item"><a href="<c:url value='/voyage/contact.html'/>" class="nav-link">聯絡我們</a></li> --%>
           </ul>
         </div>  
       </div>
