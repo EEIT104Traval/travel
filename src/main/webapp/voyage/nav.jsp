@@ -84,7 +84,7 @@
 				</ul>
 			</div>
 		</div>
-		<div style="color: #fff">
+		<div>
 			<div id="login">
 				<jsp:include page="login.jsp" />
 			</div>
