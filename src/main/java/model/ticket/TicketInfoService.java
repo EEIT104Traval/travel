@@ -6,10 +6,20 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Properties;
+
+import javax.mail.Message;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
+
+import model.userInfo.UserInfoBean;
+import model.userInfo.UserInfoDAO;
 
 @Service
 public class TicketInfoService {
@@ -18,7 +28,11 @@ public class TicketInfoService {
 	private TicketInfoDAO ticketInfoDAO = null;
 	@Autowired
 	private TicketOrderInfoDAO ticketOrderInfoDAO = null;
-
+	@Autowired
+	private UserInfoDAO userInfoDAO = null;
+//	@Autowired
+//	private UserInfoBean userInfoBean = null;
+	
 	public SimpleDateFormat sdFormat = new SimpleDateFormat("yyyy/MM/dd");
 
 	
@@ -90,7 +104,7 @@ public class TicketInfoService {
 			TI.setAdultTicketSellQ(SaveQ);
 			TI.setAdultTicketSelledQ(TI.getAdultTicketSelledQ() + adultTicketSellQ);
 			ticketInfoDAO.qupdate(TI);
-			// --------------------------(↑購買更改庫存數量 )(↓購買更改訂單表格)---------------------------
+			// ------------------(↑購買更改庫存數量 )(↓購買更改訂單表格)---------------------------
 			TicketOrderInfoBean TOI = ticketOrderInfoDAO.create(bean);
 			TOI.setAccountName(accountName);
 			TOI.setTicketNo(ticketNo);
@@ -101,7 +115,58 @@ public class TicketInfoService {
 			TOI.setAdultTicketCount(adultTicketSellQ);
 			Integer TT = adultTicketSellQ * adultTicketPrice;
 			TOI.setTotalPrice(TT);
+			// ------------------(↑購買更改訂單表格 )(↓寫信件給客戶)--------------------------------------------
+			UserInfoBean ubean = userInfoDAO.findByPrimaryKey(accountName);
+			 try{
+		            String host ="smtp.gmail.com" ;
+		            String user = "sherrysherry92@gmail.com";
+		            String pass = "jxrkaepvctpmffcs";
+		            String to = ubean.getEmail();
+//		            String to = "reese32@hotmail.com.tw";
+		            String from = "sherry";
+		            String subject = "Time To Travel";
+		            SimpleDateFormat sdFormat = new SimpleDateFormat("yyyy/MM/dd hh:mm:ss");
+		            Date newdate = new Date();
+		            String sDate = sdFormat.format(newdate);
+//-------------------------信件內容格式------------------------------	
+		            
+		            String messageText = "親愛的"+accountName+"你好，你於"+sDate+"購入了"+ticketNo+"："+adultTicketSellQ+"張，共"+(adultTicketSellQ*adultTicketPrice)+"元";
+		            
+		            boolean sessionDebug = false;
 
+		            Properties props = System.getProperties();
+
+		            props.put("mail.smtp.starttls.enable", "true");
+		            props.put("mail.smtp.host", host);
+		            props.put("mail.smtp.port", "587");
+		            props.put("mail.smtp.auth", "true");
+		            props.put("mail.smtp.starttls.required", "true");
+		            props.put("mail.smtp.ssl.trust", "smtp.gmail.com");
+
+		            java.security.Security.addProvider(new com.sun.net.ssl.internal.ssl.Provider());
+		            Session mailSession = Session.getDefaultInstance(props, null);
+		            mailSession.setDebug(sessionDebug);
+		            Message msg = new MimeMessage(mailSession);
+		            msg.setFrom(new InternetAddress(from));
+		            InternetAddress[] address = {new InternetAddress(to)};
+		            msg.setRecipients(Message.RecipientType.TO, address);
+		            msg.setSubject(subject); msg.setSentDate(new Date());
+		            msg.setText(messageText);
+	
+
+		           Transport transport=mailSession.getTransport("smtp");
+		           transport.connect(host, user, pass);
+		           transport.sendMessage(msg, msg.getAllRecipients());
+		           transport.close();
+		           System.out.println("message send successfully");
+		        }catch(Exception ex)
+		        {
+		            System.out.println(ex);
+		        }
+			
+			
+			
+			
 			return true;
 		} else {
 			return false;
