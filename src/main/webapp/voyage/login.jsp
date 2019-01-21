@@ -327,7 +327,13 @@ function login(){
                 		dataType: "json",
                 		success: function(json) {
                 			alert("Google登入成功!! Welcome: "+json.lastname);
-                			console.log(json);
+//                 			console.log(json);
+//                 			location.reload();
+                			if(json.authority=='A001'){
+                				location.reload();
+                			}else{
+                				window.location="http://localhost:8080/Travel/後台管理/bindex.jsp"
+                			}
                 		}
                 		
                 	});
