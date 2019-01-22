@@ -97,6 +97,7 @@ var hotelOrderDetailsBean ;
 <th style="width:50px">數量</th>
 <th style="width:200px">購買日期</th>
 <th style="width:100px">總價格</th>
+<th style="width:100px">刪除</th>
 </table>
 <div class="row" id="searchuser"></div>
 </div>

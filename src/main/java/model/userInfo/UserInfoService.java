@@ -1,11 +1,18 @@
 package model.userInfo;
 
 import java.sql.Timestamp;
-import java.util.*;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import model.flight.FlightOrderInfoBean;
+import model.flight.FlightOrderInfoDAO;
+import model.hotel.HotelBean;
+import model.hotel.HotelDAO;
 import model.hotel.HotelOrderDetailsBean;
 import model.hotel.HotelOrderDetailsService;
 import model.rate.RateNoticeBean;
@@ -39,7 +46,13 @@ public class UserInfoService {
 	@Autowired
 	private TourBatchDAO tourBatchDAO;	
 	@Autowired
-	private RateNoticeDAO rateNoticeDAO;	
+	private RateNoticeDAO rateNoticeDAO;
+	@Autowired
+	private HotelDAO hotelDAO = null;
+	@Autowired
+	private FlightOrderInfoDAO FOIDAO;
+	
+	
 
 	public UserInfoBean login(String accountName, String password) {
 		UserInfoBean bean = userInfoDAO.findByPrimaryKey(accountName);
@@ -103,6 +116,32 @@ public class UserInfoService {
 		return result;
 		
 	}
+	
+//----------------------------會員訂單修改---------------------------------
+	
+	public boolean orderModify(String accountName, Integer hotleNo, Integer ticketNo, Integer flightOrderNo) {
+		if(hotleNo != null) {
+			HotelBean HO = hotelDAO.findByPrimaryKey(hotleNo);	
+			//訂單數量修改
+			HotelOrderDetailsBean Order = new HotelOrderDetailsBean();	
+		}	
+		
+		if(ticketNo != null) {
+			TicketInfoBean TO =  ticketInfoDAO.findByPrimaryKey(ticketNo);
+			//訂單數量修改
+			TicketInfoBean order = new TicketInfoBean();
+			order.setAdultTicketSelledQ((order.getChildTicketSelledQ()+1));
+			ticketInfoDAO.update(order);		
+		}
+		
+		if(flightOrderNo != null) {
+			FlightOrderInfoBean FO =FOIDAO.findByPrimaryKey(flightOrderNo);
+			
+		}
+		return true;
+	}
+	
+	
 //--------------↓↓↓↓↓↓後台管理員使用專區↓↓↓↓↓↓-------------
 
 	public UserInfoBean findByAccountName(String user) {

@@ -1,5 +1,6 @@
 package controller.User;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.List;
@@ -144,4 +145,13 @@ public class LoginController {
 		 model.addAttribute("user",update.getLastname()+" "+update.getFirstname());
 		 return update;	  		  
 	 }
+	 
+		@ResponseBody
+//		@RequestMapping("/voyage/hotel/HotelOrder")
+		public String memberOrder(String accountName, Integer hotleNo, Integer ticketNo, Integer flightOrderNo) throws ParseException{
+			
+			userInfoService.orderModify(accountName, hotleNo, ticketNo, flightOrderNo);
+			
+			return "訂購成功";
+			}
 }
