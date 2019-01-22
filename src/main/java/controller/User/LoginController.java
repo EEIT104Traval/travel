@@ -147,7 +147,7 @@ public class LoginController {
 	 }
 	 
 		@ResponseBody
-		@RequestMapping("/voyage/hotel/HotelOrder")
+//		@RequestMapping("/voyage/hotel/HotelOrder")
 		public String memberOrder(String accountName, Integer hotleNo, Integer ticketNo, Integer flightOrderNo) throws ParseException{
 			
 			userInfoService.orderModify(accountName, hotleNo, ticketNo, flightOrderNo);
