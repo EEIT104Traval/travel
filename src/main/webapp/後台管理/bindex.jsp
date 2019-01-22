@@ -16,6 +16,9 @@ src="https://code.jquery.com/jquery-3.3.1.js"integrity="sha256-2Kok7MbOyxpgUVvAk
 </head>
 <script>
 	$(document).ready(function() {
+		$(":checkbox").click(function(){			
+			window.location.href="/Travel/voyage/index.jsp"			
+		});
 		
 	})
 	function signout() {
