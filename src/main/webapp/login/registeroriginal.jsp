@@ -26,11 +26,7 @@ function login(){
 		if(JData.xxx1==='Login failed'){
 			$('#loginerror').html('Login failed');
 		}else{
-			if(JData.xxx1.authority=='A001'){
-  	      		location.reload();
-			}else{
-				window.location="http://localhost:8080/Travel/後台管理/bindex.jsp"
-			}
+  	      location.reload();
 		}
 	});
 }
@@ -144,7 +140,7 @@ $( function() {
                     // Login API call is successful 
                     console.log(success);
                     let Google_ID = success["El"];
-                	document.getElementById("create-user").innerHTML='<span onclick="this.innerHTML=\'會員註冊/登入\'; alert(\'登出成功\')" >登出</span>';
+                	alert("登入成功!! Welcome ChuChu");
                 	$.ajax({
                 		method: "GET",
                 		url:"/Travel/secure/gorfbLogin?loginId="+Google_ID,
@@ -152,14 +148,7 @@ $( function() {
 //                			url:"/Travel/tour/display?tourNo=1",
                 		dataType: "json",
                 		success: function(json) {
-                			alert("Google登入成功!! Welcome: "+json.lastname);
-//                 			console.log(json);
-//                 			location.reload();
-                			if(json.authority=='A001'){
-                				location.reload();
-                			}else{
-                				window.location="http://localhost:8080/Travel/後台管理/bindex.jsp"
-                			}
+                			console.log(json)
                 		}
                 		
                 	});
@@ -264,8 +253,7 @@ function Del_FB_App() {
 									<div class="form-group">
 										<div class="row">
 											<div class="col-sm-6 col-sm-offset-3">
-												<input type="button" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login" value="登入" onclick="login()">
-											<input type="button" value="Login" onclick="login()">
+												<input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login" value="登入">
 											</div>
 										</div>
 									</div>
@@ -277,9 +265,9 @@ function Del_FB_App() {
 												</div>
 												<div>
 												<p>快速登入</p>
-													<img src="<c:url value='/login/images/facebook.jpg' />" onclick="FBLogin();" width="25%" height="25%"> 
-													<img src="<c:url value='/login/images/google01.jpg' />" onclick="GoogleLogin();" width="25%" height="25%"> 
-													<img src="<c:url value='/login/images/line.jpg' />" onclick="GoogleLogin();" width="25%" height="25%">
+													<img src="<c:url value='./images/facebook.png' />" onclick="FBLogin();" width="25%" height="25%"> 
+													<img src="<c:url value='./images/google01.png' />" onclick="GoogleLogin();" width="25%" height="25%"> 
+													<img src="<c:url value='./images/line.png' />" onclick="GoogleLogin();" width="25%" height="25%">
 												</div>
 											</div>
 										</div>
@@ -287,9 +275,7 @@ function Del_FB_App() {
 								</form>
 								<form id="register-form" action="<c:url value="/voyage/insert.controller" />" method="post" role="form" style="display: none;">
 									<div class="form-group">
-										<input type="text" name="accountName" id="accountName" tabindex="1" class="form-control" placeholder="帳號" value=""
-										 required  oninvalid="setCustomValidity('請輸入帳號');"   oninput="setCustomValidity('');"
-										>
+										<input type="text" name="accountName" id="accountName" tabindex="1" class="form-control" placeholder="帳號" value="">
 									</div>
 									<div class="form-group">
 										<input type="text" name="email" id="email" tabindex="1" class="form-control" placeholder="Email信箱" value="">

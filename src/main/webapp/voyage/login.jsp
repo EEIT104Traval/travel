@@ -216,9 +216,9 @@ function login(){
 			<input type="button" value="Login" onclick="login()">
 		
 			<p>快速登入</p>
-			<img src="<c:url value='/voyage/images/facebook.png' />" onclick="FBLogin();" width="32%" height="32%"> 
-			<img src="<c:url value='/voyage/images/google01.png' />" onclick="GoogleLogin();" width="32%" height="32%"> 
-			<img src="<c:url value='/voyage/images/line.png' />" onclick="GoogleLogin();" width="32%" height="32%">
+			<img src="<c:url value='/login/images/facebook.jpg' />" onclick="FBLogin();" width="32%" height="32%"> 
+			<img src="<c:url value='/login/images/google01.jpg' />" onclick="GoogleLogin();" width="32%" height="32%"> 
+			<img src="<c:url value='/login/images/line.jpg' />" onclick="GoogleLogin();" width="32%" height="32%">
 			<button	style="background-color: blue; color: white; margin-left: 100px; margin-top: 20px">新會員註冊</button>
 		</div>
 </form>
@@ -398,7 +398,7 @@ function Del_FB_App() {
 
 	<span id="create-user" style="color:#fff;"><span id="loginin" style="background:transparent; border: 0px;">會員註冊/登入</span></span>
 
-
+<%-- <li class="nav-item" style="list-style-type: none;color:white"><a href="<c:url value='/login/register1.jsp'/>" >會員註冊/登入</a></li> --%>
 
 </body>
 </html>
