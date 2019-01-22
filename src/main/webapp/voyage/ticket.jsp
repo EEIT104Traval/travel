@@ -76,6 +76,7 @@ var params = {}
 					'<p class="clearfix">'+
 						'<a	href="'+ value.traffic_information +'" class="float-left">Read more</a> <input type="image"	src="images/CK.png" data-toggle="modal" data-target="#exampleModal'+value.ticketNo+'" onClick="submit('+value.ticketNo+')" width="13%" style="float: right;">'+
 					'</p>'+
+					'<div>庫存餘額僅存  '+(value.adultTicketSellQ-value.adultTicketSelledQ)+' 張</div>'+
 				'</div>'+
 			'</div>'+
 			'</div>'+
