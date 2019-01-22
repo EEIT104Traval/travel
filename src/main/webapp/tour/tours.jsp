@@ -279,7 +279,7 @@
 					+"</a>"
 				+"</div>"
 				//形成標籤
-// 				tagcontents +='<a href="#idd" id="'+data.TourTagsBean[0].tag
+// 				tagcontents +=' <a href="#idd" id="'+data.TourTagsBean[0].tag
 // 				            +'" class="tag-cloud-link">'+data.TourTagsBean[0].tag
 // 				            +'</button>';
 					 
