@@ -27,7 +27,7 @@ public class TourTagsController {
 //			tourBatchBeans.forEach(t->{
 //				t.setGroupTourBean(null);
 //			});
-//			item.setTourBatchBean(tourBatchBeans);
+//			item.setTourBatchBean(tourBatchBeans) ;
 //			
 //		});
 		return result;

@@ -7,7 +7,7 @@
 </script>
 <!DOCTYPE html>
 <html lang="zh-tw">
-
+<link rel="icon" href="<c:url value='/voyage/favicon.ico' />">
 <link rel="stylesheet" href="<c:url value='/voyage/css/open-iconic-bootstrap.min.css' />">
 <link rel="stylesheet" href="<c:url value='/voyage/css/animate.css' />">
 <link rel="stylesheet" href="<c:url value='/voyage/css/owl.carousel.min.css' />">

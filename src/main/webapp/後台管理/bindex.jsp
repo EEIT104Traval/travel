@@ -16,11 +16,18 @@ src="https://code.jquery.com/jquery-3.3.1.js"integrity="sha256-2Kok7MbOyxpgUVvAk
 </head>
 <script>
 	$(document).ready(function() {
-		$(":checkbox").click(function(){
-			window.location.href="/Travel/voyage/index.jsp"		
-		});
+		
 	})
-
+	function signout() {
+		$.ajax({
+			url : '/Travel/secure/log_out.controller',
+			type : 'get',
+			dataType : 'text',
+		}).done(function(e) {
+			alert("登出成功")
+			window.location="http://localhost:8080/Travel/voyage/index.jsp";
+		})
+	}
 </script>
 <body>
 
@@ -63,7 +70,7 @@ src="https://code.jquery.com/jquery-3.3.1.js"integrity="sha256-2Kok7MbOyxpgUVvAk
 					<li><a href="bindex.jsp">管理者</a>
 						<ul class="submenu">
 							<li><a href="06_01.jsp">管理者帳號</a></li>
-							<li><a href="#">登出</a></li>
+							<li><a onclick="signout()" class="dropdown-item" href="##">登出</a></li>
 						</ul></li>
 					<li style="height:54px">
 						<div class="switch_demo">

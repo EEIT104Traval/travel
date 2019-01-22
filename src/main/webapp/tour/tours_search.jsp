@@ -276,10 +276,10 @@ iframe#_hjRemoteVarsFrame {
 								<div class="filter-criteria-item-option-area collapse in"
 									id="filter1" style="">
 									<div class="filter-criteria-item-text">
-<!-- 										$<span>62,800</span> ~ $<span>92,900</span> -->
-									<span>	
-                                  	 <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
- 									</span>
+										$<span id="amount1"></span> ~ $<span id="amount2"></span>
+<!-- 									<span>	 -->
+<!--                                   	 <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;"> -->
+<!--  									</span> -->
 
 									</div>
 								
@@ -339,7 +339,7 @@ iframe#_hjRemoteVarsFrame {
 									</div>
 									<div class="checkbox">
 										<input type="checkbox" id="checkbox-tourday-4"
-											name="checkbox-tourday-4"><label
+											name="checkbox-tourday-4"><label 
 											for="checkbox-tourday-4" class="checkbox-label"><strong>10天以上</strong></label>
 									</div>
 								</div>
@@ -484,16 +484,16 @@ iframe#_hjRemoteVarsFrame {
 						<div id="nofind"
 							style="border-width: 3px; border-style: dashed; border-color: #FFAC55; padding: 5px;">
 							<i class="fa fa-exclamation-circle"> <span>
-									很抱歉，暫時無法找到符合您要求的商品，建議您~可放寬篩選條件，或改用其他條件 <a id="Snull">重新搜尋</a>
+									很抱歉，暫時無法找到符合您要求的商品，建議您~可放寬篩選條件，或改用其他條件 <a id="Snull" style="color:blue">重新搜尋</a>
 							</span>
 							</i>
 						</div>
 						<section class="product-list">
-							<div>
-								<div class="infinite-scroll-component"
+							<div id="filtr-item">
+								<div  class="infinite-scroll-component"
 									style="height: auto; overflow: initial;">
 									<c:forEach items="${tour}" var="element">
-										<article class="product-item tour">
+										<article class="product-item tour" >
 											<div class="container-fluid" style="border:4px #007bff solid;">
 												<div class="row"
 													style="margin-right: -15px; margin-left: -1px;">
@@ -501,7 +501,7 @@ iframe#_hjRemoteVarsFrame {
 														<a href="/product/GFG0000012035/AUKA9B90204A"
 															target="_blank"><img
 															style="width: 270px; "
-															alt="【直昇機體驗+無尾熊抱抱】春節東澳全覽九日(含雪梨夜遊及含小費)BM"
+															alt="${element.groupTourBean.tourName}"
 															class="img-responsive"
 															href="<c:url value='/voyage/index.jsp'/>"
 															<c:set var="a" value="${'/Travel/tour/Display2/images/'}${element.groupTourBean.tourPictureBean[0].pic}"  />
@@ -545,7 +545,7 @@ iframe#_hjRemoteVarsFrame {
 														<div class="row">
 															<div class="col-md-12 col-xs-8">
 																<div class="price">
-																	<div class="ori-price">${element.groupTourBean.tourDays}天</div>
+																	<div id="ori-price" class="ori-price">${element.groupTourBean.tourDays}天</div>
 																	<div>
 																		<span class="price-uni">$</span>${element.price_adult }<em>起</em>
 																	</div>
@@ -646,20 +646,38 @@ iframe#_hjRemoteVarsFrame {
 	<script>	
 		$(document).ready(function() {
 			
+			$(".checkbox").click(function(){
+				alert("C");
+			if($("#checkbox-tourday-4").prop("checked")){
+				console.log($('.ori-price').text())
+			}
+			})
+			$('.7').click(function(){
+				alert("F");
+			});
+		
+// 			if($( ".filtr-item" ).filter( "#ori-price" ).text() > 10){
+				
+// 			}
+// 			$('.filtr-item').filterizr();
 
 			$( "#slider-range" ).slider({
 			      range: true,
 			      min: 0,
 			      max: 99999,
-			      values: [ 19999, 89999 ],
+			      values: [ 9999, 89999 ],
 			      slide: function( event, ui ) {
-			        $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+// 			        $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+			        $( "#amount1" ).text( ui.values[ 0 ]);
+			        $( "#amount2" ).text( ui.values[ 1 ]);
 			      }
 			    });
-			    $( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
-			      " - $" + $( "#slider-range" ).slider( "values", 1 ) );
-			    
-			
+// 			    $( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
+// 			      " - $" + $( "#slider-range" ).slider( "values", 1 ) );
+				$( "#amount1" ).text( $( "#slider-range" ).slider( "values", 0 ));
+				$( "#amount2" ).text( $( "#slider-range" ).slider( "values", 1 ));
+			    console.log( $( "#amount1" ).text());
+// 				alert($("#amount").val().ui.values[ 0 ]);
 			//葉面刷心跳轉指定位置			
 			document.getElementById("here").scrollIntoView();
 			
@@ -720,7 +738,6 @@ iframe#_hjRemoteVarsFrame {
 			$('#Cfilter5').click(function() {
 				$('#filter5').toggle("slow");
 			});
-			console.log("c=>"+${count});
 			if(${count}==0){
 				$('#nofind').show();
 			}
@@ -756,6 +773,8 @@ iframe#_hjRemoteVarsFrame {
 	<script src="<c:url value='/voyage/js/main.js' />"></script>
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!-- 	<script src="http://libs.baidu.com/jquery/3.0.0/jquery.min.js"></script> -->
+<%--     <script src="<c:url value='/voyage/js/jquery.filterizr.js' />"></script> --%>
 	<jsp:include page="/voyage/foo.jsp"></jsp:include>
 
 </body>

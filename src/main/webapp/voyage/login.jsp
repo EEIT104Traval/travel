@@ -393,9 +393,8 @@ function Del_FB_App() {
     </script>
 
 	</div>
-
-
-
+	
+	
 	<span id="create-user" style="color:#fff;"><span id="loginin" style="background:transparent; border: 0px;">會員註冊/登入</span></span>
 
 <%-- <li class="nav-item" style="list-style-type: none;color:white"><a href="<c:url value='/login/register1.jsp'/>" >會員註冊/登入</a></li> --%>

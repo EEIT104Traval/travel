@@ -178,7 +178,7 @@
 									<img alt=""
 										src="<c:url value='/voyage/images/changeTwoPlace.png'/>"
 										width="25px" style="padding-top: 42px">
-									<div>
+									<div style="padding-left: 20px">
 										<span class="form-label">目的地</span> <input id='demo1'
 											name="landingPlace" type="text" class="search_input_1"
 											style="width: 450px" placeholder="請輸入機場/城市中英文或代碼"
