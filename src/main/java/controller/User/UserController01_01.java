@@ -1,25 +1,27 @@
 package controller.User;
 
-import java.io.File;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
-import javax.servlet.http.HttpSession;
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletResponse;
 
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.multipart.MultipartFile;
 
 import model.ticket.TicketInfoBean;
 import model.ticket.TicketInfoDAO;
 import model.ticket.TicketInfoService;
+import model.tour.TourOrderInfoBean;
 import model.tour.service.TourOrderInfoService;
 import model.userInfo.UserInfoBean;
 import model.userInfo.UserInfoService;
@@ -81,14 +83,35 @@ public class UserController01_01 {
 	
 	@ResponseBody
 	@RequestMapping("/bindex02_01/User.controller")
-	public Map<String, List<?>> method0201(@RequestParam(value = "month", required = false)Integer month) {
+	public List<TourOrderInfoBean> method0201(@RequestParam(value = "month", required = false)Integer month) {
 		
 		System.out.println("month=" + month);
 		
-		Map<String, List<?>> result = null;
+		List<TourOrderInfoBean> result = null;
 		result = tourOrderInfoService.findBuyMonth(month);
 
 		return result;
+	}
+		   
+		   @RequestMapping("/export.do")
+		   @ResponseBody
+		public  byte[] export(HttpServletResponse response , Integer month){    
+	    response.setContentType("application/binary;charset=UTF-8");
+	    byte[] x =null;
+	    try{
+	    	ServletOutputStream out=response.getOutputStream();
+	        String fileName=new String(("UserInfo "+ new SimpleDateFormat("yyyy-MM-dd").format(new Date())).getBytes(),"UTF-8");
+	        response.setHeader("Content-disposition", "attachment; filename=" + fileName + ".xls");
+	        response.setContentType("application/binary;charset=UTF-8");
+	        String[] titles = { "國家" , "名稱", "數量", "購買日期","價格"};  
+	        HSSFWorkbook result = userInfoService.export(titles, out, month);
+	        System.out.println("result="+result);
+	        
+	    } catch(Exception e){
+	        e.printStackTrace();
+	        System.out.println("excel失敗");
+	    }
+		return x;
 	}
 
 	@ResponseBody

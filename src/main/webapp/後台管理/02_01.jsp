@@ -40,15 +40,15 @@ var sum = 0;
  					 
  					 	console.log("-------------------------------------");
 						console.log(JData);
-						if(JData.TourOrderInfoBean != null){
-  							for(var i = 0;i<JData.TourOrderInfoBean.length;i++){
-  								var x = JData.TourOrderInfoBean[i].total
+						if(JData != null){
+  							for(var i = 0;i<JData.length;i++){
+  								var x = JData[i].total
 	 							$("#searchuser").append(		
-	 		 							'<table ><th style="width:50px">'+ JData.TourOrderInfoBean[i].country +'</th>'+
-	 		 									'<th style="width:350px">'+ JData.TourOrderInfoBean[i].tourName +'</th>'+
-	 		 							        '<th style="width:50px">'+ JData.TourOrderInfoBean[i].quantity +'</th>'+
-	 		 							        '<th style="width:200px">'+ JData.TourOrderInfoBean[i].orderTime +'</th>'+
-	 		 							        '<th style="width:100px">'+ JData.TourOrderInfoBean[i].total +'</th></table>'	
+	 		 							'<table ><th style="width:50px">'+ JData[i].country +'</th>'+
+	 		 									'<th style="width:350px">'+ JData[i].tourName +'</th>'+
+	 		 							        '<th style="width:50px">'+ JData[i].quantity +'</th>'+
+	 		 							        '<th style="width:200px">'+ JData[i].orderTime +'</th>'+
+	 		 							        '<th style="width:100px">'+ JData[i].total +'</th></table>'	
 	 													)
 	 													sum = sum + x
 	 								 } $("#searchuser").append('<table><th style="width:50px">合計</th><th style="width:727px">'+ sum +'</th></table>')
@@ -58,6 +58,21 @@ var sum = 0;
 											})
 								})
 					});
+	
+	function TourOrder(){
+
+	console.log(params);		
+		$.ajax({
+				url : '/Travel/export.do',
+				contentType : 'application/json; charset=UTF-8',
+				type : 'get',
+				dataType : 'json',
+				data:params,
+			
+			   })
+			   
+	}
+					
 </script>
 </head>
 <body>
@@ -84,6 +99,7 @@ var sum = 0;
 			<option value="11">NOV</option>
 			<option value="12">DEC</option>　　　
           </select>
+            <button type="button" onclick="TourOrder()">下載EXCEL檔</button>
 <!--  -->
 	</div>
 	<div class="boxmsg" id="searchuser">

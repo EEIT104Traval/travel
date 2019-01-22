@@ -12,11 +12,11 @@
 <!--   crossorigin="anonymous"></script> -->
 <!-- <script src="../../js.jquery-3.2.1.min.js" type="text/javascript"></script> -->
 
-<script src="voyage/js/highcharts.js"></script>
-<script src="./voyage/js/data.js"></script>
-<script src="./voyage/js/series-label.js"></script>
-<script src="./voyage/js/exporting.js"></script>
-<script src="./voyage/js/export-data.js"></script>
+<script src="js/highcharts.js"></script>
+<script src="js/data.js"></script>
+<script src="js/series-label.js"></script>
+<script src="js/exporting.js"></script>
+<script src="./rate/js/export-data.js"></script>
 </head>
 <body>
 <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>

@@ -219,7 +219,9 @@ function login(){
 			<img src="<c:url value='/login/images/facebook.jpg' />" onclick="FBLogin();" width="32%" height="32%"> 
 			<img src="<c:url value='/login/images/google01.jpg' />" onclick="GoogleLogin();" width="32%" height="32%"> 
 			<img src="<c:url value='/login/images/line.jpg' />" onclick="GoogleLogin();" width="32%" height="32%">
-			<button	style="background-color: blue; color: white; margin-left: 100px; margin-top: 20px">新會員註冊</button>
+<!-- 			<button	style="background-color: blue; color: white; margin-left: 100px; margin-top: 20px">新會員註冊</button> -->
+			
+			<a class="dropdown-item" href="<c:url value='../login/newMemberRegister.jsp'/>">新會員註冊</a>
 		</div>
 </form>
 		<script>

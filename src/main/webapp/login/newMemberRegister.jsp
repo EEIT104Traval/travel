@@ -43,7 +43,7 @@ $( function() {
 					<div class="panel-heading">
 						<div class="row">
 							<div class="col-xs-6">
-								<a href="#" class="active" id="login-form-link" style="color:#00BBFF;margin-left: -120px">修改會員資料</a>
+								<a href="#" class="active" id="login-form-link" style="color:#00BBFF;margin-left: -120px">註冊會員資料</a>
 							</div>
 
 						</div>
@@ -90,7 +90,7 @@ $( function() {
 																		<div class="form-group">
 										<div class="row">
 											<div class="col-sm-6 col-sm-offset-3">
-												<input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login" value="資料修改">
+												<input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login" value="註冊">
 												<input type="button" value="清除" onclick="clearForm()" tabindex="4" class="form-control btn btn-login" style="margin-top: 10px">
 											</div>
 										</div>
