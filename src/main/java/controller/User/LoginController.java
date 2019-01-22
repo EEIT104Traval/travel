@@ -57,8 +57,8 @@ public class LoginController {
 	@ResponseBody
 	@RequestMapping(path= {"/voyage/userorder.controller"})
 	public Map<String, List<?>> getMemberOrder(@RequestParam(value="accountName",required=false)String user,
-			@RequestParam(value="orderNo",required=false)Integer tourorderNo,Integer ticketOrderNO,
-			@RequestParam(value="orderNo1",required=false)Integer hotelorderNo) {
+											   @RequestParam(value="orderNo",required=false)Integer tourorderNo,Integer ticketOrderNO,
+											   @RequestParam(value="orderNo1",required=false)Integer hotelorderNo) {
 		Map<String, List<?>> result = null;
 		Boolean result1 = null;
 		System.out.println("user="+user+"tourorderNo="+tourorderNo+"ticketOrderNO="+ticketOrderNO+"hotelorderNo="+hotelorderNo);

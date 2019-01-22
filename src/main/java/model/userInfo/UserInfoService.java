@@ -29,6 +29,7 @@ import model.rate.RateNoticeDAO;
 import model.ticket.TicketInfoBean;
 import model.ticket.TicketInfoDAO;
 import model.ticket.TicketOrderInfoBean;
+import model.ticket.TicketOrderInfoDAO;
 import model.ticket.TicketOrderInfoService;
 import model.tour.GroupTourBean;
 import model.tour.TourBatchBean;
@@ -39,13 +40,16 @@ import model.tour.service.TourOrderInfoService;
 
 @Service
 public class UserInfoService {
-
+	@Autowired
+	UserInfoService userInfoService;
 	@Autowired
 	private UserInfoDAO userInfoDAO = null;
 	@Autowired
 	private TourOrderInfoService tourOrderInfoService;
 	@Autowired
 	private TicketOrderInfoService ticketOrderInfoService;
+	@Autowired
+	private TicketOrderInfoDAO ticketOrderInfoDAO;
 	@Autowired
 	private HotelOrderDetailsService hotelOrderDetailsService;
 	@Autowired
@@ -151,6 +155,28 @@ public class UserInfoService {
 		return true;
 	}
 	
+	//-------------------------------測試-----------------------------
+	public String updateq(String accountName , Integer Q ,Integer ticketOrderNO,Integer ticketNo, Integer TourorderNo,Integer serialNo, Integer HotelorderNo,Integer hotelNo) {
+			
+		Map<String, List<?>> Order = null;
+		Order = userInfoService.findByPrimaryKey(accountName);
+		//先用map物件 找出 使用者  一個一個判斷
+		if(Order.get("TicketOrderInfoBean") != null) {
+			//可先做訂單移除
+			ticketOrderInfoDAO.remove(ticketOrderNO);
+			//把移除掉掉的訂單加回
+			TicketInfoBean Tt = ticketInfoDAO.findByPrimaryKey(ticketNo);
+			//本表格沒有庫存數量只有銷售數量  所以把銷售數量減退或數量
+			Tt.setAdultTicketSelledQ((Tt.getAdultTicketSelledQ()-Q));
+			ticketInfoDAO.update(Tt);
+		}else if() {
+			//以此類推...
+		}
+		
+	
+		
+		return "訂單取消完成";
+	}
 	
 //--------------↓↓↓↓↓↓後台管理員使用專區↓↓↓↓↓↓-------------
 
@@ -174,8 +200,10 @@ public class UserInfoService {
 
 		return result;
 	}
-	// --------------↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ 01_01
-	// Controller↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑-------------
+	
+	
+	
+	// --------------↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ 01_01 Controller↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑-------------
 
 	public Map<String, List<?>> findByPrimaryKey(String user) {
 
