@@ -229,6 +229,14 @@
    		var dt = new Date();
    		$('#checkin_date').val(dt.getFullYear()+"/"+dt.getMonth()+1+"/"+dt.getDate());
    		$('#checkout_date').val(dt.getFullYear()+"/"+dt.getMonth()+1+"/"+dt.getDate());
+   		$('#search').click(function(){
+   			if($('#tourS').val()==""){
+   				alert("想去哪裡玩??");
+   			    return false;
+   			    }
+   			else
+   				return true;
+   		});
    			
    		$('#tagcloud').on("mouseover","a",function(){
    			$(this).css('color','purple').css('background','yellow');
