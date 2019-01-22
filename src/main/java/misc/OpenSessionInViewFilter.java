@@ -34,7 +34,7 @@ public class OpenSessionInViewFilter implements Filter {
 			chain.doFilter(request, response);
 			sessionFactory.getCurrentSession().getTransaction().commit();
 			System.out.println("dofilter結束");
-		} catch (HibernateException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 			sessionFactory.getCurrentSession().getTransaction().rollback();
 			chain.doFilter(request, response);
