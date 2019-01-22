@@ -10,7 +10,6 @@ import java.util.Map;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -92,26 +91,24 @@ public class UserController01_01 {
 
 		return result;
 	}
-		   
-		   @RequestMapping("/export.do")
-		   @ResponseBody
-		public  byte[] export(HttpServletResponse response , Integer month){    
-	    response.setContentType("application/binary;charset=UTF-8");
-	    byte[] x =null;
-	    try{
-	    	ServletOutputStream out=response.getOutputStream();
-	        String fileName=new String(("UserInfo "+ new SimpleDateFormat("yyyy-MM-dd").format(new Date())).getBytes(),"UTF-8");
-	        response.setHeader("Content-disposition", "attachment; filename=" + fileName + ".xls");
-	        response.setContentType("application/binary;charset=UTF-8");
-	        String[] titles = { "國家" , "名稱", "數量", "購買日期","價格"};  
-	        HSSFWorkbook result = userInfoService.export(titles, out, month);
-	        System.out.println("result="+result);
-	        
-	    } catch(Exception e){
-	        e.printStackTrace();
-	        System.out.println("excel失敗");
-	    }
-		return x;
+	@ResponseBody	   
+	@RequestMapping("/export.do")
+	public  void export(HttpServletResponse response, Integer month) {
+		response.setContentType("application/binary;charset=UTF-8");
+		try {
+			ServletOutputStream out = response.getOutputStream();
+			String fileName = new String(
+					("UserInfo " + new SimpleDateFormat("yyyy-MM-dd").format(new Date())).getBytes(), "UTF-8");
+			response.setHeader("Content-disposition", "attachment; filename=" + fileName + ".xls");
+			String[] titles = { "國家", "名稱", "數量", "購買日期", "價格" };
+			System.out.println("month::" + month);
+			userInfoService.export(titles, out, month);
+			System.out.println("do OK");
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("excel失敗");
+		}
 	}
 
 	@ResponseBody
