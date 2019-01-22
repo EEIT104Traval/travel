@@ -205,15 +205,15 @@ public class UserInfoService {
 
 		return map;
 	}
-	// --------------↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ 01_02
-	// Controller↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑-------------
+	// --------------↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ 01_02Controller↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑-------------
 
-	// --------------↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ 02_01
-	// Controller↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓-------------
+	// --------------↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ 02_01Controller↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓-------------
 	public HSSFWorkbook export(String[] titles, ServletOutputStream out, Integer month) throws Exception {
-
 		// 第一步，創建一個workbook，對應一個Excel文檔
 		HSSFWorkbook workbook = new HSSFWorkbook();
+try {
+		
+		
 		// 第二步，在webbook中添加一個sheet,對應Excel文檔中的sheet
 		HSSFSheet hssfSheet = workbook.createSheet("sheet1");
 		// 第三步，在sheet中添加表頭第0行,注意老版本poi對Excel的行數列數有限制short
@@ -271,23 +271,21 @@ public class UserInfoService {
 				}
 				hssfRow.createCell(4).setCellValue(total);
 			}
-
 		}
-		return workbook;
-	}
-}
-//	              第七步，將文檔輸出到客户端瀏覽器
-
-//	             try {
-//	                 workbook.write(out);
-//	                 out.flush();
-//	                 out.close();
-//	             } catch (Exception e) {
-//	                 e.printStackTrace();
-//	             }
-//	         }catch(Exception e){
-//	             e.printStackTrace();
-//	             throw new Exception("導出信息失敗！");
-//	         }    
-//	     }
-//}
+		
+		  // 第七步，將文檔輸出到客户端瀏覽器
+		             try {
+		                 workbook.write(out);
+		                 out.flush();
+		                 out.close();
+		 
+		             } catch (Exception e) {
+		                 e.printStackTrace();
+		             }
+		         }catch(Exception e){
+		             e.printStackTrace();
+		             throw new Exception("導出信息失敗！");
+		         }
+				return workbook;
+		     }
+		 }

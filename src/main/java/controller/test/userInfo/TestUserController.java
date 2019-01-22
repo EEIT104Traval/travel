@@ -33,8 +33,8 @@ public class TestUserController extends HttpServlet {
 	    response.setContentType("application/binary;charset=UTF-8");
 	    try{
 	        ServletOutputStream out=response.getOutputStream();
-	        String[] titles = { "國家" }; // , "名稱", "數量", "購買日期","價格"
-	        userInfoService.export(titles, out, new Integer(12));
+	        String[] titles = { "國家", "名稱", "數量", "購買日期","價格" };
+	      userInfoService.export(titles, out, new Integer(12));
 	        System.out.println("有執行");
 	    } catch(Exception e){
 	        e.printStackTrace();

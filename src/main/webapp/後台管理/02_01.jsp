@@ -60,6 +60,7 @@ var sum = 0;
 					});
 	
 	function TourOrder(){
+
 	console.log(params);		
 		$.ajax({
 				url : '/Travel/export.do',
@@ -68,7 +69,9 @@ var sum = 0;
 				dataType : 'json',
 				data:params,
 			
-			   })}
+			   })
+			   
+	}
 					
 </script>
 </head>
@@ -96,7 +99,7 @@ var sum = 0;
 			<option value="11">NOV</option>
 			<option value="12">DEC</option>　　　
           </select>
-            <input type="button" value="下載EXCEL檔" onclick="TourOrder()">
+            <button type="button" onclick="TourOrder()">下載EXCEL檔</button>
 <!--  -->
 	</div>
 	<div class="boxmsg" id="searchuser">
