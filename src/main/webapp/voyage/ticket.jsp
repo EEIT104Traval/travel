@@ -7,19 +7,19 @@
 <!DOCTYPE html>
 <html lang="tw-zh">
 	<link rel="stylesheet" href="css/main_styles.css">
-	<link rel="stylesheet" href="<c:url value='/voyage/css/open-iconic-bootstrap.min.css' />">
-    <link rel="stylesheet" href="<c:url value='/voyage/css/animate.css' />">
+<%-- 	<link rel="stylesheet" href="<c:url value='/voyage/css/open-iconic-bootstrap.min.css' />"> --%>
+<%--     <link rel="stylesheet" href="<c:url value='/voyage/css/animate.css' />"> --%>
     <link rel="stylesheet" href="<c:url value='/voyage/css/owl.carousel.min.css' />">
-    <link rel="stylesheet" href="<c:url value='/voyage/css/owl.theme.default.min.css' />">
-    <link rel="stylesheet" href="<c:url value='/voyage/css/magnific-popup.css' />">
-    <link rel="stylesheet" href="<c:url value='/voyage/css/aos.css' />">
-    <link rel="stylesheet" href="<c:url value='/voyage/css/ionicons.min.css' />">
-    <link rel="stylesheet" href="<c:url value='/voyage/css/bootstrap-datepicker.css' />">
-    <link rel="stylesheet" href="<c:url value='/voyage/css/jquery.timepicker.css' />">
-    <link rel="stylesheet" href="<c:url value='/voyage/css/flaticon.css' />">
-    <link rel="stylesheet" href="<c:url value='/voyage/css/icomoon.css' />">
+<%--     <link rel="stylesheet" href="<c:url value='/voyage/css/owl.theme.default.min.css' />"> --%>
+<%--     <link rel="stylesheet" href="<c:url value='/voyage/css/magnific-popup.css' />"> --%>
+<%--     <link rel="stylesheet" href="<c:url value='/voyage/css/aos.css' />"> --%>
+<%--     <link rel="stylesheet" href="<c:url value='/voyage/css/ionicons.min.css' />"> --%>
+<%--     <link rel="stylesheet" href="<c:url value='/voyage/css/bootstrap-datepicker.css' />"> --%>
+<%--     <link rel="stylesheet" href="<c:url value='/voyage/css/jquery.timepicker.css' />"> --%>
+<%--     <link rel="stylesheet" href="<c:url value='/voyage/css/flaticon.css' />"> --%>
+<%--     <link rel="stylesheet" href="<c:url value='/voyage/css/icomoon.css' />"> --%>
     <link rel="stylesheet" href="<c:url value='/voyage/css/style.css' />">
-    <link href="<c:url value='/voyage/css/jquery-ui.css' />" rel="stylesheet" type="text/css">
+<%--     <link href="<c:url value='/voyage/css/jquery-ui.css' />" rel="stylesheet" type="text/css"> --%>
 <head>
 <title>Time To Travel</title>
 <meta charset="utf-8">
