@@ -3,6 +3,8 @@ package model.userInfo;
 import java.sql.Timestamp;
 import java.util.*;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,6 +24,7 @@ import model.tour.dao.TourBatchDAO;
 import model.tour.service.TourOrderInfoService;
 
 @Service
+@Transactional
 public class UserInfoService {
 
 	@Autowired

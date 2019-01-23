@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +20,7 @@ import model.userInfo.UserInfoBean;
 import model.userInfo.dao.UserInfoDAOHibernate;
 
 @Service
+@Transactional
 public class TourBuyService {
 	@Autowired
 	private TourBatchDAO tourBatchDao;

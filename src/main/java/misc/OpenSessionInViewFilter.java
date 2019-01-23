@@ -15,7 +15,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.web.context.WebApplicationContext;
 
-@WebFilter("/*")
+//@WebFilter("/*")
 public class OpenSessionInViewFilter implements Filter {
 	private SessionFactory sessionFactory;
 	@Override
@@ -34,7 +34,7 @@ public class OpenSessionInViewFilter implements Filter {
 			chain.doFilter(request, response);
 			sessionFactory.getCurrentSession().getTransaction().commit();
 			System.out.println("dofilter結束");
-		} catch (HibernateException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 			sessionFactory.getCurrentSession().getTransaction().rollback();
 			chain.doFilter(request, response);

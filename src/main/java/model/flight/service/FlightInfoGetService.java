@@ -22,7 +22,7 @@ import model.flight.AirlineCompareBean;
 import model.flight.AirlineCompareDAO;
 import model.flight.FlightInfoGet;
 import model.flight.Token;
-//@Transactional
+@Transactional
 @Service
 public class FlightInfoGetService {
 

@@ -15,7 +15,7 @@ import model.flight.FlightTicketBean;
 import model.flight.FlightTicketDAO;
 
 @Service
-//@Transactional
+@Transactional
 public class FlightOrderService {
 
 	@Autowired

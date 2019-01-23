@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 import model.flight.AirportCompareBean;
 import model.flight.AirportCompareDAO;
 @Service
-//@Transactional
+@Transactional
 public class AirportSearchService {
 
 	@Autowired
