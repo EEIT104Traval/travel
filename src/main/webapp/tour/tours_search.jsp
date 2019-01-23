@@ -514,14 +514,16 @@ iframe#_hjRemoteVarsFrame {
 														<div class="product-info-tag-area">
 															<c:if test="${element.groupTourBean.guaranteedCount - element.peopleCount <= 0}">
 																<div class="tag solid yellow"><div class="ready">已成團</div></div>
-																 <c:if test="${element.groupTourBean.fullPeopleCount - element.peopleCount == 0}">
-																 <div class="tag solid red"><div class="full">額滿</div></div>															
-															 	</c:if>
+																 
 															</c:if>
 															
 															<c:if test="${element.groupTourBean.guaranteedCount - element.peopleCount > 0}">
 															<div class="tag solid" style="color: #333;  background-color: #fd7e14;"><div class="soon">即將成團</div></div>
 															</c:if>
+															
+															<c:if test="${element.groupTourBean.fullPeopleCount - element.peopleCount == 0}">
+																 <div class="tag solid red"><div class="full">額滿</div></div>															
+															 	</c:if>
 														</div>
 														<div
 															class="product-info-bottom hidden-md hidden-sm hidden-xs">
@@ -654,6 +656,9 @@ iframe#_hjRemoteVarsFrame {
 				if($("#checkbox-tourday-1").prop("checked")){
 					$("#checkbox-tourday-2").prop("checked",false);
 					$("#checkbox-tourday-3").prop("checked",false);
+					$('#checkbox-grupstatus-0').prop("checked",false);
+					$('#checkbox-grupstatus-1').prop("checked",false);
+					$('#checkbox-grupstatus-3').prop("checked",false);
 					$('.choose > div').fadeOut("slow");
 					$('.choose > div[class="3"]').fadeIn("slow");
 					$('.choose > div[class="5"]').fadeIn("slow");
@@ -663,6 +668,9 @@ iframe#_hjRemoteVarsFrame {
 			$("#checkbox-tourday-2").click(function(){
 				$("#checkbox-tourday-1").prop("checked",false);
 				$("#checkbox-tourday-3").prop("checked",false);
+				$('#checkbox-grupstatus-0').prop("checked",false);
+				$('#checkbox-grupstatus-1').prop("checked",false);
+				$('#checkbox-grupstatus-3').prop("checked",false);
 				if($("#checkbox-tourday-2").prop("checked")){
 					$('.choose > div').fadeOut("slow");
 					$('.choose > div[class="5"]').fadeIn("slow");
@@ -673,6 +681,9 @@ iframe#_hjRemoteVarsFrame {
 			$("#checkbox-tourday-3").click(function(){
 				$("#checkbox-tourday-1").prop("checked",false);
 				$("#checkbox-tourday-2").prop("checked",false);
+				$('#checkbox-grupstatus-0').prop("checked",false);
+				$('#checkbox-grupstatus-1').prop("checked",false);
+				$('#checkbox-grupstatus-3').prop("checked",false);
 				if($("#checkbox-tourday-3").prop("checked")){
 					$('.choose > div').fadeOut("slow");
 					$('.choose > div[class="7"]').fadeIn("slow");
@@ -683,13 +694,11 @@ iframe#_hjRemoteVarsFrame {
 			});
 			
 			$('#checkbox-grupstatus-0').click(function(){
-// 				$('.choose >div:visible div[class="ready"]').fadeOut("slow");
-// 				$('.choose >div:visible div[class="full"]').fadeOut("slow");
-// 				$('.choose >div:visible div[class="soon"]').fadeIn("slow");
 				if($('#checkbox-grupstatus-0').prop("checked")){
+					$('#checkbox-grupstatus-1').prop("checked",false);
+					$('#checkbox-grupstatus-3').prop("checked",false);					
 					$('div:visible div[class="ready"]').parents('.choose > div').fadeOut("slow");
 					$('div:visible div[class="full"]').parents('.choose > div').fadeOut("slow");
-// 					$('div:visible div[class="soon"]').parents('.choose > div').fadeIn("slow");
 				}else{
 					if($("#checkbox-tourday-1").prop("checked")){
 						$('.choose > div').fadeOut("slow");
@@ -708,8 +717,60 @@ iframe#_hjRemoteVarsFrame {
 
 						}else
 							$('.choose > div').fadeIn("slow");
-				}
-				
+				}				
+			})
+			$('#checkbox-grupstatus-1').click(function(){
+				if($('#checkbox-grupstatus-1').prop("checked")){
+					$('#checkbox-grupstatus-0').prop("checked",false);
+					$('#checkbox-grupstatus-3').prop("checked",false);
+					$('div:visible div[class="soon"]').parents('.choose > div').fadeOut("slow");
+					$('div:visible div[class="full"]').parents('.choose > div').fadeOut("slow");
+				}else{
+					if($("#checkbox-tourday-1").prop("checked")){
+						$('.choose > div').fadeOut("slow");
+						$('.choose > div[class="3"]').fadeIn("slow");
+						$('.choose > div[class="5"]').fadeIn("slow");
+					}
+					else if($("#checkbox-tourday-2").prop("checked")){
+						$('.choose > div').fadeOut("slow");
+						$('.choose > div[class="5"]').fadeIn("slow");
+						$('.choose > div[class="7"]').fadeIn("slow");
+						}
+					else if($("#checkbox-tourday-3").prop("checked")){
+						$('.choose > div').fadeOut("slow");
+						$('.choose > div[class="7"]').fadeIn("slow");
+						$('.choose > div[class="10"]').fadeIn("slow");
+
+						}else
+							$('.choose > div').fadeIn("slow");
+				}				
+			})
+			
+			$('#checkbox-grupstatus-3').click(function(){
+				if($('#checkbox-grupstatus-3').prop("checked")){
+					$('#checkbox-grupstatus-0').prop("checked",false);
+					$('#checkbox-grupstatus-1').prop("checked",false);
+					$('div:visible div[class="soon"]').parents('.choose > div').fadeOut("slow");
+					$('div:visible div[class="full"]').parents('.choose > div').fadeOut("slow");
+				}else{
+					if($("#checkbox-tourday-1").prop("checked")){
+						$('.choose > div').fadeOut("slow");
+						$('.choose > div[class="3"]').fadeIn("slow");
+						$('.choose > div[class="5"]').fadeIn("slow");
+					}
+					else if($("#checkbox-tourday-2").prop("checked")){
+						$('.choose > div').fadeOut("slow");
+						$('.choose > div[class="5"]').fadeIn("slow");
+						$('.choose > div[class="7"]').fadeIn("slow");
+						}
+					else if($("#checkbox-tourday-3").prop("checked")){
+						$('.choose > div').fadeOut("slow");
+						$('.choose > div[class="7"]').fadeIn("slow");
+						$('.choose > div[class="10"]').fadeIn("slow");
+
+						}else
+							$('.choose > div').fadeIn("slow");
+				}				
 			})
 
 			
