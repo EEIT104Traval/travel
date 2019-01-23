@@ -222,12 +222,12 @@
           </li>
          
           <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+            <a class="nav-link" data-toggle="collapse" href="#member" aria-expanded="false" aria-controls="ui-basic">
               <span class="menu-title" style="font-family: Noto Sans TC">會員管理</span>
               <i class="menu-arrow"></i>
               <i class="mdi mdi-crosshairs-gps menu-icon"></i>
             </a>
-            <div class="collapse" id="ui-basic">
+            <div class="collapse" id="member">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"><a class="nav-link" style="font-family: Noto Sans TC" href="/pages/ui-features/buttons.html">會員查詢</a></li>
                 <li class="nav-item"><a class="nav-link" style="font-family: Noto Sans TC" href="/pages/ui-features/typography.html">訂單查詢</a></li>
@@ -236,12 +236,12 @@
           </li>
           
           <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+            <a class="nav-link" data-toggle="collapse" href="#ticket" aria-expanded="false" aria-controls="ui-basic">
               <span class="menu-title" style="font-family: Noto Sans TC">票券管理</span>
               <i class="menu-arrow"></i>
               <i class="mdi mdi-crosshairs-gps menu-icon"></i>
             </a>
-            <div class="collapse" id="ui-basic">
+            <div class="collapse" id="ticket">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" style="font-family: Noto Sans TC" href="/pages/ui-features/buttons.html">票券新增</a></li>
                 <li class="nav-item"> <a class="nav-link" style="font-family: Noto Sans TC" href="/pages/ui-features/typography.html">票券修改</a></li>
@@ -251,12 +251,12 @@
           </li>
           
           <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+            <a class="nav-link" data-toggle="collapse" href="#tour" aria-expanded="false" aria-controls="ui-basic">
               <span class="menu-title" style="font-family: Noto Sans TC">行程管理</span>
               <i class="menu-arrow"></i>
               <i class="mdi mdi-crosshairs-gps menu-icon"></i>
             </a>
-            <div class="collapse" id="ui-basic">
+            <div class="collapse" id="tour">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" style="font-family: Noto Sans TC" href="/pages/ui-features/buttons.html">新增行程</a></li>
                 <li class="nav-item"> <a class="nav-link" style="font-family: Noto Sans TC" href="/pages/ui-features/typography.html">下架行程</a></li>
@@ -267,12 +267,12 @@
           </li>
           
           <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+            <a class="nav-link" data-toggle="collapse" href="#face" aria-expanded="false" aria-controls="ui-basic">
               <span class="menu-title" style="font-family: Noto Sans TC">版面管理</span>
               <i class="menu-arrow"></i>
               <i class="mdi mdi-crosshairs-gps menu-icon"></i>
             </a>
-            <div class="collapse" id="ui-basic">
+            <div class="collapse" id="face">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" style="font-family: Noto Sans TC" href="/pages/ui-features/buttons.html">跑馬廣告</a></li>
                 <li class="nav-item"> <a class="nav-link" style="font-family: Noto Sans TC" href="/pages/ui-features/typography.html">問與答改</a></li>
@@ -283,12 +283,12 @@
           </li>
           
           <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+            <a class="nav-link" data-toggle="collapse" href="#manager" aria-expanded="false" aria-controls="ui-basic">
               <span class="menu-title" style="font-family: Noto Sans TC">管理者</span>
               <i class="menu-arrow"></i>
               <i class="mdi mdi-crosshairs-gps menu-icon"></i>
             </a>
-            <div class="collapse" id="ui-basic">
+            <div class="collapse" id="manager">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" style="font-family: Noto Sans TC" href="/pages/ui-features/buttons.html">管理者帳號</a></li>
                 <li class="nav-item"> <a class="nav-link" style="font-family: Noto Sans TC" href="/pages/ui-features/typography.html">登出</a></li>
