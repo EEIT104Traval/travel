@@ -156,7 +156,8 @@ public class UserInfoService {
 	}
 	
 	//-------------------------------測試-----------------------------
-	public String updateq(String accountName , Integer Q ,Integer ticketOrderNO,Integer ticketNo, Integer TourorderNo,Integer serialNo, Integer HotelorderNo,Integer hotelNo) {
+	public String updateq(String accountName , Integer Q ,Integer ticketOrderNO,
+			Integer ticketNo, Integer TourorderNo,Integer serialNo, Integer HotelorderNo,Integer hotelNo) {
 			
 //		Map<String, List<?>> Order = null;
 //		Order = userInfoService.findByPrimaryKey(accountName);
@@ -272,8 +273,6 @@ public class UserInfoService {
 		// 第一步，創建一個workbook，對應一個Excel文檔
 		HSSFWorkbook workbook = new HSSFWorkbook();
 try {
-		
-		
 		// 第二步，在webbook中添加一個sheet,對應Excel文檔中的sheet
 		HSSFSheet hssfSheet = workbook.createSheet("sheet1");
 		// 第三步，在sheet中添加表頭第0行,注意老版本poi對Excel的行數列數有限制short
@@ -281,7 +280,7 @@ try {
 		// 第四步，創建單元格，並設置值表頭 設置表頭居中
 		HSSFCellStyle hssfCellStyle = workbook.createCellStyle();
 		// 居中樣式
-//	             hssfCellStyle.setAlignment(HSSFCellStyle.ALIGN_CENTER);
+        // hssfCellStyle.setAlignment(HSSFCellStyle.ALIGN_CENTER);
 
 		HSSFCell hssfCell = null;
 		for (int i = 0; i < titles.length; i++) {
@@ -289,12 +288,10 @@ try {
 			hssfCell.setCellValue(titles[i]);// 列名1
 			hssfCell.setCellStyle(hssfCellStyle);// 列居中顯示
 		}
-
 		// 第五步，寫入實體數據
-
 		List<TourOrderInfoBean> users = tourOrderInfoService.findBuyMonth(month);
-
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		
+//		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		if (users != null && !users.isEmpty()) {
 			for (int i = 0; i < users.size(); i++) {
 				hssfRow = hssfSheet.createRow(i + 1);
@@ -331,8 +328,7 @@ try {
 				}
 				hssfRow.createCell(4).setCellValue(total);
 			}
-		}
-		
+		}	
 		  // 第七步，將文檔輸出到客户端瀏覽器
 		             try {
 		                 workbook.write(out);

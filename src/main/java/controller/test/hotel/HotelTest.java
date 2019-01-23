@@ -67,9 +67,9 @@ public class HotelTest {
 	@RequestMapping("/Hotelsearch")
 	public List<HotelBean> searchByCountry() {
 		List<HotelBean> all = dao.searchByCountry("法國");
-
 		return all;
 	}
+	
 	@RequestMapping("/Hotelbuy")
 	public boolean qupdate()throws ParseException {
 		String str="2019-02-03";
@@ -80,7 +80,7 @@ public class HotelTest {
 		System.out.println("x="+x);
 		System.out.println("y="+y);
 		 
-		ser.qupdate("micky", 4, "XX", "987654123", 8,x,y, 3000);
+		ser.qupdate("micky", 4, "XX", "987654123", 8, x, y);
 			return false;
 	}
 }
