@@ -162,27 +162,27 @@ public class UserInfoService {
 	public String updateq(String accountName , Integer Q ,Integer ticketOrderNO,
 			Integer ticketNo, Integer tourorderNo,Integer serialNo, Integer HotelorderNo,Integer hotelNo) {
 			
-		Map<String, List<?>> Order = null;
-		Order = userInfoService.findByPrimaryKey(accountName);//刪誰的資料
-		//先用map物件 找出 使用者  一個一個判斷
-		if(Order.get("TicketOrderInfoBean") != null) {
-			//可先做訂單移除
-			ticketOrderInfoDAO.remove(ticketOrderNO);
-			//把移除掉掉的訂單加回
-			TicketInfoBean Tt = ticketInfoDAO.findByPrimaryKey(ticketNo);
-			//本表格沒有庫存數量只有銷售數量  所以把銷售數量減退或數量
-			Tt.setAdultTicketSelledQ((Tt.getAdultTicketSelledQ()-Q));
-			ticketInfoDAO.update(Tt);
-		}else if(Order.get("TourOrderInfoBean") != null) {
-			//訂單移除
-			tourOrderInfoDAO.remove(tourorderNo);
-			//把TourBatchBean的peoplecount減少
-//			TourBatchBean tb = tourBatchDAO.update1(serialNo);
+//		Map<String, List<?>> Order = null;
+//		Order = userInfoService.findByPrimaryKey(accountName);//刪誰的資料
+//		//先用map物件 找出 使用者  一個一個判斷
+//		if(Order.get("TicketOrderInfoBean") != null) {
+//			//可先做訂單移除
+//			ticketOrderInfoDAO.remove(ticketOrderNO);
+//			//把移除掉掉的訂單加回
+//			TicketInfoBean Tt = ticketInfoDAO.findByPrimaryKey(ticketNo);
+//			//本表格沒有庫存數量只有銷售數量  所以把銷售數量減退或數量
+//			Tt.setAdultTicketSelledQ((Tt.getAdultTicketSelledQ()-Q));
+//			ticketInfoDAO.update(Tt);
+//		}else if(Order.get("TourOrderInfoBean") != null) {
+//			//訂單移除
+//			tourOrderInfoDAO.remove(tourorderNo);
+//			//把TourBatchBean的peoplecount減少
+////			TourBatchBean tb = tourBatchDAO.update1(serialNo);
+//			
+//			
+//		}else if(Order.get("HotelOrderDetailsBean") != null) {
 			
-			
-		}else if(Order.get("HotelOrderDetailsBean") != null) {
-			
-		}
+//		}
 		
 	
 		
