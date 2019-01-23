@@ -59,19 +59,6 @@ var sum = 0;
 								})
 					});
 	
-// 	function TourOrder(){
-
-// 	console.log(params);		
-// 		$.ajax({
-// 				url : '/Travel/export.do',
-// 				contentType : 'application/json; charset=UTF-8',
-// 				type : 'get',
-// 				dataType : 'json',
-// 				data:params,
-			
-// 			   })
-			   
-// 	}
 					
 </script>
 </head>

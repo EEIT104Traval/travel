@@ -10,7 +10,10 @@ import java.util.Map;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,7 +21,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import model.ticket.TicketInfoBean;
-import model.ticket.TicketInfoDAO;
 import model.ticket.TicketInfoService;
 import model.tour.TourOrderInfoBean;
 import model.tour.service.TourOrderInfoService;
@@ -34,8 +36,7 @@ public class UserController01_01 {
 	private TourOrderInfoService tourOrderInfoService;
 	@Autowired
 	private TicketInfoService ticketInfoService;
-	@Autowired
-	private TicketInfoDAO ticketInfoDAO;
+
 	
 	
 	
@@ -91,28 +92,32 @@ public class UserController01_01 {
 
 		return result;
 	}
-//	@ResponseBody	   
-//	@RequestMapping("/export.do")
-//	public  void  export(HttpServletResponse response, Integer month)throws IOException {
-//		response.setContentType("application/binary;charset=UTF-8");
-//		try {
-//			byte[] excel = export();
-//			ServletOutputStream out = response.getOutputStream();
-//			String fileName = new String(
-//					("UserInfo " + new SimpleDateFormat("yyyy-MM-dd").format(new Date())).getBytes(), "UTF-8");
-//			response.setHeader("Content-disposition", "attachment; filename=" + fileName + ".xls");
-//			String[] titles = { "國家", "名稱", "數量", "購買日期", "價格" };
-//			
-//			 userInfoService.export(titles, out, month);
-//	 
-//
-//
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//			System.out.println("excel失敗");
-//		}
-//	
-//	}
+	@ResponseBody	   
+	@RequestMapping("/export.do")
+	public  ResponseEntity<byte[]>  export(HttpServletResponse response, Integer month)throws IOException {
+		ResponseEntity<byte[]> bytes = null;
+		byte [] x = null;
+		try {
+			System.out.println("印東西 第一條");
+			ServletOutputStream out = response.getOutputStream();
+			response.setContentType("application/binary;charset=UTF-8");
+			String fileName = new String(
+					("UserInfo " + new SimpleDateFormat("yyyy-MM-dd").format(new Date())).getBytes(), "UTF-8");
+			response.setHeader("Content-disposition", "attachment; filename=" + fileName + ".xls");
+			String[] titles = { "國家", "名稱", "數量", "購買日期", "價格" };
+			HttpStatus httpStatus = HttpStatus.OK;
+			HSSFWorkbook workbook = userInfoService.export(titles, out, month);
+
+			x = workbook.getBytes();			
+//		    response.getOutputStream().write(bytes);
+			bytes = new ResponseEntity<byte[]>(x, httpStatus);
+			System.out.println("controller印東西"+bytes);
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("excel失敗");
+		}
+		return bytes;
+	}
 
 	@ResponseBody
 	@RequestMapping("/bindex03_011/User.controller")
@@ -130,7 +135,7 @@ public class UserController01_01 {
 	@RequestMapping("/bindex03_012/User.controller")
 	public List<TicketInfoBean> method03012(@RequestParam(value = "path", required = false)String path , String option) throws IOException {
 		
-		List<TicketInfoBean> bean = ticketInfoDAO.findAll();
+		List<TicketInfoBean> bean = ticketInfoService.findAll();
 
 		return bean;
 	}
@@ -155,7 +160,7 @@ public class UserController01_01 {
 		System.out.println(adultTicketPrice);
 		
 		
-		TicketInfoBean temp = ticketInfoDAO.findByPrimaryKey(ticketNo);
+		TicketInfoBean temp = ticketInfoService.findByPrimaryKey(ticketNo);
 		System.out.println(ticketNo);	
 		
 		if(!ticketName.isEmpty()) {
@@ -171,7 +176,7 @@ public class UserController01_01 {
 		}if(adultTicketSelledQ!=null) {
 			temp.setAdultTicketSelledQ(adultTicketSelledQ);
 		}
-		TicketInfoBean result = ticketInfoDAO.update(temp);
+		TicketInfoBean result = ticketInfoService.update(temp);
 		
 		System.out.println("result"+result);
 		return result+"";
@@ -191,7 +196,7 @@ public class UserController01_01 {
 	public void method03031(TicketInfoBean bean ,Model model){
 		
 		if (bean != null) {
-			ticketInfoDAO.remove(bean.getTicketNo());
+			ticketInfoService.delete(bean);
 		}
 	}
 	//---------------------------------以下勿動 測試中 非常嚴重-----------------------------------
