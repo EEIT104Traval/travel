@@ -91,25 +91,28 @@ public class UserController01_01 {
 
 		return result;
 	}
-	@ResponseBody	   
-	@RequestMapping("/export.do")
-	public  void export(HttpServletResponse response, Integer month) {
-		response.setContentType("application/binary;charset=UTF-8");
-		try {
-			ServletOutputStream out = response.getOutputStream();
-			String fileName = new String(
-					("UserInfo " + new SimpleDateFormat("yyyy-MM-dd").format(new Date())).getBytes(), "UTF-8");
-			response.setHeader("Content-disposition", "attachment; filename=" + fileName + ".xls");
-			String[] titles = { "國家", "名稱", "數量", "購買日期", "價格" };
-			System.out.println("month::" + month);
-			userInfoService.export(titles, out, month);
-			System.out.println("do OK");
-
-		} catch (Exception e) {
-			e.printStackTrace();
-			System.out.println("excel失敗");
-		}
-	}
+//	@ResponseBody	   
+//	@RequestMapping("/export.do")
+//	public  void  export(HttpServletResponse response, Integer month)throws IOException {
+//		response.setContentType("application/binary;charset=UTF-8");
+//		try {
+//			byte[] excel = export();
+//			ServletOutputStream out = response.getOutputStream();
+//			String fileName = new String(
+//					("UserInfo " + new SimpleDateFormat("yyyy-MM-dd").format(new Date())).getBytes(), "UTF-8");
+//			response.setHeader("Content-disposition", "attachment; filename=" + fileName + ".xls");
+//			String[] titles = { "國家", "名稱", "數量", "購買日期", "價格" };
+//			
+//			 userInfoService.export(titles, out, month);
+//	 
+//
+//
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//			System.out.println("excel失敗");
+//		}
+//	
+//	}
 
 	@ResponseBody
 	@RequestMapping("/bindex03_011/User.controller")
