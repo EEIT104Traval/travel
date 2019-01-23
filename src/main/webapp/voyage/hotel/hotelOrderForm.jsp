@@ -41,32 +41,46 @@ body {
 }
 </style>
 
-<script type="text/javascript">
-	$(function () {
-		$('#datetimepicker1').datetimepicker();
-		function today(){
-			var d = new Date();
-			var curr_date = d.getDate();
-			var curr_month = d.getMonth() + 1;
-			var curr_year = d.getFullYear();
-			document.write(curr_date + "-" + curr_month + "-" + curr_year);
-		}
-    });
-</script>
-<script type="text/javascript">
-	$(function () {
-    	$('#datetimepicker2').datetimepicker();
-    });
-</script>
-
 
 </head>
 <script>
-	var accountName = "${sessionScope.accountName}"
+<c:if test='${not empty result}'>
+alert('${result}');
+</c:if>
 
+
+	var accountName = "${sessionScope.accountName}"
+	var roomTypeNo = 8
+	
 	$(document).ready(function() {
-		// 		alert(accountName)
+		GetOrderInfo();
+		alert(result.roomType)
+// 		alert(roomTypeNo)
 	});
+	
+	 function GetOrderInfo(){
+	       
+				$.ajax({
+		            type: "GET", //傳送方式
+		            url: "/Travel/voyage//hotel/GetRoomInfo", 
+		            dataType: "json", 
+		            data: {'roomTypeNo':roomTypeNo},
+				}).done(
+		function(value) {
+					console.log("value.roomTypeNo="+'${roomTypeNo}')
+					console.log(value);
+			$("#div_ticket_search").html("")
+// 				$.each(JData, function(index, value) {
+// 				var totalpiece = $('#tt'+value.ticketNo).val()
+	       		 });
+		 }           
+	 
+		            
+	        
+	   
+	
+		
+	
 </script>
 
 
@@ -74,7 +88,7 @@ body {
 	<jsp:include page="/voyage/nav.jsp"></jsp:include>
 
 	<!-- 	<!-- NAV -->
-	-->
+
 	<!-- 	<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar"> -->
 	<!--       <div class="container"> -->
 	<%--       	<img alt="" src="<c:url value='/voyage/images/TTT.png' />" width="250px" height: auto;> --%>
@@ -91,7 +105,7 @@ body {
 		<div class="row" style="margin: 30px">
 
 			<!-- 左邊 -->
-
+         <form action="<c:url value='/voyage/hotel/HotelOrder'/>">
 			<div class="col-md-12">
 				<div class="row">
 					<div class="col-md-7">
@@ -128,14 +142,15 @@ body {
 														data-parent="#card-894316" href="#card-element-547039">住客資料
 														(入住旅客姓名必須與證件上顯示的一致)</a>
 												</div>
+										
 												<div id="card-element-547039" class="collapse show">
 													<div class="card-body">
 														<p style="margin: 0px">房間數</p>
 														<p style="margin-bottom: 10px; color: red">僅剩1間</p>
-														<form action="#">
+									
 															<label>訂購人</label> <input style="margin-bottom: 10px"
-																type="text" placeholder="請輸入姓名">
-														</form>
+																type="text" placeholder="請輸入姓名" name="bookingPerson">
+														
 														<p>此預訂最大入住人數：2</p>
 													</div>
 												</div>
@@ -147,12 +162,12 @@ body {
 												</div>
 												<div id="card-element-706372" class="collapse show">
 													<div class="card-body">
-														<form action="#">
-															<label>訂購人</label> <input style="margin-bottom: 10px"
-																type="text" placeholder="電子郵件">
+														
+															<input style="margin-bottom: 10px"
+																type="text" placeholder="電子郵件" name="email">
 															<p style="margin-bottom: 10px">我們將發送確認郵件至您的電子信箱</p>
-															<input type="text" placeholder="電話號碼">
-														</form>
+															<input type="text" placeholder="電話號碼" name="phone">
+														
 													</div>
 												</div>
 											</div>
@@ -227,7 +242,7 @@ body {
 										<h5 style="margin: 10px 10px">飯店會在您登記入住時或之前從您的信用卡收取房價。TimeToTravel.com 並不會對您的信用卡扣款</h5>
 									</div>
 									<div class="col-md-2">
-										<button type="button" class="btn btn-danger"
+										<button type="submit" class="btn btn-danger"
 											style="margin: 20px 0px 0px 10px">訂購</button>
 									</div>
 								</div>
@@ -293,16 +308,16 @@ body {
 											<div class="row">
 												<div class="col-md-5">
 <!-- 													<p style="margin-left: 20px; padding: 0px; color:red">2019年1月19日</p> -->
-													<input type="text" data-provide="datepicker" id="datetimepicker1" 
-													style="margin-left: 18px; font-family: Noto Sans TC; width: 50%" placeholder="入住日期" >
+													<input type="text" data-provide="datepicker" 
+													style="margin-left: 18px; font-family: Noto Sans TC; width: 50%" placeholder="入住日期" name="checkIn">
 												</div>
 												<div class="col-md-5">
 <!-- 													<p style="padding: 0px; color:red">2019年1月20日</p> -->
-													<input type="text" data-provide="datepicker" id="datetimepicker2" 
-													style="font-family: Noto Sans TC; width: 50%" placeholder="退房日期">
+													<input type="text" data-provide="datepicker" 
+													style="font-family: Noto Sans TC; width: 50%" placeholder="退房日期" name="checkOut">
 												</div>
 												<div class="col-md-2">
-													<p style="color:red">1 晚</p>
+													<p style="color:red"></p>
 												</div>
 											</div>
 											<div class="row">
@@ -320,7 +335,7 @@ body {
 											<!-- 分隔線  -->
 											<div class="row">
 												<div class="col-md-6">
-													<p style="margin-left: 20px">天際大床房</p>
+													<p style="margin-left: 20px">總統轉角套房</p>
 												</div>
 												<div class="col-md-6"></div>
 											</div>
@@ -356,7 +371,7 @@ body {
 													<p style="margin-left: 20px">1 房間 x 1 晚</p>
 												</div>
 												<div class="col-md-6">
-													<p style="color:red">NT$ 15,000</p>
+													<p style="color:red">NT$ 64,666</p>
 												</div>
 											</div>
 											<div class="row">
@@ -364,7 +379,7 @@ body {
 													<p style="margin-left: 20px">稅項及附加費</p>
 												</div>
 												<div class="col-md-6">
-													<p style="color:red">NT$ 2,000</p>
+													<p style="color:red">$NT 2,000</p>
 												</div>
 											</div>
 											<div class="row">
@@ -372,13 +387,13 @@ body {
 													<p style="margin-left: 20px">應付總額</p>
 												</div>
 												<div class="col-md-6">
-													<p style="color:red">NT$ 17,000</p>
+													<p style="color:red">NT$ 66,666</p>
 												</div>
 											</div>
 											<div class="row">
 												<div class="col-md-6"></div>
 												<div class="col-md-6">
-													<p style="color:red">(約 US$ 546.38)</p>
+													<p style="color:red"></p>
 												</div>
 											</div>
 										</div>
@@ -389,6 +404,7 @@ body {
 					</div>
 				</div>
 			</div>
+	 </form>
 		</div>
 	</div>
 

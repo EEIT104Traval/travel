@@ -25,7 +25,7 @@ public class EmailSend {
             String user = "sherrysherry92@gmail.com";
             String pass = "jxrkaepvctpmffcs";
             String to = "sherrysherry92@gmail.com";
-            String from = "sherry";
+            String from = "TimeToTravel";
             String subject = "Time To Travel - 訂購明細";
             String messageText = "您的訂單明細";
             boolean sessionDebug = false;
@@ -51,22 +51,22 @@ public class EmailSend {
             
             String message = "<div style='font-family: Microsoft JhengHei'>"
             +"<h1>Time To Travel</h1>"
-            +"<p>Hello! 訂購人，</p>"
+            +"<p>Hello！訂購人，</p>"
             +"<p>我們已收到您的訂單 #20190202001</p>"
-            +"<br><br>"
-            +"<b>訂單明細</b>"
-            +"<p>訂單編號:　#19010922153JV4S</p>"
-            +"<p>訂單日期:　2019-01-09 22:15:20 +0800</p>"
-            +"<p>訂購人：　XXX</p>"
             +"<br>"
-            +"<p>飯店名稱: 紐約市中心希爾頓酒店 (New York Hilton Midtown) - 總統轉角套房</p>"
+            +"<b>訂單明細</b>"
+            +"<p>訂單編號：#19010922153JV4S</p>"
+            +"<p>訂單日期：2019-01-09 22:15:20 +0800</p>"
+            +"<p>訂購人：XXX</p>"
+            +"<br>"
+            +"<p>飯店名稱： 紐約市中心希爾頓酒店 (New York Hilton Midtown) - 總統轉角套房</p>"
             +"<img alt='總統轉角套房'"
             +"<img alt='總統轉角套房' "
             + "src='https://secure3.hilton.com/resources/media/hi/NYCNHHH/en_US/img/hotel/roomtypeimages/main/HH_prescnr01_386x310_FitToBoxSmallDimension_Center.jpg' "
             + "style='width: auto;'"+ "'/>'"
-            +"<p>地址: 1335 Avenue of the Americas</p>"
-            +"<p>日期: 2019-02-02 ~ 2019-02-04 (共2晚)</p>"
-            +"<p>總金額: NT$ 149,332</p>"
+            +"<p>地址：1335 Avenue of the Americas</p>"
+            +"<p>日期：2019-02-02 ~ 2019-02-04 (共2晚)</p>"
+            +"<p>總金額：NT$ 149,332</p>"
             +"<hr>"
             +"<p>感謝您的訂購！</p>"
             +"<a href='http://localhost:8080/Travel/voyage/index.jsp'>修改訂單</a>"

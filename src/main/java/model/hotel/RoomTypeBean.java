@@ -14,7 +14,7 @@ public class RoomTypeBean {
 	private String roomType;
 	private Integer accommodate;
 	private Integer totalRooms;
-	private String price;
+	private Integer price;
 	private String description;
 	private String content;
 	private String pic;
@@ -68,11 +68,11 @@ public class RoomTypeBean {
 		this.totalRooms = totalRooms;
 	}
 
-	public String getPrice() {
+	public Integer getPrice() {
 		return price;
 	}
 
-	public void setPrice(String price) {
+	public void setPrice(Integer price) {
 		this.price = price;
 	}
 

@@ -11,7 +11,7 @@ public interface RoomTypeDAO {
 	public abstract RoomTypeBean create(RoomTypeBean bean);
 
 	public abstract RoomTypeBean update(Integer roomTypeNo, Integer hotelNo, String roomType, Integer accommodate, 
-			Integer totalRooms, String price, String description, String content, String pic);
+			Integer totalRooms, Integer price, String description, String content, String pic);
 
 	public abstract boolean remove(Integer roomTypeNo);
 
