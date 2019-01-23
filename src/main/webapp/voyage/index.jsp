@@ -654,7 +654,7 @@
             </div>
             <div class="item">
               <div class="blog-entry" data-aos-delay="200">
-                <a href="blog-single.html" class="block-20" style="background-image: url('images/image_9.jpg');">
+                <a href="blog-single.html" class="block-20" style="background-image: url('images/image_1.jpg');">
                 </a>
                 <div class="text p-4">
                   <div class="meta">
