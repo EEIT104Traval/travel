@@ -3,6 +3,7 @@ package controller.hotel;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -15,89 +16,120 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import model.hotel.HotelOrderDetailsBean;
+import model.hotel.HotelOrderDetailsService;
 import model.hotel.HotelService;
 import model.hotel.RoomTypeBean;
 import model.hotel.RoomTypeService;
-import model.userInfo.UserInfoBean;
 
 @Controller
 public class RoomAvailableController {
-	
+
 	@Autowired
 	private RoomTypeService roomTypeService;
 	@Autowired
 	private HotelService hotelService;
-	
+	@Autowired
+	private HotelOrderDetailsService hotelOrderDetailsService;
+
 	@ResponseBody
 	@RequestMapping("/voyage/date.controller")
 	public Map searchRoomType(@RequestParam(value = "8", required = false) Integer roomTypeNo) {
-		
+
 		System.out.println("roomTypeNo=" + roomTypeNo);
-		
+
 		Map<String, List<?>> result = null;
 //		result = roomAvailableService.findByPrimaryKey(user);
 		System.out.println("--------------------------");
 		result = roomTypeService.findRoomType(roomTypeNo);
 		System.out.println(result);
-		
+
 		return result;
 	}
-	
+
 	@ResponseBody
 	@RequestMapping("/voyage/hotel/roomTypes/all")
-	public List<RoomTypeBean> findHotelRoomTypes(@RequestParam Integer hotelNo){
+	public List<RoomTypeBean> findHotelRoomTypes(@RequestParam Integer hotelNo) {
 		return roomTypeService.findByHotelNo(hotelNo);
 	}
-	
-	//@ResponseBody
+
+	// @ResponseBody
 	@RequestMapping("/voyage/hotel/HotelOrder")
-	public String HotelOrder(HttpSession session, String bookingPerson, String phone, String roomTypeNo, String checkIn, String checkOut, String roomType,Model model) throws ParseException{
-		
-		String year= checkIn.substring(6);
-		String month=checkIn.substring(0, 2);
-		String day=checkIn.substring(3, 5);
-		String checkInDate=year+"-"+month+"-"+day;
-		
+	public String HotelOrder(HttpSession session, String bookingPerson, String phone, String roomTypeNo, String checkIn,
+			String checkOut, String roomType, Model model) throws ParseException {
+
+		String year = checkIn.substring(6);
+		String month = checkIn.substring(0, 2);
+		String day = checkIn.substring(3, 5);
+		String checkInDate = year + "-" + month + "-" + day;
+
 		System.out.println(checkInDate);
-		
-		String year2= checkOut.substring(6);
-		String month2=checkOut.substring(0, 2);
-		String day2=checkOut.substring(3, 5);
-		String checkOutDate=year2+"-"+month2+"-"+day2;
-		
+
+		String year2 = checkOut.substring(6);
+		String month2 = checkOut.substring(0, 2);
+		String day2 = checkOut.substring(3, 5);
+		String checkOutDate = year2 + "-" + month2 + "-" + day2;
+
 		System.out.println(checkOutDate);
-		
-		String accountName=(String)session.getAttribute("accountName");
-		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
-		Date CheckIndate=sdf.parse(checkInDate);
-		Date CheckOutdate=sdf.parse(checkOutDate);
+
+		String accountName = (String) session.getAttribute("accountName");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		Date CheckIndate = sdf.parse(checkInDate);
+		Date CheckOutdate = sdf.parse(checkOutDate);
 		System.out.println(CheckIndate);
 		System.out.println(CheckOutdate);
-		System.out.println("1111111111111111");
-		boolean result=hotelService.qupdate(accountName, 4, bookingPerson, phone, 8, CheckIndate, CheckOutdate);
-		if(result==true) {
-			model.addAttribute("result","訂購成功");
-			System.out.println("222222222222222222");
-			return "hotelRoom.order";
-			
-		}else {
-			model.addAttribute("result","訂購失敗");
-			System.out.println("333333333333333333");
-			return "hotelRoom.order";
+		System.out.println("轉換成功");
+		boolean result = hotelService.qupdate(accountName, 4, bookingPerson, phone, 8, CheckIndate, CheckOutdate);
+		if (result == true) {
+			model.addAttribute("result", "訂購成功");
+			System.out.println("訂購成功");
+			return "hotelIndex";
+
+		} else {
+			model.addAttribute("result", "訂購失敗");
+			System.out.println("訂購失敗");
+			return "hotelIndex";
 		}
-		
-		}
-	
+	}
+
 	@ResponseBody
 	@RequestMapping("/voyage/hotel/GetRoomInfo")
-	public String GetRoomTypeNo(String roomTypeNo,Model model) {
+	public String GetRoomTypeNo(String roomTypeNo, Model model) {
 		RoomTypeBean result = roomTypeService.findroom(Integer.valueOf(roomTypeNo));
-		model.addAttribute("result",result);
-		
+		model.addAttribute("result", result);
+
 		System.out.println("-------");
 		System.out.println(result);
 		return "";
-		}
-	
+	}
+
+	@ResponseBody
+	@RequestMapping("/voyage/hotel/DateMinus")
+	public Map<String, String> DateMinus(String checkInDate, String checkOutDate, Integer roomTypeNo)
+			throws ParseException {
+		Map<String, String> map = new HashMap<>();
+		String year = checkInDate.substring(6);
+		String month = checkInDate.substring(0, 2);
+		String day = checkInDate.substring(3, 5);
+		String InDate = year + "-" + month + "-" + day;
+
+//		System.out.println(checkInDate);
+
+		String year2 = checkOutDate.substring(6);
+		String month2 = checkOutDate.substring(0, 2);
+		String day2 = checkOutDate.substring(3, 5);
+		String OutDate = year2 + "-" + month2 + "-" + day2;
+
+//		System.out.println(checkOutDate);
+
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		Date CheckIndate = sdf.parse(InDate);
+		Date CheckOutdate = sdf.parse(OutDate);
+
+		Integer x = hotelOrderDetailsService.datemiuns(CheckIndate, CheckOutdate);
+		map.put("Day", String.valueOf(x));
+		RoomTypeBean xbean = roomTypeService.findroom(roomTypeNo);
+		map.put("price", String.valueOf(xbean.getPrice()));
+		return map;
+	}
+
 }

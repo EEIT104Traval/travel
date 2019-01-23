@@ -105,14 +105,65 @@ h2 {
 	var accountName = '${accountName}'
 		$(document).ready(function() {
 				$.ajax({
-						url : '/Travel/tour/Display2/order3',
-						contentType : 'application/json; charset=UTF-8',
+						url : '/Travel/tour/Display2/acc',
+// 						contentType : 'application/json; charset=UTF-8',
 						type : 'get',
-						dataType : 'json',
+// 						dataType : 'json',
 						data:{'accountName':accountName},
 				}).done(function(JData) {
-						$.each(JData, function(index, value) {						
-							console.log(JData);
+						$.each(JData.TourOrderInfoBean, function(index, value) {						
+							console.log(value);
+							if(index % 4 == 0){
+								Date = new Date(value.orderTime);
+								$('#tbody').append(
+				 					'<tr class="table-active">'
+			 							+'<td>'+Date.getFullYear()+'/'+Date.getMonth()+'/'+Date.getDate()+'</td>'
+			 							+'<td colspan="2">'+value.tourName+'</td>'
+			 							+'<td>'+value.quantity+'</td>'
+			 							+'<td>'+value.total+'</td>'
+			 							+'<td>'+value.orderStatus+'</td>'
+			 							+'<td>按鈕1</td>'
+			 							+'<td>按鈕2</td>'
+			 						+'</tr>'
+								);
+							}
+							if(index % 4 == 1){
+								console.log(2)
+							}
+							if(index % 4 == 2){
+								console.log(3)
+							}
+							if(index % 4 == 3){
+								console.log(4)
+							}
+
+// 						<tr class="table-success">
+// 							<td>2</td>
+// 							<td colspan="2">TB - Monthly</td>
+// 							<td>02/04/2012</td>
+// 							<td>Declined</td>
+// 							<td>Declined</td>
+// 							<td>Declined</td>
+// 							<td>Declined</td>
+// 						</tr>
+// 						<tr class="table-warning">
+// 							<td>3</td>
+// 							<td colspan="2">TB - Monthly</td>
+// 							<td>03/04/2012</td>
+// 							<td>Pending</td>
+// 							<td>Pending</td>
+// 							<td>Pending</td>
+// 							<td>Pending</td>
+// 						</tr>
+// 						<tr class="table-danger">
+// 							<td>4</td>
+// 							<td colspan="2">TB - Monthly</td>
+// 							<td>04/04/2012</td>
+// 							<td>Call in to confirm</td>
+// 							<td>Pending</td>
+// 							<td>Pending</td>
+// 							<td>Pending</td>
+// 						</tr>
 						})
 				})
 		});
@@ -190,51 +241,42 @@ h2 {
 						</tr>
 					</thead>
 					<tbody id='tbody'>
-						<tr>
-							<td>1</td>
-							<td colspan="2">TB - Monthly</td>
-							<td>01/04/2012</td>
-							<td>Default</td>
-							<td>Default</td>
-							<td>Default</td>
-							<td>Default</td>
-						</tr>
-						<tr class="table-active">
-							<td>1</td>
-							<td colspan="2">TB - Monthly</td>
-							<td>01/04/2012</td>
-							<td>Approved</td>
-							<td>Approved</td>
-							<td>Approved</td>
-							<td>Approved</td>
-						</tr>
-						<tr class="table-success">
-							<td>2</td>
-							<td colspan="2">TB - Monthly</td>
-							<td>02/04/2012</td>
-							<td>Declined</td>
-							<td>Declined</td>
-							<td>Declined</td>
-							<td>Declined</td>
-						</tr>
-						<tr class="table-warning">
-							<td>3</td>
-							<td colspan="2">TB - Monthly</td>
-							<td>03/04/2012</td>
-							<td>Pending</td>
-							<td>Pending</td>
-							<td>Pending</td>
-							<td>Pending</td>
-						</tr>
-						<tr class="table-danger">
-							<td>4</td>
-							<td colspan="2">TB - Monthly</td>
-							<td>04/04/2012</td>
-							<td>Call in to confirm</td>
-							<td>Pending</td>
-							<td>Pending</td>
-							<td>Pending</td>
-						</tr>
+<!-- 						<tr class="table-active"> -->
+<!-- 							<td>1</td> -->
+<!-- 							<td colspan="2">TB - Monthly</td> -->
+<!-- 							<td>01/04/2012</td> -->
+<!-- 							<td>Approved</td> -->
+<!-- 							<td>Approved</td> -->
+<!-- 							<td>Approved</td> -->
+<!-- 							<td>Approved</td> -->
+<!-- 						</tr> -->
+<!-- 						<tr class="table-success"> -->
+<!-- 							<td>2</td> -->
+<!-- 							<td colspan="2">TB - Monthly</td> -->
+<!-- 							<td>02/04/2012</td> -->
+<!-- 							<td>Declined</td> -->
+<!-- 							<td>Declined</td> -->
+<!-- 							<td>Declined</td> -->
+<!-- 							<td>Declined</td> -->
+<!-- 						</tr> -->
+<!-- 						<tr class="table-warning"> -->
+<!-- 							<td>3</td> -->
+<!-- 							<td colspan="2">TB - Monthly</td> -->
+<!-- 							<td>03/04/2012</td> -->
+<!-- 							<td>Pending</td> -->
+<!-- 							<td>Pending</td> -->
+<!-- 							<td>Pending</td> -->
+<!-- 							<td>Pending</td> -->
+<!-- 						</tr> -->
+<!-- 						<tr class="table-danger"> -->
+<!-- 							<td>4</td> -->
+<!-- 							<td colspan="2">TB - Monthly</td> -->
+<!-- 							<td>04/04/2012</td> -->
+<!-- 							<td>Call in to confirm</td> -->
+<!-- 							<td>Pending</td> -->
+<!-- 							<td>Pending</td> -->
+<!-- 							<td>Pending</td> -->
+<!-- 						</tr> -->
 					</tbody>
 				</table>
 			</div>
