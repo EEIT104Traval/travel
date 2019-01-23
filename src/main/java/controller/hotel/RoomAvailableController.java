@@ -77,16 +77,16 @@ public class RoomAvailableController {
 		Date CheckOutdate = sdf.parse(checkOutDate);
 		System.out.println(CheckIndate);
 		System.out.println(CheckOutdate);
-		System.out.println("1111111111111111");
+		System.out.println("轉換成功");
 		boolean result = hotelService.qupdate(accountName, 4, bookingPerson, phone, 8, CheckIndate, CheckOutdate);
 		if (result == true) {
 			model.addAttribute("result", "訂購成功");
-			System.out.println("222222222222222222");
+			System.out.println("訂購成功");
 			return "hotelIndex";
 
 		} else {
 			model.addAttribute("result", "訂購失敗");
-			System.out.println("333333333333333333");
+			System.out.println("訂購失敗");
 			return "hotelIndex";
 		}
 	}

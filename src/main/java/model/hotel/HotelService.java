@@ -1,6 +1,7 @@
 package model.hotel;
 
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -15,6 +16,7 @@ import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.SocketUtils;
 import org.springframework.util.StringUtils;
 
 import model.userInfo.UserInfoBean;
@@ -155,10 +157,9 @@ public class HotelService {
 				room.setAvailable((room.getAvailable()-1));
 				roomAvailableDAO.update(room);			
 			}
-			return true;
 		}
-		
-		UserInfoBean ubean = userInfoDAO.findByPrimaryKey(accountName);
+		// ------------------(↑購買更改訂單表格 )(↓寫信件給客戶)--------------------------------------------	
+//		UserInfoBean ubean = userInfoDAO.findByPrimaryKey(accountName);
 		HotelBean HB = hotelDAO.findByPrimaryKey(hotelNo);
 		RoomTypeBean RTB = roomTypeDAO.findByPrimaryKey(roomTypeNo);
 		HotelOrderDetailsBean Order = new HotelOrderDetailsBean();
@@ -170,6 +171,18 @@ public class HotelService {
 		Order.setStayNights(day);
 		Order.setTotalPrice((RTB.getPrice()*day));
 //		
+		  SimpleDateFormat sdFormat0 = new SimpleDateFormat("yyyy/MM/dd hh:mm:ss");
+	      Date newdate = new Date();
+	      String ch = sdFormat0.format(newdate);
+		  
+		  SimpleDateFormat sdFormat = new SimpleDateFormat("yyyy/MM/dd");
+          Date newdatebegin = checkIn;
+          String begin = sdFormat.format(newdatebegin);
+          Date newdateend = checkOut;
+          String end = sdFormat.format(newdateend);
+  
+          
+          
         try{
             String host ="smtp.gmail.com" ;
             String user = "sherrysherry92@gmail.com";
@@ -181,7 +194,7 @@ public class HotelService {
             boolean sessionDebug = false;
 
             Properties props = System.getProperties();
-
+        
             props.put("mail.smtp.starttls.enable", "true");
             props.put("mail.smtp.host", host);
             props.put("mail.smtp.port", "587");
@@ -198,7 +211,6 @@ public class HotelService {
             msg.setRecipients(Message.RecipientType.TO, address);
             msg.setSubject(subject); msg.setSentDate(new Date());
 //            msg.setText(messageText);
-            
             String message = "<div style='font-family: Microsoft JhengHei'>"
             +"<h1>Time To Travel</h1>"
             +"<p>Hello！" + accountName + "，</p>"
@@ -206,7 +218,7 @@ public class HotelService {
             +"<br>"
             +"<b>訂單明細</b>"
             +"<p>訂單編號：#19010922153JV4S</p>"
-            +"<p>訂單日期：" + new Date() + "</p>"
+            +"<p>訂單日期：" + ch + "</p>"
             +"<p>訂購人：" + bookingPerson + "</p>"
             +"<br>"
             +"<p>飯店名稱：" + HB.getHotelNameCH() + HB.getHotelNameEN() + " - " + RTB.getRoomType() + "</p>"
@@ -214,7 +226,7 @@ public class HotelService {
             + "src='" + HB.getPic() + "'"
             + "style='width: auto;'"+ "'/>'"
             +"<p>地址：" + HB.getAddress() +"</p>"
-            +"<p>日期：" + checkIn + " ~ " + checkOut + "(共" + day + "晚)</p>"
+            +"<p>日期：" + begin + " ~ " + end + "(共" + day + "晚)</p>"
             +"<p>總金額：NT$ "+ (RTB.getPrice()*day) +"</p>"
             +"<hr>"
             +"<p>感謝您的訂購！</p>"
@@ -226,7 +238,6 @@ public class HotelService {
             +"</div>"
             +"<div style=\"color:red;\">BRIDGEYE</div>";
             msg.setContent(message, "text/html; charset=utf-8");
-            
            Transport transport=mailSession.getTransport("smtp");
            transport.connect(host, user, pass);
            transport.sendMessage(msg, msg.getAllRecipients());
