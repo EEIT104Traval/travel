@@ -1,5 +1,6 @@
 package controller.User;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.List;
@@ -43,15 +44,36 @@ public class LoginController {
 				new CustomDateEditor(new SimpleDateFormat("yyyy-MM-dd"), true));
 	}
 
+//	@ResponseBody 原版
+//	@RequestMapping(path= {"/voyage/userorder.controller"})
+//	public Map<String, List<?>> getMemberOrder(@RequestParam(value="accountName",required=false)String user) {
+//		Map<String, List<?>> result = null;
+//		result = userInfoService.findByPrimaryKey(user);
+//		System.out.println(result);
+//	
+//	return result;
+//	}
+	
 	@ResponseBody
 	@RequestMapping(path= {"/voyage/userorder.controller"})
-	public Map<String, List<?>> getMemberOrder(@RequestParam(value="accountName",required=false)String user) {
+	public Map<String, List<?>> getMemberOrder(@RequestParam(value="accountName",required=false)String user,
+											   @RequestParam(value="orderNo",required=false)Integer tourorderNo,Integer ticketOrderNO,
+											   @RequestParam(value="orderNo1",required=false)Integer hotelorderNo) {
 		Map<String, List<?>> result = null;
+		Boolean result1 = null;
+		System.out.println("user="+user+"tourorderNo="+tourorderNo+"ticketOrderNO="+ticketOrderNO+"hotelorderNo="+hotelorderNo);
 		result = userInfoService.findByPrimaryKey(user);
+		result1 = userInfoService.orderModify(user, tourorderNo, ticketOrderNO, hotelorderNo);
 		System.out.println(result);
 	
 	return result;
 	}
+	
+
+
+	
+	
+	
 	@RequestMapping(path= {"/voyage/insert.controller"})
 	public String insertMb (Model model,UserInfoBean bean,BindingResult bindingresult) {
 		Map<String, String> errors = new HashMap<>();
@@ -144,4 +166,6 @@ public class LoginController {
 		 model.addAttribute("user",update.getLastname()+" "+update.getFirstname());
 		 return update;	  		  
 	 }
+	 
+
 }

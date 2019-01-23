@@ -45,6 +45,9 @@ public class RoomTypeService {
 	
 	public RoomTypeBean findroom(Integer roomTypeNo){
 		RoomTypeBean result = roomTypeDAO.findByPrimaryKey(roomTypeNo);
+		System.out.println("DAO----");
+		System.out.println(result);
+		
 		return result;
 	}
 	
