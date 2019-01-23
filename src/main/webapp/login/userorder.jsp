@@ -90,18 +90,18 @@
 															+ '<th scope="row" style="width:40%;text-align:center" name="tourName">'
 															+ JData.TourOrderInfoBean[i].tourName
 															+ '</th>'
-															+ '<th scope="row" name="quantity">'
+															+ '<th scope="row" style="width:5%" name="quantity">'
 															+ JData.TourOrderInfoBean[i].quantity
 															+ '</th>'
-															+ '<th scope="row"name="orderTime">'
+															+ '<th scope="row" style="width:15%" name="orderTime">'
 															+ JData.TourOrderInfoBean[i].orderTime
 															+ '</th>'
-															+ '<th scope="row" name="total">'
+															+ '<th scope="row" style="width:10%" name="total">'
 															+ JData.TourOrderInfoBean[i].total
 															+ '</th>'
 															+
 															//'<th style="width:100px" name="totalPrice"><input type="submit" name="prodaction" value="刪除"></th></table>'
-															'<th scope="row" name="totalPrice"><input type="image" src="images/gb.png" width="20%" height="20%" alt="send" name="Test" id="Test" onclick="deleteOrder();" /></th></table>')
+															'<th scope="row" style="width:10%" name="totalPrice"><input type="image" src="images/gb.png" width="20%" height="20%" alt="send" name="Test" id="Test" onclick="deleteOrder();" /></th></table>')
 															
 								}
 							} else {
@@ -113,7 +113,7 @@
 								for (var i = 0; i < JData.TicketOrderInfoBean.length; i++) {
 									$("#searchuser")
 											.append(
-													'<table class="table table-hover"><th scope="row" name="ticketOrderNO">'
+													'<table class="table table-hover"><th scope="row" style="width:10%;text-align:center" name="ticketOrderNO">'
 															+ JData.TicketOrderInfoBean[i].ticketOrderNO
 															+ '</th>'
 															+ '<th>門票</th>'
@@ -191,11 +191,11 @@
 								<thead>
 									<th scope="col" style="width:10%">訂單號碼</th>
 									<th scope="col">類型</th>
-									<th scope="col">名稱</th>
-									<th scope="col">數量</th>
-									<th scope="col">購買日期</th>
-									<th scope="col">總價格</th>
-									<th scope="col">刪除</th>
+									<th scope="col" style="width:25%">名稱</th>
+									<th scope="col" style="width:5%">數量</th>
+									<th scope="col" style="width:15%">購買日期</th>
+									<th scope="col" style="width:10%">總價格</th>
+									<th scope="col" style="width:10%">刪除</th>
 								</thead>
 							</table>
 							<div class="row" id="searchuser"></div>
