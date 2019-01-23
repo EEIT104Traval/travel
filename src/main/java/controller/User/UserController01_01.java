@@ -10,7 +10,10 @@ import java.util.Map;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -91,28 +94,32 @@ public class UserController01_01 {
 
 		return result;
 	}
-//	@ResponseBody	   
-//	@RequestMapping("/export.do")
-//	public  void  export(HttpServletResponse response, Integer month)throws IOException {
-//		response.setContentType("application/binary;charset=UTF-8");
-//		try {
-//			byte[] excel = export();
-//			ServletOutputStream out = response.getOutputStream();
-//			String fileName = new String(
-//					("UserInfo " + new SimpleDateFormat("yyyy-MM-dd").format(new Date())).getBytes(), "UTF-8");
-//			response.setHeader("Content-disposition", "attachment; filename=" + fileName + ".xls");
-//			String[] titles = { "國家", "名稱", "數量", "購買日期", "價格" };
-//			
-//			 userInfoService.export(titles, out, month);
-//	 
-//
-//
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//			System.out.println("excel失敗");
-//		}
-//	
-//	}
+	@ResponseBody	   
+	@RequestMapping("/export.do")
+	public  ResponseEntity<byte[]>  export(HttpServletResponse response, Integer month)throws IOException {
+		ResponseEntity<byte[]> bytes = null;
+		byte [] x = null;
+		try {
+			System.out.println("印東西 第一條");
+			ServletOutputStream out = response.getOutputStream();
+			response.setContentType("application/binary;charset=UTF-8");
+			String fileName = new String(
+					("UserInfo " + new SimpleDateFormat("yyyy-MM-dd").format(new Date())).getBytes(), "UTF-8");
+			response.setHeader("Content-disposition", "attachment; filename=" + fileName + ".xls");
+			String[] titles = { "國家", "名稱", "數量", "購買日期", "價格" };
+			HttpStatus httpStatus = HttpStatus.OK;
+			HSSFWorkbook workbook = userInfoService.export(titles, out, month);
+
+			x = workbook.getBytes();			
+//		    response.getOutputStream().write(bytes);
+//		    System.out.println("controller印東西");
+			bytes = new ResponseEntity<byte[]>(x, httpStatus);
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("excel失敗");
+		}
+		return bytes;
+	}
 
 	@ResponseBody
 	@RequestMapping("/bindex03_011/User.controller")
