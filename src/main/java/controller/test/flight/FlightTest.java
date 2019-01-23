@@ -9,6 +9,7 @@ import java.util.Set;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletResponse;
+import javax.transaction.Transactional;
 
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
@@ -31,7 +32,7 @@ import model.flight.FlightPassengerInfoBean;
 import model.flight.FlightPassengerInfoDAO;
 import model.flight.FlightTicketBean;
 import model.flight.FlightTicketDAO;
-
+//@Transactional
 @Controller
 public class FlightTest implements XmlDocument {
 
@@ -67,7 +68,7 @@ public class FlightTest implements XmlDocument {
 	@RequestMapping("/flight3")
 	public FlightOrderInfoBean create() {
 		FlightOrderInfoBean bean = new FlightOrderInfoBean();
-
+		bean.setFlightOrderNO(null);
 		bean.setAccountName("micky");
 		bean.setContactGender("先生");
 		bean.setContactLastNameCN("李");

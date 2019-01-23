@@ -59,23 +59,11 @@ var sum = 0;
 								})
 					});
 	
-	function TourOrder(){
-
-	console.log(params);		
-		$.ajax({
-				url : '/Travel/export.do',
-				contentType : 'application/json; charset=UTF-8',
-				type : 'get',
-				dataType : 'json',
-				data:params,
-			
-			   })
-			   
-	}
 					
 </script>
 </head>
 <body>
+<form action=" <c:url value='/Travel/export.do'/>">
 	<div class="boxmsg">
 	        <br>
             <br>
@@ -84,7 +72,7 @@ var sum = 0;
             <br>
             <br>
 <!--  --><label class="title">查詢月份</label>
-		<select id="select1">
+		<select id="select1" name="month"> 
 	    	<option value="zero"></option>
 			<option value="1">JAN</option>
 			<option value="2">FEB</option>
@@ -99,7 +87,8 @@ var sum = 0;
 			<option value="11">NOV</option>
 			<option value="12">DEC</option>　　　
           </select>
-            <button type="button" onclick="TourOrder()">下載EXCEL檔</button>
+<!--             <button type="button" onclick="TourOrder()">下載EXCEL檔</button> -->
+            <input type="submit" value="下載EXCEL檔">
 <!--  -->
 	</div>
 	<div class="boxmsg" id="searchuser">
@@ -107,5 +96,6 @@ var sum = 0;
 	 <label class="title">查詢結果</label>
 		
 	</div>
+	</form>
 </body>
 </html>

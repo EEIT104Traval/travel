@@ -10,10 +10,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import model.flight.service.CreateAirInfoService;
 import model.flight.service.FlightInfoGetService;
 
 @Controller
 public class FlightInfoController {
+	
+	@Autowired
+	CreateAirInfoService CIservice;
 		
 	@Autowired
 	private FlightInfoGetService flightInfoGetService;
@@ -55,6 +59,8 @@ public class FlightInfoController {
 		
 //		System.out.println("result2="+result1);
 		model.addAttribute("result", result);
+		CIservice.Airlinecreate();
+		CIservice.AirlinecreateParserXml();
 		
 		return "flightsecound";
 	}

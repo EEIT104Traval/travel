@@ -3,6 +3,8 @@ package model.tour.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,6 +13,7 @@ import model.tour.dao.GroupTourDAO;
 import model.tour.dao.TourTagsDAO;
 
 @Service
+@Transactional
 public class TourTagsService {
 	@Autowired
 	private TourTagsDAO tourTagsDAO  ;

@@ -1,7 +1,6 @@
 package model.userInfo;
 
 import java.sql.Timestamp;
-import java.text.SimpleDateFormat;
 //github.com/EEIT104Traval/travel
 import java.util.Arrays;
 import java.util.HashMap;
@@ -9,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.ServletOutputStream;
+import javax.transaction.Transactional;
 
 import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFCellStyle;
@@ -29,7 +29,6 @@ import model.rate.RateNoticeDAO;
 import model.ticket.TicketInfoBean;
 import model.ticket.TicketInfoDAO;
 import model.ticket.TicketOrderInfoBean;
-import model.ticket.TicketOrderInfoDAO;
 import model.ticket.TicketOrderInfoService;
 import model.tour.GroupTourBean;
 import model.tour.TourBatchBean;
@@ -39,6 +38,7 @@ import model.tour.dao.TourBatchDAO;
 import model.tour.service.TourOrderInfoService;
 
 @Service
+@Transactional
 public class UserInfoService {
 	@Autowired
 	UserInfoService userInfoService;
@@ -48,8 +48,6 @@ public class UserInfoService {
 	private TourOrderInfoService tourOrderInfoService;
 	@Autowired
 	private TicketOrderInfoService ticketOrderInfoService;
-	@Autowired
-	private TicketOrderInfoDAO ticketOrderInfoDAO;
 	@Autowired
 	private HotelOrderDetailsService hotelOrderDetailsService;
 	@Autowired
@@ -160,7 +158,7 @@ public class UserInfoService {
 			Integer ticketNo, Integer TourorderNo,Integer serialNo, Integer HotelorderNo,Integer hotelNo) {
 			
 //		Map<String, List<?>> Order = null;
-//		Order = userInfoService.findByPrimaryKey(accountName);
+//		Order = userInfoService.findByPrimaryKey(accountName);//刪誰的資料
 //		//先用map物件 找出 使用者  一個一個判斷
 //		if(Order.get("TicketOrderInfoBean") != null) {
 //			//可先做訂單移除
@@ -215,10 +213,6 @@ public class UserInfoService {
 		List<TourOrderInfoBean> tourInfo = tourOrderInfoService.foundOrderaccountName(user);
 		List<TourBatchBean> tourBatch = tourBatchDAO.findByTourOrderList(tourInfo);
 		List<GroupTourBean> tourList = groupTourDAO.findByTourBatchList(tourBatch);
-//		System.out.println(tourInfo);
-//		System.out.println(tourBatch);
-//		System.out.println(tourList);
-		System.out.println("==================");
 
 		List<TicketOrderInfoBean> ticketInfo = ticketOrderInfoService.foundOrderaccountName(user);
 		List<TicketInfoBean> ticketList = ticketInfoDAO.findByTicketOrderList(ticketInfo);
@@ -234,8 +228,6 @@ public class UserInfoService {
 
 						tourBatchBean.setTourName(groupTourBean.getTourName());
 						tourOrder.setTourName(tourBatchBean.getTourName());
-
-//						System.out.println(tourOrder);
 					}
 					continue;
 				}
