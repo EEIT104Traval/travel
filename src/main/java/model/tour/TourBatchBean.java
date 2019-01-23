@@ -56,18 +56,30 @@ public class TourBatchBean {
 	private String tourName;
 	@Transient
 	private String country;
+	@Transient 
+	private GroupTourBean groupTourBean;
+
+
+	public GroupTourBean getGroupTourBean() {
+		return groupTourBean;
+	}
+
+	public void setGroupTourBean(GroupTourBean groupTourBean) {
+		this.groupTourBean = groupTourBean;
+	}
+
 	
-
-
+	
 	@Override
 	public String toString() {
 		return "TourBatchBean [serialNo=" + serialNo + ", tourNo=" + tourNo + ", departureDate=" + departureDate
 				+ ", peopleCount=" + peopleCount + ", price_adult=" + price_adult + ", price_child=" + price_child
 				+ ", price_baby=" + price_baby + ", discount=" + discount + ", airline_go=" + airline_go
 				+ ", distination_go=" + distination_go + ", airline_back=" + airline_back + ", distination_back="
-				+ distination_back + ", content=" + content + ", tourName=" + tourName + ", country=" + country + "]";
+				+ distination_back + ", content=" + content + ", tourName=" + tourName + ", country=" + country
+				+ ", groupTourBean=" + groupTourBean + "]";
 	}
-	
+
 	public String getTourName() {
 		return tourName;
 	}

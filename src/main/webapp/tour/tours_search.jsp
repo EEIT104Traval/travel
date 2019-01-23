@@ -652,6 +652,7 @@ height:680px;
 	</div>
 	<script>	
 		$(document).ready(function() {
+			console.log("tour=>"+${tour});
 // 			$('.choose > div').hide();
 // 			$('.choose > div').slideDown(2000);
 			
