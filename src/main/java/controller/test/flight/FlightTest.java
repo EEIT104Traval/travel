@@ -67,7 +67,7 @@ public class FlightTest implements XmlDocument {
 	@RequestMapping("/flight3")
 	public FlightOrderInfoBean create() {
 		FlightOrderInfoBean bean = new FlightOrderInfoBean();
-
+		bean.setFlightOrderNO(null);
 		bean.setAccountName("micky");
 		bean.setContactGender("先生");
 		bean.setContactLastNameCN("李");

@@ -12,4 +12,6 @@ public interface AirportCompareDAO {
 	
 	public abstract List<AirportCompareBean> findByAirportName(String AirportName);
 	
+	
+	
 }
