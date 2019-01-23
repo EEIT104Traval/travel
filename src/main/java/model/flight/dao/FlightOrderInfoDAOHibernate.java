@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -73,5 +74,28 @@ public class FlightOrderInfoDAOHibernate implements FlightOrderInfoDAO {
 		return false;
 	
 	}
+	
+	public List<?> findByAccound(String account) {
+		
+		
+//		String hql = "select foi,fpi,ft from FlightOrderInfoBean foi,FlightPassengerInfoBean fpi,FlightTicketBean ft";
+//				+" where foi.flightOrderNO = fpi.flightOrderNO  and fpi.flightOrderNO = ft.flightOrderNO and foi.accountName='"
+//				+account+"'" ;
+		
+		
+		String hql = "select a,b,c " + 
+				 
+				" from FlightOrderInfo a,FlightPassengerInfo b,FlightTicket c " + 
+				
+				"where a.flightOrderNO = b.flightOrderNO  and b.flightOrderNO = c.flightOrderNO and a.accountName='MICKY'";
+		
+		Query query = this.getSession().createQuery(hql);
+		List<Object[]> list = query.list();
+		Object[] array = list.get(0);
+		FlightOrderInfoBean bean = (FlightOrderInfoBean)array[0];
+		System.out.println(bean);
+		return list;
+	}
+	
 
 }
