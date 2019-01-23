@@ -16,6 +16,7 @@ import model.tour.TourBatchBean;
 import model.tour.TourOrderInfoBean;
 import model.tour.service.GroupTourService;
 import model.tour.service.TourBuyService;
+import model.userInfo.UserInfoService;
 
 @Controller
 public class Display {
@@ -24,6 +25,8 @@ public class Display {
 	private GroupTourService groupTourService;
 	@Autowired
 	private TourBuyService tourBuyService;
+	@Autowired
+	private UserInfoService userInfoService;
 
 	@ResponseBody
 	@RequestMapping("/tour/display")
@@ -108,9 +111,10 @@ public class Display {
 	}
 	
 	@ResponseBody
-	@RequestMapping("/tour/Display2/order3")
-	public void method() {
-			
-	
+	@RequestMapping("/tour/Display2/acc")
+	public Map<String, List<?>> method(String accountName) {
+		Map<String, List<?>> result = null;
+		result = userInfoService.findByPrimaryKey(accountName);
+		return result;
 	}
 }
