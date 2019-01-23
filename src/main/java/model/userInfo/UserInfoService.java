@@ -29,7 +29,6 @@ import model.rate.RateNoticeDAO;
 import model.ticket.TicketInfoBean;
 import model.ticket.TicketInfoDAO;
 import model.ticket.TicketOrderInfoBean;
-import model.ticket.TicketOrderInfoDAO;
 import model.ticket.TicketOrderInfoService;
 import model.tour.GroupTourBean;
 import model.tour.TourBatchBean;
@@ -50,8 +49,6 @@ public class UserInfoService {
 	private TourOrderInfoService tourOrderInfoService;
 	@Autowired
 	private TicketOrderInfoService ticketOrderInfoService;
-	@Autowired
-	private TicketOrderInfoDAO ticketOrderInfoDAO;
 	@Autowired
 	private HotelOrderDetailsService hotelOrderDetailsService;
 	@Autowired
@@ -228,10 +225,6 @@ public class UserInfoService {
 		List<TourOrderInfoBean> tourInfo = tourOrderInfoService.foundOrderaccountName(user);
 		List<TourBatchBean> tourBatch = tourBatchDAO.findByTourOrderList(tourInfo);
 		List<GroupTourBean> tourList = groupTourDAO.findByTourBatchList(tourBatch);
-//		System.out.println("tourInfo="+tourInfo);
-//		System.out.println("tourBatch="+tourBatch);
-//		System.out.println("tourList="+tourList);
-		System.out.println("==================");
 
 		List<TicketOrderInfoBean> ticketInfo = ticketOrderInfoService.foundOrderaccountName(user);
 		List<TicketInfoBean> ticketList = ticketInfoDAO.findByTicketOrderList(ticketInfo);
@@ -247,8 +240,6 @@ public class UserInfoService {
 
 						tourBatchBean.setTourName(groupTourBean.getTourName());
 						tourOrder.setTourName(tourBatchBean.getTourName());
-
-//						System.out.println(tourOrder);
 					}
 					continue;
 				}

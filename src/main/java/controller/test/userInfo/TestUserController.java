@@ -16,7 +16,7 @@ import org.springframework.web.context.WebApplicationContext;
 
 import model.userInfo.UserInfoService;
 
-@WebServlet("/TestUserController")
+@WebServlet("/Travel/export.do")
 public class TestUserController extends HttpServlet {
 	private UserInfoService userInfoService;
 	@Override
@@ -27,14 +27,15 @@ public class TestUserController extends HttpServlet {
 	}
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		System.out.println("DOGET開始");
+		String month = request.getParameter("month");
         String fileName=new String(("UserInfo "+ new SimpleDateFormat("yyyy-MM-dd").format(new Date())).getBytes(),"UTF-8");
 		response.setHeader("Content-disposition", "attachment; filename=" + fileName + ".xls");
 	    response.setContentType("application/binary;charset=UTF-8");
 	    try{
 	        ServletOutputStream out=response.getOutputStream();
 	        String[] titles = { "國家", "名稱", "數量", "購買日期","價格" };
-	      userInfoService.export(titles, out, new Integer(12));
+	      userInfoService.export(titles, out, Integer.parseInt(month));
 	        System.out.println("有執行");
 	    } catch(Exception e){
 	        e.printStackTrace();

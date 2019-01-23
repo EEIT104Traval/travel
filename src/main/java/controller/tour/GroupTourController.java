@@ -115,7 +115,7 @@ System.out.println(result);
 				model.addAttribute("destination", tours);
 				model.addAttribute("checkin_date", checkin_date);
 				model.addAttribute("checkout_date", checkout_date);
-				List<TourBatchBean> no  = groupTourService.findTourByNO(tours, checkin_date, checkout_date);
+				List<GroupTourBean> no  = groupTourService.findTourByNO(tours, checkin_date, checkout_date);
 //				if(no.isEmpty()) {
 //					System.out.println("沒有國家拉幹");
 //				}
@@ -131,7 +131,7 @@ System.out.println(result);
 //				}				
 //				System.out.println(total);
 //				
-				System.out.println("no="+no);
+//				System.out.println("no="+no);
 				return "tour.search";
 		
 	}

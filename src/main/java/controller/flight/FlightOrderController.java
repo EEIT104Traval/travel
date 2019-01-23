@@ -103,7 +103,7 @@ public class FlightOrderController {
 		bean1.setClassLevel("經濟艙");
 		System.out.println("bean1="+bean1);
 		ftBeanlist.add(bean1);
-		if (backCode != null) {
+//		if (backCode != null) {
 			FlightTicketBean bean2 = new FlightTicketBean();
 			bean2.setFlightNO(backCode);
 			bean2.setAirlineCode(backCodeOnly);
@@ -116,7 +116,7 @@ public class FlightOrderController {
 			bean2.setClassLevel("經濟艙");
 			System.out.println("bean2="+bean2);
 			ftBeanlist.add(bean2);
-		}
+//		}
 //System.out.println("GOCODE="+goCode+"backCode="+backCode+"backCodeOnly="+backCodeOnly);
 		boolean re = service.createThreeTable(FOIBean, fpiBeanlist, ftBeanlist);
 //		System.out.println("是否成功塞進去" + re);
