@@ -229,6 +229,14 @@
    		var dt = new Date();
    		$('#checkin_date').val(dt.getFullYear()+"/"+dt.getMonth()+1+"/"+dt.getDate());
    		$('#checkout_date').val(dt.getFullYear()+"/"+dt.getMonth()+1+"/"+dt.getDate());
+   		$('#search').click(function(){
+   			if($('#tourS').val()==""){
+   				alert("想去哪裡玩??");
+   			    return false;
+   			    }
+   			else
+   				return true;
+   		});
    			
    		$('#tagcloud').on("mouseover","a",function(){
    			$(this).css('color','purple').css('background','yellow');
@@ -271,7 +279,7 @@
 					+"</a>"
 				+"</div>"
 				//形成標籤
-// 				tagcontents +='<a href="#idd" id="'+data.TourTagsBean[0].tag
+// 				tagcontents +=' <a href="#idd" id="'+data.TourTagsBean[0].tag
 // 				            +'" class="tag-cloud-link">'+data.TourTagsBean[0].tag
 // 				            +'</button>';
 					 
