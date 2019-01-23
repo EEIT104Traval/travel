@@ -51,9 +51,23 @@ public class RateDAOHibernate implements RateDAO{
 			RateBean result = this.getSession().get(RateBean.class, bean.getSerial());
 			if(result==null) {
 				this.getSession().save(bean);
+//				System.out.println(this.getSession().save(bean));
 				return bean;
 			}
 		}
+		return null;
+	}
+		
+	@Override
+	public RateBean createRates(RateBean bean) {//還沒有寫完
+		if(bean!=null) {
+//			RateBean result = this.getSession().get(RateBean.class, bean.getSerial());
+//			if(result==null) {
+				this.getSession().save(bean);
+//				System.out.println(this.getSession().save(bean));
+				return bean;
+			}
+//		}
 		return null;
 	}
 
