@@ -133,6 +133,9 @@ iframe#_hjRemoteVarsFrame {
     top: -.3em;
     margin-left: -.6em;
 }
+.owl-stage-outer{
+height:680px;
+}
 
 }
 </style>
@@ -512,7 +515,7 @@ iframe#_hjRemoteVarsFrame {
 																	style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 3;">${element.groupTourBean.tourName}</div></a>
 														</h4>
 														<div class="product-info-tag-area">
-															<c:if test="${element.groupTourBean.guaranteedCount - element.peopleCount <= 0}">
+															<c:if test="${element.groupTourBean.guaranteedCount - element.peopleCount < 0 && element.groupTourBean.fullPeopleCount - element.peopleCount != 0}">
 																<div class="tag solid yellow"><div class="ready">已成團</div></div>
 																 
 															</c:if>
@@ -523,7 +526,7 @@ iframe#_hjRemoteVarsFrame {
 															
 															<c:if test="${element.groupTourBean.fullPeopleCount - element.peopleCount == 0}">
 																 <div class="tag solid red"><div class="full">額滿</div></div>															
-															 	</c:if>
+															</c:if>
 														</div>
 														<div
 															class="product-info-bottom hidden-md hidden-sm hidden-xs">
@@ -751,7 +754,7 @@ iframe#_hjRemoteVarsFrame {
 					$('#checkbox-grupstatus-0').prop("checked",false);
 					$('#checkbox-grupstatus-1').prop("checked",false);
 					$('div:visible div[class="soon"]').parents('.choose > div').fadeOut("slow");
-					$('div:visible div[class="full"]').parents('.choose > div').fadeOut("slow");
+					$('div:visible div[class="ready"]').parents('.choose > div').fadeOut("slow");
 				}else{
 					if($("#checkbox-tourday-1").prop("checked")){
 						$('.choose > div').fadeOut("slow");

@@ -51,7 +51,7 @@ public class GroupTourService {
 	
 	public List<TourBatchBean> findTourByNO(String country, Date checkin_date, Date checkout_date) {
 		List<String> no = groupTourDAO.findByCountry(country);
-		
+		System.out.println("no=>"+no);
 		if(no.isEmpty()) {
 			List<TourBatchBean> ll =  new ArrayList<TourBatchBean>();
 			return ll;
