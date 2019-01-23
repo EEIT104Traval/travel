@@ -490,7 +490,7 @@ height:680px;
 									style="height: auto; overflow: initial;">
 					<c:forEach items="${tour}" var="element">
 									<div class="choose">
-									<div class="${element.groupTourBean.tourDays}">
+									<div class="${element.tourDays}">
 										<article class="product-item tour" >
 											<div class="container-fluid" style="border:4px #007bff solid;">
 												<div class="row"
@@ -499,10 +499,10 @@ height:680px;
 														<a href="/product/GFG0000012035/AUKA9B90204A"
 															target="_blank"><img
 															style="width: 270px; "
-															alt="${element.groupTourBean.tourName}"
+															alt="${element.tourName}"
 															class="img-responsive"
 															href="<c:url value='/voyage/index.jsp'/>"
-															<c:set var="a" value="${'/Travel/tour/Display2/images/'}${element.groupTourBean.tourPictureBean[0].pic}"  />
+															<c:set var="a" value="${'/Travel/tour/Display2/images/'}${element.tourPictureBean[0].pic}"  />
 															src="${a}"></a>
 														<!-- 													<div class="favorite hidden-xs"> -->
 														<!-- 														<div class="btn-collect-nobox"></div> -->
@@ -512,26 +512,26 @@ height:680px;
 														<h4 class="product-name">
 															<a href="/product/GFG0000012035/AUKA9B90204A"
 																target="_blank"><div
-																	style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 3;">${element.groupTourBean.tourName}</div></a>
+																	style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 3;">${element.tourName}</div></a>
 														</h4>
 														<div class="product-info-tag-area">
-															<c:if test="${element.groupTourBean.guaranteedCount - element.peopleCount < 0 && element.groupTourBean.fullPeopleCount - element.peopleCount != 0}">
+															<c:if test="${element.guaranteedCount - element.tourBatchBean[0].peopleCount < 0 && element.fullPeopleCount - element.tourBatchBean[0].peopleCount != 0}">
 																<div class="tag solid yellow"><div class="ready">已成團</div></div>
 																 
 															</c:if>
 															
-															<c:if test="${element.groupTourBean.guaranteedCount - element.peopleCount > 0}">
+															<c:if test="${element.guaranteedCount - element.tourBatchBean[0].peopleCount > 0}">
 															<div class="tag solid" style="color: #333;  background-color: #fd7e14;"><div class="soon">即將成團</div></div>
 															</c:if>
 															
-															<c:if test="${element.groupTourBean.fullPeopleCount - element.peopleCount == 0}">
+															<c:if test="${element.fullPeopleCount - element.tourBatchBean[0].peopleCount == 0}">
 																 <div class="tag solid red"><div class="full">額滿</div></div>															
 															</c:if>
 														</div>
 														<div
 															class="product-info-bottom hidden-md hidden-sm hidden-xs">
-															<div>${element.distination_back}出發</div>
-															<div>團號：${element.groupTourBean.tourNo}</div>
+															<div>${element.tourBatchBean[0].distination_back}出發</div>
+															<div>團號：${element.tourNo}</div>
 															<div>機位 洽客服</div>
 															<div class="order-btn">
 																<a role="button" data-toggle="collapse"
@@ -543,16 +543,16 @@ height:680px;
 													</div>
 													<div class="product-item-right-text">
 														<strong><fmt:formatDate pattern="MM/dd"
-																value="${element.departureDate}" />，洽客服</strong>
+																value="${element.tourBatchBean[0].departureDate}" />，洽客服</strong>
 													</div>
 													<div class="area-price col-md-2 col-sm-12">
 														<div class="row">
 															<div class="col-md-12 col-xs-8">
 																<div class="price">
 																	<div id="ori-price" class="ori-price">
-																		${element.groupTourBean.tourDays}天</div>
+																		${element.tourDays}天</div>
 																	<div>
-																		<span class="price-uni">$</span>${element.price_adult }<em>起</em>
+																		<span class="price-uni">$</span>${element.tourBatchBean[0].price_adult }<em>起</em>
 																	</div>
 																</div>
 															</div>
@@ -585,7 +585,10 @@ height:680px;
 
 
 
-									<div class="no-data-info text-center">已經到底了，沒有東西囉</div>
+									<div class="no-data-info text-center" >已經到底了，沒有東西囉</div>
+									<div style="display:block; margin:auto;"><img src="<c:url value='/tour/crying.gif' />" /></div>
+<%-- <img src="<c:url value='https://www.google.com/search?q=%E8%98%91%E8%8F%87%E9%A0%AD%E8%A1%A8%E6%83%85%E5%8C%85&tbs=isc:white,ic:trans,itp:animated&tbm=isch&source=lnt&sa=X&ved=0ahUKEwjtzP67h4TgAhXEbrwKHbjyATMQpwUIHg&biw=1920&bih=938&dpr=1#imgrc=S0kz4qYOErbNEM:' />" /> --%>
+									
 								</div>
 							</div>
 						</section>
@@ -652,10 +655,10 @@ height:680px;
 	</div>
 	<script>	
 		$(document).ready(function() {
-			console.log("tour=>"+${tour});
 // 			$('.choose > div').hide();
 // 			$('.choose > div').slideDown(2000);
-			
+// // 			alert($('.tag-result >span').text());
+// 			alert($('#choose > div:visible').size());
 			$("#checkbox-tourday-1").click(function(){
 				if($("#checkbox-tourday-1").prop("checked")){
 					$("#checkbox-tourday-2").prop("checked",false);
@@ -882,6 +885,8 @@ height:680px;
 		})
 //你沒東西計時器
 		  function ifEmpty(){ 
+			$('.tag-result >span').html($('.choose > div:visible').size());
+			
 			
 			if($('.choose >div:hidden').size() == ${count}){		    
 // 				$('#nofind').show();
