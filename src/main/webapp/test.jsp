@@ -72,6 +72,7 @@
 	<a href="<c:url value='/ratePK' />">RatePK</a>
 	<a href="<c:url value='/ratefindALL' />">RatefindAll</a>
 	<a href="<c:url value='/ratefindALL01' />">RatefindAll01</a>
+	<a href="<c:url value='/rate/createRates' />">RatetestMa</a>
 	<a href="<c:url value='/ratenoticecreate' />">ratenoticecreate</a>
 	
 	<%-- 	<a href="<c:url value='/ratecreate' />">Ratecreat</a> --%>

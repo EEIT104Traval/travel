@@ -1,8 +1,8 @@
 package model.tour.dao;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.EntityManager;
 import javax.persistence.criteria.CriteriaBuilder;
@@ -12,6 +12,7 @@ import javax.persistence.criteria.Root;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -51,7 +52,11 @@ public class GroupTourDAO {
 				.list();
 	}
 	
-
+	public List<GroupTourBean> findByList(Set<String> tourNo){
+		  String hql = "from GroupTourBean where tourNo in (:no)";
+		  Query<GroupTourBean> query = this.getSession().createQuery(hql, GroupTourBean.class);
+		  return query.setParameterList("no",tourNo).list();
+	}
 	
 	
     public Long countAll() {

@@ -15,10 +15,10 @@ public class RateBean {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Integer serial;
-	private String currency;
 	
+	private String currency;
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date updateTime;
 	private Double cashBuy;
 	private Double cashSell;

@@ -1,6 +1,5 @@
 package model.rate;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -27,6 +26,15 @@ public class RateService {
 		RateBean result = null;
 		if(bean != null) {
 			result = rateDao.create(bean);
+		}	
+		return result;
+		
+	}
+	
+	public RateBean createRates(RateBean bean) {
+		RateBean result = null;
+		if(bean != null) {
+			result = rateDao.createRates(bean);
 		}	
 		return result;
 		

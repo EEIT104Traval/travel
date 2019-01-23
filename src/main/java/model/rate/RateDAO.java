@@ -13,6 +13,8 @@ public interface RateDAO {
 
 	public abstract RateBean create(RateBean bean);
 	
+	public abstract RateBean createRates(RateBean bean);
+	
 	
 
 	public abstract RateBean update(Integer serial,String currency,java.util.Date updateTime,Double cashBuy,

@@ -35,6 +35,7 @@ import model.tour.TourBatchBean;
 import model.tour.TourOrderInfoBean;
 import model.tour.dao.GroupTourDAO;
 import model.tour.dao.TourBatchDAO;
+import model.tour.dao.TourOrderInfoDAO;
 import model.tour.service.TourOrderInfoService;
 
 @Service
@@ -62,6 +63,10 @@ public class UserInfoService {
 	private HotelDAO hotelDAO = null;
 	@Autowired
 	private FlightOrderInfoDAO FOIDAO;
+	@Autowired
+	private TourOrderInfoDAO tourOrderInfoDAO;
+	
+	
 	
 	public UserInfoBean login(String accountName, String password) {
 		UserInfoBean bean = userInfoDAO.findByPrimaryKey(accountName);
@@ -155,7 +160,7 @@ public class UserInfoService {
 	
 	//-------------------------------測試-----------------------------
 	public String updateq(String accountName , Integer Q ,Integer ticketOrderNO,
-			Integer ticketNo, Integer TourorderNo,Integer serialNo, Integer HotelorderNo,Integer hotelNo) {
+			Integer ticketNo, Integer tourorderNo,Integer serialNo, Integer HotelorderNo,Integer hotelNo) {
 			
 //		Map<String, List<?>> Order = null;
 //		Order = userInfoService.findByPrimaryKey(accountName);//刪誰的資料
@@ -168,10 +173,17 @@ public class UserInfoService {
 //			//本表格沒有庫存數量只有銷售數量  所以把銷售數量減退或數量
 //			Tt.setAdultTicketSelledQ((Tt.getAdultTicketSelledQ()-Q));
 //			ticketInfoDAO.update(Tt);
-//		}else if() {
-//			//以此類推...
+//		}else if(Order.get("TourOrderInfoBean") != null) {
+//			//訂單移除
+//			tourOrderInfoDAO.remove(tourorderNo);
+//			//把TourBatchBean的peoplecount減少
+////			TourBatchBean tb = tourBatchDAO.update1(serialNo);
+//			
+//			
+//		}else if(Order.get("HotelOrderDetailsBean") != null) {
+			
 //		}
-//		
+		
 	
 		
 		return "訂單取消完成";

@@ -11,6 +11,8 @@ public interface UserInfoDAO {
 		public abstract List<UserInfoBean> findAll();
 
 		public abstract UserInfoBean create(UserInfoBean bean);
+		
+		
 
 		public abstract UserInfoBean update(String accountName,byte[] password, String firstname, String lastname, 
 				String identityNo, String email, java.util.Date birth, String sex, String phone,
