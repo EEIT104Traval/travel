@@ -44,10 +44,7 @@ body {
 
 </head>
 <script>
-<c:if test='${not empty result}'>
-alert('${result}');
-</c:if>
-
+var params = {}
 
 	var accountName = "${sessionScope.accountName}"
 	var roomTypeNo = 8
@@ -70,13 +67,33 @@ alert('${result}');
 					console.log("value.roomTypeNo="+'${roomTypeNo}')
 					console.log(value);
 			$("#div_ticket_search").html("")
-// 				$.each(JData, function(index, value) {
-// 				var totalpiece = $('#tt'+value.ticketNo).val()
 	       		 });
 		 }           
 	 
 		            
-	        
+	 function ShowDay(){
+		   var checkInDate = $('#checkInDate').val();
+		   var checkOutDate = $('#checkOutDate').val();
+		   var roomTypeNo = 8;
+// 		    alert(checkInDate);
+// 		    alert(checkOutDate);
+			$.ajax({
+	            type: "GET", //傳送方式
+	            url: "/Travel/voyage//hotel/DateMinus", 
+	            dataType: "json", 
+	            data:{'checkInDate':checkInDate,'checkOutDate':checkOutDate,'roomTypeNo':roomTypeNo}
+			}).done(
+					function(value) {
+						console.log(value);
+						$('#day').text('1 房間 x ' + value.Day+' 晚');
+						$('#price').text('NT$ ' + value.price*value.Day);
+						$('#tax').text('NT$ ' + value.price*value.Day*0.05);
+						$('#total').text('NT$ ' + ((value.price*value.Day) + (value.price*value.Day*0.05)));
+
+		    
+		    
+					})
+		}      
 	   
 	
 		
@@ -146,7 +163,7 @@ alert('${result}');
 												<div id="card-element-547039" class="collapse show">
 													<div class="card-body">
 														<p style="margin: 0px">房間數</p>
-														<p style="margin-bottom: 10px; color: red">僅剩1間</p>
+														<p style="margin-bottom: 10px; color: red">尚有空房</p>
 									
 															<label>訂購人</label> <input style="margin-bottom: 10px"
 																type="text" placeholder="請輸入姓名" name="bookingPerson">
@@ -309,12 +326,12 @@ alert('${result}');
 												<div class="col-md-5">
 <!-- 													<p style="margin-left: 20px; padding: 0px; color:red">2019年1月19日</p> -->
 													<input type="text" data-provide="datepicker" 
-													style="margin-left: 18px; font-family: Noto Sans TC; width: 50%" placeholder="入住日期" name="checkIn">
+													style="margin-left: 18px; font-family: Noto Sans TC; width: 50%" placeholder="入住日期" name="checkIn" id="checkInDate">
 												</div>
 												<div class="col-md-5">
 <!-- 													<p style="padding: 0px; color:red">2019年1月20日</p> -->
 													<input type="text" data-provide="datepicker" 
-													style="font-family: Noto Sans TC; width: 50%" placeholder="退房日期" name="checkOut">
+													style="font-family: Noto Sans TC; width: 50%" placeholder="退房日期" name="checkOut" id="checkOutDate">
 												</div>
 												<div class="col-md-2">
 													<p style="color:red"></p>
@@ -328,14 +345,14 @@ alert('${result}');
 													<p>12:00前</p>
 												</div>
 												<div class="col-md-2"></div>
-												<a href="#" style="margin-left: 25px">更改日期</a>
+												<input type="button" style="margin-left: 25px" onclick="ShowDay()" value="搜尋">
 											</div>
 											<div
 												style="border-bottom: 1px dotted grey; padding-bottom: 10px; margin: 10px"></div>
 											<!-- 分隔線  -->
 											<div class="row">
 												<div class="col-md-6">
-													<p style="margin-left: 20px">總統轉角套房</p>
+													<p style="margin-left: 20px; color:red">總統轉角套房</p>
 												</div>
 												<div class="col-md-6"></div>
 											</div>
@@ -368,18 +385,18 @@ alert('${result}');
 											<!-- 分隔線  -->
 											<div class="row">
 												<div class="col-md-6">
-													<p style="margin-left: 20px">1 房間 x 1 晚</p>
+													<p style="margin-left: 20px" id="day">1 房間 x 1 晚</p>
 												</div>
 												<div class="col-md-6">
-													<p style="color:red">NT$ 64,666</p>
+													<p style="color:red" id="price">NT$ 64666</p>
 												</div>
 											</div>
 											<div class="row">
 												<div class="col-md-6">
-													<p style="margin-left: 20px">稅項及附加費</p>
+													<p style="margin-left: 20px">稅項及附加費：5%</p>
 												</div>
 												<div class="col-md-6">
-													<p style="color:red">$NT 2,000</p>
+													<p style="color:red" id="tax">NT$ 3233</p>
 												</div>
 											</div>
 											<div class="row">
@@ -387,7 +404,7 @@ alert('${result}');
 													<p style="margin-left: 20px">應付總額</p>
 												</div>
 												<div class="col-md-6">
-													<p style="color:red">NT$ 66,666</p>
+													<p style="color:red" id="total">NT$ 67899</p>
 												</div>
 											</div>
 											<div class="row">
