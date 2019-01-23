@@ -29,13 +29,13 @@ import model.rate.RateNoticeDAO;
 import model.ticket.TicketInfoBean;
 import model.ticket.TicketInfoDAO;
 import model.ticket.TicketOrderInfoBean;
-import model.ticket.TicketOrderInfoDAO;
 import model.ticket.TicketOrderInfoService;
 import model.tour.GroupTourBean;
 import model.tour.TourBatchBean;
 import model.tour.TourOrderInfoBean;
 import model.tour.dao.GroupTourDAO;
 import model.tour.dao.TourBatchDAO;
+import model.tour.dao.TourOrderInfoDAO;
 import model.tour.service.TourOrderInfoService;
 
 @Service
@@ -50,8 +50,6 @@ public class UserInfoService {
 	@Autowired
 	private TicketOrderInfoService ticketOrderInfoService;
 	@Autowired
-	private TicketOrderInfoDAO ticketOrderInfoDAO;
-	@Autowired
 	private HotelOrderDetailsService hotelOrderDetailsService;
 	@Autowired
 	private GroupTourDAO groupTourDAO;
@@ -65,6 +63,10 @@ public class UserInfoService {
 	private HotelDAO hotelDAO = null;
 	@Autowired
 	private FlightOrderInfoDAO FOIDAO;
+	@Autowired
+	private TourOrderInfoDAO tourOrderInfoDAO;
+	
+	
 	
 	public UserInfoBean login(String accountName, String password) {
 		UserInfoBean bean = userInfoDAO.findByPrimaryKey(accountName);
@@ -158,23 +160,30 @@ public class UserInfoService {
 	
 	//-------------------------------測試-----------------------------
 	public String updateq(String accountName , Integer Q ,Integer ticketOrderNO,
-			Integer ticketNo, Integer TourorderNo,Integer serialNo, Integer HotelorderNo,Integer hotelNo) {
+			Integer ticketNo, Integer tourorderNo,Integer serialNo, Integer HotelorderNo,Integer hotelNo) {
 			
-//		Map<String, List<?>> Order = null;
-//		Order = userInfoService.findByPrimaryKey(accountName);//刪誰的資料
-//		//先用map物件 找出 使用者  一個一個判斷
-//		if(Order.get("TicketOrderInfoBean") != null) {
-//			//可先做訂單移除
-//			ticketOrderInfoDAO.remove(ticketOrderNO);
-//			//把移除掉掉的訂單加回
-//			TicketInfoBean Tt = ticketInfoDAO.findByPrimaryKey(ticketNo);
-//			//本表格沒有庫存數量只有銷售數量  所以把銷售數量減退或數量
-//			Tt.setAdultTicketSelledQ((Tt.getAdultTicketSelledQ()-Q));
-//			ticketInfoDAO.update(Tt);
-//		}else if() {
-//			//以此類推...
-//		}
-//		
+		Map<String, List<?>> Order = null;
+		Order = userInfoService.findByPrimaryKey(accountName);//刪誰的資料
+		//先用map物件 找出 使用者  一個一個判斷
+		if(Order.get("TicketOrderInfoBean") != null) {
+			//可先做訂單移除
+			ticketOrderInfoDAO.remove(ticketOrderNO);
+			//把移除掉掉的訂單加回
+			TicketInfoBean Tt = ticketInfoDAO.findByPrimaryKey(ticketNo);
+			//本表格沒有庫存數量只有銷售數量  所以把銷售數量減退或數量
+			Tt.setAdultTicketSelledQ((Tt.getAdultTicketSelledQ()-Q));
+			ticketInfoDAO.update(Tt);
+		}else if(Order.get("TourOrderInfoBean") != null) {
+			//訂單移除
+			tourOrderInfoDAO.remove(tourorderNo);
+			//把TourBatchBean的peoplecount減少
+//			TourBatchBean tb = tourBatchDAO.update1(serialNo);
+			
+			
+		}else if(Order.get("HotelOrderDetailsBean") != null) {
+			
+		}
+		
 	
 		
 		return "訂單取消完成";
@@ -216,10 +225,6 @@ public class UserInfoService {
 		List<TourOrderInfoBean> tourInfo = tourOrderInfoService.foundOrderaccountName(user);
 		List<TourBatchBean> tourBatch = tourBatchDAO.findByTourOrderList(tourInfo);
 		List<GroupTourBean> tourList = groupTourDAO.findByTourBatchList(tourBatch);
-//		System.out.println("tourInfo="+tourInfo);
-//		System.out.println("tourBatch="+tourBatch);
-//		System.out.println("tourList="+tourList);
-		System.out.println("==================");
 
 		List<TicketOrderInfoBean> ticketInfo = ticketOrderInfoService.foundOrderaccountName(user);
 		List<TicketInfoBean> ticketList = ticketInfoDAO.findByTicketOrderList(ticketInfo);
@@ -235,8 +240,6 @@ public class UserInfoService {
 
 						tourBatchBean.setTourName(groupTourBean.getTourName());
 						tourOrder.setTourName(tourBatchBean.getTourName());
-
-//						System.out.println(tourOrder);
 					}
 					continue;
 				}

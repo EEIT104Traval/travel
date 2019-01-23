@@ -1,6 +1,5 @@
 package model.ticket;
 
-import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -13,6 +12,7 @@ import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,8 +20,8 @@ import org.springframework.util.StringUtils;
 
 import model.userInfo.UserInfoBean;
 import model.userInfo.UserInfoDAO;
-
 @Service
+@Transactional
 public class TicketInfoService {
 
 	@Autowired
@@ -30,10 +30,7 @@ public class TicketInfoService {
 	private TicketOrderInfoDAO ticketOrderInfoDAO = null;
 	@Autowired
 	private UserInfoDAO userInfoDAO = null;
-//	@Autowired
-//	private UserInfoBean userInfoBean = null;
-	
-	public SimpleDateFormat sdFormat = new SimpleDateFormat("yyyy/MM/dd");
+
 
 	
 	public List<TicketInfoBean> select(TicketInfoBean bean) {
@@ -49,6 +46,10 @@ public class TicketInfoService {
 			}
 		}
 		return result;
+	}
+	public TicketInfoBean findByPrimaryKey(Integer ticketNo) {
+		TicketInfoBean tib = ticketInfoDAO.findByPrimaryKey(ticketNo);
+		return tib;
 	}
 
 	public List<TicketInfoBean> findAll(){
@@ -71,26 +72,13 @@ public class TicketInfoService {
 		}
 		return result;
 	}
-//	public TicketInfoBean update(TicketInfoBean bean) {
-//		TicketInfoBean result = null;
-//		if (bean != null) {
-//			result = ticketInfoDAO.update(bean.getTicketNo(), bean.getTicketName(), bean.getValidity(),
-//					bean.getAdultTicketPrice(), bean.getChildTicketPrice(), bean.getAdultTicketSellQ(),
-//					bean.getChildTicketSellQ(), bean.getAdultTicketSelledQ(), bean.getChildTicketSelledQ(),
-//					bean.getCountry(), bean.getCategory(), bean.getProductFeatures(), bean.getTicketPicture(),
-//					bean.getTicketDescription(), bean.getTraffic_information(), bean.getSpecial_restrictions(),
-//					bean.getGoogleAddressOrName());
-//		}
-//		return result;
-//	}
-
 	
 	public boolean delete(TicketInfoBean bean) {
-		boolean result = false;
+//
 		if (bean != null) {
-			result = ticketInfoDAO.remove(bean.getTicketNo());
+			 ticketInfoDAO.remove(bean.getTicketNo());
 		}
-		return result;
+		return true;
 	}
 
 	public boolean qupdate(String accountName, Integer ticketNo, Integer adultTicketSellQ, Integer adultTicketPrice)
@@ -108,10 +96,7 @@ public class TicketInfoService {
 			TicketOrderInfoBean TOI = ticketOrderInfoDAO.create(bean);
 			TOI.setAccountName(accountName);
 			TOI.setTicketNo(ticketNo);
-			Date date = new Date();
-			String strDate = sdFormat.format(date);
-			Date TD = sdFormat.parse(strDate);
-			TOI.setOrderDate(TD);
+			TOI.setOrderDate(new Date());
 			TOI.setAdultTicketCount(adultTicketSellQ);
 			Integer TT = adultTicketSellQ * adultTicketPrice;
 			TOI.setTotalPrice(TT);
@@ -122,7 +107,6 @@ public class TicketInfoService {
 		            String user = "sherrysherry92@gmail.com";
 		            String pass = "jxrkaepvctpmffcs";
 		            String to = ubean.getEmail();
-//		            String to = "reese32@hotmail.com.tw";
 		            String from = "sherry";
 		            String subject = "Time To Travel";
 		            SimpleDateFormat sdFormat = new SimpleDateFormat("yyyy/MM/dd hh:mm:ss");
@@ -168,19 +152,6 @@ public class TicketInfoService {
 			return false;
 		}
 	}
-
-	public  String DLticketInfo(String path) throws IOException{
-		String x = ticketInfoDAO.DLticketInfo(path);
-		
-		return x;
-	}
-	
-	
-	public  String UPticketInfo(String path) throws IOException{
-		String x = ticketInfoDAO.UPticketInfo(path);
-		
-		return x;
-	}	
 	
 	public List<TicketInfoBean> searchCountry(String country) {
 		List<TicketInfoBean> result = null;

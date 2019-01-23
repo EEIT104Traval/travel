@@ -87,6 +87,27 @@ public class TourBatchDAO {
 		}
 		return null;
 	}
+	
+//	public TourBatchBean update1(Integer serialNo) { 尚未完成
+//		TourBatchBean result = this.getSession().get(TourBatchBean.class, bean.getSerialNo());
+//		if (result != null) {
+//			result.setTourNo(bean.getTourNo());
+//			result.setDepartureDate(bean.getDepartureDate());
+//			result.setPeopleCount(bean.getPeopleCount());
+//			result.setPrice_adult(bean.getPrice_adult());
+//			result.setPrice_child(bean.getPrice_child());
+//			result.setPrice_baby(bean.getPrice_baby());
+//			result.setDiscount(bean.getDiscount());
+//			result.setAirline_go(bean.getAirline_go());
+//			result.setDistination_go(bean.getDistination_go());
+//			result.setAirline_back(bean.getAirline_back());
+//			result.setDistination_back(bean.getDistination_back());
+//			result.setContent(bean.getContent());
+//			return result;
+//		}
+//		return null;
+//	}
+	
 
 	public boolean remove(Integer serialNo) {
 		TourBatchBean result = this.getSession().get(TourBatchBean.class, serialNo);
