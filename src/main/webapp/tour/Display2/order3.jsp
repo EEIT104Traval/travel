@@ -102,7 +102,20 @@ h2 {
 	crossorigin="anonymous"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script>
-	
+	var accountName = '${accountName}'
+		$(document).ready(function() {
+				$.ajax({
+						url : '/Travel/tour/Display2/order3',
+						contentType : 'application/json; charset=UTF-8',
+						type : 'get',
+						dataType : 'json',
+						data:{'accountName':accountName},
+				}).done(function(JData) {
+						$.each(JData, function(index, value) {						
+							console.log(JData);
+						})
+				})
+		});
 </script>
 
 <body>
@@ -158,36 +171,7 @@ h2 {
 
 	</section>
 	<!-- END section -->
- <a id="modal-836360" href="#modal-container-836360" role="button" class="btn" data-toggle="modal">Launch demo modal</a>
-			
-			<div class="modal fade" id="modal-container-836360" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-				<div class="modal-dialog" role="document">
-					<div class="modal-content">
-						<div class="modal-header">
-							<h1 class="modal-title" id="myModalLabel">
-								Modal title
-							</h1> 
-							<button type="button" class="close" data-dismiss="modal">
-								<span aria-hidden="true">×</span>
-							</button>
-						</div>
-						<div class="modal-body">
-							...
-						</div>
-						<div class="modal-footer">
-							 
-							<button type="button" class="btn btn-primary">
-								Save changes
-							</button> 
-							<button type="button" class="btn btn-secondary" data-dismiss="modal">
-								Close
-							</button>
-						</div>
-					</div>
-					
-				</div>
 				
-			</div>
 	<!-- 訂單 -->
 	<section class="probootstrap_section bg-light">
 		<div class="container" style="max-width: 1200px">
@@ -196,43 +180,60 @@ h2 {
 				<table class="table table-striped">
 					<thead>
 						<tr>
-							<th>日期</th>
+							<th>訂單日期</th>
 							<th colspan="2">商品內容</th>
-							<th>訂單狀態</th>
+							<th>人數</th>
 							<th>總金額</th>
+							<th>訂單狀態</th>
+							<th></th>
 							<th></th>
 						</tr>
 					</thead>
-					<tbody>
+					<tbody id='tbody'>
 						<tr>
 							<td>1</td>
-							<td>TB - Monthly</td>
+							<td colspan="2">TB - Monthly</td>
 							<td>01/04/2012</td>
+							<td>Default</td>
+							<td>Default</td>
+							<td>Default</td>
 							<td>Default</td>
 						</tr>
 						<tr class="table-active">
 							<td>1</td>
-							<td>TB - Monthly</td>
+							<td colspan="2">TB - Monthly</td>
 							<td>01/04/2012</td>
+							<td>Approved</td>
+							<td>Approved</td>
+							<td>Approved</td>
 							<td>Approved</td>
 						</tr>
 						<tr class="table-success">
 							<td>2</td>
-							<td>TB - Monthly</td>
+							<td colspan="2">TB - Monthly</td>
 							<td>02/04/2012</td>
+							<td>Declined</td>
+							<td>Declined</td>
+							<td>Declined</td>
 							<td>Declined</td>
 						</tr>
 						<tr class="table-warning">
 							<td>3</td>
-							<td>TB - Monthly</td>
+							<td colspan="2">TB - Monthly</td>
 							<td>03/04/2012</td>
+							<td>Pending</td>
+							<td>Pending</td>
+							<td>Pending</td>
 							<td>Pending</td>
 						</tr>
 						<tr class="table-danger">
 							<td>4</td>
-							<td>TB - Monthly</td>
+							<td colspan="2">TB - Monthly</td>
 							<td>04/04/2012</td>
 							<td>Call in to confirm</td>
+							<td>Pending</td>
+							<td>Pending</td>
+							<td>Pending</td>
 						</tr>
 					</tbody>
 				</table>

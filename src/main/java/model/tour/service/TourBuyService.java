@@ -2,8 +2,10 @@ package model.tour.service;
 
 import java.util.Date;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import javax.transaction.Transactional;
 
@@ -55,6 +57,9 @@ public class TourBuyService {
 		bean.setOrderTime(new Date());
 		TourOrderInfoBean result = orderDao.create(bean);
 		
+		TourBatchBean BB = tourBatchDao.findByPrimaryKey(Integer.valueOf(serialNo));
+		BB.setPeopleCount(BB.getPeopleCount()+quantity);
+		
 		int i = cname.length;
 		Integer q = ( i==0 ? 1 : i ) ;
 		for(int x = 0 ; x < q ; x++ ) {
@@ -74,6 +79,16 @@ public class TourBuyService {
 	
 	public TourBatchBean BatchfindPK (Integer serialNo) {
 		TourBatchBean result = tourBatchDao.findByPrimaryKey(serialNo);
+		return result;
+	}
+	
+	public List<TourOrderInfoBean> findAccount(String accountName){
+		List<TourOrderInfoBean> result = orderDao.findOrderaccountName(accountName);
+		Set<Integer> set = new HashSet<>();
+		for(TourOrderInfoBean rs:result) {
+			set.add(rs.getSerialNo());
+		}
+		
 		return result;
 	}
 	

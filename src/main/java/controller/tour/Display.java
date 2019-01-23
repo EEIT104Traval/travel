@@ -86,6 +86,14 @@ public class Display {
 		Integer total = 0;
 		List<String> sex = new ArrayList<String>();
 		int i = cname.length;
+		if(i==0) {
+			cname=new String[1];
+			cname[0]="";
+		}
+		if(pname.length==0) {
+			pname=new String[1];
+			pname[0]="";
+		}
 		Integer quantity = ( i==0 ? 1 : i ) ;
 		for(int x = 0 ; x < quantity ; x++ ) {
 			total += price[x];
@@ -97,5 +105,12 @@ public class Display {
 		model.addAttribute("TourOrderInfoBean",order);
 		model.addAttribute("TourBatchBean",batch);
 		return "tour.order";
+	}
+	
+	@ResponseBody
+	@RequestMapping("/tour/Display2/order3")
+	public void method() {
+			
+	
 	}
 }
