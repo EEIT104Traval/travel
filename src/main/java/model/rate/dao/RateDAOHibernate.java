@@ -63,6 +63,7 @@ public class RateDAOHibernate implements RateDAO{
 		if(bean!=null) {
 //			RateBean result = this.getSession().get(RateBean.class, bean.getSerial());
 //			if(result==null) {
+				System.out.println("RateDAOHibernate.createRates()="+bean);
 				this.getSession().save(bean);
 //				System.out.println(this.getSession().save(bean));
 				return bean;

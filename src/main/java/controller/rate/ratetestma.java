@@ -22,8 +22,8 @@ public class ratetestma {
 		@Autowired
 		RateService rateService;
 
-		@RequestMapping("/rate/xxxxxxx")
-		void method() throws Exception{
+		@RequestMapping("/rate/createRates")
+		public String method() throws Exception{
 //			List<RateBean> ls=new ArrayList<>();
 			BufferedReader br = new BufferedReader(
 					new InputStreamReader(application.getResourceAsStream("/rate/ratecsv.csv")));
@@ -48,7 +48,7 @@ public class ratetestma {
 				System.out.println(bean);
 			}
 			br.close();
-
+			return "product.display";
 		} 
 		
 			
