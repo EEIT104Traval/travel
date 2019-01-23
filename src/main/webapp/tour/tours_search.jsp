@@ -587,7 +587,7 @@ height:680px;
 
 									<div class="no-data-info text-center" >已經到底了，沒有東西囉</div>
 									<div style="display:block; margin:auto;"><img src="<c:url value='/tour/crying.gif' />" /></div>
-<%-- <img src="<c:url value='https://www.google.com/search?q=%E8%98%91%E8%8F%87%E9%A0%AD%E8%A1%A8%E6%83%85%E5%8C%85&tbs=isc:white,ic:trans,itp:animated&tbm=isch&source=lnt&sa=X&ved=0ahUKEwjtzP67h4TgAhXEbrwKHbjyATMQpwUIHg&biw=1920&bih=938&dpr=1#imgrc=S0kz4qYOErbNEM:' />" /> --%>
+<%-- <img src="<c:url  ='https://www.google.com/search?q=%E8%98%91%E8%8F%87%E9%A0%AD%E8%A1%A8%E6%83%85%E5%8C%85&tbs=isc:white,ic:trans,itp:animated&tbm=isch&source=lnt&sa=X&ved=0ahUKEwjtzP67h4TgAhXEbrwKHbjyATMQpwUIHg&biw=1920&bih=938&dpr=1#imgrc=S0kz4qYOErbNEM:' />" /> --%>
 									
 								</div>
 							</div>
