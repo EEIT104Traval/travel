@@ -58,6 +58,11 @@
 		findorder()
 		console.log(accountName)
 	});
+	
+	function deleteOrder(){
+		alert("確定刪除!!!")
+	}
+	
 	function findorder() {
 		$("#searchuser").html("")
 
@@ -95,8 +100,9 @@
 															+ JData.TourOrderInfoBean[i].total
 															+ '</th>'
 															+
-															//  			 						    '<th style="width:100px" name="totalPrice"><input type="submit" name="prodaction" value="刪除"></th></table>'
-															'<th scope="row" name="totalPrice"><img src="images/gb.png" width="20%" height="20%"></th></table>')
+															//'<th style="width:100px" name="totalPrice"><input type="submit" name="prodaction" value="刪除"></th></table>'
+															'<th scope="row" name="totalPrice"><input type="image" src="images/gb.png" width="20%" height="20%" alt="send" name="Test" id="Test" onclick="deleteOrder();" /></th></table>')
+															
 								}
 							} else {
 								$("#searchuser")
@@ -161,6 +167,8 @@
 										.append(
 												'<table ><th scope="row">尚無飯店訂單</th></table>')
 							}
+							
+							
 						})
 	};
 </script>
