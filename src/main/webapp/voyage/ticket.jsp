@@ -118,8 +118,8 @@ var params = {}
 		                        t.val(0);  
 		                    }  
 		                    t.val(parseInt(t.val()) + 1)
-		                     if(parseInt(t.val()) > 10) {  
-		                        t.val(10);  
+		                     if(parseInt(t.val()) > 5) {  
+		                        t.val(5);  
 		                    }  
 		                })  
 		                $("#div_ticket_search").on("click",".min",function(){ 
@@ -152,13 +152,9 @@ var params = {}
 					            alert('請登入，否則不給你訂購')								        	
 					        }else{
 // 								        	var accountName;
-// 								        	alert(accountName)
-// 											var ticketNo ;
-// 											alert(ticketNo)
+// 											var ticketNo ;										
 								var adultTicketSellQ=$("#tt"+ticketNo).val()
-// 											alert(adultTicketSellQ)
 								var adultTicketPrice=$("#price"+ticketNo).text()
-// 											alert(adultTicketPrice)
 								$.ajax({
 						            type: "GET", //傳送方式
 						            url: "/Travel/voyage/ticketbuy.controller", 
