@@ -5,11 +5,14 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
 @Service
+@Transactional
 public class HotelService {
 	@Autowired
 	private HotelDAO hotelDAO = null;
@@ -100,13 +103,14 @@ public class HotelService {
 	
 //-----------------------------------------訂購房間----------------------------------------------------------
 	
-	public boolean qupdate(String accountName, Integer hotelNo, String bookingPerson, String phone, Integer roomTypeNo ,java.sql.Date checkIn,java.sql.Date checkOut ,Integer roomPrice)
+	public boolean qupdate(String accountName, Integer hotelNo, String bookingPerson, String phone, Integer roomTypeNo,
+			java.util.Date checkIn, java.util.Date checkOut)
 			throws ParseException {
 //		HotelOrderDetailsBean bean = new HotelOrderDetailsBean();
 		if (hotelNo != null) {
 			HotelBean TI = hotelDAO.findByPrimaryKey(hotelNo);
 			RoomTypeBean Q = roomTypeDAO.findByPrimaryKey(roomTypeNo);
-			RoomAvailableBean R = roomAvailableDAO.foundDate(checkIn);			
+		//	RoomAvailableBean R = roomAvailableDAO.foundDate(checkIn);			
 //			新增訂單
 			HotelOrderDetailsBean Order = new HotelOrderDetailsBean();
 		
@@ -119,14 +123,14 @@ public class HotelService {
 			Order.setPhone(phone);
 			Order.setCheckIn(checkIn);
 			Order.setCheckOut(checkOut);
-			Order.setPhone(Q.getRoomType());
-			Order.setRoomPrice(roomPrice);
+			Order.setRoomType(Q.getRoomType());
+			Order.setRoomPrice(Q.getPrice());
 			Integer day;
 	        java.util.Date beginDate = checkIn;
 	        java.util.Date endDate = checkOut;
             day=(int) ((endDate.getTime()-beginDate.getTime())/(24*60*60*1000));    
 			Order.setStayNights(day);
-			Order.setTotalPrice((roomPrice*day));
+			Order.setTotalPrice((Q.getPrice()*day));
 			hotelOrderDetailsDAO.create(Order);
 			System.out.println("===========");
 			System.out.println(Order);

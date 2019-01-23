@@ -69,8 +69,9 @@ var sum = 0;
 				dataType : 'json',
 				data:params,
 			
+			   }).done(function(JJData) {  
+				   console.log(JJData);
 			   })
-			   
 	}
 					
 </script>

@@ -15,7 +15,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.web.context.WebApplicationContext;
 
-@WebFilter("/*")
+//@WebFilter("/*")
 public class OpenSessionInViewFilter implements Filter {
 	private SessionFactory sessionFactory;
 	@Override

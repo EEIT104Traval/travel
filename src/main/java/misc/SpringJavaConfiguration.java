@@ -10,7 +10,10 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jndi.JndiObjectFactoryBean;
+import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
+import org.springframework.transaction.PlatformTransactionManager;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import model.flight.AirlineCompareBean;
 import model.flight.AirportCompareBean;
@@ -38,7 +41,13 @@ import model.userInfo.UserInfoBean;
 
 @Configuration
 @ComponentScan(basePackages={"model"})
+@EnableTransactionManagement
 public class SpringJavaConfiguration {
+	@Bean
+	public PlatformTransactionManager transactionManager() {
+		return new HibernateTransactionManager(sessionFactory());
+	}
+	
 	@Bean
 	public DataSource dataSource() {
 		try {
@@ -67,7 +76,7 @@ public class SpringJavaConfiguration {
 		Properties props = new Properties();
 		props.setProperty("hibernate.dialect", "org.hibernate.dialect.SQLServerDialect");
 		props.setProperty("hibernate.show_sql", "true");
-		props.setProperty("hibernate.current_session_context_class", "thread");
+//		props.setProperty("hibernate.current_session_context_class", "thread");
 		builder.addProperties(props);
 
 		return builder.buildSessionFactory();

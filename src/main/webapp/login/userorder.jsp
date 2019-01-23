@@ -40,10 +40,11 @@
 /* 	/*    	border: 1px solid black */ */
 /* } */
 
-/* th { */
-/* width:20px */
+ th { 
+/*  text-align:center; */
 
-/* } */
+
+ } 
 </style>
 
 <script>
@@ -82,11 +83,11 @@
 								for (var i = 0; i < JData.TourOrderInfoBean.length; i++) {
 									$("#searchuser")
 											.append(
-													'<table class="table table-hover"><th scope="row" name="orderNo">'
+													'<table class="table table-hover"><th scope="row" style="width:10%;text-align:center" name="orderNo">'
 															+ JData.TourOrderInfoBean[i].orderNo
 															+ '</th>'
 															+ '<th scope="row">旅遊行程</th>'
-															+ '<th scope="row" name="tourName">'
+															+ '<th scope="row" style="width:40%;text-align:center" name="tourName">'
 															+ JData.TourOrderInfoBean[i].tourName
 															+ '</th>'
 															+ '<th scope="row" name="quantity">'
@@ -188,7 +189,7 @@
 							<br>
 							<table class="table table-hover">
 								<thead>
-									<th scope="col">訂單號碼</th>
+									<th scope="col" style="width:10%">訂單號碼</th>
 									<th scope="col">類型</th>
 									<th scope="col">名稱</th>
 									<th scope="col">數量</th>

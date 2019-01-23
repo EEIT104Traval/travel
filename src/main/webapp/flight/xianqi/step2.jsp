@@ -1648,12 +1648,11 @@ $(document).ready(function() {
      <input id="backCodeOnly" name="backCodeOnly" style="display: none;" value="${map.backCodeOnly}">
      <input id="backCompany" name="backCompany" style="display: none;" value="${map.backCompany} ">
      <input id="flightNO" name="flightNO" style="display: none;" value="${map.backCode} ">
-     <input id="backCode" name="backCode" style="display: none;" value="${map.backDeTime}">
+     <input id="backCode" name="backCode" style="display: none;" value="${map.backCode}">
      <input id="backAirEquipType" name="backAirEquipType" style="display: none;" value="${map.backAirEquipType}">
      <input id="homi2" name="homi2" style="display: none;" value="${map.homi2}">
      <input id="backArTime" name="backArTime" style="display: none;" value="${map.backArTime}">
      <input id="backDeTime" name="backDeTime" style="display: none;" value="${map.backDeTime}">
-     <input id="" name="" style="display: none;" value="">
      
     
 	<section class="opreatBtn">

@@ -4,9 +4,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 @Service
+@Transactional
 public class RoomTypeService {
 
 	@Autowired
@@ -42,6 +45,9 @@ public class RoomTypeService {
 	
 	public RoomTypeBean findroom(Integer roomTypeNo){
 		RoomTypeBean result = roomTypeDAO.findByPrimaryKey(roomTypeNo);
+		System.out.println("DAO----");
+		System.out.println(result);
+		
 		return result;
 	}
 	
