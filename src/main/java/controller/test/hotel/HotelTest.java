@@ -74,13 +74,13 @@ public class HotelTest {
 	public boolean qupdate()throws ParseException {
 		String str="2019-02-03";
 		java.sql.Date x= java.sql.Date.valueOf(str);
-		String str1="2019-02-06";
+		String str1="2019-02-07";
 		java.sql.Date y= java.sql.Date.valueOf(str1);
 		System.out.println("----------------------------------------");
 		System.out.println("x="+x);
 		System.out.println("y="+y);
 		 
-		ser.qupdate("micky", 4, "XX", "987654123", 8, x, y);
+		ser.qupdate("snoopy", 4, "XX", "987654123", 8, x, y);
 			return false;
 	}
 }

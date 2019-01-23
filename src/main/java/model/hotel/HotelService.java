@@ -4,12 +4,21 @@ import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Properties;
 
+import javax.mail.Message;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
+
+import model.userInfo.UserInfoBean;
+import model.userInfo.UserInfoDAO;
 
 @Service
 @Transactional
@@ -22,6 +31,8 @@ public class HotelService {
 	private RoomAvailableDAO roomAvailableDAO = null;
 	@Autowired
 	private HotelOrderDetailsDAO hotelOrderDetailsDAO = null;
+	@Autowired
+	private UserInfoDAO userInfoDAO;
 	
 	public List<HotelBean> select(HotelBean bean) {
 		List<HotelBean> result = null;
@@ -106,11 +117,11 @@ public class HotelService {
 	public boolean qupdate(String accountName, Integer hotelNo, String bookingPerson, String phone, Integer roomTypeNo,
 			java.util.Date checkIn, java.util.Date checkOut)
 			throws ParseException {
-//		HotelOrderDetailsBean bean = new HotelOrderDetailsBean();
 		if (hotelNo != null) {
-			HotelBean TI = hotelDAO.findByPrimaryKey(hotelNo);
-			RoomTypeBean Q = roomTypeDAO.findByPrimaryKey(roomTypeNo);
-		//	RoomAvailableBean R = roomAvailableDAO.foundDate(checkIn);			
+			HotelBean HB = hotelDAO.findByPrimaryKey(hotelNo);
+			RoomTypeBean RTB = roomTypeDAO.findByPrimaryKey(roomTypeNo);
+//			HotelOrderDetailsBean bean = new HotelOrderDetailsBean();
+//			RoomAvailableBean R = roomAvailableDAO.foundDate(checkIn);			
 //			新增訂單
 			HotelOrderDetailsBean Order = new HotelOrderDetailsBean();
 		
@@ -119,34 +130,112 @@ public class HotelService {
             Date newdate = new Date();
 			Order.setCreateDate(newdate);
 			Order.setBookingPerson(bookingPerson);
-			Order.setHotelName(TI.getHotelNameCH());
+			Order.setHotelName(HB.getHotelNameCH());
 			Order.setPhone(phone);
 			Order.setCheckIn(checkIn);
 			Order.setCheckOut(checkOut);
-			Order.setRoomType(Q.getRoomType());
-			Order.setRoomPrice(Q.getPrice());
+			Order.setRoomType(RTB.getRoomType());
+			Order.setRoomPrice(RTB.getPrice());
 			Integer day;
 	        java.util.Date beginDate = checkIn;
 	        java.util.Date endDate = checkOut;
             day=(int) ((endDate.getTime()-beginDate.getTime())/(24*60*60*1000));    
 			Order.setStayNights(day);
-			Order.setTotalPrice((Q.getPrice()*day));
+			Order.setTotalPrice((RTB.getPrice()*day));
 			hotelOrderDetailsDAO.create(Order);
 			System.out.println("===========");
 			System.out.println(Order);
 			System.out.println(day);
 //			庫存減少		
-			for (int i = 0 ; i <= day ; i++) {	
+			for (int i = 0 ; i < day ; i++) {	
 				Long x = (checkIn.getTime()+i*86400000);
 				java.sql.Date checkIn1 = new java.sql.Date(x);
 				RoomAvailableBean room =roomAvailableDAO.foundDate(checkIn1);
-				room.setSale((room.getSale()-1));
-				room.setAvailable((room.getAvailable()+1));
+				room.setSale((room.getSale()+1));
+				room.setAvailable((room.getAvailable()-1));
 				roomAvailableDAO.update(room);			
-			
 			}
 			return true;
 		}
-		return false;
-	}	
+		
+		UserInfoBean ubean = userInfoDAO.findByPrimaryKey(accountName);
+		HotelBean HB = hotelDAO.findByPrimaryKey(hotelNo);
+		RoomTypeBean RTB = roomTypeDAO.findByPrimaryKey(roomTypeNo);
+		HotelOrderDetailsBean Order = new HotelOrderDetailsBean();
+		
+		Integer day;
+        java.util.Date beginDate = checkIn;
+        java.util.Date endDate = checkOut;
+        day=(int) ((endDate.getTime()-beginDate.getTime())/(24*60*60*1000));    
+		Order.setStayNights(day);
+		Order.setTotalPrice((RTB.getPrice()*day));
+//		
+        try{
+            String host ="smtp.gmail.com" ;
+            String user = "sherrysherry92@gmail.com";
+            String pass = "jxrkaepvctpmffcs";
+            String to = "sherrysherry92@gmail.com";
+            String from = "TimeToTravel";
+            String subject = "Time To Travel - 訂購明細";
+//            String messageText = "您的訂單明細";
+            boolean sessionDebug = false;
+
+            Properties props = System.getProperties();
+
+            props.put("mail.smtp.starttls.enable", "true");
+            props.put("mail.smtp.host", host);
+            props.put("mail.smtp.port", "587");
+            props.put("mail.smtp.auth", "true");
+            props.put("mail.smtp.starttls.required", "true");
+            props.put("mail.smtp.ssl.trust", "smtp.gmail.com");
+
+            java.security.Security.addProvider(new com.sun.net.ssl.internal.ssl.Provider());
+            Session mailSession = Session.getDefaultInstance(props, null);
+            mailSession.setDebug(sessionDebug);
+            Message msg = new MimeMessage(mailSession);
+            msg.setFrom(new InternetAddress(from));
+            InternetAddress[] address = {new InternetAddress(to)};
+            msg.setRecipients(Message.RecipientType.TO, address);
+            msg.setSubject(subject); msg.setSentDate(new Date());
+//            msg.setText(messageText);
+            
+            String message = "<div style='font-family: Microsoft JhengHei'>"
+            +"<h1>Time To Travel</h1>"
+            +"<p>Hello！" + accountName + "，</p>"
+            +"<p>我們已收到您的訂單 #20190202001</p>"
+            +"<br>"
+            +"<b>訂單明細</b>"
+            +"<p>訂單編號：#19010922153JV4S</p>"
+            +"<p>訂單日期：" + new Date() + "</p>"
+            +"<p>訂購人：" + bookingPerson + "</p>"
+            +"<br>"
+            +"<p>飯店名稱：" + HB.getHotelNameCH() + HB.getHotelNameEN() + " - " + RTB.getRoomType() + "</p>"
+            +"<img alt='" + RTB.getRoomType() + "'" 
+            + "src='" + HB.getPic() + "'"
+            + "style='width: auto;'"+ "'/>'"
+            +"<p>地址：" + HB.getAddress() +"</p>"
+            +"<p>日期：" + checkIn + " ~ " + checkOut + "(共" + day + "晚)</p>"
+            +"<p>總金額：NT$ "+ (RTB.getPrice()*day) +"</p>"
+            +"<hr>"
+            +"<p>感謝您的訂購！</p>"
+            +"<a href='http://localhost:8080/Travel/voyage/index.jsp'>修改訂單</a>"
+            +"</div>"
+            +"<hr>"
+            +"<div style='text-align: center'>"
+            +"<p>Copyright © 1999-2019 Time To Travel All rights reserved<p>"
+            +"</div>"
+            +"<div style=\"color:red;\">BRIDGEYE</div>";
+            msg.setContent(message, "text/html; charset=utf-8");
+            
+           Transport transport=mailSession.getTransport("smtp");
+           transport.connect(host, user, pass);
+           transport.sendMessage(msg, msg.getAllRecipients());
+           transport.close();
+           System.out.println("message send successfully");
+        }catch(Exception ex)
+        {
+            System.out.println(ex);
+        }
+        return true;
+	}
 }
