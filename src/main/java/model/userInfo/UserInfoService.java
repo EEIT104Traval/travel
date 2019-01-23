@@ -156,7 +156,8 @@ public class UserInfoService {
 	}
 	
 	//-------------------------------測試-----------------------------
-	public String updateq(String accountName , Integer Q ,Integer ticketOrderNO,Integer ticketNo, Integer TourorderNo,Integer serialNo, Integer HotelorderNo,Integer hotelNo) {
+	public String updateq(String accountName , Integer Q ,Integer ticketOrderNO,
+			Integer ticketNo, Integer TourorderNo,Integer serialNo, Integer HotelorderNo,Integer hotelNo) {
 			
 		Map<String, List<?>> Order = null;
 		Order = userInfoService.findByPrimaryKey(accountName);
