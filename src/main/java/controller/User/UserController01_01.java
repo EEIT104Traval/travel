@@ -21,7 +21,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import model.ticket.TicketInfoBean;
-import model.ticket.TicketInfoDAO;
 import model.ticket.TicketInfoService;
 import model.tour.TourOrderInfoBean;
 import model.tour.service.TourOrderInfoService;
@@ -37,8 +36,7 @@ public class UserController01_01 {
 	private TourOrderInfoService tourOrderInfoService;
 	@Autowired
 	private TicketInfoService ticketInfoService;
-	@Autowired
-	private TicketInfoDAO ticketInfoDAO;
+
 	
 	
 	
@@ -112,8 +110,8 @@ public class UserController01_01 {
 
 			x = workbook.getBytes();			
 //		    response.getOutputStream().write(bytes);
-//		    System.out.println("controller印東西");
 			bytes = new ResponseEntity<byte[]>(x, httpStatus);
+			System.out.println("controller印東西"+bytes);
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("excel失敗");
@@ -137,7 +135,7 @@ public class UserController01_01 {
 	@RequestMapping("/bindex03_012/User.controller")
 	public List<TicketInfoBean> method03012(@RequestParam(value = "path", required = false)String path , String option) throws IOException {
 		
-		List<TicketInfoBean> bean = ticketInfoDAO.findAll();
+		List<TicketInfoBean> bean = ticketInfoService.findAll();
 
 		return bean;
 	}
@@ -162,7 +160,7 @@ public class UserController01_01 {
 		System.out.println(adultTicketPrice);
 		
 		
-		TicketInfoBean temp = ticketInfoDAO.findByPrimaryKey(ticketNo);
+		TicketInfoBean temp = ticketInfoService.findByPrimaryKey(ticketNo);
 		System.out.println(ticketNo);	
 		
 		if(!ticketName.isEmpty()) {
@@ -178,7 +176,7 @@ public class UserController01_01 {
 		}if(adultTicketSelledQ!=null) {
 			temp.setAdultTicketSelledQ(adultTicketSelledQ);
 		}
-		TicketInfoBean result = ticketInfoDAO.update(temp);
+		TicketInfoBean result = ticketInfoService.update(temp);
 		
 		System.out.println("result"+result);
 		return result+"";
@@ -198,7 +196,7 @@ public class UserController01_01 {
 	public void method03031(TicketInfoBean bean ,Model model){
 		
 		if (bean != null) {
-			ticketInfoDAO.remove(bean.getTicketNo());
+			ticketInfoService.delete(bean);
 		}
 	}
 	//---------------------------------以下勿動 測試中 非常嚴重-----------------------------------
