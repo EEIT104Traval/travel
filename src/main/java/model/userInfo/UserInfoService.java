@@ -159,7 +159,7 @@ public class UserInfoService {
 	public String updateq(String accountName , Integer Q ,Integer ticketOrderNO,Integer ticketNo, Integer TourorderNo,Integer serialNo, Integer HotelorderNo,Integer hotelNo) {
 			
 //		Map<String, List<?>> Order = null;
-//		Order = userInfoService.findByPrimaryKey(accountName);
+//		Order = userInfoService.findByPrimaryKey(accountName);//刪誰的資料
 //		//先用map物件 找出 使用者  一個一個判斷
 //		if(Order.get("TicketOrderInfoBean") != null) {
 //			//可先做訂單移除
@@ -214,9 +214,9 @@ public class UserInfoService {
 		List<TourOrderInfoBean> tourInfo = tourOrderInfoService.foundOrderaccountName(user);
 		List<TourBatchBean> tourBatch = tourBatchDAO.findByTourOrderList(tourInfo);
 		List<GroupTourBean> tourList = groupTourDAO.findByTourBatchList(tourBatch);
-//		System.out.println(tourInfo);
-//		System.out.println(tourBatch);
-//		System.out.println(tourList);
+//		System.out.println("tourInfo="+tourInfo);
+//		System.out.println("tourBatch="+tourBatch);
+//		System.out.println("tourList="+tourList);
 		System.out.println("==================");
 
 		List<TicketOrderInfoBean> ticketInfo = ticketOrderInfoService.foundOrderaccountName(user);
