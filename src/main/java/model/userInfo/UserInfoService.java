@@ -1,6 +1,7 @@
 package model.userInfo;
 
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 //github.com/EEIT104Traval/travel
 import java.util.Arrays;
 import java.util.HashMap;
@@ -327,8 +328,11 @@ try {
 				hssfRow.createCell(2).setCellValue(quantity);
 
 				java.util.Date Date = new java.util.Date();
-				if (user.getOrderTime() != null) {
-					Date = user.getOrderTime();
+				if (user.getOrderTime() != null) {	
+				SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+				String x = sdf.format(user.getOrderTime());
+				Date = sdf.parse(x);	
+					
 				}
 				hssfRow.createCell(3).setCellValue(Date);
 
