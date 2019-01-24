@@ -32,7 +32,7 @@ public class TourOrderInfoBean {
 		return "TourOrderInfoBean [orderNo=" + orderNo + ", serialNo=" + serialNo + ", accountName=" + accountName
 				+ ", fullName=" + fullName + ", phone=" + phone + ", email=" + email + ", sex=" + sex + ", quantity="
 				+ quantity + ", total=" + total + ", orderStatus=" + orderStatus + ", orderTime=" + orderTime
-				+ ", tourName=" + tourName + ", country=" + country + "]";
+				+ ", tourName=" + tourName + ", country=" + country + ", tourNo=" + tourNo + "]";
 	}
 	
 	public Integer getOrderNo() {
@@ -106,6 +106,16 @@ public class TourOrderInfoBean {
 	private String tourName;
 	@Transient
 	private String country;
+	public String getTourNo() {
+		return tourNo;
+	}
+
+	public void setTourNo(String tourNo) {
+		this.tourNo = tourNo;
+	}
+
+	@Transient
+	private String tourNo;
 
 	public String getTourName() {
 		return tourName;
