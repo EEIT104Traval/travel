@@ -19,6 +19,7 @@
 
 <link rel="stylesheet" type="text/css" href="<c:url value='/flight/xianqi/css/style.css?sv=1'/>"/>
 <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/filterizr/1.3.5/jquery.filterizr-with-jquery.min.js" rel="stylesheet">
 <script src="https://code.jquery.com/jquery-3.3.1.js"
 	integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
 	crossorigin="anonymous"></script>
@@ -52,6 +53,7 @@
 	rel="stylesheet" type="text/css">
 <link type="text/css" rel="stylesheet"
 	href="<c:url value='/flight/彈窗/custom-popup/custom.popup-v1.3.1.css'/>">
+	
 <style type="text/css">
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans+TC&subset=chinese-traditional');
 
@@ -101,7 +103,15 @@
 	<script type="text/javascript">
 var result = ${result}
 var test = ${test}
-console.log(result)
+
+
+// console.log(result)
+
+// var resultFilter = result.filter(function(item){
+// 	return item.OTA_AirLowFareSearchRS.PricedItineraries.PricedItinerary.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].OperatingAirline.Company == "中華航空";
+// })
+
+
 // console.log(test)
 // console.log(result.OTA_AirLowFareSearchRS)
 // console.log(result.OTA_AirLowFareSearchRS.PricedItineraries.PricedItinerary[0].AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].DepartureDateTime)
@@ -110,7 +120,6 @@ console.log(result)
 week = new Array("日","一","二","三","四","五","六");
 serialNum = 0;
 
-console.log(result.OTA_AirLowFareSearchRS.PricedItineraries.PricedItinerary[0].SequenceNumber)
 $(document).ready(function() {
 $.each(result.OTA_AirLowFareSearchRS.PricedItineraries.PricedItinerary, function(index, value) {
 	//去程迴圈
@@ -142,6 +151,8 @@ $.each(result.OTA_AirLowFareSearchRS.PricedItineraries.PricedItinerary, function
 // 		$('#gofirst').append(
 // 		'<div class="romde_box">')
 // 	}
+	var code = value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].OperatingAirline.Code;
+
 	$('#gofirst').append(
 			'<form action="<c:url value='/FlightInfoSecound' />" method="post">'
 			+'<div class="romde_box">'
@@ -153,7 +164,7 @@ $.each(result.OTA_AirLowFareSearchRS.PricedItineraries.PricedItinerary, function
                         +"<div class='col-xs-3 fl-namebox text-center'>"
                         	+"<input type='text' class='fl-name' style='border:none;text-align: center;width:100px' readonly='value' name='goCompany' value="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].OperatingAirline.Company+">"
 //               			  +"<div class='fl-name' name='goCompany'>"+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].OperatingAirline.Company+"</div>"
-                          +"<input  class='fl-num' name='goCode'  style='border:none;text-align: center;width:100px' readonly='value' value="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].OperatingAirline.Code+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].OperatingAirline.FlightNumber+">"
+                          +"<input  class='fl-num' name='goCode'  style='border:none;text-align: center;width:100px' readonly='value' data-category="+code+" value="+code+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].OperatingAirline.FlightNumber+">"
 //                           +"<div class='fl-num'>"+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].OperatingAirline.Code+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].OperatingAirline.FlightNumber+"</div>"
             +"</div>"
             + "<div class='col-xs-3 fl-timebox text-right'>"
@@ -423,19 +434,19 @@ $.each(result.OTA_AirLowFareSearchRS.PricedItineraries.PricedItinerary, function
               <li style="border-bottom: 1px dashed #ccc;">
                 <h4  >航空公司 </h4>
                 <ul class="are_nav airpn">
-                  <li>
+                  <li data-filter="all">
                     <div class="cdst">
                       <input type="checkbox" id="cd-checkbox-s1">
                       <label for="cd-checkbox-s1"></label>
                     </div>
-                    <p > <span>中華航空 </span><span class="price">$<b>31,256</b></span></p>
+                    <p > <span>全部</span><span class="price"></span></p>
                   </li>
-                  <li>
+                  <li >
                     <div class="cdst">
-                      <input type="checkbox" id="cd-checkbox-s2">
+                      <input type="checkbox" id="cd-checkbox-s2" data-filter="CI">
                       <label for="cd-checkbox-s2"></label>
                     </div>
-                    <p><span>泰國航空</span><span class="price">$<b>34,825</b></span></p>
+                    <p><span>中華航空</span><span class="price">$<b>34,825</b></span></p>
                   </li>
                   <li>
                     <div class="cdst">
