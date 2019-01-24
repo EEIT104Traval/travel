@@ -1,16 +1,26 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
+<link rel="stylesheet" href="<c:url value='/voyage/css/main_styles.css' />">
+	<link rel="stylesheet" href="<c:url value='/voyage/css/open-iconic-bootstrap.min.css' />">
+    <link rel="stylesheet" href="<c:url value='/voyage/css/animate.css' />">
+    <link rel="stylesheet" href="<c:url value='/voyage/css/owl.theme.default.min.css' />">
+    <link rel="stylesheet" href="<c:url value='/voyage/css/magnific-popup.css' />">
+    <link rel="stylesheet" href="<c:url value='/voyage/css/aos.css' />">
+    <link rel="stylesheet" href="<c:url value='/voyage/css/flaticon.css' />">
+    <link rel="stylesheet" href="<c:url value='/voyage/css/icomoon.css' />">
+	<link rel="stylesheet" href="<c:url value='/voyage/css/style.css' />">
+    <link href="<c:url value='/voyage/css/jquery-ui.css' />" rel="stylesheet" type="text/css">
 <head>
 <meta charset="UTF-8">
 <title>會員登入/註冊</title>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> -->
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 
-<link href="/Travel/login/css/registered.css" rel="stylesheet">
+<!-- <link href="/Travel/login/css/registered.css" rel="stylesheet">一定要關 -->
 <!-- <script src="./js/registered.js"></script> 轉跳頁面會讓樣式跑不出來-->
 <script src="/Travel/login/js/registered.js"></script>
 
@@ -35,11 +45,21 @@ function clearForm() {
 
 </head>
 <body>
+	<jsp:include page="/voyage/nav.jsp" />	
+<!-- 	<section class="home-slider owl-carousel"> -->
+<!-- 		<div class="slider-item" -->
+<%-- 			style="background-image: url('<c:url value='/voyage/images/home_slider.jpg'/>')" --%>
+<!-- 			data-stellar-background-ratio="0.5"> -->
+<!-- 			<div class="overlay"> -->
+<!-- 				<div class="container"></div> -->
+<!-- 			</div> -->
+<!-- 		</div> -->
+<!-- 	</section> -->
 
 
 <!------ Include the above in your HEAD tag ---------->
 
-<div class="container">
+<div class="container" style="black">
     	<div class="row">
 			<div class="col-md-6 col-md-offset-3">
 				<div class="panel panel-login">
@@ -68,7 +88,7 @@ function clearForm() {
 										<input type="text" name="email" id="email" tabindex="1" class="form-control" placeholder="Email信箱" value="${accountNameBean.email}">
 									</div>
 									<div class="form-group">
-										<input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="修改密碼" value="${accountNameBean.email}">
+										<input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="修改密碼">
 									</div>
 									<div class="form-group">
 										<input type="password" name="confirm-password" id="confirm-password" tabindex="2" class="form-control" placeholder="確認密碼">
@@ -92,7 +112,7 @@ function clearForm() {
 										<input type="text" name="address" id="address" tabindex="2" class="form-control" placeholder="地址" value="${accountNameBean.address}">
 									</div>
 									<div class="form-group">
-										<input type="text" name="registerDate" id="registerDate" tabindex="2" class="form-control" placeholder="登入時間" value="${accountNameBean.registerDate}">
+										<input type="text" name="address" id="address" tabindex="2" class="form-control" placeholder="地址" value="${accountNameBean.registerDate}">
 									</div>
 									
 										<div class="form-group">
@@ -141,5 +161,19 @@ $("#modify-submit").click(function(){
 })
 
 </script>
+	<jsp:include page="/voyage/foo.jsp" />
+	<script src="<c:url value='/voyage/js/jquery.min.js' />"></script>
+	<script src="<c:url value='/voyage/js/jquery-migrate-3.0.1.min.js' />"></script>
+	<script src="<c:url value='/voyage/js/popper.min.js' />"></script>
+	<script src="<c:url value='/voyage/js/bootstrap.min.js' />"></script>
+	<script src="<c:url value='/voyage/js/jquery.easing.1.3.js' />"></script>
+	<script src="<c:url value='/voyage/js/jquery.waypoints.min.js' />"></script>
+	<script src="<c:url value='/voyage/js/jquery.stellar.min.js' />"></script>
+	<script src="<c:url value='/voyage/js/jquery.magnific-popup.min.js' />"></script>
+	<script src="<c:url value='/voyage/js/aos.js' />"></script>
+	<script src="<c:url value='/voyage/js/jquery.animateNumber.min.js' />"></script>
+	<script src="<c:url value='/voyage/js/main.js' />"></script>
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </body>
 </html>

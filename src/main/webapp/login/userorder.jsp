@@ -3,8 +3,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<!-- <link rel="stylesheet" -->
+<!-- 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"> -->
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script> -->
@@ -13,7 +13,7 @@
 <!-- 	crossorigin="anonymous"></script> -->
 <!DOCTYPE html>
 <html>
-<link rel="stylesheet" href="css/main_styles.css">
+	<link rel="stylesheet" href="<c:url value='/voyage/css/main_styles.css' />">
 	<link rel="stylesheet" href="<c:url value='/voyage/css/open-iconic-bootstrap.min.css' />">
     <link rel="stylesheet" href="<c:url value='/voyage/css/animate.css' />">
     <link rel="stylesheet" href="<c:url value='/voyage/css/owl.carousel.min.css' />">
@@ -25,7 +25,7 @@
     <link rel="stylesheet" href="<c:url value='/voyage/css/jquery.timepicker.css' />">
     <link rel="stylesheet" href="<c:url value='/voyage/css/flaticon.css' />">
     <link rel="stylesheet" href="<c:url value='/voyage/css/icomoon.css' />">
-<link rel="stylesheet" href="<c:url value='/voyage/css/style.css' />">
+	<link rel="stylesheet" href="<c:url value='/voyage/css/style.css' />">
     <link href="<c:url value='/voyage/css/jquery-ui.css' />" rel="stylesheet" type="text/css">
 <head>
 <meta charset="UTF-8">
@@ -246,7 +246,7 @@
 
 
 	</div>
-	<%-- <jsp:include page="../後台管理/bindex.jsp" /> --%>
+	
 	<jsp:include page="/voyage/foo.jsp" />
 	<script src="<c:url value='/voyage/js/jquery.min.js' />"></script>
 	<script src="<c:url value='/voyage/js/jquery-migrate-3.0.1.min.js' />"></script>
