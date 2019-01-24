@@ -134,6 +134,12 @@ public class UserInfoService {
 
 	}
 	
+	public UserInfoBean findByAccountName1(String accountName) {
+		
+		return userInfoDAO.findByPrimaryKey(accountName);
+		
+	}
+	
 //----------------------------會員訂單修改---------------------------------
 	
 	public boolean orderModify(String accountName, Integer hotleNo, Integer ticketNo, Integer flightOrderNo) {
