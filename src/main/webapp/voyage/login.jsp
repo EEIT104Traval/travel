@@ -81,7 +81,7 @@ function login(){
 			if(JData.xxx1.authority=='A001'){
   	      		location.reload();
 			}else{
-				window.location="http://localhost:8080/Travel/後台管理/bindex.jsp"
+				window.location="/Travel/CMS/01_01.jsp"
 			}
 		}
 	});
