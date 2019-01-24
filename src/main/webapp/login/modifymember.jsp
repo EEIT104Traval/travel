@@ -35,7 +35,7 @@ function clearForm() {
 
 
 </head>
-<body>
+<body style="background-image:url(/Travel/tour/Display2/images/Sbanner.jpg); height:background-repeat: no-repeat; background-position: center">
 
 
 <!------ Include the above in your HEAD tag ---------->
@@ -116,8 +116,9 @@ function clearForm() {
 										<div class="row">
 											<div class="col-sm-6 col-sm-offset-3">
 												<input type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-register" value="立即註冊">
-												
 											</div>
+											
+											
 										</div>
 									</div>
 								</form>
