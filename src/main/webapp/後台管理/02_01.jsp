@@ -18,46 +18,44 @@ var tprice
 var params = {}
 var sum = 0;
 
-	$(document).ready(function() {
-			$('#select1').change(function() {
-
-			params.month =  $('#select1').val()
-			$("#searchuser").html("")
-
- 			$.ajax({
- 					url : '/Travel/bindex02_01/User.controller',
- 					contentType : 'application/json; charset=UTF-8',
- 					type : 'get',
- 					dataType : 'json',
- 					data:params,
- 				   }).done(function(JData) {  
- 					  $("#searchuser").append(
- 								'<div style="text-align: center;"><h2>'+Number($('#select1').val()) +'月份報表</h2></div>'+
- 								'<br>'+
- 								'<table ><th style="width:50px">國家</th><th style="width:350px">名稱</th>'+
- 								'<th style="width:50px">數量</th><th style="width:200px">購買日期</th><th style="width:100px">價格</th></table>'+
- 								'<br>'		 );
+// 	$(document).ready(function() {
+// 			$('#select1').change(function() {
+// 			params.month =  $('#select1').val()
+// 			$("#searchuser").html("")
+//  			$.ajax({
+//  					url : '/Travel/bindex02_01/User.controller',
+//  					contentType : 'application/json; charset=UTF-8',
+//  					type : 'get',
+//  					dataType : 'json',
+//  					data:params,
+//  				   }).done(function(JData) {  
+//  					  $("#searchuser").append(
+//  								'<div style="text-align: center;"><h2>'+Number($('#select1').val()) +'月份報表</h2></div>'+
+//  								'<br>'+
+//  								'<table ><th style="width:50px">國家</th><th style="width:350px">名稱</th>'+
+//  								'<th style="width:50px">數量</th><th style="width:200px">購買日期</th><th style="width:100px">價格</th></table>'+
+//  								'<br>'		 );
  					 
- 					 	console.log("-------------------------------------");
-						console.log(JData);
-						if(JData != null){
-  							for(var i = 0;i<JData.length;i++){
-  								var x = JData[i].total
-	 							$("#searchuser").append(		
-	 		 							'<table ><th style="width:50px">'+ JData[i].country +'</th>'+
-	 		 									'<th style="width:350px">'+ JData[i].tourName +'</th>'+
-	 		 							        '<th style="width:50px">'+ JData[i].quantity +'</th>'+
-	 		 							        '<th style="width:200px">'+ JData[i].orderTime +'</th>'+
-	 		 							        '<th style="width:100px">'+ JData[i].total +'</th></table>'	
-	 													)
-	 													sum = sum + x
-	 								 } $("#searchuser").append('<table><th style="width:50px">合計</th><th style="width:727px">'+ sum +'</th></table>')
-								                       }else{
-						$("#searchuser").append('<H1>業績差尚無訂單</H1>')
-								                       }
-											})
-								})
-					});
+//  					 	console.log("-------------------------------------");
+// 						console.log(JData);
+// 						if(JData != null){
+//   							for(var i = 0;i<JData.length;i++){
+//   								var x = JData[i].total
+// 	 							$("#searchuser").append(		
+// 	 		 							'<table ><th style="width:50px">'+ JData[i].country +'</th>'+
+// 	 		 									'<th style="width:350px">'+ JData[i].tourName +'</th>'+
+// 	 		 							        '<th style="width:50px">'+ JData[i].quantity +'</th>'+
+// 	 		 							        '<th style="width:200px">'+ JData[i].orderTime +'</th>'+
+// 	 		 							        '<th style="width:100px">'+ JData[i].total +'</th></table>'	
+// 	 													)
+// 	 													sum = sum + x
+// 	 								 } $("#searchuser").append('<table><th style="width:50px">合計</th><th style="width:727px">'+ sum +'</th></table>')
+// 								                       }else{
+// 						$("#searchuser").append('<H1>業績差尚無訂單</H1>')
+// 								                       }
+// 											})
+// 								})
+// 					});
 	
 					
 </script>

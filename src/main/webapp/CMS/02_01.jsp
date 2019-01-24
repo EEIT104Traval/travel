@@ -24,51 +24,57 @@
 	width:400px;
 	font-weight:900;
 }
+
+
+
 </style>
 
 <script>
-var number
-var user
+var month
+var tprice
 var params = {}
+var sum = 0;
+
 	$(document).ready(function() {
-		$('#select1').change(function() {
-			params.number = $('#select1').val()
-		})
-	});
-  			function fundmember(){
- 			params.user = $('#user').val();
+			$('#select1').change(function() {
+			var sum = 0;
+			params.month =  $('#select1').val()
+// 			alert(params.month);
 			$("#searchuser").html("")
  			$.ajax({
- 					url : '/Travel/bindex01_01/User.controller',
+ 					url : '/Travel/bindex02_01/User.controller',
  					contentType : 'application/json; charset=UTF-8',
  					type : 'get',
  					dataType : 'json',
  					data:params,
- 				   }).done(function(JData) {
- 					   console.log(JData)
-							$.each(JData, function(index, value) {
-								console.log(value.accountName)
-								
- 						$("#searchuser").append(
-		
-		
-		
-		
-  							'<table><th style="width:150px">帳號</th><th style="width:150px">姓</th>'+
-  							'<th style="width:150px">名</th><th style="width:150px">identityNo</th><th style="width:150px">email</th><tr>'
-  							+'<th>'+value.accountName +'</th>'
-  							+'<th>'+value.firstname +'</th>'
-  							+'<th>'+value.lastname +'</th>'
-  							+'<th>'+value.identityNo +'</th>'
-  							+'<th>'+value.email +'</th>'
-  							+'</tr><th>性別</th><th>電話號碼</th><th>出生年月日</th><th colspan="2">地址</th><tr>'
-  							+'<th>'+value.sex +'</th>'
-  							+'<th>'+value.phone +'</th>'
-  							+'<th>'+value.birth +'</th>'
-  							+'<th colspan="2">'+value.address +'</th></tr></table><br>'			
- 							)})
- 							document.getElementById("user").value="";
- 						})};
+ 				   }).done(function(JData) {  
+ 					  $("#searchuser").append(
+ 								'<div style="text-align: center;"><h2>'+Number($('#select1').val()) +'月份報表</h2></div>'+
+ 								'<br>'+
+ 								'<table ><th style="width:50px">國家</th><th style="width:350px">名稱</th>'+
+ 								'<th style="width:50px">數量</th><th style="width:200px">購買日期</th><th style="width:100px">價格</th></table>'+
+ 								'<br>'		 );
+ 					 
+ 					 	console.log("-------------------------------------");
+						console.log(JData);
+						if(JData.length != 0){
+  							for(var i = 0;i<JData.length;i++){
+  								x = JData[i].total
+	 							$("#searchuser").append(		
+	 		 							'<table ><th style="width:50px">'+ JData[i].country +'</th>'+
+	 		 									'<th style="width:350px">'+ JData[i].tourName +'</th>'+
+	 		 							        '<th style="width:50px">'+ JData[i].quantity +'</th>'+
+	 		 							        '<th style="width:200px">'+ JData[i].orderTime +'</th>'+
+	 		 							        '<th style="width:100px">'+ JData[i].total +'</th></table>'	
+	 													)
+	 													sum = sum + x
+	 								 } $("#searchuser").append('<table><th style="width:50px">合計</th><th style="width:727px">'+ sum +'</th></table>')
+								                       }else{
+						$("#searchuser").append('<H1>業績差尚無訂單</H1>')
+								                       }
+											})
+								})
+					});
 </script>
 </head>
 <body>
@@ -79,31 +85,41 @@ var params = {}
 			  <!-- 會員資料查詢 -->
               <div class="card">
                 <div class="card-body" style="background: lavender">
-                  <h4 class="card-title" style="font-family: Noto Sans TC; text-align: center;">會員資料查詢</h4>
+                  <h4 class="card-title" style="font-family: Noto Sans TC; text-align: center;">月份報表查詢</h4>
+<form action=" <c:url value='/Travel/export.do'/>">
                   <div class="form-group">
                     <div class="input-group">
                       <div class="input-group-prepend">
-
-						<select id="select1" class="form-controller" style="border: white" aria-label="Text input with dropdown button" >
+						<select id="select1" name="month" class="form-controller" style="border: white; width:100px;font-size: 18px;" aria-label="Text input with dropdown button"  >
 					       	<option value="zero"></option>
-							<option value="one">會員帳號</option>
-							<option value="two">會員電話</option>
-							<option value="three">全部會員</option>
+							<option value="1">JAN</option>
+							<option value="2">FEB</option>
+							<option value="3">MAR</option>
+							<option value="4">APR</option>
+							<option value="5">MAY</option>
+							<option value="6">JUN</option>
+							<option value="7">JUL</option>
+							<option value="8">AUG</option>
+							<option value="9">SEP</option>
+							<option value="10">OCT</option>
+							<option value="11">NOV</option>
+							<option value="12">DEC</option>　　　
 						</select>
-						
                       </div>
                       <input type="text" id="user" class="form-control" aria-label="Text input with dropdown button" style="font-family: Noto Sans TC" placeholder="請輸入會員資訊">
                       <input class="btn btn-sm btn-gradient-primary" id='membersh' type="button" onclick="fundmember()"  value="搜尋" >
+<br>                      
+<input type="submit" value="下載EXCEL檔">
+	</form>						
                     </div>
                   </div>
                   <!-- END 會員資料查詢 -->
-   
 <!--                  開始table -->
                  	<div class="col-lg-12 grid-margin stretch-card" style="background: lavender">
 							<div class="card">
 								<div class="card-body" style="background: lavender">
 									<div id="searchuser">
-									
+								
 <!-- 	----------------------加東西--------------------- -->
 
 <!-- 	----------------------加東西--------------------- -->
@@ -119,7 +135,6 @@ var params = {}
  		</div>
       <!-- main-panel ends 最外層-->
      
- 
     </div> <!-- 不能刪(include裡面的結束) -->
     <!-- page-body-wrapper ends -->
   </div> <!-- 不能刪(include裡面的結束) -->

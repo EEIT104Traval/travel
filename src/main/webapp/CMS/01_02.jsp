@@ -22,7 +22,6 @@
 <style>
 .table th{ 
 	width:400px;
-	font-weight:900;
 }
 </style>
 
@@ -30,45 +29,68 @@
 var number
 var user
 var params = {}
+var tourOrderInfoBean ;
+var ticketOrderInfoBean ;
+var hotelOrderDetailsBean ;
+
 	$(document).ready(function() {
-		$('#select1').change(function() {
-			params.number = $('#select1').val()
-		})
+
 	});
   			function fundmember(){
  			params.user = $('#user').val();
 			$("#searchuser").html("")
+
  			$.ajax({
- 					url : '/Travel/bindex01_01/User.controller',
+ 					url : '/Travel//bindex01_02/User.controller',
  					contentType : 'application/json; charset=UTF-8',
  					type : 'get',
  					dataType : 'json',
  					data:params,
  				   }).done(function(JData) {
- 					   console.log(JData)
-							$.each(JData, function(index, value) {
-								console.log(value.accountName)
-								
- 						$("#searchuser").append(
-		
-		
-		
-		
-  							'<table><th style="width:150px">帳號</th><th style="width:150px">姓</th>'+
-  							'<th style="width:150px">名</th><th style="width:150px">identityNo</th><th style="width:150px">email</th><tr>'
-  							+'<th>'+value.accountName +'</th>'
-  							+'<th>'+value.firstname +'</th>'
-  							+'<th>'+value.lastname +'</th>'
-  							+'<th>'+value.identityNo +'</th>'
-  							+'<th>'+value.email +'</th>'
-  							+'</tr><th>性別</th><th>電話號碼</th><th>出生年月日</th><th colspan="2">地址</th><tr>'
-  							+'<th>'+value.sex +'</th>'
-  							+'<th>'+value.phone +'</th>'
-  							+'<th>'+value.birth +'</th>'
-  							+'<th colspan="2">'+value.address +'</th></tr></table><br>'			
- 							)})
- 							document.getElementById("user").value="";
- 						})};
+							$("#searchuser").append(
+ 							'<div style="text-align: center;"><h2>'+params.user +'</h2></div>'+
+							'<br>'+
+							'<table ><th style="width:80px">類型</th><th style="width:350px">名稱</th>'+
+							'<th style="width:50px">數量</th><th style="width:200px">購買日期</th><th style="width:100px">總價格</th></table>'+
+							'<br>'		       );
+			
+							console.log("-------------------------------------");
+							console.log(JData);
+		    if(JData.TourOrderInfoBean != null){
+					for(var i = 0 ; i<JData.TourOrderInfoBean.length ; i++){
+ 							$("#searchuser").append(		
+ 							'<table ><th style="width:80px">旅遊行程</th>'+
+ 							'<th style="width:350px">'+ JData.TourOrderInfoBean[i].tourName +'</th>'+
+ 							'<th style="width:50px">'+ JData.TourOrderInfoBean[i].quantity +'</th>'+
+ 							'<th style="width:200px">'+ JData.TourOrderInfoBean[i].orderTime +'</th>'+
+ 						    '<th style="width:100px">'+ JData.TourOrderInfoBean[i].total +'</th></table>'								
+													)
+											}
+						   		  }else{$("#searchuser").append('<table ><th style="width:816px">尚無旅遊行程</th></table>')}
+ 			if(JData.TicketOrderInfoBean != null){
+					for(var i = 0;i<JData.TicketOrderInfoBean.length;i++){
+							$("#searchuser").append(		
+							'<table ><th style="width:80px">門票</th>'+
+							'<th style="width:350px">'+ JData.TicketOrderInfoBean[i].ticketName +'</th>'+
+					        '<th style="width:50px">'+ JData.TicketOrderInfoBean[i].adultTicketCount +'</th>'+
+					        '<th style="width:200px">'+ JData.TicketOrderInfoBean[i].orderDate +'</th>'+
+					        '<th style="width:100px">'+ JData.TicketOrderInfoBean[i].totalPrice +'</th></table>'								
+													)	
+											}
+								  }else{$("#HotelOrderDetailsBean").append('<table ><th style="width:816px">尚無門票訂單</th></table>')}				 			
+			if(JData.HotelOrderDetailsBean != null){
+					for(var i = 0;i<JData.HotelOrderDetailsBean.length;i++){
+							$("#searchuser").append(		
+							'<table ><th style="width:80px">飯店</th>'+
+							'<th style="width:350px">'+ JData.HotelOrderDetailsBean[i].hotelName +'</th>'+
+					        '<th style="width:50px">'+ JData.HotelOrderDetailsBean[i].stayNights+'(天) </th>'+
+					        '<th style="width:200px">'+ JData.HotelOrderDetailsBean[i].createDate +'</th>'+
+					        '<th style="width:100px">'+ JData.HotelOrderDetailsBean[i].roomPrice +'</th></table>'								
+													)
+											}
+						 	 	  }else{$("#searchuser").append('<table ><th style="width:816px">尚無飯店訂單</th></table>')}						
+						})
+				};		
 </script>
 </head>
 <body>
@@ -79,18 +101,11 @@ var params = {}
 			  <!-- 會員資料查詢 -->
               <div class="card">
                 <div class="card-body" style="background: lavender">
-                  <h4 class="card-title" style="font-family: Noto Sans TC; text-align: center;">會員資料查詢</h4>
+                  <h4 class="card-title" style="font-family: Noto Sans TC; text-align: center;">會員訂單查詢</h4>
                   <div class="form-group">
                     <div class="input-group">
                       <div class="input-group-prepend">
-
-						<select id="select1" class="form-controller" style="border: white" aria-label="Text input with dropdown button" >
-					       	<option value="zero"></option>
-							<option value="one">會員帳號</option>
-							<option value="two">會員電話</option>
-							<option value="three">全部會員</option>
-						</select>
-						
+				
                       </div>
                       <input type="text" id="user" class="form-control" aria-label="Text input with dropdown button" style="font-family: Noto Sans TC" placeholder="請輸入會員資訊">
                       <input class="btn btn-sm btn-gradient-primary" id='membersh' type="button" onclick="fundmember()"  value="搜尋" >
@@ -119,7 +134,9 @@ var params = {}
  		</div>
       <!-- main-panel ends 最外層-->
      
- 
+     
+     
+     
     </div> <!-- 不能刪(include裡面的結束) -->
     <!-- page-body-wrapper ends -->
   </div> <!-- 不能刪(include裡面的結束) -->
