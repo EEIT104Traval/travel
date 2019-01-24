@@ -167,8 +167,24 @@ public class LoginController {
 		 
 		 UserInfoBean update = userInfoService.gorfbLoginUpdateTime(loginId);
 		 model.addAttribute("user",update.getLastname()+" "+update.getFirstname());
+		 model.addAttribute("login", update);			
+		 model.addAttribute("accountName", update.getAccountName());	
 		 return update;	  		  
 	 }
+	 @ResponseBody
+	 @RequestMapping("/secure/updatemeberInfo")
+	 public UserInfoBean updatemeberInfo(UserInfoBean bean , Model model) {
+		 userInfoService.modifyMemberInfo(bean);
+		 return bean;	  		  
+	 }
+	 
+	 @RequestMapping("/secure/modify")
+	 public String log(String accountName,Model model) {
+		 model.addAttribute("accountNameBean", userInfoService.findByAccountName1(accountName));
+		 return "member.modify";
+	 }
+	 
+	 
 	 @ResponseBody
 		@RequestMapping(path = { "/voyage/deleteorder.controller" })
 	 public TicketOrderInfoBean deleteorder(Integer ticketOrderNO) {
@@ -176,6 +192,9 @@ public class LoginController {
 		 result = ticketOrderInfoService.deleteorder(ticketOrderNO);
 		 return result;
 	 }
+	 
+	 
+
 	 
 	 
 	 

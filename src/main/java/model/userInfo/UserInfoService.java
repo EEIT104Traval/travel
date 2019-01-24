@@ -95,6 +95,14 @@ public class UserInfoService {
 				bean.getAddress(), bean.getAuthority(), bean.getGorfb(), bean.getLoginId(), updateTime);
 		return bean;
 	}
+	
+	public UserInfoBean modifyMemberInfo(UserInfoBean bean) {
+		Timestamp updateTime = new Timestamp(System.currentTimeMillis());
+		userInfoDAO.update(bean.getAccountName(), bean.getPassword(), bean.getFirstname(), bean.getLastname(),
+				bean.getIdentityNo(), bean.getEmail(), bean.getBirth(), bean.getSex(), bean.getPhone(),
+				bean.getAddress(), bean.getAuthority(), bean.getGorfb(), bean.getLoginId(),updateTime);
+		return bean;
+	}
 
 	public UserInfoBean gorfbLoginUpdateTime(String loginId) {
 		UserInfoBean bean = userInfoDAO.findByLoginId(loginId);
@@ -137,6 +145,12 @@ public class UserInfoService {
 		}
 		return result;
 
+	}
+	
+	public UserInfoBean findByAccountName1(String accountName) {
+		
+		return userInfoDAO.findByPrimaryKey(accountName);
+		
 	}
 	
 //----------------------------會員訂單修改---------------------------------
@@ -247,17 +261,18 @@ public class UserInfoService {
 
 						tourBatchBean.setTourName(groupTourBean.getTourName());
 						tourOrder.setTourName(tourBatchBean.getTourName());
+						tourOrder.setTourNo(groupTourBean.getTourNo());						
 					}
 					continue;
 				}
 			}
 		}
-
+		System.out.println("tourInfo="+tourInfo);
 		for (TicketInfoBean ticketInfoBean : ticketList) {
 			for (TicketOrderInfoBean ticketOrderInfoBean : ticketInfo) {
 				if (ticketInfoBean.getTicketNo() == ticketOrderInfoBean.getTicketNo()) {
 					ticketOrderInfoBean.setTicketName(ticketInfoBean.getTicketName());
-					System.out.println(ticketOrderInfoBean);
+//					System.out.println(ticketOrderInfoBean);
 				}
 				continue;
 			}
@@ -279,7 +294,7 @@ public class UserInfoService {
 		
 		
 
-		System.out.println(result);
+//		System.out.println(result);
 
 		return map;
 	}
