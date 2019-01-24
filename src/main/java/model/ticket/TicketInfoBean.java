@@ -39,7 +39,7 @@ public class TicketInfoBean {
 	private String ticketDescription;
 	private String traffic_information;
 	private String special_restrictions;
-	private String googleAddressOrName;
+	private Boolean updown;
 
 	public Integer getTicketNo() {
 		return ticketNo;
@@ -169,12 +169,14 @@ public class TicketInfoBean {
 		this.special_restrictions = special_restrictions;
 	}
 
-	public String getGoogleAddressOrName() {
-		return googleAddressOrName;
+
+
+	public Boolean getUpdown() {
+		return updown;
 	}
 
-	public void setGoogleAddressOrName(String googleAddressOrName) {
-		this.googleAddressOrName = googleAddressOrName;
+	public void setUpdown(Boolean updown) {
+		this.updown = updown;
 	}
 
 	@Override
@@ -186,7 +188,7 @@ public class TicketInfoBean {
 				+ ", country=" + country + ", category=" + category + ", productFeatures=" + productFeatures
 				+ ", ticketPicture=" + ticketPicture + ", ticketDescription=" + ticketDescription
 				+ ", traffic_information=" + traffic_information + ", special_restrictions=" + special_restrictions
-				+ ", googleAddressOrName=" + googleAddressOrName + "]";
+				+ ", updown=" + updown + "]";
 	}
 
 	

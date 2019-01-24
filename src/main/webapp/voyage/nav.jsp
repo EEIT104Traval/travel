@@ -97,7 +97,7 @@
 						${user}</button>
 					<div class="dropdown-menu dropdown-menu-right">
 						<a class="dropdown-item" href="<c:url value='/login/userorder.jsp'/>">查詢訂單</a> <a
-							class="dropdown-item" href="<c:url value='/login/modifymember.jsp'/>">資料/密碼修改</a>
+							class="dropdown-item" href="<c:url value='/secure/modify?accountName=${accountName}'/>">資料/密碼修改</a>
 						<div class="dropdown-divider">這個是什麼</div>
 						<a onclick="signout()" class="dropdown-item" href="##">登出</a>
 					</div>

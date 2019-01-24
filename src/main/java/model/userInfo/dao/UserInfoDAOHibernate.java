@@ -69,6 +69,30 @@ public class UserInfoDAOHibernate implements UserInfoDAO {
 		}
 		return null;
 	}
+	
+	@Override
+	public UserInfoBean updateMemberInfo(String accountName, String firstname, String lastname, String identityNo,
+			String email, Date birth, String sex, String phone, String address, String authority, String gorfb,
+			String loginId, Timestamp registerDate) {
+		UserInfoBean result = this.getSession().get(UserInfoBean.class, accountName);
+		if (result != null) {
+			result.setAccountName(accountName);
+			result.setFirstname(firstname);
+			result.setLastname(lastname);
+			result.setIdentityNo(identityNo);
+			result.setEmail(email);
+			result.setBirth(birth);
+			result.setSex(sex);
+			result.setPhone(phone);
+			result.setAddress(address);
+			result.setAuthority(authority);
+			result.setGorfb(gorfb);
+			result.setLoginId(loginId);
+			result.setRegisterDate(registerDate);
+			return result;
+		}
+		return null;
+	}
 
 	@Override
 	public boolean remove(String accountName) {
@@ -100,6 +124,8 @@ public class UserInfoDAOHibernate implements UserInfoDAO {
 		
 
 	}
+
+
 
 
 }

@@ -21,6 +21,7 @@ import org.springframework.stereotype.Service;
 
 import model.flight.FlightOrderInfoBean;
 import model.flight.FlightOrderInfoDAO;
+import model.flight.dao.FlightOrderInfoDAOHibernate;
 import model.hotel.HotelBean;
 import model.hotel.HotelDAO;
 import model.hotel.HotelOrderDetailsBean;
@@ -67,6 +68,9 @@ public class UserInfoService {
 	@Autowired
 	private TourOrderInfoDAO tourOrderInfoDAO;
 	
+	@Autowired
+	private FlightOrderInfoDAOHibernate foiDAO;
+	
 	
 	
 	public UserInfoBean login(String accountName, String password) {
@@ -89,6 +93,14 @@ public class UserInfoService {
 		userInfoDAO.update(bean.getAccountName(), bean.getPassword(), bean.getFirstname(), bean.getLastname(),
 				bean.getIdentityNo(), bean.getEmail(), bean.getBirth(), bean.getSex(), bean.getPhone(),
 				bean.getAddress(), bean.getAuthority(), bean.getGorfb(), bean.getLoginId(), updateTime);
+		return bean;
+	}
+	
+	public UserInfoBean modifyMemberInfo(UserInfoBean bean) {
+		Timestamp updateTime = new Timestamp(System.currentTimeMillis());
+		userInfoDAO.updateMemberInfo(bean.getAccountName(), bean.getFirstname(), bean.getLastname(),
+				bean.getIdentityNo(), bean.getEmail(), bean.getBirth(), bean.getSex(), bean.getPhone(),
+				bean.getAddress(), bean.getAuthority(), bean.getGorfb(), bean.getLoginId(),updateTime);
 		return bean;
 	}
 
@@ -238,6 +250,8 @@ public class UserInfoService {
 
 		List<HotelOrderDetailsBean> HotelInfo = hotelOrderDetailsService.foundOrderaccountName(user);
 
+		List<FlightOrderInfoBean> flightOrderInfo = foiDAO.findByAccountName(user);
+		
 		for (GroupTourBean groupTourBean : tourList) {
 			for (TourBatchBean tourBatchBean : tourBatch) {
 				for (TourOrderInfoBean tourOrder : tourInfo) {
@@ -273,6 +287,12 @@ public class UserInfoService {
 		if (HotelInfo.size() > 0) {
 			map.put("HotelOrderDetailsBean", HotelInfo);
 		}
+		if (flightOrderInfo.size() > 0) {
+			map.put("FlightOrderInfoBean", flightOrderInfo);
+		}
+		
+		
+		
 
 //		System.out.println(result);
 

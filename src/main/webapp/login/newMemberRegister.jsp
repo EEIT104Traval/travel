@@ -17,9 +17,9 @@ function clearForm() {
 	}
 }
 
-$( function() {
-    $( "#datepicker" ).datepicker({dateFormat:'yy-MM-dd',changeYear: true});
-  } );
+// $( function() {
+//     $( "#datepicker" ).datepicker({dateFormat:'yy-MM-dd',changeYear: true});
+//   } );
   </script>
   
 

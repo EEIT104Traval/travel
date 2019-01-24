@@ -146,7 +146,7 @@ public class LoginController {
 			message.put("xxx1", bean);
 			model.addAttribute("login", bean);			
 			model.addAttribute("accountName", bean.getAccountName());			
-			model.addAttribute("user", bean.getLastname()+" "+bean.getFirstname());
+			model.addAttribute("user", bean.getFirstname()+" "+bean.getLastname());
 			System.out.println("登入成功");
 			return message;
 		}
@@ -166,9 +166,25 @@ public class LoginController {
 	 public UserInfoBean update(String loginId , Model model) {
 		 
 		 UserInfoBean update = userInfoService.gorfbLoginUpdateTime(loginId);
-		 model.addAttribute("user",update.getLastname()+" "+update.getFirstname());
+		 model.addAttribute("user", update.getFirstname()+" "+update.getLastname());
+		 model.addAttribute("login", update);			
+		 model.addAttribute("accountName", update.getAccountName());	
 		 return update;	  		  
 	 }
+	 @ResponseBody
+	 @RequestMapping("/secure/updatemeberInfo")
+	 public UserInfoBean updatemeberInfo(UserInfoBean bean , Model model) {
+		 userInfoService.modifyMemberInfo(bean);
+		 return bean;	  		  
+	 }
+	 
+	 @RequestMapping("/secure/modify")
+	 public String log(String accountName,Model model) {
+		 model.addAttribute("accountNameBean", userInfoService.findByAccountName1(accountName));
+		 return "member.modify";
+	 }
+	 
+	 
 	 @ResponseBody
 		@RequestMapping(path = { "/voyage/deleteorder.controller" })
 	 public TicketOrderInfoBean deleteorder(Integer ticketOrderNO) {
@@ -176,6 +192,9 @@ public class LoginController {
 		 result = ticketOrderInfoService.deleteorder(ticketOrderNO);
 		 return result;
 	 }
+	 
+	 
+
 	 
 	 
 	 
