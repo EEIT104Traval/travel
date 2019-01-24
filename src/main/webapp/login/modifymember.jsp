@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %> 
 <!DOCTYPE html>
 <html>
 <head>
@@ -68,7 +69,7 @@ function clearForm() {
 										<input type="text" name="email" id="email" tabindex="1" class="form-control" placeholder="Email信箱" value="${accountNameBean.email}">
 									</div>
 									<div class="form-group">
-										<input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="修改密碼" value="${accountNameBean.email}">
+										<input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="修改密碼" value="">
 									</div>
 									<div class="form-group">
 										<input type="password" name="confirm-password" id="confirm-password" tabindex="2" class="form-control" placeholder="確認密碼">
@@ -83,7 +84,8 @@ function clearForm() {
 										<input type="text" name="identityNo" id="identityNo" tabindex="2" class="form-control" placeholder="身分證字號" value="${accountNameBean.identityNo}">
 									</div>
 									<div class="form-group">
-										<input type="text" name="birth" id="birth" tabindex="2" class="form-control" placeholder="生日" value="${accountNameBean.birth}">
+										<fmt:formatDate value="${accountNameBean.birth}" pattern="yyyy-MM-dd" var="birth"/>
+										<input type="text" name="birth" id="birth" tabindex="2" class="form-control" placeholder="生日" value="${birth}">
 									</div>
 									<div class="form-group">
 										<input type="text" name="phone" id="phone" tabindex="2" class="form-control" placeholder="行動電話 " value="${accountNameBean.phone}">
@@ -91,9 +93,10 @@ function clearForm() {
 									<div class="form-group">
 										<input type="text" name="address" id="address" tabindex="2" class="form-control" placeholder="地址" value="${accountNameBean.address}">
 									</div>
-									<div class="form-group">
-										<input type="text" name="registerDate" id="registerDate" tabindex="2" class="form-control" placeholder="登入時間" value="${accountNameBean.registerDate}">
-									</div>
+<!-- 									<div class="form-group"> -->
+<%-- 										<fmt:formatDate value="${accountNameBean.registerDate}" pattern="yyyy-MM-dd" var="registerDate"/> --%>
+<%-- 										<input type="text" name="registerDate" id="registerDate" tabindex="2" class="form-control" placeholder="登入時間" value="${registerDate}"> --%>
+<!-- 									</div> -->
 									
 										<div class="form-group">
 										<div class="row">
