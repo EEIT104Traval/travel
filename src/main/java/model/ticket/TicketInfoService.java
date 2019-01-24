@@ -33,6 +33,16 @@ public class TicketInfoService {
 
 
 	
+	public List<TicketInfoBean> select() {
+			
+		List<TicketInfoBean> result = ticketInfoDAO.findAllUp();
+		if(result!=null) {
+			return result;
+		}
+		return null;
+
+	}
+	
 	public List<TicketInfoBean> select(TicketInfoBean bean) {
 		List<TicketInfoBean> result = null;
 		
@@ -73,12 +83,11 @@ public class TicketInfoService {
 		return result;
 	}
 	
-	public boolean delete(TicketInfoBean bean) {
-//
+	public void delete(TicketInfoBean bean) {
 		if (bean != null) {
-			 ticketInfoDAO.remove(bean.getTicketNo());
+			 bean.setUpdown(true);
+			 update(bean);
 		}
-		return true;
 	}
 
 	public boolean qupdate(String accountName, Integer ticketNo, Integer adultTicketSellQ, Integer adultTicketPrice)
@@ -154,7 +163,7 @@ public class TicketInfoService {
 	}
 	
 	public List<TicketInfoBean> searchCountry(String country) {
-		List<TicketInfoBean> result = null;
+		  List<TicketInfoBean> result = null;
 		if (!StringUtils.isEmpty(country)) {
 			List<TicketInfoBean> tib = ticketInfoDAO.searchByCountry(country);
 			if (tib != null) {
@@ -162,23 +171,8 @@ public class TicketInfoService {
 				result.addAll(tib);
 			}
 		} else {
-			result = ticketInfoDAO.findAll();
+			result = ticketInfoDAO.findAllUp();
 		}
 		return result;
 	}
-	
-	public List<TicketInfoBean> searchByTicketName(Integer ticketNo) {
-		List<TicketInfoBean> result = null;
-		if (!StringUtils.isEmpty(ticketNo)) {
-			List<TicketInfoBean> tib = ticketInfoDAO.searchByTicketName(ticketNo);
-			if (tib != null) {
-				result = new ArrayList<TicketInfoBean>();
-				result.addAll(tib);
-			}
-		} else {
-			result = ticketInfoDAO.findAll();
-		}
-		return result;	
-	}
-	
 }

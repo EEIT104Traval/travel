@@ -49,6 +49,22 @@ public class TicketInfoDAOHibernate implements TicketInfoDAO {
 
 		return this.getSession().createQuery("from TicketInfoBean", TicketInfoBean.class).setMaxResults(50).list();
 	}
+	
+	@Override
+	public List<TicketInfoBean> findAllUp() {
+
+		return this.getSession().createQuery("from TicketInfoBean where updown=0", TicketInfoBean.class).setMaxResults(50).list();
+	}
+	
+	@Override
+	public TicketInfoBean findUP(Integer ticketNo) {
+		
+		TicketInfoBean ticket =this.getSession().get(TicketInfoBean.class, ticketNo);
+		if(ticket.getUpdown()==false) {
+			return ticket;
+		}
+		return null;
+	}
 
 	@Override
 	public TicketInfoBean create(TicketInfoBean bean) {
@@ -77,7 +93,7 @@ public class TicketInfoDAOHibernate implements TicketInfoDAO {
 			result.setTicketDescription(bean.getTicketDescription());
 			result.setTraffic_information(bean.getTraffic_information());
 			result.setSpecial_restrictions(bean.getSpecial_restrictions());
-			result.setGoogleAddressOrName(bean.getGoogleAddressOrName());
+			result.setUpdown(bean.getUpdown());
 
 			return result;
 		}

@@ -32,5 +32,9 @@ public interface TicketInfoDAO {
 	public abstract String DLticketInfo(String path) throws IOException;
 	
 	public abstract String UPticketInfo(String path) throws IOException;
+	
+	public abstract TicketInfoBean findUP(Integer ticketNo);
+	
+	public abstract List<TicketInfoBean> findAllUp();
 
 }
