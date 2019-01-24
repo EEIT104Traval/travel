@@ -15,7 +15,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -37,9 +36,6 @@ public class UserController01_01 {
 	@Autowired
 	private TicketInfoService ticketInfoService;
 
-	
-	
-	
 	
 	@ResponseBody
 	@RequestMapping("/bindex01_01/User.controller")
@@ -69,7 +65,7 @@ public class UserController01_01 {
 	
 	@ResponseBody
 	@RequestMapping("/bindex01_02/User.controller")
-	public Map<String, List<?>> method0102(@RequestParam(value = "user", required = false) String user,Model model) {
+	public Map<String, List<?>> method0102(@RequestParam(value = "user", required = false) String user) {
 		
 		System.out.println("user=" + user);
 		
@@ -125,6 +121,7 @@ public class UserController01_01 {
 		
 		TicketInfoBean result = null;
 		if (bean != null) {
+			bean.setUpdown(false);
 			result = ticketInfoService.insert(bean);
 		}
 		return result;
@@ -144,7 +141,7 @@ public class UserController01_01 {
 	public List<TicketInfoBean> method03021(){
 		
 		List<TicketInfoBean> result = null;
-		result = ticketInfoService.findAll();
+		result = ticketInfoService.select();
 		
 		return result;
 	}
@@ -183,21 +180,10 @@ public class UserController01_01 {
 	}
 	
 	@ResponseBody
-	@RequestMapping("/bindex03_03/User.controller")
-	public List<TicketInfoBean> method0303(TicketInfoBean bean ,Model model){
-		
-		List<TicketInfoBean> result = null;
-		result = ticketInfoService.select(bean);
-		
-		return result;
-	}
-	@ResponseBody
 	@RequestMapping("/bindex03_031/User.controller")
-	public void method03031(TicketInfoBean bean ,Model model){
-		
+	public void method03031(TicketInfoBean bean){
 		if (bean != null) {
 			ticketInfoService.delete(bean);
 		}
 	}
-	//---------------------------------以下勿動 測試中 非常嚴重-----------------------------------
 }

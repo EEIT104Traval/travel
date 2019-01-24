@@ -12,9 +12,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import model.flight.service.CreateAirInfoService;
 import model.flight.service.FlightInfoGetService;
+import model.flight.service.ThreeTableService;
 
 @Controller
 public class FlightInfoController {
+	
+	@Autowired
+	ThreeTableService ttService;
 	
 	@Autowired
 	CreateAirInfoService CIservice;

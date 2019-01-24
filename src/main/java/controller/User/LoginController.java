@@ -1,6 +1,5 @@
 package controller.User;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.List;
@@ -21,6 +20,8 @@ import org.springframework.web.bind.support.SessionStatus;
 
 import model.ticket.TicketInfoDAO;
 import model.ticket.TicketInfoService;
+import model.ticket.TicketOrderInfoBean;
+import model.ticket.TicketOrderInfoService;
 import model.tour.service.TourOrderInfoService;
 import model.userInfo.UserInfoBean;
 import model.userInfo.UserInfoService;
@@ -36,6 +37,8 @@ public class LoginController {
 	@Autowired
 	private TicketInfoService ticketInfoService;
 	@Autowired
+	private TicketOrderInfoService ticketOrderInfoService;
+	@Autowired
 	private TicketInfoDAO ticketInfoDAO;
 	
 	@InitBinder
@@ -44,30 +47,30 @@ public class LoginController {
 				new CustomDateEditor(new SimpleDateFormat("yyyy-MM-dd"), true));
 	}
 
-//	@ResponseBody 原版
-//	@RequestMapping(path= {"/voyage/userorder.controller"})
-//	public Map<String, List<?>> getMemberOrder(@RequestParam(value="accountName",required=false)String user) {
-//		Map<String, List<?>> result = null;
-//		result = userInfoService.findByPrimaryKey(user);
-//		System.out.println(result);
-//	
-//	return result;
-//	}
-	
 	@ResponseBody
 	@RequestMapping(path= {"/voyage/userorder.controller"})
-	public Map<String, List<?>> getMemberOrder(@RequestParam(value="accountName",required=false)String user,
-											   @RequestParam(value="orderNo",required=false)Integer tourorderNo,Integer ticketOrderNO,
-											   @RequestParam(value="orderNo1",required=false)Integer hotelorderNo) {
+	public Map<String, List<?>> getMemberOrder(@RequestParam(value="accountName",required=false)String user) {
 		Map<String, List<?>> result = null;
-		Boolean result1 = null;
-		System.out.println("user="+user+"tourorderNo="+tourorderNo+"ticketOrderNO="+ticketOrderNO+"hotelorderNo="+hotelorderNo);
 		result = userInfoService.findByPrimaryKey(user);
-		result1 = userInfoService.orderModify(user, tourorderNo, ticketOrderNO, hotelorderNo);
 		System.out.println(result);
 	
 	return result;
 	}
+	
+//	@ResponseBody
+//	@RequestMapping(path= {"/voyage/userorder.controller"})
+//	public Map<String, List<?>> getMemberOrder(@RequestParam(value="accountName",required=false)String user,
+//											   @RequestParam(value="orderNo",required=false)Integer tourorderNo,Integer ticketOrderNO,
+//											   @RequestParam(value="orderNo1",required=false)Integer hotelorderNo) {
+//		Map<String, List<?>> result = null;
+//		Boolean result1 = null;
+//		System.out.println("user="+user+"tourorderNo="+tourorderNo+"ticketOrderNO="+ticketOrderNO+"hotelorderNo="+hotelorderNo);
+//		result = userInfoService.findByPrimaryKey(user);
+//		result1 = userInfoService.orderModify(user, tourorderNo, ticketOrderNO, hotelorderNo);
+//		System.out.println(result);
+//	
+//	return result;
+//	}
 	
 
 
@@ -143,7 +146,7 @@ public class LoginController {
 			message.put("xxx1", bean);
 			model.addAttribute("login", bean);			
 			model.addAttribute("accountName", bean.getAccountName());			
-			model.addAttribute("user", bean.getLastname()+" "+bean.getFirstname());
+			model.addAttribute("user", bean.getFirstname()+" "+bean.getLastname());
 			System.out.println("登入成功");
 			return message;
 		}
@@ -163,9 +166,37 @@ public class LoginController {
 	 public UserInfoBean update(String loginId , Model model) {
 		 
 		 UserInfoBean update = userInfoService.gorfbLoginUpdateTime(loginId);
-		 model.addAttribute("user",update.getLastname()+" "+update.getFirstname());
+		 model.addAttribute("user", update.getFirstname()+" "+update.getLastname());
+		 model.addAttribute("login", update);			
+		 model.addAttribute("accountName", update.getAccountName());	
 		 return update;	  		  
 	 }
+	 @ResponseBody
+	 @RequestMapping("/secure/updatemeberInfo")
+	 public UserInfoBean updatemeberInfo(UserInfoBean bean , Model model) {
+		 userInfoService.modifyMemberInfo(bean);
+		 return bean;	  		  
+	 }
+	 
+	 @RequestMapping("/secure/modify")
+	 public String log(String accountName,Model model) {
+		 model.addAttribute("accountNameBean", userInfoService.findByAccountName1(accountName));
+		 return "member.modify";
+	 }
+	 
+	 
+	 @ResponseBody
+		@RequestMapping(path = { "/voyage/deleteorder.controller" })
+	 public TicketOrderInfoBean deleteorder(Integer ticketOrderNO) {
+		 TicketOrderInfoBean result = null;
+		 result = ticketOrderInfoService.deleteorder(ticketOrderNO);
+		 return result;
+	 }
+	 
+	 
+
+	 
+	 
 	 
 
 }

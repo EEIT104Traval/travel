@@ -81,7 +81,7 @@ function login(){
 			if(JData.xxx1.authority=='A001'){
   	      		location.reload();
 			}else{
-				window.location="http://localhost:8080/Travel/後台管理/bindex.jsp"
+				window.location="/Travel/CMS/01_01.jsp"
 			}
 		}
 	});
@@ -203,7 +203,7 @@ function login(){
 		<form action="">
 			<!--     <fieldset> -->
 			<label for="name">帳號:</label> <input type="text" name="name" id="name"
-				class="text ui-widget-content ui-corner-all"><br>
+				class="text ui-widget-content ui-corner-all" style="margin-bottom: -20px"><br>
 			<label for="password">密碼:</label> <input type="password" id="password"
 				name="password" value=""
 				class="text ui-widget-content ui-corner-all">
@@ -213,18 +213,36 @@ function login(){
 		<div>
 			<!--         Google登入：<input type="button"  value="Google登入" onclick="GoogleLogin();" /><br> -->
 			<span class="error" id="loginerror">　</span>
-			<input type="button" value="Login" onclick="login()">
-		
-			<p>快速登入</p>
+
+			
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="row">
+							<div class="col-md-6">
+							<input style="margin-top:-10px" type="button" value="Login" onclick="login()">
+							</div>
+							<div class="col-md-6">
+							<input type="button" value="新會員註冊" onclick="register()">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<p style="margin-top:6px;margin-bottom:0.5px;color:	#0088A8;text-align:center">快速登入</p>
 			<img src="<c:url value='/login/images/facebook.jpg' />" onclick="FBLogin();" width="32%" height="32%"> 
 			<img src="<c:url value='/login/images/google01.jpg' />" onclick="GoogleLogin();" width="32%" height="32%"> 
 			<img src="<c:url value='/login/images/line.jpg' />" onclick="GoogleLogin();" width="32%" height="32%">
 <!-- 			<button	style="background-color: blue; color: white; margin-left: 100px; margin-top: 20px">新會員註冊</button> -->
 			
-			<a class="dropdown-item" href="<c:url value='../login/newMemberRegister.jsp'/>">新會員註冊</a>
+			
 		</div>
 </form>
 		<script>
+		function register(){
+			window.location.href="../login/newMemberRegister.jsp"
+		}
+		
         //應用程式編號，進入 https://developers.facebook.com/apps/ 即可看到
         let FB_appID = "967663670095757";
 

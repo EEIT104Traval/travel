@@ -3,8 +3,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<!-- <link rel="stylesheet" -->
+<!-- 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"> -->
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script> -->
@@ -13,20 +13,20 @@
 <!-- 	crossorigin="anonymous"></script> -->
 <!DOCTYPE html>
 <html>
-<!-- <link rel="stylesheet" href="css/main_styles.css"> -->
-<%-- 	<link rel="stylesheet" href="<c:url value='/voyage/css/open-iconic-bootstrap.min.css' />"> --%>
-<%--     <link rel="stylesheet" href="<c:url value='/voyage/css/animate.css' />"> --%>
-<%--     <link rel="stylesheet" href="<c:url value='/voyage/css/owl.carousel.min.css' />"> --%>
-<%--     <link rel="stylesheet" href="<c:url value='/voyage/css/owl.theme.default.min.css' />"> --%>
-<%--     <link rel="stylesheet" href="<c:url value='/voyage/css/magnific-popup.css' />"> --%>
-<%--     <link rel="stylesheet" href="<c:url value='/voyage/css/aos.css' />"> --%>
-<%--     <link rel="stylesheet" href="<c:url value='/voyage/css/ionicons.min.css' />"> --%>
-<%--     <link rel="stylesheet" href="<c:url value='/voyage/css/bootstrap-datepicker.css' />"> --%>
-<%--     <link rel="stylesheet" href="<c:url value='/voyage/css/jquery.timepicker.css' />"> --%>
-<%--     <link rel="stylesheet" href="<c:url value='/voyage/css/flaticon.css' />"> --%>
-<%--     <link rel="stylesheet" href="<c:url value='/voyage/css/icomoon.css' />"> --%>
-<link rel="stylesheet" href="<c:url value='/voyage/css/style.css' />">
-<%--     <link href="<c:url value='/voyage/css/jquery-ui.css' />" rel="stylesheet" type="text/css"> --%>
+	<link rel="stylesheet" href="<c:url value='/voyage/css/main_styles.css' />">
+	<link rel="stylesheet" href="<c:url value='/voyage/css/open-iconic-bootstrap.min.css' />">
+    <link rel="stylesheet" href="<c:url value='/voyage/css/animate.css' />">
+    <link rel="stylesheet" href="<c:url value='/voyage/css/owl.carousel.min.css' />">
+    <link rel="stylesheet" href="<c:url value='/voyage/css/owl.theme.default.min.css' />">
+    <link rel="stylesheet" href="<c:url value='/voyage/css/magnific-popup.css' />">
+    <link rel="stylesheet" href="<c:url value='/voyage/css/aos.css' />">
+    <link rel="stylesheet" href="<c:url value='/voyage/css/ionicons.min.css' />">
+    <link rel="stylesheet" href="<c:url value='/voyage/css/bootstrap-datepicker.css' />">
+    <link rel="stylesheet" href="<c:url value='/voyage/css/jquery.timepicker.css' />">
+    <link rel="stylesheet" href="<c:url value='/voyage/css/flaticon.css' />">
+    <link rel="stylesheet" href="<c:url value='/voyage/css/icomoon.css' />">
+	<link rel="stylesheet" href="<c:url value='/voyage/css/style.css' />">
+    <link href="<c:url value='/voyage/css/jquery-ui.css' />" rel="stylesheet" type="text/css">
 <head>
 <meta charset="UTF-8">
 <title>會員訂單資料</title>
@@ -40,7 +40,7 @@
 /* 	/*    	border: 1px solid black */ */
 /* } */
 
- th { 
+ th {
 /*  text-align:center; */
 
 
@@ -53,15 +53,40 @@
 	var tourOrderInfoBean;
 	var ticketOrderInfoBean;
 	var hotelOrderDetailsBean;
+	var ticketOrderNO;
 
 	$(document).ready(function() {
 		findorder()
 		console.log(accountName)
 	});
 	
-	function deleteOrder(){
+	function deleteOrder(ticketOrderNO){
 		alert("確定刪除!!!")
-	}
+		console.log("ticketOrderNO="+ticketOrderNO)
+		$.ajax({
+					url : '/Travel/voyage/deleteorder.controller',
+					contentType : 'application/json; charset=UTF-8',
+					type : 'get',
+					dataType : 'json',
+					data : {
+						'ticketOrderNO' : ticketOrderNO,
+					},
+					success: function(json) {
+            			alert("刪除!!");
+             			console.log(json);
+//             			location.reload();
+            			location.reload();
+
+            		},
+            		error: function(json) {
+            			alert("!!");
+             			console.log(json);
+//             			location.reload();
+            			location.reload();
+
+            		},
+				});
+	};
 	
 	function findorder() {
 		$("#searchuser").html("")
@@ -79,7 +104,7 @@
 				.done(
 						function(JData) {
 							if (JData.TourOrderInfoBean != null) {
-								//  								if(JData.TourOrderInfoBean != null && JData.TourOrderInfoBean.orderStatus="已付費" ){
+								//if(JData.TourOrderInfoBean != null && JData.TourOrderInfoBean.orderStatus="已付費" ){
 								for (var i = 0; i < JData.TourOrderInfoBean.length; i++) {
 									$("#searchuser")
 											.append(
@@ -87,7 +112,7 @@
 															+ JData.TourOrderInfoBean[i].orderNo
 															+ '</th>'
 															+ '<th scope="row">旅遊行程</th>'
-															+ '<th scope="row" style="width:40%;text-align:center" name="tourName">'
+															+ '<th scope="row" style="width:42%;text-align:center" name="tourName">'
 															+ JData.TourOrderInfoBean[i].tourName
 															+ '</th>'
 															+ '<th scope="row" style="width:5%" name="quantity">'
@@ -102,12 +127,11 @@
 															+
 															//'<th style="width:100px" name="totalPrice"><input type="submit" name="prodaction" value="刪除"></th></table>'
 															'<th scope="row" style="width:10%" name="totalPrice"><input type="image" src="images/gb.png" width="20%" height="20%" alt="send" name="Test" id="Test" onclick="deleteOrder();" /></th></table>')
-															
 								}
 							} else {
 								$("#searchuser")
 										.append(
-												'<table ><th>尚無旅遊行程</th></table>')
+												'<table ><hr></table>')
 							}
 							if (JData.TicketOrderInfoBean != null) {
 								for (var i = 0; i < JData.TicketOrderInfoBean.length; i++) {
@@ -116,51 +140,79 @@
 													'<table class="table table-hover"><th scope="row" style="width:10%;text-align:center" name="ticketOrderNO">'
 															+ JData.TicketOrderInfoBean[i].ticketOrderNO
 															+ '</th>'
-															+ '<th>門票</th>'
-															+ '<th name="ticketName">'
+															+ '<th scope="row">門票</th>'
+															+ '<th scope="row" style="width:25%; name="ticketName">'
 															+ JData.TicketOrderInfoBean[i].ticketName
 															+ '</th>'
-															+ '<th name="adultTicketCount">'
+															+ '<th scope="row" style="width:5%" name="adultTicketCount">'
 															+ JData.TicketOrderInfoBean[i].adultTicketCount
 															+ '</th>'
-															+ '<th name="orderDate">'
+															+ '<th scope="row" style="width:15%" name="orderDate">'
 															+ JData.TicketOrderInfoBean[i].orderDate
 															+ '</th>'
-															+ '<th name="totalPrice">'
+															+ '<th scope="row" style="width:10%" name="totalPrice">'
 															+ JData.TicketOrderInfoBean[i].totalPrice
 															+ '</th>'
 															+
-															//  								        '<th style="width:100px" name="totalPrice"><input type="submit" name="prodaction" value="刪除"></th></table>'
-															'<th name="totalPrice"><img src="images/gb.png" width="20%" height="20%"></th></table>')
+															//'<th style="width:100px" name="totalPrice"><input type="submit" name="prodaction" value="刪除"></th></table>'
+															'<th scope="row" style="width:10%" name="totalPrice"><input type="image" src="images/gb.png" width="20%" height="20%" alt="send" name="Test" id="Test" onclick="deleteOrder(\''+JData.TicketOrderInfoBean[i].ticketOrderNO+'\');" /></th></table>')
 								}
 							} else {
 								$("#HotelOrderDetailsBean")
 										.append(
 												'<table class="table table-hover"><th scope="row">尚無門票訂單</th></table>')
 							}
+							
+							if (JData.FlightOrderInfoBean != null) {
+								for (var i = 0; i < JData.FlightOrderInfoBean.length; i++) {
+									$("#searchuser")
+											.append(
+													'<table class="table table-hover"><th scope="row" style="width:10%;text-align:center" name="flightOrderNO">'
+															+ JData.FlightOrderInfoBean[i].flightOrderNO
+															+ '</th>'
+															+ '<th scope="row">飛機票</th>'
+															+ '<th scope="row" style="text-align:left;width:25%">桃園-釜山 往返</th>'
+															+ '<th scope="row" style="width:5%" name="adultCount">'
+															+ JData.FlightOrderInfoBean[i].adultCount
+															+ '</th>'
+															+ '<th scope="row" style="width:15%" name="dealDate">'
+															+ JData.FlightOrderInfoBean[i].dealDate
+															+ '</th>'
+															+ '<th scope="row" style="width:10%" name="totalAmount">'
+															+ JData.FlightOrderInfoBean[i].totalAmount
+															+ '</th>'
+															+
+															//'<th style="width:100px" name="totalPrice"><input type="submit" name="prodaction" value="刪除"></th></table>'
+															'<th scope="row" style="width:10%" name="totalPrice"><input type="image" src="images/gb.png" width="20%" height="20%" alt="send" name="Test" id="Test" onclick="deleteOrder(\''+JData.FlightOrderInfoBean[i].flightOrderNO+'\');" /></th></table>')
+								}
+							} else {
+								$("#HotelOrderDetailsBean")
+										.append(
+												'<table class="table table-hover"><th scope="row">尚無機票訂單</th></table>')
+							}
 							if (JData.HotelOrderDetailsBean != null) {
 								for (var i = 0; i < JData.HotelOrderDetailsBean.length; i++) {
 									$("#searchuser")
 											.append(
-													'<table class="table table-hover"><th scope="row" name="orderNo">'
+													'<table class="table table-hover"><th scope="row" style="width:10%;text-align:center" name="orderNo">'
 															+ JData.HotelOrderDetailsBean[i].orderNo
 															+ '</th>'
-															+ '<th>飯店</th>'
-															+ '<th name="hotelName">'
+															+ '<th scope="row">飯店</th>'
+															+ '<th scope="row" style="width:25%; name="hotelName">'
 															+ JData.HotelOrderDetailsBean[i].hotelName
 															+ '</th>'
-															+ '<th name="stayNights" >'
+															+ '<th scope="row" style="width:5%" name="stayNights" >'
 															+ JData.HotelOrderDetailsBean[i].stayNights
 															+ '(天) </th>'
-															+ '<th name="createDate">'
+															+ '<th scope="row" style="width:15%" name="createDate">'
 															+ JData.HotelOrderDetailsBean[i].createDate
 															+ '</th>'
-															+ '<th name="roomPrice">'
+															+ '<th scope="row" style="width:10%" name="roomPrice">'
 															+ JData.HotelOrderDetailsBean[i].roomPrice
 															+ '</th>'
 															+
-															//  								        '<th style="width:0px" name="totalPrice"><input type="submit" name="prodaction" value="刪除"></th></table>'
-															'<th name="totalPrice"><img src="images/gb.png" width="20%" height="20%"></th></table>')
+															//'<th style="width:0px" name="totalPrice"><input type="submit" name="prodaction" value="刪除"></th></table>'
+															'<th scope="row" style="width:10%" name="totalPrice"><input type="image" src="images/gb.png" width="20%" height="20%" alt="send" name="Test" id="Test" onclick="deleteOrder('+JData.HotelOrderDetailsBean[i].orderNo+');" /></th></table>')
 								}
 							} else {
 								$("#searchuser")
@@ -175,9 +227,20 @@
 
 </head>
 <body>
-	<jsp:include page="/voyage/nav.jsp" />
-
-		<div class="container-fluid">
+	<jsp:include page="/voyage/nav.jsp" />	
+	<section class="home-slider owl-carousel">
+		<div class="slider-item"
+			style="background-image: url('<c:url value='/voyage/images/home_slider.jpg'/>')"
+			data-stellar-background-ratio="0.5">
+			<div class="overlay">
+				<div class="container"></div>
+			</div>
+		</div>
+	</section>
+	
+	
+		
+		<div class="container-fluid" >
 			<div class="row">
 				<div class="col-md-12">
 					<div class="row" style=" margin: 150px 200px 100px 200px">
@@ -187,7 +250,7 @@
 								<h2></h2>
 							</div>
 							<br>
-							<table class="table table-hover">
+							<table class="table table-hover" style="margin-top:-150px">
 								<thead>
 									<th scope="col" style="width:10%">訂單號碼</th>
 									<th scope="col">類型</th>
@@ -205,13 +268,13 @@
 				</div>
 			</div>
 		</div>
-
+	
 
 
 
 
 	</div>
-	<%-- <jsp:include page="../後台管理/bindex.jsp" /> --%>
+	
 	<jsp:include page="/voyage/foo.jsp" />
 	<script src="<c:url value='/voyage/js/jquery.min.js' />"></script>
 	<script src="<c:url value='/voyage/js/jquery-migrate-3.0.1.min.js' />"></script>

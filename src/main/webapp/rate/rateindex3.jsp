@@ -145,7 +145,7 @@ function update(){
 	<!-- END nav -->
 	<section class="home-slider owl-carousel">
 		<div class="slider-item"
-			style="background-image: url('images/pic01.jpg');min-height: 100px;"
+			style="background-image: url('images/pic04.jpg');min-height: 800px;"
 			data-stellar-background-ratio="1">
 			<div class="overlay"></div>
 			<div class="container">
@@ -161,7 +161,7 @@ function update(){
 		</div>
 	</section>
 	
-		<div class="home_search">
+		<div class="home_search" style="top:-300px">
 		<div class="container">
 			<div class="row">
 				<div class="col">
@@ -208,7 +208,7 @@ function update(){
 	   Date dNow = new Date( );
 	   SimpleDateFormat ft = 
 	   new SimpleDateFormat ("yyyy-MM-dd HH:mm:ss");
-       out.print( "<h5 align=\"left\">更新時間： " +ft.format(dNow)+"</h5>");
+       out.print( "<h5 style='color:white' align=\"left\">更新時間： " +ft.format(dNow)+"</h5>");
     %>
 </div>
 
@@ -233,7 +233,7 @@ function update(){
 
 	<!-- END slider -->
 
-	<jsp:include page="/voyage/foo.jsp" />
+<%-- 	<jsp:include page="/voyage/foo.jsp" /> --%>
 	<script src="<c:url value='/voyage/js/jquery.min.js' />"></script>
 	<script src="<c:url value='/voyage/js/jquery-migrate-3.0.1.min.js' />"></script>
 	<script src="<c:url value='/voyage/js/popper.min.js' />"></script>

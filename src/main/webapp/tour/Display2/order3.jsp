@@ -95,6 +95,9 @@ h2 {
 	padding-left: 15px;
 	margin-top: 10px;
 }
+.modal-dialog {
+    max-width: 700px;
+    margin: 1.75rem auto;
 </style>
 </head>
 <script src="https://code.jquery.com/jquery-3.3.1.js"
@@ -103,6 +106,29 @@ h2 {
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script>
 	var accountName = '${accountName}'
+	var Data
+	function ck(){
+		$('#sub').html(
+			'<h5 style="color:#2d7cd1">訂單聯絡人</h5>'
+				+'<table class="table table-striped">'
+					+'<thead>'
+						+'<tr>'
+							+'<th>姓名：</th>'
+							+'<th>信箱：</th>'
+							+'<th>電話：</th>'
+							+'<th>性別：</th>'
+						+'</tr>'
+					+'</thead>'
+					+'<tbody>'
+						+'<td>姓名：</td>'
+						+'<td>信箱：</td>'
+						+'<td>電話：</td>'
+						+'<td>性別：</td>'
+					+'</tbody>'
+				+'</table>'
+			+'<h5 style="color:red;float:right">金額總計：'+$('#money_hidden').val()+'</h5>'
+		)
+	}
 		$(document).ready(function() {
 				$.ajax({
 						url : '/Travel/tour/Display2/acc',
@@ -111,59 +137,77 @@ h2 {
 // 						dataType : 'json',
 						data:{'accountName':accountName},
 				}).done(function(JData) {
+						Data = JData;
 						$.each(JData.TourOrderInfoBean, function(index, value) {						
 							console.log(value);
 							if(index % 4 == 0){
-								Date = new Date(value.orderTime);
+								var date = new Date(value.departureDate);
+								var month = parseInt(date.getMonth())+1;
+								var d = new Date(value.orderTime);
+								var m2 = parseInt(d.getMonth())+1;
 								$('#tbody').append(
 				 					'<tr class="table-active">'
-			 							+'<td>'+Date.getFullYear()+'/'+Date.getMonth()+'/'+Date.getDate()+'</td>'
-			 							+'<td colspan="2">'+value.tourName+'</td>'
+			 							+'<td style="text-align: left;">'+date.getFullYear()+'/'+month+'/'+date.getDate()+'</td>'
+			 							+'<td colspan="2"><a target="_blank" href="<c:url value="/tour/Display2/travel.jsp?tourNo='+value.tourNo+'"/>">'+value.tourName+'</a></td>'
 			 							+'<td>'+value.quantity+'</td>'
-			 							+'<td>'+value.total+'</td>'
+			 							+'<td style="color:red">$'+value.total+'</td>'
 			 							+'<td>'+value.orderStatus+'</td>'
-			 							+'<td>按鈕1</td>'
-			 							+'<td>按鈕2</td>'
+			 							+'<td>'+d.getFullYear()+'/'+m2+'/'+d.getDate()+'</td>'
+			 							+'<td><a onclick="ck()" href="##" data-toggle="modal" data-target="#exampleModalCenter">明細</a></td>'
 			 						+'</tr>'
 								);
 							}
 							if(index % 4 == 1){
-								console.log(2)
+								var date = new Date(value.departureDate);
+								var month = parseInt(date.getMonth())+1;
+								var d = new Date(value.orderTime);
+								var m2 = parseInt(d.getMonth())+1;
+								$('#tbody').append(
+				 					'<tr class="table-success">'
+			 							+'<td style="text-align: left;">'+date.getFullYear()+'/'+month+'/'+date.getDate()+'</td>'
+			 							+'<td colspan="2"><a target="_blank" href="<c:url value="/tour/Display2/travel.jsp?tourNo='+value.tourNo+'"/>">'+value.tourName+'</a></td>'
+			 							+'<td>'+value.quantity+'</td>'
+			 							+'<td style="color:red">$'+value.total+'</td>'
+			 							+'<td>'+value.orderStatus+'</td>'
+			 							+'<td>'+d.getFullYear()+'/'+m2+'/'+d.getDate()+'</td>'
+			 							+'<td><a onclick="ck()" href="##" data-toggle="modal" data-target="#exampleModalCenter">明細</a></td>'
+			 						+'</tr>'
+								);
 							}
 							if(index % 4 == 2){
-								console.log(3)
+								var date = new Date(value.departureDate);
+								var month = parseInt(date.getMonth())+1;
+								var d = new Date(value.orderTime);
+								var m2 = parseInt(d.getMonth())+1;
+								$('#tbody').append(
+				 					'<tr class="table-warning">'
+			 							+'<td style="text-align: left;">'+date.getFullYear()+'/'+month+'/'+date.getDate()+'</td>'
+			 							+'<td colspan="2"><a target="_blank" href="<c:url value="/tour/Display2/travel.jsp?tourNo='+value.tourNo+'"/>">'+value.tourName+'</a></td>'
+			 							+'<td>'+value.quantity+'</td>'
+			 							+'<td style="color:red">$'+value.total+'</td>'
+			 							+'<td>'+value.orderStatus+'</td>'
+			 							+'<td>'+d.getFullYear()+'/'+m2+'/'+d.getDate()+'</td>'
+			 							+'<td><a onclick="ck()" href="##" data-toggle="modal" data-target="#exampleModalCenter">明細</a></td>'
+			 						+'</tr>'
+								);
 							}
 							if(index % 4 == 3){
-								console.log(4)
+								var date = new Date(value.departureDate);
+								var month = parseInt(date.getMonth())+1;
+								var d = new Date(value.orderTime);
+								var m2 = parseInt(d.getMonth())+1;
+								$('#tbody').append(
+				 					'<tr class="table-danger">'
+			 							+'<td style="text-align: left;">'+date.getFullYear()+'/'+month+'/'+date.getDate()+'</td>'
+			 							+'<td colspan="2"><a target="_blank" href="<c:url value="/tour/Display2/travel.jsp?tourNo='+value.tourNo+'"/>">'+value.tourName+'</a></td>'
+			 							+'<td>'+value.quantity+'</td>'
+			 							+'<td style="color:red">$'+value.total+'</td>'
+			 							+'<td>'+value.orderStatus+'</td>'
+			 							+'<td>'+d.getFullYear()+'/'+m2+'/'+d.getDate()+'</td>'
+			 							+'<td><a onclick="ck()" href="##" data-toggle="modal" data-target="#exampleModalCenter">明細</a></td>'
+			 						+'</tr>'
+								);
 							}
-
-// 						<tr class="table-success">
-// 							<td>2</td>
-// 							<td colspan="2">TB - Monthly</td>
-// 							<td>02/04/2012</td>
-// 							<td>Declined</td>
-// 							<td>Declined</td>
-// 							<td>Declined</td>
-// 							<td>Declined</td>
-// 						</tr>
-// 						<tr class="table-warning">
-// 							<td>3</td>
-// 							<td colspan="2">TB - Monthly</td>
-// 							<td>03/04/2012</td>
-// 							<td>Pending</td>
-// 							<td>Pending</td>
-// 							<td>Pending</td>
-// 							<td>Pending</td>
-// 						</tr>
-// 						<tr class="table-danger">
-// 							<td>4</td>
-// 							<td colspan="2">TB - Monthly</td>
-// 							<td>04/04/2012</td>
-// 							<td>Call in to confirm</td>
-// 							<td>Pending</td>
-// 							<td>Pending</td>
-// 							<td>Pending</td>
-// 						</tr>
 						})
 				})
 		});
@@ -231,57 +275,41 @@ h2 {
 				<table class="table table-striped">
 					<thead>
 						<tr>
-							<th>訂單日期</th>
+							<th>出發日期</th>
 							<th colspan="2">商品內容</th>
 							<th>人數</th>
 							<th>總金額</th>
 							<th>訂單狀態</th>
-							<th></th>
+							<th>訂單時間</th>
 							<th></th>
 						</tr>
 					</thead>
 					<tbody id='tbody'>
-<!-- 						<tr class="table-active"> -->
-<!-- 							<td>1</td> -->
-<!-- 							<td colspan="2">TB - Monthly</td> -->
-<!-- 							<td>01/04/2012</td> -->
-<!-- 							<td>Approved</td> -->
-<!-- 							<td>Approved</td> -->
-<!-- 							<td>Approved</td> -->
-<!-- 							<td>Approved</td> -->
-<!-- 						</tr> -->
-<!-- 						<tr class="table-success"> -->
-<!-- 							<td>2</td> -->
-<!-- 							<td colspan="2">TB - Monthly</td> -->
-<!-- 							<td>02/04/2012</td> -->
-<!-- 							<td>Declined</td> -->
-<!-- 							<td>Declined</td> -->
-<!-- 							<td>Declined</td> -->
-<!-- 							<td>Declined</td> -->
-<!-- 						</tr> -->
-<!-- 						<tr class="table-warning"> -->
-<!-- 							<td>3</td> -->
-<!-- 							<td colspan="2">TB - Monthly</td> -->
-<!-- 							<td>03/04/2012</td> -->
-<!-- 							<td>Pending</td> -->
-<!-- 							<td>Pending</td> -->
-<!-- 							<td>Pending</td> -->
-<!-- 							<td>Pending</td> -->
-<!-- 						</tr> -->
-<!-- 						<tr class="table-danger"> -->
-<!-- 							<td>4</td> -->
-<!-- 							<td colspan="2">TB - Monthly</td> -->
-<!-- 							<td>04/04/2012</td> -->
-<!-- 							<td>Call in to confirm</td> -->
-<!-- 							<td>Pending</td> -->
-<!-- 							<td>Pending</td> -->
-<!-- 							<td>Pending</td> -->
-<!-- 						</tr> -->
 					</tbody>
 				</table>
 			</div>
 		</div>
 	</section>
+
+	<!-- Modal -->
+	<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+	  <div class="modal-dialog modal-dialog-centered" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title" id="exampleModalCenterTitle">明細</h5>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body" id="sub">
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-secondary" data-dismiss="modal">退訂</button>
+	        <button type="button" class="btn btn-primary">立即付款</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
 
 	<section class="probootstrap_section">
 		<div class="container">

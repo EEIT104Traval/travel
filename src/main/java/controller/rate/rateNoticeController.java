@@ -2,6 +2,7 @@ package controller.rate;
 
 import java.text.SimpleDateFormat;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,6 +41,13 @@ public class rateNoticeController {
 		RateNoticeBean result = rateNoticeService.create(bean);
 //		return "login.test";
 //		return "login.ok";
+		return "rate.test";
+	}
+	
+	@RequestMapping(path= {"/secure/rateselect.controller"})
+	public String selectRate(RateNoticeBean bean) {
+		List<RateNoticeBean> fr = rateNoticeService.findAll(bean);
+		
 		return "rate.test";
 	}
 }

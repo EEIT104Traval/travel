@@ -81,7 +81,14 @@ public class TourOrderInfoDAO {
 
 	public List<TourOrderInfoBean> findBuyMonth(Integer month) {
 		
-		String hql = "from TourOrderInfoBean where orderTime >= '2018/"+month+"/01 00:00:00' and orderTime <='2018/"+month+"/31 23:59:59'" ;
+		String hql = null;
+		if(month == 1 || month == 3 || month == 5|| month == 7|| month == 8|| month == 10|| month == 12 ) {			
+			hql = "from TourOrderInfoBean where orderTime >= '2018/"+month+"/01 00:00:00' and orderTime <='2018/"+month+"/31 23:59:59'" ;
+		}else if(month == 4 || month == 6 || month == 9|| month == 11) {
+		    hql = "from TourOrderInfoBean where orderTime >= '2018/"+month+"/01 00:00:00' and orderTime <='2018/"+month+"/30 23:59:59'" ;
+		}else if(month == 2) {
+			hql = "from TourOrderInfoBean where orderTime >= '2018/"+month+"/01 00:00:00' and orderTime <='2018/"+month+"/28 23:59:59'" ;
+		}
 		
 		Query<TourOrderInfoBean> OrderMonth = this.getSession().createQuery( hql ,TourOrderInfoBean.class);
 		
