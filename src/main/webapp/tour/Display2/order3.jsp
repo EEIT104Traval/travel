@@ -95,6 +95,9 @@ h2 {
 	padding-left: 15px;
 	margin-top: 10px;
 }
+.modal-dialog {
+    max-width: 700px;
+    margin: 1.75rem auto;
 </style>
 </head>
 <script src="https://code.jquery.com/jquery-3.3.1.js"
@@ -107,10 +110,22 @@ h2 {
 	function ck(){
 		$('#sub').html(
 			'<h5 style="color:#2d7cd1">訂單聯絡人</h5>'
-			+'<div>姓名：'+$('#fullName').val()+'</div>'
-			+'<div>信箱：'+$('#userMail').val()+'</div>'
-			+'<div>電話：'+$('#userPhone').val()+'</div>'
-			+'<div>性別：'+1+'</div>'
+				+'<table class="table table-striped">'
+					+'<thead>'
+						+'<tr>'
+							+'<th>姓名：</th>'
+							+'<th>信箱：</th>'
+							+'<th>電話：</th>'
+							+'<th>性別：</th>'
+						+'</tr>'
+					+'</thead>'
+					+'<tbody>'
+						+'<td>姓名：</td>'
+						+'<td>信箱：</td>'
+						+'<td>電話：</td>'
+						+'<td>性別：</td>'
+					+'</tbody>'
+				+'</table>'
 			+'<h5 style="color:red;float:right">金額總計：'+$('#money_hidden').val()+'</h5>'
 		)
 	}
@@ -289,6 +304,7 @@ h2 {
 	      <div class="modal-body" id="sub">
 	      </div>
 	      <div class="modal-footer">
+	        <button type="button" class="btn btn-secondary" data-dismiss="modal">退訂</button>
 	        <button type="button" class="btn btn-primary">立即付款</button>
 	      </div>
 	    </div>
