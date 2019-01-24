@@ -45,8 +45,6 @@ $(document).ready(function() {
 					console.log(JData);
 					$("#searchuser").html("")
 					$("#searchuser").append(
-					'<div style="margin:0px auto; text-align:center;"><h3>最新資料</h3></div>'+
-					
 					'<table><th style="width:148px">票券名稱</th>'+
 						   '<th style="width:148px">票券國家</th>'+
 		   				   '<th style="width:148px">票券類型</th>'+
