@@ -44,8 +44,6 @@ $(document).ready(function() {
 			function(JData) {
 					console.log(JData);
 					$("#searchuser").append(
-					'<div style="margin:0px auto; text-align:center;"><h3>最新資料</h3></div>'+
-					
 					'<table><th style="width:148px">票券名稱</th>'+
 						   '<th style="width:148px">票券國家</th>'+
 		   				   '<th style="width:148px">票券類型</th>'+
@@ -123,7 +121,7 @@ $(document).ready(function() {
 			  <!-- 會員資料查詢 -->
               <div class="card">
                 <div class="card-body" style="background: lavender">
-                  <h4 class="card-title" style="font-family: Noto Sans TC; text-align: center;">新增票券</h4>
+                  <h4 class="card-title" style="font-family: Noto Sans TC; text-align: center;">修改票券</h4>
                   <div class="form-group">
                     <div class="input-group">
                       <div class="input-group-prepend" style="margin: auto">

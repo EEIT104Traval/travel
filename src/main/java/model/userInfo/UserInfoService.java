@@ -261,13 +261,13 @@ public class UserInfoService {
 
 						tourBatchBean.setTourName(groupTourBean.getTourName());
 						tourOrder.setTourName(tourBatchBean.getTourName());
-						tourOrder.setTourNo(groupTourBean.getTourNo());						
+						tourOrder.setTourNo(groupTourBean.getTourNo());	
+						tourOrder.setDepartureDate(tourBatchBean.getDepartureDate());;	
 					}
 					continue;
 				}
 			}
 		}
-		System.out.println("tourInfo="+tourInfo);
 		for (TicketInfoBean ticketInfoBean : ticketList) {
 			for (TicketOrderInfoBean ticketOrderInfoBean : ticketInfo) {
 				if (ticketInfoBean.getTicketNo() == ticketOrderInfoBean.getTicketNo()) {
