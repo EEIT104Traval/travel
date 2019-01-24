@@ -1,5 +1,7 @@
 package model.rate;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +23,14 @@ public class RateNoticeService {
 		}	
 		return result;
 		
+	}
+	
+
+	public List<RateNoticeBean> findAll(RateNoticeBean bean) {
+
+		List<RateNoticeBean> result = rateNoticeDAO.findAll();
+
+		return result;
 	}
 
 }
