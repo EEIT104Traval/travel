@@ -12,70 +12,60 @@
 <title>後台管理者介面</title>
 <script>
 
-var params = {}
-
-
-	$(document).ready(function() {
-	});
-	
-		
-	function chack(){
-		params.ticketName = $('#ticketName').val();
-		params.category = $('#category').val();
-		params.adultTicketPrice = $('#adultTicketPrice').val();
-		params.adultTicketSellQ = $('#adultTicketSellQ').val();
-		params.adultTicketSelledQ = $('#adultTicketSelledQ').val();
-		params.country = $('#country').val();
-		params.validity = $('#validity').val();
-		params.traffic_information = $('#traffic_information').val();
-		params.productFeatures = $('#productFeatures').val();
-		params.special_restrictions = $('#special_restrictions').val();
-	
-		$.ajax({
-            type: "GET", //傳送方式
-            url: "/Travel/bindex03_011/User.controller", 
-            dataType: "json", 
-            data: params,
-            done: function(data) {			
- 				console.log(data);
- 				
-            } 	
-		})
- 			window.location.href='/Travel/後台管理/03_01.jsp';
-	}	
-//-------------------------------查詢全部票券↓↓↓↓↓↓↓↓↓↓↓↓↓---------------------------	
-	function show(){
-	$("#searchuser").html("")
-	$.ajax({
-			url : '/Travel/bindex03_012/User.controller',
-			contentType : 'application/json; charset=UTF-8',
-			type : 'get',
-			dataType : 'json',
-		   }).done(function(JData) {
-			  $("#searchuser").append(
-					'<div style="text-align: center;"><h2>票券庫存查詢系統</h2></div>'+
-					'<br>'+
-					'<table ><th style="width:150px">票券號碼</th><th style="width:150px">票券國家</th>'+
-							'<th style="width:150px">票券名稱</th><th style="width:150px">票券價格</th>'+
-							'<th style="width:150px">庫存數量</th><th style="width:150px">銷售數量</th>'+
-					'</table><br>'	
-								);
-			  
-			   console.log(JData)
-			   console.log(JData.length)
-			   
-			for(var i = 0;i<JData.length;i++){
-						$("#searchuser").append(
-							'<table >'+
-							'<th style="width:150px">'+JData[i].ticketNo+'</th>'+
-							'<th style="width:150px">'+JData[i].country+'</th>'+
-							'<th style="width:150px">'+JData[i].ticketName+'</th>'+
-							'<th style="width:150px">'+JData[i].adultTicketPrice+'</th>'+
-							'<th style="width:150px">'+(JData[i].adultTicketSellQ-JData[i].adultTicketSelledQ)+'</th>'+
-							'<th style="width:150px">'+JData[i].adultTicketSelledQ+'</th></table>'
-											)}})};	
-	 	
- 	
+// var params = {}
+// 	$(document).ready(function() {
+// 	});
+// 	function chack(){
+// 		params.ticketName = $('#ticketName').val();
+// 		params.category = $('#category').val();
+// 		params.adultTicketPrice = $('#adultTicketPrice').val();
+// 		params.adultTicketSellQ = $('#adultTicketSellQ').val();
+// 		params.adultTicketSelledQ = $('#adultTicketSelledQ').val();
+// 		params.country = $('#country').val();
+// 		params.validity = $('#validity').val();
+// 		params.traffic_information = $('#traffic_information').val();
+// 		params.productFeatures = $('#productFeatures').val();
+// 		params.special_restrictions = $('#special_restrictions').val();
+// 		$.ajax({
+//             type: "GET", //傳送方式
+//             url: "/Travel/bindex03_011/User.controller", 
+//             dataType: "json", 
+//             data: params,
+//             done: function(data) {			
+//  				console.log(data);
+//             } 	
+// 		})
+//  			window.location.href='/Travel/後台管理/03_01.jsp';
+// 	}	
+// //-------------------------------查詢全部票券↓↓↓↓↓↓↓↓↓↓↓↓↓---------------------------	
+// 	function show(){
+// 	$("#searchuser").html("")
+// 	$.ajax({
+// 			url : '/Travel/bindex03_012/User.controller',
+// 			contentType : 'application/json; charset=UTF-8',
+// 			type : 'get',
+// 			dataType : 'json',
+// 		   }).done(function(JData) {
+// 			  $("#searchuser").append(
+// 					'<div style="text-align: center;"><h2>票券庫存查詢系統</h2></div>'+
+// 					'<br>'+
+// 					'<table ><th style="width:150px">票券號碼</th><th style="width:150px">票券國家</th>'+
+// 							'<th style="width:150px">票券名稱</th><th style="width:150px">票券價格</th>'+
+// 							'<th style="width:150px">庫存數量</th><th style="width:150px">銷售數量</th>'+
+// 					'</table><br>'	
+// 								);
+// 			   console.log(JData)
+// 			   console.log(JData.length)
+// 			for(var i = 0;i<JData.length;i++){
+// 						$("#searchuser").append(
+// 							'<table >'+
+// 							'<th style="width:150px">'+JData[i].ticketNo+'</th>'+
+// 							'<th style="width:150px">'+JData[i].country+'</th>'+
+// 							'<th style="width:150px">'+JData[i].ticketName+'</th>'+
+// 							'<th style="width:150px">'+JData[i].adultTicketPrice+'</th>'+
+// 							'<th style="width:150px">'+(JData[i].adultTicketSellQ-JData[i].adultTicketSelledQ)+'</th>'+
+// 							'<th style="width:150px">'+JData[i].adultTicketSelledQ+'</th></table>'
+// 											)}})};	
 </script>
 </head>
 <body>

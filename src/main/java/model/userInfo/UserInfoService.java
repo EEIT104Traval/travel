@@ -98,7 +98,7 @@ public class UserInfoService {
 	
 	public UserInfoBean modifyMemberInfo(UserInfoBean bean) {
 		Timestamp updateTime = new Timestamp(System.currentTimeMillis());
-		userInfoDAO.update(bean.getAccountName(), bean.getPassword(), bean.getFirstname(), bean.getLastname(),
+		userInfoDAO.updateMemberInfo(bean.getAccountName(), bean.getFirstname(), bean.getLastname(),
 				bean.getIdentityNo(), bean.getEmail(), bean.getBirth(), bean.getSex(), bean.getPhone(),
 				bean.getAddress(), bean.getAuthority(), bean.getGorfb(), bean.getLoginId(),updateTime);
 		return bean;
