@@ -65,7 +65,6 @@ public class FlightInfoController {
 		model.addAttribute("result", result);
 		CIservice.Airlinecreate();
 		CIservice.AirlinecreateParserXml();
-//		ttService.method();
 		
 		return "flightsecound";
 	}

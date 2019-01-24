@@ -21,6 +21,7 @@ import org.springframework.stereotype.Service;
 
 import model.flight.FlightOrderInfoBean;
 import model.flight.FlightOrderInfoDAO;
+import model.flight.dao.FlightOrderInfoDAOHibernate;
 import model.hotel.HotelBean;
 import model.hotel.HotelDAO;
 import model.hotel.HotelOrderDetailsBean;
@@ -66,6 +67,9 @@ public class UserInfoService {
 	private FlightOrderInfoDAO FOIDAO;
 	@Autowired
 	private TourOrderInfoDAO tourOrderInfoDAO;
+	
+	@Autowired
+	private FlightOrderInfoDAOHibernate foiDAO;
 	
 	
 	
@@ -232,6 +236,8 @@ public class UserInfoService {
 
 		List<HotelOrderDetailsBean> HotelInfo = hotelOrderDetailsService.foundOrderaccountName(user);
 
+		List<FlightOrderInfoBean> flightOrderInfo = foiDAO.findByAccountName(user);
+		
 		for (GroupTourBean groupTourBean : tourList) {
 			for (TourBatchBean tourBatchBean : tourBatch) {
 				for (TourOrderInfoBean tourOrder : tourInfo) {
@@ -266,6 +272,12 @@ public class UserInfoService {
 		if (HotelInfo.size() > 0) {
 			map.put("HotelOrderDetailsBean", HotelInfo);
 		}
+		if (flightOrderInfo.size() > 0) {
+			map.put("FlightOrderInfoBean", flightOrderInfo);
+		}
+		
+		
+		
 
 		System.out.println(result);
 

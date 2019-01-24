@@ -1,12 +1,14 @@
 package model.flight;
 
 
-import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -30,6 +32,30 @@ public class FlightOrderInfoBean {
 	private java.util.Date dealDate;
 	private String orderStatus;
 	
+	@OneToMany(
+			cascade=CascadeType.REMOVE,
+			mappedBy="flightOrderNO"
+	)
+	private List<FlightPassengerInfoBean> flightPassengerInfoBean;
+	
+	@OneToMany(
+			cascade=CascadeType.REMOVE,
+			mappedBy="flightOrderNo"
+			)
+	private List<FlightTicketBean> flightTicketBean;
+	
+	public List<FlightPassengerInfoBean> getFlightPassengerInfoBean() {
+		return flightPassengerInfoBean;
+	}
+	public void setFlightPassengerInfoBean(List<FlightPassengerInfoBean> flightPassengerInfoBean) {
+		this.flightPassengerInfoBean = flightPassengerInfoBean;
+	}
+	public List<FlightTicketBean> getFlightTicketBean() {
+		return flightTicketBean;
+	}
+	public void setFlightTicketBean(List<FlightTicketBean> flightTicketBean) {
+		this.flightTicketBean = flightTicketBean;
+	}
 	public String getTotalAmount() {
 		return totalAmount;
 	}
@@ -114,7 +140,8 @@ public class FlightOrderInfoBean {
 				+ ", contactGender=" + contactGender + ", contactLastNameCN=" + contactLastNameCN
 				+ ", contactFirstNameCN=" + contactFirstNameCN + ", bookingCode=" + bookingCode + ", phone=" + phone
 				+ ", email=" + email + ", adultCount=" + adultCount + ", childCount=" + childCount + ", totalAmount="
-				+ totalAmount + ", dealDate=" + dealDate + ", orderStatus=" + orderStatus + "]";
+				+ totalAmount + ", dealDate=" + dealDate + ", orderStatus=" + orderStatus + ", flightPassengerInfoBean="
+				+ flightPassengerInfoBean + ", flightTicketBean=" + flightTicketBean + "]";
 	}
 
 	

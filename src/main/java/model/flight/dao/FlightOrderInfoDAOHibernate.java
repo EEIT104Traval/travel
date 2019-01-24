@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.query.Query;
+import org.hibernate.query.NativeQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -18,6 +18,17 @@ public class FlightOrderInfoDAOHibernate implements FlightOrderInfoDAO {
 
 	public Session getSession() {
 		return this.sessionFactory.getCurrentSession();
+	}
+
+	public List<FlightOrderInfoBean> findByAccountName(String account) {
+//		if (account != null && account.isEmpty()) {
+			System.out.println("account==>"+account);
+			return this.getSession().createQuery("from FlightOrderInfoBean where accountName = '" + account + "'",
+					FlightOrderInfoBean.class).setMaxResults(50).list();
+//		} else {
+//			System.out.println("account==>null");
+//			return null;
+//		}
 	}
 
 	@Override
@@ -46,7 +57,7 @@ public class FlightOrderInfoDAOHibernate implements FlightOrderInfoDAO {
 	@Override
 	public FlightOrderInfoBean update(FlightOrderInfoBean bean) {
 		FlightOrderInfoBean result = this.getSession().get(FlightOrderInfoBean.class, bean.getFlightOrderNO());
-		if(result!=null) {
+		if (result != null) {
 			result.setAccountName(bean.getAccountName());
 			result.setContactGender(bean.getContactGender());
 			result.setContactLastNameCN(bean.getContactLastNameCN());
@@ -58,7 +69,7 @@ public class FlightOrderInfoDAOHibernate implements FlightOrderInfoDAO {
 			result.setChildCount(bean.getChildCount());
 			result.setDealDate(bean.getDealDate());
 			result.setOrderStatus(bean.getOrderStatus());
-			
+
 			return result;
 		}
 		return null;
@@ -72,30 +83,30 @@ public class FlightOrderInfoDAOHibernate implements FlightOrderInfoDAO {
 			return true;
 		}
 		return false;
-	
+
 	}
-	
+
 	public List<?> findByAccound(String account) {
-		
-		
 //		String hql = "select foi,fpi,ft from FlightOrderInfoBean foi,FlightPassengerInfoBean fpi,FlightTicketBean ft";
 //				+" where foi.flightOrderNO = fpi.flightOrderNO  and fpi.flightOrderNO = ft.flightOrderNO and foi.accountName='"
 //				+account+"'" ;
-		
-		
-		String hql = "select a,b,c " + 
-				 
-				" from FlightOrderInfo a,FlightPassengerInfo b,FlightTicket c " + 
-				
-				"where a.flightOrderNO = b.flightOrderNO  and b.flightOrderNO = c.flightOrderNO and a.accountName='MICKY'";
-		
-		Query query = this.getSession().createQuery(hql);
-		List<Object[]> list = query.list();
-		Object[] array = list.get(0);
-		FlightOrderInfoBean bean = (FlightOrderInfoBean)array[0];
-		System.out.println(bean);
+////		String hql = "from FlightOrderInfoBean, FlightPassengerInfoBean, FlightTicketBean where FlightOrderInfoBean.flightOrderNO = FlightPassengerInfoBean.flightOrderNO and FlightPassengerInfoBean.flightOrderNO = FlightTicketBean.flightOrderNo and FlightOrderInfoBean.accountName='MICKY'";
+//		String hql = "from FlightOrderInfoBean, FlightPassengerInfoBean, FlightTicketBean where FlightOrderInfoBean.flightOrderNO = FlightPassengerInfoBean.flightOrderNO";
+//		Query query = this.getSession().createQuery(hql);
+//		List<Object[]> list = query.list();
+//		System.out.println("list="+list.size());
+//		Object[] array = list.get(0);
+//		System.out.println("array="+array.length);
+//		FlightOrderInfoBean bean = (FlightOrderInfoBean) array[0];
+//		System.out.println(bean);
+
+		String sql = "select a.contactGender,a.contactLastNameCN from FlightOrderInfo a, FlightPassengerInfo b, FlightTicket c where a.flightOrderNO = b.flightOrderNO and a.flightOrderNO = c.flightOrderNo and a.accountName='MICKY'";
+		NativeQuery query = this.getSession().createSQLQuery(sql);
+		List list = query.list();
+		System.out.println("list0=" + list.get(0));
+		System.out.println("list=" + list.size());
+
 		return list;
 	}
-	
 
 }

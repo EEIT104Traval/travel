@@ -33,7 +33,6 @@ public class AirlineCompareDAOHibernate implements AirlineCompareDAO{
 		return query.setParameterList("air",code).list();
 		
 	}
-	
 
 	@Override
 	public AirlineCompareBean create(AirlineCompareBean bean) {
