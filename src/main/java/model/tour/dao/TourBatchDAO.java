@@ -4,6 +4,7 @@ package model.tour.dao;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.EntityManager;
 import javax.persistence.criteria.CriteriaBuilder;
@@ -13,9 +14,11 @@ import javax.persistence.criteria.Root;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import model.tour.GroupTourBean;
 import model.tour.TourBatchBean;
 import model.tour.TourOrderInfoBean;
 
@@ -116,6 +119,12 @@ public class TourBatchDAO {
 			return true;
 		}
 		return false;
+	}
+	
+	public List<TourBatchBean> findByManyId(Set<Integer> serialNo){
+		  String hql = "from TourBatchBean where serialNo in (:id)";
+		  Query<TourBatchBean> query = this.getSession().createQuery(hql, TourBatchBean.class);
+		  return query.setParameterList("id",serialNo).list();
 	}
 	
 	public List<TourBatchBean> findTourNo(String tourNo) {

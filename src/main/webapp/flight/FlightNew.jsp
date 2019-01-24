@@ -62,53 +62,29 @@
 		console.log('adult');
 
 	})
-	// 		$('input').hover(over,out);
-	// 		function over(){
-	// 			//$(this).removeClass('s1',1000).addClass('s2',1000)
-	// 			$(this).switchClass('search_input_1','search_input_1hover',1000)
-	// 		}
-	// 		function out(){
-	// 			//$(this).removeClass('s2',1000).addClass('s1',1000)
-	// 			$(this).switchClass('search_input_1hover','search_input_1',1000)
-	// 		}
-	// 		$('#peopleType').click(function() {
-	// 			alert('aaaa')
-	// 			$(this).append(
+	
+	$(document).ready(function(){
+		
+		var today = new Date();
+		var to= today.setDate(today.getDate()+5);
+		var today1 = new Date(to);
+		var month1 = today1.getMonth()+1
+		var todayvalue = today1.getFullYear()+'/'+month1+'/'+today1.getDate()
+		$('#checkin_date').val(todayvalue)
 
-	// 			'<div>111</div>'
-	// 			)
-
-	// 		})
-
-	// 	})
-	// 			$('#home_search_button').click(function() {
-	// 				alert("button被按了一下");
-	// 				var goPlace = $('#goPlace').val();
-	// 				var goPlace2 = $('#goPlace2').val();
-	// 				var checkin_date = $('#checkin_date').val();
-	// 				var checkout_date = $('#checkout_date').val();
-	// 				var peopleType = $('#peopleType').val();
-	// 				var cabin = $('#search-controls-cabin-class-dropdown').val();
-	// 				$.ajax({
-	// 					url : '/Travel/FlightInfo',
-	// 					contentType : 'application/json; charset=UTF-8',
-	// 					type : 'get',
-	// 					dataType : 'json',
-	// 					data:{
-	// 						"takeOffPlace": goPlace,
-	// 						"landingPlace":goPlace2,
-	// 						"checkin_date":checkin_date,
-	// 						"checkout_date":checkout_date,
-	// 						"peopleType":peopleType,
-	// 						"cabinclass":cabin
-	// 					}
-	// 				}).done(function(JData) {
-	// 					console.log(JData)
-
-	// 					})
-
-	// 			});
-	// 	});
+// 		var todayvalue1 = today.getFullYear()+'/'+today.getMonth()+1+'/'+date5
+// 		$('#checkout_date').val(todayvalue1)
+		today2 = today.setDate(today.getDate()+12);
+		var d = new Date(today2)
+		var month =parseInt(d.getMonth())+1
+// 		console.log(d.getFullYear()+'/'+d.getMonth()+1+'/'+d.getDate())
+		var d2 = d.getFullYear()+'/'+month+'/'+d.getDate();
+		$('#checkout_date').val(d2)
+	})
+	
+	
+	
+	
 </script>
 </head>
 <body>

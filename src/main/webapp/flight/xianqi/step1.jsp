@@ -688,7 +688,13 @@ $(".closepop").on("click",function(){$("#pop_protick").modal("hide")});$(".pop_r
 	<jsp:include page="/voyage/foo.jsp" />
 <!--票規與行李開關--> 
 <script>
-$(document).ready(function(){$(".btn-tick-pr").click(function(){$(".tick-ba,#bagnote").removeClass("active");$(".tick-pr,#pricebox").addClass("active")});$(".btn-tick-ba").click(function(){$(".tick-pr,#pricebox").removeClass("active");$(".tick-ba,#bagnote").addClass("active")})});$(".popint,.popint img").popover({placement:"top"});
+$(document).ready(function(){
+	$(".btn-tick-pr").click(function(){$(".tick-ba,#bagnote").removeClass("active");
+	$(".tick-pr,#pricebox").addClass("active")});
+	$(".btn-tick-ba").click(function(){$(".tick-pr,#pricebox").removeClass("active");
+	$(".tick-ba,#bagnote").addClass("active")})});
+	$(".popint,.popint img")
+// 	.popover({placement:"top"});
 </script>
 
 </body>

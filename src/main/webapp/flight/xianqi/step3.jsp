@@ -80,6 +80,7 @@ function GetDateNow() {
 	document.getElementById("WIDout_trade_no").value =  sNow;
 }
 
+
 // function getRMB(){
 // 	var taibi = ${order.totalAmount};
 // 	var rmb = taibi/
@@ -141,7 +142,9 @@ $(document).ready(function(){
 		</div>
 	</div>
 <div>
-	<div class="order_info" style="margin-bottom: 10px;width: 80%;margin:0px auto;">
+	<section class="section-fieldset section-payment-billing-payment fb-fieldset" sf-field="2">
+    <div class="section" style="height: 200px;">
+<!-- 	<div class="order_info" style="margin-bottom: 10px;width: 80%;margin:0px auto;"> -->
 		<!-- S 订单金额 -->
 		<div class="price_area">
 			<div class="price_h1">
@@ -183,7 +186,9 @@ $(document).ready(function(){
 			航班价格变动频繁，请在15分钟内完成支付以免耽误出行 <i></i>
 		</div>
 		<!-- E 提示信息 -->
+<!-- 	</div> -->
 	</div>
+	</section>
 	
 	<fieldset class="section-fieldset section-payment-billing-payment fb-fieldset" sf-field="2">
     <div class="section" style="height: 300px;">

@@ -27,7 +27,7 @@ public class EmailSend {
             String to = "sherrysherry92@gmail.com";
             String from = "TimeToTravel";
             String subject = "Time To Travel - 訂購明細";
-            String messageText = "您的訂單明細";
+//            String messageText = "您的訂單明細";
             boolean sessionDebug = false;
 
             Properties props = System.getProperties();
@@ -61,7 +61,6 @@ public class EmailSend {
             +"<br>"
             +"<p>飯店名稱： 紐約市中心希爾頓酒店 (New York Hilton Midtown) - 總統轉角套房</p>"
             +"<img alt='總統轉角套房'"
-            +"<img alt='總統轉角套房' "
             + "src='https://secure3.hilton.com/resources/media/hi/NYCNHHH/en_US/img/hotel/roomtypeimages/main/HH_prescnr01_386x310_FitToBoxSmallDimension_Center.jpg' "
             + "style='width: auto;'"+ "'/>'"
             +"<p>地址：1335 Avenue of the Americas</p>"

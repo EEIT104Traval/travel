@@ -40,6 +40,9 @@
 
 <script>
 var params = {};
+<c:if test='${not empty result}'>
+alert('${result}');
+</c:if>
 // var country
 // var city
 
