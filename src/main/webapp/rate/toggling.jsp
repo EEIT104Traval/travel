@@ -6,7 +6,7 @@
 <head>
 <style type="text/css">
 	body{
-		background: url("images/pic01.jpg");
+		background: url("images/pic03.jpg");
 	}
 </style>
 <link rel="stylesheet" href="./css/rate.css">
