@@ -64,4 +64,13 @@ public class TicketOrderInfoService {
 		}
 		return result;
 	}
+	
+	public TicketOrderInfoBean deleteorder (Integer ticketOrderNO) {
+		TicketOrderInfoBean result = null;
+		if (ticketOrderNO != null) {
+			result = ticketOrderInfoDAO.removeOrder(ticketOrderNO);
+		}
+		return result;
+	}
+	
 }
