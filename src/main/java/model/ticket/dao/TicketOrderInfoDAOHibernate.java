@@ -93,5 +93,16 @@ public class TicketOrderInfoDAOHibernate implements TicketOrderInfoDAO {
 		}
 		return false;
 	}
+	
+	@Override
+	public TicketOrderInfoBean removeOrder(Integer ticketOrderNO) {
+		TicketOrderInfoBean result = this.getSession().get(TicketOrderInfoBean.class, ticketOrderNO);
+		if (result != null) {
+			this.getSession().delete(result);
+			TicketOrderInfoBean remain = this.getSession().get(TicketOrderInfoBean.class, ticketOrderNO);
+			return remain;
+		}
+		return result;
+	}
 
 }

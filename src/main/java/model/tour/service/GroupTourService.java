@@ -64,14 +64,18 @@ public class GroupTourService {
 //		int rows =  no.size();	
 //		System.out.println("no=>"+no+", C=>"+country+",D=>"+checkin_date+", D2=>"+checkout_date);
 		List<TourBatchBean> tb = tourBatchDAO.findByCountry(no, checkin_date, checkout_date);
+//		System.out.println("tb=>"+tb);
+		if(tb.isEmpty()) {
+			List<GroupTourBean> tt =  new ArrayList<GroupTourBean>();
+			return tt;
+		}		
 		Set<String> sb = new HashSet<>();
 		for(TourBatchBean t : tb) {
 			sb.add(t.getTourNo());			
 		}
 		List<GroupTourBean> lg = groupTourDAO.findByList(sb);
 		System.out.println("lg=>"+lg.get(0));
-		System.out.println("lg=>"+lg.get(1));
-		System.out.println("lg=>"+lg.get(2));
+
 		
 //		System.out.println("tb==>"+tb);
 //		System.out.println(tb.get(0).getGroupTourBean().getTourName());
