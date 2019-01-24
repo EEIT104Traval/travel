@@ -240,17 +240,18 @@ public class UserInfoService {
 
 						tourBatchBean.setTourName(groupTourBean.getTourName());
 						tourOrder.setTourName(tourBatchBean.getTourName());
+						tourOrder.setTourNo(groupTourBean.getTourNo());						
 					}
 					continue;
 				}
 			}
 		}
-
+		System.out.println("tourInfo="+tourInfo);
 		for (TicketInfoBean ticketInfoBean : ticketList) {
 			for (TicketOrderInfoBean ticketOrderInfoBean : ticketInfo) {
 				if (ticketInfoBean.getTicketNo() == ticketOrderInfoBean.getTicketNo()) {
 					ticketOrderInfoBean.setTicketName(ticketInfoBean.getTicketName());
-					System.out.println(ticketOrderInfoBean);
+//					System.out.println(ticketOrderInfoBean);
 				}
 				continue;
 			}
@@ -266,7 +267,7 @@ public class UserInfoService {
 			map.put("HotelOrderDetailsBean", HotelInfo);
 		}
 
-		System.out.println(result);
+//		System.out.println(result);
 
 		return map;
 	}

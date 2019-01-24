@@ -114,11 +114,11 @@ h2 {
 						$.each(JData.TourOrderInfoBean, function(index, value) {						
 							console.log(value);
 							if(index % 4 == 0){
-								Date = new Date(value.orderTime);
+								var date = new Date(value.orderTime);
 								$('#tbody').append(
 				 					'<tr class="table-active">'
-			 							+'<td>'+Date.getFullYear()+'/'+Date.getMonth()+'/'+Date.getDate()+'</td>'
-			 							+'<td colspan="2">'+value.tourName+'</td>'
+			 							+'<td>'+date.getFullYear()+'/'+date.getMonth()+'/'+date.getDate()+'</td>'
+			 							+'<td colspan="2"><a url>'+value.tourName+'</a></td>'
 			 							+'<td>'+value.quantity+'</td>'
 			 							+'<td>'+value.total+'</td>'
 			 							+'<td>'+value.orderStatus+'</td>'
@@ -128,13 +128,46 @@ h2 {
 								);
 							}
 							if(index % 4 == 1){
-								console.log(2)
+								var date = new Date(value.orderTime);
+								$('#tbody').append(
+				 					'<tr class="table-success">'
+			 							+'<td>'+date.getFullYear()+'/'+date.getMonth()+'/'+date.getDate()+'</td>'
+			 							+'<td colspan="2">'+value.tourName+'</td>'
+			 							+'<td>'+value.quantity+'</td>'
+			 							+'<td>'+value.total+'</td>'
+			 							+'<td>'+value.orderStatus+'</td>'
+			 							+'<td>按鈕1</td>'
+			 							+'<td>按鈕2</td>'
+			 						+'</tr>'
+								);
 							}
 							if(index % 4 == 2){
-								console.log(3)
+								var date = new Date(value.orderTime);
+								$('#tbody').append(
+				 					'<tr class="table-warning">'
+			 							+'<td>'+date.getFullYear()+'/'+date.getMonth()+'/'+date.getDate()+'</td>'
+			 							+'<td colspan="2">'+value.tourName+'</td>'
+			 							+'<td>'+value.quantity+'</td>'
+			 							+'<td>'+value.total+'</td>'
+			 							+'<td>'+value.orderStatus+'</td>'
+			 							+'<td>按鈕1</td>'
+			 							+'<td>按鈕2</td>'
+			 						+'</tr>'
+								);
 							}
 							if(index % 4 == 3){
-								console.log(4)
+								var date = new Date(value.orderTime);
+								$('#tbody').append(
+				 					'<tr class="table-danger">'
+			 							+'<td>'+date.getFullYear()+'/'+date.getMonth()+'/'+date.getDate()+'</td>'
+			 							+'<td colspan="2">'+value.tourName+'</td>'
+			 							+'<td>'+value.quantity+'</td>'
+			 							+'<td>'+value.total+'</td>'
+			 							+'<td>'+value.orderStatus+'</td>'
+			 							+'<td>按鈕1</td>'
+			 							+'<td>按鈕2</td>'
+			 						+'</tr>'
+								);
 							}
 
 // 						<tr class="table-success">
