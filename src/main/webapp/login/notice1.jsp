@@ -79,7 +79,8 @@ $.ajax({
 											+ '</th>'
 											+ '<th scope="row" style="width:10%" name="totalPrice"></th></table>')
 						}
-					
+					}
+				});
 
 
 </script>

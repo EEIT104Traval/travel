@@ -95,7 +95,7 @@
 					<button type="button" class="btn btn-link" data-toggle="dropdown"
 						aria-haspopup="true" aria-expanded="false" style="font-size: 30px">
 						${user}</button>
-					<div class="dropdown-menu dropdown-menu-right" style="margin-top:30%;background-color: #77DDFF;padding-right:30%;font-size:80%">
+					<div class="dropdown-menu dropdown-menu-right">
 						<a class="dropdown-item" href="<c:url value='/login/userorder.jsp'/>">查詢訂單</a> <a
 							class="dropdown-item" href="<c:url value='/secure/modify?accountName=${accountName}'/>">資料/密碼修改</a>
 						<div class="dropdown-divider">這個是什麼</div>
