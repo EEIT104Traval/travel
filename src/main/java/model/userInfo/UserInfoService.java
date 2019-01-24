@@ -91,6 +91,14 @@ public class UserInfoService {
 				bean.getAddress(), bean.getAuthority(), bean.getGorfb(), bean.getLoginId(), updateTime);
 		return bean;
 	}
+	
+	public UserInfoBean modifyMemberInfo(UserInfoBean bean) {
+		Timestamp updateTime = new Timestamp(System.currentTimeMillis());
+		userInfoDAO.update(bean.getAccountName(), bean.getPassword(), bean.getFirstname(), bean.getLastname(),
+				bean.getIdentityNo(), bean.getEmail(), bean.getBirth(), bean.getSex(), bean.getPhone(),
+				bean.getAddress(), bean.getAuthority(), bean.getGorfb(), bean.getLoginId(),updateTime);
+		return bean;
+	}
 
 	public UserInfoBean gorfbLoginUpdateTime(String loginId) {
 		UserInfoBean bean = userInfoDAO.findByLoginId(loginId);

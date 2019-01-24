@@ -47,12 +47,13 @@ function notice(){
 	}
 	}	
 }
+function findorder() {
+	$("#searchuser").html("")
 
 $.ajax({
 	method: "GET",
 	url:'/Travel/secure/rateselect.controller',
 	
-//		url:"/Travel/tour/display?tourNo=1",
 	dataType: "json",
 	success: function(json) {
 		alert("Hello!! "+json.accountName);
@@ -87,15 +88,16 @@ $.ajax({
 <form action="<c:url value="/secure/rate.controller" />" method="post">
 <table>
 <tr>
-<td>帳號:</td>
+<td>帳號</td>
 
-<td>幣別:</td>
+<td>幣別</td>
 
-<td>匯率:</td>
+<td>匯率</td>
 
-<td>最後通知日:</td>
+<td>最後通知日</td>
 
 </table>
+<div class="row" id="searchuser"></div>
 </form>
 
 </body>

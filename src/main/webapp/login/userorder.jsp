@@ -40,7 +40,7 @@
 /* 	/*    	border: 1px solid black */ */
 /* } */
 
- th { 
+ th {
 /*  text-align:center; */
 
 
