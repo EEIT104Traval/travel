@@ -132,7 +132,8 @@ public class LoginController {
 		bean = userInfoService.login(name, password);
 		
 		if (name == null || name.length() == 0 ||password == null || password.length() == 0) {
-			message.put("xxx1","帳號或密碼錯誤");
+			message.put("xxx1", "Login failed");
+			System.out.println("登入失敗");
 			return message;
 		}
 				

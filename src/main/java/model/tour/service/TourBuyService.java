@@ -92,4 +92,25 @@ public class TourBuyService {
 		return result;
 	}
 	
+	public List<TourMemberInfoBean> findOrderNo(Integer orderNo) {
+		List<TourMemberInfoBean> list = memberDao.findOrderNo(orderNo);
+		return list;
+	}
+	
+	public TourMemberInfoBean updateMember(Integer orderNo, Integer purchaseOrder, String fullName, String passport, String sex) {
+		TourMemberInfoBean bean = memberDao.findDoublePK(orderNo, purchaseOrder).get(0);
+		bean.setFullName(fullName);
+		bean.setPassport(passport);
+		bean.setSex(sex);
+		TourMemberInfoBean result = memberDao.update(bean);
+		return result;
+	}
+	
+	public TourOrderInfoBean cancel(Integer orderNo) {
+		TourOrderInfoBean bean = orderDao.findByPrimaryKey(orderNo);
+		bean.setOrderStatus("退訂");
+		TourOrderInfoBean result = orderDao.update(bean);
+		return result;
+	}
+	
 }

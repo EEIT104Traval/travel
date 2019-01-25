@@ -107,27 +107,136 @@ h2 {
 <script>
 	var accountName = '${accountName}'
 	var Data
-	function ck(){
+	var dd
+	function ck(e){
+		if(Data[e].orderStatus=="未付款"){
+			GetDateNow();
+			$('#WIDsubject').val(Data[e].tourName);
+			$('#WIDtotal_amount').val(123);
+			$('#WIDbody').val('');
+			$('#but').html('<button onclick="cancel('+e+')" type="button" class="btn btn-secondary" data-dismiss="modal">退訂</button>')
+			$('#but').append('<button type="submit" class="btn btn-primary">立即付款</button>')        
+		}else{
+			$('#but').html('<button type="button" class="btn btn-secondary" data-dismiss="modal">確定</button>')
+		}
+// 		console.log(Data)
+		var sex = Data[e].sex;
+		if (sex=='M'){sex='男'}else{sex='女'}
 		$('#sub').html(
 			'<h5 style="color:#2d7cd1">訂單聯絡人</h5>'
 				+'<table class="table table-striped">'
 					+'<thead>'
 						+'<tr>'
-							+'<th>姓名：</th>'
-							+'<th>信箱：</th>'
-							+'<th>電話：</th>'
-							+'<th>性別：</th>'
+							+'<th>姓名</th>'
+							+'<th>信箱</th>'
+							+'<th>電話</th>'
+							+'<th>性別</th>'
 						+'</tr>'
 					+'</thead>'
 					+'<tbody>'
-						+'<td>姓名：</td>'
-						+'<td>信箱：</td>'
-						+'<td>電話：</td>'
-						+'<td>性別：</td>'
+						+'<td>'+Data[e].accountName+'</td>'
+						+'<td>'+Data[e].email+'</td>'
+						+'<td>'+Data[e].phone+'</td>'
+						+'<td>'+sex+'</td>'
 					+'</tbody>'
 				+'</table>'
-			+'<h5 style="color:red;float:right">金額總計：'+$('#money_hidden').val()+'</h5>'
 		)
+		$.ajax({
+				url : '/Travel/tour/Display2/odmeber',
+				type : 'get',
+				data:{'orderNo':Data[e].orderNo},
+		}).done(function(d) {
+					dd = d
+// 					console.log(d)
+					$('#sub2').html('');
+					$('#sub3').html('');
+					$.each(d, function(index, val) {
+						sex = val.sex;
+						if (sex=='M'){sex='男'}else{sex='女'}
+						$('#sub2').append(
+								'<tr id='+index+'>'
+									+'<td>'+val.fullName+'</td>'
+									+'<td>'+val.passport+'</td>'
+									+'<td>'+sex+'</td>'
+									+'<td>'+val.passenger+'</td>'
+									+'<td><a onclick="update('+index+')" href="##">修改</a></td>'
+								+'</tr>'
+						)
+					})
+					$('#sub3').append('<h5 style="color:red;float:right">金額總計：'+Data[e].total+'</h5>')
+		})
+	}
+	function update(e){
+		var td1 = $('#'+e+'>td:eq(0)').text()
+		var td2 = $('#'+e+'>td:eq(1)').text()
+		var td3 = $('#'+e+'>td:eq(2)').text()
+		$('#'+e+'>td:eq(0)').html('<input type="text" style="width:160px" value='+td1+'>')
+		$('#'+e+'>td:eq(1)').html('<input type="text" style="width:160px" value='+td2+'>')
+		$('#'+e+'>td:eq(2)').html('<input type="radio" id="M'+e+'" name="sex'+e+'" value="M"><label style="padding:0px 5px" for="M">男</label>')
+		$('#'+e+'>td:eq(2)').append('<input type="radio" id="F'+e+'" name="sex'+e+'" value="F"><label style="padding:0px 5px" for="F">女</label>')
+		if(td3=='男'){
+			$('#M'+e).prop('checked',true)
+		}else{
+			$('#F'+e).prop('checked',true)
+		}
+		$('#'+e+'>td:eq(4)').html('<a onclick="submit('+e+')" href="##">確認</a></td>')
+	}
+	function submit(e){
+		var orderNo = dd[e].orderNo
+		var purchaseOrder = dd[e].purchaseOrder
+		var fullName = $('#'+e+'>td:eq(0)>input').val()
+		var passport = $('#'+e+'>td:eq(1)>input').val()
+		var sex = 'M'
+		if($('#F'+e).prop('checked')==true){
+			sex = 'F'
+		}
+		$.ajax({
+			url : '/Travel/tour/Display2/update',
+			type : 'get',
+			data:{'orderNo':orderNo,'purchaseOrder':purchaseOrder,'fullName':fullName,'passport':passport,'sex':sex},
+		}).done(function(update) {
+// 			console.log(update)
+			if (update.sex=='M'){se='男'}else{se='女'}
+			$('#'+e+'>td:eq(0)').html(update.fullName)
+			$('#'+e+'>td:eq(1)').html(update.passport)
+			$('#'+e+'>td:eq(2)').html(se)
+			$('#'+e+'>td:eq(4)').html('<a onclick="update('+e+')" href="##">修改</a>')
+		})
+	}
+	function cancel(e){
+		var orderNo = Data[e].orderNo
+		var purchaseOrder = Data[e].purchaseOrder
+		swal({
+			  title: "您確定要退訂此行程嗎?",
+// 			  text: "Once deleted, you will not be able to recover this imaginary file!",
+			  icon: "warning",
+			  buttons: true,
+			  dangerMode: true,
+			}).then((willDelete) => {
+			  if (willDelete) {
+					$.ajax({
+						url : '/Travel/tour/Display2/cancel',
+						type : 'get',
+						data:{'orderNo':orderNo},
+					})
+				swal("退訂成功", {
+			      icon: "success",
+			    });
+					location.reload();
+			  } 
+			});
+	}
+	function GetDateNow() {
+		var vNow = new Date();
+		var sNow = "";
+		sNow += String(vNow.getFullYear());
+		sNow += String(vNow.getMonth() + 1);
+		sNow += String(vNow.getDate());
+		sNow += String(vNow.getHours());
+		sNow += String(vNow.getMinutes());
+		sNow += String(vNow.getSeconds());
+		sNow += String(vNow.getMilliseconds());
+		document.getElementById("WIDout_trade_no").value =  sNow;
 	}
 		$(document).ready(function() {
 				$.ajax({
@@ -137,9 +246,9 @@ h2 {
 // 						dataType : 'json',
 						data:{'accountName':accountName},
 				}).done(function(JData) {
-						Data = JData;
+						Data = JData.TourOrderInfoBean;
 						$.each(JData.TourOrderInfoBean, function(index, value) {						
-							console.log(value);
+// 							console.log(value);
 							if(index % 4 == 0){
 								var date = new Date(value.departureDate);
 								var month = parseInt(date.getMonth())+1;
@@ -153,7 +262,7 @@ h2 {
 			 							+'<td style="color:red">$'+value.total+'</td>'
 			 							+'<td>'+value.orderStatus+'</td>'
 			 							+'<td>'+d.getFullYear()+'/'+m2+'/'+d.getDate()+'</td>'
-			 							+'<td><a onclick="ck()" href="##" data-toggle="modal" data-target="#exampleModalCenter">明細</a></td>'
+			 							+'<td><a onclick="ck('+index+')" href="##" data-toggle="modal" data-target="#exampleModalCenter">明細</a></td>'
 			 						+'</tr>'
 								);
 							}
@@ -170,7 +279,7 @@ h2 {
 			 							+'<td style="color:red">$'+value.total+'</td>'
 			 							+'<td>'+value.orderStatus+'</td>'
 			 							+'<td>'+d.getFullYear()+'/'+m2+'/'+d.getDate()+'</td>'
-			 							+'<td><a onclick="ck()" href="##" data-toggle="modal" data-target="#exampleModalCenter">明細</a></td>'
+			 							+'<td><a onclick="ck('+index+')" href="##" data-toggle="modal" data-target="#exampleModalCenter">明細</a></td>'
 			 						+'</tr>'
 								);
 							}
@@ -187,7 +296,7 @@ h2 {
 			 							+'<td style="color:red">$'+value.total+'</td>'
 			 							+'<td>'+value.orderStatus+'</td>'
 			 							+'<td>'+d.getFullYear()+'/'+m2+'/'+d.getDate()+'</td>'
-			 							+'<td><a onclick="ck()" href="##" data-toggle="modal" data-target="#exampleModalCenter">明細</a></td>'
+			 							+'<td><a onclick="ck('+index+')" href="##" data-toggle="modal" data-target="#exampleModalCenter">明細</a></td>'
 			 						+'</tr>'
 								);
 							}
@@ -204,7 +313,7 @@ h2 {
 			 							+'<td style="color:red">$'+value.total+'</td>'
 			 							+'<td>'+value.orderStatus+'</td>'
 			 							+'<td>'+d.getFullYear()+'/'+m2+'/'+d.getDate()+'</td>'
-			 							+'<td><a onclick="ck()" href="##" data-toggle="modal" data-target="#exampleModalCenter">明細</a></td>'
+			 							+'<td><a onclick="ck('+index+')" href="##" data-toggle="modal" data-target="#exampleModalCenter">明細</a></td>'
 			 						+'</tr>'
 								);
 							}
@@ -265,7 +374,7 @@ h2 {
 		</div>
 
 	</section>
-	<!-- END section -->
+	<!-- END section -->				
 				
 	<!-- 訂單 -->
 	<section class="probootstrap_section bg-light">
@@ -303,10 +412,34 @@ h2 {
 	      </div>
 	      <div class="modal-body" id="sub">
 	      </div>
-	      <div class="modal-footer">
-	        <button type="button" class="btn btn-secondary" data-dismiss="modal">退訂</button>
-	        <button type="button" class="btn btn-primary">立即付款</button>
+	      <div class="modal-body">
+	      		<table class="table table-striped">
+					<thead>
+						<tr>
+							<th>中文姓名</th>
+							<th>護照姓名</th>
+							<th>性別</th>
+							<th>類型</th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody id="sub2">
+					</tbody>
+				</table>
 	      </div>
+	      <div class="modal-body" id="sub3">
+	      </div>
+	      
+	      <form action="<c:url value='/tour/Display2/submit'/>">
+			  <input id="WIDout_trade_no" name="WIDout_trade_no" style="display: none"/>
+			  <input id="WIDsubject" name="WIDsubject"style="display: none" value=""/>
+			  <input id="WIDtotal_amount" name="WIDtotal_amount"style="display: none" value=""/>
+			  <input id="WIDbody" name="WIDbody"style="display: none" value="" />
+		      <div class="modal-footer" id="but">
+		      </div>
+		   </form>
+		    
+	      
 	    </div>
 	  </div>
 	</div>
