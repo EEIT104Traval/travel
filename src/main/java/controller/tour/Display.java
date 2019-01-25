@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import model.tour.GroupTourBean;
 import model.tour.TourBatchBean;
+import model.tour.TourMemberInfoBean;
 import model.tour.TourOrderInfoBean;
 import model.tour.service.GroupTourService;
 import model.tour.service.TourBuyService;
@@ -38,13 +39,14 @@ public class Display {
 	}
 
 	@RequestMapping("/tour/Display2/buy")
-	public String Buy(Integer serialNo,String tourNo,String accountName,String tourName,Integer tourDays,Model model) {
+	public String Buy(Integer serialNo, String tourNo, String accountName, String tourName, Integer tourDays,
+			Model model) {
 		System.out.println(tourDays);
-		Map<String,Object> result = tourBuyService.method(serialNo, accountName);
+		Map<String, Object> result = tourBuyService.method(serialNo, accountName);
 		System.out.println(result);
-		model.addAttribute("tourName",tourName);
-		model.addAttribute("tourDays",tourDays);
-		model.addAttribute("result",result);
+		model.addAttribute("tourName", tourName);
+		model.addAttribute("tourDays", tourDays);
+		model.addAttribute("result", result);
 		return "tour.buy";
 	}
 //	@ResponseBody
@@ -76,9 +78,10 @@ public class Display {
 //		}
 //		return "";
 //	}
-	
+
 	@RequestMapping("/tour/Display2/order")
-	public String test(@RequestParam Map<String,String> map , String[] cname , String[] pname , Integer[] price , String[] passenger ,Model model) {
+	public String test(@RequestParam Map<String, String> map, String[] cname, String[] pname, Integer[] price,
+			String[] passenger, Model model) {
 		System.out.println(map.toString());
 		String serialNo = map.get("serialNo");
 		String accountName = map.get("accountName");
@@ -89,27 +92,27 @@ public class Display {
 		Integer total = 0;
 		List<String> sex = new ArrayList<String>();
 		int i = cname.length;
-		if(i==0) {
-			cname=new String[1];
-			cname[0]="";
+		if (i == 0) {
+			cname = new String[1];
+			cname[0] = "";
 		}
-		if(pname.length==0) {
-			pname=new String[1];
-			pname[0]="";
+		if (pname.length == 0) {
+			pname = new String[1];
+			pname[0] = "";
 		}
-		Integer quantity = ( i==0 ? 1 : i ) ;
-		for(int x = 0 ; x < quantity ; x++ ) {
+		Integer quantity = (i == 0 ? 1 : i);
+		for (int x = 0; x < quantity; x++) {
 			total += price[x];
-			sex.add(map.get("sex"+x));
+			sex.add(map.get("sex" + x));
 		}
-		TourOrderInfoBean order = tourBuyService.order
-			(serialNo, accountName, fullName, phone, email, userSex, quantity, total,sex, cname , pname ,price ,  passenger);
+		TourOrderInfoBean order = tourBuyService.order(serialNo, accountName, fullName, phone, email, userSex, quantity,
+				total, sex, cname, pname, price, passenger);
 		TourBatchBean batch = tourBuyService.BatchfindPK(order.getSerialNo());
-		model.addAttribute("TourOrderInfoBean",order);
-		model.addAttribute("TourBatchBean",batch);
+		model.addAttribute("TourOrderInfoBean", order);
+		model.addAttribute("TourBatchBean", batch);
 		return "tour.order";
 	}
-	
+
 	@ResponseBody
 	@RequestMapping("/tour/Display2/acc")
 	public Map<String, List<?>> method(String accountName) {
@@ -117,4 +120,19 @@ public class Display {
 		result = userInfoService.findByPrimaryKey(accountName);
 		return result;
 	}
+
+	@ResponseBody
+	@RequestMapping("/tour/Display2/odmeber")
+	public List<TourMemberInfoBean> odmeber(Integer orderNo) {
+		List<TourMemberInfoBean> result = tourBuyService.findOrderNo(orderNo);
+		return result;
+	}
+
+	@ResponseBody
+	@RequestMapping("/tour/Display2/update")
+	public TourMemberInfoBean update(Integer orderNo, Integer purchaseOrder, String fullName, String passport, String sex) {
+		TourMemberInfoBean result = tourBuyService.updateMember(orderNo, purchaseOrder,fullName,passport,sex);
+		return result;
+	}
+
 }
