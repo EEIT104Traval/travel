@@ -20,13 +20,17 @@
 <title>後台管理者介面</title>
 
 <style>
-.table{
-width:65%;
-border:1px solid black;
+
+table{ 
+	width: 100%; 
 }
-.table td{ 
-/* 	width:100px; */
+table thead {
 	font-weight:900;
+}
+table tbody {
+	font-weight:500;
+}
+table td{
 	border:1px solid black;
 }
 
@@ -87,8 +91,8 @@ var params = {}
 					'<div style="text-align: center;"><h2>票券庫存查詢系統</h2></div>'+
 					'<br>'+
 					
-					'<table><tbody><tr><td>票券號碼</td>	<td>票券國家</td><td>票券名稱</td>'+
-					'<td>票券價格</td><td>庫存數量</td><td>銷售數量</td></tr>	</tbody></table>'
+			'<table><thead><tr><td>票券號碼</td><td>票券國家</td><td>票券名稱</td><td>票券價格</td><td>庫存數量</td><td>銷售數量</td></tr></thead>'
+		
 								);
 			  
 			   console.log(JData)
@@ -96,13 +100,12 @@ var params = {}
 			   
 			for(var i = 0;i<JData.length;i++){
 						$("#searchuser").append(
-							'<table ><tr>'+
-							'<td>'+JData[i].ticketNo+'</td>'+
-							'<td>'+JData[i].country+'</td>'+
-							'<td>'+JData[i].ticketName+'</td>'+
-							'<td>'+JData[i].adultTicketPrice+'</td>'+
-							'<td>'+(JData[i].adultTicketSellQ-JData[i].adultTicketSelledQ)+'</td>'+
-							'<td>'+JData[i].adultTicketSelledQ+'</td></tr></table>'
+							'<tr><td>'+JData[i].ticketNo+'</td>'+
+							    '<td>'+JData[i].country+'</td>'+
+								'<td>'+JData[i].ticketName+'</td>'+
+								'<td>'+JData[i].adultTicketPrice+'</td>'+
+								'<td>'+(JData[i].adultTicketSellQ-JData[i].adultTicketSelledQ)+'</td>'+
+								'<td>'+JData[i].adultTicketSelledQ+'</td></tr></table>'
 											)
 											
 			}})};	
@@ -121,22 +124,20 @@ var params = {}
                   <div class="form-group">
                     <div class="input-group">
                       <div class="input-group-prepend" style="margin: auto">
-							<table  style="text-align:center ; width:100%; border:1px">
-							<tr><td>票券名稱</td><td>票券類型</td><td>票券價格</td><td>庫存數量</td><td>國家</td></tr>
-							<tr><td><input type="text" id="ticketName"></td>
-								<td><input type="text" id="category"></td>
-								<td><input type="text" id="adultTicketPrice"></td>
-								<td><input type="text" id="adultTicketSellQ"></td>
-								<td><input type="text" id="country"></td></tr>
-							<tr><td>使用期限</td><td>票券資訊</td><td>票券限制</td><td>銷售數量</td>
-								<td><input type="text" id="ticketPicture" style="display:none"></td></tr>
-							<tr><td><input type="text" id="validity"></td>
-								<td><input type="text" id="traffic_information"></td>
-								<td><input type="text" id="special_restrictions"></td>
-								<td><input type="text" id="adultTicketSelledQ"></td>
-								<td><input type="button" id='membersh' onclick="chack()" value="確認新增">
-								<input type="button" id='membersh' onclick="show()" value="查看資訊"></td></tr>
-							</table>
+                      <table>
+						<thead><tr><td>票券名稱</td><td>票券類型</td><td>票券價格</td><td>庫存數量</td><td>國家</td></tr><thead>
+						<tbody><tr><td><input type="text" id="ticketName"></td>
+							       <td><input type="text" id="category"></td>
+							       <td><input type="text" id="adultTicketPrice"></td>
+							       <td><input type="text" id="adultTicketSellQ"></td>
+							       <td><input type="text" id="country"></td></tr></tbody>
+						<thead><tr><td>使用期限</td><td>票券資訊</td><td>票券限制</td><td>銷售數量</td><td></td></tr></thead>
+						<tbody><tr><td><input type="text" id="validity"></td>
+							       <td><input type="text" id="traffic_information"></td>
+							       <td><input type="text" id="special_restrictions"></td>
+							       <td><input type="text" id="adultTicketSelledQ"></td>
+							       <td style="text-align: center"><input type="button" id='membersh' onclick="chack()" value="確認新增">
+								   <input type="button" id='membersh' onclick="show()" value="查看資訊"></td></tr></tbody></table>
                       </div>
                      </div>
                   </div>
@@ -149,6 +150,8 @@ var params = {}
 									<div id="searchuser">
 									
 <!-- 	----------------------加東西--------------------- -->
+
+
 
 <!-- 	----------------------加東西--------------------- -->
 																					
