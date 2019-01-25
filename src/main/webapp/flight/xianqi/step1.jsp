@@ -19,7 +19,7 @@
 
 <link rel="stylesheet" type="text/css" href="<c:url value='/flight/xianqi/css/style.css?sv=1'/>"/>
 <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/filterizr/1.3.5/jquery.filterizr-with-jquery.min.js" rel="stylesheet">
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/filterizr/1.3.4/jquery.filterizr.min.js"></script> -->
 <script src="https://code.jquery.com/jquery-3.3.1.js"
 	integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
 	crossorigin="anonymous"></script>
@@ -104,6 +104,12 @@
 var result = ${result}
 var test = ${test}
 
+// $(function(){
+	
+// 	$('#gofirst').filterizr();
+	
+// })
+
 
 // console.log(result)
 
@@ -124,7 +130,7 @@ $(document).ready(function() {
 $.each(result.OTA_AirLowFareSearchRS.PricedItineraries.PricedItinerary, function(index, value) {
 	//去程迴圈
 	serialNum = serialNum+1;
-	console.log(value.SequenceNumber)
+// 	console.log(value.SequenceNumber)
 	var DepartureDateTime = value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].DepartureDateTime
 	var Ddate = DepartureDateTime.substr(0,10);
 	var DsetTime = new Date(Ddate);
@@ -152,6 +158,7 @@ $.each(result.OTA_AirLowFareSearchRS.PricedItineraries.PricedItinerary, function
 // 		'<div class="romde_box">')
 // 	}
 	var code = value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].OperatingAirline.Code;
+	console.log(code)
 
 	$('#gofirst').append(
 			'<form action="<c:url value='/FlightInfoSecound' />" method="post">'
@@ -164,7 +171,7 @@ $.each(result.OTA_AirLowFareSearchRS.PricedItineraries.PricedItinerary, function
                         +"<div class='col-xs-3 fl-namebox text-center'>"
                         	+"<input type='text' class='fl-name' style='border:none;text-align: center;width:100px' readonly='value' name='goCompany' value="+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].OperatingAirline.Company+">"
 //               			  +"<div class='fl-name' name='goCompany'>"+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].OperatingAirline.Company+"</div>"
-                          +"<input  class='fl-num' name='goCode'  style='border:none;text-align: center;width:100px' readonly='value' data-category="+code+" value="+code+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].OperatingAirline.FlightNumber+">"
+                          +"<input  class='fl-num' name='goCode'  style='border:none;text-align: center;width:100px' readonly='value' data-category='"+code+"' value="+code+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].OperatingAirline.FlightNumber+">"
 //                           +"<div class='fl-num'>"+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].OperatingAirline.Code+value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].OperatingAirline.FlightNumber+"</div>"
             +"</div>"
             + "<div class='col-xs-3 fl-timebox text-right'>"
@@ -434,9 +441,9 @@ $.each(result.OTA_AirLowFareSearchRS.PricedItineraries.PricedItinerary, function
               <li style="border-bottom: 1px dashed #ccc;">
                 <h4  >航空公司 </h4>
                 <ul class="are_nav airpn">
-                  <li data-filter="all">
+                  <li>
                     <div class="cdst">
-                      <input type="checkbox" id="cd-checkbox-s1">
+                      <input type="checkbox" id="cd-checkbox-s1" data-filter="all">
                       <label for="cd-checkbox-s1"></label>
                     </div>
                     <p > <span>全部</span><span class="price"></span></p>
@@ -681,21 +688,27 @@ $(".closepop").on("click",function(){$("#pop_protick").modal("hide")});$(".pop_r
 	<script src="<c:url value='/voyage/js/bootstrap-datepicker.js' />"></script>
 	<script src="<c:url value='/voyage/js/jquery.timepicker.min.js' />"></script>
 	<script src="<c:url value='/voyage/js/main.js' />"></script>
-	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-	<script src=" <c:url value='/flight/mohu/demo/js/demo.js'/>"
-		type="text/javascript"></script>
+<!-- 	<script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script> -->
+<!-- 	<script src="js/jquery.filterizr.js"></script> -->
+<%-- 	<script src=" <c:url value='/flight/mohu/demo/js/demo.js'/>" --%>
+<!-- 		type="text/javascript"></script> -->
+<%-- 	<script src=" <c:url value='/flight/xianqi/js/jquery.filterizr.js'/>"></script> --%>
+<%-- 	<script src=" <c:url value='/flight/xianqi/js/jquery.min.js'/>"></script> --%>
+<%-- 	<script src=" <c:url value='/flight/xianqi/js/jquery-3.1.1.min.js'/>"></script> --%>
+<!-- 	<script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script> -->
+<!-- 	<script src="https://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script> -->
 	<%-- 	<link href=" <c:url value='/flight/mohu/demo/css/prettify.css'/>" rel="stylesheet" /> --%>
 	<!--     <link href="css/bootstrap.css" rel="stylesheet"> -->
 	<%--     <link href=" <c:url value='/flight/mohu/demo/css/demo.css'/>" rel="stylesheet"> --%>
-	<script src=" <c:url value='/flight/mohu/demo/js/prettify.js'/>"
-		type="text/javascript"></script>
-	<script src=" <c:url value='/flight/mohu/demo/js/mockjax.js'/>"
-		type="text/javascript"></script>
-	<script src=" <c:url value='/flight/mohu/js/bootstrap-typeahead.js'/>"
-		type="text/javascript"></script>
-	<script
-		src="<c:url value='/flight/彈窗/custom-popup/jquery.custom.popup-v1.3.1.js'/>"></script>
+<%-- 	<script src=" <c:url value='/flight/mohu/demo/js/prettify.js'/>" --%>
+<!-- 		type="text/javascript"></script> -->
+<%-- 	<script src=" <c:url value='/flight/mohu/demo/js/mockjax.js'/>" --%>
+<!-- 		type="text/javascript"></script> -->
+<%-- 	<script src=" <c:url value='/flight/mohu/js/bootstrap-typeahead.js'/>" --%>
+<!-- 		type="text/javascript"></script> -->
+<!-- 	<script -->
+<%-- 		src="<c:url value='/flight/彈窗/custom-popup/jquery.custom.popup-v1.3.1.js'/>"></script> --%>
 	<jsp:include page="/voyage/foo.jsp" />
 <!--票規與行李開關--> 
 <script>

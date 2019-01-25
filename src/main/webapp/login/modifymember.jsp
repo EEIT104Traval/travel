@@ -26,6 +26,10 @@ function clearForm() {
 	}
 }
 
+function index(){
+	window.location.href="../voyage/index.jsp"
+}
+
 // $( function() {
 //     $( "#datepicker" ).datepicker({dateFormat:'yy-MM-dd',changeYear: true});
 //   } );
@@ -103,6 +107,7 @@ function clearForm() {
 											<div class="col-sm-6 col-sm-offset-3">
 												<input type="button"  id="modify-submit" tabindex="4" class="form-control btn btn-login" value="資料修改">
 												<input type="button" value="清除" onclick="clearForm()" tabindex="4" class="form-control btn btn-login" style="margin-top: 10px">
+												<input type="button" value="回上一頁" onclick="index()" tabindex="4" class="form-control btn btn-login" style="margin-top: 10px">
 											</div>
 										</div>
 									</div>

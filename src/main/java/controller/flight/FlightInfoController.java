@@ -63,8 +63,8 @@ public class FlightInfoController {
 		
 //		System.out.println("result2="+result1);
 		model.addAttribute("result", result);
-		CIservice.Airlinecreate();
-		CIservice.AirlinecreateParserXml();
+//		CIservice.Airlinecreate();
+//		CIservice.AirlinecreateParserXml();
 		
 		return "flightsecound";
 	}

@@ -58,7 +58,7 @@
 	type="text/css" media="screen">
 <link rel="stylesheet"
 	href="https://scss.settour.com.tw/tour.css?1547708750755">
- <link rel="stylesheet" href="/resources/demos/style.css">
+<link rel="stylesheet" href="/resources/demos/style.css">
 
 
 
@@ -115,6 +115,7 @@
 </script>
 <script async=""
 	src="https://script.hotjar.com/modules-7a540391ba1fb992682e401dac39619b.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
 <style type="text/css">
 iframe#_hjRemoteVarsFrame {
 	display: none !important;
@@ -127,16 +128,13 @@ iframe#_hjRemoteVarsFrame {
 .product-item .area-price {
 	position: absolute;
 	bottom: 0;
-	right: 15px;
-	
-.ui-slider-horizontal .ui-slider-handle {
-    top: -.3em;
-    margin-left: -.6em;
-}
-.owl-stage-outer{
-height:680px;
+	right: 15px; . ui-slider-horizontal .ui-slider-handle { top : -.3em;
+	margin-left: -.6em;
 }
 
+.owl-stage-outer {
+	height: 680px;
+}
 }
 </style>
 <script type="text/javascript" async=""
@@ -169,27 +167,27 @@ height:680px;
 						</p>
 						<h1 class="mb-3">Tours</h1>
 					</div>
-					<div id="here"></div> 
+					<div id="here"></div>
 				</div>
-				
+
 			</div>
-			
+
 		</div>
-		
+
 	</section>
 	<!-- END slider -->
 	<section class="search-condition area-result">
-		<div  class="container">
-		
-<%--         <c:forEach items="${tour}" var="element">  --%>
-<!-- 		  <tr> -->
-<%-- 		    <td>${element.tourNo}</td>   --%>
-<%-- 		    <td>${element.groupTourBean.guaranteedCount}</td>  --%>
-<%-- 		    <td>${element.peopleCount}</td>  --%>
-<%-- 		    <td>${element.groupTourBean.guaranteedCount - element.peopleCount }</td> --%>
-<!-- 		  </tr> -->
-<%-- 		</c:forEach> --%>
-		
+		<div class="container">
+
+			<%--         <c:forEach items="${tour}" var="element">  --%>
+			<!-- 		  <tr> -->
+			<%-- 		    <td>${element.tourNo}</td>   --%>
+			<%-- 		    <td>${element.groupTourBean.guaranteedCount}</td>  --%>
+			<%-- 		    <td>${element.peopleCount}</td>  --%>
+			<%-- 		    <td>${element.groupTourBean.guaranteedCount - element.peopleCount }</td> --%>
+			<!-- 		  </tr> -->
+			<%-- 		</c:forEach> --%>
+
 			<div class="row">
 				<div class="col-lg-2 col-md-3 col-sm-3 col-xs-9">
 					<div class="row">
@@ -221,17 +219,17 @@ height:680px;
 
 									<ul class="slick-slide slick-active result type2"
 										data-index="0" tabindex="-1" style="outline: none;">
-										<li>出發區間：<strong><fmt:formatDate pattern="yyyy-MM-dd" value="${checkin_date}" />
-															~<fmt:formatDate pattern="yyyy-MM-dd" value="${checkout_date}" />
-												   </strong>
+										<li>出發區間：<strong><fmt:formatDate
+													pattern="yyyy-MM-dd" value="${checkin_date}" /> ~<fmt:formatDate
+													pattern="yyyy-MM-dd" value="${checkout_date}" /> </strong>
 										</li>
 										<li>出發地：<strong>桃園</strong></li>
 									</ul>
-<!-- 									<ul class="slick-slide result type2" data-index="1" -->
-<!-- 										tabindex="-1" style="outline: none;"> -->
-<!-- 										<li>關鍵字：<strong>無</strong></li> -->
-<!-- 										<li>僅查詢可報名：<strong>是</strong></li> -->
-<!-- 									</ul> -->
+									<!-- 									<ul class="slick-slide result type2" data-index="1" -->
+									<!-- 										tabindex="-1" style="outline: none;"> -->
+									<!-- 										<li>關鍵字：<strong>無</strong></li> -->
+									<!-- 										<li>僅查詢可報名：<strong>是</strong></li> -->
+									<!-- 									</ul> -->
 
 								</div>
 							</div>
@@ -281,35 +279,35 @@ height:680px;
 									id="filter1" style="">
 									<div class="filter-criteria-item-text">
 										$<span id="amount1"></span> ~ $<span id="amount2"></span>
-<!-- 									<span>	 -->
-<!--                                   	 <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;"> -->
-<!--  									</span> -->
+										<!-- 									<span>	 -->
+										<!--                                   	 <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;"> -->
+										<!--  									</span> -->
 
 									</div>
-								
+
 									<div id="" class="filter-criteria-item-option">
-         
-									
+
+
 										<div id="" class="adj-price">
-										<div id="slider-range"></div>
-<!-- 											<div class="rc-slider"> -->
-<!-- 												<div class="rc-slider-rail"></div> -->
-<!-- 												<div class="rc-slider-track rc-slider-track-1" -->
-<!-- 													style="left: 0%; width: 100%;"></div> -->
-<!-- 												<div class="rc-slider-step"></div> -->
-<!-- 												<div tabindex="0" -->
-<!-- 													class="rc-slider-handle rc-slider-handle-1" -->
-<!-- 													style="left: 0%;" role="slider" aria-valuemin="62800" -->
-<!-- 													aria-valuemax="92900" aria-valuenow="62800" -->
-<!-- 													aria-disabled="false"></div> -->
-<!-- 												<div tabindex="0" -->
-<!-- 													class="rc-slider-handle rc-slider-handle-2" -->
-<!-- 													style="left: 100%" role="slider" aria-valuemin="62800" -->
-<!-- 													aria-valuemax="92900" aria-valuenow="92900" -->
-<!-- 													aria-disabled="false"></div> -->
-<!-- 												<div class="rc-slider-mark"></div> -->
-<!-- 											</div> -->
-<!-- 											<div class="rc-slider-mark"></div> -->
+											<div id="slider-range"></div>
+											<!-- 											<div class="rc-slider"> -->
+											<!-- 												<div class="rc-slider-rail"></div> -->
+											<!-- 												<div class="rc-slider-track rc-slider-track-1" -->
+											<!-- 													style="left: 0%; width: 100%;"></div> -->
+											<!-- 												<div class="rc-slider-step"></div> -->
+											<!-- 												<div tabindex="0" -->
+											<!-- 													class="rc-slider-handle rc-slider-handle-1" -->
+											<!-- 													style="left: 0%;" role="slider" aria-valuemin="62800" -->
+											<!-- 													aria-valuemax="92900" aria-valuenow="62800" -->
+											<!-- 													aria-disabled="false"></div> -->
+											<!-- 												<div tabindex="0" -->
+											<!-- 													class="rc-slider-handle rc-slider-handle-2" -->
+											<!-- 													style="left: 100%" role="slider" aria-valuemin="62800" -->
+											<!-- 													aria-valuemax="92900" aria-valuenow="92900" -->
+											<!-- 													aria-disabled="false"></div> -->
+											<!-- 												<div class="rc-slider-mark"></div> -->
+											<!-- 											</div> -->
+											<!-- 											<div class="rc-slider-mark"></div> -->
 										</div>
 									</div>
 								</div>
@@ -321,7 +319,7 @@ height:680px;
 								</h5>
 								<div class="filter-criteria-item-option collapse in" style=""
 									id="filter2">
-									
+
 									<div class="checkbox">
 										<input type="checkbox" id="checkbox-tourday-1"
 											name="checkbox-tourday-1"><label
@@ -337,7 +335,7 @@ height:680px;
 											name="checkbox-tourday-3"><label
 											for="checkbox-tourday-3" class="checkbox-label"><strong>長途旅行(7~10天)</strong></label>
 									</div>
-									
+
 								</div>
 							</div>
 							<div class="filter-criteria-item">
@@ -443,6 +441,7 @@ height:680px;
 
 
 				<div class="search-right col-md-9">
+				<div id="exampl">
 					<div class="product">
 						<section class="search-area-title tour">
 							<div class="clearfix">
@@ -467,132 +466,263 @@ height:680px;
 									</button>
 								</div>
 								<div class="sort pull-right hidden-sm hidden-xs">
+								
 									<span>排序：</span><select class="select-boder"
 										id="modalSearchResultSort"
 										style="background-image: url(&quot;https://www.settour.com.tw/st_ec/img/newWeb/icon/icon-dropdown.png&quot;);"><option
 											value="BA">出發日近→遠</option>
 										<option value="BD">出發日遠→近</option>
-										<option value="PA">價格低→高</option>
+										<button class="sort"><option value="PA">價格低→高</option></button>
 										<option value="PD">價格高→低</option></select>
 								</div>
+								<button class="sort" data-sort="name">Sort by name</button>
+						        <button class="sort" data-sort="age">Sort by age</button>
 							</div>
 						</section>
 						<div id="nofind"
 							style="border-width: 3px; border-style: dashed; border-color: #FFAC55; padding: 5px;">
 							<i class="fa fa-exclamation-circle"> <span>
-									很抱歉，暫時無法找到符合您要求的商品，建議您~可放寬篩選條件，或改用其他條件 <a id="Snull" style="color:blue">重新搜尋</a>
+									很抱歉，暫時無法找到符合您要求的商品，建議您~可放寬篩選條件，或改用其他條件 <a id="Snull"
+									style="color: blue">重新搜尋</a>
 							</span>
 							</i>
 						</div>
 						<section class="product-list">
 							<div id="filtr-item">
-								<div  class="infinite-scroll-component"
+								<div class="infinite-scroll-component"
 									style="height: auto; overflow: initial;">
-					<c:forEach items="${tour}" var="element">
-									<div class="choose">
-									<div class="${element.tourDays}">
-										<article class="product-item tour" >
-											<div class="container-fluid" style="border:4px #007bff solid;">
-												<div class="row"
-													style="margin-right: -15px; margin-left: -1px;">
-													<div class="serach-img col-md-4 col-sm-5">
-														<a href="/product/GFG0000012035/AUKA9B90204A"
-															target="_blank"><img
-															style="width: 270px; "
-															alt="${element.tourName}"
-															class="img-responsive"
-															href="<c:url value='/voyage/index.jsp'/>"
-															<c:set var="a" value="${'/Travel/tour/Display2/images/'}${element.tourPictureBean[0].pic}"  />
-															src="${a}"></a>
-														<!-- 													<div class="favorite hidden-xs"> -->
-														<!-- 														<div class="btn-collect-nobox"></div> -->
-														<!-- 													</div> -->
-													</div>
-													<div class="product-info col-md-6 col-sm-7">
-														<h4 class="product-name">
-															<a href="/product/GFG0000012035/AUKA9B90204A"
-																target="_blank"><div
-																	style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 3;">${element.tourName}</div></a>
-														</h4>
-														<div class="product-info-tag-area">
-															<c:if test="${element.guaranteedCount - element.tourBatchBean[0].peopleCount < 0 && element.fullPeopleCount - element.tourBatchBean[0].peopleCount != 0}">
-																<div class="tag solid yellow"><div class="ready">已成團</div></div>
-																 
-															</c:if>
-															
-															<c:if test="${element.guaranteedCount - element.tourBatchBean[0].peopleCount > 0}">
-															<div class="tag solid" style="color: #333;  background-color: #fd7e14;"><div class="soon">即將成團</div></div>
-															</c:if>
-															
-															<c:if test="${element.fullPeopleCount - element.tourBatchBean[0].peopleCount == 0}">
-																 <div class="tag solid red"><div class="full">額滿</div></div>															
-															</c:if>
-														</div>
-														<div
-															class="product-info-bottom hidden-md hidden-sm hidden-xs">
-															<div>${element.tourBatchBean[0].distination_back}出發</div>
-															<div>團號：${element.tourNo}</div>
-															<div>機位 洽客服</div>
-															<div class="order-btn">
-																<a role="button" data-toggle="collapse"
-																	href="#slider-flightInfo_AUKA9B90204A"
-																	aria-expanded="true" aria-controls="slider-flightInfo">航班<i
-																	class="fa fa-angle-down" aria-hidden="true"></i></a>
+								
+						 
+						  	<div class="list">
+					 <c:forEach items="${tour}" var="element">
+						  											<div class="choose">
+											<div class="${element.tourDays}">
+												<article class="product-item tour">
+													<div class="container-fluid"
+														style="border: 4px #007bff solid;">
+														<div class="row"
+															style="margin-right: -15px; margin-left: -1px;">
+															<div class="serach-img col-md-4 col-sm-5">
+																<a href="/product/GFG0000012035/AUKA9B90204A"
+																	target="_blank"><img style="width: 270px;"
+																	alt="${element.tourName}" class="img-responsive"
+																	href="<c:url value='/voyage/index.jsp'/>"
+																	<c:set var="a" value="${'/Travel/tour/Display2/images/'}${element.tourPictureBean[0].pic}"  />
+																	src="${a}"></a>
+																<!-- 													<div class="favorite hidden-xs"> -->
+																<!-- 														<div class="btn-collect-nobox"></div> -->
+																<!-- 													</div> -->
 															</div>
-														</div>
-													</div>
-													<div class="product-item-right-text">
-														<strong><fmt:formatDate pattern="MM/dd"
-																value="${element.tourBatchBean[0].departureDate}" />，洽客服</strong>
-													</div>
-													<div class="area-price col-md-2 col-sm-12">
-														<div class="row">
-															<div class="col-md-12 col-xs-8">
-																<div class="price">
-																	<div id="ori-price" class="ori-price">
-																		${element.tourDays}天</div>
-																	<div>
-																		<span class="price-uni">$</span>${element.tourBatchBean[0].price_adult }<em>起</em>
+															<div class="product-info col-md-6 col-sm-7">
+																<h4 class="product-name">
+																	<a href="/product/GFG0000012035/AUKA9B90204A"
+																		target="_blank"><div
+																			style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 3;">${element.tourName}</div></a>
+																</h4>
+																<div class="product-info-tag-area">
+																	<c:if
+																		test="${element.guaranteedCount - element.tourBatchBean[0].peopleCount < 0 && element.fullPeopleCount - element.tourBatchBean[0].peopleCount != 0}">
+																		<div class="tag solid yellow">
+																			<div class="ready">已成團</div>
+																		</div>
+
+																	</c:if>
+
+																	<c:if
+																		test="${element.guaranteedCount - element.tourBatchBean[0].peopleCount > 0}">
+																		<div class="tag solid"
+																			style="color: #333; background-color: #fd7e14;">
+																			<div class="soon">即將成團</div>
+																		</div>
+																	</c:if>
+
+																	<c:if
+																		test="${element.fullPeopleCount - element.tourBatchBean[0].peopleCount == 0}">
+																		<div class="tag solid red">
+																			<div class="full">額滿</div>
+																		</div>
+																	</c:if>
+																</div>
+																<div
+																	class="product-info-bottom hidden-md hidden-sm hidden-xs">
+																	<div>${element.tourBatchBean[0].distination_back}出發</div>
+																	<div>團號：${element.tourNo}</div>
+																	<div>機位 洽客服</div>
+																	<div class="order-btn">
+																		<a role="button" data-toggle="collapse"
+																			href="#slider-flightInfo_AUKA9B90204A"
+																			aria-expanded="true"
+																			aria-controls="slider-flightInfo">航班<i
+																			class="fa fa-angle-down" aria-hidden="true"></i></a>
 																	</div>
 																</div>
 															</div>
-															<div class="price-btn col-md-12 col-xs-4">
-																<button class="btn-order">看詳細</button>
+															<div class="product-item-right-text">
+																<strong><fmt:formatDate pattern="MM/dd"
+																		value="${element.tourBatchBean[0].departureDate}" />，洽客服</strong>
+															</div>
+															<div class="area-price col-md-2 col-sm-12">
+																<div class="row">
+																	<div class="col-md-12 col-xs-8">
+																		<div class="price">
+																			<div id="ori-price" class="ori-price">
+																				${element.tourDays}天</div>
+																			<div>
+																				<span class="price-uni">$</span><span class="age">${element.tourBatchBean[0].price_adult }</span><em>起</em>
+																			</div>
+																		</div>
+																	</div>
+																	<div class="price-btn col-md-12 col-xs-4">
+																		<button class="btn-order">看詳細</button>
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div id="slider-flightInfo_AUKA9B90204A"
+															class="slider-flight-info tour hidden-md hidden-sm hidden-xs collapse">
+															<div class="slider-flight-info-item-area"></div>
+															<div class="cart-notice type2">
+																<div class="editor-area">
+																	<p>實際搭乘航班請以行前說明會資料為準</p>
+																</div>
+															</div>
+															<div class="slider-flight-info-close-btn">
+																<div data-toggle="collapse" href="#slider-flightInfo"
+																	aria-expanded="true" aria-controls="slider-flightInfo">
+																	收合參考航班<i class="fa fa-angle-up" aria-hidden="true"></i>
+																</div>
 															</div>
 														</div>
 													</div>
-												</div>
-												<div id="slider-flightInfo_AUKA9B90204A"
-													class="slider-flight-info tour hidden-md hidden-sm hidden-xs collapse">
-													<div class="slider-flight-info-item-area"></div>
-													<div class="cart-notice type2">
-														<div class="editor-area">
-															<p>實際搭乘航班請以行前說明會資料為準</p>
-														</div>
-													</div>
-													<div class="slider-flight-info-close-btn">
-														<div data-toggle="collapse" href="#slider-flightInfo"
-															aria-expanded="true" aria-controls="slider-flightInfo">
-															收合參考航班<i class="fa fa-angle-up" aria-hidden="true"></i>
-														</div>
-													</div>
-												</div>
+												</article>
 											</div>
-										</article>
 										</div>
-										</div>
-									</c:forEach>
+				     </c:forEach>
+   					  	     </div>
+						  
+						 
+	
+<%-- 	        <c:forEach items="${tour}" var="element">					  --%>
+<!-- 								<div class="choose"> -->
+<%-- 											<div class="${element.tourDays}"> --%>
+<!-- 												<article class="product-item tour"> -->
+<!-- 													<div class="container-fluid" -->
+<!-- 														style="border: 4px #007bff solid;"> -->
+<!-- 														<div class="row" -->
+<!-- 															style="margin-right: -15px; margin-left: -1px;"> -->
+<!-- 															<div class="serach-img col-md-4 col-sm-5"> -->
+<!-- 																<a href="/product/GFG0000012035/AUKA9B90204A" -->
+<!-- 																	target="_blank"><img style="width: 270px;" -->
+<%-- 																	alt="${element.tourName}" class="img-responsive" --%>
+<%-- 																	href="<c:url value='/voyage/index.jsp'/>" --%>
+<%-- 																	<c:set var="a" value="${'/Travel/tour/Display2/images/'}${element.tourPictureBean[0].pic}"  /> --%>
+<%-- 																	src="${a}"></a> --%>
+<!-- 																													<div class="favorite hidden-xs"> -->
+<!-- 																														<div class="btn-collect-nobox"></div> -->
+<!-- 																													</div> -->
+<!-- 															</div> -->
+<!-- 															<div class="product-info col-md-6 col-sm-7"> -->
+<!-- 																<h4 class="product-name"> -->
+<!-- 																	<a href="/product/GFG0000012035/AUKA9B90204A" -->
+<!-- 																		target="_blank"><div -->
+<%-- 																			style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 3;">${element.tourName}</div></a> --%>
+<!-- 																</h4> -->
+<!-- 																<div class="product-info-tag-area"> -->
+<%-- 																	<c:if --%>
+<%-- 																		test="${element.guaranteedCount - element.tourBatchBean[0].peopleCount < 0 && element.fullPeopleCount - element.tourBatchBean[0].peopleCount != 0}"> --%>
+<!-- 																		<div class="tag solid yellow"> -->
+<!-- 																			<div class="ready">已成團</div> -->
+<!-- 																		</div> -->
+
+<%-- 																	</c:if> --%>
+
+<%-- 																	<c:if --%>
+<%-- 																		test="${element.guaranteedCount - element.tourBatchBean[0].peopleCount > 0}"> --%>
+<!-- 																		<div class="tag solid" -->
+<!-- 																			style="color: #333; background-color: #fd7e14;"> -->
+<!-- 																			<div class="soon">即將成團</div> -->
+<!-- 																		</div> -->
+<%-- 																	</c:if> --%>
+
+<%-- 																	<c:if --%>
+<%-- 																		test="${element.fullPeopleCount - element.tourBatchBean[0].peopleCount == 0}"> --%>
+<!-- 																		<div class="tag solid red"> -->
+<!-- 																			<div class="full">額滿</div> -->
+<!-- 																		</div> -->
+<%-- 																	</c:if> --%>
+<!-- 																</div> -->
+<!-- 																<div -->
+<!-- 																	class="product-info-bottom hidden-md hidden-sm hidden-xs"> -->
+<%-- 																	<div>${element.tourBatchBean[0].distination_back}出發</div> --%>
+<%-- 																	<div>團號：${element.tourNo}</div> --%>
+<!-- 																	<div>機位 洽客服</div> -->
+<!-- 																	<div class="order-btn"> -->
+<!-- 																		<a role="button" data-toggle="collapse" -->
+<!-- 																			href="#slider-flightInfo_AUKA9B90204A" -->
+<!-- 																			aria-expanded="true" -->
+<!-- 																			aria-controls="slider-flightInfo">航班<i -->
+<!-- 																			class="fa fa-angle-down" aria-hidden="true"></i></a> -->
+<!-- 																	</div> -->
+<!-- 																</div> -->
+<!-- 															</div> -->
+<!-- 															<div class="product-item-right-text"> -->
+<%-- 																<strong><fmt:formatDate pattern="MM/dd" --%>
+<%-- 																		value="${element.tourBatchBean[0].departureDate}" />，洽客服</strong> --%>
+<!-- 															</div> -->
+<!-- 															<div class="area-price col-md-2 col-sm-12"> -->
+<!-- 																<div class="row"> -->
+<!-- 																	<div class="col-md-12 col-xs-8"> -->
+<!-- 																		<div class="price"> -->
+<!-- 																			<div id="ori-price" class="ori-price"> -->
+<%-- 																				${element.tourDays}天</div> --%>
+<!-- 																			<div> -->
+<%-- 																				<span class="price-uni">$</span><em class="age">${element.tourBatchBean[0].price_adult }</em><em>起</em> --%>
+<!-- 																			</div> -->
+<!-- 																		</div> -->
+<!-- 																	</div> -->
+<!-- 																	<div class="price-btn col-md-12 col-xs-4"> -->
+<!-- 																		<button class="btn-order">看詳細</button> -->
+<!-- 																	</div> -->
+<!-- 																</div> -->
+<!-- 															</div> -->
+<!-- 														</div> -->
+<!-- 														<div id="slider-flightInfo_AUKA9B90204A" -->
+<!-- 															class="slider-flight-info tour hidden-md hidden-sm hidden-xs collapse"> -->
+<!-- 															<div class="slider-flight-info-item-area"></div> -->
+<!-- 															<div class="cart-notice type2"> -->
+<!-- 																<div class="editor-area"> -->
+<!-- 																	<p>實際搭乘航班請以行前說明會資料為準</p> -->
+<!-- 																</div> -->
+<!-- 															</div> -->
+<!-- 															<div class="slider-flight-info-close-btn"> -->
+<!-- 																<div data-toggle="collapse" href="#slider-flightInfo" -->
+<!-- 																	aria-expanded="true" aria-controls="slider-flightInfo"> -->
+<!-- 																	收合參考航班<i class="fa fa-angle-up" aria-hidden="true"></i> -->
+<!-- 																</div> -->
+<!-- 															</div> -->
+<!-- 														</div> -->
+<!-- 													</div> -->
+<!-- 												</article> -->
+<!-- 											</div> -->
+<!-- 										</div> -->
+										
+<%-- 			</c:forEach> --%>
+			
 
 
 
-									<div class="no-data-info text-center" >已經到底了，沒有東西囉</div>
-									<div style="display:block; margin:auto;"><img src="<c:url value='/tour/crying.gif' />" /></div>
-<%-- <img src="<c:url  ='https://www.google.com/search?q=%E8%98%91%E8%8F%87%E9%A0%AD%E8%A1%A8%E6%83%85%E5%8C%85&tbs=isc:white,ic:trans,itp:animated&tbm=isch&source=lnt&sa=X&ved=0ahUKEwjtzP67h4TgAhXEbrwKHbjyATMQpwUIHg&biw=1920&bih=938&dpr=1#imgrc=S0kz4qYOErbNEM:' />" /> --%>
-									
+									<div class="no-data-info text-center">已經到底了，沒有東西囉</div>
+									<div id="cry" style="display: none; margin-top: 10%">
+										<img id="move" style="padding-left: 0%"
+											src="<c:url value='/tour/crying.gif' />" />
+									</div>
+									<%-- <img src="<c:url  ='https://www.google.com/search?q=%E8%98%91%E8%8F%87%E9%A0%AD%E8%A1%A8%E6%83%85%E5%8C%85&tbs=isc:white,ic:trans,itp:animated&tbm=isch&source=lnt&sa=X&ved=0ahUKEwjtzP67h4TgAhXEbrwKHbjyATMQpwUIHg&biw=1920&bih=938&dpr=1#imgrc=S0kz4qYOErbNEM:' />" /> --%>
+
 								</div>
 							</div>
 						</section>
 					</div>
+				</div>
 				</div>
 			</div>
 		</div>
@@ -605,7 +735,10 @@ height:680px;
 					<div class="col-xs-2">
 						<button type="button" class="btn-select">行程</button>
 					</div>
+					
 					<div class="col-xs-8 text-center">
+					 
+							  	
 						排序：<select class="select-boder"
 							style="background-image: url(&amp;quot;https://www.settour.com.tw/st_ec/img/newWeb/icon/icon-dropdown.png&amp;quot;)"
 							id="modalSearchResultSort"><option selected=""
@@ -627,7 +760,7 @@ height:680px;
 				<div class="row flex-column">
 
 					<div class="textfield-search col-sm-12 group mb-3">
-						<input name="tours"id="where" type="text" class="form-control"
+						<input name="tours" id="where" type="text" class="form-control"
 							style="border-radius: 8px;" placeholder="去哪玩 ~ ?">
 					</div>
 
@@ -644,7 +777,8 @@ height:680px;
 					</div>
 					<div class="select-wrap col-sm-12 group mb-3"></div>
 					<div class="col-sm-12 group mb-3">
-						<input id="refind" type="submit" class="search-submit btn btn-primary"
+						<input id="refind" type="submit"
+							class="search-submit btn btn-primary"
 							style="border-radius: 6px; float: right;"
 							value="Let's  Go ~ !!!!">
 					</div>
@@ -653,8 +787,16 @@ height:680px;
 		</form>
 
 	</div>
+	
+	
+
+	
 	<script>	
 		$(document).ready(function() {
+			 var example = new List( "exampl", {
+			  		valueNames: [ "name", "age" ] // 項目
+		  	    });
+			
 // 			$('.choose > div').hide();
 // 			$('.choose > div').slideDown(2000);
 // // 			alert($('.tag-result >span').text());
@@ -872,33 +1014,49 @@ height:680px;
 	   				return true;
 	   		});
 			
-// 			var count=$('.choose').text();
-// 			if(count=="" || count==null){
-				
-// 				$('#nofind').show();
-// 			}
+// 			$('#cry').show();
 			
 			
+			$('#move').animate({"padding-left":"1000px","opacity":"0"},3500,rowBack);
+			function rowBack(){		
+				if($('#move').css("padding-left")=="1000px")	{	
+					$('#move').css("padding-left","0px");
+					$('#move').css("opacity","1");
+				}
+				else if($('#move').css("padding-left")=="0px")	{		
+					$('#move').css("padding-left","1000px");
+					$('#move').css("opacity","0");
+				}
+				$('#move').animate({"padding-left":"1000px","opacity":"0"},3500,rowBack);	
+				}
+
+
+				 
 			
-			
+	
 			
 		})
 //你沒東西計時器
+
+	
+				 
+			  
+
 		  function ifEmpty(){ 
 			$('.tag-result >span').html($('.choose > div:visible').size());
 			
 			
 			if($('.choose >div:hidden').size() == ${count}){		    
-// 				$('#nofind').show();
+			        $('#cry').fadeIn();
 					$('#nofind').slideDown("slow");
 		    }else {
-// 				$('#nofind').hide();
+		    	$('#cry').fadeOut();
 				$('#nofind').fadeOut("slow");
-			}
-		    	
-		}
-		    	
-		   	setInterval('ifEmpty()',150);
+			}		    	
+		}  	setInterval('ifEmpty()',150);
+		
+		
+
 		   	
 	</script>
 
@@ -918,8 +1076,9 @@ height:680px;
 	<script src="<c:url value='/voyage/js/main.js' />"></script>
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<!-- 	<script src="http://libs.baidu.com/jquery/3.0.0/jquery.min.js"></script> -->
-<%--     <script src="<c:url value='/voyage/js/jquery.filterizr.js' />"></script> --%>
+	<!-- 	<script src="http://libs.baidu.com/jquery/3.0.0/jquery.min.js"></script> -->
+	<%--     <script src="<c:url value='/voyage/js/jquery.filterizr.js' />"></script> --%>
+	
 	<jsp:include page="/voyage/foo.jsp"></jsp:include>
 
 </body>
