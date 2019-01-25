@@ -14,13 +14,13 @@
 	
 	#table1 td {
 			padding-left: 10px;
-			font-size: 70%;
+			font-size: 90%;
 			text-align:center;
 	}
 	
 	#table2 td {
 			padding-left: 10px;
-			font-size: 70%;
+			font-size: 100%;
 			
 	}
 	
@@ -259,15 +259,15 @@ function notice(){
 	    				  '<table id="table1"><td>幣別</td><td>設定的匯率</td><td>最後通知日</td></table>'	
 	    				);
 	    				
-	    				
 // 	    				console.log(json)
 	    				$.each(JData,function(idx,RateNoticeBean){
 	    					console.log(RateNoticeBean.accountName)
+	    					date = new Date(RateNoticeBean.deadline)
 	    					$("#searchuser").append(
 	    							
 	    							'<table id="table2"><td>'+RateNoticeBean.currency +'</td>'
-	      							+'<td >'+RateNoticeBean.targetRate +'</td>'
-	      							+'<td>'+RateNoticeBean.deadline +'</td></table>'
+	      							+'<td >'+RateNoticeBean.targetRate +' 元</td>'
+	      							+'<td>'+date.getFullYear()+'/'+parseInt(date.getMonth())+1+'/'+date.getDate()+'</td></table>'
 	    					
 	    					)
 	    							
