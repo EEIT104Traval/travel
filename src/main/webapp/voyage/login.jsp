@@ -55,6 +55,8 @@ div#users-contain table td, div#users-contain table th {
 	border: 1px solid transparent;
 	padding: 0.3em;
 }
+
+
 </style>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -76,7 +78,7 @@ function login(){
 	}).success(function(JData) {
 		console.log(JData);
 		if(JData.xxx1==='Login failed'){
-			$('#loginerror').html('Login failed');
+			$('#loginerror').html('登入失敗');
 		}else{
 			if(JData.xxx1.authority=='A001'){
   	      		location.reload();
@@ -212,7 +214,7 @@ function login(){
 
 		<div>
 			<!--         Google登入：<input type="button"  value="Google登入" onclick="GoogleLogin();" /><br> -->
-			<span class="error" id="loginerror">　</span>
+			<span class="error" id="loginerror" style="color:red">　</span>
 
 			
 			<div class="container-fluid">
@@ -220,16 +222,16 @@ function login(){
 					<div class="col-md-12">
 						<div class="row">
 							<div class="col-md-6">
-							<input style="margin-top:-10px" type="button" value="Login" onclick="login()">
+							<input type="button" value="登入" onclick="login()" style="margin-bottom: 30px">
 							</div>
 							<div class="col-md-6">
-							<input type="button" value="新會員註冊" onclick="register()">
+							<input type="button" value="新會員註冊" onclick="register()" style="margin-left: 27px">
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-			<p style="margin-top:6px;margin-bottom:0.5px;color:	#0088A8;text-align:center">快速登入</p>
+			
 			<img src="<c:url value='/login/images/facebook.jpg' />" onclick="FBLogin();" width="32%" height="32%"> 
 			<img src="<c:url value='/login/images/google01.jpg' />" onclick="GoogleLogin();" width="32%" height="32%"> 
 			<img src="<c:url value='/login/images/line.jpg' />" onclick="GoogleLogin();" width="32%" height="32%">

@@ -85,6 +85,10 @@ tbody tr:nth-child(2n+1) {
 tbody tr:hover {
 	background-color: #ffffff;
 }
+button{
+	background-color:#99BBFF;
+	}
+
 </style>		
 </head>
 

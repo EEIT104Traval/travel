@@ -1,6 +1,8 @@
 package model.rate;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.transaction.Transactional;
 
@@ -31,6 +33,14 @@ public class RateNoticeService {
 		List<RateNoticeBean> result = rateNoticeDAO.findAll();
 
 		return result;
+	}
+	
+	public List<RateNoticeBean> findByPrimaryKey(String accountName) {
+//		Map<String, List<?>> map = new HashMap<String, List<?>>();;
+		List<RateNoticeBean> result = rateNoticeDAO.findByAccountName(accountName);
+		
+		return result;
+		
 	}
 
 }

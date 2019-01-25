@@ -13,6 +13,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import model.rate.RateNoticeBean;
@@ -31,6 +32,7 @@ public class rateNoticeController {
 		webDataBinder.registerCustomEditor(java.util.Date.class, "deadline",
 				new CustomDateEditor(new SimpleDateFormat("yyyy-MM-dd"), true));
 	}
+
 	@RequestMapping(path= {"/secure/rate.controller"})
 	public String insertRate (Model model,RateNoticeBean bean,BindingResult bindingresult) {
 		Map<String, String> errors = new HashMap<>();
@@ -43,11 +45,12 @@ public class rateNoticeController {
 //		return "login.ok";
 		return "rate.test";
 	}
-	
-	@RequestMapping(path= {"/secure/rateselect.controller"})
-	public String selectRate(RateNoticeBean bean) {
-		List<RateNoticeBean> fr = rateNoticeService.findAll(bean);
+	@ResponseBody
+	@RequestMapping(path= {"/voyage/rateSelect.controller"})
+	public List<RateNoticeBean> selectRate(String accountName) {
 		
-		return "rate.test";
+		List<RateNoticeBean> result = rateNoticeService.findByPrimaryKey(accountName);
+	
+		return result;
 	}
 }
