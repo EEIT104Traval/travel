@@ -21,11 +21,11 @@
 
 <style>
 table{
-border:1px solid black;
+/* border:1px solid black; */
 }
 
 table td{ 
- 	width:200px;
+ 	width:125px;
 	font-weight:900;
 }
 </style>
