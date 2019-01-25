@@ -84,9 +84,9 @@ var params = {}
 			  $("#searchuser").append(
 					'<div style="text-align: center;"><h2>票券庫存查詢系統</h2></div>'+
 					'<br>'+
-					'<table ><th style="width:150px">票券號碼</th><th style="width:150px">票券國家</th>'+
-							'<th style="width:150px">票券名稱</th><th style="width:150px">票券價格</th>'+
-							'<th style="width:150px">庫存數量</th><th style="width:150px">銷售數量</th>'+
+					'<table ><th style="width:250px">票券號碼</th><th style="width:250px">票券國家</th>'+
+							'<th style="width:250px">票券名稱</th><th style="width:250px">票券價格</th>'+
+							'<th style="width:250px">庫存數量</th><th style="width:250px">銷售數量</th>'+
 					'</table><br>'	
 								);
 			  
@@ -96,12 +96,12 @@ var params = {}
 			for(var i = 0;i<JData.length;i++){
 						$("#searchuser").append(
 							'<table >'+
-							'<th style="width:150px">'+JData[i].ticketNo+'</th>'+
-							'<th style="width:150px">'+JData[i].country+'</th>'+
-							'<th style="width:150px">'+JData[i].ticketName+'</th>'+
-							'<th style="width:150px">'+JData[i].adultTicketPrice+'</th>'+
-							'<th style="width:150px">'+(JData[i].adultTicketSellQ-JData[i].adultTicketSelledQ)+'</th>'+
-							'<th style="width:150px">'+JData[i].adultTicketSelledQ+'</th></table>'
+							'<th style="width:250px">'+JData[i].ticketNo+'</th>'+
+							'<th style="width:250px">'+JData[i].country+'</th>'+
+							'<th style="width:250px">'+JData[i].ticketName+'</th>'+
+							'<th style="width:250px">'+JData[i].adultTicketPrice+'</th>'+
+							'<th style="width:250px">'+(JData[i].adultTicketSellQ-JData[i].adultTicketSelledQ)+'</th>'+
+							'<th style="width:250px">'+JData[i].adultTicketSelledQ+'</th></table>'
 											)}})};	
 </script>
 </head>
