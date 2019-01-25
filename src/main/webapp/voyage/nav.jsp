@@ -20,6 +20,7 @@
 <script>
 	$(document).ready(function() {
 		var user = '${user}';
+
 		var len = user.length;
 		if (len) {
 			$("#login").html('')
@@ -51,6 +52,30 @@
 		window.location = "http://localhost:8080/Travel/login/userorder.jsp";
 
 	}
+	var accountName="${sessionScope.accountName}";//抓名字
+	function alertRate(){
+		$.ajax({
+			url : '/Travel/voyage/checkRate.controller',
+			contentType : 'application/json; charset=UTF-8',
+			type : 'get',
+			dataType : 'json',
+			data : {
+				'accountName' : accountName,
+			},
+			
+		}).done(function(e) {
+			
+			console.log("ˋ抓到"+e["currency"])
+			if (e["currency"]){
+				alert("Hello"+accountName+"!! 你輸入的價格已到價")
+			}else{
+				alert("Hello"+accountName+"!! 你輸入的價格未到價")
+			}
+		})
+		
+		
+	}
+	
 </script>
 </head>
 <body>
@@ -80,7 +105,7 @@
 					<li class="nav-item"><a
 						href="<c:url value='/voyage/ticket.jsp'/>" class="nav-link">門票</a></li>
 					<li class="nav-item"><a
-						href="<c:url value='/rate/rateindex3.jsp'/>" class="nav-link">查詢匯率</a></li>
+						href="<c:url value='/rate/rateindex3.jsp'/>" class="nav-link" onclick="alertRate()">查詢匯率</a></li>
 				</ul>
 			</div>
 		</div>

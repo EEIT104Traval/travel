@@ -42,5 +42,13 @@ public class RateNoticeService {
 		return result;
 		
 	}
+	
+	public RateBean findByPrimaryKey1(String accountName) {
+//		Map<String, List<?>> map = new HashMap<String, List<?>>();;
+		RateBean result = rateNoticeDAO.find(accountName);
+		
+		return result;
+		
+	}
 
 }

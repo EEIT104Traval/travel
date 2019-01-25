@@ -68,9 +68,9 @@ import model.userInfo.UserInfoBean;
 		return false;
 	}
 	
-	public RateNoticeBean find(String accountName) {
-		String hql = "from rate where cashSell <=(select targetRate from RateNotice where accountName="+accountName+") and currency=(select currency from RateNotice where accountName="+accountName+") and updateTime = CONVERT(varchar(40), getdate(), 121)";
-		return  this.getSession().createQuery(hql,RateNoticeBean.class).uniqueResult();
+	public RateBean find(String accountName) {
+		String hql = "from RateBean where cashSell <=(select targetRate from RateNoticeBean where accountName=\'"+accountName+"\') and currency=(select currency from RateNoticeBean where accountName=\'"+accountName+"\') and updateTime = CONVERT(varchar(40), getdate(), 121)";
+		return  this.getSession().createQuery(hql,RateBean.class).uniqueResult();
 		
 		
 	}

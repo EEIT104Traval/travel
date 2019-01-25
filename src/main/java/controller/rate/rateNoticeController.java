@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import model.rate.RateBean;
 import model.rate.RateNoticeBean;
 import model.rate.RateNoticeService;
 
@@ -51,6 +52,16 @@ public class rateNoticeController {
 		
 		List<RateNoticeBean> result = rateNoticeService.findByPrimaryKey(accountName);
 	
+		return result;
+	}
+	
+	@ResponseBody
+	@RequestMapping(path= {"/voyage/checkRate.controller"})
+	public RateBean checkRate(String accountName) {
+		
+		RateBean result = rateNoticeService.findByPrimaryKey1(accountName);
+		
+	System.out.println("結果"+result);
 		return result;
 	}
 }

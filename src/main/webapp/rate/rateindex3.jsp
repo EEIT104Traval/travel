@@ -116,7 +116,7 @@ $(document).ready(function() {
 					   }
 				//var text = "<ul><li>" +json[0].currency + "</li></ul>"
 				//$('#123').html(text)
-			} <td><a href="">查詢</a></td> 
+			}
 			
 		});
 });
