@@ -166,7 +166,7 @@ h2 {
 				<h1 style="color:deeppink">SUCCESS</h1>
 				<h1 style="color:deeppink">＊訂購完成＊</h1>
 				<h3 style="margin: 20px">為了確保客戶權益別忘記付款唷！</h3>
-				<h5><a href="##">點我立即查看訂單明細</a></h5>
+				<h5><a href="order3.jsp">點我立即查看訂單明細</a></h5>
 			</div>
 		</div>
 	</section>

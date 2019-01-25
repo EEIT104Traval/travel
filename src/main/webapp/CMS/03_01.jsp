@@ -36,8 +36,19 @@ var params = {}
 
 	$(document).ready(function() {
 	});
-	
-		
+	function one(){
+		alert('xxx')
+		$('#ticketName').val('東京迪士尼');
+		$('#category').val('門票');
+		$('#adultTicketPrice').val('2000');
+		$('#adultTicketSellQ').val('30');
+		$('#adultTicketSelledQ').val('0');
+		$('#country').val('japan');
+		$('#validity').val('1');
+		$('#traffic_information').val('陸地門票');
+		$('#ticketPicture').val('images/image_9.jpg');
+		$('#special_restrictions').val('限非居民');
+	}
 	function chack(){
 		params.ticketName = $('#ticketName').val();
 		params.category = $('#category').val();
@@ -47,7 +58,7 @@ var params = {}
 		params.country = $('#country').val();
 		params.validity = $('#validity').val();
 		params.traffic_information = $('#traffic_information').val();
-		params.productFeatures = $('#productFeatures').val();
+		params.ticketPicture = $('#ticketPicture').val();
 		params.special_restrictions = $('#special_restrictions').val();
 	
 		$.ajax({
@@ -60,7 +71,7 @@ var params = {}
  				
             } 	
 		})
- 			window.location.href='/Travel/後台管理/03_01.jsp';
+ 			window.location.href='/Travel/CMS/03_01.jsp';
 	}	
 //-------------------------------查詢全部票券↓↓↓↓↓↓↓↓↓↓↓↓↓---------------------------	
 	function show(){
@@ -104,6 +115,7 @@ var params = {}
               <div class="card">
                 <div class="card-body" style="background: lavender">
                   <h4 class="card-title" style="font-family: Noto Sans TC; text-align: center;">新增票券</h4>
+                  <input type="button" value="一鍵" onclick="one()">
                   <div class="form-group">
                     <div class="input-group">
                       <div class="input-group-prepend" style="margin: auto">
@@ -115,7 +127,7 @@ var params = {}
 								<td><input type="text" id="adultTicketSellQ"></td>
 								<td><input type="text" id="country"></td></tr>
 							<tr><td>使用期限</td><td>票券資訊</td><td>票券限制</td><td>銷售數量</td>
-								<td></td></tr>
+								<td><input type="text" id="ticketPicture" style="display:none"></td></tr>
 							<tr><td><input type="text" id="validity"></td>
 								<td><input type="text" id="traffic_information"></td>
 								<td><input type="text" id="special_restrictions"></td>
