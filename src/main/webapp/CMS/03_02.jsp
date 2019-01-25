@@ -20,9 +20,17 @@
 <title>後台管理者介面</title>
 
 <style>
-.table th{ 
-	width:400px;
+table{ 
+	width: 100%; 
+}
+table thead {
 	font-weight:900;
+}
+table tbody {
+	font-weight:500;
+}
+table td{
+	border:1px solid black;
 }
 </style>
 
@@ -44,26 +52,26 @@ $(document).ready(function() {
 			function(JData) {
 					console.log(JData);
 					$("#searchuser").append(
-					'<table><tr><td>票券名稱</td>'+
-						   '<td>票券國家</td>'+
-		   				   '<td>票券類型</td>'+
-						   '<td>票券價格</td>'+
-						   '<td>進貨數量</td>'+
-						   '<td>銷售數量</td>'+
-						   '<td></td><td></td></tr></table><br>'
+					'<table><thead><tr><td>票券名稱</td>'+
+						  			  '<td>票券國家</td>'+
+		   				 			  '<td>票券類型</td>'+
+									  '<td>票券價格</td>'+
+									  '<td>進貨數量</td>'+
+								      '<td>銷售數量</td>'+
+								      '<td></td><td></td></tr></therd><tbody id="searchuser1">'
 					)
 
 				$.each(JData, function(index, value) {
 // 					$("#searchuser").html("")
-					$("#searchuser").append(
-					'<table><tr id="tr'+value.ticketNo+'"><td>'+value.ticketName+'</td>'+
+					$("#searchuser1").append(
+					'<tr id="tr'+value.ticketNo+'"><td>'+value.ticketName+'</td>'+
 							'<td>'+value.country+'</td>'+
 							'<td>'+value.ticketDescription+'</td>'+
 						    '<td>'+value.adultTicketPrice+'</td>'+
 						    '<td>'+value.adultTicketSellQ+'</td>'+
 						    '<td>'+value.adultTicketSelledQ+'</td>'+
 						    '<td><input type="submit" name="prodaction" value="Update" onclick=ticketchange('+value.ticketNo+')></td>'+
-						    '<td><input type="submit" name="prodaction" value="Check" onclick=check('+value.ticketNo+')></td></tr></table>'
+						    '<td><input type="submit" name="prodaction" value="Check" onclick=check('+value.ticketNo+')></td></tr>'
 
 											)
 							})
@@ -79,11 +87,11 @@ $(document).ready(function() {
 				var adultTicketSelledQ=$("#tr"+ticketNo+">td:nth-child(6)").text()
 				
 				$("#tr"+ticketNo+">td:nth-child(1)").prop("outerHTML","<td>"+"<input type='text' style='width:100%' id='ticketName' value='"+ticketName+"' />"+"</td>");
-				$("#tr"+ticketNo+">td:nth-child(2)").prop("outerHTML","<td>"+"<input type='text' style='width:101%' id='country' value='"+country+"' />"+"</td>");
-				$("#tr"+ticketNo+">td:nth-child(3)").prop("outerHTML","<td>"+"<input type='text' style='width:101%' id='ticketDescription' value='"+ticketDescription+"' />"+"</td>");
-				$("#tr"+ticketNo+">td:nth-child(4)").prop("outerHTML","<td>"+"<input type='text' style='width:101%' id='adultTicketPrice' value='"+adultTicketPrice+"' />"+"</td>");
-				$("#tr"+ticketNo+">td:nth-child(5)").prop("outerHTML","<td>"+"<input type='text' style='width:101%' id='adultTicketSellQ' value='"+adultTicketSellQ+"' />"+"</td>");
-				$("#tr"+ticketNo+">td:nth-child(6)").prop("outerHTML","<td>"+"<input type='text' style='width:101%' id='adultTicketSelledQ' value='"+adultTicketSelledQ+"' />"+"</td>");	
+				$("#tr"+ticketNo+">td:nth-child(2)").prop("outerHTML","<td>"+"<input type='text' style='width:100%' id='country' value='"+country+"' />"+"</td>");
+				$("#tr"+ticketNo+">td:nth-child(3)").prop("outerHTML","<td>"+"<input type='text' style='width:100%' id='ticketDescription' value='"+ticketDescription+"' />"+"</td>");
+				$("#tr"+ticketNo+">td:nth-child(4)").prop("outerHTML","<td>"+"<input type='text' style='width:100%' id='adultTicketPrice' value='"+adultTicketPrice+"' />"+"</td>");
+				$("#tr"+ticketNo+">td:nth-child(5)").prop("outerHTML","<td>"+"<input type='text' style='width:100%' id='adultTicketSellQ' value='"+adultTicketSellQ+"' />"+"</td>");
+				$("#tr"+ticketNo+">td:nth-child(6)").prop("outerHTML","<td>"+"<input type='text' style='width:100%' id='adultTicketSelledQ' value='"+adultTicketSelledQ+"' />"+"</td>");	
 					
 }
 	    	function check(ticketNo){ 
@@ -138,7 +146,7 @@ $(document).ready(function() {
 									<div id="searchuser">
 									
 <!-- 	----------------------加東西--------------------- -->
-
+</tbody></table>
 <!-- 	----------------------加東西--------------------- -->
 																					
 								</div>
