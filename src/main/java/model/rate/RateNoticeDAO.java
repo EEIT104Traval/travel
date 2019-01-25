@@ -3,7 +3,7 @@ package model.rate;
 import java.util.List;
 
 public interface RateNoticeDAO {
-	public abstract RateNoticeBean findByPrimaryKey(Integer serial);
+	public abstract List<RateNoticeBean> findByAccountName(String accountName);
 
 	public abstract List<RateNoticeBean> findAll();
 

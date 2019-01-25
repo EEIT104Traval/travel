@@ -55,6 +55,8 @@ div#users-contain table td, div#users-contain table th {
 	border: 1px solid transparent;
 	padding: 0.3em;
 }
+
+
 </style>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -222,14 +224,14 @@ function login(){
 							<div class="col-md-6">
 							<input style="margin-top:-10px" type="button" value="Login" onclick="login()">
 							</div>
-							<div class="col-md-6">
-							<input type="button" value="新會員註冊" onclick="register()">
+							<div class="col-md-6" style="margin-bottom:5%">
+							<input type="button" value="新會員註冊" onclick="register()" >
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-			<p style="margin-top:6px;margin-bottom:0.5px;color:	#0088A8;text-align:center">快速登入</p>
+			
 			<img src="<c:url value='/login/images/facebook.jpg' />" onclick="FBLogin();" width="32%" height="32%"> 
 			<img src="<c:url value='/login/images/google01.jpg' />" onclick="GoogleLogin();" width="32%" height="32%"> 
 			<img src="<c:url value='/login/images/line.jpg' />" onclick="GoogleLogin();" width="32%" height="32%">
