@@ -64,12 +64,12 @@ $(document).ready(function() {
 				$.each(JData, function(index, value) {
 // 					$("#searchuser").html("")
 					$("#searchuser1").append(
-					'<tr id="tr'+value.ticketNo+'"><td>'+value.ticketName+'</td>'+
-							'<td>'+value.country+'</td>'+
-							'<td>'+value.ticketDescription+'</td>'+
-						    '<td>'+value.adultTicketPrice+'</td>'+
-						    '<td>'+value.adultTicketSellQ+'</td>'+
-						    '<td>'+value.adultTicketSelledQ+'</td>'+
+					'<tr id="tr'+value.ticketNo+'"><td style="width:150px">'+value.ticketName+'</td>'+
+							'<td style="width:150px">'+value.country+'</td>'+
+							'<td style="width:150px">'+value.ticketDescription+'</td>'+
+						    '<td style="width:150px">'+value.adultTicketPrice+'</td>'+
+						    '<td style="width:150px">'+value.adultTicketSellQ+'</td>'+
+						    '<td style="width:150px">'+value.adultTicketSelledQ+'</td>'+
 						    '<td><input type="submit" name="prodaction" value="Update" onclick=ticketchange('+value.ticketNo+')></td>'+
 						    '<td><input type="submit" name="prodaction" value="Check" onclick=check('+value.ticketNo+')></td></tr>'
 
