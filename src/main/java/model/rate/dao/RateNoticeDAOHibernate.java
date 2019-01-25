@@ -68,11 +68,17 @@ import model.userInfo.UserInfoBean;
 		return false;
 	}
 	
-	public RateBean find(String accountName) {
+	public RateBean findA(String accountName) {
 		String hql = "from RateBean where cashSell <=(select targetRate from RateNoticeBean where accountName=\'"+accountName+"\') and currency=(select currency from RateNoticeBean where accountName=\'"+accountName+"\') and updateTime = CONVERT(varchar(40), getdate(), 121)";
 		return  this.getSession().createQuery(hql,RateBean.class).uniqueResult();
 		
 		
+	}
+
+	@Override
+	public RateNoticeBean find(String accountName) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

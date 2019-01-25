@@ -9,7 +9,9 @@ public interface RateNoticeDAO {
 
 	public abstract RateNoticeBean create(RateNoticeBean bean);
 	
-	public abstract RateBean find(String accountName);
+	public abstract RateBean findA(String accountName);
+	
+	public abstract RateNoticeBean find(String accountName);
 
 	public abstract RateNoticeBean update(String accountName, String currency, Double targetRate,java.util.Date deadline,java.sql.Timestamp registerDate);
 
