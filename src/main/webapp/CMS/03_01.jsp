@@ -102,7 +102,9 @@ var params = {}
 							'<th style="width:250px">'+JData[i].adultTicketPrice+'</th>'+
 							'<th style="width:250px">'+(JData[i].adultTicketSellQ-JData[i].adultTicketSelledQ)+'</th>'+
 							'<th style="width:250px">'+JData[i].adultTicketSelledQ+'</th></table>'
-											)}})};	
+											)
+											
+			}})};	
 </script>
 </head>
 <body>
