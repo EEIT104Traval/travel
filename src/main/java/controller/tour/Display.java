@@ -1,8 +1,13 @@
 package controller.tour;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,6 +15,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.alipay.api.AlipayApiException;
+import com.alipay.api.AlipayClient;
+import com.alipay.api.DefaultAlipayClient;
+import com.alipay.api.request.AlipayTradePagePayRequest;
+import com.alipay.config.AlipayConfig2;
 
 import model.tour.GroupTourBean;
 import model.tour.TourBatchBean;
@@ -134,5 +145,62 @@ public class Display {
 		TourMemberInfoBean result = tourBuyService.updateMember(orderNo, purchaseOrder,fullName,passport,sex);
 		return result;
 	}
+	
+	@ResponseBody
+	@RequestMapping("/tour/Display2/cancel")
+	public TourOrderInfoBean cancel(Integer orderNo) {
+		TourOrderInfoBean result = tourBuyService.cancel(orderNo);
+		System.out.println(result);
+		return result;
+	}
 
+	@RequestMapping("/tour/Display2/submit")
+	protected void doGet(HttpServletRequest request, HttpServletResponse response, String WIDout_trade_no,
+			String WIDsubject, String WIDtotal_amount, String WIDbody) throws ServletException, IOException {
+		System.out.println(WIDout_trade_no);
+		System.out.println(WIDsubject);
+		System.out.println(WIDtotal_amount);
+		System.out.println(WIDbody);
+		// 获得初始化的AlipayClient
+		AlipayClient alipayClient = new DefaultAlipayClient(AlipayConfig2.gatewayUrl, AlipayConfig2.app_id,
+				AlipayConfig2.merchant_private_key, "json", AlipayConfig2.charset, AlipayConfig2.alipay_public_key,
+				AlipayConfig2.sign_type);
+		// 设置请求参数
+
+		System.out.println("WIDout_trade_no=" + WIDout_trade_no + "WIDsubject=" + WIDsubject + "WIDtotal_amount="
+				+ WIDtotal_amount + "WIDbody=" + WIDbody);
+		AlipayTradePagePayRequest alipayRequest = new AlipayTradePagePayRequest();
+		alipayRequest.setReturnUrl(AlipayConfig2.return_url);
+		alipayRequest.setNotifyUrl(AlipayConfig2.notify_url);
+
+		// 商户订单号，商户网站订单系统中唯一订单号，必填
+		String out_trade_no = WIDout_trade_no;
+		// 付款金额，必填
+		String total_amount = WIDtotal_amount;
+		// 订单名称，必填
+		String subject = WIDsubject;
+		// 商品描述，可空
+		String body = WIDbody;
+
+		alipayRequest.setBizContent("{\"out_trade_no\":\"" + out_trade_no + "\"," + "\"total_amount\":\"" + total_amount
+				+ "\"," + "\"subject\":\"" + subject + "\"," + "\"body\":\"" + body + "\","
+				+ "\"product_code\":\"FAST_INSTANT_TRADE_PAY\"}");
+
+		// 请求
+		String result;
+		try {
+			result = alipayClient.pageExecute(alipayRequest).getBody();
+			response.setContentType("text/html;charset=" + AlipayConfig2.charset);
+			response.getWriter().write(result);// 直接将完整的表单html输出到页面
+			response.getWriter().flush();
+			response.getWriter().close();
+		} catch (AlipayApiException e) {
+			e.printStackTrace();
+			response.getWriter().write("捕获异常出错");
+			response.getWriter().flush();
+			response.getWriter().close();
+		}
+
+	}
+	
 }

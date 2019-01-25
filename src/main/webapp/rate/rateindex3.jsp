@@ -110,12 +110,13 @@ $(document).ready(function() {
 				      '<td>'+json[item].cashSell+'</td>'+
 				      '<td>'+json[item].spotBuy+'</td>'+
 				      '<td>'+json[item].spotSell+'</td>'+
+				      '<td><a href="">查詢</a></td>'+
 					  '</tr>';
 					   $('table> tbody:last').append(row);		
 					   }
 				//var text = "<ul><li>" +json[0].currency + "</li></ul>"
 				//$('#123').html(text)
-			}
+			} <td><a href="">查詢</a></td> 
 			
 		});
 });
@@ -196,7 +197,7 @@ function update(){
 				<th rowspan="2">幣別</th>
 				<th colspan="2">現金匯率</th>
 				<th colspan="2">即期匯率</th>
-
+				<th rowspan="2">歷史匯率</th>
 			</tr>
 
 			<tr>
@@ -204,6 +205,7 @@ function update(){
 				<th>本行賣出</th>
 				<th>本行賣出</th>
 				<th>本行賣出</th>
+				
 			</tr>
 		</thead>
 		<tbody>

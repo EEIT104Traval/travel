@@ -101,6 +101,11 @@
 </head>
 <body>
 	<script type="text/javascript">
+	
+	
+	
+	
+	
 var result = ${result}
 var test = ${test}
 
@@ -127,6 +132,30 @@ week = new Array("日","一","二","三","四","五","六");
 serialNum = 0;
 
 $(document).ready(function() {
+	 $('#cd-checkbox-s1').prop("checked",true)
+	$('#cd-checkbox-s2').click(function(){
+		console.log($('#gofirst > div').val());
+	    if($('#cd-checkbox-s2').prop("checked")){
+	    $('#cd-checkbox-s1').prop("checked",false)
+	     $('#gofirst > div').fadeOut("slow");
+	     $('#gofirst > div[class="CICI"]').fadeIn("slow");
+	    }else{
+	    	$('#gofirst > div').fadeIn("slow");
+	    	$('#cd-checkbox-s2').prop("checked")
+	    	$('#cd-checkbox-s1').prop("checked",true)
+	    	}
+	   });
+	
+	 $('#cd-checkbox-s1').click(function(){
+		 
+		 if($('#cd-checkbox-s1').prop("checked")){
+		 
+			 $('#cd-checkbox-s2').prop("checked",false)
+			 $('#gofirst > div').fadeIn("slow");
+			 
+		 }
+	 })
+	
 $.each(result.OTA_AirLowFareSearchRS.PricedItineraries.PricedItinerary, function(index, value) {
 	//去程迴圈
 	serialNum = serialNum+1;
@@ -158,11 +187,11 @@ $.each(result.OTA_AirLowFareSearchRS.PricedItineraries.PricedItinerary, function
 // 		'<div class="romde_box">')
 // 	}
 	var code = value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].OperatingAirline.Code;
-	console.log(code)
-
+	var code2 = value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[0].OperatingAirline.Code
 	$('#gofirst').append(
-			'<form action="<c:url value='/FlightInfoSecound' />" method="post">'
+			'<div class="'+code+code2+'">'
 			+'<div class="romde_box">'
+			+'<form action="<c:url value='/FlightInfoSecound' />" method="post">'
 	         +'<div class="border" style=" border-style: outset;border-color: ghostwhite;" id="redborder'+value.SequenceNumber+'">' 
 // 	              <!--第1段-->
 	              +'<div class="num-tag">'+serialNum+'</div>'
@@ -202,7 +231,6 @@ $.each(result.OTA_AirLowFareSearchRS.PricedItineraries.PricedItinerary, function
 //          +'</div>'
          +'</div>'
          +'</div>'
-	
 	)
 		var s = value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment
 // 	console.log(s.length)
@@ -210,7 +238,6 @@ $.each(result.OTA_AirLowFareSearchRS.PricedItineraries.PricedItinerary, function
 		var ArrivalDateTime = value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[1].ArrivalDateTime
 		var Adate = ArrivalDateTime.substr(0,10);
 		var AsetTime = new Date(Adate);
-		
 		var Adateweek = week[AsetTime.getDay()];
 		var Atime = ArrivalDateTime.substring(11,16);
 	$('#fl-flyname'+value.SequenceNumber).html(
@@ -241,6 +268,7 @@ $.each(result.OTA_AirLowFareSearchRS.PricedItineraries.PricedItinerary, function
 	var AsetTime2 = new Date(Adate2);
 	var Adateweek2 = week[AsetTime2.getDay()]
 	var Atime2 = ArrivalDateTime2.substring(11,16);
+	
 	$('#redborder'+value.SequenceNumber).append(
 			'<div class="flybox row border-top">'
 			+" <div class='col-xs-10 text-center fly-leftbox'>"
@@ -280,6 +308,7 @@ $.each(result.OTA_AirLowFareSearchRS.PricedItineraries.PricedItinerary, function
 		 +'</div>'
 		 +'</div>'
 		 +'</div>'
+		 +'</div>'
 		 
 	
 	)
@@ -301,10 +330,6 @@ $.each(result.OTA_AirLowFareSearchRS.PricedItineraries.PricedItinerary, function
 		
 		}else if(s.length==3){
 			
-			
-			
-			
-				
 				$('#fl-flyname1'+value.SequenceNumber).html(
 				'<div class="fl-flyname" id="fl-flyname1'+value.SequenceNumber+'">轉機兩次</div>'
 			)}
@@ -338,18 +363,9 @@ $.each(result.OTA_AirLowFareSearchRS.PricedItineraries.PricedItinerary, function
 		+'</form>'
 	
 	)
-	
-	
-	
-	
+	})
 })
-})
-
-
-
  </script>
-
-  
  	 <!--重新search--> 
  	 <div class="search-head" style="height: 250px;;background-image: url('<c:url value='/voyage/images/whitebluesky1.jpg'/>')">
  			 <div class="container" style="background-color: transparent;padding-top: 50px;">
@@ -467,31 +483,31 @@ $.each(result.OTA_AirLowFareSearchRS.PricedItineraries.PricedItinerary, function
                       <input type="checkbox" id="cd-checkbox-s4">
                       <label for="cd-checkbox-s4"></label>
                     </div>
-                    <p><span>長榮航空</span> <span class="price">$<b>36,134</b></span></p>
+                    <p><span>濟州航空</span> <span class="price">$<b>36,134</b></span></p>
                   </li>
                   <li>
                     <div class="cdst">
                       <input type="checkbox" id="cd-checkbox-s5">
                       <label for="cd-checkbox-s5"></label>
                     </div>
-                    <p><span>酷鳥航空 </span><span class="price">$<b>37,411</b></span></p>
+                    <p><span>大韓航空 </span><span class="price">$<b>37,411</b></span></p>
                   </li>
-                  <li>
-                    <div class="cdst">
-                      <input type="checkbox" id="cd-checkbox-s6">
-                      <label for="cd-checkbox-s6"></label>
-                    </div>
-                    <p><span>曼谷航空 </span><span class="price">$<b>38,433</b></span></p>
-                  </li>
-                  <li>
-                    <div class="cdst">
-                      <input type="checkbox" id="cd-checkbox-s7">
-                      <label for="cd-checkbox-s7"></label>
-                    </div>
-                    <p><span>國泰航空</span> <span class="price">$<b>39,172</b></span></p>
-                  </li>
-                </ul>
-              </li>
+<!--                   <li> -->
+<!--                     <div class="cdst"> -->
+<!--                       <input type="checkbox" id="cd-checkbox-s6"> -->
+<!--                       <label for="cd-checkbox-s6"></label> -->
+<!--                     </div> -->
+<!--                     <p><span>曼谷航空 </span><span class="price">$<b>38,433</b></span></p> -->
+<!--                   </li> -->
+<!--                   <li> -->
+<!--                     <div class="cdst"> -->
+<!--                       <input type="checkbox" id="cd-checkbox-s7"> -->
+<!--                       <label for="cd-checkbox-s7"></label> -->
+<!--                     </div> -->
+<!--                     <p><span>國泰航空</span> <span class="price">$<b>39,172</b></span></p> -->
+<!--                   </li> -->
+<!--                 </ul> -->
+<!--               </li> -->
                </ul>
               <!--航空公司_結束-->
               <div class="filters">
