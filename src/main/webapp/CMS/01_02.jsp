@@ -24,8 +24,9 @@ table{
 border:1px solid black;
 }
 
-.table th{ 
-	width:400px;
+table td{ 
+ 	width:300px;
+	font-weight:900;
 }
 </style>
 
@@ -74,7 +75,7 @@ var hotelOrderDetailsBean ;
  			if(JData.TicketOrderInfoBean != null){
 					for(var i = 0;i<JData.TicketOrderInfoBean.length;i++){
 							$("#searchuser").append(		
-							'<table ><tr><th>門票</th>'+
+							'<table ><tr><td>門票</td>'+
 							'<td>'+ JData.TicketOrderInfoBean[i].ticketName +'</td>'+
 					        '<td>'+ JData.TicketOrderInfoBean[i].adultTicketCount +'</td>'+
 					        '<td>'+ JData.TicketOrderInfoBean[i].orderDate +'</td>'+
