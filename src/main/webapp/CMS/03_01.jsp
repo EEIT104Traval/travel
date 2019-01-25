@@ -90,22 +90,18 @@ var params = {}
 			  $("#searchuser").append(
 					'<div style="text-align: center;"><h2>票券庫存查詢系統</h2></div>'+
 					'<br>'+
-					
-			'<table><thead><tr><td>票券號碼</td><td>票券國家</td><td>票券名稱</td><td>票券價格</td><td>庫存數量</td><td>銷售數量</td></tr></thead>'
-		
-								);
-			  
+			'<table><thead><tr><td>票券號碼</td><td>票券國家</td><td>票券名稱</td><td>票券價格</td><td>庫存數量</td><td>銷售數量</td></tr></thead><tbody id="searchuser1">'
+								);		  
 			   console.log(JData)
-			   console.log(JData.length)
-			   
+			   console.log(JData.length)  
 			for(var i = 0;i<JData.length;i++){
-						$("#searchuser").append(
+						$("#searchuser1").append(
 							'<tr><td>'+JData[i].ticketNo+'</td>'+
 							    '<td>'+JData[i].country+'</td>'+
 								'<td>'+JData[i].ticketName+'</td>'+
 								'<td>'+JData[i].adultTicketPrice+'</td>'+
 								'<td>'+(JData[i].adultTicketSellQ-JData[i].adultTicketSelledQ)+'</td>'+
-								'<td>'+JData[i].adultTicketSelledQ+'</td></tr></table>'
+								'<td>'+JData[i].adultTicketSelledQ+'</td></tr>'
 											)
 											
 			}})};	
@@ -147,12 +143,12 @@ var params = {}
                  	<div class="col-lg-12 grid-margin stretch-card" style="background: lavender">
 							<div class="card">
 								<div class="card-body" style="background: lavender">
-									<div id="searchuser">
-									
+									<div id="searchuser">							
 <!-- 	----------------------加東西--------------------- -->
 
 
 
+</tbody></table>
 <!-- 	----------------------加東西--------------------- -->
 																					
 								</div>

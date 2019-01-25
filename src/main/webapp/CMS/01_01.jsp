@@ -68,7 +68,7 @@ var params = {}
   					   '<tr><td>'+value.sex +'</td>'+
   					       '<td>'+value.phone +'</td>'+
   					       '<td>'+date.getFullYear()+'/'+parseInt(date.getMonth()+1)+'/'+date.getDate()+'</td>'+
-  						   '<td colspan="2">'+value.address +'</td></tr></table><hr><br>'			
+  						   '<td colspan="2">'+value.address +'</td></tr></table><br>'			
  							)})
  							document.getElementById("user").value="";
  						})};
