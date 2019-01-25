@@ -6,16 +6,17 @@
 <head>
 <meta charset="UTF-8">
 <title>RateNotice</title>
+<style>
+th{
+border: 1px solid black;
+}
+</style>
 </head>
 <body>
 
 <script>
-function disp_prompt(){
-	var price = prompt("輸入匯率價格")
-	if (price!=null && price!=""){
-		document.getElementById("prompt").innerHTML="您輸入的匯率為"+price;
-	}
-}
+var accountName = "${sessionScope.accountName}";//抓名字
+
 
 function show_confirm(){
 	var r = confirm("確定或取消");
@@ -52,16 +53,20 @@ function findorder() {
 
 $.ajax({
 	method: "GET",
-	url:'/Travel/secure/rateselect.controller',
-	
+	url:'/Travel/voyage/rateSelect.controller',
+	contentType : 'application/json; charset=UTF-8',
 	dataType: "json",
+	data:{
+		'accountName':	accountName,
+	},
+	
 	success: function(json) {
 		alert("Hello!! "+json.accountName);
 	}
 })
 		.done(
 				function(JData) {
-					if (JData.TourOrderInfoBean != null) {
+					if (JData.RateNoticeBean != null) {
 						for (var i = 0; i < JData.RateNoticeBean.length; i++) {
 							$("#searchuser")
 							.append(
@@ -80,26 +85,25 @@ $.ajax({
 											+ '<th scope="row" style="width:10%" name="totalPrice"></th></table>')
 						}
 					}
-				});
-
+				})
+}
 
 </script>
 
 <h4>Hello</h4>
-<form action="<c:url value="/secure/rate.controller" />" method="post">
 <table>
-<tr>
-<td>帳號</td>
+<thead>
+<th>帳號</th>
 
-<td>幣別</td>
+<th>幣別</th>
 
-<td>匯率</td>
+<th>匯率</th>
 
-<td>最後通知日</td>
-
+<th>最後通知日</th>
+</thead>
 </table>
 <div class="row" id="searchuser"></div>
-</form>
+
 
 </body>
 </html>

@@ -51,8 +51,8 @@ var sum = 0;
  					  $("#searchuser").append(
  								'<div style="text-align: center;"><h2>'+Number($('#select1').val()) +'月份報表</h2></div>'+
  								'<br>'+
- 								'<table ><th style="width:50px">國家</th><th style="width:350px">名稱</th>'+
- 								'<th style="width:50px">數量</th><th style="width:200px">購買日期</th><th style="width:100px">價格</th></table>'+
+ 								'<table><tr><td>國家</td><td>名稱</td>'+
+ 								'<td>數量</td><td>購買日期</td><td>價格</td></tr></table>'+
  								'<br>'		 );
  					 
  					 	console.log("-------------------------------------");
@@ -61,14 +61,14 @@ var sum = 0;
   							for(var i = 0;i<JData.length;i++){
   								x = JData[i].total
 	 							$("#searchuser").append(		
-	 		 							'<table ><th style="width:50px">'+ JData[i].country +'</th>'+
-	 		 									'<th style="width:350px">'+ JData[i].tourName +'</th>'+
-	 		 							        '<th style="width:50px">'+ JData[i].quantity +'</th>'+
-	 		 							        '<th style="width:200px">'+ JData[i].orderTime +'</th>'+
-	 		 							        '<th style="width:100px">'+ JData[i].total +'</th></table>'	
+	 		 							'<table><tr><td>'+ JData[i].country +'</td>'+
+	 		 									'<td>'+ JData[i].tourName +'</td>'+
+	 		 							        '<td>'+ JData[i].quantity +'</td>'+
+	 		 							        '<td>'+ JData[i].orderTime +'</td>'+
+	 		 							        '<td>'+ JData[i].total +'</td></tr></table>'	
 	 													)
 	 													sum = sum + x
-	 								 } $("#searchuser").append('<table><th style="width:50px">合計</th><th style="width:727px">'+ sum +'</th></table>')
+	 								 } $("#searchuser").append('<br><table><tr><td>合計</td><td>'+ sum +'</td></tr></table>')
 								                       }else{
 						$("#searchuser").append('<H1>業績差尚無訂單</H1>')
 								                       }

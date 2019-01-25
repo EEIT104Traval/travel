@@ -1,6 +1,7 @@
 package controller.test.rate;
 
 import java.sql.Timestamp;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,8 +20,8 @@ public class RateNoticeTest {
 	private RateNoticeDAO dao;
 	@ResponseBody
 	@RequestMapping("/ratenoticePK")
-	public RateNoticeBean method() {
-		RateNoticeBean bean =dao.findByPrimaryKey(1);
+	public List<RateNoticeBean> method() {
+		List<RateNoticeBean> bean =dao.findByAccountName("micky");
 		return bean;
 	}
 	
