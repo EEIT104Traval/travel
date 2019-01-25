@@ -20,6 +20,10 @@
 <title>後台管理者介面</title>
 
 <style>
+table{
+border:1px solid black;
+}
+
 .table th{ 
 	width:400px;
 }
