@@ -54,11 +54,11 @@ var params = {}
 		
 		
 		
-  							'<table><th style="width:150px">帳號</th><th style="width:150px">姓</th>'+
-  							'<th style="width:150px">名</th><th style="width:150px">identityNo</th><th style="width:150px">email</th><tr>'
+  							'<table><th style="width:320px">帳號</th><th style="width:320px">姓</th>'+
+  							'<th style="width:320px">名</th><th style="width:320px">identityNo</th><th style="width:320px">email</th><tr>'
   							+'<th>'+value.accountName +'</th>'
-  							+'<th>'+value.firstname +'</th>'
   							+'<th>'+value.lastname +'</th>'
+  							+'<th>'+value.firstname +'</th>'
   							+'<th>'+value.identityNo +'</th>'
   							+'<th>'+value.email +'</th>'
   							+'</tr><th>性別</th><th>電話號碼</th><th>出生年月日</th><th colspan="2">地址</th><tr>'

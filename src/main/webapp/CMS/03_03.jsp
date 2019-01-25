@@ -45,23 +45,23 @@ $(document).ready(function() {
 					console.log(JData);
 					$("#searchuser").html("")
 					$("#searchuser").append(
-					'<table><th style="width:148px">票券名稱</th>'+
-						   '<th style="width:148px">票券國家</th>'+
-		   				   '<th style="width:148px">票券類型</th>'+
-						   '<th style="width:148px">票券價格</th>'+
-						   '<th style="width:148px">進貨數量</th>'+
-						   '<th style="width:148px">銷售數量</th>'+
+					'<table><th style="width:220px">票券名稱</th>'+
+						   '<th style="width:220px">票券國家</th>'+
+		   				   '<th style="width:220px">票券類型</th>'+
+						   '<th style="width:220px">票券價格</th>'+
+						   '<th style="width:220px">進貨數量</th>'+
+						   '<th style="width:220px">銷售數量</th>'+
 						   '<th style="width:50px"><input type="submit" name="prodaction" value="刷新" onclick="ticketSearch1()")></th></table><br>'
 					)
 				$.each(JData, function(index, value) {
 					$("#searchuser").append(
 							'<div>'+
-					'<table><tr id="tr'+value.ticketNo+'"><th style="width:150px">'+value.ticketName+'</th>'+
-							'<th style="width:150px">'+value.country+'</th>'+
-							'<th style="width:150px">'+value.ticketDescription+'</th>'+
-						    '<th style="width:150px">'+value.adultTicketPrice+'</th>'+
-						    '<th style="width:150px">'+value.adultTicketSellQ+'</th>'+
-						    '<th style="width:150px">'+value.adultTicketSelledQ+'</th>'+
+					'<table><tr id="tr'+value.ticketNo+'"><th style="width:220px">'+value.ticketName+'</th>'+
+							'<th style="width:220px">'+value.country+'</th>'+
+							'<th style="width:220px">'+value.ticketDescription+'</th>'+
+						    '<th style="width:220px">'+value.adultTicketPrice+'</th>'+
+						    '<th style="width:220px">'+value.adultTicketSellQ+'</th>'+
+						    '<th style="width:220px">'+value.adultTicketSelledQ+'</th>'+
 						    '<th style="width:50px">'+
 						    '<input type="button" name="prodaction" value="Delete" data-toggle="modal" id="exampleModal'+value.ticketNo+'" onclick=Delete('+value.ticketNo+')></th></tr></table>'+
 						    '</div>'

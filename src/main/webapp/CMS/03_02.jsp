@@ -44,24 +44,24 @@ $(document).ready(function() {
 			function(JData) {
 					console.log(JData);
 					$("#searchuser").append(
-					'<table><th style="width:148px">票券名稱</th>'+
-						   '<th style="width:148px">票券國家</th>'+
-		   				   '<th style="width:148px">票券類型</th>'+
-						   '<th style="width:148px">票券價格</th>'+
-						   '<th style="width:148px">進貨數量</th>'+
-						   '<th style="width:148px">銷售數量</th>'+
-						   '<th style="width:50px"><th style="width:50px"></th></table><br>'
+					'<table><tr><th style="width:220px">票券名稱</th>'+
+						   '<th style="width:220px">票券國家</th>'+
+		   				   '<th style="width:220px">票券類型</th>'+
+						   '<th style="width:220px">票券價格</th>'+
+						   '<th style="width:220px">進貨數量</th>'+
+						   '<th style="width:220px">銷售數量</th>'+
+						   '<th style="width:50px"><th style="width:50px"></th></tr></table><br>'
 					)
 
 				$.each(JData, function(index, value) {
 // 					$("#searchuser").html("")
 					$("#searchuser").append(
-					'<table><tr id="tr'+value.ticketNo+'"><th style="width:150px">'+value.ticketName+'</th>'+
-							'<th style="width:150px">'+value.country+'</th>'+
-							'<th style="width:150px">'+value.ticketDescription+'</th>'+
-						    '<th style="width:150px">'+value.adultTicketPrice+'</th>'+
-						    '<th style="width:150px">'+value.adultTicketSellQ+'</th>'+
-						    '<th style="width:150px">'+value.adultTicketSelledQ+'</th>'+
+					'<table><tr id="tr'+value.ticketNo+'"><th style="width:220px">'+value.ticketName+'</th>'+
+							'<th style="width:220px;">'+value.country+'</th>'+
+							'<th style="width:220px;">'+value.ticketDescription+'</th>'+
+						    '<th style="width:220px;">'+value.adultTicketPrice+'</th>'+
+						    '<th style="width:220px;">'+value.adultTicketSellQ+'</th>'+
+						    '<th style="width:220px;">'+value.adultTicketSelledQ+'</th>'+
 						    '<th style="width:50px"><input type="submit" name="prodaction" value="Update" onclick=ticketchange('+value.ticketNo+')></th>'+
 						    '<th style="width:50px"><input type="submit" name="prodaction" value="Check" onclick=check('+value.ticketNo+')></th></tr></table>'
 
