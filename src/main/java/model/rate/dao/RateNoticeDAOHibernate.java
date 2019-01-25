@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import model.rate.RateBean;
 import model.rate.RateNoticeBean;
 import model.rate.RateNoticeDAO;
+import model.ticket.TicketInfoBean;
 import model.userInfo.UserInfoBean;
 
 	@Repository
@@ -22,8 +23,8 @@ import model.userInfo.UserInfoBean;
 			}
 
 	@Override
-	public RateNoticeBean findByPrimaryKey(Integer serial) {
-		return this.getSession().get(RateNoticeBean.class,serial);
+	public List<RateNoticeBean> findByAccountName(String accountName) {
+		return this.getSession().createQuery("from RateNoticeBean where accountName='"+accountName+"'", RateNoticeBean.class).setMaxResults(50).list();
 	}
 
 	@Override

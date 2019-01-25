@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,6 +10,26 @@
 <style type="text/css">
 	body{
 		background: url("images/pic01.jpg");
+	}
+	
+	#table1 td {
+			padding-left: 10px;
+			font-size: 70%;
+			text-align:center;
+	}
+	
+	#table2 td {
+			padding-left: 10px;
+			font-size: 70%;
+			
+	}
+	
+	option{
+	background-color:pink;
+	}
+	
+	button{
+	background-color:#99BBFF;
 	}
 	
 </style>
@@ -26,6 +48,17 @@
 	<script language="javascript" type="text/javascript" src="./js/moment.js"></script>
 	
 	<script>
+// $(document).ready(function(){
+	
+	
+// 	var time = RateNoticeBean.deadline;
+// 	alert(time)
+// // 	$("#table2 td:nth-child(3)").val();
+	
+	
+	
+// })
+	
 function disp_prompt(){
 	var price = prompt("輸入匯率價格")
 	if (price!=null && price!=""){
@@ -55,7 +88,7 @@ function notice(){
 	if(x==""||isNaN(x)){
 		
 	}else{
-	var r = confirm("確定或取消: rate="+x);
+	var r = confirm("確定或取消: 匯率="+x);
 	if(r==true){
 		alert("確定價格")
 	}else{英鎊
@@ -65,8 +98,9 @@ function notice(){
 }
 </script>
 	
-	<script type="text/javascript">
-
+	<script>
+	var accountName = "${sessionScope.accountName}";//抓名字
+	
 	$(function(){
 	var xhttp = new XMLHttpRequest();
 	var chartJson = '';
@@ -76,11 +110,11 @@ function notice(){
 
 	xhttp.open("POST", "../ratefindALL01", false);
 	xhttp.send();
-	console.log(xhttp.responseText);
+// 	console.log(xhttp.responseText);
 	chartJson = xhttp.responseText;
 	var chartData = JSON.parse(chartJson);
 	    for( cur in chartData){
-	    	console.log('NO.'+cur+': CUR='+chartData[cur]["currency"]);
+// 	    	console.log('NO.'+cur+': CUR='+chartData[cur]["currency"]);
 	    	if( !dataCurrency.find(function(item, index, array){return item === chartData[cur]["currency"];}) ){ //如果沒有處理過這個幣別，就新增
 	    		dataCurrency.push(chartData[cur]["currency"]);
 	    		var currencyString = chartData[cur]["currency"];
@@ -88,9 +122,9 @@ function notice(){
 	    		dataForChart[currencyString]["label"] = chartData[cur]["currency"];
 	    		dataForChart[currencyString]["data"] = [];
 	    		dataForChart[currencyString]["data"].push([moment(chartData[cur]["updateTime"], "LLL").valueOf(), chartData[cur]["cashSell"]]);
-	    		console.log( 'first currency = '+chartData[cur]["currency"]+' rate = '+chartData[cur]["cashSell"] );
+// 	    		console.log( 'first currency = '+chartData[cur]["currency"]+' rate = '+chartData[cur]["cashSell"] );
 	    	} else {
-	    		console.log( 'not first currency = '+chartData[cur]["currency"]+' rate = '+chartData[cur]["cashSell"] );
+// 	    		console.log( 'not first currency = '+chartData[cur]["currency"]+' rate = '+chartData[cur]["cashSell"] );
 	    		dataForChart[chartData[cur]["currency"]]["data"].push([moment(chartData[cur]["updateTime"], "LLL").valueOf(), chartData[cur]["cashSell"]]);
 	    	}
 		}
@@ -100,7 +134,7 @@ function notice(){
 		//var datasets = {"USD":{"label":"USD","data":[["December 20, 2018 12:00:00 AM",30.815],["December 21, 2018 12:00:00 AM",3.911],["December 22, 2018 12:00:00 AM",38.83],["December 23, 2018 12:00:00 AM",21.57],["December 24, 2018 12:00:00 AM",22.78],["December 25, 2018 12:00:00 AM",22.58],["December 26, 2018 12:00:00 AM",31.11],["December 27, 2018 12:00:00 AM",0.2831],["December 28, 2018 12:00:00 AM",2.11],["December 29, 2018 12:00:00 AM",3.38],["December 30, 2018 12:00:00 AM",20.59],["December 31, 2018 12:00:00 AM",0.948],["January 1, 2019 12:00:00 AM",0],["January 2, 2019 12:00:00 AM",0],["January 3, 2019 12:00:00 AM",34.99],["January 4, 2019 12:00:00 AM",0],["January 5, 2019 12:00:00 AM",0],["January 6, 2019 12:00:00 AM",0],["January 7, 2019 12:00:00 AM",4.466]]}};
 		//var testjson = JSON.parse(datasets);
 		var datasets = dataForChart;
-		console.log('總數='+datasets);
+// 		console.log('總數='+datasets);
 		// hard-code color indices to prevent them from shifting as
 		// countries are turned on/off
 
@@ -137,7 +171,7 @@ function notice(){
 			choiceContainer.find("input:checked").each(function () {
 				
 				var key = $(this).attr("name");
-				console.log('name='+key)
+// 				console.log('name='+key)
 				if (key && datasets[key]) {
 					data.push(datasets[key]);
 				}
@@ -188,6 +222,77 @@ function notice(){
       $( "#dialog" ).dialog( "open" );
     });
   } );
+  
+  $( function() {
+	    $( "#dialog1" ).dialog({
+	      autoOpen: false,
+	      show: {
+	        effect: "blind",
+	        duration: 1000
+	      },
+	      hide: {
+	        effect: "explode",
+	        duration: 1000
+	      }
+	    });
+	 
+	    $( "#opener1" ).on( "click", function() {
+
+	    		$("#searchuser").html("")
+
+	    	$.ajax({
+	    		method: "GET",
+	    		url:'/Travel/voyage/rateSelect.controller',
+	    		contentType : 'application/json; charset=UTF-8',
+	    		dataType: "json",
+	    		data:{
+	    			'accountName':	accountName,
+	    		},
+	    		
+// 	    		success: function(json) {
+// 	    			alert("Hello!! "+json.accountName);
+// 					console.log(json)
+// 	    		}
+	    	})
+	    			.done(function(JData) {
+	    				$("#searchuser").append(
+	    				  '<table id="table1"><td>幣別</td><td>設定的匯率</td><td>最後通知日</td></table>'	
+	    				);
+	    				
+	    				
+// 	    				console.log(json)
+	    				$.each(JData,function(idx,RateNoticeBean){
+	    					console.log(RateNoticeBean.accountName)
+	    					$("#searchuser").append(
+	    							
+	    							'<table id="table2"><td>'+RateNoticeBean.currency +'</td>'
+	      							+'<td >'+RateNoticeBean.targetRate +'</td>'
+	      							+'<td>'+RateNoticeBean.deadline +'</td></table>'
+	    					
+	    					)
+	    							
+	    				})
+	    								
+// 	    										'<table class="table table-hover"><th scope="row" style="text-align:center" name="orderNo">'
+// 	    												+ JData.RateNoticeBean[i].currency
+// 	    												+ '</th>'
+// 	    												+ '<th scope="row" style="text-align:center" name="tourName">'
+// 	    												+ JData.RateNoticeBean[i].targetRate
+// 	    												+ '</th>'
+// 	    												+ '<th scope="row" style="width:5%" name="quantity">'
+// 	    												+ JData.RateNoticeBean[i].deadline
+// 	    												+ '</th>'
+// 	    												+ '<th scope="row" style="width:15%" name="orderTime">'
+// 	    												+ JData.RateNoticeBean[i].registerDate
+// 	    												+ '</th>'
+// 	    												+ '<th scope="row" style="width:10%" name="totalPrice"></th></table>')
+	    							
+	    						
+	    					})
+	    	
+	      $( "#dialog1" ).dialog( "open" );
+	    });
+	  } );
   </script>
 
 <div id="dialog" title="匯率條件單" style="background:	#99BBFF;border: 1px none black">
@@ -206,25 +311,25 @@ function notice(){
 <tr>
 <td><select id="select1" name="currency" class="col-sm-9" style="max-width:300%;padding:4px;padding-right:105px;border-radius:4px;margin-bottom:10px;">
                 		<option value="USD">請選擇幣別</option>
-                		<option value="USD">美金</option>
-                		<option value="HKD">港幣</option>
-                		<option value="GBP">英鎊</option>
-                		<option value="AUD">澳幣</option>
-                		<option value="CAD">加拿大幣</option>
-                		<option value="SGD">新加坡幣</option>
-                		<option value="CHF">瑞士法郎</option>
-                		<option value="JPY">日圓</option>
-                		<option value="ZAR">南非幣</option>
-                		<option value="SEK">瑞典幣</option>
-                		<option value="NZD">紐元</option>
-                		<option value="THB">泰幣</option>
-                		<option value="PHP">菲國比索 </option>
-                		<option value="DR">印尼幣</option>
-                		<option value="EUR">歐元 </option>
-                		<option value="KRW">韓元</option>
-                		<option value="VND">越南盾</option>
-                		<option value="MYR">馬來幣</option>
-                		<option value="CNY">人民幣</option>
+                		<option value="USD">美金USD</option>
+<!--                 		<option value="HKD">港幣</option> -->
+                		<option value="GBP">英鎊GBP</option>
+                		<option value="CHF">瑞士法郎CHF</option>
+                		<option value="EUR">歐元EUR </option>
+                		<option value="AUD">澳幣AUD</option>
+                		<option value="CAD">加拿大幣CAD</option>
+                		<option value="SGD">新加坡幣SGD</option>
+<!--                 		<option value="JPY">日圓</option> -->
+<!--                 		<option value="ZAR">南非幣</option> -->
+<!--                 		<option value="SEK">瑞典幣</option> -->
+                		<option value="NZD">紐元NZD</option>
+<!--                 		<option value="THB">泰幣</option> -->
+<!--                 		<option value="PHP">菲國比索 </option> -->
+<!--                 		<option value="DR">印尼幣</option> -->
+<!--                 		<option value="KRW">韓元</option> -->
+<!--                 		<option value="VND">越南盾</option> -->
+<!--                 		<option value="MYR">馬來幣</option> -->
+<!--                 		<option value="CNY">人民幣</option> -->
 					</select></td>
 </tr>
 <tr>
@@ -239,12 +344,32 @@ function notice(){
 <tr>
 <td><input type="text" id="" name="deadline" style="border-radius:4px;margin-bottom:10px;"></td>
 </tr>
-
 </table>
 <button onclick="notice()" style="margin-left:80px;margin-top:10px;text-align:center">送出</button><br/>
 </form>
 </div>
+ <!-- 匯率到價通知 ↑↑↑-->
  
+ <div id="dialog1" title="匯率通知" style="background:	#99BBFF;border: 1px none black">
+<h5></h5>
+<form action="<c:url value="/secure/rate.controller" />" method="post">
+<table id="table1" style="border-collapse:collapse; ">
+
+
+<!-- <tr> -->
+<!-- <td>幣別</td> -->
+
+<!-- <td>匯率</td> -->
+
+<!-- <td>最後通知日</td> -->
+<!-- </tr> -->
+<div class="row" id="searchuser"></div>
+
+</table>
+</form>
+</div>
+ 
+  <!-- 匯率通知查詢 ↑↑↑-->
 <!-- <button id="opener">Open Dialog</button> -->
 
 	<div id="header">
@@ -255,9 +380,10 @@ function notice(){
 <!-- 	   <button type="button" style="float:right;margin-right: 10px"><a href="toggling1.jsp" />最近半年走勢圖</a></button> -->
 	   <button type="button" style="float:right;margin-right: 150px;margin-bottom:-1000px"><a href="<c:url value='toggling.jsp'/>" />最近三個月走勢圖</a></button>
 <%-- 	   <button type="button" style="float:right;margin-right: 10px;margin-bottom:-1000px"><a href="<c:url value='notice.jsp'/>" />匯率到價通知</a></button> --%>
-	   <button id="opener" type="button" style="float:right;margin-right: 10px;margin-bottom:-1000px">匯率到價通知</button>                                                                                 
+	   <button id="opener" type="button" style="float:right;margin-right: 10px;margin-bottom:-1000px">設定匯率價格</button>  
+	   <button id="opener1" type="button" style="float:right;margin-right: 330px;margin-bottom:-1000px">查詢設定</button>                                                                                
 	 
-	</div>
+	</div> 
 	
 	<div id="content">
 
