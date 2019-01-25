@@ -54,8 +54,8 @@ var hotelOrderDetailsBean ;
 							$("#searchuser").append(
  							'<div style="text-align: center;"><h2>'+params.user +'</h2></div>'+
 							'<br>'+
-							'<table ><th style="width:200px">類型</th><th style="width:600px">名稱</th>'+
-							'<th style="width:200px">數量</th><th style="width:350px">購買日期</th><th style="width:350px">總價格</th></table>'+
+							'<table ><tr><td>類型</td><td>名稱</td>'+
+							'<td>數量</td><td>購買日期</td><td>總價格</td></tr></table>'+
 							'<br>'		       );
 			
 							console.log("-------------------------------------");
@@ -63,36 +63,36 @@ var hotelOrderDetailsBean ;
 		    if(JData.TourOrderInfoBean != null){
 					for(var i = 0 ; i<JData.TourOrderInfoBean.length ; i++){
  							$("#searchuser").append(		
- 							'<table ><th style="width:200px">旅遊行程</th>'+
- 							'<th style="width:600px">'+ JData.TourOrderInfoBean[i].tourName +'</th>'+
- 							'<th style="width:200px">'+ JData.TourOrderInfoBean[i].quantity +'</th>'+
- 							'<th style="width:350px">'+ JData.TourOrderInfoBean[i].orderTime +'</th>'+
- 						    '<th style="width:350px">'+ JData.TourOrderInfoBean[i].total +'</th></table>'								
+ 							'<table ><tr><td>旅遊行程</td>'+
+ 							'<td>'+ JData.TourOrderInfoBean[i].tourName +'</td>'+
+ 							'<td>'+ JData.TourOrderInfoBean[i].quantity +'</td>'+
+ 							'<td>'+ JData.TourOrderInfoBean[i].orderTime +'</td>'+
+ 						    '<td>'+ JData.TourOrderInfoBean[i].total +'</td></tr></table>'								
 													)
 											}
-						   		  }else{$("#searchuser").append('<table ><th style="width:816px">尚無旅遊行程</th></table>')}
+						   		  }else{$("#searchuser").append('<table><tr><td>尚無旅遊行程</td></tr></table>')}
  			if(JData.TicketOrderInfoBean != null){
 					for(var i = 0;i<JData.TicketOrderInfoBean.length;i++){
 							$("#searchuser").append(		
-							'<table ><th style="width:200px">門票</th>'+
-							'<th style="width:600px">'+ JData.TicketOrderInfoBean[i].ticketName +'</th>'+
-					        '<th style="width:200px">'+ JData.TicketOrderInfoBean[i].adultTicketCount +'</th>'+
-					        '<th style="width:350px">'+ JData.TicketOrderInfoBean[i].orderDate +'</th>'+
-					        '<th style="width:350px">'+ JData.TicketOrderInfoBean[i].totalPrice +'</th></table>'								
+							'<table ><tr><th>門票</th>'+
+							'<td>'+ JData.TicketOrderInfoBean[i].ticketName +'</td>'+
+					        '<td>'+ JData.TicketOrderInfoBean[i].adultTicketCount +'</td>'+
+					        '<td>'+ JData.TicketOrderInfoBean[i].orderDate +'</td>'+
+					        '<td>'+ JData.TicketOrderInfoBean[i].totalPrice +'</td></tr></table>'								
 													)	
 											}
-								  }else{$("#HotelOrderDetailsBean").append('<table ><th style="width:816px">尚無門票訂單</th></table>')}				 			
+								  }else{$("#HotelOrderDetailsBean").append('<table><tr><td>尚無門票訂單</td></tr></table>')}				 			
 			if(JData.HotelOrderDetailsBean != null){
 					for(var i = 0;i<JData.HotelOrderDetailsBean.length;i++){
 							$("#searchuser").append(		
-							'<table ><th style="width:200px">飯店</th>'+
-							'<th style="width:600px">'+ JData.HotelOrderDetailsBean[i].hotelName +'</th>'+
-					        '<th style="width:200px">'+ JData.HotelOrderDetailsBean[i].stayNights+'(天) </th>'+
-					        '<th style="width:350px">'+ JData.HotelOrderDetailsBean[i].createDate +'</th>'+
-					        '<th style="width:350px">'+ JData.HotelOrderDetailsBean[i].roomPrice +'</th></table>'								
+							'<table ><tr><td>飯店</td>'+
+							'<td>'+ JData.HotelOrderDetailsBean[i].hotelName +'</td>'+
+					        '<td>'+ JData.HotelOrderDetailsBean[i].stayNights+'(天) </td>'+
+					        '<td>'+ JData.HotelOrderDetailsBean[i].createDate +'</td>'+
+					        '<td>'+ JData.HotelOrderDetailsBean[i].roomPrice +'</td></tr></table>'								
 													)
 											}
-						 	 	  }else{$("#searchuser").append('<table ><th style="width:816px">尚無飯店訂單</th></table>')}						
+						 	 	  }else{$("#searchuser").append('<table ><tr><td>尚無飯店訂單</td></tr></table>')}						
 						})
 				};		
 </script>
