@@ -22,8 +22,13 @@
 <style>
 
 table{ 
-	font-weight:900;
 	width: 100%; 
+}
+table thead {
+	font-weight:900;
+}
+table tbody {
+	font-weight:500;
 }
 table td{
 	border:1px solid black;
@@ -53,24 +58,17 @@ var sum = 0;
  					  $("#searchuser").append(
  								'<div style="text-align: center;"><h2>'+Number($('#select1').val()) +'月份報表</h2></div>'+
  								'<br>'+
- 								'<table><tr><td>國家</td><td>名稱</td>'+
- 								'<td>數量</td><td>購買日期</td><td>價格</td></tr></table>'+
- 								'<br>'		 );
- 					 
- 					 	console.log("-------------------------------------");
-						console.log(JData);
+ 								'<table><thead><tr><td>國家</td><td>名稱</td><td>數量</td><td>購買日期</td><td>價格</td></tr></thead><tbody id="searchuser1">'
+ 								);
 						if(JData.length != 0){
   							for(var i = 0;i<JData.length;i++){
   								x = JData[i].total
-	 							$("#searchuser").append(		
-	 		 							'<table><tr><td>'+ JData[i].country +'</td>'+
-	 		 									'<td>'+ JData[i].tourName +'</td>'+
-	 		 							        '<td>'+ JData[i].quantity +'</td>'+
-	 		 							        '<td>'+ JData[i].orderTime +'</td>'+
-	 		 							        '<td>'+ JData[i].total +'</td></tr></table>'	
+	 							$("#searchuser1").append(		
+	 							'<tr><td>'+ JData[i].country +'</td><td>'+ JData[i].tourName +'</td><td>'+ JData[i].quantity +'</td>'+
+	 								       '<td>'+ JData[i].orderTime +'</td><td>'+ JData[i].total +'</td></tr>'
 	 													)
 	 													sum = sum + x
-	 								 } $("#searchuser").append('<br><table><tr><td>合計</td><td>'+ sum +'</td></tr></table>')
+	 								 } $("#searchuser").append('<table><tr><td colspan="5" style="text-align:right">合計：'+sum+'</td></tr></table>')
 								                       }else{
 						$("#searchuser").append('<H1>業績差尚無訂單</H1>')
 								                       }
@@ -124,25 +122,32 @@ var sum = 0;
 								
 <!-- 	----------------------加東西--------------------- -->
 
-<table>
-<tbody>
-<tr>
-<td>國家</td>
-<td>名稱</td>
-<td>數量</td>
-<td>購買日期</td>
-<td>價格</td>
-</tr>
-<tr>
-<td>中國</td>
-<td>北海之旅-北海道七日遊</td>
-<td>2</td>
-<td>Dec 15, 2018 8:12:00 PM</td>
-<td>19888</td>
-</tr>
-</tbody>
-</table>
-
+<!-- <table> -->
+<!-- <thead> -->
+<!-- <tr> -->
+<!-- <td>國家</td> -->
+<!-- <td>名稱</td> -->
+<!-- <td>數量</td> -->
+<!-- <td>購買日期</td> -->
+<!-- <td>價格</td> -->
+<!-- </tr> -->
+<!-- </thead> -->
+<!-- <tbody> -->
+<!-- <tr> -->
+<!-- <td>中國</td> -->
+<!-- <td>北海之旅-北海道七日遊</td> -->
+<!-- <td>2</td> -->
+<!-- <td>Dec 15, 2018 8:12:00 PM</td> -->
+<!-- <td>19888</td> -->
+<!-- </tr> -->
+<!-- </tbody> -->
+<!-- <tfoot> -->
+<!-- <tr> -->
+<!-- <td>合計</td> -->
+<!-- <td colspan="4">19998</td> -->
+<!-- </tr> -->
+<!-- </tfoot> -->
+<!-- </table> -->
 
 <!-- 	----------------------加東西--------------------- -->
 																					
