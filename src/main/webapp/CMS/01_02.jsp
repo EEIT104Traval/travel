@@ -24,10 +24,10 @@ table{
 border:1px solid black;
 }
 
-table td{ 
- 	width:300px;
-	font-weight:900;
-}
+/* table td{  */
+/*  	width:300px; */
+/* 	font-weight:900; */
+/* } */
 </style>
 
 <script>
@@ -55,8 +55,8 @@ var hotelOrderDetailsBean ;
 							$("#searchuser").append(
  							'<div style="text-align: center;"><h2>'+params.user +'</h2></div>'+
 							'<br>'+
-							'<table ><tr><td>類型</td><td>名稱</td>'+
-							'<td>數量</td><td>購買日期</td><td>總價格</td></tr></table>'+
+							'<table ><tr><td style="width:200px">類型</td><td style="width:600px">名稱</td>'+
+							'<td style="width:200px">數</td><td style="width:300px">購買日期</td><td style="width:200px">總價格</td></tr></table>'+
 							'<br>'		       );
 			
 							console.log("-------------------------------------");
@@ -64,36 +64,36 @@ var hotelOrderDetailsBean ;
 		    if(JData.TourOrderInfoBean != null){
 					for(var i = 0 ; i<JData.TourOrderInfoBean.length ; i++){
  							$("#searchuser").append(		
- 							'<table ><tr><td>旅遊行程</td>'+
- 							'<td>'+ JData.TourOrderInfoBean[i].tourName +'</td>'+
- 							'<td>'+ JData.TourOrderInfoBean[i].quantity +'</td>'+
- 							'<td>'+ JData.TourOrderInfoBean[i].orderTime +'</td>'+
- 						    '<td>'+ JData.TourOrderInfoBean[i].total +'</td></tr></table>'								
+ 							'<table ><tr><td style="width:200px">旅遊行程</td>'+
+ 							'<td style="width:600px">'+ JData.TourOrderInfoBean[i].tourName +'</td>'+
+ 							'<td style="width:200px">'+ JData.TourOrderInfoBean[i].quantity +'</td>'+
+ 							'<td style="width:300px">'+ JData.TourOrderInfoBean[i].orderTime +'</td>'+
+ 						    '<td style="width:200px">'+ JData.TourOrderInfoBean[i].total +'</td></tr></table>'								
 													)
 											}
-						   		  }else{$("#searchuser").append('<table><tr><td>尚無旅遊行程</td></tr></table>')}
+						   		  }else{$("#searchuser").append('<table><tr><td style="width:1500px">尚無旅遊行程</td></tr></table>')}
  			if(JData.TicketOrderInfoBean != null){
 					for(var i = 0;i<JData.TicketOrderInfoBean.length;i++){
 							$("#searchuser").append(		
-							'<table ><tr><td>門票</td>'+
-							'<td>'+ JData.TicketOrderInfoBean[i].ticketName +'</td>'+
-					        '<td>'+ JData.TicketOrderInfoBean[i].adultTicketCount +'</td>'+
-					        '<td>'+ JData.TicketOrderInfoBean[i].orderDate +'</td>'+
-					        '<td>'+ JData.TicketOrderInfoBean[i].totalPrice +'</td></tr></table>'								
+							'<table ><tr><td style="width:200px">門票</td>'+
+							'<td style="width:600px">'+ JData.TicketOrderInfoBean[i].ticketName +'</td>'+
+					        '<td style="width:200px">'+ JData.TicketOrderInfoBean[i].adultTicketCount +'</td>'+
+					        '<td style="width:300px">'+ JData.TicketOrderInfoBean[i].orderDate +'</td>'+
+					        '<td style="width:200px">'+ JData.TicketOrderInfoBean[i].totalPrice +'</td></tr></table>'								
 													)	
 											}
-								  }else{$("#HotelOrderDetailsBean").append('<table><tr><td>尚無門票訂單</td></tr></table>')}				 			
+								  }else{$("#HotelOrderDetailsBean").append('<table><tr><td style="width:1500px">尚無門票訂單</td></tr></table>')}				 			
 			if(JData.HotelOrderDetailsBean != null){
 					for(var i = 0;i<JData.HotelOrderDetailsBean.length;i++){
 							$("#searchuser").append(		
-							'<table ><tr><td>飯店</td>'+
-							'<td>'+ JData.HotelOrderDetailsBean[i].hotelName +'</td>'+
-					        '<td>'+ JData.HotelOrderDetailsBean[i].stayNights+'(天) </td>'+
-					        '<td>'+ JData.HotelOrderDetailsBean[i].createDate +'</td>'+
-					        '<td>'+ JData.HotelOrderDetailsBean[i].roomPrice +'</td></tr></table>'								
+							'<table ><tr><td style="width:200px">飯店</td>'+
+							'<td style="width:600px">'+ JData.HotelOrderDetailsBean[i].hotelName +'</td>'+
+					        '<td style="width:200px">'+ JData.HotelOrderDetailsBean[i].stayNights+'(天) </td>'+
+					        '<td style="width:300px">'+ JData.HotelOrderDetailsBean[i].createDate +'</td>'+
+					        '<td style="width:200px">'+ JData.HotelOrderDetailsBean[i].roomPrice +'</td></tr></table>'								
 													)
 											}
-						 	 	  }else{$("#searchuser").append('<table ><tr><td>尚無飯店訂單</td></tr></table>')}						
+						 	 	  }else{$("#searchuser").append('<table ><tr><td style="width:1500px">尚無飯店訂單</td></tr></table>')}						
 						})
 				};		
 </script>
