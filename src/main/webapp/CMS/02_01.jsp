@@ -20,12 +20,14 @@
 <title>後台管理者介面</title>
 
 <style>
-.table th{ 
-	width:400px;
+
+table{ 
 	font-weight:900;
+	width: 100%; 
 }
-
-
+table td{
+	border:1px solid black;
+}
 
 </style>
 
@@ -121,6 +123,26 @@ var sum = 0;
 									<div id="searchuser">
 								
 <!-- 	----------------------加東西--------------------- -->
+
+<table>
+<tbody>
+<tr>
+<td>國家</td>
+<td>名稱</td>
+<td>數量</td>
+<td>購買日期</td>
+<td>價格</td>
+</tr>
+<tr>
+<td>中國</td>
+<td>北海之旅-北海道七日遊</td>
+<td>2</td>
+<td>Dec 15, 2018 8:12:00 PM</td>
+<td>19888</td>
+</tr>
+</tbody>
+</table>
+
 
 <!-- 	----------------------加東西--------------------- -->
 																					
