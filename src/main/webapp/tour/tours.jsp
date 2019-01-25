@@ -88,13 +88,19 @@
 	
 		<div class="container">
 		
-		 <div id="hot" class="row justify-content-center mb-5" style="width:770px;background-color:#ff5f5f;">
-		 	<div class="col-md-7 text-center heading-section ftco-animate fadeInUp ftco-animated" style="font-family: Noto Sans TC; ">
-		 		<h2 >熱搜行程</h2>
+<!-- 		 <div id="hot" class="row justify-content-center mb-5" style="width:70%;background-color:#ff5f5f;"> -->
+		 	<div class="col-md-7 text-center heading-section ftco-animate fadeInUp ftco-animated" style="width:115.5%;font-family: Noto Sans TC; ">
+		 		
+		 		<div style="border:3px solid #ff5f5f;width: 113%;    border-radius: 12px;">
+		 		<span  style="padding-left:;"><img style="padding-left:;width:10%;height:10%"src="<c:url value='/tour/HOT.gif' />" /></span>
+		 		<span id="hotT"style="  font-size: 30px;color:white;font-family:DFKai-sb">熱搜行程 </span>		 		
+		 		</div>
+		 		
+		 		
 		 	</div>
-		 </div>
+<!-- 		 </div> -->
 		
-			<div class="row">
+			<div class="row" style="margin-top:4%">
 			<p id= "idd"></p>
 				<div class="col-lg-8">				
 					<div id="box" class="row">
@@ -208,23 +214,34 @@
 	
 	
 	    <script>
-	    
-   		
-	   	  var colorFlag = 0;
-	   	  function changeColor(){ 
-	   	         if (!colorFlag)
-	   	         {
-	   	        	 $("#hot").css("background-color","#ff5f5f");
-	   	        	 $("#hot > div h2").css("color","white");
-	   	        	 colorFlag = 1;
-	   	         }else{
-	   	        	 $("#hot").css("background-color","white");
-	   	        	 $("#hot > div h2").css("color","black");
-	   	        	 colorFlag = 0;
-	   	         }
-	   	     }
-	   	  setInterval('changeColor()',150);
+	  
+   	// 閃爍	
+// 	   	  var colorFlag = 0;
+// 	   	  function changeColor(){ 
+// 	   	         if (!colorFlag)
+// 	   	         {
+// 	   	        	 $("#hotT").css("color","#ff5f5f");
+// 	   	        	 colorFlag = 1;
+// 	   	         }else{
+// 	   	        	 $("#hotT").css("color","white");
+// 	   	        	 colorFlag = 0;
+// 	   	         }
+// 	   	     }
+// 	   	  setInterval('changeColor()',150);
    	$(document).ready(function() {  
+   		
+//    		$('#hotT').animate({"padding-left":"500px"},1500,rowBack);
+// 		function rowBack(){		
+// 			if($('#hotT').css("padding-left")=="500px")	{	
+// 				$('#hotT').css("padding-left","-500px");
+// // 				$('#move').css("opacity","1");
+// 			}
+// 			else if($('#hotT').css("padding-left")=="-500px")	{		
+// 				$('#hotT').css("padding-left","500px");
+// // 				$('#move').css("opacity","0");
+// 			}
+// 			$('#hotT').animate({"padding-left":"500px"},1500,rowBack);	
+// 			}
 		
    		var dt = new Date();
    		$('#checkin_date').val(dt.getFullYear()+"/"+dt.getMonth()+1+"/"+dt.getDate());
@@ -318,11 +335,12 @@
 /*--抓TAGS------------------------------------*/
 		 });
 		     
-		 $.getJSON( "/Travel/groupTour", function( data ) {
+		 $.getJSON( "/Travel/allTourTags", function( data ) {
 			 var tagcontents ="";
-			 $.each(data.result, function(idx,val){
-	 				tagcontents +='<a href="#idd" id="'+val.TourTagsBean[0].tag
-		            +'" class="tag-cloud-link">'+val.TourTagsBean[0].tag
+			 console.log("tags=>"+data);
+			 $.each(data, function(idx,val){
+	 				tagcontents +='<a href="#idd" id="'+val
+		            +'" class="tag-cloud-link">'+val
 		            +'</button>';
 			 })
 			 $("#tagcloud").html(tagcontents);			 
