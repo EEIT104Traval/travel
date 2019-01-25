@@ -20,15 +20,17 @@
 <title>後台管理者介面</title>
 
 <style>
-.table th{ 
-	width:400px;
+.table{
+width:65%;
+border:1px solid black;
+}
+.table td{ 
+/* 	width:100px; */
 	font-weight:900;
+	border:1px solid black;
 }
 
-
-
 </style>
-
 <script>
 
 var params = {}
@@ -84,10 +86,9 @@ var params = {}
 			  $("#searchuser").append(
 					'<div style="text-align: center;"><h2>票券庫存查詢系統</h2></div>'+
 					'<br>'+
-					'<table><tr><td>票券號碼</td><td>票券國家</td>'+
-							   '<td>票券名稱</td><td>票券價格</td>'+
-							   '<td>庫存數量</td><td>銷售數量</td>'+
-					'</tr></table><br>'	
+					
+					'<table><tbody><tr><td>票券號碼</td>	<td>票券國家</td><td>票券名稱</td>'+
+					'<td>票券價格</td><td>庫存數量</td><td>銷售數量</td></tr>	</tbody></table>'
 								);
 			  
 			   console.log(JData)
@@ -120,7 +121,7 @@ var params = {}
                   <div class="form-group">
                     <div class="input-group">
                       <div class="input-group-prepend" style="margin: auto">
-							<table     style="text-align:center">
+							<table  style="text-align:center ; width:100%; border:1px">
 							<tr><td>票券名稱</td><td>票券類型</td><td>票券價格</td><td>庫存數量</td><td>國家</td></tr>
 							<tr><td><input type="text" id="ticketName"></td>
 								<td><input type="text" id="category"></td>
