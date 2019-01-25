@@ -37,7 +37,6 @@ var params = {}
 	$(document).ready(function() {
 	});
 	function one(){
-		alert('xxx')
 		$('#ticketName').val('東京迪士尼');
 		$('#category').val('門票');
 		$('#adultTicketPrice').val('2000');
