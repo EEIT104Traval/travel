@@ -132,13 +132,13 @@ $(document).ready(function(){
 					</div>
 				</div>
 			</div>
-			<div class="loginbar">
-				<span id="J_quickUserName" class="ctrip-username"
-					style="display: none;">尊敬的会员</span> <a id="J_quickLogin"
-					href="javascript:((window.openLoginModal || {}).andOkToReload || __SSO_loginShow ||  function(){})('refresh', true, 0, true);"
-					class="ctrip-username">登录</a> <a href="http://kefu.ctrip.com"
-					target="_blank" class="callcenter">客服中心</a>
-			</div>
+<!-- 			<div class="loginbar"> -->
+<!-- 				<span id="J_quickUserName" class="ctrip-username" -->
+<!-- 					style="display: none;">尊敬的会员</span> <a id="J_quickLogin" -->
+<!-- 					href="javascript:((window.openLoginModal || {}).andOkToReload || __SSO_loginShow ||  function(){})('refresh', true, 0, true);" -->
+<!-- 					class="ctrip-username">登录</a> <a href="http://kefu.ctrip.com" -->
+<!-- 					target="_blank" class="callcenter">客服中心</a> -->
+<!-- 			</div> -->
 		</div>
 	</div>
 <div>

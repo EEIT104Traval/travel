@@ -109,6 +109,16 @@ h2 {
 	var Data
 	var dd
 	function ck(e){
+		if(Data[e].orderStatus=="未付款"){
+			GetDateNow();
+			$('#WIDsubject').val(Data[e].tourName);
+			$('#WIDtotal_amount').val(123);
+			$('#WIDbody').val('');
+			$('#but').html('<button onclick="cancel('+e+')" type="button" class="btn btn-secondary" data-dismiss="modal">退訂</button>')
+			$('#but').append('<button type="submit" class="btn btn-primary">立即付款</button>')        
+		}else{
+			$('#but').html('<button type="button" class="btn btn-secondary" data-dismiss="modal">確定</button>')
+		}
 // 		console.log(Data)
 		var sex = Data[e].sex;
 		if (sex=='M'){sex='男'}else{sex='女'}
@@ -137,7 +147,7 @@ h2 {
 				data:{'orderNo':Data[e].orderNo},
 		}).done(function(d) {
 					dd = d
-					console.log(d)
+// 					console.log(d)
 					$('#sub2').html('');
 					$('#sub3').html('');
 					$.each(d, function(index, val) {
@@ -192,6 +202,41 @@ h2 {
 			$('#'+e+'>td:eq(2)').html(se)
 			$('#'+e+'>td:eq(4)').html('<a onclick="update('+e+')" href="##">修改</a>')
 		})
+	}
+	function cancel(e){
+		var orderNo = Data[e].orderNo
+		var purchaseOrder = Data[e].purchaseOrder
+		swal({
+			  title: "您確定要退訂此行程嗎?",
+// 			  text: "Once deleted, you will not be able to recover this imaginary file!",
+			  icon: "warning",
+			  buttons: true,
+			  dangerMode: true,
+			}).then((willDelete) => {
+			  if (willDelete) {
+					$.ajax({
+						url : '/Travel/tour/Display2/cancel',
+						type : 'get',
+						data:{'orderNo':orderNo},
+					})
+				swal("退訂成功", {
+			      icon: "success",
+			    });
+					location.reload();
+			  } 
+			});
+	}
+	function GetDateNow() {
+		var vNow = new Date();
+		var sNow = "";
+		sNow += String(vNow.getFullYear());
+		sNow += String(vNow.getMonth() + 1);
+		sNow += String(vNow.getDate());
+		sNow += String(vNow.getHours());
+		sNow += String(vNow.getMinutes());
+		sNow += String(vNow.getSeconds());
+		sNow += String(vNow.getMilliseconds());
+		document.getElementById("WIDout_trade_no").value =  sNow;
 	}
 		$(document).ready(function() {
 				$.ajax({
@@ -329,7 +374,7 @@ h2 {
 		</div>
 
 	</section>
-	<!-- END section -->
+	<!-- END section -->				
 				
 	<!-- 訂單 -->
 	<section class="probootstrap_section bg-light">
@@ -384,10 +429,17 @@ h2 {
 	      </div>
 	      <div class="modal-body" id="sub3">
 	      </div>
-	      <div class="modal-footer">
-	        <button type="button" class="btn btn-secondary" data-dismiss="modal">退訂</button>
-	        <button type="button" class="btn btn-primary">立即付款</button>
-	      </div>
+	      
+	      <form action="<c:url value='/tour/Display2/submit'/>">
+			  <input id="WIDout_trade_no" name="WIDout_trade_no" style="display: none"/>
+			  <input id="WIDsubject" name="WIDsubject"style="display: none" value=""/>
+			  <input id="WIDtotal_amount" name="WIDtotal_amount"style="display: none" value=""/>
+			  <input id="WIDbody" name="WIDbody"style="display: none" value="" />
+		      <div class="modal-footer" id="but">
+		      </div>
+		   </form>
+		    
+	      
 	    </div>
 	  </div>
 	</div>

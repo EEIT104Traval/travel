@@ -45,25 +45,25 @@ $(document).ready(function() {
 					console.log(JData);
 					$("#searchuser").html("")
 					$("#searchuser").append(
-					'<table><th style="width:220px">票券名稱</th>'+
-						   '<th style="width:220px">票券國家</th>'+
-		   				   '<th style="width:220px">票券類型</th>'+
-						   '<th style="width:220px">票券價格</th>'+
-						   '<th style="width:220px">進貨數量</th>'+
-						   '<th style="width:220px">銷售數量</th>'+
-						   '<th style="width:50px"><input type="submit" name="prodaction" value="刷新" onclick="ticketSearch1()")></th></table><br>'
+					'<table><tr><td>票券名稱</td>'+
+						   '<td>票券國家</td>'+
+		   				   '<td>票券類型</td>'+
+						   '<td>票券價格</td>'+
+						   '<td>進貨數量</td>'+
+						   '<td>銷售數量</td>'+
+						   '<td><input type="submit" name="prodaction" value="刷新" onclick="ticketSearch1()")></td></tr></table><br>'
 					)
 				$.each(JData, function(index, value) {
 					$("#searchuser").append(
 							'<div>'+
-					'<table><tr id="tr'+value.ticketNo+'"><th style="width:220px">'+value.ticketName+'</th>'+
-							'<th style="width:220px">'+value.country+'</th>'+
-							'<th style="width:220px">'+value.ticketDescription+'</th>'+
-						    '<th style="width:220px">'+value.adultTicketPrice+'</th>'+
-						    '<th style="width:220px">'+value.adultTicketSellQ+'</th>'+
-						    '<th style="width:220px">'+value.adultTicketSelledQ+'</th>'+
-						    '<th style="width:50px">'+
-						    '<input type="button" name="prodaction" value="Delete" data-toggle="modal" id="exampleModal'+value.ticketNo+'" onclick=Delete('+value.ticketNo+')></th></tr></table>'+
+					'<table><tr id="tr'+value.ticketNo+'"><td>'+value.ticketName+'</td>'+
+							'<td>'+value.country+'</td>'+
+							'<td>'+value.ticketDescription+'</td>'+
+						    '<td>'+value.adultTicketPrice+'</td>'+
+						    '<td>'+value.adultTicketSellQ+'</td>'+
+						    '<td>'+value.adultTicketSelledQ+'</td>'+
+						    '<td>'+
+						    '<input type="button" name="prodaction" value="Delete" data-toggle="modal" id="exampleModal'+value.ticketNo+'" onclick=Delete('+value.ticketNo+')></td></tr></table>'+
 						    '</div>'
 //================================================================================================================================================					    	
 					);

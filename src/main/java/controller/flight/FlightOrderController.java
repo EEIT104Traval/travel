@@ -22,6 +22,8 @@ import com.alipay.api.AlipayApiException;
 import com.alipay.api.AlipayClient;
 import com.alipay.api.DefaultAlipayClient;
 import com.alipay.api.request.AlipayTradePagePayRequest;
+import com.alipay.api.request.AlipayTradeQueryRequest;
+import com.alipay.api.response.AlipayTradeQueryResponse;
 import com.alipay.config.AlipayConfig;
 
 import model.flight.FlightOrderInfoBean;
@@ -189,6 +191,22 @@ public class FlightOrderController {
 			response.getWriter().write(result);// 直接将完整的表单html输出到页面
 			response.getWriter().flush();
 			response.getWriter().close();
+			System.out.println("支付成功");
+			
+//			AlipayTradeQueryRequest search = new AlipayTradeQueryRequest();
+//			search.setBizContent("{" +
+//					"\"out_trade_no\":\""+out_trade_no+"\"," +
+//					"\"trade_no\":\"\"," +
+//					"\"org_pid\":\"\"" +
+//					"  }");
+//			AlipayTradeQueryResponse searchresponse = alipayClient.execute(search);
+//			if(searchresponse.isSuccess()){
+//				System.out.println("searchresponse==>"+searchresponse);
+//			System.out.println("调用成功");
+//			} else {
+//			System.out.println("调用失败");
+//			}
+			
 		} catch (AlipayApiException e) {
 			e.printStackTrace();
 			response.getWriter().write("捕获异常出错");
@@ -196,6 +214,11 @@ public class FlightOrderController {
 			response.getWriter().close();
 		}
 
+		
+		
+		
+		
+		
 	}
 
 }
