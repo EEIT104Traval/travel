@@ -13,15 +13,16 @@
 	}
 	
 	#table1 td {
-			padding-left: 10px;
+			padding-left: 15px;
 			font-size: 90%;
 			text-align:center;
+			font-weight:bold;
 	}
 	
 	#table2 td {
-			padding-left: 10px;
-			font-size: 100%;
-			
+			padding-left: 15px;
+			font-size: 85%;
+			width:15%
 	}
 	
 	option{
@@ -266,8 +267,8 @@ function notice(){
 	    					$("#searchuser").append(
 	    							
 	    							'<table id="table2"><td>'+RateNoticeBean.currency +'</td>'
-	      							+'<td >'+RateNoticeBean.targetRate +' 元</td>'
-	      							+'<td>'+date.getFullYear()+'/'+parseInt(date.getMonth())+1+'/'+date.getDate()+'</td></table>'
+	      							+'<td >'+RateNoticeBean.targetRate +'元</td>'
+	      							+'<td>'+date.getFullYear()+'/'+parseInt(date.getMonth()+1)+'/'+date.getDate()+'</td></table>'
 	    					
 	    					)
 	    							
