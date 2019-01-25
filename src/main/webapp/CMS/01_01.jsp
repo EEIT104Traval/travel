@@ -20,13 +20,17 @@
 <title>後台管理者介面</title>
 
 <style>
-table{
-/* border:1px solid black; */
+table{ 
+	width: 100%; 
 }
-
-table td{ 
- 	width:125px;
+table thead {
 	font-weight:900;
+}
+table tbody {
+	font-weight:500;
+}
+table td{
+	border:1px solid black;
 }
 </style>
 
@@ -54,20 +58,17 @@ var params = {}
 								console.log(value.accountName)
 								date = new Date(value.birth)
  						$("#searchuser").append(
-		
-		
-  							'<table><tr><td>帳號</td><td>姓</td>'+
-  							'<td>名</td><td>identityNo</td><td>email</td></tr>'+
-  							'<tr><td>'+value.accountName +'</td>'
-	  						   +'<td>'+value.lastname +'</td>'
-	  						   +'<td>'+value.firstname +'</td>'
-	  						   +'<td>'+value.identityNo +'</td>'
-	  						   +'<td>'+value.email +'</td>'
-  							+'</tr><tr><td>性別</td><td>電話號碼</td><td>出生年月日</td><td colspan="2">地址</td></tr>'+
-  							'<tr><td>'+value.sex +'</td>'
-  							   +'<td>'+value.phone +'</td>'
-  							   +'<td>'+date.getFullYear()+'/'+parseInt(date.getMonth()+1)+'/'+date.getDate()+'</td>'
-  							   +'<td colspan="2">'+value.address +'</td></tr></table><hr><br>'			
+ 			    '<table><tr><td>帳號</td><td>姓</td><td>名</td><td>identityNo</td><td>email</td></tr>'+
+  					   '<tr><td>'+value.accountName +'</td>'+
+  					       '<td>'+value.lastname +'</td>'+
+  					       '<td>'+value.firstname +'</td>'+
+  					       '<td>'+value.identityNo +'</td>'+
+  					       '<td>'+value.email +'</td></tr>'+
+  					   '<tr><td>性別</td><td>電話號碼</td><td>出生年月日</td><td colspan="2">地址</td></tr>'+
+  					   '<tr><td>'+value.sex +'</td>'+
+  					       '<td>'+value.phone +'</td>'+
+  					       '<td>'+date.getFullYear()+'/'+parseInt(date.getMonth()+1)+'/'+date.getDate()+'</td>'+
+  						   '<td colspan="2">'+value.address +'</td></tr></table><hr><br>'			
  							)})
  							document.getElementById("user").value="";
  						})};
