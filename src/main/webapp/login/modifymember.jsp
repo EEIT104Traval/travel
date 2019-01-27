@@ -39,7 +39,7 @@ function index(){
 
 
 </head>
-<body style="background-image:url(/Travel/tour/Display2/images/Sbanner.jpg); height:background-repeat: no-repeat; background-position: center">
+<body style="background-image:url(/Travel/login/images/pic004.jpg); height:background-repeat: no-repeat; background-position: center">
 
 
 <!------ Include the above in your HEAD tag ---------->

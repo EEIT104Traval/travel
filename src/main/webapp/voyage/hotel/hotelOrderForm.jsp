@@ -84,11 +84,14 @@ var params = {}
 	            data:{'checkInDate':checkInDate,'checkOutDate':checkOutDate,'roomTypeNo':roomTypeNo}
 			}).done(
 					function(value) {
+						var x = parseInt(value.price)
+			    		var y = parseInt(x*value.Day*0.05)
+			    	    var z = parseInt((x*value.Day)+y)
 						console.log(value);
 						$('#day').text('1 房間 x ' + value.Day+' 晚');
-						$('#price').text('NT$ ' + value.price*value.Day);
-						$('#tax').text('NT$ ' + value.price*value.Day*0.05);
-						$('#total').text('NT$ ' + ((value.price*value.Day) + (value.price*value.Day*0.05)));
+						$('#price').text('NT$ ' + x*value.Day);
+						$('#tax').text('NT$ ' + y);
+						$('#total').text('NT$ ' + z);
 
 		    
 		    

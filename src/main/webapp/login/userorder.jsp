@@ -167,8 +167,8 @@
 								}
 							} else {
 								$("#HotelOrderDetailsBean")
-										.append(
-												'<table class="table table-hover"><th scope="row">尚無門票訂單</th></table>')
+										.append('<table ><hr></table>')
+// 												'<table class="table table-hover"><th scope="row">尚無門票訂單</th></table>')
 							}
 							
 							if (JData.FlightOrderInfoBean != null) {
@@ -195,8 +195,8 @@
 								}
 							} else {
 								$("#HotelOrderDetailsBean")
-										.append(
-												'<table class="table table-hover"><th scope="row">尚無機票訂單</th></table>')
+										.append('<table ><hr></table>')
+// 												'<table class="table table-hover"><th scope="row">尚無機票訂單</th></table>')
 							}
 							if (JData.HotelOrderDetailsBean != null) {
 								for (var i = 0; i < JData.HotelOrderDetailsBean.length; i++) {
@@ -224,11 +224,9 @@
 								}
 							} else {
 								$("#searchuser")
-										.append(
-												'<table ><th scope="row">尚無飯店訂單</th></table>')
+										.append('<table ><hr></table>')
+// 												'<table ><th scope="row">尚無飯店訂單</th></table>')
 							}
-							
-							
 						})
 	};
 </script>
