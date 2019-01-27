@@ -144,14 +144,14 @@
                   <form action="" method="post" class="d-block d-lg-flex">
                     <div class="fields d-block d-lg-flex">
 
-                      <div class="textfield-search one-third"><input type="text" class="form-control" placeholder="Search Location"></div>
+                      <div class="textfield-search one-third"><input type="text" placeholder="Search Location"></div>
 
                       <div class="check-in one-third"><input type="text" id="checkin_date" class="form-control" placeholder="Check-in date"></div>
 
                       <div class="check-out one-third"><input type="text" id="checkout_date" class="form-control" placeholder="Check-out date"></div>
                       <div class="select-wrap one-third">
                         <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                        <select name="" id="" class="form-control">
+                        <select class="form-control">
                           <option value="">Guest</option>
                           <option value="">1</option>
                           <option value="">2</option>
@@ -170,12 +170,12 @@
                     <div class="fields d-block d-lg-flex">
                       <div class="textfield-search one-third"><input type="text" class="form-control" placeholder="Search Hotel"></div>
 
-                      <div class="check-in one-third"><input type="text" id="checkin_date" class="form-control" placeholder="Check-in date"></div>
+                      <div class="check-in one-third"><input type="text" class="form-control" placeholder="Check-in date"></div>
 
-                      <div class="check-out one-third"><input type="text" id="checkout_date" class="form-control" placeholder="Check-out date"></div>
+                      <div class="check-out one-third"><input type="text" class="form-control" placeholder="Check-out date"></div>
                       <div class="select-wrap one-third">
                         <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                        <select name="" id="" class="form-control">
+                        <select class="form-control">
                           <option value="">Guest</option>
                           <option value="">1</option>
                           <option value="">2</option>
@@ -199,7 +199,7 @@
                       <div class="check-out one-third"><input type="text" id="return_date" class="form-control" placeholder="Return date"></div>
                       <div class="select-wrap one-third">
                         <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                        <select name="" id="" class="form-control">
+                        <select class="form-control">
                           <option value="">Guest</option>
                           <option value="">1</option>
                           <option value="">2</option>
@@ -219,11 +219,11 @@
                       <div class="textfield-search one-third one-third-1"><input type="text" class="form-control" placeholder="Search Location"></div>
 
 
-                      <div class="check-out one-third one-third-1"><input type="text" id="start_date" class="form-control" placeholder="Check-out date"></div>
+                      <div class="check-out one-third one-third-1"><input type="text" class="form-control" placeholder="Check-out date"></div>
 
                       <div class="select-wrap one-third one-third-1">
                         <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                        <select name="" id="" class="form-control">
+                        <select class="form-control">
                           <option value="">Categories</option>
                           <option value="">Suite</option>
                           <option value="">Super Deluxe</option>
@@ -536,7 +536,7 @@
               <form action="#" class="subscribe-form">
                 <div class="form-group">
                   <span class="icon icon-paper-plane"></span>
-                  <input type="text" class="form-control" placeholder="Enter your email address">
+                  <input type="text" placeholder="Enter your email address">
                 </div>
               </form>
             </div>
