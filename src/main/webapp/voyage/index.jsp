@@ -79,23 +79,34 @@
      <jsp:include page="/voyage/nav.jsp" />
   
     <section class="home-slider owl-carousel">
-      <div class="slider-item" style="background-image: url('images/bg_4.jpg');">
+      <div class="slider-item" style="background-image: url('/Travel/tour/Display2/images/Sbanner.jpg');">
         <div class="overlay"></div>
         <div class="container">
           <div class="row slider-text align-items-center">
             <div class="col-md-7 col-sm-12 ftco-animate">
-              <h1 class="mb-3">Experience the best trip ever</h1>
+              <h1 class="mb-3" style="font-weight:900">旅行，能讓你付出卻變得更富有。</h1>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="slider-item" style="background-image: url('images/bg_1.jpg');">
+      <div class="slider-item" style="background-image: url('images/france.jpg');">
         <div class="overlay"></div>
         <div class="container">
           <div class="row slider-text align-items-center">
             <div class="col-md-7 col-sm-12 ftco-animate">
-              <h1 class="mb-3">Making the most out of your holiday</h1>
+              <h1 class="mb-3" style="font-weight:900">我在旅行的路上，你呢？</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slider-item" style="background-image: url('images/nine.jpeg');">
+        <div class="overlay"></div>
+        <div class="container">
+          <div class="row slider-text align-items-center">
+            <div class="col-md-7 col-sm-12 ftco-animate">
+              <h1 class="mb-3" style="font-weight:900">不是人在旅途，而是旅途載人。</h1>
             </div>
           </div>
         </div>
@@ -106,7 +117,7 @@
         <div class="container">
           <div class="row slider-text align-items-center">
             <div class="col-md-7 col-sm-12 ftco-animate">
-              <h1 class="mb-3">Travel Operator Just For You</h1>
+              <h1 class="mb-3" style="font-weight:900">不用去聽別人怎麼說，靠自己的雙眼去認識吧！</h1>
             </div>
           </div>
         </div>
