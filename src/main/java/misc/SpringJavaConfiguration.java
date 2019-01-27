@@ -52,7 +52,7 @@ public class SpringJavaConfiguration {
 	public DataSource dataSource() {
 		try {
 			JndiObjectFactoryBean bean = new JndiObjectFactoryBean();
-			bean.setJndiName("java:comp/env/jdbc/travel");
+			bean.setJndiName("java:comp/env/jdbc/Travel");
 			bean.setProxyInterface(DataSource.class);
 			bean.afterPropertiesSet();
 			return (DataSource) bean.getObject();
