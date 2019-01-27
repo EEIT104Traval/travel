@@ -20,9 +20,17 @@
 <title>後台管理者介面</title>
 
 <style>
-.table th{ 
-	width:400px;
+table{ 
+	width: 100%; 
+}
+table thead {
 	font-weight:900;
+}
+table tbody {
+	font-weight:500;
+}
+table td{
+	border:1px solid black;
 }
 </style>
 
@@ -45,26 +53,26 @@ $(document).ready(function() {
 					console.log(JData);
 					$("#searchuser").html("")
 					$("#searchuser").append(
-					'<table><tr><td>票券名稱</td>'+
-						   '<td>票券國家</td>'+
-		   				   '<td>票券類型</td>'+
-						   '<td>票券價格</td>'+
-						   '<td>進貨數量</td>'+
-						   '<td>銷售數量</td>'+
-						   '<td><input type="submit" name="prodaction" value="刷新" onclick="ticketSearch1()")></td></tr></table><br>'
+					'<table><thead><tr><td>票券名稱</td>'+
+						  			  '<td>票券國家</td>'+
+					   			      '<td>票券類型</td>'+
+								      '<td>票券價格</td>'+
+								      '<td>進貨數量</td>'+
+								      '<td>銷售數量</td>'+
+								      '<td><input type="submit" name="prodaction" value="刷新" onclick="ticketSearch1()")></td></tr></thead><tbody id="searchuser1">'
 					)
 				$.each(JData, function(index, value) {
-					$("#searchuser").append(
-							'<div>'+
-					'<table><tr id="tr'+value.ticketNo+'"><td>'+value.ticketName+'</td>'+
+					$("#searchuser1").append(
+							
+						'<tr id="tr'+value.ticketNo+'"><td>'+value.ticketName+'</td>'+
 							'<td>'+value.country+'</td>'+
 							'<td>'+value.ticketDescription+'</td>'+
 						    '<td>'+value.adultTicketPrice+'</td>'+
 						    '<td>'+value.adultTicketSellQ+'</td>'+
 						    '<td>'+value.adultTicketSelledQ+'</td>'+
 						    '<td>'+
-						    '<input type="button" name="prodaction" value="Delete" data-toggle="modal" id="exampleModal'+value.ticketNo+'" onclick=Delete('+value.ticketNo+')></td></tr></table>'+
-						    '</div>'
+						    '<input type="button" name="prodaction" value="Delete" data-toggle="modal" id="exampleModal'+value.ticketNo+'" onclick=Delete('+value.ticketNo+')></td></tr>'
+						  
 //================================================================================================================================================					    	
 					);
 					})
@@ -132,7 +140,7 @@ $(document).ready(function() {
 									<div id="searchuser">
 									
 <!-- 	----------------------加東西--------------------- -->
-
+</tbody></table>
 <!-- 	----------------------加東西--------------------- -->
 																					
 								</div>

@@ -61,7 +61,12 @@
 	});
 	
 	function deleteOrder(ticketOrderNO){
-		alert("確定刪除!!!")
+		var r=confirm("確定刪除!!!");
+// 	 	if(r==true){
+// 		alert("確定價格")
+// 	}else{
+// 		alert("取消確認")
+// 	}
 		console.log("ticketOrderNO="+ticketOrderNO)
 		$.ajax({
 					url : '/Travel/voyage/deleteorder.controller',
@@ -74,15 +79,18 @@
 					success: function(json) {
             			alert("刪除!!");
              			console.log(json);
-//             			location.reload();
             			location.reload();
 
             		},
             		error: function(json) {
-            			alert("!!");
+            			if(r==true){
+            			alert("刪除成功");
+            			location.reload();
+            			}else{
+            				alert("取消刪除")
+            			}
              			console.log(json);
 //             			location.reload();
-            			location.reload();
 
             		},
 				});

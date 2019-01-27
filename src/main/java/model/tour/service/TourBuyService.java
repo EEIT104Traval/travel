@@ -106,4 +106,11 @@ public class TourBuyService {
 		return result;
 	}
 	
+	public TourOrderInfoBean cancel(Integer orderNo) {
+		TourOrderInfoBean bean = orderDao.findByPrimaryKey(orderNo);
+		bean.setOrderStatus("退訂");
+		TourOrderInfoBean result = orderDao.update(bean);
+		return result;
+	}
+	
 }
