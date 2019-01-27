@@ -199,12 +199,12 @@
 						</div>
 					</div>
 
-					<div class="sidebar-box ftco-animate">
-						<h3>Paragraph</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-							Ducimus itaque, autem necessitatibus voluptate quod mollitia
-							delectus aut, sunt placeat nam vero culpa sapiente consectetur
-							similique, inventore eos fugit cupiditate numquam!</p>
+					<div  class="sidebar-box ftco-animate">
+						<h3>Time To Travel</h3>
+						<p>每次出國玩點一點各大旅遊網站是否覺得“琳瑯滿目”，一頁至少200個按鈕到底要按哪一個！我們的初衷是簡化用戶界面，讓用戶更快速的找到自己想要的功能，從眼花繚亂到一目了然！
+本網站針對國內旅客提供行程、飯店、機票、門票、景點及匯率查詢和訂購服務，並可利用第三方驗證快速登錄。針對選擇困難癥侯群，我們提供主題旅遊資訊。
+後台部分提供給管理者以圖表方式、更簡潔的界面方便管理產品及會員信息，以免胖手指的情況產生。</p>
+<%-- 						<img  src="<c:url value='/tour/Display2/images/1_0.jpg' />" /> --%>
 					</div>
 				</div>
 			</div>
@@ -304,7 +304,7 @@
 	
 			 
 /* -----------------------分頁-------------------------------------------------------   */	 			 
-			 var rowsShown=6;                             //每頁顯示的行
+			 var rowsShown=4;                             //每頁顯示的行
 		     var rowsTotal=lens;         //獲取總共的行
 		     var numPages=Math.ceil(rowsTotal/rowsShown); //計算出有多少頁
 // 		     alert(data.count);
