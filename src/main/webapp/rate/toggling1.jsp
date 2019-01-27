@@ -13,7 +13,7 @@
 	}
 	
 	#table1 td {
-			padding-left: 15px;
+			padding-left: 16px;
 			font-size: 90%;
 			text-align:center;
 			font-weight:bold;
@@ -22,7 +22,7 @@
 	#table2 td {
 			padding-left: 15px;
 			font-size: 85%;
-			width:15%
+/* 			width:15% */
 	}
 	
 	option{
@@ -89,12 +89,12 @@ function notice(){
 	if(x==""||isNaN(x)){
 		
 	}else{
-	var r = confirm("確定或取消: 匯率="+x);
-	if(r==true){
-		alert("確定價格")
-	}else{英鎊
-		alert("取消確認")
-	}
+	var r = confirm("您輸入的匯率為"+x+"(元)");
+// 	if(r==true){
+// 		alert("確定價格")
+// 	}else{
+// 		alert("取消確認")
+// 	}
 	}	
 }
 </script>
@@ -257,7 +257,7 @@ function notice(){
 	    	})
 	    			.done(function(JData) {
 	    				$("#searchuser").append(
-	    				  '<table id="table1"><td>幣別</td><td>設定的匯率</td><td>最後通知日</td></table>'	
+	    				  '<table id="table1"><td>幣別</td><td>匯率</td><td>最後通知日</td><td>刪除</td></table>'	
 	    				);
 	    				
 // 	    				console.log(json)
@@ -267,8 +267,9 @@ function notice(){
 	    					$("#searchuser").append(
 	    							
 	    							'<table id="table2"><td>'+RateNoticeBean.currency +'</td>'
-	      							+'<td >'+RateNoticeBean.targetRate +'元</td>'
-	      							+'<td>'+date.getFullYear()+'/'+parseInt(date.getMonth()+1)+'/'+date.getDate()+'</td></table>'
+	      							+'<td style="width:40%;">'+RateNoticeBean.targetRate +'元</td>'
+	      							+'<td style="width:5%;padding-right:10%">'+date.getFullYear()+'/'+parseInt(date.getMonth()+1)+'/'+date.getDate()+'</td>'
+	      							+'<td style="width:100%;padding-left:10%"><input type="image" src="images/gb.png" width="70%" height="15%" alt="send" name="Test" id="Test" onclick="deleteOrder();" /></td></table>'
 	    					
 	    					)
 	    							
@@ -310,7 +311,7 @@ function notice(){
 <td>幣別:</td>
 </tr>
 <tr>
-<td><select id="select1" name="currency" class="col-sm-9" style="max-width:300%;padding:4px;padding-right:105px;border-radius:4px;margin-bottom:10px;">
+<td><select id="select1" name="currency" class="col-sm-9" style="max-width:300%;padding:4px;padding-right:36%;border-radius:4px;margin-bottom:10px;">
                 		<option value="USD">請選擇幣別</option>
                 		<option value="USD">美金USD</option>
 <!--                 		<option value="HKD">港幣</option> -->
@@ -351,7 +352,7 @@ function notice(){
 </div>
  <!-- 匯率到價通知 ↑↑↑-->
  
- <div id="dialog1" title="匯率通知" style="background:	#99BBFF;border: 1px none black">
+ <div id="dialog1" title="匯率設定查詢" style="background:	#99BBFF;border: 1px none black">
 <h5></h5>
 <form action="<c:url value="/secure/rate.controller" />" method="post">
 <table id="table1" style="border-collapse:collapse; ">
@@ -370,25 +371,24 @@ function notice(){
 </form>
 </div>
  
-  <!-- 匯率通知查詢 ↑↑↑-->
+  <!-- 匯率通知查詢 ↑↑↑class=legend-->
 <!-- <button id="opener">Open Dialog</button> -->
 
 	<div id="header">
-		<h2 style="color:white">匯率-最近半年走勢圖</h2>
+		<h2 style="color:#FFFFBB;padding-top: 2%">匯率-最近半年走勢圖</h2>
 	</div>
-	<div style="margin-bottom: 20px;margin-top:10px">
-	   <button type="button" style="float:right;margin-right: 150px"><a href="<c:url value='rateindex3.jsp'/>" />回上一頁</a></button>
-<!-- 	   <button type="button" style="float:right;margin-right: 10px"><a href="toggling1.jsp" />最近半年走勢圖</a></button> -->
-	   <button type="button" style="float:right;margin-right: 150px;margin-bottom:-1000px"><a href="<c:url value='toggling.jsp'/>" />最近三個月走勢圖</a></button>
-<%-- 	   <button type="button" style="float:right;margin-right: 10px;margin-bottom:-1000px"><a href="<c:url value='notice.jsp'/>" />匯率到價通知</a></button> --%>
-	   <button id="opener" type="button" style="float:right;margin-right: 10px;margin-bottom:-1000px">設定匯率價格</button>  
-	   <button id="opener1" type="button" style="float:right;margin-right: 330px;margin-bottom:-1000px">查詢設定</button>                                                                                
+<!-- 	<div style="margin-bottom: 20px;margin-top:10px"> -->
+	<div style="padding:1.2%;padding-right:10%">
+	   <button type="button" style="border-radius: 6px;float:right;margin-right: 150px"><a href="<c:url value='rateindex3.jsp'/>" />回匯率首頁</a></button>
+	   <button type="button" style="border-radius: 6px;float:right;margin-right: 10px;margin-bottom:-1000px"><a href="<c:url value='toggling.jsp'/>" />最近三個月走勢圖</a></button>
+	   <button id="opener" type="button" style="border-radius: 6px;color:	#003C9D;float:right;margin-right: 190px;margin-bottom:-1000px">設定匯率價格</button>  
+	   <button id="opener1" type="button" style="border-radius: 6px;color:	#003C9D;float:right;margin-right: 330px;margin-bottom:-1000px">查詢設定</button>                                                                                
 	 
 	</div> 
 	
 	<div id="content">
 
-		<div class="demo-container">
+		<div class="demo-container" style="border-radius: 10px">
 			<div id="placeholder" class="demo-placeholder" style="float:left; width:675px;"></div>
 <!-- 			<input type="checkbox" id="Toggle"/>全選<br/> -->
 			<p id="choices" style="float:right; width:135px;"></p>

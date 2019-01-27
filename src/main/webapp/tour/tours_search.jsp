@@ -135,7 +135,8 @@ iframe#_hjRemoteVarsFrame {
 .owl-stage-outer {
 	height: 680px;
 }
-}
+    
+
 </style>
 <script type="text/javascript" async=""
 	src="//api.useinsider.com/js/squery.min.js"></script>
@@ -176,7 +177,7 @@ iframe#_hjRemoteVarsFrame {
 
 	</section>
 	<!-- END slider -->
-	<section class="search-condition area-result">
+	<section class="search-condition area-result"style=" margin-top: -1%;">
 		<div class="container">
 
 			<%--         <c:forEach items="${tour}" var="element">  --%>
@@ -189,7 +190,7 @@ iframe#_hjRemoteVarsFrame {
 			<%-- 		</c:forEach> --%>
 
 			<div class="row">
-				<div class="col-lg-2 col-md-3 col-sm-3 col-xs-9">
+				<div class="col-lg-2 col-md-3 col-sm-3 col-xs-9" ">
 					<div class="row">
 						<div class="col-sm-12">
 							<div class="result">
@@ -223,7 +224,7 @@ iframe#_hjRemoteVarsFrame {
 													pattern="yyyy-MM-dd" value="${checkin_date}" /> ~<fmt:formatDate
 													pattern="yyyy-MM-dd" value="${checkout_date}" /> </strong>
 										</li>
-										<li>出發地：<strong>桃園</strong></li>
+										<li>出發地：<strong>桃園 / 台北</strong></li>
 									</ul>
 									<!-- 									<ul class="slick-slide result type2" data-index="1" -->
 									<!-- 										tabindex="-1" style="outline: none;"> -->
@@ -441,8 +442,9 @@ iframe#_hjRemoteVarsFrame {
 
 
 				<div class="search-right col-md-9">
-				<div id="exampl">
+				
 					<div class="product">
+					<div id="exampl">
 						<section class="search-area-title tour">
 							<div class="clearfix">
 								<div class="pull-left">
@@ -452,31 +454,35 @@ iframe#_hjRemoteVarsFrame {
 									<div class="slash">
 										<span></span>
 									</div>
-									<div class="tag-result">
+									<div class="tag-result" style="margin-bottom:4%">
 										查詢結果：<span class="red">${count}</span>筆(金額單位：新台幣含稅)
 									</div>
 								</div>
 								<div class="sort pull-right hidden-sm hidden-xs">
-									<span>顯示：</span>
-									<button type="button" class="btn-switch">
-										個團<i class="fa fa-flag" aria-hidden="true"></i>
-									</button>
-									<button type="button" class="btn-switch active">
-										行程<i class="fa fa-map-signs" aria-hidden="true"></i>
-									</button>
+<!-- 									<span>顯示：</span> -->
+<!-- 									<button type="button" class="btn-switch"> -->
+<!-- 										個團<i class="fa fa-flag" aria-hidden="true"></i> -->
+<!-- 									</button> -->
+<!-- 									<button type="button" class="btn-switch active"> -->
+<!-- 										行程<i class="fa fa-map-signs" aria-hidden="true"></i> -->
+<!-- 									</button> -->
 								</div>
+								<div style="margin-top:6.5%">
+								<span style="padding-top:10%"><button id="sortN" class="sort" data-sort="name" style="color:#007bff; background: white;border: 2px solid  #007bff;border-radius:4px;padding:0px;width:10%;">
+								出發日  ⇅</button></span>
+						        <span><button id="sortM" class="sort" data-sort="age" style="color:#007bff; background: white;border: 2px solid  #007bff;border-radius:4px;padding:0px;width:10%;">
+						                        金額   ⇅</button></span>
 								<div class="sort pull-right hidden-sm hidden-xs">
-								
-									<span>排序：</span><select class="select-boder"
-										id="modalSearchResultSort"
-										style="background-image: url(&quot;https://www.settour.com.tw/st_ec/img/newWeb/icon/icon-dropdown.png&quot;);"><option
-											value="BA">出發日近→遠</option>
-										<option value="BD">出發日遠→近</option>
-										<button class="sort"><option value="PA">價格低→高</option></button>
-										<option value="PD">價格高→低</option></select>
 								</div>
-								<button class="sort" data-sort="name">Sort by name</button>
-						        <button class="sort" data-sort="age">Sort by age</button>
+<!-- 									<span>排序：</span><select class="select-boder" -->
+<!-- 										id="modalSearchResultSort" -->
+<!-- 										style="background-image: url(&quot;https://www.settour.com.tw/st_ec/img/newWeb/icon/icon-dropdown.png&quot;);"><option -->
+<!-- 											value="BA">出發日近→遠</option> -->
+<!-- 										<option value="BD">出發日遠→近</option> -->
+<!-- 										<button class="sort"><option value="PA">價格低→高</option></button> -->
+<!-- 										<option value="PD">價格高→低</option></select> -->
+								</div>
+								
 							</div>
 						</section>
 						<div id="nofind"
@@ -550,7 +556,7 @@ iframe#_hjRemoteVarsFrame {
 																	<div>機位 洽客服</div>
 																	<div class="order-btn">
 																		<a role="button" data-toggle="collapse"
-																			href="#slider-flightInfo_AUKA9B90204A"
+																			href="#${element.tourNo}${element.tourBatchBean[0].serialNo}"
 																			aria-expanded="true"
 																			aria-controls="slider-flightInfo">航班<i
 																			class="fa fa-angle-down" aria-hidden="true"></i></a>
@@ -558,8 +564,8 @@ iframe#_hjRemoteVarsFrame {
 																</div>
 															</div>
 															<div class="product-item-right-text">
-																<strong><fmt:formatDate pattern="MM/dd"
-																		value="${element.tourBatchBean[0].departureDate}" />，洽客服</strong>
+																<strong><sapn class="name"><fmt:formatDate pattern="MM/dd"
+																		value="${element.tourBatchBean[0].departureDate}" /></sapn>，洽客服</strong>
 															</div>
 															<div class="area-price col-md-2 col-sm-12">
 																<div class="row">
@@ -567,19 +573,25 @@ iframe#_hjRemoteVarsFrame {
 																		<div class="price">
 																			<div id="ori-price" class="ori-price">
 																				${element.tourDays}天</div>
-																			<div>
-																				<span class="price-uni">$</span><span class="age">${element.tourBatchBean[0].price_adult }</span><em>起</em>
+																			<div class="${element.tourBatchBean[0].price_adult}">
+																				<span class="price-uni">$</span><span class="age">${element.tourBatchBean[0].price_adult}</span><em>起</em>
 																			</div>
 																		</div>
 																	</div>
 																	<div class="price-btn col-md-12 col-xs-4">
-																		<button class="btn-order">看詳細</button>
+																		<a href="<c:url value='/tour/Display2/travel.jsp?tourNo="+${element.tourNo}+"' />"><button class="btn-order">看詳細</button></a>
 																	</div>
 																</div>
 															</div>
 														</div>
-														<div id="slider-flightInfo_AUKA9B90204A"
+														<div id="${element.tourNo}${element.tourBatchBean[0].serialNo}" style="position: relative;
+																													    z-index: 1;
+																													    margin: 0 -15px;
+																													    margin: 20px 0 0;
+																													    padding: 0 15px;"
 															class="slider-flight-info tour hidden-md hidden-sm hidden-xs collapse">
+															<div class="slider-flight-info-list"><div class="slider-flight-info-list-tit"><div class="tag lg solid blue">去程</div><div class="a-to-b-tit"><strong>台灣桃園機場TPE</strong><i class="fa fa-long-arrow-right" aria-hidden="true"></i><strong>北海道千歲機場CTS</strong></div></div><ul><li><div class="row"><div class="col-xs-1 text-center"><img src="https://www.settour.com.tw/st_ec/img/newWeb/airline-logo/CI.png" alt="中華航空(CI130)" class=""></div><div class="col-xs-2">中華航空(CI130)</div><div class="col-xs-9"><div class="flight-fromto"><div class="row"><div class="col-xs-4"><div class="station-info"><div class="station-info-date">02/01(五)</div><div class="station-info-time">08:35</div></div></div><div class="col-xs-4"><div class="flight-duration"><div class="flight-duration-time">4h00m</div><div class="flight-duration-arrow"></div></div></div><div class="col-xs-4"><div class="station-info"><div class="station-info-date">02/01(五)</div><div class="station-info-time">13:15</div></div></div></div></div></div></div></li></ul></div>
+															<div class="slider-flight-info-list"><div class="slider-flight-info-list-tit"><div class="tag lg gray-darker">回程</div><div class="a-to-b-tit"><strong>北海道千歲機場CTS</strong><i class="fa fa-long-arrow-right" aria-hidden="true"></i><strong>台灣桃園機場TPE</strong></div></div><ul><li><div class="row"><div class="col-xs-1 text-center"><img src="https://www.settour.com.tw/st_ec/img/newWeb/airline-logo/CI.png" alt="中華航空(CI131)" class=""></div><div class="col-xs-2">中華航空(CI131)</div><div class="col-xs-9"><div class="flight-fromto"><div class="row"><div class="col-xs-4"><div class="station-info"><div class="station-info-date">02/05(二)</div><div class="station-info-time">14:20</div></div></div><div class="col-xs-4"><div class="flight-duration"><div class="flight-duration-time">4h00m</div><div class="flight-duration-arrow"></div></div></div><div class="col-xs-4"><div class="station-info"><div class="station-info-date">02/05(二)</div><div class="station-info-time">18:05</div></div></div></div></div></div></div></li></ul></div>
 															<div class="slider-flight-info-item-area"></div>
 															<div class="cart-notice type2">
 																<div class="editor-area">
@@ -587,7 +599,7 @@ iframe#_hjRemoteVarsFrame {
 																</div>
 															</div>
 															<div class="slider-flight-info-close-btn">
-																<div data-toggle="collapse" href="#slider-flightInfo"
+																<div data-toggle="collapse" href="#${element.tourNo}${element.tourBatchBean[0].serialNo}"
 																	aria-expanded="true" aria-controls="slider-flightInfo">
 																	收合參考航班<i class="fa fa-angle-up" aria-hidden="true"></i>
 																</div>
@@ -599,121 +611,10 @@ iframe#_hjRemoteVarsFrame {
 										</div>
 				     </c:forEach>
    					  	     </div>
-						  
-						 
-	
-<%-- 	        <c:forEach items="${tour}" var="element">					  --%>
-<!-- 								<div class="choose"> -->
-<%-- 											<div class="${element.tourDays}"> --%>
-<!-- 												<article class="product-item tour"> -->
-<!-- 													<div class="container-fluid" -->
-<!-- 														style="border: 4px #007bff solid;"> -->
-<!-- 														<div class="row" -->
-<!-- 															style="margin-right: -15px; margin-left: -1px;"> -->
-<!-- 															<div class="serach-img col-md-4 col-sm-5"> -->
-<!-- 																<a href="/product/GFG0000012035/AUKA9B90204A" -->
-<!-- 																	target="_blank"><img style="width: 270px;" -->
-<%-- 																	alt="${element.tourName}" class="img-responsive" --%>
-<%-- 																	href="<c:url value='/voyage/index.jsp'/>" --%>
-<%-- 																	<c:set var="a" value="${'/Travel/tour/Display2/images/'}${element.tourPictureBean[0].pic}"  /> --%>
-<%-- 																	src="${a}"></a> --%>
-<!-- 																													<div class="favorite hidden-xs"> -->
-<!-- 																														<div class="btn-collect-nobox"></div> -->
-<!-- 																													</div> -->
-<!-- 															</div> -->
-<!-- 															<div class="product-info col-md-6 col-sm-7"> -->
-<!-- 																<h4 class="product-name"> -->
-<!-- 																	<a href="/product/GFG0000012035/AUKA9B90204A" -->
-<!-- 																		target="_blank"><div -->
-<%-- 																			style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 3;">${element.tourName}</div></a> --%>
-<!-- 																</h4> -->
-<!-- 																<div class="product-info-tag-area"> -->
-<%-- 																	<c:if --%>
-<%-- 																		test="${element.guaranteedCount - element.tourBatchBean[0].peopleCount < 0 && element.fullPeopleCount - element.tourBatchBean[0].peopleCount != 0}"> --%>
-<!-- 																		<div class="tag solid yellow"> -->
-<!-- 																			<div class="ready">已成團</div> -->
-<!-- 																		</div> -->
-
-<%-- 																	</c:if> --%>
-
-<%-- 																	<c:if --%>
-<%-- 																		test="${element.guaranteedCount - element.tourBatchBean[0].peopleCount > 0}"> --%>
-<!-- 																		<div class="tag solid" -->
-<!-- 																			style="color: #333; background-color: #fd7e14;"> -->
-<!-- 																			<div class="soon">即將成團</div> -->
-<!-- 																		</div> -->
-<%-- 																	</c:if> --%>
-
-<%-- 																	<c:if --%>
-<%-- 																		test="${element.fullPeopleCount - element.tourBatchBean[0].peopleCount == 0}"> --%>
-<!-- 																		<div class="tag solid red"> -->
-<!-- 																			<div class="full">額滿</div> -->
-<!-- 																		</div> -->
-<%-- 																	</c:if> --%>
-<!-- 																</div> -->
-<!-- 																<div -->
-<!-- 																	class="product-info-bottom hidden-md hidden-sm hidden-xs"> -->
-<%-- 																	<div>${element.tourBatchBean[0].distination_back}出發</div> --%>
-<%-- 																	<div>團號：${element.tourNo}</div> --%>
-<!-- 																	<div>機位 洽客服</div> -->
-<!-- 																	<div class="order-btn"> -->
-<!-- 																		<a role="button" data-toggle="collapse" -->
-<!-- 																			href="#slider-flightInfo_AUKA9B90204A" -->
-<!-- 																			aria-expanded="true" -->
-<!-- 																			aria-controls="slider-flightInfo">航班<i -->
-<!-- 																			class="fa fa-angle-down" aria-hidden="true"></i></a> -->
-<!-- 																	</div> -->
-<!-- 																</div> -->
-<!-- 															</div> -->
-<!-- 															<div class="product-item-right-text"> -->
-<%-- 																<strong><fmt:formatDate pattern="MM/dd" --%>
-<%-- 																		value="${element.tourBatchBean[0].departureDate}" />，洽客服</strong> --%>
-<!-- 															</div> -->
-<!-- 															<div class="area-price col-md-2 col-sm-12"> -->
-<!-- 																<div class="row"> -->
-<!-- 																	<div class="col-md-12 col-xs-8"> -->
-<!-- 																		<div class="price"> -->
-<!-- 																			<div id="ori-price" class="ori-price"> -->
-<%-- 																				${element.tourDays}天</div> --%>
-<!-- 																			<div> -->
-<%-- 																				<span class="price-uni">$</span><em class="age">${element.tourBatchBean[0].price_adult }</em><em>起</em> --%>
-<!-- 																			</div> -->
-<!-- 																		</div> -->
-<!-- 																	</div> -->
-<!-- 																	<div class="price-btn col-md-12 col-xs-4"> -->
-<!-- 																		<button class="btn-order">看詳細</button> -->
-<!-- 																	</div> -->
-<!-- 																</div> -->
-<!-- 															</div> -->
-<!-- 														</div> -->
-<!-- 														<div id="slider-flightInfo_AUKA9B90204A" -->
-<!-- 															class="slider-flight-info tour hidden-md hidden-sm hidden-xs collapse"> -->
-<!-- 															<div class="slider-flight-info-item-area"></div> -->
-<!-- 															<div class="cart-notice type2"> -->
-<!-- 																<div class="editor-area"> -->
-<!-- 																	<p>實際搭乘航班請以行前說明會資料為準</p> -->
-<!-- 																</div> -->
-<!-- 															</div> -->
-<!-- 															<div class="slider-flight-info-close-btn"> -->
-<!-- 																<div data-toggle="collapse" href="#slider-flightInfo" -->
-<!-- 																	aria-expanded="true" aria-controls="slider-flightInfo"> -->
-<!-- 																	收合參考航班<i class="fa fa-angle-up" aria-hidden="true"></i> -->
-<!-- 																</div> -->
-<!-- 															</div> -->
-<!-- 														</div> -->
-<!-- 													</div> -->
-<!-- 												</article> -->
-<!-- 											</div> -->
-<!-- 										</div> -->
-										
-<%-- 			</c:forEach> --%>
-			
-
-
-
+					
 									<div class="no-data-info text-center">已經到底了，沒有東西囉</div>
 									<div id="cry" style="display: none; margin-top: 10%">
-										<img id="move" style="padding-left: 0%"
+										<img id="move" style="padding-left: 0% ; "
 											src="<c:url value='/tour/crying.gif' />" />
 									</div>
 									<%-- <img src="<c:url  ='https://www.google.com/search?q=%E8%98%91%E8%8F%87%E9%A0%AD%E8%A1%A8%E6%83%85%E5%8C%85&tbs=isc:white,ic:trans,itp:animated&tbm=isch&source=lnt&sa=X&ved=0ahUKEwjtzP67h4TgAhXEbrwKHbjyATMQpwUIHg&biw=1920&bih=938&dpr=1#imgrc=S0kz4qYOErbNEM:' />" /> --%>
@@ -722,7 +623,7 @@ iframe#_hjRemoteVarsFrame {
 							</div>
 						</section>
 					</div>
-				</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -793,9 +694,19 @@ iframe#_hjRemoteVarsFrame {
 	
 	<script>	
 		$(document).ready(function() {
-			 var example = new List( "exampl", {
+			
+		
+			$('div:visible div[class="499999"]').parents('.choose > div').hide();
+			$('div:visible div[class="399999"]').parents('.choose > div').hide();
+			
+			
+					
+			
+			var example = new List( "exampl", {
 			  		valueNames: [ "name", "age" ] // 項目
 		  	    });
+			
+			 
 			
 // 			$('.choose > div').hide();
 // 			$('.choose > div').slideDown(2000);
@@ -926,8 +837,8 @@ iframe#_hjRemoteVarsFrame {
 			$( "#slider-range" ).slider({
 			      range: true,
 			      min: 0,
-			      max: 99999,
-			      values: [ 9999, 89999 ],
+			      max: 499999,
+			      values: [ 9999, 99999 ],
 			      slide: function( event, ui ) {
 // 			        $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
 			        $( "#amount1" ).text( ui.values[ 0 ]);
@@ -1043,6 +954,11 @@ iframe#_hjRemoteVarsFrame {
 			  
 
 		  function ifEmpty(){ 
+			
+			if($( "#amount2" ).text()=="499999"){
+				$('div:visible div[class="499999"]').parents('.choose > div').fadeIn("slow");
+				$('div:visible div[class="399999"]').parents('.choose > div').fadeIn("slow");
+			}			
 			$('.tag-result >span').html($('.choose > div:visible').size());
 			
 			

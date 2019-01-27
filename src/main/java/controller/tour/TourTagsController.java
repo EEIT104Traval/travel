@@ -1,6 +1,7 @@
 package controller.tour;
 
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import model.tour.GroupTourBean;
-import model.tour.TourBatchBean;
 import model.tour.TourTagsBean;
 import model.tour.service.TourTagsService;
 
@@ -32,4 +32,14 @@ public class TourTagsController {
 //		});
 		return result;
 	}
+	
+	@ResponseBody
+	@RequestMapping("/allTourTags")	
+	public 	Set<String> Tags() {
+		Set<String> result = tourTagsService.tags(); 	
+		System.out.println("TAGS=="+result );
+
+		return result;
+	}
+	
 }

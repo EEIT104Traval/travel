@@ -61,7 +61,12 @@
 	});
 	
 	function deleteOrder(ticketOrderNO){
-		alert("確定刪除!!!")
+		var r=confirm("確定刪除!!!");
+// 	 	if(r==true){
+// 		alert("確定價格")
+// 	}else{
+// 		alert("取消確認")
+// 	}
 		console.log("ticketOrderNO="+ticketOrderNO)
 		$.ajax({
 					url : '/Travel/voyage/deleteorder.controller',
@@ -74,15 +79,18 @@
 					success: function(json) {
             			alert("刪除!!");
              			console.log(json);
-//             			location.reload();
             			location.reload();
 
             		},
             		error: function(json) {
-            			alert("!!");
+            			if(r==true){
+            			alert("刪除成功");
+            			location.reload();
+            			}else{
+            				alert("取消刪除")
+            			}
              			console.log(json);
 //             			location.reload();
-            			location.reload();
 
             		},
 				});
@@ -159,8 +167,8 @@
 								}
 							} else {
 								$("#HotelOrderDetailsBean")
-										.append(
-												'<table class="table table-hover"><th scope="row">尚無門票訂單</th></table>')
+										.append('<table ><hr></table>')
+// 												'<table class="table table-hover"><th scope="row">尚無門票訂單</th></table>')
 							}
 							
 							if (JData.FlightOrderInfoBean != null) {
@@ -187,8 +195,8 @@
 								}
 							} else {
 								$("#HotelOrderDetailsBean")
-										.append(
-												'<table class="table table-hover"><th scope="row">尚無機票訂單</th></table>')
+										.append('<table ><hr></table>')
+// 												'<table class="table table-hover"><th scope="row">尚無機票訂單</th></table>')
 							}
 							if (JData.HotelOrderDetailsBean != null) {
 								for (var i = 0; i < JData.HotelOrderDetailsBean.length; i++) {
@@ -216,11 +224,9 @@
 								}
 							} else {
 								$("#searchuser")
-										.append(
-												'<table ><th scope="row">尚無飯店訂單</th></table>')
+										.append('<table ><hr></table>')
+// 												'<table ><th scope="row">尚無飯店訂單</th></table>')
 							}
-							
-							
 						})
 	};
 </script>

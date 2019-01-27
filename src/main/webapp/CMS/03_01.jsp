@@ -127,7 +127,7 @@ var params = {}
 							       <td><input type="text" id="adultTicketPrice"></td>
 							       <td><input type="text" id="adultTicketSellQ"></td>
 							       <td><input type="text" id="country"></td></tr></tbody>
-						<thead><tr><td>使用期限</td><td>票券資訊</td><td>票券限制</td><td>銷售數量</td><td></td></tr></thead>
+						<thead><tr><td>使用期限</td><td>票券資訊</td><td>票券限制</td><td>銷售數量</td><td><input type="text" id="ticketPicture" style="display:none"></td></tr></thead>
 						<tbody><tr><td><input type="text" id="validity"></td>
 							       <td><input type="text" id="traffic_information"></td>
 							       <td><input type="text" id="special_restrictions"></td>
