@@ -26,6 +26,25 @@
 .navbar-dark .navbar-nav .nav-link {
    color: rgba(255,255,255);
 }
+#gotop {
+    position:fixed;
+    z-index:90;
+    right:30px;
+    bottom:31px;
+    display:none;
+    width:50px;
+    height:50px;
+    color:#fff;
+    background:#33b5e5;
+    line-height:50px;
+    border-radius:50%;
+    transition:all 0.5s;
+    text-align: center;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+}
+#gotop :hover{
+    background:#0099CC;
+}
 </style>
 	</head>
 	<script
@@ -90,7 +109,7 @@
 						}
 					})
 					$("#img").html("<img src=images/"+JData.TourPictureBean[0].pic+" alt=/ height='500px'>");
-					$("#section-contact>div>div>div>p").html("<h2>"+JData.tourName+"</h2>");
+					$("#section-contact>div>div>div>p").html("<h2 style='font-weight:700!important;color:mediumslateblue;text-align:center;'>"+JData.tourName+"</h2>");
 					$("#section-two>div>p").html("<p>"+JData.TourPictureBean[0].picDetail+"</p>");
 					$.each(JData.TourPictureBean, function(index, value) {
 						if(index!=0){
@@ -122,11 +141,30 @@
 			})
 
 		});
+		
+		$(function() {
+		    /* 按下GoTop按鈕時的事件 */
+		    $('#gotop').click(function(){
+		        $('html,body').animate({ scrollTop: 0 }, 'slow');   /* 返回到最頂上 */
+		        return false;
+		    });
+		     
+		    /* 偵測卷軸滑動時，往下滑超過400px就讓GoTop按鈕出現 */
+		    $(window).scroll(function() {
+		        if ( $(this).scrollTop() > 400){
+		            $('#gotop').fadeIn();
+		        } else {
+		            $('#gotop').fadeOut();
+		        }
+		    });
+		});
 </script>	
   	
 	<body>
 <%--     <jsp:include page="nav.jsp"></jsp:include> --%>
-  
+  <a href="https://www.blogger.com/blogger.g?blogID=2031514508322140995#" id="gotop">
+   <i class="fa fa-angle-up"></i>
+</a>
     <nav class="navbar navbar-expand-lg navbar-dark probootstrap_navbar" id="probootstrap-navbar">
       <div class="container">
         <img alt="" src="<c:url value='/voyage/images/TTT.png' />" width="250px">
@@ -170,8 +208,8 @@
           <div class="col-md-6 probootstrap-animate fadeInUp probootstrap-animated">
             <p class="mb-5">tour Detail 0</p>
             <div class="row">
-              <div class="col-md-6">
-				放日曆
+              <div class="col-md-12" style="text-align:center;">
+				<img alt="##" src="<c:url value='/tour/Display2/images/girl.png'/>">
               </div>
             </div>
           </div>

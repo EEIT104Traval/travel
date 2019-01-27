@@ -437,9 +437,9 @@ h2 {
 								</div>
 								<div id="price_baby_null" class="col-md-4 col-xs-12">
 									<div style="display: inline-block;">
-										<div id="price_baby"
-											style="float: left; font-size: 20px; padding-right: 10px; font-weight: 600;">嬰兒</div>
 										<div
+											style="float: left; font-size: 20px; padding-right: 10px; font-weight: 600;">嬰兒</div>
+										<div id="price_baby"
 											style="float: left; font-size: 20px; color: red; padding-right: 3px;">$2,900</div>
 										<div style="padding: 5px">/人</div>
 										<div>
