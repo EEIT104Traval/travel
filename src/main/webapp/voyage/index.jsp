@@ -79,23 +79,34 @@
      <jsp:include page="/voyage/nav.jsp" />
   
     <section class="home-slider owl-carousel">
-      <div class="slider-item" style="background-image: url('images/bg_4.jpg');">
+      <div class="slider-item" style="background-image: url('/Travel/tour/Display2/images/Sbanner.jpg');">
         <div class="overlay"></div>
         <div class="container">
           <div class="row slider-text align-items-center">
             <div class="col-md-7 col-sm-12 ftco-animate">
-              <h1 class="mb-3">Experience the best trip ever</h1>
+              <h1 class="mb-3" style="font-weight:900">旅行，能讓你付出卻變得更富有。</h1>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="slider-item" style="background-image: url('images/bg_1.jpg');">
+      <div class="slider-item" style="background-image: url('images/france.jpg');">
         <div class="overlay"></div>
         <div class="container">
           <div class="row slider-text align-items-center">
             <div class="col-md-7 col-sm-12 ftco-animate">
-              <h1 class="mb-3">Making the most out of your holiday</h1>
+              <h1 class="mb-3" style="font-weight:900">我在旅行的路上，你呢？</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slider-item" style="background-image: url('images/nine.jpeg');">
+        <div class="overlay"></div>
+        <div class="container">
+          <div class="row slider-text align-items-center">
+            <div class="col-md-7 col-sm-12 ftco-animate">
+              <h1 class="mb-3" style="font-weight:900">不是人在旅途，而是旅途載人。</h1>
             </div>
           </div>
         </div>
@@ -106,7 +117,7 @@
         <div class="container">
           <div class="row slider-text align-items-center">
             <div class="col-md-7 col-sm-12 ftco-animate">
-              <h1 class="mb-3">Travel Operator Just For You</h1>
+              <h1 class="mb-3" style="font-weight:900">不用去聽別人怎麼說，靠自己的雙眼去認識吧！</h1>
             </div>
           </div>
         </div>
@@ -133,14 +144,14 @@
                   <form action="" method="post" class="d-block d-lg-flex">
                     <div class="fields d-block d-lg-flex">
 
-                      <div class="textfield-search one-third"><input type="text" class="form-control" placeholder="Search Location"></div>
+                      <div class="textfield-search one-third"><input type="text" placeholder="Search Location"></div>
 
                       <div class="check-in one-third"><input type="text" id="checkin_date" class="form-control" placeholder="Check-in date"></div>
 
                       <div class="check-out one-third"><input type="text" id="checkout_date" class="form-control" placeholder="Check-out date"></div>
                       <div class="select-wrap one-third">
                         <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                        <select name="" id="" class="form-control">
+                        <select class="form-control">
                           <option value="">Guest</option>
                           <option value="">1</option>
                           <option value="">2</option>
@@ -159,12 +170,12 @@
                     <div class="fields d-block d-lg-flex">
                       <div class="textfield-search one-third"><input type="text" class="form-control" placeholder="Search Hotel"></div>
 
-                      <div class="check-in one-third"><input type="text" id="checkin_date" class="form-control" placeholder="Check-in date"></div>
+                      <div class="check-in one-third"><input type="text" class="form-control" placeholder="Check-in date"></div>
 
-                      <div class="check-out one-third"><input type="text" id="checkout_date" class="form-control" placeholder="Check-out date"></div>
+                      <div class="check-out one-third"><input type="text" class="form-control" placeholder="Check-out date"></div>
                       <div class="select-wrap one-third">
                         <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                        <select name="" id="" class="form-control">
+                        <select class="form-control">
                           <option value="">Guest</option>
                           <option value="">1</option>
                           <option value="">2</option>
@@ -188,7 +199,7 @@
                       <div class="check-out one-third"><input type="text" id="return_date" class="form-control" placeholder="Return date"></div>
                       <div class="select-wrap one-third">
                         <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                        <select name="" id="" class="form-control">
+                        <select class="form-control">
                           <option value="">Guest</option>
                           <option value="">1</option>
                           <option value="">2</option>
@@ -208,11 +219,11 @@
                       <div class="textfield-search one-third one-third-1"><input type="text" class="form-control" placeholder="Search Location"></div>
 
 
-                      <div class="check-out one-third one-third-1"><input type="text" id="start_date" class="form-control" placeholder="Check-out date"></div>
+                      <div class="check-out one-third one-third-1"><input type="text" class="form-control" placeholder="Check-out date"></div>
 
                       <div class="select-wrap one-third one-third-1">
                         <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                        <select name="" id="" class="form-control">
+                        <select class="form-control">
                           <option value="">Categories</option>
                           <option value="">Suite</option>
                           <option value="">Super Deluxe</option>
@@ -525,7 +536,7 @@
               <form action="#" class="subscribe-form">
                 <div class="form-group">
                   <span class="icon icon-paper-plane"></span>
-                  <input type="text" class="form-control" placeholder="Enter your email address">
+                  <input type="text" placeholder="Enter your email address">
                 </div>
               </form>
             </div>
