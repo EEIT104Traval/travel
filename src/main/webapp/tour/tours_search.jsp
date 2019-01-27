@@ -579,7 +579,7 @@ iframe#_hjRemoteVarsFrame {
 																		</div>
 																	</div>
 																	<div class="price-btn col-md-12 col-xs-4">
-																		<a href="<c:url value='/tour/Display2/travel.jsp?tourNo="+${element.tourNo}+"' />"><button class="btn-order">看詳細</button></a>
+																		<a href="<c:url value='/tour/Display2/travel.jsp?tourNo=${element.tourNo}' />"><button class="btn-order">看詳細</button></a>
 																	</div>
 																</div>
 															</div>
