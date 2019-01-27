@@ -187,7 +187,7 @@ public class HotelService {
             String host ="smtp.gmail.com" ;
             String user = "sherrysherry92@gmail.com";
             String pass = "jxrkaepvctpmffcs";
-            String to = "sherrysherry92@gmail.com";
+            String to = "sherryyang92@gmail.com";
             String from = "TimeToTravel";
             String subject = "Time To Travel - 訂購明細";
 //            String messageText = "您的訂單明細";
