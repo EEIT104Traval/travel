@@ -90,7 +90,7 @@
         </div>
       </div>
 
-      <div class="slider-item" style="background-image: url('images/france.jpg');">
+      <div class="slider-item" style="background-image: url('images/Paris2.jpg');">
         <div class="overlay"></div>
         <div class="container">
           <div class="row slider-text align-items-center">
