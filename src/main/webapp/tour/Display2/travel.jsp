@@ -45,6 +45,10 @@
 #gotop :hover{
     background:#0099CC;
 }
+.modal-dialog {
+    max-width: 360px;
+    margin: 1.75rem auto;
+}
 </style>
 	</head>
 	<script
@@ -162,9 +166,67 @@
   	
 	<body>
     <jsp:include page="nav.jsp"/>
-<!--  <a href="https://www.blogger.com/blogger.g?blogID=2031514508322140995#" id="gotop"> -->
-<!--    <i class="fa fa-angle-up"></i> -->
-<!-- </a> -->
+<a href="https://www.blogger.com/blogger.g?blogID=2031514508322140995#" id="gotop">
+   <i class="fa fa-angle-up"></i>
+</a>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalCenterTitle">會員登入</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <label for="name" style="margin-bottom:20px">帳號:</label> 
+        <input type="text" name="name" id="name"class="text ui-widget-content ui-corner-all" style="margin-bottom: -20px"><br>
+		<label for="password" style="margin-bottom:20px">密碼:</label> 
+		<input type="password" id="password"name="password" value=""class="text ui-widget-content ui-corner-all">
+		<div><span class="error" id="loginerror" style="color:red">　</span></div>
+      </div>
+      <div>
+				<input class="btn btn-secondary active" type="button" value="登入" onclick="login()" style="margin:30px;margin-top:0px;">
+				<input class="btn btn-secondary active" type="button" value="新會員註冊" onclick="register()" style="float:right;margin:30px;margin-top:0px;">
+      </div>
+      <div>
+   			<img style="margin: 20px;" src="<c:url value='/login/images/facebook.jpg' />" onclick="FBLogin();" width="23%" height="23%"> 
+			<img style="margin: 10px;" src="<c:url value='/login/images/google01.jpg' />" onclick="GoogleLogin();" width="23%" height="23%"> 
+			<img style="margin: 20px;" src="<c:url value='/login/images/line.jpg' />" onclick="GoogleLogin();" width="23%" height="23%">
+	  </div>
+    </div>
+  </div>
+</div>
+
+<script>
+var user={}
+function login(){
+	user.name=$('#name').val()
+	user.password=$('#password').val()
+	$.ajax({
+			url : '/Travel/voyage/login.controller',
+			contentType : 'application/json; charset=UTF-8',
+			type : 'get',
+			dataType : 'json',
+			data:user,
+	}).success(function(JData) {
+		console.log(JData);
+		if(JData.xxx1==='Login failed'){
+			$('#loginerror').html('登入失敗');
+		}else{
+			if(JData.xxx1.authority=='A001'){
+  	      		location.reload();
+			}else{
+				window.location="/Travel/CMS/01_01.jsp"
+			}
+		}
+	});
+}
+	
+</script>
+
 <!--     <nav class="navbar navbar-expand-lg navbar-dark probootstrap_navbar" id="probootstrap-navbar"> -->
 <!--       <div class="container"> -->
 <%--         <img alt="" src="<c:url value='/voyage/images/TTT.png' />" width="250px"> --%>

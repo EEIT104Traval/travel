@@ -179,11 +179,25 @@
 <!-- 							</form> -->
 <!-- 						</div> -->
 <!-- 					</div> -->
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<script>
+	function buy(){
+		if('${accountName}'){
+		window.location.href="/Travel/tour/Display2/order3.jsp"
+		}else{
+			swal({
+				  title: "請先登入會員查看明細",
+				  icon: "warning",
+				})
+		}
+	}	
+	</script>
 
 					<div class="sidebar-box ftco-animate">
 						<div class="categories">
 							<h3 style="font-weight:bold;">旅遊資訊</h3>
-							<li><a style="color:red" href="<c:url value='toursDetail.jsp'/>">各國旅遊資訊</a></li>
+							<li><a onclick="buy()" style="color:red" href="##">查看訂單明細</a></li>
+							<li><a style="color:red" href="<c:url value='/tour/toursDetail.jsp'/>">各國旅遊資訊</a></li>
 							<li><a style="color:red"href="#">熱門飯店資訊 </a></li>
 							<li><a style="color:red"href="#">熱搜門票資訊</a></li>
 							<li><a style="color:red"href="#">機票價格資訊 </a></li>							
