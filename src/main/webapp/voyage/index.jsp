@@ -131,10 +131,10 @@
           <div class="col-md-12 tabulation-search">
             <div class="element-animate">
               <div class="nav nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                <a class="nav-link p-3 active " id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true"><span>01</span> Flight</a>
-                <a class="nav-link p-3" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false"><span>02</span> Hotel</a>
-                <a class="nav-link p-3" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false"><span>03</span> Car Rent</a>
-                <a class="nav-link p-3 " id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false"><span>04</span> Ticket</a>
+                <a class="nav-link p-3 active " id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true"><span>01</span> 行程</a>
+                <a class="nav-link p-3" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false"><span>02</span> 機票</a>
+                <a class="nav-link p-3" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false"><span>03</span> 飯店</a>
+                <a class="nav-link p-3 " id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false"><span>04</span> 門票</a>
               </div>
             </div>
               
@@ -144,15 +144,15 @@
                   <form action="" method="post" class="d-block d-lg-flex">
                     <div class="fields d-block d-lg-flex">
 
-                      <div class="textfield-search one-third"><input type="text" placeholder="Search Location"></div>
+                      <div class="textfield-search one-third"><input type="text" class="form-control" placeholder="搜尋景點"></div>
 
-                      <div class="check-in one-third"><input type="text" id="checkin_date" class="form-control" placeholder="Check-in date"></div>
+                      <div class="check-in one-third"><input type="text" id="checkin_date" class="form-control" placeholder="出發日期"></div>
 
-                      <div class="check-out one-third"><input type="text" id="checkout_date" class="form-control" placeholder="Check-out date"></div>
+                      <div class="check-out one-third"><input type="text" id="checkout_date" class="form-control" placeholder="回程日期"></div>
                       <div class="select-wrap one-third">
                         <div class="icon"><span class="ion-ios-arrow-down"></span></div>
                         <select class="form-control">
-                          <option value="">Guest</option>
+                          <option value="">人數</option>
                           <option value="">1</option>
                           <option value="">2</option>
                           <option value="">3</option>
@@ -160,7 +160,7 @@
                         </select>
                       </div>
                     </div>
-                    <input type="submit" class="search-submit btn btn-primary" value="Find Flights">  
+                    <input type="submit" class="search-submit btn btn-primary" value="搜尋行程">  
                   </form>
                 </div>
               </div>
@@ -168,15 +168,15 @@
                 <div class="block-17">
                   <form action="" method="post" class="d-block d-lg-flex">
                     <div class="fields d-block d-lg-flex">
-                      <div class="textfield-search one-third"><input type="text" class="form-control" placeholder="Search Hotel"></div>
+                      <div class="textfield-search one-third"><input type="text" class="form-control" placeholder="搜尋機票"></div>
 
-                      <div class="check-in one-third"><input type="text" class="form-control" placeholder="Check-in date"></div>
+                      <div class="check-in one-third"><input type="text" class="form-control" placeholder="出發日期"></div>
 
-                      <div class="check-out one-third"><input type="text" class="form-control" placeholder="Check-out date"></div>
+                      <div class="check-out one-third"><input type="text" class="form-control" placeholder="回程日期"></div>
                       <div class="select-wrap one-third">
                         <div class="icon"><span class="ion-ios-arrow-down"></span></div>
                         <select class="form-control">
-                          <option value="">Guest</option>
+                          <option value="">人數</option>
                           <option value="">1</option>
                           <option value="">2</option>
                           <option value="">3</option>
@@ -184,7 +184,7 @@
                         </select>
                       </div>
                     </div>
-                    <input type="submit" class="search-submit btn btn-primary" value="Find Hotels">  
+                    <input type="submit" class="search-submit btn btn-primary" value="搜尋機票">  
                   </form>
                 </div>
               </div>
@@ -192,15 +192,15 @@
                 <div class="block-17">
                   <form action="" method="post" class="d-block d-lg-flex">
                     <div class="fields d-block d-lg-flex">
-                      <div class="textfield-search one-third"><input type="text" class="form-control" placeholder="Search Location"></div>
+                      <div class="textfield-search one-third"><input type="text" class="form-control" placeholder="搜尋飯店"></div>
 
-                      <div class="check-in one-third"><input type="text" id="start_date" class="form-control" placeholder="Start date"></div>
+                      <div class="check-in one-third"><input type="text" id="start_date" class="form-control" placeholder="入住日期"></div>
 
-                      <div class="check-out one-third"><input type="text" id="return_date" class="form-control" placeholder="Return date"></div>
+                      <div class="check-out one-third"><input type="text" id="return_date" class="form-control" placeholder="退房日期"></div>
                       <div class="select-wrap one-third">
                         <div class="icon"><span class="ion-ios-arrow-down"></span></div>
                         <select class="form-control">
-                          <option value="">Guest</option>
+                          <option value="">人數</option>
                           <option value="">1</option>
                           <option value="">2</option>
                           <option value="">3</option>
@@ -208,7 +208,7 @@
                         </select>
                       </div>
                     </div>
-                    <input type="submit" class="search-submit btn btn-primary" value="Find Car">  
+                    <input type="submit" class="search-submit btn btn-primary" value="搜尋飯店">  
                   </form>
                 </div>
               </div>
@@ -216,24 +216,22 @@
                 <div class="block-17">
                   <form action="" method="post" class="d-block d-lg-flex">
                     <div class="fields d-block d-lg-flex">
-                      <div class="textfield-search one-third one-third-1"><input type="text" class="form-control" placeholder="Search Location"></div>
+                      <div class="textfield-search one-third one-third-1"><input type="text" class="form-control" placeholder="搜尋們票"></div>
 
 
-                      <div class="check-out one-third one-third-1"><input type="text" class="form-control" placeholder="Check-out date"></div>
+                      <div class="check-out one-third one-third-1"><input type="text" class="form-control" placeholder="搜尋地點"></div>
 
                       <div class="select-wrap one-third one-third-1">
                         <div class="icon"><span class="ion-ios-arrow-down"></span></div>
                         <select class="form-control">
-                          <option value="">Categories</option>
-                          <option value="">Suite</option>
-                          <option value="">Super Deluxe</option>
-                          <option value="">Balcony</option>
-                          <option value="">Economy</option>
-                          <option value="">Luxury</option>
+                          <option value="類別">類別</option>
+                          <option value="主題樂園">主題樂園</option>
+                          <option value="美術館">美術館</option>
+                          <option value="博物館">博物館</option>
                         </select>
                       </div>
                     </div>
-                    <input type="submit" class="search-submit btn btn-primary" value="Find Cruise">  
+                    <input type="submit" class="search-submit btn btn-primary" value="搜尋票券">  
                   </form>
                 </div>
               </div>
@@ -453,75 +451,6 @@
                 <p class="star-rate"><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star-half-full"></span> <span>500 reviews</span></p>
               </div>
             </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="ftco-section testimony-section">
-      <div class="container">
-        <div class="row justify-content-center mb-5 pb-5">
-          <div class="col-md-7 text-center heading-section ftco-animate">
-            <h2>Our Satisfied Guests says</h2>
-          </div>
-        </div>
-        <div class="row ftco-animate">
-          <div class="carousel owl-carousel ftco-owl">
-            <div class="item text-center">
-              <div class="testimony-wrap p-4 pb-5">
-                <div class="user-img mb-4" style="background-image: url(images/person_1.jpg)" style="border: 1px solid red;"></div>
-                <div class="text">
-                  <p class="star-rate"><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star-half-full"></span></p>
-                  <p class="mb-5">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                  <p class="name">Dennis Green</p>
-                  <span class="position">Guests from Italy</span>
-                </div>
-              </div>
-            </div>
-            <div class="item text-center">
-              <div class="testimony-wrap p-4 pb-5">
-                <div class="user-img mb-4" style="background-image: url(images/person_2.jpg)" style="border: 1px solid red;"></div>
-                <div class="text">
-                  <p class="star-rate"><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star-half-full"></span></p>
-                  <p class="mb-5">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                  <p class="name">Dennis Green</p>
-                  <span class="position">Guests from Italy</span>
-                </div>
-              </div>
-            </div>
-            <div class="item text-center">
-              <div class="testimony-wrap p-4 pb-5">
-                <div class="user-img mb-4" style="background-image: url(images/person_3.jpg)" style="border: 1px solid red;"></div>
-                <div class="text">
-                  <p class="star-rate"><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star-half-full"></span></p>
-                  <p class="mb-5">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                  <p class="name">Dennis Green</p>
-                  <span class="position">Guests from Italy</span>
-                </div>
-              </div>
-            </div>
-            <div class="item text-center">
-              <div class="testimony-wrap p-4 pb-5">
-                <div class="user-img mb-4" style="background-image: url(images/person_1.jpg)" style="border: 1px solid red;"></div>
-                <div class="text">
-                  <p class="star-rate"><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star-half-full"></span></p>
-                  <p class="mb-5">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                  <p class="name">Dennis Green</p>
-                  <span class="position">Guests from Italy</span>
-                </div>
-              </div>
-            </div>
-            <div class="item text-center">
-              <div class="testimony-wrap p-4 pb-5">
-                <div class="user-img mb-4" style="background-image: url(images/person_1.jpg)" style="border: 1px solid red;"></div>
-                <div class="text">
-                  <p class="star-rate"><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star-half-full"></span></p>
-                  <p class="mb-5">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                  <p class="name">Dennis Green</p>
-                  <span class="position">Guests from Italy</span>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>
