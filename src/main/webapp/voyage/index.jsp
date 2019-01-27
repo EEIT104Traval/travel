@@ -84,7 +84,7 @@
         <div class="container">
           <div class="row slider-text align-items-center">
             <div class="col-md-7 col-sm-12 ftco-animate">
-              <h1 class="mb-3" style="font-weight:900">旅行，能讓你付出卻變得更富有。</h1>
+              <h1 class="mb-3" style="font-weight:900; font-size:60px">旅行，能讓你付出卻變得更富有。</h1>
             </div>
           </div>
         </div>
@@ -95,7 +95,7 @@
         <div class="container">
           <div class="row slider-text align-items-center">
             <div class="col-md-7 col-sm-12 ftco-animate">
-              <h1 class="mb-3" style="font-weight:900">我在旅行的路上，你呢？</h1>
+              <h1 class="mb-3" style="font-weight:900; font-size:60x">我在旅行的路上，你呢？</h1>
             </div>
           </div>
         </div>
@@ -106,7 +106,7 @@
         <div class="container">
           <div class="row slider-text align-items-center">
             <div class="col-md-7 col-sm-12 ftco-animate">
-              <h1 class="mb-3" style="font-weight:900">不是人在旅途，而是旅途載人。</h1>
+              <h1 class="mb-3" style="font-weight:900; font-size:60px">不是人在旅途，而是旅途載人。</h1>
             </div>
           </div>
         </div>
@@ -117,11 +117,36 @@
         <div class="container">
           <div class="row slider-text align-items-center">
             <div class="col-md-7 col-sm-12 ftco-animate">
-              <h1 class="mb-3" style="font-weight:900">不用去聽別人怎麼說，靠自己的雙眼去認識吧！</h1>
+              <h1 class="mb-3" style="font-weight:900; font-size:60px">不用去聽別人怎麼說，靠自己的雙眼去認識吧！</h1>
             </div>
           </div>
         </div>
       </div>
+
+      <div class="slider-item" style="background-image: url('images/London.jpg');">
+        <div class="overlay"></div>
+        <div class="container">
+          <div class="row slider-text align-items-center">
+            <div class="col-md-7 col-sm-12 ftco-animate">
+              <h1 class="mb-3" style="font-weight:900; font-size:60px">旅遊不是去另一個地方，旅遊是另一種方式的體驗。</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slider-item" style="background-image: url('images/finland.jpg');">
+        <div class="overlay"></div>
+        <div class="container">
+          <div class="row slider-text align-items-center">
+            <div class="col-md-7 col-sm-12 ftco-animate">
+              <h1 class="mb-3" style="font-weight:900; font-size:60px">説走就走，是人生最華美的奢侈，也是最燦爛的自由。</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      
+      
     </section>
     <!-- END slider -->
 
