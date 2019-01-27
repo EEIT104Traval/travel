@@ -17,6 +17,10 @@ function clearForm() {
 	}
 }
 
+function index(){
+	window.location.href="../voyage/index.jsp"
+}
+
 // $( function() {
 //     $( "#datepicker" ).datepicker({dateFormat:'yy-MM-dd',changeYear: true});
 //   } );
@@ -26,7 +30,8 @@ function clearForm() {
 
 
 </head>
-<body>
+<!-- <body style="background-image:url(/Travel/tour/Display2/images/Sbanner.jpg); height:background-repeat: no-repeat; background-position: center"> -->
+<body style="background-image:url(/Travel/login/images/pic007.jpg); height:background-repeat: no-repeat; background-position: center">
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
@@ -92,6 +97,7 @@ function clearForm() {
 											<div class="col-sm-6 col-sm-offset-3">
 												<input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login" value="註冊">
 												<input type="button" value="清除" onclick="clearForm()" tabindex="4" class="form-control btn btn-login" style="margin-top: 10px">
+												<input type="button" value="回上一頁" onclick="index()" tabindex="4" class="form-control btn btn-login" style="margin-top: 10px">
 											</div>
 										</div>
 									</div>
