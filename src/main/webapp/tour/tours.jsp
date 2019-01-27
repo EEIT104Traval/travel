@@ -67,7 +67,7 @@
 									<input name="tours" type="text" class="search_input" style="font-family: Noto Sans TC; width: 25%"
 										placeholder="想去哪裡玩?" id="tourS">
 									<input name="checkin_date" type="text" class="search_input" style="font-family: Noto Sans TC; width: 25%"
-										id="checkin_date" >~
+										id="checkin_date" >
 									<input name="checkout_date" type="text" class="search_input" style="font-family: Noto Sans TC; width: 25%"
 										id="checkout_date" >
 									
@@ -92,8 +92,8 @@
 		 	<div class="col-md-7 text-center heading-section ftco-animate fadeInUp ftco-animated" style="width:115.5%;font-family: Noto Sans TC; ">
 		 		
 		 		<div style="border:3px solid #ff5f5f;width: 113%;    border-radius: 12px;">
-		 		<span  style="padding-left:;"><img style="padding-left:;width:10%;height:10%"src="<c:url value='/tour/HOT.gif' />" /></span>
-		 		<span id="hotT"style="  font-size: 30px;color:white;font-family:DFKai-sb">熱搜行程 </span>		 		
+		 		<span  style="padding-left:;"><img style="padding-left:;width:8%;height:8%"src="<c:url value='/tour/HOT.gif' />" /></span>
+		 		<span id="hotT"style="  font-size: 30px;color:red;font-family:DFKai-sb">熱搜行程 </span>		 		
 		 		</div>
 		 		
 		 		
@@ -183,11 +183,10 @@
 					<div class="sidebar-box ftco-animate">
 						<div class="categories">
 							<h3 style="font-weight:bold;">旅遊資訊</h3>
-							<li><a href="<c:url value='toursDetail.jsp'/>">各國旅遊資訊</a></li>
-							<li><a href="#">Hotels <span>(22)</span></a></li>
-							<li><a href="#">Cruises <span>(37)</span></a></li>
-							<li><a href="#">Restaurant <span>(42)</span></a></li>
-							<li><a href="#">Destination <span>(14)</span></a></li>
+							<li><a style="color:red" href="<c:url value='toursDetail.jsp'/>">各國旅遊資訊</a></li>
+							<li><a style="color:red"href="#">熱門飯店資訊 </a></li>
+							<li><a style="color:red"href="#">熱搜門票資訊</a></li>
+							<li><a style="color:red"href="#">機票價格資訊 </a></li>							
 						</div>
 					</div>
 
@@ -256,12 +255,12 @@
    		});
    			
    		$('#tagcloud').on("mouseover","a",function(){
-   			$(this).css('color','purple').css('background','yellow');
+   			$(this).css('color','#ff5f5f').css('background-color','white');
    		})
    		$('#tagcloud').on("mouseout","a",function(){
-   			$(this).css('color','gray').css('background','#00FFFF');
+   			$(this).css('color','white').css('background-color','#ff5f5f');
    		})
-//    		mouseover(over).mouseout(out);		
+//    		mouseover(over).mouseout(out);	
 		
 // 		function over(evt){
 // 			 $(this).css('color','purple').css('background','yellow');
@@ -289,8 +288,8 @@
 					+		"<div class=\"post-meta\">"
 					+			"<span>"+val.content+"</span>"
 					+		"</div>"
-					+		"<p class=\"star-rate\">"
-					+			"<span class=\"icon-star\"></span><span class=\"icon-star\"></span><span class=\"icon-star\"></span><span class=\"icon-star\"></span><span class=\"icon-star-half-full\"></span> <span>500 reviews</span>"							
+					+		"<p  class=\"star-rate\">"                           //<span class=\"icon-star-half-full\"></span>
+					+			"<span style=\"color:#ffc107\" class=\"icon-star\"></span><span style=\"color:#ffc107\" class=\"icon-star\"></span><span style=\"color:#ffc107\" class=\"icon-star\"></span><span style=\"color:#ffc107\" class=\"icon-star\"></span><span  style=\"color:#ffc107\"class=\"icon-star\"></span> <span  style=\"color:#ffc107\">999+ reviews</span>"							
 					+		"</p>"
 					+	"</div>"
 					+"</a>"
@@ -339,8 +338,8 @@
 			 var tagcontents ="";
 			 console.log("tags=>"+data);
 			 $.each(data, function(idx,val){
-	 				tagcontents +='<a href="#idd" id="'+val
-		            +'" class="tag-cloud-link">'+val
+	 				tagcontents +='<a href="#idd" style="border: 1px solid #ff5f5f; background-color:#ff5f5f;color:white;" id="'+val
+		            +'" class="tag-cloud-link  ">'+val
 		            +'</button>';
 			 })
 			 $("#tagcloud").html(tagcontents);			 
@@ -377,7 +376,7 @@
 								+			"<span>"+val.content+"</span>"
 								+		"</div>"
 								+		"<p class=\"star-rate\">"
-								+			"<span class=\"icon-star\"></span><span class=\"icon-star\"></span><span class=\"icon-star\"></span><span class=\"icon-star\"></span><span class=\"icon-star-half-full\"></span> <span>500 reviews</span>"							
+								+			"<span style=\"color:#ffc107\" class=\"icon-star\"></span><span style=\"color:#ffc107\" class=\"icon-star\"></span><span style=\"color:#ffc107\" class=\"icon-star\"></span><span style=\"color:#ffc107\" class=\"icon-star\"></span><span  style=\"color:#ffc107\"class=\"icon-star\"></span> <span  style=\"color:#ffc107\">999+ reviews</span>"					
 								+		"</p>"
 								+	"</div>"
 								+"</a>"

@@ -135,9 +135,7 @@ iframe#_hjRemoteVarsFrame {
 .owl-stage-outer {
 	height: 680px;
 }
-button {
-
-}
+    
 
 </style>
 <script type="text/javascript" async=""
@@ -226,7 +224,7 @@ button {
 													pattern="yyyy-MM-dd" value="${checkin_date}" /> ~<fmt:formatDate
 													pattern="yyyy-MM-dd" value="${checkout_date}" /> </strong>
 										</li>
-										<li>出發地：<strong>桃園</strong></li>
+										<li>出發地：<strong>桃園 / 台北</strong></li>
 									</ul>
 									<!-- 									<ul class="slick-slide result type2" data-index="1" -->
 									<!-- 										tabindex="-1" style="outline: none;"> -->
@@ -558,7 +556,7 @@ button {
 																	<div>機位 洽客服</div>
 																	<div class="order-btn">
 																		<a role="button" data-toggle="collapse"
-																			href="#slider-flightInfo_AUKA9B90204A"
+																			href="#${element.tourNo}${element.tourBatchBean[0].serialNo}"
 																			aria-expanded="true"
 																			aria-controls="slider-flightInfo">航班<i
 																			class="fa fa-angle-down" aria-hidden="true"></i></a>
@@ -575,19 +573,25 @@ button {
 																		<div class="price">
 																			<div id="ori-price" class="ori-price">
 																				${element.tourDays}天</div>
-																			<div>
-																				<span class="price-uni">$</span><span class="age">${element.tourBatchBean[0].price_adult }</span><em>起</em>
+																			<div class="${element.tourBatchBean[0].price_adult}">
+																				<span class="price-uni">$</span><span class="age">${element.tourBatchBean[0].price_adult}</span><em>起</em>
 																			</div>
 																		</div>
 																	</div>
 																	<div class="price-btn col-md-12 col-xs-4">
-																		<button class="btn-order">看詳細</button>
+																		<a href="<c:url value='/tour/Display2/travel.jsp?tourNo="+${element.tourNo}+"' />"><button class="btn-order">看詳細</button></a>
 																	</div>
 																</div>
 															</div>
 														</div>
-														<div id="slider-flightInfo_AUKA9B90204A"
+														<div id="${element.tourNo}${element.tourBatchBean[0].serialNo}" style="position: relative;
+																													    z-index: 1;
+																													    margin: 0 -15px;
+																													    margin: 20px 0 0;
+																													    padding: 0 15px;"
 															class="slider-flight-info tour hidden-md hidden-sm hidden-xs collapse">
+															<div class="slider-flight-info-list"><div class="slider-flight-info-list-tit"><div class="tag lg solid blue">去程</div><div class="a-to-b-tit"><strong>台灣桃園機場TPE</strong><i class="fa fa-long-arrow-right" aria-hidden="true"></i><strong>北海道千歲機場CTS</strong></div></div><ul><li><div class="row"><div class="col-xs-1 text-center"><img src="https://www.settour.com.tw/st_ec/img/newWeb/airline-logo/CI.png" alt="中華航空(CI130)" class=""></div><div class="col-xs-2">中華航空(CI130)</div><div class="col-xs-9"><div class="flight-fromto"><div class="row"><div class="col-xs-4"><div class="station-info"><div class="station-info-date">02/01(五)</div><div class="station-info-time">08:35</div></div></div><div class="col-xs-4"><div class="flight-duration"><div class="flight-duration-time">4h00m</div><div class="flight-duration-arrow"></div></div></div><div class="col-xs-4"><div class="station-info"><div class="station-info-date">02/01(五)</div><div class="station-info-time">13:15</div></div></div></div></div></div></div></li></ul></div>
+															<div class="slider-flight-info-list"><div class="slider-flight-info-list-tit"><div class="tag lg gray-darker">回程</div><div class="a-to-b-tit"><strong>北海道千歲機場CTS</strong><i class="fa fa-long-arrow-right" aria-hidden="true"></i><strong>台灣桃園機場TPE</strong></div></div><ul><li><div class="row"><div class="col-xs-1 text-center"><img src="https://www.settour.com.tw/st_ec/img/newWeb/airline-logo/CI.png" alt="中華航空(CI131)" class=""></div><div class="col-xs-2">中華航空(CI131)</div><div class="col-xs-9"><div class="flight-fromto"><div class="row"><div class="col-xs-4"><div class="station-info"><div class="station-info-date">02/05(二)</div><div class="station-info-time">14:20</div></div></div><div class="col-xs-4"><div class="flight-duration"><div class="flight-duration-time">4h00m</div><div class="flight-duration-arrow"></div></div></div><div class="col-xs-4"><div class="station-info"><div class="station-info-date">02/05(二)</div><div class="station-info-time">18:05</div></div></div></div></div></div></div></li></ul></div>
 															<div class="slider-flight-info-item-area"></div>
 															<div class="cart-notice type2">
 																<div class="editor-area">
@@ -595,7 +599,7 @@ button {
 																</div>
 															</div>
 															<div class="slider-flight-info-close-btn">
-																<div data-toggle="collapse" href="#slider-flightInfo"
+																<div data-toggle="collapse" href="#${element.tourNo}${element.tourBatchBean[0].serialNo}"
 																	aria-expanded="true" aria-controls="slider-flightInfo">
 																	收合參考航班<i class="fa fa-angle-up" aria-hidden="true"></i>
 																</div>
@@ -690,9 +694,19 @@ button {
 	
 	<script>	
 		$(document).ready(function() {
-			 var example = new List( "exampl", {
+			
+		
+			$('div:visible div[class="499999"]').parents('.choose > div').hide();
+			$('div:visible div[class="399999"]').parents('.choose > div').hide();
+			
+			
+					
+			
+			var example = new List( "exampl", {
 			  		valueNames: [ "name", "age" ] // 項目
 		  	    });
+			
+			 
 			
 // 			$('.choose > div').hide();
 // 			$('.choose > div').slideDown(2000);
@@ -823,8 +837,8 @@ button {
 			$( "#slider-range" ).slider({
 			      range: true,
 			      min: 0,
-			      max: 99999,
-			      values: [ 9999, 89999 ],
+			      max: 499999,
+			      values: [ 9999, 99999 ],
 			      slide: function( event, ui ) {
 // 			        $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
 			        $( "#amount1" ).text( ui.values[ 0 ]);
@@ -940,6 +954,11 @@ button {
 			  
 
 		  function ifEmpty(){ 
+			
+			if($( "#amount2" ).text()=="499999"){
+				$('div:visible div[class="499999"]').parents('.choose > div').fadeIn("slow");
+				$('div:visible div[class="399999"]').parents('.choose > div').fadeIn("slow");
+			}			
 			$('.tag-result >span').html($('.choose > div:visible').size());
 			
 			
