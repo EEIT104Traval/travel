@@ -725,7 +725,7 @@ $(".closepop").on("click",function(){$("#pop_protick").modal("hide")});$(".pop_r
 <!-- 		type="text/javascript"></script> -->
 <!-- 	<script -->
 <%-- 		src="<c:url value='/flight/彈窗/custom-popup/jquery.custom.popup-v1.3.1.js'/>"></script> --%>
-	<jsp:include page="/voyage/foo.jsp" />
+<%-- 	<jsp:include page="/voyage/foo.jsp" /> --%>
 <!--票規與行李開關--> 
 <script>
 $(document).ready(function(){

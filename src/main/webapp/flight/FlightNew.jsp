@@ -65,6 +65,8 @@
 	
 	$(document).ready(function(){
 		
+		$('#loading').delay(1000).hide(0);
+		
 		var today = new Date();
 		var to= today.setDate(today.getDate()+5);
 		var today1 = new Date(to);
@@ -86,9 +88,23 @@
 	
 	
 </script>
+
+
+<style type="text/css">
+#loading  
+{  
+    position:fixed;  
+    top:40%;  
+    left:45%;  
+    z-index:999;  
+}  
+
+
+</style>
+
 </head>
 <body>
-
+<!-- <div id='loading'>正在載入頁面資料...</div> -->
 	<jsp:include page="/voyage/nav.jsp" />
 	<section class="home-slider owl-carousel">
 		<div class="slider-item"
@@ -251,7 +267,7 @@
 	</script>
 
 
-
+	<img src="<c:url value='/voyage/images/introflight.png'/> " style='position: absolute;' id="alligator">
 	<div class="intro">
 		<div class="intro_background"
 			style="background-image: url( <c:url value='/voyage/images/intro.png'/>)"></div>
@@ -358,7 +374,7 @@
 			})
 		}
 	</script>
-	<script src="<c:url value='/voyage/js/jquery.min.js' />"></script>
+<%-- 	<script src="<c:url value='/voyage/js/jquery.min.js' />"></script> --%>
 	<script src="<c:url value='/voyage/js/jquery-migrate-3.0.1.min.js' />"></script>
 	<script src="<c:url value='/voyage/js/popper.min.js' />"></script>
 	<script src="<c:url value='/voyage/js/bootstrap.min.js' />"></script>
