@@ -58,10 +58,8 @@ public class rateNoticeController {
 	@ResponseBody
 	@RequestMapping(path= {"/voyage/checkRate.controller"})
 	public RateBean checkRate(String accountName) {
-		
 		RateBean result = rateNoticeService.findByPrimaryKey1(accountName);
-		
-	System.out.println("結果"+result);
+//	System.out.println("結果"+result);
 		return result;
 	}
 }

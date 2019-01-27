@@ -42,6 +42,7 @@
 	height:200px;
 	border: 3px solid #0080ff;
 	border-collapse: collapse;
+	
 }
 
 th {
@@ -172,16 +173,16 @@ function update(){
 				<div class="col">
 					<div class="home_search_container">
 						<div class="home_search_title"><h2>匯率</h2></div>
-						<div class="home_search_content">
+						<div class="home_search_content" style="border-radius: 10px;">
 							<form action="#" class="home_search_form" id="home_search_form"
 								method="get">
 								<div>
 								<div style="float:right;margin-top: 45px;margin-bottom: 10px;margin-right:-40px">
 <!--   	   							<button type="button" style="float:right;margin-bottom: 10px"><a href="toggling3.jsp" />最近半年走勢圖</a></button> -->
 			
- 			<button  style="margin-right: 10px" ><a href="<c:url value='toggling1.jsp'/>"  />最近半年走勢圖</a></button>
-			<button  style="margin-right: 10px"><a href="<c:url value='toggling.jsp'/>"  />最近三個月走勢圖</a></button>
-			<button><a href="<c:url value='../voyage/index.jsp'/>"  />回首頁</a></button>
+ 			<button  style="color:black;border-radius: 6px;margin-right: 10px" ><a href="<c:url value='toggling1.jsp'/>"  />最近半年走勢圖</a></button>
+			<button  style="border-radius: 6px;margin-right: 10px"><a href="<c:url value='toggling.jsp'/>"  />最近三個月走勢圖</a></button>
+<%-- 			<button><a href="<c:url value='../voyage/index.jsp'/>"  />回首頁</a></button> --%>
 			</div>		 			
 									
 <!-- 		<div style="margin-top:20px"> -->
@@ -191,7 +192,7 @@ function update(){
 <!-- 	   <button type="button" style="float:right;margin-right: 10px"><a href="#" onclick="update()"/>update</a></button> -->
 <!-- 	</div> -->
 <!-- 	<h2 style="margin-left:450px">匯率</h2> -->
-	<table id="productTable" class="tb1">
+	<table id="productTable" class="tb1" >
 		<thead>
 			<tr>
 				<th rowspan="2">幣別</th>
@@ -201,10 +202,10 @@ function update(){
 			</tr>
 
 			<tr>
-				<th>本行買入</th>
-				<th>本行賣出</th>
-				<th>本行賣出</th>
-				<th>本行賣出</th>
+				<th>台銀買入</th>
+				<th>台銀賣出</th>
+				<th>台銀賣出</th>
+				<th>台銀賣出</th>
 				
 			</tr>
 		</thead>
@@ -214,7 +215,8 @@ function update(){
 	   Date dNow = new Date( );
 	   SimpleDateFormat ft = 
 	   new SimpleDateFormat ("yyyy-MM-dd HH:mm:ss");
-       out.print( "<h5 style='color:white' align=\"left\">更新時間： " +ft.format(dNow)+"</h5>");
+//        out.print( "<h5 style='color:white' align=\"left\">更新時間： " +ft.format(dNow)+"</h5>");
+       out.print( "<h5 style='color:white' align=\"left\">更新時間：2019-01-30 16:00:00</h5>");
     %>
 </div>
 
