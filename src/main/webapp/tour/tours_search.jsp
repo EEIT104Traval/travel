@@ -58,9 +58,13 @@
 	type="text/css" media="screen">
 <link rel="stylesheet"
 	href="https://scss.settour.com.tw/tour.css?1547708750755">
-<link rel="stylesheet" href="/resources/demos/style.css">
+<!-- <link rel="stylesheet" href="/resources/demos/style.css"> -->
 
-
+	
+<link rel="stylesheet"
+ href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+ integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+ crossorigin="anonymous">
 
 
 <script type="text/javascript" async=""
@@ -83,7 +87,7 @@
 	src="https://www.google-analytics.com/plugins/ua/ec.js"></script>
 <script type="text/javascript" async=""
 	src="https://www.google-analytics.com/plugins/ua/linkid.js"></script>
-<script async="" src="https://connect.facebook.net/en_US/fbevents.js"></script>
+<!-- <script async="" src="https://connect.facebook.net/en_US/fbevents.js"></script> -->
 <script async="" src="https://wrl.eagleeye.com.tw/ea"></script>
 <script type="text/javascript" async=""
 	src="https://d31qbv1cthcecs.cloudfront.net/atrk.js"></script>
@@ -136,6 +140,26 @@ iframe#_hjRemoteVarsFrame {
 	height: 680px;
 }
     
+    
+  #gotop { 
+     position:fixed; 
+     z-index:90; 
+     right:30px; 
+     bottom:31px; 
+     display:none; 
+     width:50px; 
+     height:50px; 
+     color:#fff; 
+     background:#33b5e5; 
+     line-height:50px; 
+     border-radius:50%; 
+     transition:all 0.5s;
+     text-align: center; 
+     box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12); 
+ } 
+ #gotop :hover{ 
+     background:#0099CC; 
+  }  
 
 </style>
 <script type="text/javascript" async=""
@@ -154,6 +178,11 @@ iframe#_hjRemoteVarsFrame {
 	integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
 	crossorigin="anonymous"></script>
 <body>
+
+<a href="https://www.blogger.com/blogger.g?blogID=2031514508322140995#" id="gotop">
+   <i class="fa fa-angle-up"></i>
+</a>
+
 	<jsp:include page="../voyage/nav.jsp"></jsp:include>
 	<section class="home-slider owl-carousel">
 		<div class="slider-item"
@@ -505,7 +534,7 @@ iframe#_hjRemoteVarsFrame {
 											<div class="${element.tourDays}">
 												<article class="product-item tour">
 													<div class="container-fluid"
-														style="border: 4px #007bff solid;">
+														style="border: 2px #007bff solid;">
 														<div class="row"
 															style="margin-right: -15px; margin-left: -1px;">
 															<div class="serach-img col-md-4 col-sm-5">
@@ -574,7 +603,8 @@ iframe#_hjRemoteVarsFrame {
 																			<div id="ori-price" class="ori-price">
 																				${element.tourDays}天</div>
 																			<div class="${element.tourBatchBean[0].price_adult}">
-																				<span class="price-uni">$</span><span class="age">${element.tourBatchBean[0].price_adult}</span><em>起</em>
+																				<span class="price-uni">$</span><span class="age">${element.tourBatchBean[0].price_adult}</span>  
+<!-- 																				<em>起</em> -->
 																			</div>
 																		</div>
 																	</div>
@@ -696,8 +726,8 @@ iframe#_hjRemoteVarsFrame {
 		$(document).ready(function() {
 			
 		
-			$('div:visible div[class="499999"]').parents('.choose > div').hide();
-			$('div:visible div[class="399999"]').parents('.choose > div').hide();
+// 			$('div:visible div[class="499999"]').parents('.choose > div').hide();
+// 			$('div:visible div[class="399999"]').parents('.choose > div').hide();
 			
 			
 					
@@ -941,8 +971,8 @@ iframe#_hjRemoteVarsFrame {
 				$('#move').animate({"padding-left":"1000px","opacity":"0"},3500,rowBack);	
 				}
 
+        
 
-				 
 			
 	
 			
@@ -955,10 +985,10 @@ iframe#_hjRemoteVarsFrame {
 
 		  function ifEmpty(){ 
 			
-			if($( "#amount2" ).text()=="499999"){
-				$('div:visible div[class="499999"]').parents('.choose > div').fadeIn("slow");
-				$('div:visible div[class="399999"]').parents('.choose > div').fadeIn("slow");
-			}			
+// 			if($( "#amount2" ).text()=="499999"){
+// 				$('div:visible div[class="499999"]').parents('.choose > div').fadeIn("slow");
+// 				$('div:visible div[class="399999"]').parents('.choose > div').fadeIn("slow");
+// 			}			
 			$('.tag-result >span').html($('.choose > div:visible').size());
 			
 			
@@ -972,7 +1002,20 @@ iframe#_hjRemoteVarsFrame {
 		}  	setInterval('ifEmpty()',150);
 		
 		
-
+	    /* 按下GoTop按鈕時的事件 */
+	    $('#gotop').click(function(){
+	        $('html,body').animate({ scrollTop: 0 }, 'slow');   /* 返回到最頂上 */
+	        return false;
+	    });
+	     
+	    /* 偵測卷軸滑動時，往下滑超過400px就讓GoTop按鈕出現 */
+	    $(window).scroll(function() {
+	        if ( $(this).scrollTop() > 400){
+	            $('#gotop').fadeIn();
+	        } else {
+	            $('#gotop').fadeOut();
+	        }
+	    });
 		   	
 	</script>
 
