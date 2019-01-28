@@ -235,8 +235,7 @@ public class HotelService {
             +"<hr>"
             +"<div style='text-align: center'>"
             +"<p>Copyright © 1999-2019 Time To Travel All rights reserved<p>"
-            +"</div>"
-            +"<div style=\"color:red;\">BRIDGEYE</div>";
+            +"</div>";
             msg.setContent(message, "text/html; charset=utf-8");
            Transport transport=mailSession.getTransport("smtp");
            transport.connect(host, user, pass);
