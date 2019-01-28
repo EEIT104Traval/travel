@@ -291,33 +291,33 @@
           <div class="col-lg-3 promo ftco-animate">
             <a href="#" class="promo-img mb-4" style="background-image: url(images/promo-1.jpg);"></a>
             <div class="text text-center">
-              <h2>Group Cruises</h2>
-              <h3 class="price"><span>from</span> $299</h3>
-              <a href="#" class="read">Read more</a>
+              <h2>家庭套餐</h2>
+              <h3 class="price"><span>最低</span> NT$19990</h3>
+              <a href="#" class="read">了解更多</a>
             </div>
           </div>
           <div class="col-lg-3 promo ftco-animate">
             <a href="#" class="promo-img mb-4" style="background-image: url(images/promo-2.jpg);"></a>
             <div class="text text-center">
-              <h2>Beach Tours</h2>
-              <h3 class="price"><span>from</span> $199</h3>
-              <a href="#" class="read">Read more</a>
+              <h2>沙灘旅行</h2>
+              <h3 class="price"><span>最低</span> NT$8990</h3>
+              <a href="#" class="read">了解更多</a>
             </div>
           </div>
           <div class="col-lg-3 promo ftco-animate">
             <a href="#" class="promo-img mb-4" style="background-image: url(images/promo-3.jpg);"></a>
             <div class="text text-center">
-              <h2>Mountain Tours</h2>
-              <h3 class="price"><span>from</span> $179</h3>
-              <a href="#" class="read">Read more</a>
+              <h2>親近自然</h2>
+              <h3 class="price"><span>最低</span> NT$3790</h3>
+              <a href="#" class="read">了解更多</a>
             </div>
           </div>
           <div class="col-lg-3 promo ftco-animate">
-            <a href="#" class="promo-img mb-4" style="background-image: url(images/promo-3.jpg);"></a>
+            <a href="#" class="promo-img mb-4" style="background-image: url(images/promo-4.jpg);"></a>
             <div class="text text-center">
-              <h2>Family Tours</h2>
-              <h3 class="price"><span>from</span> $599</h3>
-              <a href="#" class="read">Read more</a>
+              <h2>文化之旅</h2>
+              <h3 class="price"><span>最低</span> NT$2599</h3>
+              <a href="#" class="read">了解更多</a>
             </div>
           </div>
         </div>
@@ -328,7 +328,7 @@
       <div class="container">
         <div class="row justify-content-center mb-5 pb-5">
           <div class="col-md-7 text-center heading-section ftco-animate">
-            <h2>Our Services</h2>
+            <h2>我們的服務</h2>
           </div>
         </div>
         <div class="row">
@@ -336,8 +336,8 @@
             <div class="media block-6 services d-block text-center">
               <div class="d-flex justify-content-center"><div class="icon d-flex justify-content-center mb-3"><span class="align-self-center flaticon-sailboat"></span></div></div>
               <div class="media-body p-2">
-                <h3 class="heading">Special Activities</h3>
-                <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
+                <h3 class="heading">會員活動</h3>
+                <p>購買任一商品全額付清可兌換刮獎機會，即刮即中，有機會獲得任天堂Switch、運動攝影機等多項好禮</p>
               </div>
             </div>      
           </div>
@@ -345,8 +345,8 @@
             <div class="media block-6 services d-block text-center">
               <div class="d-flex justify-content-center"><div class="icon d-flex justify-content-center mb-3"><span class="align-self-center flaticon-around"></span></div></div>
               <div class="media-body p-2">
-                <h3 class="heading">Travel Arrangements</h3>
-                <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
+                <h3 class="heading">企業服務</h3>
+                <p>我們會用心規劃，讓您擁有美好的體驗與回憶。我們擁有完整資源，讓您以最優惠的價格感受最高品質服務</p>
               </div>
             </div>      
           </div>
@@ -354,8 +354,8 @@
             <div class="media block-6 services d-block text-center">
               <div class="d-flex justify-content-center"><div class="icon d-flex justify-content-center mb-3"><span class="align-self-center flaticon-compass"></span></div></div>
               <div class="media-body p-2">
-                <h3 class="heading">Private Guide</h3>
-                <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
+                <h3 class="heading">旅行指南</h3>
+                <p>在挑選旅行地點時，即使心中已有想法，但還是喜歡看看世界上的旅人都去了哪些地方，偶爾有一些陌生的城市也能給人一些啟發與想像。</p>
               </div>
             </div>    
           </div>
@@ -364,8 +364,8 @@
             <div class="media block-6 services d-block text-center">
               <div class="d-flex justify-content-center"><div class="icon d-flex justify-content-center mb-3"><span class="align-self-center flaticon-map-of-roads"></span></div></div>
               <div class="media-body p-2">
-                <h3 class="heading">Location Manager</h3>
-                <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
+                <h3 class="heading">護照簽證</h3>
+                <p>我們提供協助辦理護照簽證業務，讓你省時省力完美出遊</p>
               </div>
             </div>      
           </div>
@@ -377,14 +377,14 @@
       <div class="container-fluid">
         <div class="row no-gutters justify-content-center mb-5 pb-5 ftco-animate">
           <div class="col-md-7 text-center heading-section">
-            <h2>Most Popular Destination</h2>
+            <h2>更多熱門行程</h2>
           </div>
         </div>
         <div class="row no-gutters">
           <div class="col-md-6 col-lg-3 ftco-animate">
             <a href="#" class="block-5" style="background-image: url('images/tour-1.jpg');">
               <div class="text">
-                <span class="price">$399</span>
+                <span class="price">NT$10399</span>
                 <h3 class="heading">Group Tour in Maldives</h3>
                 <div class="post-meta">
                   <span>Ameeru Ahmed Magu Male’, Maldives</span>
@@ -544,7 +544,7 @@
       <div class="container">
         <div class="row justify-content-center mb-5 pb-5">
           <div class="col-md-7 text-center heading-section ftco-animate">
-            <h2>Our Blog</h2>
+            <h2>特價機票</h2>
           </div>
         </div>
         <div class="row ftco-animate">

@@ -53,7 +53,10 @@
 	rel="stylesheet" type="text/css">
 <link type="text/css" rel="stylesheet"
 	href="<c:url value='/flight/彈窗/custom-popup/custom.popup-v1.3.1.css'/>">
-	
+<link rel="stylesheet"
+ href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+ integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+ crossorigin="anonymous">	
 <style type="text/css">
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans+TC&subset=chinese-traditional');
 
@@ -85,9 +88,46 @@
 .card_line{width: 12px;
    		   height: 100%;
    		   display: table-cell;}
+#gotop {
+    position:fixed;
+    z-index:90;
+    right:30px;
+    bottom:31px;
+    display:none;
+    width:50px;
+    height:50px;
+    color:#fff;
+    background:#33b5e5;
+    line-height:50px;
+    border-radius:50%;
+    transition:all 0.5s;
+    text-align: center;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+}
+#gotop :hover{
+    background:#0099CC;
+}
 
 </style>
+<script type="text/javascript">
+$(function() {
+    /* 按下GoTop按鈕時的事件 */
+    $('#gotop').click(function(){
+        $('html,body').animate({ scrollTop: 0 }, 'slow');   /* 返回到最頂上 */
+        return false;
+    });
+     
+    /* 偵測卷軸滑動時，往下滑超過400px就讓GoTop按鈕出現 */
+    $(window).scroll(function() {
+        if ( $(this).scrollTop() > 400){
+            $('#gotop').fadeIn();
+        } else {
+            $('#gotop').fadeOut();
+        }
+    });
+});
 
+</script>
 
 
 
@@ -100,6 +140,9 @@
 
 </head>
 <body>
+<a href="https://www.blogger.com/blogger.g?blogID=2031514508322140995#" id="gotop">
+   <i class="fa fa-angle-up"></i>
+</a>
 	<script type="text/javascript">
 	
 	
@@ -725,7 +768,7 @@ $(".closepop").on("click",function(){$("#pop_protick").modal("hide")});$(".pop_r
 <!-- 		type="text/javascript"></script> -->
 <!-- 	<script -->
 <%-- 		src="<c:url value='/flight/彈窗/custom-popup/jquery.custom.popup-v1.3.1.js'/>"></script> --%>
-	<jsp:include page="/voyage/foo.jsp" />
+<%-- 	<jsp:include page="/voyage/foo.jsp" /> --%>
 <!--票規與行李開關--> 
 <script>
 $(document).ready(function(){
