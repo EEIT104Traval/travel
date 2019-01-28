@@ -45,7 +45,7 @@ body {
 </head>
 <script>
 	var params = {}
-
+   
 	var accountName = "${sessionScope.accountName}"
 	var roomTypeNo = 8
 
@@ -97,6 +97,37 @@ body {
 			$('#total').text('NT$ ' + z);
 
 		})
+	}
+	function discount(){
+		 var hh = $('#count').val();
+		if( hh =='TimeToTravel2019'){
+		
+		var checkInDate = $('#checkInDate').val();
+		var checkOutDate = $('#checkOutDate').val();
+		var roomTypeNo = 8;
+		$.ajax({
+			type : "GET", //傳送方式
+			url : "/Travel/voyage//hotel/DateMinus",
+			dataType : "json",
+			data : {
+				'checkInDate' : checkInDate,
+				'checkOutDate' : checkOutDate,
+				'roomTypeNo' : roomTypeNo
+			}
+		}).done(function(value) {
+			var x = parseInt(value.price*0.95)
+			var y = parseInt(x * value.Day * 0.05)
+			var z = parseInt((x * value.Day) + y)
+			console.log(value);
+			$('#day').text('1 房間 x ' + value.Day + ' 晚');
+			$('#price').text('NT$ ' + x * value.Day);
+			$('#tax').text('NT$ ' + y);
+			$('#total').text('NT$ ' + z);
+		})}else{
+			alert("無效的優惠代碼")
+			document.getElementById("count").value="";
+			document.getElementById("count").placeholder="優惠代碼" ;
+		}
 	}
 	
 	function put() {
@@ -215,10 +246,10 @@ body {
 																			<div class="col-md-4"
 																				style="padding: 0px; margin-top: 5px">
 																				<span><input type="text" style="padding: 0px"
-																					placeholder="優惠代碼"></span>
+																					placeholder="優惠代碼" id="count"></span>
 																			</div>
 																			<div class="col-md-8" style="padding: 0px">
-																				<button type="button" class="btn btn-danger">登入優惠</button>
+																				<input type="button" class="btn btn-danger" onclick="discount()" value="登入優惠">
 																			</div>
 																		</div>
 
