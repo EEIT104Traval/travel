@@ -44,7 +44,7 @@
 		<div class="container">
 			<div class="row no-gutters justify-content-center mb-5 ftco-animate fadeInUp ftco-animated" style="margin-top: -80px">
 				<div class="col-md-7 text-center heading-section" style="padding-top: 40px">
-					<h2>釜山熱門飯店推薦</h2>
+					<h2>洛杉磯熱門飯店推薦</h2>
 				</div>
 			</div>
 			<div class="row">
@@ -54,7 +54,7 @@
 						<div class="text p-4">
 							<div class="meta"></div>
 							<h6>
-								<a href="/Travel/voyage/hotel/roomTypeSearch.jsp">釜山海云台温德姆华美达安可酒店</a>
+								<a href="/Travel/voyage/hotel/roomTypeSearch.jsp">洛杉磯海云台温德姆华美达安可酒店</a>
 							</h6>
                    			<p style="margin-bottom:0"><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star-half-full"></span></p>
 							<p class="float-left" style="margin">NT$ 2,680</p>
@@ -113,7 +113,7 @@
 						<div class="text p-4">
 							<div class="meta"></div>
 							<h6>
-								<a href="#">香港皇悅卓越酒店(尖沙咀店)(Empire Prestige Tsim Sha Tsui)</a>
+								<a href="#">洛杉磯皇悅卓越酒店(Empire Prestige Tsim Sha Tsui)</a>
 							</h6>
 							<p style="margin-bottom:0"><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star-half-full"></span></p>
 							<p class="float-left">NT$ 5,768</p>
