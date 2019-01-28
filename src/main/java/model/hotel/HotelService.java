@@ -189,7 +189,7 @@ public class HotelService {
             String pass = "jxrkaepvctpmffcs";
             String to = "sherryyang92@gmail.com";
             String from = "TimeToTravel";
-            String subject = "Time To Travel - 訂購明細";
+            String subject = "Time To Travel - OrderDetail";
 //            String messageText = "您的訂單明細";
             boolean sessionDebug = false;
 
@@ -217,7 +217,7 @@ public class HotelService {
             +"<p>我們已收到您的訂單 #20190202001</p>"
             +"<br>"
             +"<b>訂單明細</b>"
-            +"<p>訂單編號：#19010922153JV4S</p>"
+            +"<p>訂單編號：#19013112053JV4S</p>"
             +"<p>訂單日期：" + ch + "</p>"
             +"<p>訂購人：" + bookingPerson + "</p>"
             +"<br>"
@@ -235,8 +235,7 @@ public class HotelService {
             +"<hr>"
             +"<div style='text-align: center'>"
             +"<p>Copyright © 1999-2019 Time To Travel All rights reserved<p>"
-            +"</div>"
-            +"<div style=\"color:red;\">BRIDGEYE</div>";
+            +"</div>";
             msg.setContent(message, "text/html; charset=utf-8");
            Transport transport=mailSession.getTransport("smtp");
            transport.connect(host, user, pass);

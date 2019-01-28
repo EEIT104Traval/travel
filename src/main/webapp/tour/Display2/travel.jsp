@@ -71,7 +71,11 @@
 			if('${accountName}'){
 			window.location.href="/Travel/tour/Display2/buy?serialNo="+serialNo+"&tourNo="+params.tourNo+"&tourName="+Data.tourName+"&tourDays="+Data.tourDays+"&accountName="+'${accountName}'+""
 			}else{
-				alert('請先登入會員')
+				swal({
+					  title: "請先登入會員",
+					  icon: "warning",
+					});
+// 				$('#modal').modal(options)
 			}
 		}
 		$(document).ready(function() {

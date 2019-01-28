@@ -165,7 +165,7 @@ $(document).ready(function(){
 			<h2>往返机票&nbsp;&nbsp;${order.takeOffPlace} - ${order.landingPlace}</h2>
 			<h3>
 				去程&nbsp;&nbsp;桃園國際機場T2 -
-				金海國際機場T1&nbsp;&nbsp;&nbsp;&nbsp;出发时间：${order.goDay}&nbsp;&nbsp;${order.goDeTime}<br>返程&nbsp;&nbsp;金海國際機場T1
+				洛杉磯國際機場T1&nbsp;&nbsp;&nbsp;&nbsp;出发时间：${order.goDay}&nbsp;&nbsp;${order.goDeTime}<br>返程&nbsp;&nbsp;洛杉磯國際機場T1
 				-
 				桃園國際機場T2&nbsp;&nbsp;&nbsp;&nbsp;出发时间：${order.backDay}&nbsp;&nbsp;${order.backDeTime}<br>
 				乘机人1&nbsp;&nbsp;${order.LastName0}/${order.FirstName0}&nbsp;&nbsp;|&nbsp;&nbsp;乘机人2&nbsp;&nbsp;${order.LastName1}/${order.FirstName1}<br>
