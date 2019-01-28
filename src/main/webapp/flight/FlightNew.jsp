@@ -37,7 +37,10 @@
 	rel="stylesheet" type="text/css">
 <link type="text/css" rel="stylesheet"
 	href="<c:url value='/flight/彈窗/custom-popup/custom.popup-v1.3.1.css'/>">
-
+<link rel="stylesheet"
+ href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+ integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+ crossorigin="anonymous">
 
 <head>
 <%-- <jsp:include page="/voyage/nav.jsp" /> --%>
@@ -183,30 +186,30 @@
 								<div id="content" class="test">
 									<div style="display: inline-block">
 										<span>成人數量</span> 
-										<input type="image" style="display: inline-block" src="../voyage/images/MIN.png" class="min" width="8%"> 
+										<input type="image" style="display: inline-block" src="../voyage/images/MIN1.jpg" class="min" width="22.16px"> 
 										<input type="text" value="1" placeholder="0" id="adultcount" name="adultcount" class="text_box" readonly="readonly" style="text-align: center; height: 30px; width: 40px; margin: 0; border: 0px; display: inline-block;">
-										<input type="image" src="../voyage/images/PL.png" style="display: inline-block" class="add" width="8%">
+										<input type="image" src="../voyage/images/PL1.jpg" style="display: inline-block" class="add" width="22.16px">
 										<span>(年滿 16 歲)</span>
 									</div>
 									<div style="display: inline-block">
 										<span>兒童數量</span> <input type="image"
-											style="display: inline-block" src="../voyage/images/MIN.png"
+											style="display: inline-block" src="../voyage/images/MIN1.jpg"
 											class="min" width="8%"> <input type="text" value=""
 											placeholder="0" id="childcount" class="text_box"
 											readonly="readonly"
 											style="text-align: center; height: 30px; width: 40px; margin: 0; border: 0px; display: inline-block;">
-										<input type="image" src="../voyage/images/PL.png"
+										<input type="image" src="../voyage/images/PL1.jpg"
 											style="display: inline-block" class="add" width="8%">
 										<span>(2~15 歲)</span>
 									</div>
 									<div style="display: inline-block">
 										<span>嬰兒數量</span> <input type="image"
-											style="display: inline-block" src="../voyage/images/MIN.png"
+											style="display: inline-block" src="../voyage/images/MIN1.jpg"
 											class="min" width="8%"> <input type="text" value=""
 											placeholder="0" id="babycount" class="text_box"
 											readonly="readonly"
 											style="text-align: center; height: 30px; width: 40px; margin: 0; border: 0px; display: inline-block">
-										<input type="image" src="../voyage/images/PL.png"
+										<input type="image" src="../voyage/images/PL1.jpg"
 											style="display: inline-block" class="add" width="8%">
 										<span>(0~2 歲)</span>
 									</div>
