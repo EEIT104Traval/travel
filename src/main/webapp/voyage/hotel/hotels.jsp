@@ -25,6 +25,9 @@
 <link rel="stylesheet" href="<c:url value='/voyage/css/main_styles_sherry.css' />">
 <link rel="stylesheet" href="<c:url value='/voyage/css/about.css' />">
 
+<!-- sweetalert	 -->
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 <style>
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans+TC&subset=chinese-traditional');
 
@@ -41,7 +44,8 @@ body {
 <script>
 var params = {};
 <c:if test='${not empty result}'>
-alert('${result}');
+swal('${result}', '${result}');
+// alert('${result}');
 </c:if>
 // var country
 // var city

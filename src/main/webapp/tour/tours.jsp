@@ -292,7 +292,7 @@
 //              console.log(data.result[0].TourTagsBean);
 // 			 console.log(data.result[0].TourTagsBean[0].tag);
 			 $.each(data, function(idx,val){
-// 				 console.log(data.result[idx].TourTagsBean[0].tag);
+// 				 console.log("X=>"+val.tourBatchBean[0].price_adult);
 				 //所有行程
 				contents +="<div id=\"tourpage\" class=\"col-md-6 col-lg-6 mb-4\">"
 					+"<a href=\"<c:url value='/tour/Display2/travel.jsp?tourNo="+val.tourNo+"'/>\" class=\"block-5\" style=\"background-image: url('/Travel/tour/Display2/images/"+val.TourPictureBean[0].pic +"');\">"						

@@ -31,7 +31,7 @@
 		<div>
 			<div id="login">
 				<c:if test="${empty user}">
-					<button type="button" class="btn btn-link" data-toggle="modal" data-target="#exampleModalCenter" style="font-size:16px;color:#fff">
+					<button id="modal" type="button" class="btn btn-link" data-toggle="modal" data-target="#exampleModalCenter" style="font-size:16px;color:#fff">
 					  	會員註冊/登入
 					</button>
 				</c:if>
