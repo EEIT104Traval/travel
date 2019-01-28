@@ -118,24 +118,25 @@ var params = {}
                   <h4 class="card-title" style="font-family: Noto Sans TC; text-align: center;">新增票券</h4>
                   <input type="button" value="一鍵" onclick="one()">
                   <div class="form-group">
-                    <div class="input-group">
-                      <div class="input-group-prepend" style="margin: auto">
+<!--                     <div class="input-group"> -->
+                      <div class="input-group-prepend">
                       <table>
 						<thead><tr><td>票券名稱</td><td>票券類型</td><td>票券價格</td><td>庫存數量</td><td>國家</td></tr><thead>
-						<tbody><tr><td><input type="text" id="ticketName"></td>
-							       <td><input type="text" id="category"></td>
-							       <td><input type="text" id="adultTicketPrice"></td>
-							       <td><input type="text" id="adultTicketSellQ"></td>
-							       <td><input type="text" id="country"></td></tr></tbody>
-						<thead><tr><td>使用期限</td><td>票券資訊</td><td>票券限制</td><td>銷售數量</td><td><input type="text" id="ticketPicture" style="display:none"></td></tr></thead>
-						<tbody><tr><td><input type="text" id="validity"></td>
-							       <td><input type="text" id="traffic_information"></td>
-							       <td><input type="text" id="special_restrictions"></td>
-							       <td><input type="text" id="adultTicketSelledQ"></td>
+						<tbody><tr><td><input style="width:125px" type="text" id="ticketName"></td>
+							       <td><input style="width:125px" type="text" id="category"></td>
+							       <td><input style="width:125px" type="text" id="adultTicketPrice"></td>
+							       <td><input style="width:125px" type="text" id="adultTicketSellQ"></td>
+							       <td><input style="width:125px" type="text" id="country"></td></tr></tbody>
+						<thead><tr><td>使用期限</td><td>票券資訊</td><td>票券限制</td><td>銷售數量</td><td>
+						<input type="text" id="ticketPicture" style="display:none"></td></tr></thead>
+						<tbody><tr><td><input style="width:125px" type="text" id="validity"></td>
+							       <td><input style="width:125px" type="text" id="traffic_information"></td>
+							       <td><input style="width:125px" type="text" id="special_restrictions"></td>
+							       <td><input style="width:125px" type="text" id="adultTicketSelledQ"></td>
 							       <td style="text-align: center"><input type="button" id='membersh' onclick="chack()" value="確認新增">
 								   <input type="button" id='membersh' onclick="show()" value="查看資訊"></td></tr></tbody></table>
                       </div>
-                     </div>
+<!--                      </div> -->
                   </div>
                   <!-- END 會員資料查詢 -->
    
