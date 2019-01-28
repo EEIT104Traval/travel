@@ -59,7 +59,7 @@ $(document).ready(function() {
 								      '<td>票券價格</td>'+
 								      '<td>進貨數量</td>'+
 								      '<td>銷售數量</td>'+
-								      '<td><input type="submit" name="prodaction" value="刷新" onclick="ticketSearch1()")></td></tr></thead><tbody id="searchuser1">'
+								      '<td></td></tr></thead><tbody id="searchuser1">'
 					)
 				$.each(JData, function(index, value) {
 					$("#searchuser1").append(

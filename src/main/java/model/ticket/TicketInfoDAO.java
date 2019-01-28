@@ -12,12 +12,6 @@ public interface TicketInfoDAO {
 	public abstract TicketInfoBean create(TicketInfoBean bean);
 
 	public abstract TicketInfoBean update(TicketInfoBean bean);
-	
-//	public abstract TicketInfoBean update(Integer ticketNo, String ticketName, Integer validity,
-//			Integer adultTicketPrice, Integer childTicketPrice, Integer adultTicketSellQ, Integer childTicketSellQ,
-//			Integer adultTicketSelledQ, Integer childTicketSelledQ, String country, String category,
-//			String productFeatures, String ticketPicture, String ticketDescription, String traffic_information,
-//			String special_restrictions, String googleAddressOrName);
 
 	public abstract TicketInfoBean qupdate(TicketInfoBean bean);
 	
