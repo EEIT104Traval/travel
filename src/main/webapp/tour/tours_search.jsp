@@ -505,7 +505,7 @@ iframe#_hjRemoteVarsFrame {
 											<div class="${element.tourDays}">
 												<article class="product-item tour">
 													<div class="container-fluid"
-														style="border: 4px #007bff solid;">
+														style="border: 2px #007bff solid;">
 														<div class="row"
 															style="margin-right: -15px; margin-left: -1px;">
 															<div class="serach-img col-md-4 col-sm-5">
@@ -574,7 +574,8 @@ iframe#_hjRemoteVarsFrame {
 																			<div id="ori-price" class="ori-price">
 																				${element.tourDays}天</div>
 																			<div class="${element.tourBatchBean[0].price_adult}">
-																				<span class="price-uni">$</span><span class="age">${element.tourBatchBean[0].price_adult}</span><em>起</em>
+																				<span class="price-uni">$</span><span class="age">${element.tourBatchBean[0].price_adult}</span>  
+<!-- 																				<em>起</em> -->
 																			</div>
 																		</div>
 																	</div>
@@ -696,8 +697,8 @@ iframe#_hjRemoteVarsFrame {
 		$(document).ready(function() {
 			
 		
-			$('div:visible div[class="499999"]').parents('.choose > div').hide();
-			$('div:visible div[class="399999"]').parents('.choose > div').hide();
+// 			$('div:visible div[class="499999"]').parents('.choose > div').hide();
+// 			$('div:visible div[class="399999"]').parents('.choose > div').hide();
 			
 			
 					
@@ -955,10 +956,10 @@ iframe#_hjRemoteVarsFrame {
 
 		  function ifEmpty(){ 
 			
-			if($( "#amount2" ).text()=="499999"){
-				$('div:visible div[class="499999"]').parents('.choose > div').fadeIn("slow");
-				$('div:visible div[class="399999"]').parents('.choose > div').fadeIn("slow");
-			}			
+// 			if($( "#amount2" ).text()=="499999"){
+// 				$('div:visible div[class="499999"]').parents('.choose > div').fadeIn("slow");
+// 				$('div:visible div[class="399999"]').parents('.choose > div').fadeIn("slow");
+// 			}			
 			$('.tag-result >span').html($('.choose > div:visible').size());
 			
 			
