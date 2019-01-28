@@ -121,7 +121,7 @@ public class UserController01_01 {
 		
 		TicketInfoBean result = null;
 		if (bean != null) {
-			bean.setUpdown(false);
+			bean.setUpdown(0);
 			result = ticketInfoService.insert(bean);
 		}
 		return result;
@@ -180,10 +180,17 @@ public class UserController01_01 {
 	}
 	
 	@ResponseBody
-	@RequestMapping("/bindex03_031/User.controller")
-	public void method03031(TicketInfoBean bean){
+	@RequestMapping("/bindex03_03down/User.controller")
+	public void method0303down(TicketInfoBean bean){
 		if (bean != null) {
-			ticketInfoService.delete(bean);
+			ticketInfoService.down(bean);
+		}
+	}
+	@ResponseBody
+	@RequestMapping("/bindex03_03up/User.controller")
+	public void method0303uo(TicketInfoBean bean){
+		if (bean != null) {
+			ticketInfoService.up(bean);
 		}
 	}
 }

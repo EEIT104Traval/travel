@@ -39,7 +39,7 @@ public class TicketInfoBean {
 	private String ticketDescription;
 	private String traffic_information;
 	private String special_restrictions;
-	private Boolean updown;
+	private Integer updown;
 
 	public Integer getTicketNo() {
 		return ticketNo;
@@ -171,11 +171,11 @@ public class TicketInfoBean {
 
 
 
-	public Boolean getUpdown() {
+	public Integer getUpdown() {
 		return updown;
 	}
 
-	public void setUpdown(Boolean updown) {
+	public void setUpdown(Integer updown) {
 		this.updown = updown;
 	}
 
@@ -190,7 +190,4 @@ public class TicketInfoBean {
 				+ ", traffic_information=" + traffic_information + ", special_restrictions=" + special_restrictions
 				+ ", updown=" + updown + "]";
 	}
-
-	
-	
 }
