@@ -620,8 +620,8 @@ iframe#_hjRemoteVarsFrame {
 																													    margin: 20px 0 0;
 																													    padding: 0 15px;"
 															class="slider-flight-info tour hidden-md hidden-sm hidden-xs collapse">
-															<div class="slider-flight-info-list"><div class="slider-flight-info-list-tit"><div class="tag lg solid blue">去程</div><div class="a-to-b-tit"><strong>台灣桃園機場TPE</strong><i class="fa fa-long-arrow-right" aria-hidden="true"></i><strong>北海道千歲機場CTS</strong></div></div><ul><li><div class="row"><div class="col-xs-1 text-center"><img src="https://www.settour.com.tw/st_ec/img/newWeb/airline-logo/CI.png" alt="中華航空(CI130)" class=""></div><div class="col-xs-2">中華航空(CI130)</div><div class="col-xs-9"><div class="flight-fromto"><div class="row"><div class="col-xs-4"><div class="station-info"><div class="station-info-date">02/01(五)</div><div class="station-info-time">08:35</div></div></div><div class="col-xs-4"><div class="flight-duration"><div class="flight-duration-time">4h00m</div><div class="flight-duration-arrow"></div></div></div><div class="col-xs-4"><div class="station-info"><div class="station-info-date">02/01(五)</div><div class="station-info-time">13:15</div></div></div></div></div></div></div></li></ul></div>
-															<div class="slider-flight-info-list"><div class="slider-flight-info-list-tit"><div class="tag lg gray-darker">回程</div><div class="a-to-b-tit"><strong>北海道千歲機場CTS</strong><i class="fa fa-long-arrow-right" aria-hidden="true"></i><strong>台灣桃園機場TPE</strong></div></div><ul><li><div class="row"><div class="col-xs-1 text-center"><img src="https://www.settour.com.tw/st_ec/img/newWeb/airline-logo/CI.png" alt="中華航空(CI131)" class=""></div><div class="col-xs-2">中華航空(CI131)</div><div class="col-xs-9"><div class="flight-fromto"><div class="row"><div class="col-xs-4"><div class="station-info"><div class="station-info-date">02/05(二)</div><div class="station-info-time">14:20</div></div></div><div class="col-xs-4"><div class="flight-duration"><div class="flight-duration-time">4h00m</div><div class="flight-duration-arrow"></div></div></div><div class="col-xs-4"><div class="station-info"><div class="station-info-date">02/05(二)</div><div class="station-info-time">18:05</div></div></div></div></div></div></div></li></ul></div>
+															<div class="slider-flight-info-list"><div class="slider-flight-info-list-tit"><div class="tag lg solid blue">去程</div><div class="a-to-b-tit"><strong>台灣桃園機場TPE</strong><i class="fa fa-long-arrow-right" aria-hidden="true"></i><strong>巴黎戴高樂機場CDG</strong></div></div><ul><li><div class="row"><div class="col-xs-1 text-center"><img src="https://www.settour.com.tw/st_ec/img/newWeb/airline-logo/CI.png" alt="中華航空(CI130)" class=""></div><div class="col-xs-2">中華航空(CI130)</div><div class="col-xs-9"><div class="flight-fromto"><div class="row"><div class="col-xs-4"><div class="station-info"><div class="station-info-date">03/08(五)</div><div class="station-info-time">08:35</div></div></div><div class="col-xs-4"><div class="flight-duration"><div class="flight-duration-time">13h00m</div><div class="flight-duration-arrow"></div></div></div><div class="col-xs-4"><div class="station-info"><div class="station-info-date">03/08(五)</div><div class="station-info-time">21:15</div></div></div></div></div></div></div></li></ul></div>
+															<div class="slider-flight-info-list"><div class="slider-flight-info-list-tit"><div class="tag lg gray-darker">回程</div><div class="a-to-b-tit"><strong>巴黎戴高樂機場CDG</strong><i class="fa fa-long-arrow-right" aria-hidden="true"></i><strong>台灣桃園機場TPE</strong></div></div><ul><li><div class="row"><div class="col-xs-1 text-center"><img src="https://www.settour.com.tw/st_ec/img/newWeb/airline-logo/CI.png" alt="中華航空(CI131)" class=""></div><div class="col-xs-2">中華航空(CI131)</div><div class="col-xs-9"><div class="flight-fromto"><div class="row"><div class="col-xs-4"><div class="station-info"><div class="station-info-date">03/17(日)</div><div class="station-info-time">14:20</div></div></div><div class="col-xs-4"><div class="flight-duration"><div class="flight-duration-time">13h00m</div><div class="flight-duration-arrow"></div></div></div><div class="col-xs-4"><div class="station-info"><div class="station-info-date">03/17(日)</div><div class="station-info-time">03:05</div></div></div></div></div></div></div></li></ul></div>
 															<div class="slider-flight-info-item-area"></div>
 															<div class="cart-notice type2">
 																<div class="editor-area">
@@ -726,8 +726,8 @@ iframe#_hjRemoteVarsFrame {
 		$(document).ready(function() {
 			
 		
-// 			$('div:visible div[class="499999"]').parents('.choose > div').hide();
-// 			$('div:visible div[class="399999"]').parents('.choose > div').hide();
+			$('div:visible div[class="499999"]').parents('.choose > div').hide();
+			$('div:visible div[class="399999"]').parents('.choose > div').hide();
 			
 			
 					
@@ -985,10 +985,10 @@ iframe#_hjRemoteVarsFrame {
 
 		  function ifEmpty(){ 
 			
-// 			if($( "#amount2" ).text()=="499999"){
-// 				$('div:visible div[class="499999"]').parents('.choose > div').fadeIn("slow");
-// 				$('div:visible div[class="399999"]').parents('.choose > div').fadeIn("slow");
-// 			}			
+			if($( "#amount2" ).text()=="499999"){
+				$('div:visible div[class="499999"]').parents('.choose > div').fadeIn("slow");
+				$('div:visible div[class="399999"]').parents('.choose > div').fadeIn("slow");
+			}			
 			$('.tag-result >span').html($('.choose > div:visible').size());
 			
 			
