@@ -65,13 +65,13 @@ public class RateNoticeService {
             String pass = "jxrkaepvctpmffcs";
             String to = "hot09681987@gmail.com";
             String from = "TimeToTravel";
-            String subject = "Time To Travel - 匯率到價通知";
+            String subject = "Time To Travel - Information";
 //            String messageText = "您的訂單明細";
             SimpleDateFormat sdFormat = new SimpleDateFormat("yyyy/MM/dd hh:mm:ss");
             Date newdate = new Date();
             String sDate = sdFormat.format(newdate);
             
-            String messageText =  "親愛的"+accountName+"您好，您設定的美元價格已到價囉";
+            String messageText =  "Hello "+accountName+":Your  ";
             boolean sessionDebug = false;
             Properties props = System.getProperties();
 
@@ -91,6 +91,7 @@ public class RateNoticeService {
             msg.setRecipients(Message.RecipientType.TO, address);
             msg.setSubject(subject); msg.setSentDate(new Date());
             msg.setText(messageText);
+            
             
             Transport transport=mailSession.getTransport("smtp");
             transport.connect(host, user, pass);

@@ -231,7 +231,7 @@ function notice(){
  
     $( "#opener" ).on( "click", function() {
       $( "#dialog" ).dialog( "open" );
-      $('#accountName').val('micky');
+      $('#accountName').val('Reese');
 //       $('#checkin_date').val(todayvalue);
       $( "#checkin_date" ).datepicker();
       $( "#checkin_date" ).change(function(){
