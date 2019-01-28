@@ -163,7 +163,8 @@ var params = {}
 						            done: function(data) {
 						 				console.log(data);
 						            }
-					       		 });	
+					       		 });
+						            alert('已完成訂單選購')		
 						            window.location.href='/Travel/voyage/ticket.jsp';
 					        }
 					      }

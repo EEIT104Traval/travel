@@ -47,6 +47,8 @@
 	<script language="javascript" type="text/javascript" src="./js/jquery.flot.js"></script>
 	<script language="javascript" type="text/javascript" src="./js/jquery.flot.time.js"></script>
 	<script language="javascript" type="text/javascript" src="./js/moment.js"></script>
+<!-- 	<script language="javascript" type="text/javascript" src="./js/main.js"></script> -->
+	 <script src="<c:url value='/voyage/js/main.js' />"></script>
 <%-- 	<link rel="stylesheet" href="<c:url value='/voyage/css/bootstrap-datepicker.css' />"> --%>
 <%-- 	<link rel="stylesheet" href="<c:url value='/voyage/css/jquery.timepicker.css' />"> --%>
 <%-- 	<script src="<c:url value='/voyage/js/bootstrap-datepicker.js' />"></script> --%>
@@ -231,7 +233,14 @@ function notice(){
       $( "#dialog" ).dialog( "open" );
       $('#accountName').val('micky');
 //       $('#checkin_date').val(todayvalue);
-//       $( "#datepicker" ).datepicker();
+      $( "#checkin_date" ).datepicker();
+      $( "#checkin_date" ).change(function(){
+    	  var d = new Date($(this).val());
+    	  var year = d.getFullYear()
+    	  var month = parseInt(d.getMonth())+1
+    	  var date = d.getDate()
+    	  $(this).val(year+'/'+month+'/'+date);
+      });
     });
   } );
   
@@ -275,6 +284,7 @@ function notice(){
 // 	    				console.log(json)
 	    				$.each(JData,function(idx,RateNoticeBean){
 	    					console.log(RateNoticeBean.accountName)
+	    					console.log(RateNoticeBean.deadline)
 	    					date = new Date(RateNoticeBean.deadline)
 	    					$("#searchuser").append(
 	    							
@@ -354,7 +364,8 @@ function notice(){
 <td>最後通知日:</td>
 </tr>
 <tr>
-<td><input type="text" id="datepicker" placeholder="yyyy/MM/dd" name="deadline" style="border-radius:4px;margin-bottom:10px;"></td>
+<%-- <fmt:formatDate value="" pattern="yyyy-MM-dd" var="deadline"/> --%>
+<td><input type="text" id="checkin_date" placeholder="yyyy/MM/dd" autocomplete="off" name="deadline" style="border-radius:4px;margin-bottom:10px;"></td>
 <!-- <input type="text" class="search_input_1" id="checkin_date" placeholder="yyyy/MM/dd" name="takeoff_date" autocomplete="off"> -->
 </tr>
 </table>

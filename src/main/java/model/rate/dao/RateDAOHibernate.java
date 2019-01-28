@@ -33,7 +33,7 @@ public class RateDAOHibernate implements RateDAO{
 	}
 	@Override
 	public List<RateBean> findNew() {
-//		System.out.println("有連到DAO findNew");
+		System.out.println("有連到DAO findNew");
 		return this.getSession().createQuery("from RateBean where updateTime >= DATEADD(DAY, -2, GETDATE())", RateBean.class)
 				.list();
 	}
