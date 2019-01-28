@@ -55,16 +55,6 @@ public class TicketInfoDAOHibernate implements TicketInfoDAO {
 
 		return this.getSession().createQuery("from TicketInfoBean where updown=0", TicketInfoBean.class).setMaxResults(50).list();
 	}
-	
-	@Override
-	public TicketInfoBean findUP(Integer ticketNo) {
-		
-		TicketInfoBean ticket =this.getSession().get(TicketInfoBean.class, ticketNo);
-		if(ticket.getUpdown()==false) {
-			return ticket;
-		}
-		return null;
-	}
 
 	@Override
 	public TicketInfoBean create(TicketInfoBean bean) {

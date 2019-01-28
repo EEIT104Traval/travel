@@ -83,13 +83,21 @@ public class TicketInfoService {
 		return result;
 	}
 	
-	public void delete(TicketInfoBean bean) {
-		if (bean != null) {
-			 bean.setUpdown(true);
-			 update(bean);
+	public void down(TicketInfoBean bean) {
+		TicketInfoBean b = ticketInfoDAO.findByPrimaryKey(bean.getTicketNo());
+		if (b != null) {
+			 b.setUpdown(1);
+			 ticketInfoDAO.update(b);
 		}
 	}
-
+	
+	public void up(TicketInfoBean bean) {
+		TicketInfoBean b = ticketInfoDAO.findByPrimaryKey(bean.getTicketNo());
+		if (b != null) {
+			 b.setUpdown(0);
+			 ticketInfoDAO.update(b);
+		}
+	}
 	public boolean qupdate(String accountName, Integer ticketNo, Integer adultTicketSellQ, Integer adultTicketPrice)
 			throws ParseException {
 
