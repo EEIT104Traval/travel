@@ -268,17 +268,17 @@
 
     <section class="ftco-section-2">
       <div class="container-fluid d-flex">
-        <div class="section-2-blocks-wrapper row no-gutters">
-          <div class="img col-sm-12 col-lg-6" style="background-image: url('images/tour-1.jpg');">
+        <div class="section-2-blocks-wrapper row no-gutters" style="width: 100%">
+          <div class="img col-sm-12 col-lg-6" style="background-image: url('images/square.jpg');">
             <a href="https://vimeo.com/45830194" class="button popup-vimeo"><span class="ion-ios-play"></span></a>
           </div>
           <div class="text col-lg-6 ftco-animate">
             <div class="text-inner align-self-start">
               
-              <h3>Welcome to Bon Voyage since 1898 established Far far away.</h3>
-              <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-
-              <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+              <h3>Welcome to Time to Travel since 2019 established Far far away.</h3>
+			  <p style="font-family:微軟正黑體">本網站針對國內旅客提供行程、飯店、機票、門票、景點及匯率查詢和訂購服務，並可利用第三方驗證快速登錄。針對選擇困難癥侯群，我們提供主題旅遊資訊。</p>
+			  <p style="font-family:微軟正黑體">後台部分提供給管理者以圖表方式、更簡潔的界面方便管理產品及會員信息，以免胖手指的情況產生。</p>
+			
             </div>
           </div>
         </div>
