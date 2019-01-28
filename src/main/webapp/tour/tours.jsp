@@ -67,7 +67,7 @@
 									<input name="tours" type="text" class="search_input" style="font-family: Noto Sans TC; width: 25%"
 										placeholder="想去哪裡玩?" id="tourS">
 									<input name="checkin_date" type="text" class="search_input" style="font-family: Noto Sans TC; width: 25%"
-										id="checkin_date" >~
+										id="checkin_date" >
 									<input name="checkout_date" type="text" class="search_input" style="font-family: Noto Sans TC; width: 25%"
 										id="checkout_date" >
 									
@@ -88,13 +88,19 @@
 	
 		<div class="container">
 		
-		 <div id="hot" class="row justify-content-center mb-5" style="width:770px;background-color:#ff5f5f;">
-		 	<div class="col-md-7 text-center heading-section ftco-animate fadeInUp ftco-animated" style="font-family: Noto Sans TC; ">
-		 		<h2 >熱搜行程</h2>
+<!-- 		 <div id="hot" class="row justify-content-center mb-5" style="width:70%;background-color:#ff5f5f;"> -->
+		 	<div class="col-md-7 text-center heading-section ftco-animate fadeInUp ftco-animated" style="width:115.5%;font-family: Noto Sans TC; ">
+		 		
+		 		<div style="border:3px solid #ff5f5f;width: 113%;    border-radius: 12px;">
+		 		<span  style="padding-left:;"><img style="padding-left:;width:8%;height:8%"src="<c:url value='/tour/HOT.gif' />" /></span>
+		 		<span id="hotT"style="  font-size: 30px;color:red;font-family:DFKai-sb">熱搜行程 </span>		 		
+		 		</div>
+		 		
+		 		
 		 	</div>
-		 </div>
+<!-- 		 </div> -->
 		
-			<div class="row">
+			<div class="row" style="margin-top:4%">
 			<p id= "idd"></p>
 				<div class="col-lg-8">				
 					<div id="box" class="row">
@@ -173,15 +179,28 @@
 <!-- 							</form> -->
 <!-- 						</div> -->
 <!-- 					</div> -->
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<script>
+	function buy(){
+		if('${accountName}'){
+		window.location.href="/Travel/tour/Display2/order3.jsp"
+		}else{
+			swal({
+				  title: "請先登入會員查看明細",
+				  icon: "warning",
+				})
+		}
+	}	
+	</script>
 
 					<div class="sidebar-box ftco-animate">
 						<div class="categories">
 							<h3 style="font-weight:bold;">旅遊資訊</h3>
-							<li><a href="<c:url value='toursDetail.jsp'/>">各國旅遊資訊</a></li>
-							<li><a href="#">Hotels <span>(22)</span></a></li>
-							<li><a href="#">Cruises <span>(37)</span></a></li>
-							<li><a href="#">Restaurant <span>(42)</span></a></li>
-							<li><a href="#">Destination <span>(14)</span></a></li>
+							<li><a onclick="buy()" style="color:red" href="##">查看訂單明細</a></li>
+							<li><a style="color:red" href="<c:url value='/tour/toursDetail.jsp'/>">各國旅遊資訊</a></li>
+							<li><a style="color:red"href="#">熱門飯店資訊 </a></li>
+							<li><a style="color:red"href="#">熱搜門票資訊</a></li>
+							<li><a style="color:red"href="#">機票價格資訊 </a></li>							
 						</div>
 					</div>
 
@@ -194,12 +213,12 @@
 						</div>
 					</div>
 
-					<div class="sidebar-box ftco-animate">
-						<h3>Paragraph</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-							Ducimus itaque, autem necessitatibus voluptate quod mollitia
-							delectus aut, sunt placeat nam vero culpa sapiente consectetur
-							similique, inventore eos fugit cupiditate numquam!</p>
+					<div  class="sidebar-box ftco-animate">
+						<h3>Time To Travel</h3>
+						<p>每次出國玩點一點各大旅遊網站是否覺得“琳瑯滿目”，一頁至少200個按鈕到底要按哪一個！我們的初衷是簡化用戶界面，讓用戶更快速的找到自己想要的功能，從眼花繚亂到一目了然！
+本網站針對國內旅客提供行程、飯店、機票、門票、景點及匯率查詢和訂購服務，並可利用第三方驗證快速登錄。針對選擇困難癥侯群，我們提供主題旅遊資訊。
+後台部分提供給管理者以圖表方式、更簡潔的界面方便管理產品及會員信息，以免胖手指的情況產生 。</p>
+<%-- 						<img  src="<c:url value='/tour/Display2/images/1_0.jpg' />" /> --%>
 					</div>
 				</div>
 			</div>
@@ -208,23 +227,34 @@
 	
 	
 	    <script>
-	    
-   		
-	   	  var colorFlag = 0;
-	   	  function changeColor(){ 
-	   	         if (!colorFlag)
-	   	         {
-	   	        	 $("#hot").css("background-color","#ff5f5f");
-	   	        	 $("#hot > div h2").css("color","white");
-	   	        	 colorFlag = 1;
-	   	         }else{
-	   	        	 $("#hot").css("background-color","white");
-	   	        	 $("#hot > div h2").css("color","black");
-	   	        	 colorFlag = 0;
-	   	         }
-	   	     }
-	   	  setInterval('changeColor()',150);
+	  
+   	// 閃爍	
+// 	   	  var colorFlag = 0;
+// 	   	  function changeColor(){ 
+// 	   	         if (!colorFlag)
+// 	   	         {
+// 	   	        	 $("#hotT").css("color","#ff5f5f");
+// 	   	        	 colorFlag = 1;
+// 	   	         }else{
+// 	   	        	 $("#hotT").css("color","white");
+// 	   	        	 colorFlag = 0;
+// 	   	         }
+// 	   	     }
+// 	   	  setInterval('changeColor()',150);
    	$(document).ready(function() {  
+   		
+//    		$('#hotT').animate({"padding-left":"500px"},1500,rowBack);
+// 		function rowBack(){		
+// 			if($('#hotT').css("padding-left")=="500px")	{	
+// 				$('#hotT').css("padding-left","-500px");
+// // 				$('#move').css("opacity","1");
+// 			}
+// 			else if($('#hotT').css("padding-left")=="-500px")	{		
+// 				$('#hotT').css("padding-left","500px");
+// // 				$('#move').css("opacity","0");
+// 			}
+// 			$('#hotT').animate({"padding-left":"500px"},1500,rowBack);	
+// 			}
 		
    		var dt = new Date();
    		$('#checkin_date').val(dt.getFullYear()+"/"+dt.getMonth()+1+"/"+dt.getDate());
@@ -239,12 +269,12 @@
    		});
    			
    		$('#tagcloud').on("mouseover","a",function(){
-   			$(this).css('color','purple').css('background','yellow');
+   			$(this).css('color','#ff5f5f').css('background-color','white');
    		})
    		$('#tagcloud').on("mouseout","a",function(){
-   			$(this).css('color','gray').css('background','#00FFFF');
+   			$(this).css('color','white').css('background-color','#ff5f5f');
    		})
-//    		mouseover(over).mouseout(out);		
+//    		mouseover(over).mouseout(out);	
 		
 // 		function over(evt){
 // 			 $(this).css('color','purple').css('background','yellow');
@@ -262,7 +292,7 @@
 //              console.log(data.result[0].TourTagsBean);
 // 			 console.log(data.result[0].TourTagsBean[0].tag);
 			 $.each(data, function(idx,val){
-// 				 console.log(data.result[idx].TourTagsBean[0].tag);
+// 				 console.log("X=>"+val.tourBatchBean[0].price_adult);
 				 //所有行程
 				contents +="<div id=\"tourpage\" class=\"col-md-6 col-lg-6 mb-4\">"
 					+"<a href=\"<c:url value='/tour/Display2/travel.jsp?tourNo="+val.tourNo+"'/>\" class=\"block-5\" style=\"background-image: url('/Travel/tour/Display2/images/"+val.TourPictureBean[0].pic +"');\">"						
@@ -272,8 +302,8 @@
 					+		"<div class=\"post-meta\">"
 					+			"<span>"+val.content+"</span>"
 					+		"</div>"
-					+		"<p class=\"star-rate\">"
-					+			"<span class=\"icon-star\"></span><span class=\"icon-star\"></span><span class=\"icon-star\"></span><span class=\"icon-star\"></span><span class=\"icon-star-half-full\"></span> <span>500 reviews</span>"							
+					+		"<p  class=\"star-rate\">"                           //<span class=\"icon-star-half-full\"></span>
+					+			"<span style=\"color:#ffc107\" class=\"icon-star\"></span><span style=\"color:#ffc107\" class=\"icon-star\"></span><span style=\"color:#ffc107\" class=\"icon-star\"></span><span style=\"color:#ffc107\" class=\"icon-star\"></span><span  style=\"color:#ffc107\"class=\"icon-star\"></span> <span  style=\"color:#ffc107\">999+ reviews</span>"							
 					+		"</p>"
 					+	"</div>"
 					+"</a>"
@@ -288,7 +318,7 @@
 	
 			 
 /* -----------------------分頁-------------------------------------------------------   */	 			 
-			 var rowsShown=6;                             //每頁顯示的行
+			 var rowsShown=4;                             //每頁顯示的行
 		     var rowsTotal=lens;         //獲取總共的行
 		     var numPages=Math.ceil(rowsTotal/rowsShown); //計算出有多少頁
 // 		     alert(data.count);
@@ -318,11 +348,12 @@
 /*--抓TAGS------------------------------------*/
 		 });
 		     
-		 $.getJSON( "/Travel/groupTour", function( data ) {
+		 $.getJSON( "/Travel/allTourTags", function( data ) {
 			 var tagcontents ="";
-			 $.each(data.result, function(idx,val){
-	 				tagcontents +='<a href="#idd" id="'+val.TourTagsBean[0].tag
-		            +'" class="tag-cloud-link">'+val.TourTagsBean[0].tag
+			 console.log("tags=>"+data);
+			 $.each(data, function(idx,val){
+	 				tagcontents +='<a href="#idd" style="border: 1px solid #ff5f5f; background-color:#ff5f5f;color:white;" id="'+val
+		            +'" class="tag-cloud-link  ">'+val
 		            +'</button>';
 			 })
 			 $("#tagcloud").html(tagcontents);			 
@@ -359,7 +390,7 @@
 								+			"<span>"+val.content+"</span>"
 								+		"</div>"
 								+		"<p class=\"star-rate\">"
-								+			"<span class=\"icon-star\"></span><span class=\"icon-star\"></span><span class=\"icon-star\"></span><span class=\"icon-star\"></span><span class=\"icon-star-half-full\"></span> <span>500 reviews</span>"							
+								+			"<span style=\"color:#ffc107\" class=\"icon-star\"></span><span style=\"color:#ffc107\" class=\"icon-star\"></span><span style=\"color:#ffc107\" class=\"icon-star\"></span><span style=\"color:#ffc107\" class=\"icon-star\"></span><span  style=\"color:#ffc107\"class=\"icon-star\"></span> <span  style=\"color:#ffc107\">999+ reviews</span>"					
 								+		"</p>"
 								+	"</div>"
 								+"</a>"

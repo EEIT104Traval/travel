@@ -47,10 +47,20 @@
 	<script language="javascript" type="text/javascript" src="./js/jquery.flot.js"></script>
 	<script language="javascript" type="text/javascript" src="./js/jquery.flot.time.js"></script>
 	<script language="javascript" type="text/javascript" src="./js/moment.js"></script>
-	
+<!-- 	<script language="javascript" type="text/javascript" src="./js/main.js"></script> -->
+	 <script src="<c:url value='/voyage/js/main.js' />"></script>
+<%-- 	<link rel="stylesheet" href="<c:url value='/voyage/css/bootstrap-datepicker.css' />"> --%>
+<%-- 	<link rel="stylesheet" href="<c:url value='/voyage/css/jquery.timepicker.css' />"> --%>
+<%-- 	<script src="<c:url value='/voyage/js/bootstrap-datepicker.js' />"></script> --%>
+<%-- 	<script src="<c:url value='/voyage/js/jquery.timepicker.min.js' />"></script> --%>
+<!-- 	<script src="http://www.bootcss.com/p/bootstrap-datetimepicker/index.htm"></script> -->
+<!--   <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> -->
+<!--   <link rel="stylesheet" href="/resources/demos/style.css"> -->
+<!--   <script src="https://code.jquery.com/jquery-1.12.4.js"></script> -->
+<!--   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> -->
 	<script>
 // $(document).ready(function(){
-	
+
 	
 // 	var time = RateNoticeBean.deadline;
 // 	alert(time)
@@ -221,6 +231,16 @@ function notice(){
  
     $( "#opener" ).on( "click", function() {
       $( "#dialog" ).dialog( "open" );
+      $('#accountName').val('micky');
+//       $('#checkin_date').val(todayvalue);
+      $( "#checkin_date" ).datepicker();
+      $( "#checkin_date" ).change(function(){
+    	  var d = new Date($(this).val());
+    	  var year = d.getFullYear()
+    	  var month = parseInt(d.getMonth())+1
+    	  var date = d.getDate()
+    	  $(this).val(year+'/'+month+'/'+date);
+      });
     });
   } );
   
@@ -240,6 +260,7 @@ function notice(){
 	    $( "#opener1" ).on( "click", function() {
 
 	    		$("#searchuser").html("")
+	    		
 
 	    	$.ajax({
 	    		method: "GET",
@@ -263,6 +284,7 @@ function notice(){
 // 	    				console.log(json)
 	    				$.each(JData,function(idx,RateNoticeBean){
 	    					console.log(RateNoticeBean.accountName)
+	    					console.log(RateNoticeBean.deadline)
 	    					date = new Date(RateNoticeBean.deadline)
 	    					$("#searchuser").append(
 	    							
@@ -288,8 +310,6 @@ function notice(){
 // 	    												+ JData.RateNoticeBean[i].registerDate
 // 	    												+ '</th>'
 // 	    												+ '<th scope="row" style="width:10%" name="totalPrice"></th></table>')
-	    							
-	    						
 	    					})
 	    	
 	      $( "#dialog1" ).dialog( "open" );
@@ -305,7 +325,7 @@ function notice(){
 <td>帳號:</td>
 </tr>
 <tr>
-<td><input type="text" id="" name="accountName" style="border-radius:4px;margin-bottom:10px;"><br></td>
+<td><input type="text" id="accountName" name="accountName" style="border-radius:4px;margin-bottom:10px;"><br></td>
 </tr>
 <tr>
 <td>幣別:</td>
@@ -344,7 +364,9 @@ function notice(){
 <td>最後通知日:</td>
 </tr>
 <tr>
-<td><input type="text" id="" name="deadline" style="border-radius:4px;margin-bottom:10px;"></td>
+<%-- <fmt:formatDate value="" pattern="yyyy-MM-dd" var="deadline"/> --%>
+<td><input type="text" id="checkin_date" placeholder="yyyy/MM/dd" autocomplete="off" name="deadline" style="border-radius:4px;margin-bottom:10px;"></td>
+<!-- <input type="text" class="search_input_1" id="checkin_date" placeholder="yyyy/MM/dd" name="takeoff_date" autocomplete="off"> -->
 </tr>
 </table>
 <button onclick="notice()" style="margin-left:80px;margin-top:10px;text-align:center">送出</button><br/>

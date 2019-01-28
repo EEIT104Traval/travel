@@ -41,7 +41,7 @@ public class rateController {
 //		for(RateBean RB : result)
 //			model.addAttribute("rateResult",result );
 //			System.out.println(RB);
-		System.out.println(result);
+		System.out.println("這是Controller"+result);
 		
 		return result;
 	}

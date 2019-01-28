@@ -303,6 +303,8 @@ function login(){
 //         let Google_appId = "988008409378-1kv77jacmp1j9hq2o0ed5luvtna2al3g.apps.googleusercontent.com";
 
 
+
+        
         //參考文章：http://usefulangle.com/post/55/google-login-javascript-api 
 
         // Called when Google Javascript API Javascript is loaded

@@ -68,7 +68,7 @@ var sum = 0;
 	 								       '<td>'+ JData[i].orderTime +'</td><td>'+ JData[i].total +'</td></tr>'
 	 													)
 	 													sum = sum + x
-	 								 } $("#searchuser").append('<table><tr><td colspan="5" style="text-align:right">合計：'+sum+'</td></tr></table>')
+	 								 } $("#searchuser").append('<table><tr><td colspan="5" style="text-align:right; color:red">合計：'+sum+'</td></tr></table>')
 								                       }else{
 						$("#searchuser").append('<H1>業績差尚無訂單</H1>')
 								                       }
