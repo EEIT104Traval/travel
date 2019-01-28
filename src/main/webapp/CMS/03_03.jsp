@@ -90,6 +90,7 @@ $(document).ready(function() {
 		            dataType: "json", 
 		            data: {'ticketNo':ticketNo}})
 		            alert("上架成功")
+		            window.location="/Travel/CMS/03_03.jsp"
 			}
 
 	    	function Delete(ticketNo){ 
@@ -123,6 +124,7 @@ $(document).ready(function() {
 		    				 alert("別來亂了，問問老闆是否真的要刪除"+ticketNo+"號訂單")
 		    			 }
 		    		  }
+	    		  window.location="/Travel/CMS/03_03.jsp";
 	    		  }
 </script>
 </head>
