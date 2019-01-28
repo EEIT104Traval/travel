@@ -727,7 +727,7 @@ iframe#_hjRemoteVarsFrame {
 			
 		
 			$('div:visible div[class="499999"]').parents('.choose > div').hide();
-			$('div:visible div[class="399999"]').parents('.choose > div').hide();
+// 			$('div:visible div[class="399999"]').parents('.choose > div').hide();
 			
 			
 					
@@ -868,7 +868,7 @@ iframe#_hjRemoteVarsFrame {
 			      range: true,
 			      min: 0,
 			      max: 499999,
-			      values: [ 9999, 99999 ],
+			      values: [ 9999, 399999 ],
 			      slide: function( event, ui ) {
 // 			        $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
 			        $( "#amount1" ).text( ui.values[ 0 ]);
@@ -987,7 +987,7 @@ iframe#_hjRemoteVarsFrame {
 			
 			if($( "#amount2" ).text()=="499999"){
 				$('div:visible div[class="499999"]').parents('.choose > div').fadeIn("slow");
-				$('div:visible div[class="399999"]').parents('.choose > div').fadeIn("slow");
+// 				$('div:visible div[class="399999"]').parents('.choose > div').fadeIn("slow");
 			}			
 			$('.tag-result >span').html($('.choose > div:visible').size());
 			
