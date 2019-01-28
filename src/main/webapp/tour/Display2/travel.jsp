@@ -26,6 +26,29 @@
 .navbar-dark .navbar-nav .nav-link {
    color: rgba(255,255,255);
 }
+#gotop {
+    position:fixed;
+    z-index:90;
+    right:30px;
+    bottom:31px;
+    display:none;
+    width:50px;
+    height:50px;
+    color:#fff;
+    background:#33b5e5;
+    line-height:50px;
+    border-radius:50%;
+    transition:all 0.5s;
+    text-align: center;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+}
+#gotop :hover{
+    background:#0099CC;
+}
+.modal-dialog {
+    max-width: 360px;
+    margin: 1.75rem auto;
+}
 </style>
 	</head>
 	<script
@@ -48,7 +71,11 @@
 			if('${accountName}'){
 			window.location.href="/Travel/tour/Display2/buy?serialNo="+serialNo+"&tourNo="+params.tourNo+"&tourName="+Data.tourName+"&tourDays="+Data.tourDays+"&accountName="+'${accountName}'+""
 			}else{
-				alert('請先登入會員')
+				swal({
+					  title: "請先登入會員",
+					  icon: "warning",
+					});
+// 				$('#modal').modal(options)
 			}
 		}
 		$(document).ready(function() {
@@ -90,7 +117,7 @@
 						}
 					})
 					$("#img").html("<img src=images/"+JData.TourPictureBean[0].pic+" alt=/ height='500px'>");
-					$("#section-contact>div>div>div>p").html("<h2>"+JData.tourName+"</h2>");
+					$("#section-contact>div>div>div>p").html("<h2 style='font-weight:700!important;color:mediumslateblue;text-align:center;'>"+JData.tourName+"</h2>");
 					$("#section-two>div>p").html("<p>"+JData.TourPictureBean[0].picDetail+"</p>");
 					$.each(JData.TourPictureBean, function(index, value) {
 						if(index!=0){
@@ -122,32 +149,106 @@
 			})
 
 		});
+		
+		$(function() {
+		    /* 按下GoTop按鈕時的事件 */
+		    $('#gotop').click(function(){
+		        $('html,body').animate({ scrollTop: 0 }, 'slow');   /* 返回到最頂上 */
+		        return false;
+		    });
+		     
+		    /* 偵測卷軸滑動時，往下滑超過400px就讓GoTop按鈕出現 */
+		    $(window).scroll(function() {
+		        if ( $(this).scrollTop() > 400){
+		            $('#gotop').fadeIn();
+		        } else {
+		            $('#gotop').fadeOut();
+		        }
+		    });
+		});
 </script>	
   	
 	<body>
-<%--     <jsp:include page="nav.jsp"></jsp:include> --%>
-  
-    <nav class="navbar navbar-expand-lg navbar-dark probootstrap_navbar" id="probootstrap-navbar">
-      <div class="container">
-        <img alt="" src="<c:url value='/voyage/images/TTT.png' />" width="250px">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#probootstrap-menu" aria-controls="probootstrap-menu" aria-expanded="false" aria-label="Toggle navigation">
-          <span><i class="ion-navicon"></i></span>
+    <jsp:include page="nav.jsp"/>
+<a href="https://www.blogger.com/blogger.g?blogID=2031514508322140995#" id="gotop">
+   <i class="fa fa-angle-up"></i>
+</a>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalCenterTitle">會員登入</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
         </button>
-        <div class="collapse navbar-collapse" id="probootstrap-menu">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item"><a href="<c:url value='/voyage/index.jsp'/>" class="nav-link">首頁</a></li>
-            <li class="nav-item"><a href="<c:url value='/tour/tours.jsp'/>" class="nav-link">團體旅遊</a></li>
-            <li class="nav-item"><a href="<c:url value='/voyage/hotel/hotels.jsp'/>" class="nav-link">飯店</a></li>
-            <li class="nav-item"><a href="<c:url value='/flight/FlightNew.jsp'/>" class="nav-link">機票</a></li>
-            <li class="nav-item"><a href="<c:url value='/voyage/ticket.jsp'/>" class="nav-link">門票</a></li>
-            <li class="nav-item"><a href="<c:url value='/rate/rateindex2.jsp'/>" class="nav-link">查詢匯率</a></li>
-<!--             <li class="nav-item"><a href="#" class="nav-link"> -->
-<%--             	<jsp:include page="../../voyage/login.jsp"></jsp:include> --%>
-<!--             </a></li> -->
-          </ul>
-        </div>
       </div>
-    </nav>
+      <div class="modal-body">
+        <label for="name" style="margin-bottom:20px">帳號:</label> 
+        <input type="text" name="name" id="name"class="text ui-widget-content ui-corner-all" style="margin-bottom: -20px"><br>
+		<label for="password" style="margin-bottom:20px">密碼:</label> 
+		<input type="password" id="password"name="password" value=""class="text ui-widget-content ui-corner-all">
+		<div><span class="error" id="loginerror" style="color:red">　</span></div>
+      </div>
+      <div>
+				<input class="btn btn-secondary active" type="button" value="登入" onclick="login()" style="margin:30px;margin-top:0px;">
+				<input class="btn btn-secondary active" type="button" value="新會員註冊" onclick="register()" style="float:right;margin:30px;margin-top:0px;">
+      </div>
+      <div>
+   			<img style="margin: 20px;" src="<c:url value='/login/images/facebook.jpg' />" onclick="FBLogin();" width="23%" height="23%"> 
+			<img style="margin: 10px;" src="<c:url value='/login/images/google01.jpg' />" onclick="GoogleLogin();" width="23%" height="23%"> 
+			<img style="margin: 20px;" src="<c:url value='/login/images/line.jpg' />" onclick="GoogleLogin();" width="23%" height="23%">
+	  </div>
+    </div>
+  </div>
+</div>
+
+<script>
+var user={}
+function login(){
+	user.name=$('#name').val()
+	user.password=$('#password').val()
+	$.ajax({
+			url : '/Travel/voyage/login.controller',
+			contentType : 'application/json; charset=UTF-8',
+			type : 'get',
+			dataType : 'json',
+			data:user,
+	}).success(function(JData) {
+		console.log(JData);
+		if(JData.xxx1==='Login failed'){
+			$('#loginerror').html('登入失敗');
+		}else{
+			if(JData.xxx1.authority=='A001'){
+  	      		location.reload();
+			}else{
+				window.location="/Travel/CMS/01_01.jsp"
+			}
+		}
+	});
+}
+	
+</script>
+
+<!--     <nav class="navbar navbar-expand-lg navbar-dark probootstrap_navbar" id="probootstrap-navbar"> -->
+<!--       <div class="container"> -->
+<%--         <img alt="" src="<c:url value='/voyage/images/TTT.png' />" width="250px"> --%>
+<!--         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#probootstrap-menu" aria-controls="probootstrap-menu" aria-expanded="false" aria-label="Toggle navigation"> -->
+<!--           <span><i class="ion-navicon"></i></span> -->
+<!--         </button> -->
+<!--         <div class="collapse navbar-collapse" id="probootstrap-menu"> -->
+<!--           <ul class="navbar-nav ml-auto" style="margin:auto;"> -->
+<%--             <li class="nav-item"><a href="<c:url value='/voyage/index.jsp'/>" class="nav-link">首頁</a></li> --%>
+<%--             <li class="nav-item"><a href="<c:url value='/tour/tours.jsp'/>" class="nav-link">團體旅遊</a></li> --%>
+<%--             <li class="nav-item"><a href="<c:url value='/voyage/hotel/hotels.jsp'/>" class="nav-link">飯店</a></li> --%>
+<%--             <li class="nav-item"><a href="<c:url value='/flight/FlightNew.jsp'/>" class="nav-link">機票</a></li> --%>
+<%--             <li class="nav-item"><a href="<c:url value='/voyage/ticket.jsp'/>" class="nav-link">門票</a></li> --%>
+<%--             <li class="nav-item"><a href="<c:url value='/rate/rateindex2.jsp'/>" class="nav-link">查詢匯率</a></li> --%>
+<!--           </ul> -->
+<!--         </div> -->
+<!--       </div> -->
+<!--     </nav> -->
     
 
     <section class="probootstrap-cover overflow-hidden relative"  style="background-image: url('<c:url value='/voyage/images/bg_2.jpg'/>');" data-stellar-background-ratio="0.5" id="section-home">
@@ -170,8 +271,8 @@
           <div class="col-md-6 probootstrap-animate fadeInUp probootstrap-animated">
             <p class="mb-5">tour Detail 0</p>
             <div class="row">
-              <div class="col-md-6">
-				放日曆
+              <div class="col-md-12" style="text-align:center;">
+				<img alt="##" src="<c:url value='/tour/Display2/images/girl.png'/>">
               </div>
             </div>
           </div>

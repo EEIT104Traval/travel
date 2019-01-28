@@ -36,14 +36,14 @@ table td{
 
 <script>
 var params = {};
-
+var x ;
 $(document).ready(function() {
 		ticketSearch1()
 })
 	function ticketSearch1(){
 
 	$.ajax({
-		url : '/Travel/bindex03_021/User.controller',
+		url : '/Travel/bindex03_012/User.controller',
 		contentType : 'application/json; charset=UTF-8',
 		type : 'get',
 		dataType : 'json',
@@ -58,41 +58,53 @@ $(document).ready(function() {
 					   			      '<td>票券類型</td>'+
 								      '<td>票券價格</td>'+
 								      '<td>進貨數量</td>'+
-								      '<td>銷售數量</td>'+
-								      '<td><input type="submit" name="prodaction" value="刷新" onclick="ticketSearch1()")></td></tr></thead><tbody id="searchuser1">'
+								      '<td></td>'+
+								      '<td></td></tr></thead><tbody id="searchuser1">'
 					)
 				$.each(JData, function(index, value) {
+					if(value.updown == 0){
+						x = '上架中'
+					}else{
+						x = '下架中'
+					}
+					
 					$("#searchuser1").append(
 							
 						'<tr id="tr'+value.ticketNo+'"><td>'+value.ticketName+'</td>'+
 							'<td>'+value.country+'</td>'+
 							'<td>'+value.ticketDescription+'</td>'+
 						    '<td>'+value.adultTicketPrice+'</td>'+
-						    '<td>'+value.adultTicketSellQ+'</td>'+
-						    '<td>'+value.adultTicketSelledQ+'</td>'+
-						    '<td>'+
-						    '<input type="button" name="prodaction" value="Delete" data-toggle="modal" id="exampleModal'+value.ticketNo+'" onclick=Delete('+value.ticketNo+')></td></tr>'
+						    '<td>'+x+'</td>'+
+						    '<td><input type="button" name="prodaction" value="下架商品" data-toggle="modal" id="exampleModal'+value.ticketNo+'" onclick=Delete('+value.ticketNo+')></td>'+
+						    '<td><input type="button" name="prodaction" value="上架商品" data-toggle="modal" id="exampleModal'+value.ticketNo+'" onclick=Up('+value.ticketNo+')></td></tr>'
 						  
 //================================================================================================================================================					    	
 					);
 					})
 					})};	
 //連結票券資訊
+			function Up(ticketNo){ 
+				$.ajax({
+		            type: "GET", //傳送方式
+		            url: "/Travel/bindex03_03up/User.controller", 
+		            dataType: "json", 
+		            data: {'ticketNo':ticketNo}})
+		            alert("上架成功")
+		            window.location="/Travel/CMS/03_03.jsp"
+			}
+
 	    	function Delete(ticketNo){ 
-// 	    		  alert(ticketNo);
 	    		  var x = parseInt((Math.random()*50+1))
 	    		  var y = parseInt((Math.random()*50+1))
 	    		  var a = parseInt((Math.random()*50+1))
 	    		  var b = parseInt((Math.random()*50+1))
-// 	    		  alert(x);
-// 	    		  alert(y);
 	    		  var txt;
 	    		  var person = prompt("你知道你正要移除"+ticketNo+"號訂單嗎？\n"+x+"+"+y+"=? 請作答","");
 	    		  if(person == (x+y)){
 	    			  alert("正確")
 	    			  	$.ajax({
 		            type: "GET", //傳送方式
-		            url: "/Travel/bindex03_031/User.controller", 
+		            url: "/Travel/bindex03_03down/User.controller", 
 		            dataType: "json", 
 		            data: {'ticketNo':ticketNo}})
 		              	alert("刪除成功")
@@ -104,7 +116,7 @@ $(document).ready(function() {
 		    			  alert("正確")
 		    			  	$.ajax({
 		            type: "GET", //傳送方式
-		            url: "/Travel/bindex03_031/User.controller", 
+		            url: "/Travel/bindex03_03down/User.controller", 
 		            dataType: "json", 
 		            data: {'ticketNo':ticketNo}})
 		              	alert("刪除成功")
@@ -112,6 +124,7 @@ $(document).ready(function() {
 		    				 alert("別來亂了，問問老闆是否真的要刪除"+ticketNo+"號訂單")
 		    			 }
 		    		  }
+	    		  window.location="/Travel/CMS/03_03.jsp";
 	    		  }
 </script>
 </head>
@@ -123,7 +136,7 @@ $(document).ready(function() {
 			  <!-- 會員資料查詢 -->
               <div class="card">
                 <div class="card-body" style="background: lavender">
-                  <h4 class="card-title" style="font-family: Noto Sans TC; text-align: center;">下架票券</h4>
+                  <h4 class="card-title" style="font-family: Noto Sans TC; text-align: center;">上下架票券</h4>
                   <div class="form-group">
                     <div class="input-group">
                       <div class="input-group-prepend" style="margin: auto">

@@ -30,6 +30,8 @@
 	href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
 	integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
 	crossorigin="anonymous">
+<!-- sweetalert	 -->
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 <style>
 @import
@@ -52,6 +54,7 @@ body {
 	$(document).ready(function() {
 		GetOrderInfo();
 		alert(result.roomType)
+		alert(11111111111111111111)
 		// 		alert(roomTypeNo)
 	});
 
@@ -98,14 +101,46 @@ body {
 
 		})
 	}
-	
+	function discount() {
+		var hh = $('#count').val();
+		if (hh == 'TimeToTravel2019') {
+
+			var checkInDate = $('#checkInDate').val();
+			var checkOutDate = $('#checkOutDate').val();
+			var roomTypeNo = 8;
+			$.ajax({
+				type : "GET", //傳送方式
+				url : "/Travel/voyage//hotel/DateMinus",
+				dataType : "json",
+				data : {
+					'checkInDate' : checkInDate,
+					'checkOutDate' : checkOutDate,
+					'roomTypeNo' : roomTypeNo
+				}
+			}).done(function(value) {
+				var x = parseInt(value.price * 0.95)
+				var y = parseInt(x * value.Day * 0.05)
+				var z = parseInt((x * value.Day) + y)
+				console.log(value);
+				$('#day').text('1 房間 x ' + value.Day + ' 晚');
+				$('#price').text('NT$ ' + x * value.Day);
+				$('#tax').text('NT$ ' + y);
+				$('#total').text('NT$ ' + z);
+			})
+		} else {
+			swal("優惠代碼", "無效的優惠代碼");
+			// 			alert("無效的優惠代碼")
+			document.getElementById("count").value = "";
+			document.getElementById("count").placeholder = "優惠代碼";
+		}
+	}
+
 	function put() {
-		if($('#same').prop('checked')==true){
+		if ($('#same').prop('checked') == true) {
 			$('#bookingPerson').val('Micky');
 			$('#email').val('sherryyang92@gmail.com');
 			$('#phone').val('0912345678');
-			}
-		else {
+		} else {
 			$('#bookingPerson').val('');
 			$('#email').val('');
 			$('#phone').val('');
@@ -157,18 +192,19 @@ body {
 														<div class="card-body">
 															<div class="row">
 																<div class="col-md-6">
-																<p style="margin: 0px">房間數</p>
+																	<p style="margin: 0px">房間數</p>
 																</div>
 																<div class="col-md-6">
-																<input onclick="put()" id="same" type="checkbox"> 
-																<label style="margin: 0px">同會員資料</label>
+																	<input onclick="put()" id="same" type="checkbox">
+																	<label style="margin: 0px">同會員資料</label>
 																</div>
 															</div>
-															
+
 															<p style="margin-bottom: 10px; color: red">尚有空房</p>
 
-															<label>訂購人</label> <input style="margin-bottom: 10px" id="bookingPerson"
-																type="text" placeholder="請輸入姓名" name="bookingPerson">
+															<label>訂購人</label> <input style="margin-bottom: 10px"
+																id="bookingPerson" type="text" placeholder="請輸入姓名"
+																name="bookingPerson">
 
 															<p>此預訂最大入住人數：2</p>
 														</div>
@@ -185,7 +221,8 @@ body {
 															<input style="margin-bottom: 10px" type="text"
 																placeholder="電子郵件" name="email" id="email">
 															<p style="margin-bottom: 10px">我們將發送確認郵件至您的電子信箱</p>
-															<input type="text" placeholder="電話號碼" name="phone" id="phone">
+															<input type="text" placeholder="電話號碼" name="phone"
+																id="phone">
 
 														</div>
 													</div>
@@ -215,10 +252,11 @@ body {
 																			<div class="col-md-4"
 																				style="padding: 0px; margin-top: 5px">
 																				<span><input type="text" style="padding: 0px"
-																					placeholder="優惠代碼"></span>
+																					placeholder="優惠代碼" id="count"></span>
 																			</div>
 																			<div class="col-md-8" style="padding: 0px">
-																				<button type="button" class="btn btn-danger">登入優惠</button>
+																				<input type="button" class="btn btn-danger"
+																					onclick="discount()" value="登入優惠">
 																			</div>
 																		</div>
 
@@ -343,8 +381,9 @@ body {
 															placeholder="退房日期" name="checkOut" id="checkOutDate">
 													</div>
 													<div class="col-md-3">
-														<input class="btn btn-danger" type="button" onclick="ShowDay()" value="搜尋" style="font-size:14px">
-<!-- 														<p style="color: red"></p> -->
+														<input class="btn btn-danger" type="button"
+															onclick="ShowDay()" value="搜尋" style="font-size: 14px">
+														<!-- 														<p style="color: red"></p> -->
 													</div>
 												</div>
 												<div class="row">
@@ -355,7 +394,7 @@ body {
 														<p>12:00前</p>
 													</div>
 													<div class="col-md-2"></div>
-											
+
 												</div>
 												<div
 													style="border-bottom: 1px dotted grey; padding-bottom: 10px; margin: 10px"></div>
@@ -437,7 +476,8 @@ body {
 
 	<hr>
 	<div style="text-align: center">
-		<p>Copyright © 1999-2019 Time To Travel All rights reserved<p>
+		<p>Copyright © 1999-2019 Time To Travel All rights reserved
+		<p>
 	</div>
 
 	<%-- 	<script src="<c:url value='/voyage/js/aos.js' />"></script> --%>

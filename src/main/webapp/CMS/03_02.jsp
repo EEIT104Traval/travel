@@ -117,7 +117,8 @@ $(document).ready(function() {
 				$("#tr"+ticketNo+">td:nth-child(3)").prop("outerHTML","<td style='width:150px'>"+ticketDescription+"</td>");
 				$("#tr"+ticketNo+">td:nth-child(4)").prop("outerHTML","<td style='width:150px'>"+adultTicketPrice+"</td>");
 				$("#tr"+ticketNo+">td:nth-child(5)").prop("outerHTML","<td style='width:150px'>"+adultTicketSellQ+"</td>");
-				$("#tr"+ticketNo+">td:nth-child(6)").prop("outerHTML","<td style='width:150px'>"+adultTicketSelledQ+"</td>");		
+				$("#tr"+ticketNo+">td:nth-child(6)").prop("outerHTML","<td style='width:150px'>"+adultTicketSelledQ+"</td>");	
+				window.location="/Travel/CMS/03_02.jsp";
 					}
 </script>
 </head>
