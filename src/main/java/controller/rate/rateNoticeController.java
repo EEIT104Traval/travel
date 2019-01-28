@@ -1,6 +1,9 @@
 package controller.rate;
 
+import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -31,16 +34,15 @@ public class rateNoticeController {
 	@InitBinder
 	public void registerPropertyEditor(WebDataBinder webDataBinder) {
 		webDataBinder.registerCustomEditor(java.util.Date.class, "deadline",
-				new CustomDateEditor(new SimpleDateFormat("yyyy-MM-dd"), true));
+				new CustomDateEditor(new SimpleDateFormat("yyyy/MM/dd"), true));
 	}
 
 	@RequestMapping(path= {"/secure/rate.controller"})
-	public String insertRate (Model model,RateNoticeBean bean,BindingResult bindingresult) {
+	public String insertRate (Model model,RateNoticeBean bean,BindingResult bindingresult) throws ParseException {
 		Map<String, String> errors = new HashMap<>();
 		System.out.println("bean="+bean);
 		System.out.println("bindingresult="+bindingresult);
 		model.addAttribute("errors", errors);
-		
 		RateNoticeBean result = rateNoticeService.create(bean);
 //		return "login.test";
 //		return "login.ok";
