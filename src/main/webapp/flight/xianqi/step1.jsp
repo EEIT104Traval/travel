@@ -476,22 +476,22 @@ $.each(result.OTA_AirLowFareSearchRS.PricedItineraries.PricedItinerary, function
                       <input type="checkbox" id="cd-checkbox-s3">
                       <label for="cd-checkbox-s3"></label>
                     </div>
-                    <p><span>大韓航空 </span><span class="price">$<b>35,054</b></span></p>
+                    <p><span>長榮航空 </span><span class="price">$<b>35,054</b></span></p>
                   </li>
-                  <li>
-                    <div class="cdst">
-                      <input type="checkbox" id="cd-checkbox-s4">
-                      <label for="cd-checkbox-s4"></label>
-                    </div>
-                    <p><span>濟州航空</span> <span class="price">$<b>36,134</b></span></p>
-                  </li>
-                  <li>
-                    <div class="cdst">
-                      <input type="checkbox" id="cd-checkbox-s5">
-                      <label for="cd-checkbox-s5"></label>
-                    </div>
-                    <p><span>大韓航空 </span><span class="price">$<b>37,411</b></span></p>
-                  </li>
+<!--                   <li> -->
+<!--                     <div class="cdst"> -->
+<!--                       <input type="checkbox" id="cd-checkbox-s4"> -->
+<!--                       <label for="cd-checkbox-s4"></label> -->
+<!--                     </div> -->
+<!--                     <p><span>濟州航空</span> <span class="price">$<b>36,134</b></span></p> -->
+<!--                   </li> -->
+<!--                   <li> -->
+<!--                     <div class="cdst"> -->
+<!--                       <input type="checkbox" id="cd-checkbox-s5"> -->
+<!--                       <label for="cd-checkbox-s5"></label> -->
+<!--                     </div> -->
+<!--                     <p><span>大韓航空 </span><span class="price">$<b>37,411</b></span></p> -->
+<!--                   </li> -->
 <!--                   <li> -->
 <!--                     <div class="cdst"> -->
 <!--                       <input type="checkbox" id="cd-checkbox-s6"> -->
@@ -499,15 +499,15 @@ $.each(result.OTA_AirLowFareSearchRS.PricedItineraries.PricedItinerary, function
 <!--                     </div> -->
 <!--                     <p><span>曼谷航空 </span><span class="price">$<b>38,433</b></span></p> -->
 <!--                   </li> -->
-<!--                   <li> -->
-<!--                     <div class="cdst"> -->
-<!--                       <input type="checkbox" id="cd-checkbox-s7"> -->
-<!--                       <label for="cd-checkbox-s7"></label> -->
-<!--                     </div> -->
-<!--                     <p><span>國泰航空</span> <span class="price">$<b>39,172</b></span></p> -->
-<!--                   </li> -->
-<!--                 </ul> -->
-<!--               </li> -->
+                  <li>
+                    <div class="cdst">
+                      <input type="checkbox" id="cd-checkbox-s7">
+                      <label for="cd-checkbox-s7"></label>
+                    </div>
+                    <p><span>國泰航空</span> <span class="price">$<b>39,172</b></span></p>
+                  </li>
+                </ul>
+              </li>
                </ul>
               <!--航空公司_結束-->
               <div class="filters">

@@ -1716,7 +1716,7 @@ $(document).ready(function() {
 						<span class="time">${map.goArTime}</span>
 						<div id="arriveTime_1_1" style="display: none">到达时间为第2天，2019年01月16日
 							12时10分</div>
-						<span class="airport">金海國際機場T1</span>
+						<span class="airport">洛杉磯國際機場T1</span>
 					</div>
 				</div>
 <!-- 				<i class="ico-supplier" tooltip-gid="supplier1"></i> -->
@@ -1744,7 +1744,7 @@ $(document).ready(function() {
 					</div>
 					<div class="flight-detail">
 						<div class="flt-depart">
-							<span class="time">${map.backDeTime}</span> <span class="airport">金海國際機場T1</span>
+							<span class="time">${map.backDeTime}</span> <span class="airport">洛杉磯國際機場T1</span>
 						</div>
 						<div class="flt-arrow flt-non-stop">
 							<div class="cost-time">
