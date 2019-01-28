@@ -141,7 +141,7 @@ $(function() {
 </head>
 <body>
 <a href="https://www.blogger.com/blogger.g?blogID=2031514508322140995#" id="gotop">
-   <i class="fa fa-angle-up"></i>
+   <i class="fa fa-angle-up" style="width:40px"></i>
 </a>
 	<script type="text/javascript">
 	
@@ -426,7 +426,7 @@ $.each(result.OTA_AirLowFareSearchRS.PricedItineraries.PricedItinerary, function
 					</div>
 					<div style="display: inline-block; padding-right: 30px;float: left">
 					<span class="form-label"style="display:block;">出發日期</span> <input type="text"  class="search_input_1secound" id="checkin_date" placeholder="yyyy/MM/dd" name="takeoff_date" value="${indexValue.takeoff_date}">
-				</div>
+				</div><i class="fas fa-greater-than"></i>
 				<div style="display: inline-block; padding-right: 30px;">
 					<span class="form-label" style="display:block;">回程日期</span> <input type="text"  class="search_input_1secound" placeholder="yyyy/MM/dd" name="flyback_date" id="checkout_date"value="${indexValue.flyback_date}">
 				</div>
