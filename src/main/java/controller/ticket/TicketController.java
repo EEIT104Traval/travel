@@ -1,7 +1,9 @@
 package controller.ticket;
 
 import java.text.ParseException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -33,9 +35,9 @@ public class TicketController {
 			return result;
 		}
 //---------------------------------(↑搜尋資料)(↓購買資料)---------------------------------------------
-	@ResponseBody
+//	@ResponseBody
 	@RequestMapping("/voyage/ticketbuy.controller")
-	public String method1(String accountName, Integer ticketNo, Integer adultTicketSellQ, Integer adultTicketPrice ,Model model) throws ParseException {
+	public String method1(String ticketName,String accountName, Integer ticketNo, Integer adultTicketSellQ, Integer adultTicketPrice ,Model model) throws ParseException {
 //接收資料 (查證)
 		System.out.println("ticketNo="+ticketNo);
 		System.out.println("accountName="+accountName);
@@ -44,8 +46,18 @@ public class TicketController {
 //呼叫model
 		ticketInfoService.qupdate(accountName, ticketNo, adultTicketSellQ, adultTicketPrice);
 		
+		Map<String, Object> order = new HashMap<>();
+		
+		order.put("accountName",accountName);
+		order.put("ticketName",ticketName);
+		order.put("ticketNo",ticketNo);
+		order.put("adultTicketSellQ", adultTicketSellQ);
+		order.put("adultTicketPrice", adultTicketPrice);
+		
+		model.addAttribute("order", order);
+		
 //呼叫view		
-		return "你OK我OK，萬事都OK";
+		return "buyticket";
 		}
 	}
 

@@ -63,7 +63,7 @@ var params = {}
 				'<a class="block-20" style="background-image: url('+value.ticketPicture+');"> </a>'+
 				'<div class="text p-4">'+
 					'<div class="meta" style="margin-left: 45px;">'+
-						'<div>'+ value.ticketName +'</div>'+
+						'<div id="tn'+value.ticketNo+'">'+ value.ticketName +'</div>'+
 						'<div id="price'+value.ticketNo+'">'+ value.adultTicketPrice +'</div>'+
 					'</div>'+
 					'<br>'+
@@ -152,20 +152,11 @@ var params = {}
 					            alert('請登入，否則不給你訂購')								        	
 					        }else{
 // 								        	var accountName;
-// 											var ticketNo ;										
+// 											var ticketNo ;		
+								var ticketName=$("#tn"+ticketNo).text()
 								var adultTicketSellQ=$("#tt"+ticketNo).val()
 								var adultTicketPrice=$("#price"+ticketNo).text()
-								$.ajax({
-						            type: "GET", //傳送方式
-						            url: "/Travel/voyage/ticketbuy.controller", 
-						            dataType: "json", 
-						            data: {'accountName':accountName,'ticketNo':ticketNo,'adultTicketSellQ':adultTicketSellQ,'adultTicketPrice':adultTicketPrice},
-						            done: function(data) {
-						 				console.log(data);
-						            }
-					       		 });
-						            alert('已完成訂單選購')		
-						            window.location.href='/Travel/voyage/ticket.jsp';
+	 window.location.href='/Travel/voyage/ticketbuy.controller?accountName='+accountName+'&ticketNo='+ticketNo+'&adultTicketSellQ='+adultTicketSellQ+'&adultTicketPrice='+adultTicketPrice+'&ticketName='+ticketName;
 					        }
 					      }
 								     	
