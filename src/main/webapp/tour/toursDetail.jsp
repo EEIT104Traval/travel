@@ -6,10 +6,12 @@
 <head>
 <!-- http://mirlab.org/jang/books/javascript/dynamicSelect.asp?title=7-3%20%B0%CA%BAA%A4U%A9%D4%A6%A1%BF%EF%B3%E6 -->
 <!-- http://kevintsengtw.blogspot.com/2012/05/jquery_29.html -->
-<title>Voyage - Free Bootstrap 4 Template by Colorlib</title>
+<title>Time To Travel - 各國旅遊資訊</title>
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="icon" href="<c:url value='/voyage/favicon.ico' />">
+	
 	<link rel="stylesheet" href="<c:url value='/voyage/css/open-iconic-bootstrap.min.css' />">
     <link rel="stylesheet" href="<c:url value='/voyage/css/animate.css' />">
     <link rel="stylesheet" href="<c:url value='/voyage/css/owl.carousel.min.css' />">
