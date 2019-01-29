@@ -207,8 +207,8 @@ public class Display {
 	
 	@ResponseBody
 	@RequestMapping("/tour/Display2/test")
-	public Map<String,List<?>> test(){
-		Map<String,List<?>> result = tourBuyService.test();
+	public Map<String,List<?>> test(String accountName){
+		Map<String,List<?>> result = tourBuyService.test(accountName);
 		return result;
 	}
 	

@@ -77,7 +77,7 @@ public class TourOrderInfoDAO {
 	 public List<Object> findByAccound(String account) {
 //		  String sql = "select a.contactGender,a.contactLastNameCN from FlightOrderInfo a, FlightPassengerInfo b, FlightTicket c where a.flightOrderNO = b.flightOrderNO and a.flightOrderNO = c.flightOrderNo and a.accountName='MICKY'";
 		  
-		String sql2 = "select a.tourNo tourNo , a.tourName , b.departureDate , c.orderNo , c.accountName , c.fullName , c.email , c.phone , c.orderStatus , c.orderTime , c.quantity , c.total , c.sex from GroupTour a , TourBatch b , TourOrderInfo c where a.tourNo = b.tourNo and b.serialNo = c.serialNo and c.accountName = 'micky'";
+		String sql2 = "select a.tourNo tourNo , a.tourName , b.departureDate , c.orderNo , c.accountName , c.fullName , c.email , c.phone , c.orderStatus , c.orderTime , c.quantity , c.total , c.sex from GroupTour a , TourBatch b , TourOrderInfo c where a.tourNo = b.tourNo and b.serialNo = c.serialNo and c.accountName = '"+account+"'";
 		Query  query = this.getSession().createSQLQuery(sql2);
 		  List<Object> list = query.list();
 		  System.out.println("list0=" + list.get(0));

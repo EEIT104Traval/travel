@@ -152,8 +152,8 @@ public class TourBuyService {
 		return map;
 	}
 
-	public Map<String,List<?>> test() {
-		List<?> list = orderDao.findByAccound("micky");
+	public Map<String,List<?>> test(String accountName) {
+		List<?> list = orderDao.findByAccound(accountName);
 		List<TestBean> result = new ArrayList<>();
 		TestBean bean = null;
 		
