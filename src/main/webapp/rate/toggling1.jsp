@@ -252,6 +252,7 @@ function notice(){
  
     $( "#opener" ).on( "click", function() {
       $( "#dialog" ).dialog( "open" );
+
       $('#accountName').val(accountName);
 //       $('#checkin_date').val(todayvalue);
       $( "#checkin_date" ).datepicker();

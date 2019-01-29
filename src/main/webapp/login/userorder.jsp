@@ -236,7 +236,7 @@
 	<jsp:include page="/voyage/nav.jsp" />	
 	<section class="home-slider owl-carousel">
 		<div class="slider-item"
-			style="background-image: url('<c:url value='/voyage/images/home_slider.jpg'/>')"
+			style="background-image: url('<c:url value='/login/images/pic007.jpg'/>')"
 			data-stellar-background-ratio="0.5">
 			<div class="overlay">
 				<div class="container"></div>
