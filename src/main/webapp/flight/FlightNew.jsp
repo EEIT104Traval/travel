@@ -11,6 +11,7 @@
 
 <!-- import this css by Alex -->
 <!-- <link rel="stylesheet" href="css/main_styles.css"> -->
+<link rel="icon" href="<c:url value='/voyage/favicon.ico' />">
 <link rel="stylesheet" type="text/css"
 	href="<c:url value='/voyage/styles/main_styles.css'/>">
 
@@ -41,7 +42,7 @@
  href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
  integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
  crossorigin="anonymous">
-
+<title>Time To Travel - 飯店搜尋</title>
 <head>
 <%-- <jsp:include page="/voyage/nav.jsp" /> --%>
 <script>

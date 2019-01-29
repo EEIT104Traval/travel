@@ -16,6 +16,7 @@
 <!-- <meta property="og:site_name" content="" /> -->
 <!-- <meta property="og:description" content="" /> -->
 <meta name="copyright" content="" />
+<link rel="icon" href="<c:url value='/voyage/favicon.ico' />">
 <link rel="stylesheet" type="text/css"  href="<c:url value='/flight/xianqi/css/bootstrap.min.css?sv=1'/>"/>
 
 <link rel="stylesheet" type="text/css" href="<c:url value='/flight/xianqi/css/style.css?sv=1'/>"/>
@@ -58,6 +59,7 @@
  href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
  integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
  crossorigin="anonymous">	
+ <title>Time To Travel - 飯店搜尋</title>
 <style type="text/css">
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans+TC&subset=chinese-traditional');
 
@@ -424,18 +426,55 @@ $.each(result.OTA_AirLowFareSearchRS.PricedItineraries.PricedItinerary, function
 // 	$('#checkin_date').val(todayvalue);
 // 	form.submit();
 // }
+// function minDay(e){
+// 	var da = $('#' + e).val();
+// 	var da1 = new Date(da)
+// 	var to= today.setDate(da1.getDate()-1);
+// 	var today1 = new Date(to);
+// 	var month1 = today1.getMonth()+1
+// 	var todayvalue = today1.getFullYear()+'/'+month1+'/'+today1.getDate()
+// 	alert(da)
+// 	$('#' + e).val(todayvalue);
+// }
+
+
+
 function minDay(e){
-	var da = $('#' + e).val();
+	var form = $('form1');
+	var da = $('#'+e).val();
 	var da1 = new Date(da)
-	var to= today.setDate(da1.getDate()-1);
+	var to= da1.setDate(da1.getDate()-1);
 	var today1 = new Date(to);
 	var month1 = today1.getMonth()+1
 	var todayvalue = today1.getFullYear()+'/'+month1+'/'+today1.getDate()
-	
-	$('#' + e).val(todayvalue);
+// 	alert(todayvalue)
+	$('#'+e).val(todayvalue);
+	form.submit();
 }
+// function minDay(){
+// 	var da = $('#checkin_date').val();
+// 	var da1 = new Date(da)
+// 	var to= da1.setDate(da1.getDate()-1);
+// 	var today1 = new Date(to);
+// 	var month1 = today1.getMonth()+1
+// 	var todayvalue = today1.getFullYear()+'/'+month1+'/'+today1.getDate()
+// // 	alert(todayvalue)
+// 	$('#checkin_date').val(todayvalue);
+// }
 
 
+function addDay(e){
+	var form = $('form1');
+	var da = $('#'+e).val();
+	var da1 = new Date(da)
+	var to= da1.setDate(da1.getDate()+1);
+	var today1 = new Date(to);
+	var month1 = today1.getMonth()+1
+	var todayvalue = today1.getFullYear()+'/'+month1+'/'+today1.getDate()
+// 	alert(todayvalue)
+	$('#'+e).val(todayvalue);
+	form.submit();
+}
  </script>
  	 <!--重新search--> 
  	 <form action="<c:url value="/FlightInfoNew" />" method="POST" id="form1">
@@ -457,13 +496,13 @@ function minDay(e){
 					<span class="form-label"style="display:block;padding-left: 40px;">出發日期</span>
 							<input type="image" style="width:30px;" onClick="minDay('checkin_date')" src=" <c:url value='/flight/xianqi/img/前一天.png'/>">
 							<input type="text"  class="search_input_1secound" id="checkin_date" placeholder="yyyy/MM/dd" name="takeoff_date" value="${indexValue.takeoff_date}">
-							<input type="image" style="width:30px;" onClick="minDay()" src=" <c:url value='/flight/xianqi/img/下一天.png'/>">
+							<input type="image" style="width:30px;" onClick="addDay('checkin_date')" src=" <c:url value='/flight/xianqi/img/下一天.png'/>">
 					</div>
 				<div style="display: inline-block; padding-right: 30px;">
 					<span class="form-label" style="display:block;padding-left: 40px;">回程日期</span>
-					<input type="image" style="width:30px;" onClick="minDay()" src=" <c:url value='/flight/xianqi/img/前一天.png'/>">
+					<input type="image" style="width:30px;" onClick="minDay('checkout_date')" src=" <c:url value='/flight/xianqi/img/前一天.png'/>">
 					 <input type="text"  class="search_input_1secound" placeholder="yyyy/MM/dd" name="flyback_date" id="checkout_date"value="${indexValue.flyback_date}">
-					<input type="image" style="width:30px;" onClick="minDay()" src=" <c:url value='/flight/xianqi/img/下一天.png'/>">
+					<input type="image" style="width:30px;" onClick="addDay('checkout_date')" src=" <c:url value='/flight/xianqi/img/下一天.png'/>">
 				</div>
 				</div>
 				
@@ -480,6 +519,7 @@ function minDay(e){
     <div class="flirow"> 
       
       <!--左側欄-->
+      <form action="<c:url value='/FlightInfoNew1' />" >
       <div class="panel-group  flyst" id="accordion">
         <div class="panel panel-info">
           <div id="mo_accordion" class="panel-collapse contbg  main_left martb" role="tabpanel" aria-labelledby="headingOne" style="margin-top: 14px;">
@@ -496,7 +536,7 @@ function minDay(e){
                       <input type="checkbox" id="zj-checkbox-s1" checked="checked">
                       <label for="zj-checkbox-s1"></label>
                     </div>
-                    <p > <span>直飛 </span></p>
+                    <p > <span  >直飛 </span></p>
                   </li>
                   <li style="padding-left: 20px;">
                     <div class="cdst">
@@ -511,9 +551,11 @@ function minDay(e){
                       <label for="zj-checkbox-s3"></label>
                     </div>
                     <p><span>轉機兩次 </span></p>
+					                   
                   </li>
                 </ul>
               </li>
+              
               <!--航空公司-->
               
               <li style="border-bottom: 1px dashed #ccc;">
@@ -600,12 +642,13 @@ function minDay(e){
 		              <div class="c-filter-table__label" style="border-right: 1px solid #ccdef0;">18:00 <p>-</p> 24: 00</div>
 		              </dd>
                </dl>
+               <input type="submit" value="建资料" style="opacity: 0"> 
             </div>
             <div class="fix-button text-center">關閉</div>
           </div>
         </div>
       </div>
-      
+      </form>
       <!--左側欄_結束--> 
       
       <!--右側欄-->
@@ -623,6 +666,7 @@ function minDay(e){
           
 <!--           <div class="load_cont"> <i></i> 載入更多航班 </div> -->
         </div>
+        </form>
         <!--彈跳航班資訊-->
         <div class="modal fade" id="pop_fdetail" tabindex="-1" role="dialog" aria-labelledby="pop_protickLabel">
           <div class="modal-dialog pop_box pop_med" role="document">
