@@ -54,7 +54,7 @@ body {
 	$(document).ready(function() {
 		GetOrderInfo();
 		alert(result.roomType)
-		alert(11111111111111111111)
+// 		alert(11111111111111111111)
 		// 		alert(roomTypeNo)
 	});
 
@@ -243,7 +243,7 @@ body {
 														<div class="card">
 															<div class="card-header">
 																<a class="card-link" data-toggle="collapse"
-																	data-parent="#card-501538" href="#card-element-174917">推廣活動</a>
+																	data-parent="#card-501538" href="#card-element-174917">推廣活動 (輸入優惠碼即享 9 折優惠，優惠至 04/01/2019 14:00 止，需於 06/30/2019 前入住。)</a>
 															</div>
 															<div id="card-element-174917" class="collapse show">
 																<div class="card-body">

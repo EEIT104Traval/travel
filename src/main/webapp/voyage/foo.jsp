@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-    <footer class="ftco-footer ftco-bg-dark ftco-section">
+    <footer class="ftco-footer ftco-bg-dark ftco-section" style="padding:30px">
       <div class="container">
         <div class="row mb-5">
           <div class="col-md">
@@ -12,41 +12,33 @@
           </div>
           <div class="col-md">
              <div class="ftco-footer-widget mb-4">
-              <h2 class="ftco-heading-2">Book Now</h2>
+              <h2 class="ftco-heading-2">現在訂購</h2>
               <ul class="list-unstyled">
-                <li><a href="#" class="py-2 d-block">Flight</a></li>
-                <li><a href="#" class="py-2 d-block">Hotels</a></li>
-                <li><a href="#" class="py-2 d-block">Tour</a></li>
-                <li><a href="#" class="py-2 d-block">Car Rent</a></li>
-                <li><a href="#" class="py-2 d-block">Beach &amp; Resorts</a></li>
-                <li><a href="#" class="py-2 d-block">Mountains</a></li>
-                <li><a href="#" class="py-2 d-block">Cruises</a></li>
+                <li><a href="#" class="py-2 d-block">團體旅遊</a></li>
+                <li><a href="#" class="py-2 d-block">機票</a></li>
+                <li><a href="#" class="py-2 d-block">飯店</a></li>
+                <li><a href="#" class="py-2 d-block">門票</a></li>
               </ul>
             </div>
           </div>
           <div class="col-md">
              <div class="ftco-footer-widget mb-4">
-              <h2 class="ftco-heading-2">Top Deals</h2>
+              <h2 class="ftco-heading-2">熱門推薦</h2>
               <ul class="list-unstyled">
-                <li><a href="#" class="py-2 d-block">Luxe Hotel</a></li>
-                <li><a href="#" class="py-2 d-block">Venice Tours</a></li>
-                <li><a href="#" class="py-2 d-block">Deluxe Hotels</a></li>
-                <li><a href="#" class="py-2 d-block">Boracay Beach &amp; Resorts</a></li>
-                <li><a href="#" class="py-2 d-block">Beach &amp; Resorts</a></li>
-                <li><a href="#" class="py-2 d-block">Fuente Villa</a></li>
-                <li><a href="#" class="py-2 d-block">Japan Tours</a></li>
-                <li><a href="#" class="py-2 d-block">Philippines Tours</a></li>
+                <li><a href="#" class="py-2 d-block">熱門行程推薦</a></li>
+                <li><a href="#" class="py-2 d-block">熱門飯店推薦</a></li>
+                <li><a href="#" class="py-2 d-block">熱門主題樂園</a></li>
               </ul>
             </div>
           </div>
           <div class="col-md">
              <div class="ftco-footer-widget mb-4">
-              <h2 class="ftco-heading-2">Contact Information</h2>
+              <h2 class="ftco-heading-2">與我聯絡</h2>
               <ul class="list-unstyled">
-                <li><a href="#" class="py-2 d-block">198 West 21th Street, Suite 721 New York NY 10016</a></li>
-                <li><a href="#" class="py-2 d-block">+ 1235 2355 98</a></li>
-                <li><a href="#" class="py-2 d-block">info@yoursite.com</a></li>
-                <li><a href="#" class="py-2 d-block">email@email.com</a></li>
+                <li><a href="#" class="py-2 d-block">網站意見</a></li>
+                <li><a href="#" class="py-2 d-block">客戶服務</a></li>
+                <li><a href="#" class="py-2 d-block">info@TimetoTravel.com</a></li>
+                <li><a href="#" class="py-2 d-block">TimetoTravel@gmail.com</a></li>
               </ul>
             </div>
           </div>
