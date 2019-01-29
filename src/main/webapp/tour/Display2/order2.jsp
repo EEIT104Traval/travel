@@ -7,8 +7,7 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<title>Places &mdash; Free HTML5 Bootstrap 4 Theme by
-	ProBootstrap.com</title>
+<title>Time To Travel - SUCCESS 訂購完成</title>
 <meta name="description"
 	content="Free Bootstrap 4 Theme by ProBootstrap.com">
 <meta name="keywords"

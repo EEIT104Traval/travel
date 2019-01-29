@@ -1,7 +1,5 @@
 package model.tour;
 
-import java.util.Date;
-
 public class TestBean {
 	
 	private String tourNo; 
