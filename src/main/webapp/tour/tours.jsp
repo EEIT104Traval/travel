@@ -87,7 +87,7 @@
 	
 	</section>
 	<section class="ftco-section" style="margin-top:100px">
-	
+	<p id= "idd"></p>
 		<div class="container">
 		
 <!-- 		 <div id="hot" class="row justify-content-center mb-5" style="width:70%;background-color:#ff5f5f;"> -->
@@ -103,7 +103,7 @@
 <!-- 		 </div> -->
 		
 			<div class="row" style="margin-top:4%">
-			<p id= "idd"></p>
+			
 				<div class="col-lg-8">				
 					<div id="box" class="row">
 <%-- 					<c:forEach items="${tags}"  var="tag">	 --%>

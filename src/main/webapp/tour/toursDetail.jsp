@@ -42,7 +42,7 @@ href="http://gregfranko.com/jquery.selectBoxIt.js/css/jquery.selectBoxIt.css" />
 <jsp:include page="../voyage/nav.jsp"></jsp:include>
 	<section class="home-slider owl-carousel">
 		<div class="slider-item"
-			style="background-image: url('<c:url value='/voyage/images/bg_2.jpg'/>');"
+			style="background-image: url('<c:url value='/voyage/images/BB.jpg'/>');"
 			data-stellar-background-ratio="0.5">
 			<div class="overlay"></div>
 			<div class="container">
