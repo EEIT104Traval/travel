@@ -318,7 +318,7 @@
 	
 			 
 /* -----------------------分頁-------------------------------------------------------   */	 			 
-			 var rowsShown=4;                             //每頁顯示的行
+			 var rowsShown=6;                             //每頁顯示的行
 		     var rowsTotal=lens;         //獲取總共的行
 		     var numPages=Math.ceil(rowsTotal/rowsShown); //計算出有多少頁
 // 		     alert(data.count);
