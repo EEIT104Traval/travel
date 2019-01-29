@@ -105,7 +105,6 @@ public class FlightOrderInfoDAOHibernate implements FlightOrderInfoDAO {
 		List list = query.list();
 		System.out.println("list0=" + list.get(0));
 		System.out.println("list=" + list.size());
-
 		return list;
 	}
 
