@@ -403,99 +403,99 @@
         </div>
         <div class="row no-gutters">
           <div class="col-md-6 col-lg-3 ftco-animate">
-            <a href="#" class="block-5" style="background-image: url('images/tour-1.jpg');">
-<!--               <div class="text"> -->
-<!--                 <span class="price">NT$10399</span> -->
-<!--                 <h3 class="heading">Group Tour in Maldives</h3> -->
-<!--                 <div class="post-meta"> -->
-<!--                   <span>Ameeru Ahmed Magu Male’, Maldives</span> -->
-<!--                 </div> -->
-<!--                 <p class="star-rate"><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star-half-full"></span> <span>500 reviews</span></p> -->
-<!--               </div> -->
+            <a href="<c:url value="/tour/Display2/travel.jsp?tourNo=1"/>" class="block-5" style="background-image: url('<c:url value="/tour/Display2/images/1_0.jpg"/>');">
+              <div class="text">
+                <span class="price">NT$107,900</span>
+                <h3 class="heading">魅力歐洲~冰島魔幻極光巴黎10天(超值版)</h3>
+                <div class="post-meta">
+                  <span>天空好漂亮</span>
+                </div>
+                <p class="star-rate"><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star-half-full"></span> <span>7749 reviews</span></p>
+              </div>
             </a>
           </div>
           <div class="col-md-6 col-lg-3 ftco-animate">
-            <a href="#" class="block-5" style="background-image: url('images/tour-2.jpg');">
-<!--               <div class="text"> -->
-<!--                 <span class="price">$399</span> -->
-<!--                 <h3 class="heading">Group Tour in Maldives</h3> -->
-<!--                 <div class="post-meta"> -->
-<!--                   <span>Ameeru Ahmed Magu Male’, Maldives</span> -->
-<!--                 </div> -->
-<!--                 <p class="star-rate"><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star-half-full"></span> <span>500 reviews</span></p> -->
-<!--               </div> -->
+            <a href="<c:url value="/tour/Display2/travel.jsp?tourNo=2"/>" class="block-5" style="background-image: url('<c:url value="/tour/Display2/images/2_0.jpg"/>');">
+              <div class="text">
+                <span class="price">$39,900</span>
+                <h3 class="heading">魅力歐洲～『Hello UK』英倫時尚7天(超值版)</h3>
+                <div class="post-meta">
+                  <span>潮男都會這樣玩</span>
+                </div>
+                <p class="star-rate"><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star-half-full"></span> <span>5278 reviews</span></p>
+              </div>
             </a>
           </div>
           <div class="col-md-6 col-lg-3 ftco-animate">
-            <a href="#" class="block-5" style="background-image: url('images/tour-3.jpg');">
-<!--               <div class="text"> -->
-<!--                 <span class="price">$399</span> -->
-<!--                 <h3 class="heading">Group Tour in Maldives</h3> -->
-<!--                 <div class="post-meta"> -->
-<!--                   <span>Ameeru Ahmed Magu Male’, Maldives</span> -->
-<!--                 </div> -->
-<!--                 <p class="star-rate"><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star-half-full"></span> <span>500 reviews</span></p> -->
-<!--               </div> -->
+            <a href="<c:url value="/tour/Display2/travel.jsp?tourNo=2007"/>" class="block-5" style="background-image: url('<c:url value="/tour/Display2/images/F07.jpg"/>');">
+              <div class="text">
+                <span class="price">$98,000</span>
+                <h3 class="heading">蜜月推薦~荷比法聖米歇爾山、米其林雙饗、雙登頂7日</h3>
+                <div class="post-meta">
+                  <span>爬山之旅</span>
+                </div>
+                <p class="star-rate"><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star-half-full"></span> <span>4999 reviews</span></p>
+              </div>
             </a>
           </div>
           <div class="col-md-6 col-lg-3 ftco-animate">
-            <a href="#" class="block-5" style="background-image: url('images/tour-4.jpg');">
-<!--               <div class="text"> -->
-<!--                 <span class="price">$399</span> -->
-<!--                 <h3 class="heading">Group Tour in Maldives</h3> -->
-<!--                 <div class="post-meta"> -->
-<!--                   <span>Ameeru Ahmed Magu Male’, Maldives</span> -->
-<!--                 </div> -->
-<!--                 <p class="star-rate"><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star-half-full"></span> <span>500 reviews</span></p> -->
-<!--               </div> -->
+            <a href="<c:url value="/tour/Display2/travel.jsp?tourNo=2008"/>" class="block-5" style="background-image: url('<c:url value="/tour/Display2/images/F08.jpg"/>');">
+              <div class="text">
+                <span class="price">$239,000</span>
+                <h3 class="heading">蜜月典藏!荷比盧鬱金香花園、三色村、庫勒慕勒5日</h3>
+                <div class="post-meta">
+                  <span>來度蜜月吧</span>
+                </div>
+                <p class="star-rate"><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star-half-full"></span> <span>4999 reviews</span></p>
+              </div>
             </a>
           </div>
           <div class="col-md-6 col-lg-3 ftco-animate">
-            <a href="#" class="block-5" style="background-image: url('images/tour-5.jpg');">
-<!--               <div class="text"> -->
-<!--                 <span class="price">$399</span> -->
-<!--                 <h3 class="heading">Group Tour in Maldives</h3> -->
-<!--                 <div class="post-meta"> -->
-<!--                   <span>Ameeru Ahmed Magu Male’, Maldives</span> -->
-<!--                 </div> -->
-<!--                 <p class="star-rate"><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star-half-full"></span> <span>500 reviews</span></p> -->
-<!--               </div> -->
+            <a href="<c:url value="/tour/Display2/travel.jsp?tourNo=2001"/>" class="block-5" style="background-image: url('<c:url value="/tour/Display2/images/F01.jpg"/>');">
+              <div class="text">
+                <span class="price">$499,999</span>
+                <h3 class="heading">賺很大!法比荷羅浮宮~鬆餅下午茶10日</h3>
+                <div class="post-meta">
+                  <span>最美歐遊的初體驗</span>
+                </div>
+                <p class="star-rate"><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star-half-full"></span> <span>4321 reviews</span></p>
+              </div>
             </a>
           </div>
           <div class="col-md-6 col-lg-3 ftco-animate">
-            <a href="#" class="block-5" style="background-image: url('images/tour-6.jpg');">
-<!--               <div class="text"> -->
-<!--                 <span class="price">$399</span> -->
-<!--                 <h3 class="heading">Group Tour in Maldives</h3> -->
-<!--                 <div class="post-meta"> -->
-<!--                   <span>Ameeru Ahmed Magu Male’, Maldives</span> -->
-<!--                 </div> -->
-<!--                 <p class="star-rate"><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star-half-full"></span> <span>500 reviews</span></p> -->
-<!--               </div> -->
+            <a href="<c:url value="/tour/Display2/travel.jsp?tourNo=2005"/>" class="block-5" style="background-image: url('<c:url value="/tour/Display2/images/F05.jpg"/>');">
+              <div class="text">
+                <span class="price">$38,999</span>
+                <h3 class="heading">好評加開魅力歐洲～英法雙國好事成雙、古堡巡禮5日</h3>
+                <div class="post-meta">
+                  <span>我又回來囉</span>
+                </div>
+                <p class="star-rate"><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star-half-full"></span> <span>3333 reviews</span></p>
+              </div>
             </a>
           </div>
           <div class="col-md-6 col-lg-3 ftco-animate">
-            <a href="#" class="block-5" style="background-image: url('images/tour-7.jpg');">
-<!--               <div class="text"> -->
-<!--                 <span class="price">$399</span> -->
-<!--                 <h3 class="heading">Group Tour in Maldives</h3> -->
-<!--                 <div class="post-meta"> -->
-<!--                   <span>Ameeru Ahmed Magu Male’, Maldives</span> -->
-<!--                 </div> -->
-<!--                 <p class="star-rate"><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star-half-full"></span> <span>500 reviews</span></p> -->
-<!--               </div> -->
+            <a href="<c:url value="/tour/Display2/travel.jsp?tourNo=1004"/>" class="block-5" style="background-image: url('<c:url value="/tour/Display2/images/1004_0.jpg"/>');">
+              <div class="text">
+                <span class="price">$29,788</span>
+                <h3 class="heading">海灘之旅-沖繩七日遊</h3>
+                <div class="post-meta">
+                  <span>我愛你媽</span>
+                </div>
+                <p class="star-rate"><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star-half-full"></span> <span>2222 reviews</span></p>
+              </div>
             </a>
           </div>
           <div class="col-md-6 col-lg-3 ftco-animate">
-            <a href="#" class="block-5" style="background-image: url('images/tour-8.jpg');">
-<!--               <div class="text"> -->
-<!--                 <span class="price">$399</span> -->
-<!--                 <h3 class="heading">Group Tour in Maldives</h3> -->
-<!--                 <div class="post-meta"> -->
-<!--                   <span>Ameeru Ahmed Magu Male’, Maldives</span> -->
-<!--                 </div> -->
-<!--                 <p class="star-rate"><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star-half-full"></span> <span>500 reviews</span></p> -->
-<!--               </div> -->
+            <a href="<c:url value="/tour/Display2/travel.jsp?tourNo=1003"/>" class="block-5" style="background-image: url('<c:url value="/tour/Display2/images/1003_0.jpg"/>');">
+              <div class="text">
+                <span class="price">$878,790</span>
+                <h3 class="heading">長程之旅-萬里長城七日遊</h3>
+                <div class="post-meta">
+                  <span>你愛我嗎</span>
+                </div>
+                <p class="star-rate"><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star-half-full"></span> <span>520 reviews</span></p>
+              </div>
             </a>
           </div>
         </div>
