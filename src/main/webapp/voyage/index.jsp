@@ -78,6 +78,20 @@
  href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
  integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
  crossorigin="anonymous">
+ 
+ 	<style>
+ 	body {
+ 	font-family:微軟正黑體
+ 	}
+ 	h2, h3, h4, h5, h6 {
+ 	font-family:微軟正黑體
+ 	}
+ 	p {
+ 	font-family:微軟正黑體
+ 	}
+ 	
+ 	</style>
+ 
   </head>
   <body>
      <jsp:include page="/voyage/nav.jsp" />
@@ -490,7 +504,7 @@
         <div class="row mb-5 pb-5 no-gutters">
           <div class="col-lg-4 bg-light p-3 p-md-5 d-flex align-items-center heading-section ftco-animate">
             <div>
-              <h2 class="mb-5 pb-3">想得到我们最热门的旅游交易的提示和建议吗？现在订阅我们！</h2>
+              <h2 class="mb-5 pb-3">想得到我們最热門的旅游交易的提示和建議嗎？現在訂閱我們！</h2>
               <form action="#" class="subscribe-form">
                 <div class="form-group">
                   <span class="icon icon-paper-plane"></span>
@@ -505,36 +519,27 @@
               <div class="col-md-4 ftco-animate">
                 <a href="#" class="block-5" style="background-image: url('hotel/hotelPic/熱門飯店/紐約市中心希爾頓酒店(New York Hilton Midtown).jpg');">
                   <div class="text">
-                    <span class="price">NT$2990/night</span>
+                    <span class="price">NT$2990 / 晚</span>
                     <h3 class="heading">紐約市中心希爾頓酒店</h3>
-                    <div class="post-meta">
-                      <span>Ameeru Ahmed Magu Male’, Maldives</span>
-                    </div>
-                    <p class="star-rate"><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star-half-full"></span> <span>500 reviews</span></p>
+                    <p class="star-rate"><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star-half-full"></span></p>
                   </div>
                 </a>
               </div>
               <div class="col-md-4 ftco-animate">
                 <a href="#" class="block-5" style="background-image: url('hotel/hotelPic/熱門飯店/品川王子大飯店(Shinagawa Prince Hotel).jpg');">
                   <div class="text">
-                    <span class="price">NT$3290/night</span>
+                    <span class="price">NT$3290 / 晚</span>
                     <h3 class="heading">品川王子大飯店</h3>
-                    <div class="post-meta">
-                      <span>Ameeru Ahmed Magu Male’, Maldives</span>
-                    </div>
-                    <p class="star-rate"><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star-half-full"></span> <span>500 reviews</span></p>
+                    <p class="star-rate"><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star-half-full"></span></p>
                   </div>
                 </a>
               </div>
               <div class="col-md-4 ftco-animate">
                 <a href="#" class="block-5" style="background-image: url('hotel/hotelPic/熱門飯店/倫敦肯辛頓千禧國際百麗酒店.jpg');">
                   <div class="text">
-                    <span class="price">NT$2290/night</span>
+                    <span class="price">NT$2290 / 晚</span>
                     <h3 class="heading">倫敦肯辛頓千禧國際百麗酒店</h3>
-                    <div class="post-meta">
-                      <span>Ameeru Ahmed Magu Male’, Maldives</span>
-                    </div>
-                    <p class="star-rate"><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star-half-full"></span> <span>500 reviews</span></p>
+                    <p class="star-rate"><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star-half-full"></span></p>
                   </div>
                 </a>
               </div>
