@@ -110,10 +110,12 @@ public class TicketInfoService {
 			TI.setAdultTicketSelledQ(TI.getAdultTicketSelledQ() + adultTicketSellQ);
 			ticketInfoDAO.qupdate(TI);
 			// ------------------(↑購買更改庫存數量 )(↓購買更改訂單表格)---------------------------
+			java.util.Date date = new java.util.Date();
+			System.out.println(date);
 			TicketOrderInfoBean TOI = ticketOrderInfoDAO.create(bean);
 			TOI.setAccountName(accountName);
 			TOI.setTicketNo(ticketNo);
-			TOI.setOrderDate(new Date());
+			TOI.setOrderDate(date);
 			TOI.setAdultTicketCount(adultTicketSellQ);
 			Integer TT = adultTicketSellQ * adultTicketPrice;
 			TOI.setTotalPrice(TT);
