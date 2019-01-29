@@ -94,6 +94,7 @@ $(document).ready(function(){
 	var intDiff = parseInt(899);
 	timer(intDiff);
 	GetDateNow();
+	console.log('${order}')
 // 	getRMB();
 	
 
@@ -150,7 +151,7 @@ $(document).ready(function(){
 		<!-- S 订单金额 -->
 		<div class="price_area">
 			<div class="price_h1">
-				订单金额<span style="font-size: 30px;" class="price_s1">NT$${order.totalAmount}</span>
+				订单金额<span style="font-size: 30px;" class="price_s1">NT$${order.totalprice}</span>
 			</div>
 		</div>
 		<!-- E 订单金额 -->

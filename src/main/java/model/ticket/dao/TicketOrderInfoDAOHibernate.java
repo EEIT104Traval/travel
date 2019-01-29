@@ -47,6 +47,15 @@ public class TicketOrderInfoDAOHibernate implements TicketOrderInfoDAO {
 		return list;
 	}
 	@Override
+	public List<Object> findaccountName (String accountName) {
+		String sql2 = "select a.ticketName , b.orderDate , b.adultTicketCount , b.totalPrice from TicketInfo a , TicketOrderInfo b  where a.ticketNo = b.ticketNo and b.accountName ='"+accountName+"'";
+		Query query = this.getSession().createSQLQuery( sql2);
+		List<Object> acc = query.list();
+		System.out.println(acc);
+		return acc;
+	}
+	
+	@Override
 	public TicketOrderInfoBean fundNumber(String accountName) {
 		Query<TicketOrderInfoBean> a = this.getSession().createQuery("from TicketOrderInfoBean where accountName="+accountName,TicketOrderInfoBean.class);
 		TicketOrderInfoBean TOIB = a.uniqueResult();
