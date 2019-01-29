@@ -6,12 +6,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Voyage - Free Bootstrap 4 Template by Colorlib</title>
+<title>Time To Travel - 行程查詢</title>
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 
+<link rel="icon" href="<c:url value='/voyage/favicon.ico' />">
 
 <link rel="stylesheet"
 	href="<c:url value='/voyage/css/open-iconic-bootstrap.min.css' />">
