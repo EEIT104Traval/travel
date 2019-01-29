@@ -128,7 +128,8 @@ public class Display {
 	@RequestMapping("/tour/Display2/acc")
 	public Map<String, List<?>> method(String accountName) {
 		Map<String, List<?>> result = null;
-		result = userInfoService.findByPrimaryKey(accountName);
+		result = tourBuyService.findByPrimaryKey(accountName);
+		System.out.println(result);
 		return result;
 	}
 
