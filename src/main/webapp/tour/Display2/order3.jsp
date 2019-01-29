@@ -240,7 +240,7 @@ h2 {
 	}
 		$(document).ready(function() {
 				$.ajax({
-						url : '/Travel/tour/Display2/acc',
+						url : '/Travel/tour/Display2/test',
 // 						contentType : 'application/json; charset=UTF-8',
 						type : 'get',
 // 						dataType : 'json',

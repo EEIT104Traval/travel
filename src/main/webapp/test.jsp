@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+	<a href="<c:url value='/tour/Display2/test' />">TTTTTTTTTTTTTest</a>
 	<h1>熊</h1>
 	<a href="<c:url value='TourtestfindPK' />">TourtestfindPK </a>
 	<a href="<c:url value='TourtestfindALL' />">TourtestfindALL</a>
