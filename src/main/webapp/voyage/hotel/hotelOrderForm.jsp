@@ -53,9 +53,7 @@ body {
 
 	$(document).ready(function() {
 		GetOrderInfo();
-		alert(result.roomType)
-// 		alert(11111111111111111111)
-		// 		alert(roomTypeNo)
+
 	});
 
 	function GetOrderInfo() {
@@ -98,6 +96,8 @@ body {
 			$('#price').text('NT$ ' + FormatNumber(x * value.Day));
 			$('#tax').text('NT$ ' + FormatNumber(y));
 			$('#total').text('NT$ ' + FormatNumber(z));
+			$('#001').val(FormatNumber(z));
+		
 
 		})
 	}
@@ -175,6 +175,7 @@ body {
 
 			<!-- 左邊 -->
 			<form action="<c:url value='/voyage/hotel/HotelOrder'/>">
+		
 				<div class="col-md-12">
 					<div class="row">
 						<div class="col-md-7">
@@ -476,6 +477,9 @@ body {
 												</div>
 												<div class="row">
 													<div class="col-md-6"></div>
+														<input type="text" name="totalPrice" id="001" style="visibility:hidden">
+														<input type="text" name="hotelName" id="002" value="紐約市中心希爾頓酒店" style="visibility:hidden">
+														<input type="text" name="roomType" id="003" value="總統轉角套房" style="visibility:hidden">
 													<div class="col-md-6">
 														<p style="color: red"></p>
 													</div>

@@ -55,7 +55,7 @@
 	<a href="<c:url value='ticketDLtest' />">ticketDLtest </a>
 	<a href="<c:url value='ticketUPtest' />">ticketUPtest </a>
 	<br>
-	<a href="<c:url value='tourDLtest' />">tourDLtest </a>
+	<a href="<c:url value='111222333' />">111222333 </a>
 	<hr>
 	
 	
