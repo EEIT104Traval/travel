@@ -12,9 +12,11 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import model.tour.GroupTourBean;
 import model.tour.TourBatchBean;
 import model.tour.TourMemberInfoBean;
 import model.tour.TourOrderInfoBean;
+import model.tour.dao.GroupTourDAO;
 import model.tour.dao.TourBatchDAO;
 import model.tour.dao.TourMemberInfoDAO;
 import model.tour.dao.TourOrderInfoDAO;
@@ -32,6 +34,8 @@ public class TourBuyService {
 	private TourOrderInfoDAO orderDao;
 	@Autowired
 	private TourMemberInfoDAO memberDao;
+	@Autowired
+	private GroupTourDAO groupTourDao;
 	
 	public Map<String,Object> method(Integer serialNo,String accountName) {
 		TourBatchBean tour = tourBatchDao.findByPrimaryKey(serialNo);
@@ -111,6 +115,38 @@ public class TourBuyService {
 		bean.setOrderStatus("退訂");
 //		TourOrderInfoBean result = orderDao.update(bean);
 		return bean;
+	}
+	
+	public Map<String, List<?>> findByPrimaryKey(String user) {
+
+		Map<String, List<?>> map = new HashMap<String, List<?>>();
+
+		List<TourOrderInfoBean> tourInfo = orderDao.findOrderaccountName(user);
+		List<TourBatchBean> tourBatch = tourBatchDao.findByTourOrderList(tourInfo);
+		List<GroupTourBean> tourList = groupTourDao.findByTourBatchList(tourBatch);
+		
+		for (GroupTourBean groupTourBean : tourList) {
+			for (TourBatchBean tourBatchBean : tourBatch) {
+				for (TourOrderInfoBean tourOrder : tourInfo) {
+
+					if ((groupTourBean.getTourNo().equals(tourBatchBean.getTourNo()))
+							&& (tourBatchBean.getSerialNo().equals(tourOrder.getSerialNo()))) {
+
+						tourBatchBean.setTourName(groupTourBean.getTourName());
+						tourOrder.setTourName(tourBatchBean.getTourName());
+						tourOrder.setTourNo(groupTourBean.getTourNo());	
+						tourOrder.setDepartureDate(tourBatchBean.getDepartureDate());;	
+					}
+					continue;
+				}
+			}
+		}
+
+		if (tourInfo.size() > 0) {
+			map.put("TourOrderInfoBean", tourInfo);
+		}
+
+		return map;
 	}
 	
 }

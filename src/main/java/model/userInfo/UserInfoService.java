@@ -67,12 +67,10 @@ public class UserInfoService {
 	private FlightOrderInfoDAO FOIDAO;
 	@Autowired
 	private TourOrderInfoDAO tourOrderInfoDAO;
-	
+
 	@Autowired
 	private FlightOrderInfoDAOHibernate foiDAO;
-	
-	
-	
+
 	public UserInfoBean login(String accountName, String password) {
 		UserInfoBean bean = userInfoDAO.findByPrimaryKey(accountName);
 		if (bean != null) {
@@ -95,12 +93,12 @@ public class UserInfoService {
 				bean.getAddress(), bean.getAuthority(), bean.getGorfb(), bean.getLoginId(), updateTime);
 		return bean;
 	}
-	
+
 	public UserInfoBean modifyMemberInfo(UserInfoBean bean) {
 		Timestamp updateTime = new Timestamp(System.currentTimeMillis());
 		userInfoDAO.updateMemberInfo(bean.getAccountName(), bean.getFirstname(), bean.getLastname(),
 				bean.getIdentityNo(), bean.getEmail(), bean.getBirth(), bean.getSex(), bean.getPhone(),
-				bean.getAddress(), bean.getAuthority(), bean.getGorfb(), bean.getLoginId(),updateTime);
+				bean.getAddress(), bean.getAuthority(), bean.getGorfb(), bean.getLoginId(), updateTime);
 		return bean;
 	}
 
@@ -146,41 +144,41 @@ public class UserInfoService {
 		return result;
 
 	}
-	
+
 	public UserInfoBean findByAccountName1(String accountName) {
-		
+
 		return userInfoDAO.findByPrimaryKey(accountName);
-		
+
 	}
-	
+
 //----------------------------會員訂單修改---------------------------------
-	
+
 	public boolean orderModify(String accountName, Integer hotleNo, Integer ticketNo, Integer flightOrderNo) {
-		if(hotleNo != null) {
-			HotelBean HO = hotelDAO.findByPrimaryKey(hotleNo);	
-			//訂單數量修改
-			HotelOrderDetailsBean Order = new HotelOrderDetailsBean();	
-		}	
-		
-		if(ticketNo != null) {
-			TicketInfoBean TO =  ticketInfoDAO.findByPrimaryKey(ticketNo);
-			//訂單數量修改
-			TicketInfoBean order = new TicketInfoBean();
-			order.setAdultTicketSelledQ((order.getChildTicketSelledQ()+1));
-			ticketInfoDAO.update(order);		
+		if (hotleNo != null) {
+			HotelBean HO = hotelDAO.findByPrimaryKey(hotleNo);
+			// 訂單數量修改
+			HotelOrderDetailsBean Order = new HotelOrderDetailsBean();
 		}
-		
-		if(flightOrderNo != null) {
-			FlightOrderInfoBean FO =FOIDAO.findByPrimaryKey(flightOrderNo);
-			
+
+		if (ticketNo != null) {
+			TicketInfoBean TO = ticketInfoDAO.findByPrimaryKey(ticketNo);
+			// 訂單數量修改
+			TicketInfoBean order = new TicketInfoBean();
+			order.setAdultTicketSelledQ((order.getChildTicketSelledQ() + 1));
+			ticketInfoDAO.update(order);
+		}
+
+		if (flightOrderNo != null) {
+			FlightOrderInfoBean FO = FOIDAO.findByPrimaryKey(flightOrderNo);
+
 		}
 		return true;
 	}
-	
-	//-------------------------------測試-----------------------------
-	public String updateq(String accountName , Integer Q ,Integer ticketOrderNO,
-			Integer ticketNo, Integer tourorderNo,Integer serialNo, Integer HotelorderNo,Integer hotelNo) {
-			
+
+	// -------------------------------測試-----------------------------
+	public String updateq(String accountName, Integer Q, Integer ticketOrderNO, Integer ticketNo, Integer tourorderNo,
+			Integer serialNo, Integer HotelorderNo, Integer hotelNo) {
+
 //		Map<String, List<?>> Order = null;
 //		Order = userInfoService.findByPrimaryKey(accountName);//刪誰的資料
 //		//先用map物件 找出 使用者  一個一個判斷
@@ -200,14 +198,12 @@ public class UserInfoService {
 //			
 //			
 //		}else if(Order.get("HotelOrderDetailsBean") != null) {
-			
+
 //		}
-		
-	
-		
+
 		return "訂單取消完成";
 	}
-	
+
 //--------------↓↓↓↓↓↓後台管理員使用專區↓↓↓↓↓↓-------------
 
 	public UserInfoBean findByAccountName(String user) {
@@ -230,10 +226,9 @@ public class UserInfoService {
 
 		return result;
 	}
-	
-	
-	
-	// --------------↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ 01_01 Controller↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑-------------
+
+	// --------------↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ 01_01
+	// Controller↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑-------------
 
 	public Map<String, List<?>> findByPrimaryKey(String user) {
 
@@ -241,7 +236,7 @@ public class UserInfoService {
 
 		UserInfoBean result = userInfoDAO.findByPrimaryKey(user);
 
-		List<TourOrderInfoBean> tourInfo = tourOrderInfoService.foundOrderaccountName(user);
+		List<TourOrderInfoBean> tourInfo = tourOrderInfoDAO.findOrderaccountName(user);
 		List<TourBatchBean> tourBatch = tourBatchDAO.findByTourOrderList(tourInfo);
 		List<GroupTourBean> tourList = groupTourDAO.findByTourBatchList(tourBatch);
 
@@ -251,28 +246,41 @@ public class UserInfoService {
 		List<HotelOrderDetailsBean> HotelInfo = hotelOrderDetailsService.foundOrderaccountName(user);
 
 		List<FlightOrderInfoBean> flightOrderInfo = foiDAO.findByAccountName(user);
-		
+
 		for (GroupTourBean groupTourBean : tourList) {
 			for (TourBatchBean tourBatchBean : tourBatch) {
-				for (TourOrderInfoBean tourOrder : tourInfo) {
-
-					if ((groupTourBean.getTourNo().equals(tourBatchBean.getTourNo()))
-							&& (tourBatchBean.getSerialNo().equals(tourOrder.getSerialNo()))) {
-
-						tourBatchBean.setTourName(groupTourBean.getTourName());
-						tourOrder.setTourName(tourBatchBean.getTourName());
-						tourOrder.setTourNo(groupTourBean.getTourNo());	
-						tourOrder.setDepartureDate(tourBatchBean.getDepartureDate());;	
-					}
-					continue;
+//				for (TourOrderInfoBean tourOrder : tourInfo) {
+				if (groupTourBean.getTourNo().equals(tourBatchBean.getTourNo()))
+//						&& (tourBatchBean.getSerialNo().equals(tourOrder.getSerialNo()))) 
+				{
+					tourBatchBean.setTourName(groupTourBean.getTourName());
+//					tourOrder.setTourName(tourBatchBean.getTourName());
+//					tourOrder.setTourNo(groupTourBean.getTourNo());
+//					tourOrder.setDepartureDate(tourBatchBean.getDepartureDate());
+					System.out.println("旅遊第一輪="+tourBatchBean);
 				}
+				continue;
+//				}
 			}
 		}
+
+		for (TourBatchBean tourBatchBean : tourBatch) {
+			for (TourOrderInfoBean tourOrder : tourInfo) {
+				if (tourBatchBean.getSerialNo().equals(tourOrder.getSerialNo())) {
+					tourOrder.setTourName(tourBatchBean.getTourName());
+					tourOrder.setTourNo(tourBatchBean.getTourNo());
+					tourOrder.setDepartureDate(tourBatchBean.getDepartureDate());
+					System.out.println("旅遊第二輪="+tourOrder);
+				}
+				continue;
+			}
+		}
+		
 		for (TicketInfoBean ticketInfoBean : ticketList) {
 			for (TicketOrderInfoBean ticketOrderInfoBean : ticketInfo) {
 				if (ticketInfoBean.getTicketNo() == ticketOrderInfoBean.getTicketNo()) {
 					ticketOrderInfoBean.setTicketName(ticketInfoBean.getTicketName());
-//					System.out.println(ticketOrderInfoBean);
+					System.out.println("門票第一輪="+ticketOrderInfoBean);
 				}
 				continue;
 			}
@@ -280,103 +288,106 @@ public class UserInfoService {
 
 		if (tourInfo.size() > 0) {
 			map.put("TourOrderInfoBean", tourInfo);
+			System.out.println("TourOrderInfoBean="+tourInfo);
 		}
 		if (ticketInfo.size() > 0) {
 			map.put("TicketOrderInfoBean", ticketInfo);
+			System.out.println("TicketOrderInfoBean="+ticketInfo);
 		}
 		if (HotelInfo.size() > 0) {
 			map.put("HotelOrderDetailsBean", HotelInfo);
+			System.out.println("HotelOrderDetailsBean="+HotelInfo);
 		}
 		if (flightOrderInfo.size() > 0) {
 			map.put("FlightOrderInfoBean", flightOrderInfo);
+			System.out.println("FlightOrderInfoBean="+flightOrderInfo);
 		}
-		
-		
-		
 
 //		System.out.println(result);
-
+		
 		return map;
 	}
-	// --------------↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ 01_02Controller↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑-------------
+	// --------------↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
+	// 01_02Controller↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑-------------
 
-	// --------------↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ 02_01Controller↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓-------------
+	// --------------↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+	// 02_01Controller↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓-------------
 	public HSSFWorkbook export(String[] titles, ServletOutputStream out, Integer month) throws Exception {
 		// 第一步，創建一個workbook，對應一個Excel文檔
 		HSSFWorkbook workbook = new HSSFWorkbook();
-try {
-		// 第二步，在webbook中添加一個sheet,對應Excel文檔中的sheet
-		HSSFSheet hssfSheet = workbook.createSheet("sheet1");
-		// 第三步，在sheet中添加表頭第0行,注意老版本poi對Excel的行數列數有限制short
-		HSSFRow hssfRow = hssfSheet.createRow(0);
-		// 第四步，創建單元格，並設置值表頭 設置表頭居中
-		HSSFCellStyle hssfCellStyle = workbook.createCellStyle();
-		// 居中樣式
-        // hssfCellStyle.setAlignment(HSSFCellStyle.ALIGN_CENTER);
+		try {
+			// 第二步，在webbook中添加一個sheet,對應Excel文檔中的sheet
+			HSSFSheet hssfSheet = workbook.createSheet("sheet1");
+			// 第三步，在sheet中添加表頭第0行,注意老版本poi對Excel的行數列數有限制short
+			HSSFRow hssfRow = hssfSheet.createRow(0);
+			// 第四步，創建單元格，並設置值表頭 設置表頭居中
+			HSSFCellStyle hssfCellStyle = workbook.createCellStyle();
+			// 居中樣式
+			// hssfCellStyle.setAlignment(HSSFCellStyle.ALIGN_CENTER);
 
-		HSSFCell hssfCell = null;
-		for (int i = 0; i < titles.length; i++) {
-			hssfCell = hssfRow.createCell(i);// 列索引從0開始
-			hssfCell.setCellValue(titles[i]);// 列名1
-			hssfCell.setCellStyle(hssfCellStyle);// 列居中顯示
-		}
-		// 第五步，寫入實體數據
-		List<TourOrderInfoBean> users = tourOrderInfoService.findBuyMonth(month);
-		
-//		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-		if (users != null && !users.isEmpty()) {
-			for (int i = 0; i < users.size(); i++) {
-				hssfRow = hssfSheet.createRow(i + 1);
-				TourOrderInfoBean user = users.get(i);
-				// 第六步，創建單元格，並設置值
-				String userCountry = "";
-				if (user.getCountry() != null) {
-					userCountry = user.getCountry();
-					System.out.println(userCountry);
-				}
-				hssfRow.createCell(0).setCellValue(userCountry);
-
-				String userTourName = "";
-				if (user.getTourName() != null) {
-					userTourName = user.getTourName();
-				}
-				hssfRow.createCell(1).setCellValue(userTourName);
-
-				int quantity = 0;
-				if (user.getQuantity() != null) {
-					quantity = user.getQuantity();
-				}
-				hssfRow.createCell(2).setCellValue(quantity);
-
-				java.util.Date Date = new java.util.Date();
-				if (user.getOrderTime() != null) {	
-				SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-				String x = sdf.format(user.getOrderTime());
-				Date = sdf.parse(x);	
-					
-				}
-				hssfRow.createCell(3).setCellValue(Date);
-
-				int total = 0;
-				if (user.getTotal() != 0) {
-					total = user.getTotal();
-				}
-				hssfRow.createCell(4).setCellValue(total);
+			HSSFCell hssfCell = null;
+			for (int i = 0; i < titles.length; i++) {
+				hssfCell = hssfRow.createCell(i);// 列索引從0開始
+				hssfCell.setCellValue(titles[i]);// 列名1
+				hssfCell.setCellStyle(hssfCellStyle);// 列居中顯示
 			}
-		}	
-		  // 第七步，將文檔輸出到客户端瀏覽器
-		             try {
-		                 workbook.write(out);
-		                 out.flush();
-		                 out.close();
-		 
-		             } catch (Exception e) {
-		                 e.printStackTrace();
-		             }
-		         }catch(Exception e){
-		             e.printStackTrace();
-		             throw new Exception("導出信息失敗！");
-		         }
-				return workbook;
-		     }
-		 }
+			// 第五步，寫入實體數據
+			List<TourOrderInfoBean> users = tourOrderInfoService.findBuyMonth(month);
+
+//		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+			if (users != null && !users.isEmpty()) {
+				for (int i = 0; i < users.size(); i++) {
+					hssfRow = hssfSheet.createRow(i + 1);
+					TourOrderInfoBean user = users.get(i);
+					// 第六步，創建單元格，並設置值
+					String userCountry = "";
+					if (user.getCountry() != null) {
+						userCountry = user.getCountry();
+						System.out.println(userCountry);
+					}
+					hssfRow.createCell(0).setCellValue(userCountry);
+
+					String userTourName = "";
+					if (user.getTourName() != null) {
+						userTourName = user.getTourName();
+					}
+					hssfRow.createCell(1).setCellValue(userTourName);
+
+					int quantity = 0;
+					if (user.getQuantity() != null) {
+						quantity = user.getQuantity();
+					}
+					hssfRow.createCell(2).setCellValue(quantity);
+
+					java.util.Date Date = new java.util.Date();
+					if (user.getOrderTime() != null) {
+						SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+						String x = sdf.format(user.getOrderTime());
+						Date = sdf.parse(x);
+
+					}
+					hssfRow.createCell(3).setCellValue(Date);
+
+					int total = 0;
+					if (user.getTotal() != 0) {
+						total = user.getTotal();
+					}
+					hssfRow.createCell(4).setCellValue(total);
+				}
+			}
+			// 第七步，將文檔輸出到客户端瀏覽器
+			try {
+				workbook.write(out);
+				out.flush();
+				out.close();
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new Exception("導出信息失敗！");
+		}
+		return workbook;
+	}
+}
