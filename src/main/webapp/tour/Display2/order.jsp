@@ -260,8 +260,14 @@ h2 {
 			+'<div>信箱：'+$('#userMail').val()+'</div>'
 			+'<div>電話：'+$('#userPhone').val()+'</div>'
 			+'<div>性別：'+s+'</div>'
-			+'<h5 style="color:red;float:right">金額總計：'+$('#money_hidden').val()+'</h5>'
+			+'<h5 style="color:red;float:right">金額總計：'+FormatNumber($('#money_hidden').val())+'</h5>'
 		)
+	}
+	function FormatNumber(n) {  
+		n += "";  
+		var arr = n.split(".");  
+		var re = /(\d{1,3})(?=(\d{3})+$)/g;  
+		return arr[0].replace(re,"$1,") + (arr.length == 2 ? "."+arr[1] : "");  
 	}
 </script>
 

@@ -163,7 +163,7 @@ h2 {
 								+'</tr>'
 						)
 					})
-					$('#sub3').append('<h5 style="color:red;float:right">金額總計：'+Data[e].total+'</h5>')
+					$('#sub3').append('<h5 style="color:red;float:right">金額總計：'+FormatNumber(Data[e].total)+'</h5>')
 		})
 	}
 	function update(e){
@@ -260,7 +260,7 @@ h2 {
 			 							+'<td style="text-align: left;">'+date.getFullYear()+'/'+month+'/'+date.getDate()+'</td>'
 			 							+'<td colspan="2"><a target="_blank" href="<c:url value="/tour/Display2/travel.jsp?tourNo='+value.tourNo+'"/>">'+value.tourName+'</a></td>'
 			 							+'<td>'+value.quantity+'</td>'
-			 							+'<td style="color:red">$'+value.total+'</td>'
+			 							+'<td style="color:red">$'+FormatNumber(value.total)+'</td>'
 			 							+'<td>'+value.orderStatus+'</td>'
 			 							+'<td>'+d.getFullYear()+'/'+m2+'/'+d.getDate()+'</td>'
 			 							+'<td><a onclick="ck('+index+')" href="##" data-toggle="modal" data-target="#exampleModalCenter">明細</a></td>'
@@ -277,7 +277,7 @@ h2 {
 			 							+'<td style="text-align: left;">'+date.getFullYear()+'/'+month+'/'+date.getDate()+'</td>'
 			 							+'<td colspan="2"><a target="_blank" href="<c:url value="/tour/Display2/travel.jsp?tourNo='+value.tourNo+'"/>">'+value.tourName+'</a></td>'
 			 							+'<td>'+value.quantity+'</td>'
-			 							+'<td style="color:red">$'+value.total+'</td>'
+			 							+'<td style="color:red">$'+FormatNumber(value.total)+'</td>'
 			 							+'<td>'+value.orderStatus+'</td>'
 			 							+'<td>'+d.getFullYear()+'/'+m2+'/'+d.getDate()+'</td>'
 			 							+'<td><a onclick="ck('+index+')" href="##" data-toggle="modal" data-target="#exampleModalCenter">明細</a></td>'
@@ -294,7 +294,7 @@ h2 {
 			 							+'<td style="text-align: left;">'+date.getFullYear()+'/'+month+'/'+date.getDate()+'</td>'
 			 							+'<td colspan="2"><a target="_blank" href="<c:url value="/tour/Display2/travel.jsp?tourNo='+value.tourNo+'"/>">'+value.tourName+'</a></td>'
 			 							+'<td>'+value.quantity+'</td>'
-			 							+'<td style="color:red">$'+value.total+'</td>'
+			 							+'<td style="color:red">$'+FormatNumber(value.total)+'</td>'
 			 							+'<td>'+value.orderStatus+'</td>'
 			 							+'<td>'+d.getFullYear()+'/'+m2+'/'+d.getDate()+'</td>'
 			 							+'<td><a onclick="ck('+index+')" href="##" data-toggle="modal" data-target="#exampleModalCenter">明細</a></td>'
@@ -311,7 +311,7 @@ h2 {
 			 							+'<td style="text-align: left;">'+date.getFullYear()+'/'+month+'/'+date.getDate()+'</td>'
 			 							+'<td colspan="2"><a target="_blank" href="<c:url value="/tour/Display2/travel.jsp?tourNo='+value.tourNo+'"/>">'+value.tourName+'</a></td>'
 			 							+'<td>'+value.quantity+'</td>'
-			 							+'<td style="color:red">$'+value.total+'</td>'
+			 							+'<td style="color:red">$'+FormatNumber(value.total)+'</td>'
 			 							+'<td>'+value.orderStatus+'</td>'
 			 							+'<td>'+d.getFullYear()+'/'+m2+'/'+d.getDate()+'</td>'
 			 							+'<td><a onclick="ck('+index+')" href="##" data-toggle="modal" data-target="#exampleModalCenter">明細</a></td>'
@@ -321,6 +321,12 @@ h2 {
 						})
 				})
 		});
+		function FormatNumber(n) {  
+			n += "";  
+			var arr = n.split(".");  
+			var re = /(\d{1,3})(?=(\d{3})+$)/g;  
+			return arr[0].replace(re,"$1,") + (arr.length == 2 ? "."+arr[1] : "");  
+		}
 </script>
 
 <body>
