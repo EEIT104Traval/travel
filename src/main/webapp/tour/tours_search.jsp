@@ -62,10 +62,6 @@
 <!-- <link rel="stylesheet" href="/resources/demos/style.css"> -->
 
 	
-<link rel="stylesheet"
- href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
- integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
- crossorigin="anonymous">
 
 
 <script type="text/javascript" async=""
@@ -140,8 +136,6 @@ iframe#_hjRemoteVarsFrame {
 .owl-stage-outer {
 	height: 680px;
 }
-    
-    
   #gotop { 
      position:fixed; 
      z-index:90; 
@@ -160,7 +154,7 @@ iframe#_hjRemoteVarsFrame {
  } 
  #gotop :hover{ 
      background:#0099CC; 
-  }  
+  }    
 
 </style>
 <script type="text/javascript" async=""
@@ -180,10 +174,8 @@ iframe#_hjRemoteVarsFrame {
 	crossorigin="anonymous"></script>
 <body>
 
-<a href="https://www.blogger.com/blogger.g?blogID=2031514508322140995#" id="gotop">
-   <i class="fa fa-angle-up"></i>
-</a>
-
+<i class="fa fa-angle-up"></i>
+</div>
 	<jsp:include page="../voyage/nav.jsp"></jsp:include>
 	<section class="home-slider owl-carousel">
 		<div class="slider-item"
@@ -209,6 +201,7 @@ iframe#_hjRemoteVarsFrame {
 	<!-- END slider -->
 	<section class="search-condition area-result"style=" margin-top: -1%;">
 		<div class="container">
+
 
 			<%--         <c:forEach items="${tour}" var="element">  --%>
 			<!-- 		  <tr> -->
@@ -641,6 +634,23 @@ iframe#_hjRemoteVarsFrame {
 											</div>
 										</div>
 				     </c:forEach>
+				       <div id="gotop"style="position:fixed; 
+     z-index:90; 
+     right:30px; 
+     bottom:31px; 
+     display:none; 
+     width:50px; 
+     height:50px; 
+     color:#fff; 
+     background:#33b5e5; 
+     line-height:50px; 
+     border-radius:50%; 
+     transition:all 0.5s;
+     text-align: center; 
+     box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12); ">
+				       
+					<i class="fa fa-angle-up"></i>
+						</div>
    					  	     </div>
 					
 									<div class="no-data-info text-center">已經到底了，沒有東西囉</div>
@@ -720,10 +730,26 @@ iframe#_hjRemoteVarsFrame {
 
 	</div>
 	
-	
 
-	
 	<script>	
+
+//GOTOP
+	$(function(){
+		//control display of goTop button and motion
+	    $("#gotop").click(function(){
+	        jQuery("html,body").animate({
+	            scrollTop:0
+	        },1000);
+	    });
+	    $(window).scroll(function() {
+	        if ( $(this).scrollTop() > 500){
+	            $('#gotop').fadeIn("fast");
+	        } else {
+	            $('#gotop').stop().fadeOut("fast");
+	        }
+	    });
+	});
+	
 		$(document).ready(function() {
 			
 		
@@ -1003,20 +1029,7 @@ iframe#_hjRemoteVarsFrame {
 		}  	setInterval('ifEmpty()',150);
 		
 		
-	    /* 按下GoTop按鈕時的事件 */
-	    $('#gotop').click(function(){
-	        $('html,body').animate({ scrollTop: 0 }, 'slow');   /* 返回到最頂上 */
-	        return false;
-	    });
-	     
-	    /* 偵測卷軸滑動時，往下滑超過400px就讓GoTop按鈕出現 */
-	    $(window).scroll(function() {
-	        if ( $(this).scrollTop() > 400){
-	            $('#gotop').fadeIn();
-	        } else {
-	            $('#gotop').fadeOut();
-	        }
-	    });
+
 		   	
 	</script>
 
