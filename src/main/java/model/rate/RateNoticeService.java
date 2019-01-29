@@ -66,7 +66,7 @@ public class RateNoticeService {
 	            String host ="smtp.gmail.com" ;
 	            String user = "sherrysherry92@gmail.com";
 	            String pass = "jxrkaepvctpmffcs";
-	            String to = "hot09681987@gmail.com";
+	            String to = "sherryyang92@gmail.com";
 	            String from = "TimeToTravel";
 	            String subject = "Time To Travel - Rate Alert Information";
 //	            String messageText = "您的訂單明細";

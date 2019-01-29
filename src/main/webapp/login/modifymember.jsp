@@ -16,6 +16,43 @@
 <script src="/Travel/login/js/registered.js"></script>
 
 <script>
+$(document).ready(function(){  
+	var id =$('#identity').val();
+	var toSecure = id.substring(4,8);
+	id = id.replace(toSecure,'xxxx');
+	$('#identity').val(id);
+	
+	var id =$('#email').val();
+	var toSecure = id.substring(3,11);
+	id = id.replace(toSecure,'xxxxxxxxx');
+	$('#email').val(id);
+	
+	var id =$('#birth').val();
+	var toSecure = id.substring(2,10);
+	id = id.replace(toSecure,'xx-xx-xx');
+	$('#birth').val(id);
+	
+	var id =$('#phone').val();
+	var toSecure = id.substring(3,8);
+	id = id.replace(toSecure,'xxxxx');
+	$('#phone').val(id);
+	
+	var id =$('#address').val();
+	var toSecure = id.substring(3,8);
+	id = id.replace(toSecure,'xxxxxxxxxxxxxx');
+	$('#address').val(id);
+	
+	var id =$('#firstname').val(); 
+	var toSecure = id.substring(2,8);
+	id = id.replace(toSecure,'xxxxx');
+	$('#firstname').val(id);
+	
+	var id =$('#lastname').val(); lastname
+	var toSecure = id.substring(2,8);
+	id = id.replace(toSecure,'xxxxx');
+	$('#lastname').val(id);
+	
+})
 
 function clearForm() {
 	var inputs = document.getElementsByTagName("input");
@@ -85,7 +122,7 @@ function index(){
 										<input type="text" name="lastname" id="lastname" tabindex="2" class="form-control" placeholder="英文名" value="${accountNameBean.lastname}">
 									</div>
 									<div class="form-group">
-										<input type="text" name="identityNo" id="identityNo" tabindex="2" class="form-control" placeholder="身分證字號" value="${accountNameBean.identityNo}">
+										<input type="text" name="identityNo" id="identity" tabindex="2" class="form-control" placeholder="身分證字號" value="${accountNameBean.identityNo}">
 									</div>
 									<div class="form-group">
 										<fmt:formatDate value="${accountNameBean.birth}" pattern="yyyy-MM-dd" var="birth"/>
