@@ -152,7 +152,7 @@ public class TourBuyService {
 		return map;
 	}
 
-	public Map<String,List<?>> test(String accountName) {
+	public List<TestBean> test(String accountName) {
 		List<?> list = orderDao.findByAccound(accountName);
 		List<TestBean> result = new ArrayList<>();
 		TestBean bean = null;
@@ -187,10 +187,7 @@ public class TourBuyService {
 			}
 			result.add(bean);
 		}
-		Map<String,List<?>> map = new HashMap<>();
-		map.put("TourOrderInfoBean", result);
-		System.out.println(map.toString());
-		return map;
+		return result;
 	}
 
 }

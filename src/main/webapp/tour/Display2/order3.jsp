@@ -239,6 +239,9 @@ h2 {
 		document.getElementById("WIDout_trade_no").value =  sNow;
 	}
 		$(document).ready(function() {
+				if(accountName==null||accountName.length==0){
+					window.location="/Travel/tour/tours.jsp"					
+				}
 				$.ajax({
 						url : '/Travel/tour/Display2/test',
 // 						contentType : 'application/json; charset=UTF-8',

@@ -2,6 +2,7 @@ package controller.tour;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -208,8 +209,14 @@ public class Display {
 	@ResponseBody
 	@RequestMapping("/tour/Display2/test")
 	public Map<String,List<?>> test(String accountName){
-		Map<String,List<?>> result = tourBuyService.test(accountName);
-		return result;
+		Map<String,List<?>> map = new HashMap<>();
+		if(accountName!=null && accountName.length()!=0) {
+			List<TestBean> list = tourBuyService.test(accountName);
+			map.put("TourOrderInfoBean", list);
+			System.out.println(map.toString());
+			return map;
+		}
+		return map;
 	}
 	
 }
