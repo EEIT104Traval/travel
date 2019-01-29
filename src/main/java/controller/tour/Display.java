@@ -23,6 +23,7 @@ import com.alipay.api.request.AlipayTradePagePayRequest;
 import com.alipay.config.AlipayConfig2;
 
 import model.tour.GroupTourBean;
+import model.tour.TestBean;
 import model.tour.TourBatchBean;
 import model.tour.TourMemberInfoBean;
 import model.tour.TourOrderInfoBean;
@@ -202,6 +203,13 @@ public class Display {
 			response.getWriter().close();
 		}
 
+	}
+	
+	@ResponseBody
+	@RequestMapping("/tour/Display2/test")
+	public Map<String,List<?>> test(String accountName){
+		Map<String,List<?>> result = tourBuyService.test(accountName);
+		return result;
 	}
 	
 }
