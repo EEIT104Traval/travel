@@ -53,15 +53,16 @@ public class rateNoticeController {
 	public List<RateNoticeBean> selectRate(String accountName) {
 		
 		List<RateNoticeBean> result = rateNoticeService.findByPrimaryKey(accountName);
-	
+		
 		return result;
 	}
 	
 	@ResponseBody
 	@RequestMapping(path= {"/voyage/checkRate.controller"})
 	public RateBean checkRate(String accountName) {
+		System.out.println("rate notice API in ");
 		RateBean result = rateNoticeService.findByPrimaryKey1(accountName);
-//	System.out.println("結果"+result);
+	System.out.println("結果"+result);
 		return result;
 	}
 }

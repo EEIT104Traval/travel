@@ -134,7 +134,7 @@ h2 {
 						+'</tr>'
 					+'</thead>'
 					+'<tbody>'
-						+'<td>'+Data[e].accountName+'</td>'
+						+'<td>'+Data[e].fullName+'</td>'
 						+'<td>'+Data[e].email+'</td>'
 						+'<td>'+Data[e].phone+'</td>'
 						+'<td>'+sex+'</td>'
@@ -247,8 +247,9 @@ h2 {
 						data:{'accountName':accountName},
 				}).done(function(JData) {
 						Data = JData.TourOrderInfoBean;
+						console.log(JData)
 						$.each(JData.TourOrderInfoBean, function(index, value) {						
-// 							console.log(value);
+							console.log(value);
 							if(index % 4 == 0){
 								var date = new Date(value.departureDate);
 								var month = parseInt(date.getMonth())+1;

@@ -176,7 +176,11 @@ public class TicketInfoService {
 			List<TicketInfoBean> tib = ticketInfoDAO.searchByCountry(country);
 			if (tib != null) {
 				result = new ArrayList<TicketInfoBean>();
-				result.addAll(tib);
+				for(TicketInfoBean x: tib) {
+					if(x.getUpdown() == 0) {
+						result.add(x);
+					}
+				}
 			}
 		} else {
 			result = ticketInfoDAO.findAllUp();

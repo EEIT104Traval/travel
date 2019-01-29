@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <head>
 <meta charset="utf-8">
@@ -141,7 +142,7 @@ $(function() {
 </head>
 <body>
 <a href="https://www.blogger.com/blogger.g?blogID=2031514508322140995#" id="gotop">
-   <i class="fa fa-angle-up"></i>
+   <i class="fa fa-angle-up" style="width:40px"></i>
 </a>
 	<script type="text/javascript">
 	
@@ -408,8 +409,36 @@ $.each(result.OTA_AirLowFareSearchRS.PricedItineraries.PricedItinerary, function
 	)
 	})
 })
+
+//  function  doSubmitForm(){
+// 	var form = $('form1');
+// 	var da = $('#checkin_date').val();
+// 	console.log(da)
+// 	console.log(124)
+// 	var da1 = new Date(da)
+// 	var to= today.setDate(da1.getDate()-2);
+// 	var today1 = new Date(to);
+// 	var month1 = today1.getMonth()+1
+// 	var todayvalue = today1.getFullYear()+'/'+month1+'/'+today1.getDate()
+// 	console.log(todayvalue)
+// 	$('#checkin_date').val(todayvalue);
+// 	form.submit();
+// }
+function minDay(e){
+	var da = $('#' + e).val();
+	var da1 = new Date(da)
+	var to= today.setDate(da1.getDate()-1);
+	var today1 = new Date(to);
+	var month1 = today1.getMonth()+1
+	var todayvalue = today1.getFullYear()+'/'+month1+'/'+today1.getDate()
+	
+	$('#' + e).val(todayvalue);
+}
+
+
  </script>
  	 <!--重新search--> 
+ 	 <form action="<c:url value="/FlightInfoNew" />" method="POST" id="form1">
  	 <div class="search-head" style="height: 250px;;background-image: url('<c:url value='/voyage/images/whitebluesky1.jpg'/>')">
  			 <div class="container" style="background-color: transparent;padding-top: 50px;">
 <!-- class="home_search_contentsecound" -->
@@ -425,36 +454,26 @@ $.each(result.OTA_AirLowFareSearchRS.PricedItineraries.PricedItinerary, function
 						<span class="form-label"style="display:block;">目的地</span> <input id="demo1" name="landingPlace" type="text" class="search_input_1secound" style="width: 250px" placeholder="請輸入機場/城市中英文或代碼" value="${indexValue.landingPlace}"> 
 					</div>
 					<div style="display: inline-block; padding-right: 30px;float: left">
-					<span class="form-label"style="display:block;">出發日期</span> <input type="text"  class="search_input_1secound" id="checkin_date" placeholder="yyyy/MM/dd" name="takeoff_date" value="${indexValue.takeoff_date}">
-				</div>
+					<span class="form-label"style="display:block;padding-left: 40px;">出發日期</span>
+							<input type="image" style="width:30px;" onClick="minDay('checkin_date')" src=" <c:url value='/flight/xianqi/img/前一天.png'/>">
+							<input type="text"  class="search_input_1secound" id="checkin_date" placeholder="yyyy/MM/dd" name="takeoff_date" value="${indexValue.takeoff_date}">
+							<input type="image" style="width:30px;" onClick="minDay()" src=" <c:url value='/flight/xianqi/img/下一天.png'/>">
+					</div>
 				<div style="display: inline-block; padding-right: 30px;">
-					<span class="form-label" style="display:block;">回程日期</span> <input type="text"  class="search_input_1secound" placeholder="yyyy/MM/dd" name="flyback_date" id="checkout_date"value="${indexValue.flyback_date}">
+					<span class="form-label" style="display:block;padding-left: 40px;">回程日期</span>
+					<input type="image" style="width:30px;" onClick="minDay()" src=" <c:url value='/flight/xianqi/img/前一天.png'/>">
+					 <input type="text"  class="search_input_1secound" placeholder="yyyy/MM/dd" name="flyback_date" id="checkout_date"value="${indexValue.flyback_date}">
+					<input type="image" style="width:30px;" onClick="minDay()" src=" <c:url value='/flight/xianqi/img/下一天.png'/>">
 				</div>
 				</div>
 				
 				<div>
-				<input type="button" id="peopleType" autocomplete="off" value="${indexValue.peopleType} | 經濟艙" name="peopleType"  style=" margin-top: 10px;font-size:12px;margin-left:5px;  text-align: left;border:none;background: none;padding-right: 5px;">
-<!-- 				<p class="card_line"> <span></span></p> -->
-<!-- 				<span style="display: inline-block;">經濟艙</span> -->
-				
-<!-- 				<div style="display: inline-block; padding-right: 30px;width:200px;"> -->
-<%-- 					<span class="form-label" style="display:block;">旅客類型</span> <input type="button" id="peopleType" autocomplete="off" class="search_input_1secound" value="${indexValue.peopleType}" name="peopleType" onclick="showPopup(33)" style="width:200px;text-align: left;"> --%>
-<!-- 				</div> -->
-				
-<!-- 				<div style="display: inline-block; padding-right: 30px;padding-left: 30px;"> -->
-<!-- 					<span class="form-label">艙等</span> <select class="search_input_1secound" id="search-controls-cabin-class-dropdown" name="search-controls-cabin-class-dropdown" style="width: 150px; display: block;"> -->
-<!-- 						<option value="Economy" selected="selected">經濟艙</option> -->
-<!-- 						<option value="PremiumEconomy">高端經濟艙</option> -->
-<!-- 						<option value="First">頭等艙</option> -->
-<!-- 						<option value="Business">商務艙</option> -->
-<!-- 					</select> -->
-<!-- 				</div> -->
-
-
+				<input  id="peopleType" autocomplete="off" value="${indexValue.peopleType} | 經濟艙" name="peopleType"  style=" margin-top: 10px;font-size:12px;margin-left:5px;  text-align: left;border:none;background: none;padding-right: 5px;">
 				<button class="home_search_button" id="home_search_button" style="margin-top: 10px;background-color: #c00017; float: right;height: 30px;width: 100px;margin-right: 30px;padding-bottom: 20px;" type="submit">重新搜尋</button>
 			</div>
 		</div>
 	</div>
+	</form>
   <!--重新search_結束-->
   <div class="container"> 
   <div class="list_flight">
@@ -470,91 +489,93 @@ $.each(result.OTA_AirLowFareSearchRS.PricedItineraries.PricedItinerary, function
             </div>
             <ul class="filters">
                <li>
-                <h4  >轉機次數 </h4>
+                <h4 style="padding-left: 20px;" >轉機次數 </h4>
                 <ul class="are_nav airpn">
-                  <li>
+                  <li style="padding-left: 20px;">
                     <div class="cdst">
                       <input type="checkbox" id="zj-checkbox-s1" checked="checked">
                       <label for="zj-checkbox-s1"></label>
                     </div>
-                    <p > <span>直飛 </span><span class="price">$<b>31,256</b></span></p>
+                    <p > <span>直飛 </span></p>
                   </li>
-                  <li>
+                  <li style="padding-left: 20px;">
                     <div class="cdst">
                       <input type="checkbox" id="zj-checkbox-s2">
                       <label for="zj-checkbox-s2"></label>
                     </div>
-                    <p><span>轉機1次</span><span class="price">$<b>34,825</b></span></p>
+                    <p><span>轉機1次</span></p>
                   </li>
-                  <li>
+                  <li style="padding-left: 20px;">
                     <div class="cdst">
                       <input type="checkbox" id="zj-checkbox-s3">
                       <label for="zj-checkbox-s3"></label>
                     </div>
-                    <p><span>轉機兩次 </span><span class="price">$<b>35,054</b></span></p>
+                    <p><span>轉機兩次 </span></p>
                   </li>
                 </ul>
               </li>
               <!--航空公司-->
               
               <li style="border-bottom: 1px dashed #ccc;">
-                <h4  >航空公司 </h4>
+                <h4 style="padding-left: 20px;" >航空公司 </h4>
                 <ul class="are_nav airpn">
-                  <li>
+                  <li style="padding-left: 20px;">
                     <div class="cdst">
                       <input type="checkbox" id="cd-checkbox-s1" data-filter="all">
                       <label for="cd-checkbox-s1"></label>
                     </div>
                     <p > <span>全部</span><span class="price"></span></p>
                   </li>
-                  <li >
+                  <li style="padding-left: 20px;">
                     <div class="cdst">
                       <input type="checkbox" id="cd-checkbox-s2" data-filter="CI">
                       <label for="cd-checkbox-s2"></label>
                     </div>
-                    <p><span>中華航空</span><span class="price">$<b>34,825</b></span></p>
+                    <p><span>中華航空</span></p>
                   </li>
-                  <li>
+                  <li style="padding-left: 20px;">
                     <div class="cdst">
                       <input type="checkbox" id="cd-checkbox-s3">
                       <label for="cd-checkbox-s3"></label>
                     </div>
-                    <p><span>長榮航空 </span><span class="price">$<b>35,054</b></span></p>
+                    <p><span>長榮航空 </span></p>
                   </li>
-<!--                   <li> -->
-<!--                     <div class="cdst"> -->
-<!--                       <input type="checkbox" id="cd-checkbox-s4"> -->
-<!--                       <label for="cd-checkbox-s4"></label> -->
-<!--                     </div> -->
-<!--                     <p><span>濟州航空</span> <span class="price">$<b>36,134</b></span></p> -->
-<!--                   </li> -->
-<!--                   <li> -->
-<!--                     <div class="cdst"> -->
-<!--                       <input type="checkbox" id="cd-checkbox-s5"> -->
-<!--                       <label for="cd-checkbox-s5"></label> -->
-<!--                     </div> -->
-<!--                     <p><span>大韓航空 </span><span class="price">$<b>37,411</b></span></p> -->
-<!--                   </li> -->
-<!--                   <li> -->
-<!--                     <div class="cdst"> -->
-<!--                       <input type="checkbox" id="cd-checkbox-s6"> -->
-<!--                       <label for="cd-checkbox-s6"></label> -->
-<!--                     </div> -->
-<!--                     <p><span>曼谷航空 </span><span class="price">$<b>38,433</b></span></p> -->
-<!--                   </li> -->
-                  <li>
+                  <li style="padding-left: 20px;">
+                    <div class="cdst">
+                      <input type="checkbox" id="cd-checkbox-s4">
+                      <label for="cd-checkbox-s4"></label>
+                    </div>
+                    <p><span>濟州航空</span></p>
+                  </li>
+                  <li style="padding-left: 20px;">
+                    <div class="cdst">
+                      <input type="checkbox" id="cd-checkbox-s5">
+                      <label for="cd-checkbox-s5"></label>
+                    </div>
+                    <p><span>大韓航空 </span></p>
+                  </li>
+                  <li style="padding-left: 20px;" >
+                    <div class="cdst">
+                      <input type="checkbox" id="cd-checkbox-s6">
+                      <label for="cd-checkbox-s6"></label>
+                    </div>
+                    <p><span>釜山航空 </span></p>
+                  </li>
+                  <li style="padding-left: 20px;">
                     <div class="cdst">
                       <input type="checkbox" id="cd-checkbox-s7">
                       <label for="cd-checkbox-s7"></label>
                     </div>
-                    <p><span>國泰航空</span> <span class="price">$<b>39,172</b></span></p>
+                    <p><span>國泰航空</span>
+<!--                      <span class="price">$<b>39,172</b></span> -->
+                    </p>
                   </li>
                 </ul>
               </li>
                </ul>
               <!--航空公司_結束-->
               <div class="filters">
-              <h4>時間篩選</h4>
+              <h4 style="padding-left: 20px;">時間篩選</h4>
               <dl>
 	              <dt style="font-size: 10px;font-weight: 100;margin-bottom: 5px">出發時間 </dt>
 		              <dd  class="filtertime" style="width:25%;">
