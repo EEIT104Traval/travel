@@ -214,7 +214,7 @@ public class HotelService {
             String message = "<div style='font-family: Microsoft JhengHei'>"
             +"<h1>Time To Travel</h1>"
             +"<p>Hello！" + accountName + "，</p>"
-            +"<p>我們已收到您的訂單 #20190202001</p>"
+            +"<p style='color:red'>我們已收到您的訂單 #20190202001 (尚未付款) <a href='#'>點此連結前往付款</a></p>"
             +"<br>"
             +"<b>訂單明細</b>"
             +"<p>訂單編號：#19013112053JV4S</p>"

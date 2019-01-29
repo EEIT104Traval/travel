@@ -143,6 +143,7 @@ body {
 				$('#price').text('NT$ ' + FormatNumber(x * value.Day));
 				$('#tax').text('NT$ ' + FormatNumber(y));
 				$('#total').text('NT$ ' + FormatNumber(z));
+				$('#001').val(FormatNumber(z));
 			})
 			swal("優惠代碼", "優惠代碼已登入");
 		} else {

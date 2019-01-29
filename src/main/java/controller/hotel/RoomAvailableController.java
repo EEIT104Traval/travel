@@ -91,6 +91,10 @@ public class RoomAvailableController {
 		System.out.println("roomType="+roomType);
 		order.put("dd", dd);
 		System.out.println("dd="+dd);
+		order.put("checkInDate", checkInDate);
+		System.out.println("checkInDate="+checkInDate);
+		order.put("checkOutDate", checkOutDate);
+		System.out.println("checkOutDate="+checkOutDate);
 		model.addAttribute("order", order);
 		boolean result = hotelService.qupdate(accountName, 4, bookingPerson, phone, 8, CheckIndate, CheckOutdate);
 		if (result == true) {
