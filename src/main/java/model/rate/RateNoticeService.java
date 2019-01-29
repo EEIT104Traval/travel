@@ -105,7 +105,7 @@ public class RateNoticeService {
          {
              System.out.println(ex);
          }
-		
+		}
 		return result;
 		
 	}
