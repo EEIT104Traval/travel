@@ -29,4 +29,5 @@ public interface TicketOrderInfoDAO {
 
 	List<Object> findaccountName(String accountName);
 	
+	List<TicketOrderInfoBean> findaccountName1(String accountName);
 }

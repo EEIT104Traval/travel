@@ -32,12 +32,12 @@ import model.ticket.TicketInfoBean;
 import model.ticket.TicketInfoDAO;
 import model.ticket.TicketOrderInfoBean;
 import model.ticket.TicketOrderInfoService;
-import model.tour.GroupTourBean;
-import model.tour.TourBatchBean;
+import model.tour.TestBean;
 import model.tour.TourOrderInfoBean;
 import model.tour.dao.GroupTourDAO;
 import model.tour.dao.TourBatchDAO;
 import model.tour.dao.TourOrderInfoDAO;
+import model.tour.service.TourBuyService;
 import model.tour.service.TourOrderInfoService;
 
 @Service
@@ -54,11 +54,7 @@ public class UserInfoService {
 	@Autowired
 	private HotelOrderDetailsService hotelOrderDetailsService;
 	@Autowired
-	private GroupTourDAO groupTourDAO;
-	@Autowired
 	private TicketInfoDAO ticketInfoDAO;
-	@Autowired
-	private TourBatchDAO tourBatchDAO;
 	@Autowired
 	private RateNoticeDAO rateNoticeDAO;
 	@Autowired
@@ -66,11 +62,12 @@ public class UserInfoService {
 	@Autowired
 	private FlightOrderInfoDAO FOIDAO;
 	@Autowired
-	private TourOrderInfoDAO tourOrderInfoDAO;
-
-	@Autowired
 	private FlightOrderInfoDAOHibernate foiDAO;
-
+	@Autowired
+	private TourBuyService tourBuyService;
+	
+	
+	
 	public UserInfoBean login(String accountName, String password) {
 		UserInfoBean bean = userInfoDAO.findByPrimaryKey(accountName);
 		if (bean != null) {
@@ -233,57 +230,15 @@ public class UserInfoService {
 
 		Map<String, List<?>> map = new HashMap<String, List<?>>();
 
-		UserInfoBean result = userInfoDAO.findByPrimaryKey(user);
-
-		List<TourOrderInfoBean> tourInfo = tourOrderInfoDAO.findOrderaccountName(user);
-		List<TourBatchBean> tourBatch = tourBatchDAO.findByTourOrderList(tourInfo);
-		List<GroupTourBean> tourList = groupTourDAO.findByTourBatchList(tourBatch);
-
-		List<TicketOrderInfoBean> ticketInfo = ticketOrderInfoService.foundOrderaccountName(user);
-		List<TicketInfoBean> ticketList = ticketInfoDAO.findByTicketOrderList(ticketInfo);
-
+	
+		List<TestBean> tourInfo = tourBuyService.test(user);
+		
+		List<TicketOrderInfoBean> ticketInfo = ticketOrderInfoService.findaccountName1(user);
+		
 		List<HotelOrderDetailsBean> HotelInfo = hotelOrderDetailsService.foundOrderaccountName(user);
 
 		List<FlightOrderInfoBean> flightOrderInfo = foiDAO.findByAccountName(user);
 
-		for (GroupTourBean groupTourBean : tourList) {
-			for (TourBatchBean tourBatchBean : tourBatch) {
-//				for (TourOrderInfoBean tourOrder : tourInfo) {
-				if (groupTourBean.getTourNo().equals(tourBatchBean.getTourNo()))
-//						&& (tourBatchBean.getSerialNo().equals(tourOrder.getSerialNo()))) 
-				{
-					tourBatchBean.setTourName(groupTourBean.getTourName());
-//					tourOrder.setTourName(tourBatchBean.getTourName());
-//					tourOrder.setTourNo(groupTourBean.getTourNo());
-//					tourOrder.setDepartureDate(tourBatchBean.getDepartureDate());
-					System.out.println("旅遊第一輪="+tourBatchBean);
-				}
-				continue;
-//				}
-			}
-		}
-
-		for (TourBatchBean tourBatchBean : tourBatch) {
-			for (TourOrderInfoBean tourOrder : tourInfo) {
-				if (tourBatchBean.getSerialNo().equals(tourOrder.getSerialNo())) {
-					tourOrder.setTourName(tourBatchBean.getTourName());
-					tourOrder.setTourNo(tourBatchBean.getTourNo());
-					tourOrder.setDepartureDate(tourBatchBean.getDepartureDate());
-					System.out.println("旅遊第二輪="+tourOrder);
-				}
-				continue;
-			}
-		}
-		
-		for (TicketInfoBean ticketInfoBean : ticketList) {
-			for (TicketOrderInfoBean ticketOrderInfoBean : ticketInfo) {
-				if (ticketInfoBean.getTicketNo() == ticketOrderInfoBean.getTicketNo()) {
-					ticketOrderInfoBean.setTicketName(ticketInfoBean.getTicketName());
-					System.out.println("門票第一輪="+ticketOrderInfoBean);
-				}
-				continue;
-			}
-		}
 
 		if (tourInfo.size() > 0) {
 			map.put("TourOrderInfoBean", tourInfo);
@@ -301,8 +256,6 @@ public class UserInfoService {
 			map.put("FlightOrderInfoBean", flightOrderInfo);
 			System.out.println("FlightOrderInfoBean="+flightOrderInfo);
 		}
-
-//		System.out.println(result);
 		
 		return map;
 	}

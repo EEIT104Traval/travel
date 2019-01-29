@@ -79,10 +79,10 @@ var hotelOrderDetailsBean ;
 					for(var i = 0;i<JData.TicketOrderInfoBean.length;i++){
 							$("#searchuser1").append(		
 							'<tr><td>門票</td>'+
-							'<td>'+ JData.TicketOrderInfoBean[i].ticketName +'</td>'+
-					        '<td>'+ JData.TicketOrderInfoBean[i].adultTicketCount +'</td>'+
-					        '<td>'+ JData.TicketOrderInfoBean[i].orderDate +'</td>'+
-					        '<td>'+ JData.TicketOrderInfoBean[i].totalPrice +'</td></tr>'								
+							'<td>'+ JData.TicketOrderInfoBean[i][0]+'</td>'+
+					        '<td>'+ JData.TicketOrderInfoBean[i][6] +'</td>'+
+					        '<td>'+ JData.TicketOrderInfoBean[i][4] +'</td>'+
+					        '<td>'+ JData.TicketOrderInfoBean[i][11] +'</td></tr>'								
 													)	
 											}
 								  }else{$("#HotelOrderDetailsBean").append('<table><tr><td>尚無門票訂單</td></tr></table>')}				 			
