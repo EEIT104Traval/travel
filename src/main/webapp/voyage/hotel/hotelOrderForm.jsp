@@ -95,12 +95,29 @@ body {
 			var z = parseInt((x * value.Day) + y)
 			console.log(value);
 			$('#day').text('1 房間 x ' + value.Day + ' 晚');
-			$('#price').text('NT$ ' + x * value.Day);
-			$('#tax').text('NT$ ' + y);
-			$('#total').text('NT$ ' + z);
+			$('#price').text('NT$ ' + FormatNumber(x * value.Day));
+			$('#tax').text('NT$ ' + FormatNumber(y));
+			$('#total').text('NT$ ' + FormatNumber(z));
 
 		})
 	}
+	//取消千分號處理  
+	function no_comma(data)  
+	{  
+		if(data)  
+		{  
+			data = data.replace(/[,]/g, '');  
+		    return data;  
+		}  
+	}  
+	//千分號加入  
+	function FormatNumber(n) {  
+		n += "";  
+		var arr = n.split(".");  
+		var re = /(\d{1,3})(?=(\d{3})+$)/g;  
+		return arr[0].replace(re,"$1,") + (arr.length == 2 ? "."+arr[1] : "");  
+	}  
+
 	function discount() {
 		var hh = $('#count').val();
 		if (hh == 'TimeToTravel2019') {
@@ -123,9 +140,9 @@ body {
 				var z = parseInt((x * value.Day) + y)
 				console.log(value);
 				$('#day').text('1 房間 x ' + value.Day + ' 晚');
-				$('#price').text('NT$ ' + x * value.Day);
-				$('#tax').text('NT$ ' + y);
-				$('#total').text('NT$ ' + z);
+				$('#price').text('NT$ ' + FormatNumber(x * value.Day));
+				$('#tax').text('NT$ ' + FormatNumber(y));
+				$('#total').text('NT$ ' + FormatNumber(z));
 			})
 			swal("優惠代碼", "優惠代碼已登入");
 		} else {
@@ -438,7 +455,7 @@ body {
 														<p style="margin-left: 20px" id="day">1 房間 x 1 晚</p>
 													</div>
 													<div class="col-md-6">
-														<p style="color: red" id="price">NT$ 64666</p>
+														<p style="color: red" id="price">NT$ 64,666</p>
 													</div>
 												</div>
 												<div class="row">
@@ -446,7 +463,7 @@ body {
 														<p style="margin-left: 20px">稅項及附加費：5%</p>
 													</div>
 													<div class="col-md-6">
-														<p style="color: red" id="tax">NT$ 3233</p>
+														<p style="color: red" id="tax">NT$ 3,233</p>
 													</div>
 												</div>
 												<div class="row">
@@ -454,7 +471,7 @@ body {
 														<p style="margin-left: 20px">應付總額</p>
 													</div>
 													<div class="col-md-6">
-														<p style="color: red" id="total">NT$ 67899</p>
+														<p style="color: red" id="total">NT$ 67,899</p>
 													</div>
 												</div>
 												<div class="row">
