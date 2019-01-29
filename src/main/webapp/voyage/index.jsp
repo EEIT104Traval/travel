@@ -80,14 +80,17 @@
  crossorigin="anonymous">
  
  	<style>
- 	body {
- 	font-family:微軟正黑體
- 	}
- 	h2, h3, h4, h5, h6 {
- 	font-family:微軟正黑體
+ 	
+ 	@import url('https://fonts.googleapis.com/css?family=Noto+Sans+TC&subset=chinese-traditional');
+
+	body {
+    	font-family: 'Noto Sans TC', 微軟黑正體;
+     }
+ 	h1, h2, h3, h4, h5, h6 {
+ 		font-family:Noto Sans TC, 微軟黑正體;
  	}
  	p {
- 	font-family:微軟正黑體
+ 		font-family:Noto Sans TC, 微軟黑正體;
  	}
  	
  	</style>
@@ -504,7 +507,7 @@
         <div class="row mb-5 pb-5 no-gutters">
           <div class="col-lg-4 bg-light p-3 p-md-5 d-flex align-items-center heading-section ftco-animate">
             <div>
-              <h2 class="mb-5 pb-3">想得到我們最热門的旅游交易的提示和建議嗎？現在訂閱我們！</h2>
+              <h2 class="mb-5 pb-3">想得到我們最熱門的旅游交易的提示和建議嗎？現在訂閱我們！</h2>
               <form action="#" class="subscribe-form">
                 <div class="form-group">
                   <span class="icon icon-paper-plane"></span>
