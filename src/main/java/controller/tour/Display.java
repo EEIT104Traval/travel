@@ -30,7 +30,6 @@ import model.tour.TourMemberInfoBean;
 import model.tour.TourOrderInfoBean;
 import model.tour.service.GroupTourService;
 import model.tour.service.TourBuyService;
-import model.userInfo.UserInfoService;
 
 @Controller
 public class Display {
@@ -39,8 +38,7 @@ public class Display {
 	private GroupTourService groupTourService;
 	@Autowired
 	private TourBuyService tourBuyService;
-	@Autowired
-	private UserInfoService userInfoService;
+
 
 	@ResponseBody
 	@RequestMapping("/tour/display")
