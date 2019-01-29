@@ -11,6 +11,8 @@ public interface RateNoticeDAO {
 	
 	public abstract RateBean findA(String accountName);
 	
+//	public abstract RateNoticeBean findB(String accountName);
+	
 	public abstract RateNoticeBean find(String accountName);
 
 	public abstract RateNoticeBean update(String accountName, String currency, Double targetRate,java.util.Date deadline,java.sql.Timestamp registerDate);

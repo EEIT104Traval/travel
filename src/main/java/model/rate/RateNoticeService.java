@@ -56,52 +56,54 @@ public class RateNoticeService {
 	
 	public RateBean findByPrimaryKey1(String accountName) {
 		RateBean result = rateNoticeDAO.findA(accountName);
+		
 //		System.out.println("service結果="+result);
-		
-		UserInfoBean ubean = userInfoDAO.findByPrimaryKey(accountName);
-        try{
-            String host ="smtp.gmail.com" ;
-            String user = "sherrysherry92@gmail.com";
-            String pass = "jxrkaepvctpmffcs";
-            String to = "hot09681987@gmail.com";
-            String from = "TimeToTravel";
-            String subject = "Time To Travel - 匯率到價通知";
-//            String messageText = "您的訂單明細";
-            SimpleDateFormat sdFormat = new SimpleDateFormat("yyyy/MM/dd hh:mm:ss");
-            Date newdate = new Date();
-            String sDate = sdFormat.format(newdate);
-            
-            String messageText =  "親愛的"+accountName+"您好，您設定的美元價格已到價囉";
-            boolean sessionDebug = false;
-            Properties props = System.getProperties();
+		if(result!= null) {
+			UserInfoBean ubean = userInfoDAO.findByPrimaryKey(accountName);
+	        try{
+	            String host ="smtp.gmail.com" ;
+	            String user = "sherrysherry92@gmail.com";
+	            String pass = "jxrkaepvctpmffcs";
+	            String to = "hot09681987@gmail.com";
+	            String from = "TimeToTravel";
+	            String subject = "Time To Travel - Rate Alert Information";
+//	            String messageText = "您的訂單明細";
+	            SimpleDateFormat sdFormat = new SimpleDateFormat("yyyy/MM/dd hh:mm:ss");
+	            Date newdate = new Date();
+	            String sDate = sdFormat.format(newdate);
+	            
+	            String messageText =  "Dear "+accountName+"You set up the rate $31.5 that price is accomplished. ";
+	            boolean sessionDebug = false;
+	            Properties props = System.getProperties();
 
-            props.put("mail.smtp.starttls.enable", "true");
-            props.put("mail.smtp.host", host);
-            props.put("mail.smtp.port", "587");
-            props.put("mail.smtp.auth", "true");
-            props.put("mail.smtp.starttls.required", "true");
-            props.put("mail.smtp.ssl.trust", "smtp.gmail.com");
+	            props.put("mail.smtp.starttls.enable", "true");
+	            props.put("mail.smtp.host", host);
+	            props.put("mail.smtp.port", "587");
+	            props.put("mail.smtp.auth", "true");
+	            props.put("mail.smtp.starttls.required", "true");
+	            props.put("mail.smtp.ssl.trust", "smtp.gmail.com");
 
-            java.security.Security.addProvider(new com.sun.net.ssl.internal.ssl.Provider());
-            Session mailSession = Session.getDefaultInstance(props, null);
-            mailSession.setDebug(sessionDebug);
-            Message msg = new MimeMessage(mailSession);
-            msg.setFrom(new InternetAddress(from));
-            InternetAddress[] address = {new InternetAddress(to)};
-            msg.setRecipients(Message.RecipientType.TO, address);
-            msg.setSubject(subject); msg.setSentDate(new Date());
-            msg.setText(messageText);
-            
-            Transport transport=mailSession.getTransport("smtp");
-            transport.connect(host, user, pass);
-            transport.sendMessage(msg, msg.getAllRecipients());
-            transport.close();
-            System.out.println("message send successfully");
-         }catch(Exception ex)
-         {
-             System.out.println(ex);
-         }
-		
+	            java.security.Security.addProvider(new com.sun.net.ssl.internal.ssl.Provider());
+	            Session mailSession = Session.getDefaultInstance(props, null);
+	            mailSession.setDebug(sessionDebug);
+	            Message msg = new MimeMessage(mailSession);
+	            msg.setFrom(new InternetAddress(from));
+	            InternetAddress[] address = {new InternetAddress(to)};
+	            msg.setRecipients(Message.RecipientType.TO, address);
+	            msg.setSubject(subject); msg.setSentDate(new Date());
+	            msg.setText(messageText);
+	            
+	            Transport transport=mailSession.getTransport("smtp");
+	            transport.connect(host, user, pass);
+	            transport.sendMessage(msg, msg.getAllRecipients());
+	            transport.close();
+	            System.out.println("message send successfully");
+	         }catch(Exception ex)
+	         {
+	             System.out.println(ex);
+	         }
+		}
+//		RateNoticeBean result1 = rateNoticeDAO.findB(accountName);
 		return result;
 		
 	}
