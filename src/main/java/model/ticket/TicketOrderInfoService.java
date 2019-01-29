@@ -1,12 +1,16 @@
 package model.ticket;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import model.tour.TestBean;
 
 @Service
 @Transactional
@@ -73,4 +77,10 @@ public class TicketOrderInfoService {
 		return result;
 	}
 	
+	public List<TicketOrderInfoBean> findaccountName1(String accountName){
+		
+		List<TicketOrderInfoBean> list = ticketOrderInfoDAO.findaccountName1(accountName);
+		
+		return list;
+	}
 }
