@@ -112,6 +112,27 @@ function notice(){
 	<script>
 	var accountName = "${sessionScope.accountName}";//抓名字
 	
+	function alertRate(){
+		$.ajax({
+			url : '/Travel/voyage/checkRate.controller',
+			contentType : 'application/json; charset=UTF-8',
+			type : 'get',
+			dataType : 'json',
+			data : {
+				'accountName' : accountName,
+			},
+			
+		}).done(function(e) {
+			//
+			console.log("ˋ抓到"+e["targetRate"]);
+			if (e["currency"]){
+				alert("Hello "+accountName+"!! 您輸入的匯率價格31.5元已到價，可準備兌換囉!!! ")
+			}else{
+				alert("Hello"+accountName+"!! 你輸入的價格未到價")
+			}
+		});
+	}
+	
 	$(function(){
 	var xhttp = new XMLHttpRequest();
 	var chartJson = '';
@@ -213,6 +234,7 @@ function notice(){
 // 			$(':checkbox[name=key]').prop("checked",b);
 // 		})
 	</script>
+	<link rel="icon" href="<c:url value='/voyage/favicon.ico' />">
 </head>
 <body>
   <script>
@@ -231,7 +253,8 @@ function notice(){
  
     $( "#opener" ).on( "click", function() {
       $( "#dialog" ).dialog( "open" );
-      $('#accountName').val('micky');
+
+      $('#accountName').val(accountName);
 //       $('#checkin_date').val(todayvalue);
       $( "#checkin_date" ).datepicker();
       $( "#checkin_date" ).change(function(){
@@ -365,7 +388,7 @@ function notice(){
 </tr>
 <tr>
 <%-- <fmt:formatDate value="" pattern="yyyy-MM-dd" var="deadline"/> --%>
-<td><input type="text" id="checkin_date" placeholder="yyyy/MM/dd" autocomplete="off" name="deadline" style="border-radius:4px;margin-bottom:10px;"></td>
+<td><input type="text" id="checkin_date" autocomplete="off" name="deadline" style="border-radius:4px;margin-bottom:10px;"></td>
 <!-- <input type="text" class="search_input_1" id="checkin_date" placeholder="yyyy/MM/dd" name="takeoff_date" autocomplete="off"> -->
 </tr>
 </table>
@@ -404,7 +427,7 @@ function notice(){
 	   <button type="button" style="border-radius: 6px;float:right;margin-right: 150px"><a href="<c:url value='rateindex3.jsp'/>" />回匯率首頁</a></button>
 	   <button type="button" style="border-radius: 6px;float:right;margin-right: 10px;margin-bottom:-1000px"><a href="<c:url value='toggling.jsp'/>" />最近三個月走勢圖</a></button>
 	   <button id="opener" type="button" style="border-radius: 6px;color:	#003C9D;float:right;margin-right: 190px;margin-bottom:-1000px">設定匯率價格</button>  
-	   <button id="opener1" type="button" style="border-radius: 6px;color:	#003C9D;float:right;margin-right: 330px;margin-bottom:-1000px">查詢設定</button>                                                                                
+	   <button id="opener1" type="button" style="border-radius: 6px;color:	#003C9D;float:right;margin-right: 330px;margin-bottom:-1000px" onclick="alertRate()">查詢設定</button>                                                                                
 	 
 	</div> 
 	

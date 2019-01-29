@@ -90,7 +90,8 @@ button{
 	background-color:#99BBFF;
 	}
 
-</style>		
+</style>
+<link rel="icon" href="<c:url value='/voyage/favicon.ico' />">		
 </head>
 
 <body>
@@ -216,7 +217,7 @@ function update(){
 	   SimpleDateFormat ft = 
 	   new SimpleDateFormat ("yyyy-MM-dd HH:mm:ss");
 //        out.print( "<h5 style='color:white' align=\"left\">更新時間： " +ft.format(dNow)+"</h5>");
-       out.print( "<h5 style='color:white' align=\"left\">更新時間：2019-01-25 16:00:00</h5>");
+       out.print( "<h5 style='color:white' align=\"left\">更新時間：2019-01-28 16:00:00</h5>");
     %>
 </div>
 

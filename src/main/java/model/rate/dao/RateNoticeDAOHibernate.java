@@ -70,14 +70,18 @@ import model.userInfo.UserInfoBean;
 	
 	public RateBean findA(String accountName) {
 		String hql = "from RateBean where cashSell <=(select targetRate from RateNoticeBean where accountName=\'"+accountName+"\') and currency=(select currency from RateNoticeBean where accountName=\'"+accountName+"\') and updateTime = CONVERT(varchar(40), getdate()-1, 121)";
-//		System.out.println("查詢hql的accountName="+accountName);
+		System.out.println("查詢hql的accountName="+accountName);
 		RateBean a= this.getSession().createQuery(hql,RateBean.class).uniqueResult();
 //		System.out.println("有結果嗎?????="+a);
 		return a;  
 		
 		
 	}
-
+//	public RateNoticeBean findB(String accountName) {
+//	String hql = "select targetRate from RateNoticeBean where accountName=\'"+accountName+"\'";
+//	return this.getSession().createQuery(hql,RateNoticeBean.class).uniqueResult();
+//	}
+	
 	@Override
 	public RateNoticeBean find(String accountName) {
 		// TODO Auto-generated method stub

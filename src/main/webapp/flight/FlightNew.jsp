@@ -11,6 +11,7 @@
 
 <!-- import this css by Alex -->
 <!-- <link rel="stylesheet" href="css/main_styles.css"> -->
+<link rel="icon" href="<c:url value='/voyage/favicon.ico' />">
 <link rel="stylesheet" type="text/css"
 	href="<c:url value='/voyage/styles/main_styles.css'/>">
 
@@ -41,7 +42,7 @@
  href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
  integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
  crossorigin="anonymous">
-
+<title>Time To Travel - 飯店搜尋</title>
 <head>
 <%-- <jsp:include page="/voyage/nav.jsp" /> --%>
 <script>
@@ -68,6 +69,8 @@
 	
 	$(document).ready(function(){
 		
+		$('#loading').delay(1000).hide(0);
+		
 		var today = new Date();
 		var to= today.setDate(today.getDate()+5);
 		var today1 = new Date(to);
@@ -89,9 +92,23 @@
 	
 	
 </script>
+
+
+<style type="text/css">
+#loading  
+{  
+    position:fixed;  
+    top:40%;  
+    left:45%;  
+    z-index:999;  
+}  
+
+
+</style>
+
 </head>
 <body>
-
+<!-- <div id='loading'>正在載入頁面資料...</div> -->
 	<jsp:include page="/voyage/nav.jsp" />
 	<section class="home-slider owl-carousel">
 		<div class="slider-item"
@@ -254,7 +271,7 @@
 	</script>
 
 
-
+	<img src="<c:url value='/voyage/images/introflight.png'/> " style='position: absolute;' id="alligator">
 	<div class="intro">
 		<div class="intro_background"
 			style="background-image: url( <c:url value='/voyage/images/intro.png'/>)"></div>
@@ -361,7 +378,7 @@
 			})
 		}
 	</script>
-	<script src="<c:url value='/voyage/js/jquery.min.js' />"></script>
+<%-- 	<script src="<c:url value='/voyage/js/jquery.min.js' />"></script> --%>
 	<script src="<c:url value='/voyage/js/jquery-migrate-3.0.1.min.js' />"></script>
 	<script src="<c:url value='/voyage/js/popper.min.js' />"></script>
 	<script src="<c:url value='/voyage/js/bootstrap.min.js' />"></script>

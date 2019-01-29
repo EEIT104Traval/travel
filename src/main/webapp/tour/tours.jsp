@@ -4,10 +4,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Voyage - Free Bootstrap 4 Template by Colorlib</title>
+<title>Time To Travel - 團體旅遊</title>
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="icon" href="<c:url value='/voyage/favicon.ico' />">
+	
 	<link rel="stylesheet" href="<c:url value='/voyage/css/open-iconic-bootstrap.min.css' />">
     <link rel="stylesheet" href="<c:url value='/voyage/css/animate.css' />">
     <link rel="stylesheet" href="<c:url value='/voyage/css/owl.carousel.min.css' />">
@@ -85,7 +87,7 @@
 	
 	</section>
 	<section class="ftco-section" style="margin-top:100px">
-	
+	<p id= "idd"></p>
 		<div class="container">
 		
 <!-- 		 <div id="hot" class="row justify-content-center mb-5" style="width:70%;background-color:#ff5f5f;"> -->
@@ -101,7 +103,7 @@
 <!-- 		 </div> -->
 		
 			<div class="row" style="margin-top:4%">
-			<p id= "idd"></p>
+			
 				<div class="col-lg-8">				
 					<div id="box" class="row">
 <%-- 					<c:forEach items="${tags}"  var="tag">	 --%>
@@ -318,7 +320,7 @@
 	
 			 
 /* -----------------------分頁-------------------------------------------------------   */	 			 
-			 var rowsShown=4;                             //每頁顯示的行
+			 var rowsShown=6;                             //每頁顯示的行
 		     var rowsTotal=lens;         //獲取總共的行
 		     var numPages=Math.ceil(rowsTotal/rowsShown); //計算出有多少頁
 // 		     alert(data.count);

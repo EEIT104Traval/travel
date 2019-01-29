@@ -8,6 +8,7 @@
 <title>Insert title here</title>
 <!-- <script src="http://www.jq22.com/js/jq.js"></script> -->
 <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+<link rel="icon" href="<c:url value='/voyage/favicon.ico' />">
 <link rel="stylesheet" type="text/css"
 	href="<c:url value='/flight/xianqi/css/step3.css'/>" />
 	<link rel="stylesheet" type="text/css"
@@ -99,6 +100,7 @@ $(document).ready(function(){
 });	
 
 </script>
+<title>Time To Travel - 飯店搜尋</title>
 </head>
 <body>
 <div class="header-wrapper">

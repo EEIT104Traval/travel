@@ -7,7 +7,7 @@
 </script>
 <!DOCTYPE html>
 <html lang="zh-tw">
-
+<link rel="icon" href="<c:url value='/voyage/favicon.ico' />">
 <link rel="stylesheet" href="<c:url value='/voyage/css/open-iconic-bootstrap.min.css' />">
 <link rel="stylesheet" href="<c:url value='/voyage/css/animate.css' />">
 <link rel="stylesheet" href="<c:url value='/voyage/css/owl.carousel.min.css' />">
@@ -16,7 +16,6 @@
 <link rel="stylesheet" href="<c:url value='/voyage/css/aos.css' />">
 <link rel="stylesheet" href="<c:url value='/voyage/css/ionicons.min.css' />">
 <link rel="stylesheet" href="<c:url value='/voyage/css/bootstrap-datepicker.css' />">
-<%-- <link rel="stylesheet" href="<c:url value='/voyage/css/jquery.timepicker.css' />"> --%>
 <link rel="stylesheet" href="<c:url value='/voyage/css/flaticon.css' />">
 <link rel="stylesheet" href="<c:url value='/voyage/css/icomoon.css' />">
 <link rel="stylesheet" href="<c:url value='/voyage/css/style.css' />">
@@ -24,7 +23,7 @@
 <link rel="stylesheet" href="<c:url value='/voyage/css/jquery-ui.css' />">
 <link rel="stylesheet" href="<c:url value='/voyage/css/main_styles_sherry.css' />">
 <link rel="stylesheet" href="<c:url value='/voyage/css/about.css' />">
-
+<title>Time To Travel - 飯店搜尋</title>
 </head>
 <body>
 	<div style="text-align: center;margin-top: 50px;padding-bottom: 50px">
@@ -44,7 +43,7 @@
 		<div class="container">
 			<div class="row no-gutters justify-content-center mb-5 ftco-animate fadeInUp ftco-animated" style="margin-top: -80px">
 				<div class="col-md-7 text-center heading-section" style="padding-top: 40px">
-					<h2>洛杉磯熱門飯店推薦</h2>
+					<h2>釜山熱門飯店推薦</h2>
 				</div>
 			</div>
 			<div class="row">
@@ -54,7 +53,7 @@
 						<div class="text p-4">
 							<div class="meta"></div>
 							<h6>
-								<a href="/Travel/voyage/hotel/roomTypeSearch.jsp">洛杉磯海云台温德姆华美达安可酒店</a>
+								<a href="/Travel/voyage/hotel/roomTypeSearch.jsp">釜山海云台温德姆华美达安可酒店</a>
 							</h6>
                    			<p style="margin-bottom:0"><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star-half-full"></span></p>
 							<p class="float-left" style="margin">NT$ 2,680</p>
@@ -113,7 +112,7 @@
 						<div class="text p-4">
 							<div class="meta"></div>
 							<h6>
-								<a href="#">洛杉磯皇悅卓越酒店(Empire Prestige Tsim Sha Tsui)</a>
+								<a href="#">釜山皇悅卓越酒店(Empire Prestige Tsim Sha Tsui)</a>
 							</h6>
 							<p style="margin-bottom:0"><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star-half-full"></span></p>
 							<p class="float-left">NT$ 5,768</p>

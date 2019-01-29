@@ -1,5 +1,6 @@
 package controller.flight;
 
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -29,10 +30,11 @@ public class FlightInfoController {
 	@RequestMapping("/FlightInfoNew")
 	public String method(Model model,String takeOffPlace,String landingPlace,Date takeoff_date,Date flyback_date,String peopleType) throws Exception {
 //		System.out.println("takeOffPlace="+takeOffPlace.substring(takeOffPlace.length()-4, takeOffPlace.length()-1)+"landingPlace"+landingPlace.substring(landingPlace.length()-4, landingPlace.length()-1)+"takeoff_date"+takeoff_date+"flyback_date"+flyback_date+"peopleType"+peopleType.substring(0,1));
+//		System.out.println("peopleType===>"+peopleType);
 		SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
 //		Date go = java.sql.Date.valueOf(takeoff_date);
 //		Date back = java.sql.Date.valueOf(flyback_date);
-		 SimpleDateFormat format2 = new SimpleDateFormat("yyyy-MM-dd");
+		 SimpleDateFormat format2 = new SimpleDateFormat("yyyy/MM/dd");
 		String date1 = format1.format(takeoff_date.getTime());
 		String date2 = format1.format(flyback_date.getTime());
 		String dateSecound1 = format2.format(takeoff_date);
@@ -55,7 +57,7 @@ public class FlightInfoController {
 		indexValue.put("landingPlace", landingPlace);
 		indexValue.put("takeoff_date", dateSecound1);
 		indexValue.put("flyback_date", dateSecound2);
-		indexValue.put("peopleType", peopleType);
+		indexValue.put("peopleType", peopleType.substring(0, 4));
 		
 		model.addAttribute("indexValue",indexValue);
 		
@@ -63,11 +65,17 @@ public class FlightInfoController {
 		
 //		System.out.println("result2="+result1);
 		model.addAttribute("result", result);
+
 //		CIservice.Airlinecreate();
 //		CIservice.AirlinecreateParserXml();
+		return "flightsecound";
+	}
+	@RequestMapping("/FlightInfoNew1")
+	public String  method1() throws IOException {
+		CIservice.Airlinecreate();
+		CIservice.AirlinecreateParserXml();
 		
 		return "flightsecound";
 	}
-	
 
 }
