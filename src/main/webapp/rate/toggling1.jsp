@@ -234,6 +234,7 @@ function notice(){
 // 			$(':checkbox[name=key]').prop("checked",b);
 // 		})
 	</script>
+	<link rel="icon" href="<c:url value='/voyage/favicon.ico' />">
 </head>
 <body>
   <script>
@@ -387,7 +388,7 @@ function notice(){
 </tr>
 <tr>
 <%-- <fmt:formatDate value="" pattern="yyyy-MM-dd" var="deadline"/> --%>
-<td><input type="text" id="checkin_date" placeholder="yyyy/MM/dd" autocomplete="off" name="deadline" style="border-radius:4px;margin-bottom:10px;"></td>
+<td><input type="text" id="checkin_date" autocomplete="off" name="deadline" style="border-radius:4px;margin-bottom:10px;"></td>
 <!-- <input type="text" class="search_input_1" id="checkin_date" placeholder="yyyy/MM/dd" name="takeoff_date" autocomplete="off"> -->
 </tr>
 </table>

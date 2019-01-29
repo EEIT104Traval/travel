@@ -1,5 +1,6 @@
 package controller.flight;
 
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -64,11 +65,17 @@ public class FlightInfoController {
 		
 //		System.out.println("result2="+result1);
 		model.addAttribute("result", result);
-//		CIservice.Airlinecreate();
-//		CIservice.AirlinecreateParserXml();
+
+		CIservice.Airlinecreate();
+		CIservice.AirlinecreateParserXml();
+		return "flightsecound";
+	}
+	@RequestMapping("/FlightInfoNew1")
+	public String  method1() throws IOException {
+		CIservice.Airlinecreate();
+		CIservice.AirlinecreateParserXml();
 		
 		return "flightsecound";
 	}
-	
 
 }

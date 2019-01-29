@@ -90,7 +90,8 @@ button{
 	background-color:#99BBFF;
 	}
 
-</style>		
+</style>
+<link rel="icon" href="<c:url value='/voyage/favicon.ico' />">		
 </head>
 
 <body>

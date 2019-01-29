@@ -14,6 +14,8 @@
 	href="<c:url value='/flight/xianqi/css/trip.css'/>" />
 <link rel="stylesheet" type="text/css"
 	href="<c:url value='/flight/xianqi/css/passager.css'/>" />
+	<link rel="icon" href="<c:url value='/voyage/favicon.ico' />">
+	<title>Time To Travel - 飯店搜尋</title>
 <%-- <link rel="stylesheet" href="<c:url value='/voyage/css/open-iconic-bootstrap.min.css' />"> --%>
 <%--  <link rel="stylesheet" href="<c:url value='/voyage/css/animate.css' />"> --%>
 <%--  <link rel="stylesheet" href="<c:url value='/voyage/css/owl.carousel.min.css' />"> --%>
