@@ -160,7 +160,7 @@
         <div class="container">
           <div class="row slider-text align-items-center">
             <div class="col-md-7 col-sm-12 ftco-animate">
-              <h1 class="mb-3" style="font-weight:900; font-size:60px">説走就走，是人生最華美的奢侈，也是最燦爛的自由。</h1>
+              <h1 class="mb-3" style="font-weight:900; font-size:60px">說走就走，是人生最華美的奢侈，也是最燦爛的自由。</h1>
             </div>
           </div>
         </div>
