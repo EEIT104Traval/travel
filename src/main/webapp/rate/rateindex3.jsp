@@ -23,7 +23,7 @@
     <link rel="stylesheet" href="<c:url value='/voyage/css/style.css' />">
     <link href="<c:url value='/voyage/css/jquery-ui.css' />" rel="stylesheet" type="text/css">
 <head>
-<title>RateIndex</title>
+<title>Time To Travel</title>
 <link rel="stylesheet" href="./css/rate.css">
 	<script language="javascript" type="text/javascript" src="./js/jquery.js"></script>
 	<script language="javascript" type="text/javascript" src="./js/jquery.flot.js"></script>
