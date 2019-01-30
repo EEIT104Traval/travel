@@ -174,7 +174,6 @@ iframe#_hjRemoteVarsFrame {
 	crossorigin="anonymous"></script>
 <body>
 
-<i class="fa fa-angle-up"></i>
 </div>
 	<jsp:include page="../voyage/nav.jsp"></jsp:include>
 	<section class="home-slider owl-carousel">
