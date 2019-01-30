@@ -168,7 +168,7 @@
 										<span class="form-label">出發地</span> <input id='demo2'
 											name="takeOffPlace" type="text" class="search_input_1"
 											style="width: 450px" placeholder="請輸入機場/城市中英文或代碼"
-											required="required">
+											required="required" autocomplete="off">
 										<!-- 											required="required" -->
 									</div>
 									<img alt=""
@@ -178,7 +178,7 @@
 										<span class="form-label">目的地</span> <input id='demo1'
 											name="landingPlace" type="text" class="search_input_1"
 											style="width: 450px" placeholder="請輸入機場/城市中英文或代碼"
-											required="required">
+											required="required" autocomplete="off">
 									</div>
 								</div>
 

@@ -409,6 +409,24 @@ $.each(result.OTA_AirLowFareSearchRS.PricedItineraries.PricedItinerary, function
 		+'</form>'
 	
 	)
+	
+	//取消千分號處理  
+	function no_comma(data)  
+	{  
+		if(data)  
+		{  
+			data = data.replace(/[,]/g, '');  
+		    return data;  
+		}  
+	}  
+	//千分號加入  
+	function FormatNumber(n) {  
+		n += "";  
+		var arr = n.split(".");  
+		var re = /(\d{1,3})(?=(\d{3})+$)/g;  
+		return arr[0].replace(re,"$1,") + (arr.length == 2 ? "."+arr[1] : "");  
+	}  
+	
 	})
 })
 
