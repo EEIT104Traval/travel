@@ -255,16 +255,30 @@ h2 {
 							if(index % 4 == 0){
 								var date = new Date(value.departureDate);
 								var month = parseInt(date.getMonth())+1;
+								if(month.toString().length < 2){
+									month = "0" + month;
+								}
+								var day = date.getDate();	
+								if(day.toString().length < 2){
+									day = "0" + day;
+								}
 								var d = new Date(value.orderTime);
 								var m2 = parseInt(d.getMonth())+1;
+								if(m2.toString().length < 2){
+									m2 = "0" + m2;
+								}
+								var day2 = d.getDate();
+								if(day2.toString().length < 2){
+									day2 = "0" + day2;
+								}
 								$('#tbody').append(
 				 					'<tr class="table-active">'
-			 							+'<td style="text-align: left;">'+date.getFullYear()+'/'+month+'/'+date.getDate()+'</td>'
+			 							+'<td style="text-align: left;">'+date.getFullYear()+'/'+month+'/'+day+'</td>'
 			 							+'<td colspan="2"><a target="_blank" href="<c:url value="/tour/Display2/travel.jsp?tourNo='+value.tourNo+'"/>">'+value.tourName+'</a></td>'
 			 							+'<td>'+value.quantity+'</td>'
 			 							+'<td style="color:red">$'+FormatNumber(value.total)+'</td>'
 			 							+'<td>'+value.orderStatus+'</td>'
-			 							+'<td>'+d.getFullYear()+'/'+m2+'/'+d.getDate()+'</td>'
+			 							+'<td>'+d.getFullYear()+'/'+m2+'/'+day2+'</td>'
 			 							+'<td><a onclick="ck('+index+')" href="##" data-toggle="modal" data-target="#exampleModalCenter">明細</a></td>'
 			 						+'</tr>'
 								);
@@ -272,16 +286,30 @@ h2 {
 							if(index % 4 == 1){
 								var date = new Date(value.departureDate);
 								var month = parseInt(date.getMonth())+1;
+								if(month.toString().length < 2){
+									month = "0" + month;
+								}
+								var day = date.getDate();	
+								if(day.toString().length < 2){
+									day = "0" + day;
+								}
 								var d = new Date(value.orderTime);
 								var m2 = parseInt(d.getMonth())+1;
+								if(m2.toString().length < 2){
+									m2 = "0" + m2;
+								}
+								var day2 = d.getDate();
+								if(day2.toString().length < 2){
+									day2 = "0" + day2;
+								}
 								$('#tbody').append(
 				 					'<tr class="table-success">'
-			 							+'<td style="text-align: left;">'+date.getFullYear()+'/'+month+'/'+date.getDate()+'</td>'
+			 							+'<td style="text-align: left;">'+date.getFullYear()+'/'+month+'/'+day+'</td>'
 			 							+'<td colspan="2"><a target="_blank" href="<c:url value="/tour/Display2/travel.jsp?tourNo='+value.tourNo+'"/>">'+value.tourName+'</a></td>'
 			 							+'<td>'+value.quantity+'</td>'
 			 							+'<td style="color:red">$'+FormatNumber(value.total)+'</td>'
 			 							+'<td>'+value.orderStatus+'</td>'
-			 							+'<td>'+d.getFullYear()+'/'+m2+'/'+d.getDate()+'</td>'
+			 							+'<td>'+d.getFullYear()+'/'+m2+'/'+day2+'</td>'
 			 							+'<td><a onclick="ck('+index+')" href="##" data-toggle="modal" data-target="#exampleModalCenter">明細</a></td>'
 			 						+'</tr>'
 								);
@@ -289,16 +317,30 @@ h2 {
 							if(index % 4 == 2){
 								var date = new Date(value.departureDate);
 								var month = parseInt(date.getMonth())+1;
+								if(month.toString().length < 2){
+									month = "0" + month;
+								}
+								var day = date.getDate();	
+								if(day.toString().length < 2){
+									day = "0" + day;
+								}
 								var d = new Date(value.orderTime);
 								var m2 = parseInt(d.getMonth())+1;
+								if(m2.toString().length < 2){
+									m2 = "0" + m2;
+								}
+								var day2 = d.getDate();
+								if(day2.toString().length < 2){
+									day2 = "0" + day2;
+								}
 								$('#tbody').append(
 				 					'<tr class="table-warning">'
-			 							+'<td style="text-align: left;">'+date.getFullYear()+'/'+month+'/'+date.getDate()+'</td>'
+			 							+'<td style="text-align: left;">'+date.getFullYear()+'/'+month+'/'+day+'</td>'
 			 							+'<td colspan="2"><a target="_blank" href="<c:url value="/tour/Display2/travel.jsp?tourNo='+value.tourNo+'"/>">'+value.tourName+'</a></td>'
 			 							+'<td>'+value.quantity+'</td>'
 			 							+'<td style="color:red">$'+FormatNumber(value.total)+'</td>'
 			 							+'<td>'+value.orderStatus+'</td>'
-			 							+'<td>'+d.getFullYear()+'/'+m2+'/'+d.getDate()+'</td>'
+			 							+'<td>'+d.getFullYear()+'/'+m2+'/'+day2+'</td>'
 			 							+'<td><a onclick="ck('+index+')" href="##" data-toggle="modal" data-target="#exampleModalCenter">明細</a></td>'
 			 						+'</tr>'
 								);
@@ -306,16 +348,30 @@ h2 {
 							if(index % 4 == 3){
 								var date = new Date(value.departureDate);
 								var month = parseInt(date.getMonth())+1;
+								if(month.toString().length < 2){
+									month = "0" + month;
+								}
+								var day = date.getDate();	
+								if(day.toString().length < 2){
+									day = "0" + day;
+								}
 								var d = new Date(value.orderTime);
 								var m2 = parseInt(d.getMonth())+1;
+								if(m2.toString().length < 2){
+									m2 = "0" + m2;
+								}
+								var day2 = d.getDate();
+								if(day2.toString().length < 2){
+									day2 = "0" + day2;
+								}
 								$('#tbody').append(
 				 					'<tr class="table-danger">'
-			 							+'<td style="text-align: left;">'+date.getFullYear()+'/'+month+'/'+date.getDate()+'</td>'
+			 							+'<td style="text-align: left;">'+date.getFullYear()+'/'+month+'/'+day+'</td>'
 			 							+'<td colspan="2"><a target="_blank" href="<c:url value="/tour/Display2/travel.jsp?tourNo='+value.tourNo+'"/>">'+value.tourName+'</a></td>'
 			 							+'<td>'+value.quantity+'</td>'
 			 							+'<td style="color:red">$'+FormatNumber(value.total)+'</td>'
 			 							+'<td>'+value.orderStatus+'</td>'
-			 							+'<td>'+d.getFullYear()+'/'+m2+'/'+d.getDate()+'</td>'
+			 							+'<td>'+d.getFullYear()+'/'+m2+'/'+day2+'</td>'
 			 							+'<td><a onclick="ck('+index+')" href="##" data-toggle="modal" data-target="#exampleModalCenter">明細</a></td>'
 			 						+'</tr>'
 								);

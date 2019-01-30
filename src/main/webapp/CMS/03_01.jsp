@@ -50,7 +50,7 @@ var params = {}
 		$('#adultTicketSelledQ').val('0');
 		$('#country').val('japan');
 		$('#validity').val('1');
-		$('#traffic_information').val('陸地門票');
+		$('#ticketDescription').val('陸地門票');
 		$('#ticketPicture').val('images/image_9.jpg');
 		$('#special_restrictions').val('限非居民');
 	}
@@ -62,7 +62,7 @@ var params = {}
 		params.adultTicketSelledQ = $('#adultTicketSelledQ').val();
 		params.country = $('#country').val();
 		params.validity = $('#validity').val();
-		params.traffic_information = $('#traffic_information').val();
+		params.ticketDescription = $('#ticketDescription').val();
 		params.ticketPicture = $('#ticketPicture').val();
 		params.special_restrictions = $('#special_restrictions').val();
 	
@@ -130,7 +130,7 @@ var params = {}
 						<thead><tr><td>使用期限</td><td>票券資訊</td><td>票券限制</td><td>銷售數量</td><td>
 						<input type="text" id="ticketPicture" style="display:none"></td></tr></thead>
 						<tbody><tr><td><input style="width:125px" type="text" id="validity"></td>
-							       <td><input style="width:125px" type="text" id="traffic_information"></td>
+							       <td><input style="width:125px" type="text" id="ticketDescription"></td>
 							       <td><input style="width:125px" type="text" id="special_restrictions"></td>
 							       <td><input style="width:125px" type="text" id="adultTicketSelledQ"></td>
 							       <td style="text-align: center"><input type="button" id='membersh' onclick="chack()" value="確認新增">
