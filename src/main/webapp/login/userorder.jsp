@@ -111,6 +111,42 @@
 				})
 				.done(
 						function(JData) {
+							console.log(JData)
+							if (JData.TicketOrderInfoBean != null) {
+								for (var i = 0; i < JData.TicketOrderInfoBean.length; i++) {
+									$("#searchuser")
+											.append(
+													'<table class="table table-hover"><th scope="row" style="width:10%;text-align:center" name="ticketOrderNO">'
+															+ JData.TicketOrderInfoBean[i].ticketOrderNO
+// 															+ JData.TicketOrderInfoBean[i][1]
+															+ '</th>'
+															+ '<th scope="row">景點門票</th>'
+															+ '<th scope="row" style="width:27%; name="ticketName">'
+															+ JData.TicketOrderInfoBean[i].ticketName
+// 															+ JData.TicketOrderInfoBean[i][0]
+															+ '</th>'
+															+ '<th scope="row" style="width:5%" name="adultTicketCount">'
+															+ JData.TicketOrderInfoBean[i].adultTicketCount
+// 															+ JData.TicketOrderInfoBean[i][7]
+															+ '</th>'
+															+ '<th scope="row" style="width:15%" name="orderDate">'
+															+ JData.TicketOrderInfoBean[i].orderDate
+// 															+ JData.TicketOrderInfoBean[i][4]
+															+ '</th>'
+															+ '<th scope="row" style="width:10%" name="totalPrice">'
+															+ JData.TicketOrderInfoBean[i].totalPrice
+// 															+ JData.TicketOrderInfoBean[i][11]
+															+ '</th>'
+															+
+															//'<th style="width:100px" name="totalPrice"><input type="submit" name="prodaction" value="刪除"></th></table>'
+															'<th scope="row" style="width:10%" name="totalPrice"><input type="image" src="images/gb.png" width="20%" height="20%" alt="send" name="Test" id="Test" onclick="deleteOrder(\''+JData.TicketOrderInfoBean[i].ticketOrderNO+'\');" /></th></table>')
+// 															'<th scope="row" style="width:10%" name="totalPrice"><input type="image" src="images/gb.png" width="20%" height="20%" alt="send" name="Test" id="Test" onclick="deleteOrder(\''+JData.TicketOrderInfoBean[i][1]+'\');" /></th></table>')
+								}
+							} else {
+								$("#HotelOrderDetailsBean")
+										.append('<table ><hr></table>')
+// 												'<table class="table table-hover"><th scope="row">尚無門票訂單</th></table>')
+							}
 							if (JData.TourOrderInfoBean != null) {
 								//if(JData.TourOrderInfoBean != null && JData.TourOrderInfoBean.orderStatus="已付費" ){
 								for (var i = 0; i < JData.TourOrderInfoBean.length; i++) {
@@ -141,35 +177,7 @@
 										.append(
 												'<table ><hr></table>')
 							}
-							if (JData.TicketOrderInfoBean != null) {
-								for (var i = 0; i < JData.TicketOrderInfoBean.length; i++) {
-									$("#searchuser")
-											.append(
-													'<table class="table table-hover"><th scope="row" style="width:10%;text-align:center" name="ticketOrderNO">'
-															+ JData.TicketOrderInfoBean[i].ticketOrderNO
-															+ '</th>'
-															+ '<th scope="row">門票</th>'
-															+ '<th scope="row" style="width:25%; name="ticketName">'
-															+ JData.TicketOrderInfoBean[i].ticketName
-															+ '</th>'
-															+ '<th scope="row" style="width:5%" name="adultTicketCount">'
-															+ JData.TicketOrderInfoBean[i].adultTicketCount
-															+ '</th>'
-															+ '<th scope="row" style="width:15%" name="orderDate">'
-															+ JData.TicketOrderInfoBean[i].orderDate
-															+ '</th>'
-															+ '<th scope="row" style="width:10%" name="totalPrice">'
-															+ JData.TicketOrderInfoBean[i].totalPrice
-															+ '</th>'
-															+
-															//'<th style="width:100px" name="totalPrice"><input type="submit" name="prodaction" value="刪除"></th></table>'
-															'<th scope="row" style="width:10%" name="totalPrice"><input type="image" src="images/gb.png" width="20%" height="20%" alt="send" name="Test" id="Test" onclick="deleteOrder(\''+JData.TicketOrderInfoBean[i].ticketOrderNO+'\');" /></th></table>')
-								}
-							} else {
-								$("#HotelOrderDetailsBean")
-										.append('<table ><hr></table>')
-// 												'<table class="table table-hover"><th scope="row">尚無門票訂單</th></table>')
-							}
+
 							
 							if (JData.FlightOrderInfoBean != null) {
 								for (var i = 0; i < JData.FlightOrderInfoBean.length; i++) {
@@ -261,7 +269,7 @@
 									<th scope="col" style="width:10%">訂單號碼</th>
 									<th scope="col">類型</th>
 									<th scope="col" style="width:25%">名稱</th>
-									<th scope="col" style="width:5%">數量</th>
+									<th scope="col" style="width:5.3%">數量</th>
 									<th scope="col" style="width:15%">購買日期</th>
 									<th scope="col" style="width:10%">總價格</th>
 									<th scope="col" style="width:10%">刪除</th>

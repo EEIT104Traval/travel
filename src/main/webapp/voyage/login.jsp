@@ -283,7 +283,8 @@ function login(){
                     console.log("userID:" + FB_ID);
 
                     alert("Facebook登入OK");
-                    window.location="http://localhost:8080/Travel/voyage/index.jsp";
+//                     window.location="http://localhost:8080/Travel/voyage/index.jsp";
+						windo
                 } else {
                 // user FB取消授權
                     alert("Facebook帳號無法登入");
@@ -299,8 +300,8 @@ function login(){
 			onreadystatechange="if (this.readyState === 'complete') this.onload()"></script>
 		<script>
         //進入 https://console.developers.google.com/，找「憑證」頁籤(記得先選對專案)，即可找到用戶端ID
-        let Google_appId = "152249642386-p0k54s40jac75e2gre5f6mqih80veto6.apps.googleusercontent.com";
-//         let Google_appId = "988008409378-1kv77jacmp1j9hq2o0ed5luvtna2al3g.apps.googleusercontent.com";
+//         let Google_appId = "152249642386-p0k54s40jac75e2gre5f6mqih80veto6.apps.googleusercontent.com";
+        let Google_appId = "988008409378-1kv77jacmp1j9hq2o0ed5luvtna2al3g.apps.googleusercontent.com";
 
 
 
