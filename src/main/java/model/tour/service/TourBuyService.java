@@ -185,7 +185,7 @@ public class TourBuyService {
 				case 12:bean.setSex(obj[j].toString());
 				}
 			}
-			result.add(bean);
+			result.add(0,bean);
 		}
 		return result;
 	}
