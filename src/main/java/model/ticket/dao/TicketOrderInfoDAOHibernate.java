@@ -57,14 +57,14 @@ public class TicketOrderInfoDAOHibernate implements TicketOrderInfoDAO {
 	
 
 	@Override
-	public List<TicketOrderInfoBean> findaccountName1(String accountName) {
+	public List<?> findaccountName1(String accountName) {
 		
 		String sql3 = "select a.ticketName , b.* from TicketInfo a , TicketOrderInfo b  where a.ticketNo = b.ticketNo and b.accountName ='"+accountName+"'";
 		
-		@SuppressWarnings("unchecked")
-		Query<TicketOrderInfoBean> query = this.getSession().createSQLQuery(sql3);
+//		@SuppressWarnings("unchecked")
+		Query<?> query = this.getSession().createSQLQuery(sql3);
 		
-		List<TicketOrderInfoBean> account = query.list();
+		List<?> account = query.list();
 		
 		return account;
 	}

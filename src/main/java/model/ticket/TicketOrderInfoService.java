@@ -1,16 +1,13 @@
 package model.ticket;
 
+import java.text.ParseException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import model.tour.TestBean;
 
 @Service
 @Transactional
@@ -77,10 +74,37 @@ public class TicketOrderInfoService {
 		return result;
 	}
 	
-	public List<TicketOrderInfoBean> findaccountName1(String accountName){
+	
+	public List<TickettestBean> findaccountName1(String accountName){
 		
-		List<TicketOrderInfoBean> list = ticketOrderInfoDAO.findaccountName1(accountName);
+		List<?> list = ticketOrderInfoDAO.findaccountName1(accountName);
+		TickettestBean bean = null;
+		List<TickettestBean> result= new ArrayList<>();
 		
-		return list;
+		for (int i = 0; i < list.size(); i++) {
+			Object[] obj = (Object[]) list.get(i);
+			bean = new TickettestBean();
+			for (int j = 0; j < obj.length; j++) {
+				if( obj[j]!= null) {
+					switch (j) {
+					case 0:bean.setTicketName(obj[j].toString());
+					case 1:bean.setTicketOrderNO((obj[j].toString()));
+					case 2:bean.setAccountName(obj[j].toString());
+					case 3:bean.setTicketNo(obj[j].toString());
+					case 4:bean.setOrderDate(obj[j].toString());
+					case 5:bean.setUseDate(obj[j].toString());
+					case 6:bean.setAdultTicketCount(obj[j].toString());
+					case 7:bean.setChildTicketCount(obj[j].toString());
+					case 8:bean.setRecevingContact(obj[j].toString());
+					case 9:bean.setRecevingAddress(obj[j].toString());
+					case 10:bean.setRecevingPhone(obj[j].toString());
+					case 11:bean.setTotalPrice(obj[j].toString());
+					}
+				}
+			}
+			result.add(bean);
+		}
+		System.out.println(result);
+		return  result;
 	}
 }

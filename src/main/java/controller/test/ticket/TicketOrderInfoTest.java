@@ -126,9 +126,9 @@ public class TicketOrderInfoTest {
 		return a;
 	}
 	@RequestMapping("/111222333")
-	public List<TicketOrderInfoBean> findaccountName (String accountName) {
-		List<TicketOrderInfoBean> a = ticketOrderInfoService.findaccountName1("micky");
-		System.out.println(a);
+	public List<?> findaccountName (String accountName) {
+		List<?> a = ticketOrderInfoService.findaccountName1("micky");
+
 		return a;
 	}
 }

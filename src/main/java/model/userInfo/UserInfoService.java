@@ -32,11 +32,9 @@ import model.ticket.TicketInfoBean;
 import model.ticket.TicketInfoDAO;
 import model.ticket.TicketOrderInfoBean;
 import model.ticket.TicketOrderInfoService;
+import model.ticket.TickettestBean;
 import model.tour.TestBean;
 import model.tour.TourOrderInfoBean;
-import model.tour.dao.GroupTourDAO;
-import model.tour.dao.TourBatchDAO;
-import model.tour.dao.TourOrderInfoDAO;
 import model.tour.service.TourBuyService;
 import model.tour.service.TourOrderInfoService;
 
@@ -233,7 +231,7 @@ public class UserInfoService {
 	
 		List<TestBean> tourInfo = tourBuyService.test(user);
 		
-		List<TicketOrderInfoBean> ticketInfo = ticketOrderInfoService.findaccountName1(user);
+		List<TickettestBean> ticketInfo = ticketOrderInfoService.findaccountName1(user);
 		
 		List<HotelOrderDetailsBean> HotelInfo = hotelOrderDetailsService.foundOrderaccountName(user);
 
