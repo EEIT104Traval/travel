@@ -282,9 +282,26 @@ function login(){
                     let FB_ID = response["authResponse"]["userID"];
                     console.log("userID:" + FB_ID);
 
-                    alert("Facebook登入OK");
+//                     alert("Facebook登入OK");
 //                     window.location="http://localhost:8080/Travel/voyage/index.jsp";
-						windo
+                	$.ajax({
+                		method: "GET",
+                		url:"/Travel/secure/fbLogin?loginId="+FB_ID,
+                		
+//                			url:"/Travel/tour/display?tourNo=1",
+                		dataType: "json",
+                		success: function(json) {
+                			alert("Facebook登入成功!! Welcome: "+json.lastname);
+//                 			console.log(json);
+//                 			location.reload();
+                			if(json.authority=='A001'){
+                				location.reload();
+                			}else{
+                				window.location="/Travel/CMS/01_01.jsp"
+                			}
+                		}
+                		
+                	});
                 } else {
                 // user FB取消授權
                     alert("Facebook帳號無法登入");

@@ -58,6 +58,7 @@
 	$(document).ready(function() {
 		findorder()
 		console.log(accountName)
+
 	});
 	
 	function deleteOrder(ticketOrderNO){
@@ -98,9 +99,8 @@
 	
 	function findorder() {
 		$("#searchuser").html("")
-
-		$
-				.ajax({
+    
+		$.ajax({
 					url : '/Travel/voyage/userorder.controller',
 					contentType : 'application/json; charset=UTF-8',
 					type : 'get',
@@ -150,6 +150,15 @@
 							if (JData.TourOrderInfoBean != null) {
 								//if(JData.TourOrderInfoBean != null && JData.TourOrderInfoBean.orderStatus="已付費" ){
 								for (var i = 0; i < JData.TourOrderInfoBean.length; i++) {
+									var tourdealdate = new Date(JData.TourOrderInfoBean[i].orderTime);
+									var month = parseInt(tourdealdate.getMonth())+1;
+									if(month.toString().length<2){
+										month="0"+month;
+									}
+									var date = tourdealdate.getDate();
+									if(date.length<2){
+										date = "0"+date
+									}
 									$("#searchuser")
 											.append(
 													'<table class="table table-hover"><th scope="row" style="width:10%;text-align:center" name="orderNo">'
@@ -163,7 +172,7 @@
 															+ JData.TourOrderInfoBean[i].quantity
 															+ '</th>'
 															+ '<th scope="row" style="width:15%" name="orderTime">'
-															+ JData.TourOrderInfoBean[i].orderTime
+															+ tourdealdate.getFullYear()+'-'+month+'-'+date
 															+ '</th>'
 															+ '<th scope="row" style="width:10%" name="total">'
 															+ JData.TourOrderInfoBean[i].total
@@ -181,6 +190,15 @@
 							
 							if (JData.FlightOrderInfoBean != null) {
 								for (var i = 0; i < JData.FlightOrderInfoBean.length; i++) {
+									var flightdate = new Date(JData.FlightOrderInfoBean[i].dealDate);
+									var month = parseInt(flightdate.getMonth())+1;
+									if(month.toString().length<2){
+										month="0"+month;
+									}
+									var date = flightdate.getDate();
+									if(date.length<2){
+										date = "0"+date
+									}
 									$("#searchuser")
 											.append(
 													'<table class="table table-hover"><th scope="row" style="width:10%;text-align:center" name="flightOrderNO">'
@@ -191,8 +209,8 @@
 															+ '<th scope="row" style="width:5%" name="adultCount">'
 															+ JData.FlightOrderInfoBean[i].adultCount
 															+ '</th>'
-															+ '<th scope="row" style="width:15%" name="dealDate">'
-															+ JData.FlightOrderInfoBean[i].dealDate
+															+ '<th scope="row" style="width:15%" name="dealDate" id="dealDate">'
+															+ flightdate.getFullYear()+'-'+month+'-'+date
 															+ '</th>'
 															+ '<th scope="row" style="width:10%" name="totalAmount">'
 															+ JData.FlightOrderInfoBean[i].totalAmount
@@ -208,6 +226,15 @@
 							}
 							if (JData.HotelOrderDetailsBean != null) {
 								for (var i = 0; i < JData.HotelOrderDetailsBean.length; i++) {
+									var hoteldealdate = new Date( JData.HotelOrderDetailsBean[i].createDate);
+									var month = parseInt(hoteldealdate.getMonth())+1;
+									if(month.toString().length<2){
+										month="0"+month;
+									}
+									var date = hoteldealdate.getDate();
+									if(date.length<2){
+										date = "0"+date
+									}
 									$("#searchuser")
 											.append(
 													'<table class="table table-hover"><th scope="row" style="width:10%;text-align:center" name="orderNo">'
@@ -221,7 +248,7 @@
 															+ JData.HotelOrderDetailsBean[i].stayNights
 															+ '(天) </th>'
 															+ '<th scope="row" style="width:15%" name="createDate">'
-															+ JData.HotelOrderDetailsBean[i].createDate
+															+ hoteldealdate.getFullYear()+'-'+month+'-'+date
 															+ '</th>'
 															+ '<th scope="row" style="width:10%" name="roomPrice">'
 															+ JData.HotelOrderDetailsBean[i].roomPrice
