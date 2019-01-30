@@ -112,7 +112,7 @@ var hotelOrderDetailsBean ;
 							'<td>'+ JData.HotelOrderDetailsBean[i].hotelName +'</td>'+
 					        '<td>'+ JData.HotelOrderDetailsBean[i].stayNights+'(天) </td>'+
 					        '<td>'+ date.getFullYear()+'-'+month+'-'+date1 +'</td>'+
-					        '<td>NT$'+ JData.HotelOrderDetailsBean[i].roomPrice +'</td></tr>'								
+					        '<td>NT$'+ JData.HotelOrderDetailsBean[i].totalPrice +'</td></tr>'								
 													)
 											}
 						 	 	  }else{$("#searchuser").append('<table><tr><td>尚無飯店訂單</td></tr></table>')}
