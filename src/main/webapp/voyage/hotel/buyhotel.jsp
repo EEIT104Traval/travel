@@ -94,6 +94,7 @@ $(document).ready(function(){
 	var intDiff = parseInt(899);
 	timer(intDiff);
 	GetDateNow();
+	console.log('${order}')
 // 	getRMB();
 	
 
@@ -113,7 +114,7 @@ $(document).ready(function(){
 				<div class="prog-step">
 					<div class="progress-line"></div>
 					<h4>
-						乘机信息
+						飯店訂購資訊
 <!-- 						<i class="ico ico-step"></i> -->
 					</h4>
 				</div>
@@ -150,7 +151,7 @@ $(document).ready(function(){
 		<!-- S 订单金额 -->
 		<div class="price_area">
 			<div class="price_h1">
-				订单金额<span style="font-size: 30px;" class="price_s1">NT$${order.totalAmount}</span>
+				訂單金額<span style="font-size: 30px;" class="price_s1">NT$${order.totalprice} (含稅)</span>
 			</div>
 		</div>
 		<!-- E 订单金额 -->
@@ -158,23 +159,16 @@ $(document).ready(function(){
 				<div class="time-item">
 			請在   <strong id="minute_show">14分</strong>
 
-				<strong id="second_show">60秒</strong>之前支付订单，超时订单可能会被取消
+				<strong id="second_show">60秒</strong>之前支付訂單，超時訂單可能会被取消
 
 				</div>
 		</div>
 		<!-- S 订单标题 -->
 		<div class="order_tit">
-			<h2>往返机票&nbsp;&nbsp;${order.takeOffPlace} - ${order.landingPlace}</h2>
-			<h3>
-				去程&nbsp;&nbsp;桃園國際機場T2 -
-				洛杉磯國際機場T1&nbsp;&nbsp;&nbsp;&nbsp;出发时间：${order.goDay}&nbsp;&nbsp;${order.goDeTime}<br>返程&nbsp;&nbsp;洛杉磯國際機場T1
-				-
-				桃園國際機場T2&nbsp;&nbsp;&nbsp;&nbsp;出发时间：${order.backDay}&nbsp;&nbsp;${order.backDeTime}<br>
-				乘机人1&nbsp;&nbsp;${order.LastName0}/${order.FirstName0}&nbsp;&nbsp;|&nbsp;&nbsp;乘机人2&nbsp;&nbsp;${order.LastName1}/${order.FirstName1}<br>
-<%-- 				聯絡人${order.contactLastNameCN}${order.contactGender} --%>
-				
-				<br>s
-			</h3>
+			<h2>${order.hotelName}</h2>
+			<p>房型：${order.roomType}</p>
+			<p>時間:${order.checkInDate} - ${order.checkOutDate} 共 ${order.dd} 天</p>
+			
 			
 			<i class="bg_icon01"></i>
 		</div>
@@ -185,7 +179,7 @@ $(document).ready(function(){
 		<!-- E 订单详情 -->
 		<!-- S 提示信息 -->
 		<div class="tip_area">
-			航班价格变动频繁，请在15分钟内完成支付以免耽误出行 <i></i>
+			請在15分鐘内完成支付以免付款失敗 <i></i>
 		</div>
 		<!-- E 提示信息 -->
 <!-- 	</div> -->

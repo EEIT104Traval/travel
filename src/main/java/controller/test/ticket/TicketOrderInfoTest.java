@@ -15,17 +15,18 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import model.ticket.TicketOrderInfoBean;
 import model.ticket.TicketOrderInfoDAO;
+import model.ticket.TicketOrderInfoService;
 
 @RestController
 public class TicketOrderInfoTest {
-
+	@Autowired
+	private TicketOrderInfoService ticketOrderInfoService;
 	@Autowired
 	private TicketOrderInfoDAO dao;
 	@Autowired
@@ -124,5 +125,10 @@ public class TicketOrderInfoTest {
 		System.out.println(a);
 		return a;
 	}
+	@RequestMapping("/111222333")
+	public List<?> findaccountName (String accountName) {
+		List<?> a = ticketOrderInfoService.findaccountName1("micky");
 
+		return a;
+	}
 }

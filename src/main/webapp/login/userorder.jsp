@@ -58,6 +58,7 @@
 	$(document).ready(function() {
 		findorder()
 		console.log(accountName)
+
 	});
 	
 	function deleteOrder(ticketOrderNO){
@@ -98,9 +99,8 @@
 	
 	function findorder() {
 		$("#searchuser").html("")
-
-		$
-				.ajax({
+    
+		$.ajax({
 					url : '/Travel/voyage/userorder.controller',
 					contentType : 'application/json; charset=UTF-8',
 					type : 'get',
@@ -111,9 +111,54 @@
 				})
 				.done(
 						function(JData) {
+							console.log(JData)
+							if (JData.TicketOrderInfoBean != null) {
+								for (var i = 0; i < JData.TicketOrderInfoBean.length; i++) {
+									$("#searchuser")
+											.append(
+													'<table class="table table-hover"><th scope="row" style="width:10%;text-align:center" name="ticketOrderNO">'
+															+ JData.TicketOrderInfoBean[i].ticketOrderNO
+// 															+ JData.TicketOrderInfoBean[i][1]
+															+ '</th>'
+															+ '<th scope="row">景點門票</th>'
+															+ '<th scope="row" style="width:27%; name="ticketName">'
+															+ JData.TicketOrderInfoBean[i].ticketName
+// 															+ JData.TicketOrderInfoBean[i][0]
+															+ '</th>'
+															+ '<th scope="row" style="width:5%" name="adultTicketCount">'
+															+ JData.TicketOrderInfoBean[i].adultTicketCount
+// 															+ JData.TicketOrderInfoBean[i][7]
+															+ '</th>'
+															+ '<th scope="row" style="width:15%" name="orderDate">'
+															+ JData.TicketOrderInfoBean[i].orderDate
+// 															+ JData.TicketOrderInfoBean[i][4]
+															+ '</th>'
+															+ '<th scope="row" style="width:10%" name="totalPrice">'
+															+ JData.TicketOrderInfoBean[i].totalPrice
+// 															+ JData.TicketOrderInfoBean[i][11]
+															+ '</th>'
+															+
+															//'<th style="width:100px" name="totalPrice"><input type="submit" name="prodaction" value="刪除"></th></table>'
+															'<th scope="row" style="width:10%" name="totalPrice"><input type="image" src="images/gb.png" width="20%" height="20%" alt="send" name="Test" id="Test" onclick="deleteOrder(\''+JData.TicketOrderInfoBean[i].ticketOrderNO+'\');" /></th></table>')
+// 															'<th scope="row" style="width:10%" name="totalPrice"><input type="image" src="images/gb.png" width="20%" height="20%" alt="send" name="Test" id="Test" onclick="deleteOrder(\''+JData.TicketOrderInfoBean[i][1]+'\');" /></th></table>')
+								}
+							} else {
+								$("#HotelOrderDetailsBean")
+										.append('<table ><hr></table>')
+// 												'<table class="table table-hover"><th scope="row">尚無門票訂單</th></table>')
+							}
 							if (JData.TourOrderInfoBean != null) {
 								//if(JData.TourOrderInfoBean != null && JData.TourOrderInfoBean.orderStatus="已付費" ){
 								for (var i = 0; i < JData.TourOrderInfoBean.length; i++) {
+									var tourdealdate = new Date(JData.TourOrderInfoBean[i].orderTime);
+									var month = parseInt(tourdealdate.getMonth())+1;
+									if(month.toString().length<2){
+										month="0"+month;
+									}
+									var date = tourdealdate.getDate();
+									if(date.length<2){
+										date = "0"+date
+									}
 									$("#searchuser")
 											.append(
 													'<table class="table table-hover"><th scope="row" style="width:10%;text-align:center" name="orderNo">'
@@ -127,7 +172,7 @@
 															+ JData.TourOrderInfoBean[i].quantity
 															+ '</th>'
 															+ '<th scope="row" style="width:15%" name="orderTime">'
-															+ JData.TourOrderInfoBean[i].orderTime
+															+ tourdealdate.getFullYear()+'-'+month+'-'+date
 															+ '</th>'
 															+ '<th scope="row" style="width:10%" name="total">'
 															+ JData.TourOrderInfoBean[i].total
@@ -141,38 +186,19 @@
 										.append(
 												'<table ><hr></table>')
 							}
-							if (JData.TicketOrderInfoBean != null) {
-								for (var i = 0; i < JData.TicketOrderInfoBean.length; i++) {
-									$("#searchuser")
-											.append(
-													'<table class="table table-hover"><th scope="row" style="width:10%;text-align:center" name="ticketOrderNO">'
-															+ JData.TicketOrderInfoBean[i].ticketOrderNO
-															+ '</th>'
-															+ '<th scope="row">門票</th>'
-															+ '<th scope="row" style="width:25%; name="ticketName">'
-															+ JData.TicketOrderInfoBean[i].ticketName
-															+ '</th>'
-															+ '<th scope="row" style="width:5%" name="adultTicketCount">'
-															+ JData.TicketOrderInfoBean[i].adultTicketCount
-															+ '</th>'
-															+ '<th scope="row" style="width:15%" name="orderDate">'
-															+ JData.TicketOrderInfoBean[i].orderDate
-															+ '</th>'
-															+ '<th scope="row" style="width:10%" name="totalPrice">'
-															+ JData.TicketOrderInfoBean[i].totalPrice
-															+ '</th>'
-															+
-															//'<th style="width:100px" name="totalPrice"><input type="submit" name="prodaction" value="刪除"></th></table>'
-															'<th scope="row" style="width:10%" name="totalPrice"><input type="image" src="images/gb.png" width="20%" height="20%" alt="send" name="Test" id="Test" onclick="deleteOrder(\''+JData.TicketOrderInfoBean[i].ticketOrderNO+'\');" /></th></table>')
-								}
-							} else {
-								$("#HotelOrderDetailsBean")
-										.append('<table ><hr></table>')
-// 												'<table class="table table-hover"><th scope="row">尚無門票訂單</th></table>')
-							}
+
 							
 							if (JData.FlightOrderInfoBean != null) {
 								for (var i = 0; i < JData.FlightOrderInfoBean.length; i++) {
+									var flightdate = new Date(JData.FlightOrderInfoBean[i].dealDate);
+									var month = parseInt(flightdate.getMonth())+1;
+									if(month.toString().length<2){
+										month="0"+month;
+									}
+									var date = flightdate.getDate();
+									if(date.length<2){
+										date = "0"+date
+									}
 									$("#searchuser")
 											.append(
 													'<table class="table table-hover"><th scope="row" style="width:10%;text-align:center" name="flightOrderNO">'
@@ -183,8 +209,8 @@
 															+ '<th scope="row" style="width:5%" name="adultCount">'
 															+ JData.FlightOrderInfoBean[i].adultCount
 															+ '</th>'
-															+ '<th scope="row" style="width:15%" name="dealDate">'
-															+ JData.FlightOrderInfoBean[i].dealDate
+															+ '<th scope="row" style="width:15%" name="dealDate" id="dealDate">'
+															+ flightdate.getFullYear()+'-'+month+'-'+date
 															+ '</th>'
 															+ '<th scope="row" style="width:10%" name="totalAmount">'
 															+ JData.FlightOrderInfoBean[i].totalAmount
@@ -200,6 +226,15 @@
 							}
 							if (JData.HotelOrderDetailsBean != null) {
 								for (var i = 0; i < JData.HotelOrderDetailsBean.length; i++) {
+									var hoteldealdate = new Date( JData.HotelOrderDetailsBean[i].createDate);
+									var month = parseInt(hoteldealdate.getMonth())+1;
+									if(month.toString().length<2){
+										month="0"+month;
+									}
+									var date = hoteldealdate.getDate();
+									if(date.length<2){
+										date = "0"+date
+									}
 									$("#searchuser")
 											.append(
 													'<table class="table table-hover"><th scope="row" style="width:10%;text-align:center" name="orderNo">'
@@ -213,7 +248,7 @@
 															+ JData.HotelOrderDetailsBean[i].stayNights
 															+ '(天) </th>'
 															+ '<th scope="row" style="width:15%" name="createDate">'
-															+ JData.HotelOrderDetailsBean[i].createDate
+															+ hoteldealdate.getFullYear()+'-'+month+'-'+date
 															+ '</th>'
 															+ '<th scope="row" style="width:10%" name="roomPrice">'
 															+ JData.HotelOrderDetailsBean[i].roomPrice
@@ -261,7 +296,7 @@
 									<th scope="col" style="width:10%">訂單號碼</th>
 									<th scope="col">類型</th>
 									<th scope="col" style="width:25%">名稱</th>
-									<th scope="col" style="width:5%">數量</th>
+									<th scope="col" style="width:5.3%">數量</th>
 									<th scope="col" style="width:15%">購買日期</th>
 									<th scope="col" style="width:10%">總價格</th>
 									<th scope="col" style="width:10%">刪除</th>

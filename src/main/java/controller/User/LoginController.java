@@ -172,6 +172,18 @@ public class LoginController {
 		 model.addAttribute("accountName", update.getAccountName());	
 		 return update;	  		  
 	 }
+	 
+	 @ResponseBody
+	 @RequestMapping("/secure/fbLogin")
+	 public UserInfoBean updatefb(String loginId , Model model) {
+		 UserInfoBean update = userInfoService.gorfbLoginUpdateTime(loginId);
+//		 System.out.println("update"+update.toString());
+		 model.addAttribute("user", update.getFirstname()+" "+update.getLastname());
+		 model.addAttribute("login", update);			
+		 model.addAttribute("accountName", update.getAccountName());	
+		 return update;	  		  
+	 }
+	 
 	 @ResponseBody
 	 @RequestMapping("/secure/updatemeberInfo")
 	 public UserInfoBean updatemeberInfo(UserInfoBean bean , Model model) {

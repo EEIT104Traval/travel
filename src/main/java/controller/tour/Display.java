@@ -2,6 +2,7 @@ package controller.tour;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -29,7 +30,6 @@ import model.tour.TourMemberInfoBean;
 import model.tour.TourOrderInfoBean;
 import model.tour.service.GroupTourService;
 import model.tour.service.TourBuyService;
-import model.userInfo.UserInfoService;
 
 @Controller
 public class Display {
@@ -38,8 +38,7 @@ public class Display {
 	private GroupTourService groupTourService;
 	@Autowired
 	private TourBuyService tourBuyService;
-	@Autowired
-	private UserInfoService userInfoService;
+
 
 	@ResponseBody
 	@RequestMapping("/tour/display")
@@ -207,9 +206,15 @@ public class Display {
 	
 	@ResponseBody
 	@RequestMapping("/tour/Display2/test")
-	public Map<String,List<?>> test(){
-		Map<String,List<?>> result = tourBuyService.test();
-		return result;
+	public Map<String,List<?>> test(String accountName){
+		Map<String,List<?>> map = new HashMap<>();
+		if(accountName!=null && accountName.length()!=0) {
+			List<TestBean> list = tourBuyService.test(accountName);
+			map.put("TourOrderInfoBean", list);
+			System.out.println(map.toString());
+			return map;
+		}
+		return map;
 	}
 	
 }

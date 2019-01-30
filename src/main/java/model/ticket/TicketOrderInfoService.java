@@ -73,4 +73,37 @@ public class TicketOrderInfoService {
 		return result;
 	}
 	
+	
+	public List<TickettestBean> findaccountName1(String accountName){
+		
+		List<?> list = ticketOrderInfoDAO.findaccountName1(accountName);
+		TickettestBean bean = null;
+		List<TickettestBean> result= new ArrayList<>();
+		
+		for (int i = 0; i < list.size(); i++) {
+			Object[] obj = (Object[]) list.get(i);
+			bean = new TickettestBean();
+			for (int j = 0; j < obj.length; j++) {
+				if( obj[j]!= null) {
+					switch (j) {
+					case 0:bean.setTicketName(obj[j].toString());
+					case 1:bean.setTicketOrderNO((obj[j].toString()));
+					case 2:bean.setAccountName(obj[j].toString());
+					case 3:bean.setTicketNo(obj[j].toString());
+					case 4:bean.setOrderDate(obj[j].toString());
+					case 5:bean.setUseDate(obj[j].toString());
+					case 6:bean.setAdultTicketCount(obj[j].toString());
+					case 7:bean.setChildTicketCount(obj[j].toString());
+					case 8:bean.setRecevingContact(obj[j].toString());
+					case 9:bean.setRecevingAddress(obj[j].toString());
+					case 10:bean.setRecevingPhone(obj[j].toString());
+					case 11:bean.setTotalPrice(obj[j].toString());
+					}
+				}
+			}
+			result.add(bean);
+		}
+		System.out.println(result);
+		return  result;
+	}
 }

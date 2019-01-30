@@ -74,6 +74,7 @@ public class GroupTourService {
 			sb.add(t.getTourNo());			
 		}
 		List<GroupTourBean> lg = groupTourDAO.findByList(sb);
+	
 		System.out.println("lg=>"+lg.get(0));
 		System.out.println("lg=>"+lg.get(1));
 

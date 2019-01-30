@@ -54,9 +54,9 @@ public class RoomAvailableController {
 
 	// @ResponseBody
 	@RequestMapping("/voyage/hotel/HotelOrder")
-	public String HotelOrder(HttpSession session, String bookingPerson, String phone, String roomTypeNo, String checkIn,
+	public String HotelOrder(HttpSession session, String totalPrice ,String hotelName,String bookingPerson, String phone, String roomTypeNo, String checkIn,
 			String checkOut, String roomType, Model model) throws ParseException {
-
+		System.out.println(totalPrice);
 		String year = checkIn.substring(6);
 		String month = checkIn.substring(0, 2);
 		String day = checkIn.substring(3, 5);
@@ -78,11 +78,29 @@ public class RoomAvailableController {
 		System.out.println(CheckIndate);
 		System.out.println(CheckOutdate);
 		System.out.println("轉換成功");
+		
+		Map<String, Object> order = new HashMap<>();
+		Integer dd = Integer.parseInt(day2) - Integer.parseInt(day);
+		order.put("accountName",accountName);
+		System.out.println("accountName="+accountName);
+		order.put("totalprice",totalPrice);
+		System.out.println("totalprice="+totalPrice);
+		order.put("hotelName",hotelName);
+		System.out.println("hotelName="+hotelName);
+		order.put("roomType", roomType);
+		System.out.println("roomType="+roomType);
+		order.put("dd", dd);
+		System.out.println("dd="+dd);
+		order.put("checkInDate", checkInDate);
+		System.out.println("checkInDate="+checkInDate);
+		order.put("checkOutDate", checkOutDate);
+		System.out.println("checkOutDate="+checkOutDate);
+		model.addAttribute("order", order);
 		boolean result = hotelService.qupdate(accountName, 4, bookingPerson, phone, 8, CheckIndate, CheckOutdate);
 		if (result == true) {
-			model.addAttribute("result", "訂購成功");
+//			model.addAttribute("result", "訂購成功");
 			System.out.println("訂購成功");
-			return "hotelIndex";
+			return "buyhotel";
 
 		} else {
 			model.addAttribute("result", "訂購失敗");

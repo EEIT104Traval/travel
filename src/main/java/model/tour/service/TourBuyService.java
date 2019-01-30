@@ -152,18 +152,18 @@ public class TourBuyService {
 		return map;
 	}
 
-	public Map<String,List<?>> test() {
-		List<?> list = orderDao.findByAccound("micky");
+	public List<TestBean> test(String accountName) {
+		List<?> list = orderDao.findByAccound(accountName);
 		List<TestBean> result = new ArrayList<>();
 		TestBean bean = null;
 		
-		for (int i = 0; i < list.size(); i++) {
-			Object[] obj = (Object[]) list.get(i);
-			for (int j = 0; j < obj.length; j++) {
-				System.out.print("obj"+j+"="+ obj[j].toString()+",");
-			}
-			System.out.println();
-		}
+//		for (int i = 0; i < list.size(); i++) {
+//			Object[] obj = (Object[]) list.get(i);
+//			for (int j = 0; j < obj.length; j++) {
+//				System.out.print("obj"+j+"="+ obj[j].toString()+",");
+//			}
+//			System.out.println();
+//		}
 		
 		for (int i = 0; i < list.size(); i++) {
 			Object[] obj = (Object[]) list.get(i);
@@ -185,12 +185,9 @@ public class TourBuyService {
 				case 12:bean.setSex(obj[j].toString());
 				}
 			}
-			result.add(bean);
+			result.add(0,bean);
 		}
-		Map<String,List<?>> map = new HashMap<>();
-		map.put("TourOrderInfoBean", result);
-		System.out.println(map.toString());
-		return map;
+		return result;
 	}
 
 }

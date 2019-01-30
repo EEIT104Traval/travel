@@ -134,6 +134,7 @@ public class TicketOrderInfoBean {
 				+ ticketNo + ", orderDate=" + orderDate + ", useDate=" + useDate + ", adultTicketCount="
 				+ adultTicketCount + ", childTicketCount=" + childTicketCount + ", recevingContact=" + recevingContact
 				+ ", recevingAddress=" + recevingAddress + ", recevingPhone=" + recevingPhone + ", totalPrice="
-				+ totalPrice + "]";
+				+ totalPrice + ", ticketName=" + ticketName + "]";
 	}
+	
 }

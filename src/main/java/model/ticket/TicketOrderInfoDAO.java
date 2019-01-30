@@ -26,5 +26,8 @@ public interface TicketOrderInfoDAO {
 	public abstract List<TicketOrderInfoBean> finduser(String accountName);
 	//給使用者名子取出票券號碼
 	public abstract TicketOrderInfoBean fundNumber(String accountName);
+
+	List<Object> findaccountName(String accountName);
 	
+	List<?> findaccountName1(String accountName);
 }

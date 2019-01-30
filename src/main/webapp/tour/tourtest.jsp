@@ -31,6 +31,8 @@
 <!--         <script type="text/javascript" src="scripts/JSLINQ.js"></script> -->
         <script type="text/javascript">
         
+        
+        
             var jsonScenery = [];
             var jsonHotel = [];    
  

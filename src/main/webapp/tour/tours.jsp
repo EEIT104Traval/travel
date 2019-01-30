@@ -421,7 +421,7 @@
 				     
 				     //頁碼點擊事件
 				     $('#nav').on("click", "a", function(){
-				         $('#nav li ').removeClass('active');    //移除所有頁碼的active類
+				         $('#nav li ').removeClass('active');    //移除所有頁碼的active類別
 				         $(this).parent("li").addClass('active');//為當前頁碼加入active類
 				         var currPage=$(this).attr('rel');     //取出頁碼上的值
 				         var startItem=currPage*rowsShown;     //行數的開始=頁碼*每頁顯示的行

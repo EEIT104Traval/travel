@@ -8,12 +8,10 @@ import javax.persistence.criteria.Root;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.query.NativeQuery;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import model.tour.TestBean;
 import model.tour.TourOrderInfoBean;
 
 
@@ -77,8 +75,9 @@ public class TourOrderInfoDAO {
 	 public List<Object> findByAccound(String account) {
 //		  String sql = "select a.contactGender,a.contactLastNameCN from FlightOrderInfo a, FlightPassengerInfo b, FlightTicket c where a.flightOrderNO = b.flightOrderNO and a.flightOrderNO = c.flightOrderNo and a.accountName='MICKY'";
 		  
-		String sql2 = "select a.tourNo tourNo , a.tourName , b.departureDate , c.orderNo , c.accountName , c.fullName , c.email , c.phone , c.orderStatus , c.orderTime , c.quantity , c.total , c.sex from GroupTour a , TourBatch b , TourOrderInfo c where a.tourNo = b.tourNo and b.serialNo = c.serialNo and c.accountName = 'micky'";
-		Query  query = this.getSession().createSQLQuery(sql2);
+		String sql2 = "select a.tourNo tourNo , a.tourName , b.departureDate , c.orderNo , c.accountName , c.fullName , c.email , c.phone , c.orderStatus , c.orderTime , c.quantity , c.total , c.sex from GroupTour a , TourBatch b , TourOrderInfo c where a.tourNo = b.tourNo and b.serialNo = c.serialNo and c.accountName = '"+account+"'";
+		@SuppressWarnings("unchecked")
+		Query<Object>  query = this.getSession().createSQLQuery(sql2);
 		  List<Object> list = query.list();
 		  System.out.println("list0=" + list.get(0));
 		  System.out.println("list=" + list.size());

@@ -66,12 +66,22 @@ var hotelOrderDetailsBean ;
 							console.log(JData);
 		    if(JData.TourOrderInfoBean != null){
 					for(var i = 0 ; i<JData.TourOrderInfoBean.length ; i++){
+						var date = new Date(JData.TourOrderInfoBean[i].orderTime);
+						var month = parseInt(date.getMonth())+1;
+						if(month.toString().length < 2){
+							month = "0"+month
+						}
+						var date1 = date.getDate()
+						if(date.length <2){
+							date1 = "0"+date1
+						}
+							
  							$("#searchuser1").append(		
  							'<tr><td>旅遊行程</td>'+
  							'<td>'+ JData.TourOrderInfoBean[i].tourName +'</td>'+
  							'<td>'+ JData.TourOrderInfoBean[i].quantity +'</td>'+
- 							'<td>'+ JData.TourOrderInfoBean[i].orderTime +'</td>'+
- 						    '<td>'+ JData.TourOrderInfoBean[i].total +'</td></tr>'								
+ 							'<td>'+ date.getFullYear()+'-'+month+'-'+date1 +'</td>'+
+ 						    '<td>NT$'+ JData.TourOrderInfoBean[i].total +'</td></tr>'								
 													)
 											}
 						   		  }else{$("#searchuser").append('<table><tr><td>尚無旅遊行程</td></tr></table>')}
@@ -79,24 +89,53 @@ var hotelOrderDetailsBean ;
 					for(var i = 0;i<JData.TicketOrderInfoBean.length;i++){
 							$("#searchuser1").append(		
 							'<tr><td>門票</td>'+
-							'<td>'+ JData.TicketOrderInfoBean[i].ticketName +'</td>'+
-					        '<td>'+ JData.TicketOrderInfoBean[i].adultTicketCount +'</td>'+
-					        '<td>'+ JData.TicketOrderInfoBean[i].orderDate +'</td>'+
-					        '<td>'+ JData.TicketOrderInfoBean[i].totalPrice +'</td></tr>'								
+							'<td>'+ JData.TicketOrderInfoBean[i].ticketName+'</td>'+
+					        '<td>'+ JData.TicketOrderInfoBean[i].adultTicketCount+'</td>'+
+					        '<td>'+ JData.TicketOrderInfoBean[i].orderDate+'</td>'+
+					        '<td>NT$'+ JData.TicketOrderInfoBean[i].totalPrice+'</td></tr>'								
 													)	
 											}
 								  }else{$("#HotelOrderDetailsBean").append('<table><tr><td>尚無門票訂單</td></tr></table>')}				 			
 			if(JData.HotelOrderDetailsBean != null){
 					for(var i = 0;i<JData.HotelOrderDetailsBean.length;i++){
+						var date = new Date(JData.HotelOrderDetailsBean[i].createDate);
+						var month = parseInt(date.getMonth())+1;
+						if(month.toString().length < 2){
+							month = "0"+month
+						}
+						var date1 = date.getDate()
+						if(date.length <2){
+							date1 = "0"+date1
+						}
 							$("#searchuser1").append(		
 							'<tr><td>飯店</td>'+
 							'<td>'+ JData.HotelOrderDetailsBean[i].hotelName +'</td>'+
 					        '<td>'+ JData.HotelOrderDetailsBean[i].stayNights+'(天) </td>'+
-					        '<td>'+ JData.HotelOrderDetailsBean[i].createDate +'</td>'+
-					        '<td>'+ JData.HotelOrderDetailsBean[i].roomPrice +'</td></tr>'								
+					        '<td>'+ date.getFullYear()+'-'+month+'-'+date1 +'</td>'+
+					        '<td>NT$'+ JData.HotelOrderDetailsBean[i].totalPrice +'</td></tr>'								
 													)
 											}
-						 	 	  }else{$("#searchuser").append('<table><tr><td>尚無飯店訂單</td></tr></table>')}						
+						 	 	  }else{$("#searchuser").append('<table><tr><td>尚無飯店訂單</td></tr></table>')}
+			if(JData.FlightOrderInfoBean != null){
+				for(var i = 0;i<JData.FlightOrderInfoBean.length;i++){
+					var date = new Date(JData.FlightOrderInfoBean[i].dealDate);
+					var month = parseInt(date.getMonth())+1;
+					if(month.toString().length < 2){
+						month = "0"+month
+					}
+					var date1 = date.getDate()
+					if(date.length <2){
+						date1 = "0"+date1
+					}
+						$("#searchuser1").append(		
+						'<tr><td>機票</td>'+
+						'<td>'+ JData.FlightOrderInfoBean[i].flightTicketBean[i].airlineCode +'</td>'+
+				        '<td>'+ JData.FlightOrderInfoBean[i].adultCount+'(天) </td>'+
+				        '<td>'+ date.getFullYear()+'-'+month+'-'+date1 +'</td>'+
+				        '<td>'+ JData.FlightOrderInfoBean[i].totalAmount +'</td></tr>'								
+												)
+										}
+					 	 	  }else{$("#searchuser").append('<table><tr><td>尚無機票訂單</td></tr></table>')}	
 						})
 				};		
 </script>
