@@ -157,13 +157,13 @@ public class TourBuyService {
 		List<TestBean> result = new ArrayList<>();
 		TestBean bean = null;
 		
-		for (int i = 0; i < list.size(); i++) {
-			Object[] obj = (Object[]) list.get(i);
-			for (int j = 0; j < obj.length; j++) {
-				System.out.print("obj"+j+"="+ obj[j].toString()+",");
-			}
-			System.out.println();
-		}
+//		for (int i = 0; i < list.size(); i++) {
+//			Object[] obj = (Object[]) list.get(i);
+//			for (int j = 0; j < obj.length; j++) {
+//				System.out.print("obj"+j+"="+ obj[j].toString()+",");
+//			}
+//			System.out.println();
+//		}
 		
 		for (int i = 0; i < list.size(); i++) {
 			Object[] obj = (Object[]) list.get(i);
