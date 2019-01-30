@@ -358,7 +358,7 @@ h2 {
 					<div class="col-md-8 probootstrap-animate fadeInUp probootstrap-animated">
 						<h5 style="padding-top: 20px; float: left; margin-right: 20px">請填寫訂單聯絡人資訊</h5>
 						<input onclick="put()" id="same" type="checkbox"> 
-						<label for="same" style="padding-top: 20px;">同聯絡人資訊</label>
+						<label for="same" style="padding-top: 20px;">同會員資訊</label>
 <!-- 						<form role="form"> -->
 							<div class="row">
 								<div class="col-md-5 col-xs-12">

@@ -111,7 +111,7 @@ h2 {
 		if(Data[e].orderStatus=="未付款"){
 			GetDateNow();
 			$('#WIDsubject').val(Data[e].tourName);
-			$('#WIDtotal_amount').val(123);
+			$('#WIDtotal_amount').val(Data[e].total);
 			$('#WIDbody').val('');
 			$('#but').html('<button onclick="cancel('+e+')" type="button" class="btn btn-secondary" data-dismiss="modal">退訂</button>')
 			$('#but').append('<button type="submit" class="btn btn-primary">立即付款</button>')        
