@@ -164,11 +164,10 @@ $(document).ready(function(){
 		<!-- S 订单标题 -->
 		<div class="order_tit">
 			<h2>票券訊息</h2>
-			<h3>
-				${order.accountName} 購買了 <br>
-				${order.ticketName}<br>
-				 ${order.adultTicketSellQ} 張<br>
-			</h3>
+				<h1>${order.accountName}  </h1>
+				<br>
+				<p>購買了： ${order.ticketName}
+				<p>共： ${order.adultTicketSellQ} 張</p>
 			
 			<i class="bg_icon01"></i>
 		</div>
