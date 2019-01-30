@@ -27,10 +27,10 @@
     <link href="<c:url value='/voyage/css/jquery-ui.css' />" rel="stylesheet" type="text/css">
 <!--     下拉式選單 -->
 
-<link type="text/css" rel="stylesheet" 
-href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
-<link type="text/css" rel="stylesheet" 
-href="http://gregfranko.com/jquery.selectBoxIt.js/css/jquery.selectBoxIt.css" />
+<!-- <link type="text/css" rel="stylesheet"  -->
+<!-- href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" /> -->
+<!-- <link type="text/css" rel="stylesheet"  -->
+<!-- href="http://gregfranko.com/jquery.selectBoxIt.js/css/jquery.selectBoxIt.css" /> -->
 </head>
 <script
   src="https://code.jquery.com/jquery-3.3.1.js"
