@@ -55,16 +55,17 @@ var sum = 0;
  					dataType : 'json',
  					data:params,
  				   }).done(function(JData) {  
+ 					   console.log(JData)
  					  $("#searchuser").append(
  								'<div style="text-align: center;"><h2>'+Number($('#select1').val()) +'月份報表</h2></div>'+
  								'<br>'+
- 								'<table><thead><tr><td>國家</td><td>名稱</td><td>數量</td><td>購買日期</td><td>價格</td></tr></thead><tbody id="searchuser1">'
+ 								'<table><thead><tr><td>行程代號</td><td>繳費狀況</td><td>數量</td><td>購買日期</td><td>價格</td></tr></thead><tbody id="searchuser1">'
  								);
 						if(JData.length != 0){
   							for(var i = 0;i<JData.length;i++){
   								x = JData[i].total
 	 							$("#searchuser1").append(		
-	 							'<tr><td>'+ JData[i].country +'</td><td>'+ JData[i].tourName +'</td><td>'+ JData[i].quantity +'</td>'+
+	 							'<tr><td>'+ JData[i].orderNo +'</td><td>'+ JData[i].orderStatus +'</td><td>'+ JData[i].quantity +'</td>'+
 	 								       '<td>'+ JData[i].orderTime +'</td><td>'+ JData[i].total +'</td></tr>'
 	 													)
 	 													sum = sum + x

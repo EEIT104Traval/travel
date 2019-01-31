@@ -288,18 +288,18 @@ public class UserInfoService {
 					hssfRow = hssfSheet.createRow(i + 1);
 					TourOrderInfoBean user = users.get(i);
 					// 第六步，創建單元格，並設置值
-					String userCountry = "";
-					if (user.getCountry() != null) {
-						userCountry = user.getCountry();
-						System.out.println(userCountry);
+					int userOrderNo = 0;
+					if (user.getOrderNo() != null) {
+						userOrderNo = user.getOrderNo();
+						System.out.println(userOrderNo);
 					}
-					hssfRow.createCell(0).setCellValue(userCountry);
+					hssfRow.createCell(0).setCellValue(userOrderNo);
 
-					String userTourName = "";
-					if (user.getTourName() != null) {
-						userTourName = user.getTourName();
+					String userOrderStatus = "";
+					if (user.getOrderStatus() != null) {
+						userOrderStatus = user.getOrderStatus();
 					}
-					hssfRow.createCell(1).setCellValue(userTourName);
+					hssfRow.createCell(1).setCellValue(userOrderStatus);
 
 					int quantity = 0;
 					if (user.getQuantity() != null) {
