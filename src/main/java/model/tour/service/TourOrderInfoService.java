@@ -39,27 +39,7 @@ public class TourOrderInfoService {
 	public List<TourOrderInfoBean> findBuyMonth (Integer month) {
 
 		List<TourOrderInfoBean> tourInfo = toDAO.findBuyMonth(month);
-		List<TourBatchBean> tourBatch = tourBatchDAO.findByTourOrderList(tourInfo);
-		List<GroupTourBean> tourList = groupTourDAO.findByTourBatchList(tourBatch);
-				
-		for (GroupTourBean groupTourBean : tourList) {
-			for (TourBatchBean tourBatchBean : tourBatch) {
-				for (TourOrderInfoBean tourOrder : tourInfo) {
-
-					if ((groupTourBean.getTourNo().equals(tourBatchBean.getTourNo()))
-							&& (tourBatchBean.getSerialNo().equals(tourOrder.getSerialNo()))) {
-
-						tourBatchBean.setTourName(groupTourBean.getTourName());
-						tourOrder.setTourName(tourBatchBean.getTourName());
-						
-						tourBatchBean.setCountry(groupTourBean.getCountry());
-						tourOrder.setCountry(tourBatchBean.getCountry());
-						
-					}
-					continue;
-				}
-			}
-		}
+		
 		return tourInfo;
 	}
 }
