@@ -217,7 +217,7 @@ function update(){
 	   SimpleDateFormat ft = 
 	   new SimpleDateFormat ("yyyy-MM-dd HH:mm:ss");
 //        out.print( "<h5 style='color:white' align=\"left\">更新時間： " +ft.format(dNow)+"</h5>");
-       out.print( "<h5 style='color:white' align=\"left\">更新時間：2019-01-29 16:00:00</h5>");
+       out.print( "<h5 style='color:white' align=\"left\">更新時間：2019-01-30 16:00:00</h5>");
     %>
 </div>
 

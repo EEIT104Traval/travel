@@ -74,7 +74,7 @@ public class RateNoticeService {
 	            Date newdate = new Date();
 	            String sDate = sdFormat.format(newdate);
 	            
-	            String messageText =  "Dear "+accountName+": You set up the rate $31.5 that price is accomplished. ";
+	            String messageText =  "Dear "+accountName+": You set up the rate $31.1 that price is accomplished. ";
 	            boolean sessionDebug = false;
 	            Properties props = System.getProperties();
 

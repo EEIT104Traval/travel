@@ -126,7 +126,7 @@ function notice(){
 			//
 			console.log("ˋ抓到"+e["targetRate"]);
 			if (e["currency"]){
-				alert("Hello "+accountName+"!! 您輸入的匯率價格31.5元已到價，可準備兌換囉!!! ")
+				alert("Hello "+accountName+"!! 您輸入的匯率價格31.1元已到價，可準備兌換囉!!! ")
 			}else{
 				alert("Hello"+accountName+"!! 你輸入的價格未到價")
 			}

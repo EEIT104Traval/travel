@@ -318,10 +318,11 @@ function login(){
 		<script>
         //進入 https://console.developers.google.com/，找「憑證」頁籤(記得先選對專案)，即可找到用戶端ID
 //         let Google_appId = "152249642386-p0k54s40jac75e2gre5f6mqih80veto6.apps.googleusercontent.com";
-        let Google_appId = "988008409378-1kv77jacmp1j9hq2o0ed5luvtna2al3g.apps.googleusercontent.com";
+//         let Google_appId = "988008409378-1kv77jacmp1j9hq2o0ed5luvtna2al3g.apps.googleusercontent.com";
+        let Google_appId = "551242079087-5iilcg2vt19r483ssbahu0jhn86vbsin.apps.googleusercontent.com";
 
 
-
+        
         
         //參考文章：http://usefulangle.com/post/55/google-login-javascript-api 
 
