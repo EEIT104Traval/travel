@@ -131,7 +131,7 @@ public class TicketInfoService {
 		            SimpleDateFormat sdFormat = new SimpleDateFormat("yyyy/MM/dd hh:mm:ss");
 		            Date newdate = new Date();
 		            String sDate = sdFormat.format(newdate);
-//-------------------------信件內容格式------------------------------	
+           //-------------------------信件內容格式------------------------------	
 		            
 		            String messageText = "親愛的"+accountName+"你好，你於"+sDate+"購入了"+ticketNo+"："+adultTicketSellQ+"張，共"+(adultTicketSellQ*adultTicketPrice)+"元";
 		            
