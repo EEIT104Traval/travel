@@ -31,8 +31,8 @@ public class RoomAvailableController {
 	@Autowired
 	private HotelOrderDetailsService hotelOrderDetailsService;
 
-	@ResponseBody
-	@RequestMapping("/voyage/date.controller")
+	@ResponseBody // 回應到傳送的同一個頁面。如果要轉跳頁面。 就要註解掉
+	@RequestMapping("/voyage/date.controller") // jQuery的AJAX方法中URL的邏輯名稱
 	public Map searchRoomType(@RequestParam(value = "8", required = false) Integer roomTypeNo) {
 
 		System.out.println("roomTypeNo=" + roomTypeNo);
@@ -121,7 +121,7 @@ public class RoomAvailableController {
 	}
 
 	@ResponseBody
-	@RequestMapping("/voyage/hotel/DateMinus")
+	@RequestMapping("/voyage/hotel/DateMinus") // 
 	public Map<String, String> DateMinus(String checkInDate, String checkOutDate, Integer roomTypeNo)
 			throws ParseException {
 		Map<String, String> map = new HashMap<>();

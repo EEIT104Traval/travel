@@ -20,7 +20,7 @@ public class HotelController {
 
 	@ResponseBody
 	@RequestMapping("/voyage/country.controller")
-	public List<HotelBean> searchByCountry(@RequestParam(value = "country", required = false) String countryCH) {
+	public List<HotelBean> searchByCountry(@RequestParam(value = "country", required = false) String countryCH) { // jsp傳來的資料如果跟controller命名不一樣，要宣告
 		// Locale locale = LocaleContextHolder.getLocale(); //多國語系
 		System.out.println("country=" + countryCH);
 //接收資料

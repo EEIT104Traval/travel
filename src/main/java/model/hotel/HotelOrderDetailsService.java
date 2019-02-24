@@ -17,6 +17,7 @@ public class HotelOrderDetailsService {
 	private HotelOrderDetailsDAO hotelOrderDetailsDAO = null;
 
 	// 查詢訂單------------------------後台寫的---------------------------
+	
 	public List<HotelOrderDetailsBean> foundOrderaccountName(String accountName) {
 
 		List<HotelOrderDetailsBean> result = null;

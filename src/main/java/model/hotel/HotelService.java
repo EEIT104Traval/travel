@@ -50,6 +50,7 @@ public class HotelService {
 		return result;
 	}
 	
+	// 用飯店PK搜尋
 	public HotelBean getOne(Integer id) {
 		return  hotelDAO.findByPrimaryKey(id);
 	}
@@ -79,7 +80,7 @@ public class HotelService {
 		return result;
 	}
 	
-	
+	// 搜尋國家
 	public List<HotelBean> searchCountry(String countryCH) {
 		List<HotelBean> result = null;
 		if (!StringUtils.isEmpty(countryCH)) {
@@ -94,6 +95,7 @@ public class HotelService {
 		return result;
 	}
 	
+	// 搜尋城市
 	public List<HotelBean> searchCity(String cityCH) {
 		List<HotelBean> result = null;
 		if (!StringUtils.isEmpty(cityCH)) {
@@ -108,13 +110,12 @@ public class HotelService {
 		return result;
 	}
 	
+	
 	public List<HotelBean> searchAll() {
-//		List<HotelBean> result = hotelDAO.findAll();
-//		return result;
 		return hotelDAO.findAll();
 	}
 	
-//-----------------------------------------訂購房間----------------------------------------------------------
+//-----------------------------------------訂購房間------------------------------------------------
 	
 	public boolean qupdate(String accountName, Integer hotelNo, String bookingPerson, String phone, Integer roomTypeNo,
 			java.util.Date checkIn, java.util.Date checkOut)
@@ -122,8 +123,6 @@ public class HotelService {
 		if (hotelNo != null) {
 			HotelBean HB = hotelDAO.findByPrimaryKey(hotelNo);
 			RoomTypeBean RTB = roomTypeDAO.findByPrimaryKey(roomTypeNo);
-//			HotelOrderDetailsBean bean = new HotelOrderDetailsBean();
-//			RoomAvailableBean R = roomAvailableDAO.foundDate(checkIn);			
 //			新增訂單
 			HotelOrderDetailsBean Order = new HotelOrderDetailsBean();
 		
@@ -158,8 +157,8 @@ public class HotelService {
 				roomAvailableDAO.update(room);			
 			}
 		}
-		// ------------------(↑購買更改訂單表格 )(↓寫信件給客戶)--------------------------------------------	
-//		UserInfoBean ubean = userInfoDAO.findByPrimaryKey(accountName);
+		
+		// 訂房明細寄MAIL	
 		HotelBean HB = hotelDAO.findByPrimaryKey(hotelNo);
 		RoomTypeBean RTB = roomTypeDAO.findByPrimaryKey(roomTypeNo);
 		HotelOrderDetailsBean Order = new HotelOrderDetailsBean();
@@ -180,8 +179,6 @@ public class HotelService {
           String begin = sdFormat.format(newdatebegin);
           Date newdateend = checkOut;
           String end = sdFormat.format(newdateend);
-  
-          
           
         try{
             String host ="smtp.gmail.com" ;
@@ -190,7 +187,7 @@ public class HotelService {
             String to = "sherryyang92@gmail.com";
             String from = "TimeToTravel";
             String subject = "Time To Travel - OrderDetail";
-//            String messageText = "您的訂單明細";
+//          String messageText = "您的訂單明細";
             boolean sessionDebug = false;
 
             Properties props = System.getProperties();
@@ -210,7 +207,7 @@ public class HotelService {
             InternetAddress[] address = {new InternetAddress(to)};
             msg.setRecipients(Message.RecipientType.TO, address);
             msg.setSubject(subject); msg.setSentDate(new Date());
-//            msg.setText(messageText);
+//          msg.setText(messageText);
             String message = "<div style='font-family: Microsoft JhengHei'>"
             +"<h1>Time To Travel</h1>"
             +"<p>Hello！" + accountName + "，</p>"
