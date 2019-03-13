@@ -20,6 +20,11 @@ public class FindDates {
 		for (Date date : lDate) {
 			System.out.println(sdf.format(date));
 		}
+		System.out.println("----");
+		SimpleDateFormat sdFormat = new SimpleDateFormat("yyyyMMddhhmmss");
+		Date date = new Date();
+		String strDate = sdFormat.format(date);
+		System.out.println(strDate);
 	}
 
 	public static List<Date> findDates(Date dBegin, Date dEnd) {
